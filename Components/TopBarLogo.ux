@@ -1,0 +1,8 @@
+
+<Image ux:Class="TopBarLogo" Width="75" Height="24" Alignment="Left">
+	<MultiDensityImageSource>
+		<FileImageSource Density="1" File="../Assets/images/topbar_logo.png"></FileImageSource>
+		<FileImageSource Density="2" File="../Assets/images/topbar_logo@2x.png"></FileImageSource>
+		<FileImageSource Density="3" File="../Assets/images/topbar_logo@3x.png"></FileImageSource>
+	</MultiDensityImageSource>
+</Image>

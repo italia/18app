@@ -1,0 +1,22 @@
+<App>
+
+<iOS.StatusBarConfig Style="Light" IsVisible="True"/>
+<Android.StatusBarConfig Color="#0066CC"  IsVisible="True" />
+
+<Router ux:Name="router"></Router>
+
+<DockPanel Background="#0066CC">
+	<StatusBarBackground Dock="Top" />
+	<NavBar ux:Name="navBar" Dock="Top"></NavBar>
+
+	<Navigator DefaultPath="home">
+		<HomePage ux:Name="home" router="router" navBar="navBar"></HomePage>
+	</Navigator>
+	
+	<BottomBar Dock="Bottom"/>
+	<BottomBarBackground Dock="Bottom" />
+</DockPanel>
+
+
+
+</App>

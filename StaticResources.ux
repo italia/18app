@@ -1,0 +1,9 @@
+<Panel ux:Class="StaticResources">
+	
+	<Font ux:Global="BaseFont" File="Assets/Titillium_Web/TitilliumWeb-Bold.ttf"></Font>
+	<Font ux:Global="BoldFont" File="Assets/Titillium_Web/TitilliumWeb-Black.ttf"></Font>
+	<Text ux:Class="BaseText" Font="BaseFont" FontSize="12" Color="#222"></Text>
+	<Text ux:Class="SmallText" Font="BaseFont" FontSize="9" Color="#0066CC"></Text>
+	<BaseText ux:Class="BoldText" Font="BoldFont"></BaseText>
+	
+</Panel>

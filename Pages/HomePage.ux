@@ -1,0 +1,12 @@
+<BasePage ux:Class="HomePage">
+	<Router ux:Dependency="router" />
+	<Visual ux:Dependency="navBar" />
+
+	<ScrollView>
+		<StackPanel>
+			<StackPanel Margin="35,25">
+				<Text FontSize="15">Hello, Tanya</Text>
+			</StackPanel>
+		</StackPanel>
+	</ScrollView>
+</BasePage>
