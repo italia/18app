@@ -10,3 +10,7 @@ Consente di definire transizioni con un semplice XML
 
 Consente di inserire business logic con JS
 
+## Run in IOS
+
+$> fuse preview -tios
+
