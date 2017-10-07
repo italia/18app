@@ -2,6 +2,8 @@ const initialState = {
     hello: 'world',
     selectedCategory: '',
     selectedProductType: '',
+    couponValue: 0,
+    nuovoComplete: false,
     new_categories: [
         {
             icon: '',

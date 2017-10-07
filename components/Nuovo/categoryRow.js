@@ -43,7 +43,6 @@ export default class CategoryRow extends PureComponent {
 const styles = StyleSheet.create({
     row: {
         padding: 20,
-        // paddingRight: 20,
         borderBottomWidth: 1,
         borderColor: '#d6d7da',
         flexDirection: 'row',
@@ -51,9 +50,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     text: {
-        // color: colors.main,
-        fontSize: 18,
-        // marginBottom: 20,
-        // marginTop: 20,
+        fontSize: 18
     }
 });
