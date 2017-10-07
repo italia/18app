@@ -1,10 +1,10 @@
 package com.djekic.davor.a18appandroid;
 
-import android.app.ProgressDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.ProgressBar;
-import android.widget.TextView;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 
 
 public class PreLoginActivity extends AppCompatActivity {
@@ -13,12 +13,21 @@ public class PreLoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_pre_login);
+
+        Button btn = (Button) findViewById(R.id.buttonPreLogin);
+
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                /*Intent i = new Intent(PreLoginActivity.this, MainActivity.class);
+                startActivity(i);*/
+                Toast.makeText(
+                        getApplicationContext(),
+                        "Esempio toast breve",
+                        Toast.LENGTH_SHORT
+                ).show();
+            }
+        });
     }
-
-
-
-
-
 }

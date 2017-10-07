@@ -30,8 +30,6 @@
 
 
 
-
-
     </RelativeLayout>
 
     <Button
@@ -40,7 +38,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:text="Button" />
+        android:background="#005DBE"
+        android:text="ENTRA CON SPID" />
 
 
 </RelativeLayout>
