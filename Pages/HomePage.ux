@@ -3,10 +3,17 @@
 	<Visual ux:Dependency="navBar" />
 
 	<ScrollView>
-		<StackPanel>
-			<StackPanel Margin="35,25">
-				<Text FontSize="15">Hello, Tanya</Text>
-			</StackPanel>
+		<StackPanel Height="100%" Margin="35,25">
+			<HomeText>Benvenuto Mario, ti restano </HomeText>
+			<HomeBalanceText>174 € </HomeBalanceText>
+			<BalanceCircle></BalanceCircle>
+			<NativeViewHost>
+			    <Button  Color="#0066CC" Height="40"  >
+			    	<BaseText Color="White" Alignment="Center">
+			    		SONO GIÀ IN NEGOZIO 
+			    	</BaseText>
+			    </Button>
+			</NativeViewHost>
 		</StackPanel>
 	</ScrollView>
 </BasePage>

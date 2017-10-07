@@ -1,3 +1,36 @@
-<Grid ux:Class="BottomBar">
+<Grid ux:Class="BottomBar" Columns="1*, auto, 1*, auto, 1*, auto, 1*" Height="64">
+
+	<Rectangle ux:Class="Divider" Width="1"  Margin="0,12" />
 	
+	<Container ux:Class="IconAndLabel" Subtree="iconContainer">
+		<string ux:Property="Text" />
+		
+		<DockPanel ux:Binding="Children" Height="64" Padding="0,10">
+			<Panel ux:Name="iconContainer" Alignment="Center" />
+		</DockPanel>
+	</Container>
+	
+	<IconAndLabel>
+		<HomeIcon />
+	</IconAndLabel>
+
+	<Divider />
+
+	<IconAndLabel>
+		<BuoniIcon />
+	</IconAndLabel>
+
+	<Divider />
+
+	<IconAndLabel>
+		<NegoziIcon />
+	</IconAndLabel>
+
+	<Divider />
+
+	<IconAndLabel>
+		<InfoIcon />
+	</IconAndLabel>
+	
+	<Rectangle Layer="Background" Color="#0066CC" />
 </Grid>

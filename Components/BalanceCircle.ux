@@ -1,0 +1,23 @@
+<StackPanel ux:Class="BalanceCircle" Orientation="Vertical" >
+	<Panel  Alignment="Center" Width="116" Height="116">
+		<Circle Color="#0066CC" Width="90" Height="100">
+			<Rectangle Color="White" Width="30" Height="3"></Rectangle>
+			<Rectangle Color="White" Width="3" Height="30"></Rectangle>
+	    </Circle>
+		<Circle ux:Name="CurrentBalance" StartAngleDegrees="180" EndAngleDegrees="270" Width="100" Height="100" Color="#fff" >
+	    	<Stroke Width="2">
+	       		<SolidColor Color="#65DCDF" />
+	   		</Stroke>
+	    </Circle>
+	    <Circle  ux:Name="TotalBalance" Width="100" Height="100">
+	    	<Stroke Width="2">
+	       		<SolidColor Color="#0066CC" />
+	   		</Stroke>
+	    </Circle>
+
+	    <AddingAnimation>
+			<Change CurrentBalance.EndAngleDegrees="180" Duration="1.5" Easing="BounceIn"/>
+		</AddingAnimation>		
+	</Panel>
+	<HomeBlueText>NUOVO BUONO</HomeBlueText>
+</StackPanel>

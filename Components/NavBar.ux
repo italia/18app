@@ -37,13 +37,7 @@
 				</SmallText>
 			</StackPanel>
 
-			<Image Alignment="Center" Width="24" Height="24" >
-				<MultiDensityImageSource>
-					<FileImageSource Density="1" File="../Assets/images/spid-ico-circle-bb.png"></FileImageSource>
-					<FileImageSource Density="2" File="../Assets/images/spid-ico-circle-bb@2x.png"></FileImageSource>
-					<FileImageSource Density="3" File="../Assets/images/spid-ico-circle-bb@3x.png"></FileImageSource>
-				</MultiDensityImageSource>
-			</Image>
+			<NavBarLogo/>
 		</StackPanel>
 
 		

@@ -4,6 +4,51 @@
 	<Font ux:Global="BoldFont" File="Assets/Titillium_Web/TitilliumWeb-Black.ttf"></Font>
 	<Text ux:Class="BaseText" Font="BaseFont" FontSize="12" Color="#222"></Text>
 	<Text ux:Class="SmallText" Font="BaseFont" FontSize="9" Color="#0066CC"></Text>
+	<Text ux:Class="HomeText" Font="BaseFont" FontSize="16" Color="#5A6772" Alignment="Center"></Text>
+	<Text ux:Class="HomeBalanceText" Font="BaseFont" FontSize="40" Color="#65DCDF" Alignment="Center"></Text>
+	<Text ux:Class="HomeBlueText" Font="BaseFont" FontSize="16" Color="#0066CC" Alignment="Center"></Text>
 	<BaseText ux:Class="BoldText" Font="BoldFont"></BaseText>
-	
+
+	<Image ux:Class="NavBarLogo" Alignment="Center" Width="24" Height="24" >
+				<MultiDensityImageSource>
+					<FileImageSource Density="1" File="Assets/images/spid-ico-circle-bb.png"></FileImageSource>
+					<FileImageSource Density="2" File="Assets/images/spid-ico-circle-bb@2x.png"></FileImageSource>
+					<FileImageSource Density="3" File="Assets/images/spid-ico-circle-bb@3x.png"></FileImageSource>
+				</MultiDensityImageSource>
+	</Image>
+
+	<Image ux:Class="BottomBarIcon"  Height="40"/>
+
+	<BottomBarIcon ux:Class="HomeIcon">
+		<MultiDensityImageSource>
+			<FileImageSource File="Assets/images/navigation-new.png" Density="1" />
+			<FileImageSource File="Assets/images/navigation-new@2x.png" Density="2" />
+			<FileImageSource File="Assets/images/navigation-new@3x.png" Density="3" />
+		</MultiDensityImageSource>
+	</BottomBarIcon>
+
+	<BottomBarIcon ux:Class="BuoniIcon">
+		<MultiDensityImageSource>
+			<FileImageSource File="Assets/images/navigation-wallet.png" Density="1" />
+			<FileImageSource File="Assets/images/navigation-wallet@2x.png" Density="2" />
+			<FileImageSource File="Assets/images/navigation-wallet@3x.png" Density="3" />
+		</MultiDensityImageSource>
+	</BottomBarIcon>
+
+	<BottomBarIcon ux:Class="NegoziIcon">
+		<MultiDensityImageSource>
+			<FileImageSource File="Assets/images/navigation-stores.png" Density="1" />
+			<FileImageSource File="Assets/images/navigation-stores@2x.png" Density="2" />
+			<FileImageSource File="Assets/images/navigation-stores@3x.png" Density="3" />
+		</MultiDensityImageSource>
+	</BottomBarIcon>
+
+	<BottomBarIcon ux:Class="InfoIcon">
+		<MultiDensityImageSource>
+			<FileImageSource File="Assets/images/navigation-info.png" Density="1" />
+			<FileImageSource File="Assets/images/navigation-info@2x.png" Density="2" />
+			<FileImageSource File="Assets/images/navigation-info@3x.png" Density="3" />
+		</MultiDensityImageSource>
+	</BottomBarIcon>
+
 </Panel>

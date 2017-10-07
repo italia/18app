@@ -10,7 +10,7 @@
 	<NavBar ux:Name="navBar" Dock="Top"></NavBar>
 
 	<Navigator DefaultPath="home">
-		<HomePage ux:Name="home" router="router" navBar="navBar"></HomePage>
+		<HomePage ux:Name="home" router="router" navBar="navBar"  Background="#fff" ></HomePage>
 	</Navigator>
 	
 	<BottomBar Dock="Bottom"/>
