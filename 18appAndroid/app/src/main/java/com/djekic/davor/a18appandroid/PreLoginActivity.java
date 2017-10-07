@@ -1,10 +1,10 @@
 package com.djekic.davor.a18appandroid;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 
 public class PreLoginActivity extends AppCompatActivity {
@@ -20,13 +20,8 @@ public class PreLoginActivity extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*Intent i = new Intent(PreLoginActivity.this, MainActivity.class);
-                startActivity(i);*/
-                Toast.makeText(
-                        getApplicationContext(),
-                        "Esempio toast breve",
-                        Toast.LENGTH_SHORT
-                ).show();
+                Intent i = new Intent(PreLoginActivity.this, MainActivity.class);
+                startActivity(i);
             }
         });
     }
