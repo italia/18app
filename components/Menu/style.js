@@ -6,9 +6,6 @@ import colors from '../../style/colors';
 
 const styles = StyleSheet.create({
     nav: {
-        position: 'absolute',
-        bottom: 0,
-        left: 0,
         right: 0,
         alignItems: 'center',
         backgroundColor: colors.main,
@@ -16,7 +13,8 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         justifyContent: 'center',
         height: 64,
-        flexDirection: 'row'
+        flex: .2,
+        flexDirection: 'row',
     },
     navElement: {
         color: '#fff',
@@ -28,6 +26,11 @@ const styles = StyleSheet.create({
     },
     subNavItem: {
         padding: 5,
+    },
+    navIcon: {
+        marginBottom: 5,
+        width: 30,
+        height: 30
     }
 });
 

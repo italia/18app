@@ -19,8 +19,12 @@ const Menu = () => (
             to="/"
             underlayColor='transparent'
             style={styles.navItem}>
-            <View>
+            <View style={{
+                justifyContent: 'center',
+                alignItems: 'center',
+            }}>
                 <Image
+                    style={styles.navIcon}
                     source={require('../../assets/icons/icon-plus-white.png')}
                 />
                 <Text style={styles.navElement}>Nuovo</Text>
@@ -30,19 +34,27 @@ const Menu = () => (
             to="/about"
             underlayColor='transparent'
             style={styles.navItem}>
-            <View>
+            <View style={{
+                justifyContent: 'center',
+                alignItems: 'center',
+            }}>
                 <Image
+                    style={styles.navIcon}
                     source={require('../../assets/icons/icon-plus-white.png')}
                 />
                 <Text style={styles.navElement}>I tuoi buoni</Text>
             </View>
         </Link>
         <Link
-            to="/topics"
+            to="/negozi"
             underlayColor='transparent'
             style={styles.navItem} >
-            <View>
+            <View style={{
+                justifyContent: 'center',
+                alignItems: 'center',
+            }}>
                 <Image
+                    style={styles.navIcon}
                     source={require('../../assets/icons/icon-plus-white.png')}
                 />
                 <Text style={styles.navElement}>Negozi</Text>
@@ -53,8 +65,12 @@ const Menu = () => (
             to="/about"
             underlayColor='transparent'
             style={styles.navItem} >
-            <View>
+            <View style={{
+                justifyContent: 'center',
+                alignItems: 'center',
+            }}>
                 <Image
+                    style={styles.navIcon}
                     source={require('../../assets/icons/icon-plus-white.png')}
                 />
                 <Text style={styles.navElement}>Info</Text>
@@ -63,9 +79,5 @@ const Menu = () => (
         </Link>
     </View>
 );
-
-
-
-
 
 export default Menu;

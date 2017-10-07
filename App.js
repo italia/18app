@@ -12,11 +12,8 @@ import { NativeRouter, Route, Link } from 'react-router-native';
 import Menu from './components/Menu';
 import UpperMenu from './components/UpperMenu';
 
-const Home = () => (
-    <Text style={styles.header}>
-        Home
-    </Text>
-)
+import Nuovo from './components/Nuovo';
+import Negozi from './components/Negozi';
 
 const About = () => (
     <Text style={styles.header}>
@@ -67,10 +64,10 @@ export default class AppScreen extends React.Component {
             <NativeRouter>
                 <View style={styles.container}>
                     <UpperMenu />
-                    <Menu />
-                    <Route exact path="/" component={Home} />
-                    <Route path="/about" component={About} />
+                    <Route exact path="/" component={Nuovo} />
+                    <Route path="/negozi" component={Negozi} />
                     <Route path="/topics" component={Topics} />
+                    <Menu />
                 </View>
             </NativeRouter>
         )

@@ -1,6 +1,6 @@
-const colors = {
+const styles = {
     main: '#0066cc',
     mainDark: '#004da7'
 }
 
-export default colors;
+export default styles;

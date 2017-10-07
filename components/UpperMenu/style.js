@@ -6,16 +6,12 @@ import colors from '../../style/colors';
 
 const styles = StyleSheet.create({
     nav: {
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        right: 0,
         alignItems: 'center',
         backgroundColor: colors.main,
         borderColor: 'transparent',
         borderWidth: 1,
         justifyContent: 'center',
-        height: 48,
+        flex: 0.1,
         flexDirection: 'row'
     },
     navElement: {
