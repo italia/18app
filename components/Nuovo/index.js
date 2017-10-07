@@ -1,17 +1,29 @@
 import React, { PureComponent } from 'react';
-import { View, StyleSheet, Text, ScrollView } from 'react-native';
+import { View, Text, ScrollView, TouchableWithoutFeedback } from 'react-native';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+
+import { selectCategory } from '../../actions/nuovo';
+
 
 import generalStyles from '../../style/generalStyles';
 
-class Nuovo extends PureComponent {
+import CategoryRow from './categoryRow'
 
+class Nuovo extends PureComponent {
     render() {
+        const { app, selectCategory } = this.props;
         return (
             <ScrollView style={generalStyles.pageContent}>
-                <Text>
-                    {this.props.app.hello}
-                </Text>
+                {!app.selectedCategory ? (app.new_categories.map((o, i) => <CategoryRow
+                    selectCategory={selectCategory} key={i} label={o.label}
+                />)) :
+                    <TouchableWithoutFeedback onPress={() => selectCategory("")}>
+                        <View>
+                            <Text>{app.selectedCategory}</Text>
+                        </View>
+                    </TouchableWithoutFeedback>
+                }
             </ScrollView>
         );
     }
@@ -19,16 +31,16 @@ class Nuovo extends PureComponent {
 
 const mapStateToProps = (state) => {
     const { app } = state;
-
     return {
         app
     };
 };
 
-export default connect(mapStateToProps, {})(Nuovo);
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-    },
-});
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators({
+        selectCategory
+    }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Nuovo);

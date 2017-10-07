@@ -1,6 +1,6 @@
 const generalStyles = {
     pageContent: {
-        flex: 1,
+        flex: 1
     },
 }
 

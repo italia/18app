@@ -21,13 +21,17 @@
   "dependencies": {
     "expo": "^21.0.0",
     "react": "16.0.0-alpha.12",
+    "react-motion": "^0.5.2",
     "react-native": "^0.48.4",
     "react-native-material-bottom-navigation": "^0.5.2",
     "react-native-navigation": "^1.1.236",
     "react-native-tab-view": "^0.0.69",
+    "react-native-vector-icons": "^4.4.1",
     "react-navigation": "^1.0.0-beta.13",
     "react-redux": "^5.0.6",
     "react-router-native": "^4.2.0",
+    "react-router-transition": "^1.1.1",
+    "react-transition-group": "^2.2.1",
     "redux": "^3.7.2"
   }
 }

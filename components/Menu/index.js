@@ -24,7 +24,7 @@ const Menu = () => (
             }}>
                 <Image
                     style={styles.navIcon}
-                    source={require('../../assets/icons/icon-plus-white.png')}
+                    source={require('../../assets/icons/icon-plus-white-medium.png')}
                 />
                 <Text style={styles.navElement}>Nuovo</Text>
             </View>
@@ -39,7 +39,7 @@ const Menu = () => (
             }}>
                 <Image
                     style={styles.navIcon}
-                    source={require('../../assets/icons/icon-plus-white.png')}
+                    source={require('../../assets/icons/icon-wallet-white-medium.png')}
                 />
                 <Text style={styles.navElement}>I tuoi buoni</Text>
             </View>
@@ -54,7 +54,7 @@ const Menu = () => (
             }}>
                 <Image
                     style={styles.navIcon}
-                    source={require('../../assets/icons/icon-plus-white.png')}
+                    source={require('../../assets/icons/icon-marker-white-medium.png')}
                 />
                 <Text style={styles.navElement}>Negozi</Text>
             </View>
@@ -70,7 +70,7 @@ const Menu = () => (
             }}>
                 <Image
                     style={styles.navIcon}
-                    source={require('../../assets/icons/icon-plus-white.png')}
+                    source={require('../../assets/icons/icon-info-white-medium.png')}
                 />
                 <Text style={styles.navElement}>Info</Text>
             </View>
