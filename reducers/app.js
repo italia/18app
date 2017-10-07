@@ -15,6 +15,11 @@ const app = (state = initialState, action) => {
                 selectedProductType: action.payload
             }
         case INSERT_COUPON_VALUE:
+            if (!action.payload) {
+                return {
+                    ...state
+                }
+            }
             return {
                 ...state,
                 couponValue: action.payload,
