@@ -7,16 +7,16 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 
 export default class CategoryRow extends PureComponent {
     render() {
-        const { label, datakey } = this.props;
+        const { label, datakey, selected } = this.props;
         const IconArrow = (
-            <Icon name="keyboard-arrow-right" size={30} color={colors.main} />
+            <Icon name="keyboard-arrow-right" size={30} color={!selected ? colors.main : '#333'} />
         );
         const IconCategory = (
-            <Icon name="local-movies" size={30} color={colors.main} />
+            <Icon name="local-movies" size={30} color={!selected ? colors.main : '#333'} />
         );
 
         return (
-            <TouchableWithoutFeedback onPress={() => this.props.selectCategory(label)}>
+            <TouchableWithoutFeedback onPress={() => this.props.select(!selected ? label : '')}>
                 <View style={styles.row}>
                     <View style={{ alignSelf: 'flex-start', flex: 1, flexDirection: 'row', }}>
                         {IconCategory}
@@ -26,7 +26,10 @@ export default class CategoryRow extends PureComponent {
                         flexDirection: 'row',
                         justifyContent: 'flex-start',
                     }}>
-                        <Text style={styles.text}>{label}</Text>
+                        <Text style={[styles.text,
+                            { color: !selected ? colors.main : '#333' }]}>
+                            {label}
+                        </Text>
                     </View>
                     <View style={{ alignSelf: 'flex-end', flex: 0.5, flexDirection: 'row' }}>
                         {IconArrow}
@@ -48,7 +51,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     text: {
-        color: colors.main,
+        // color: colors.main,
         fontSize: 18,
         // marginBottom: 20,
         // marginTop: 20,

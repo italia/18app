@@ -1,6 +1,7 @@
 const initialState = {
     hello: 'world',
     selectedCategory: '',
+    selectedProductType: '',
     new_categories: [
         {
             icon: '',
@@ -21,6 +22,16 @@ const initialState = {
             icon: '',
             label: 'Teatro e danza',
         }
+    ],
+    new_product_type: [
+        {
+            icon: '',
+            label: 'Abbonamento/Card',
+        },
+        {
+            icon: '',
+            label: 'Biglietto d\'ingresso',
+        },
     ]
 }
 
