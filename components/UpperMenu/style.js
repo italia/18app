@@ -7,7 +7,7 @@ import colors from '../../style/colors';
 const styles = StyleSheet.create({
     nav: {
         position: 'absolute',
-        bottom: 0,
+        top: 0,
         left: 0,
         right: 0,
         alignItems: 'center',
@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
         borderColor: 'transparent',
         borderWidth: 1,
         justifyContent: 'center',
-        height: 64,
+        height: 48,
         flexDirection: 'row'
     },
     navElement: {

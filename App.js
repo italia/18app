@@ -1,29 +1,93 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-// import { Provider } from 'react-redux';
-// import createStore from './createStore'
+import {
+    StyleSheet,
+    Text,
+    View,
+    ScrollView,
+    AppRegistry,
+} from 'react-native';
 
-// import { Navigation } from 'react-native-navigation';
+import { NativeRouter, Route, Link } from 'react-router-native';
 
-export default class App extends React.Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text>asdfasdf</Text>
-      </View>
-    );
-  }
-}
+import Menu from './components/Menu';
+import UpperMenu from './components/UpperMenu';
 
-const colors = {
-  main: '#0066cc'
+const Home = () => (
+    <Text style={styles.header}>
+        Home
+    </Text>
+)
+
+const About = () => (
+    <Text style={styles.header}>
+        About
+    </Text>
+)
+
+const Topic = ({ match }) => (
+    <Text style={styles.topic}>
+        {match.params.topicId}
+    </Text>
+)
+
+const Topics = ({ match }) => (
+    <View>
+        <Text style={styles.header}>Topics</Text>
+        <View>
+            <Link
+                to={`${match.url}/rendering`}
+                style={styles.subNavItem}
+                underlayColor='#f0f4f7'>
+                <Text>Rendering with React</Text>
+            </Link>
+            <Link
+                to={`${match.url}/components`}
+                style={styles.subNavItem}
+                underlayColor='#f0f4f7'>
+                <Text>Components</Text>
+            </Link>
+            <Link
+                to={`${match.url}/props-v-state`}
+                style={styles.subNavItem}
+                underlayColor='#f0f4f7'>
+                <Text>Props v. State</Text>
+            </Link>
+        </View>
+
+        <Route path={`${match.url}/:topicId`} component={Topic} />
+        <Route exact path={match.url} render={() => (
+            <Text style={styles.topic}>Please select a topic.</Text>
+        )} />
+    </View>
+);
+
+export default class AppScreen extends React.Component {
+    render() {
+        return (
+            <NativeRouter>
+                <View style={styles.container}>
+                    <UpperMenu />
+                    <Menu />
+                    <Route exact path="/" component={Home} />
+                    <Route path="/about" component={About} />
+                    <Route path="/topics" component={Topics} />
+                </View>
+            </NativeRouter>
+        )
+    }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: colors.main,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+    container: {
+        marginTop: 25,
+        justifyContent: 'space-between',
+        flex: 1
+    },
+    header: {
+        fontSize: 20,
+    },
+    topic: {
+        textAlign: 'center',
+        fontSize: 15,
+    }
 });
