@@ -1,14 +1,11 @@
 import React from 'react';
 import {
-    StyleSheet,
-    Text,
-    View,
-    ScrollView,
-    AppRegistry,
-    Animated
+    StyleSheet, Text, View,
+    ScrollView, AppRegistry, Animated
 } from 'react-native';
 
-import { NativeRouter, Route, Link, Switch } from 'react-router-native';
+import { Router, Route, Link, Switch } from 'react-router-native';
+import createMemoryHistory from 'history/createMemoryHistory';
 
 import Menu from './components/Menu';
 import UpperMenu from './components/UpperMenu';
@@ -18,13 +15,12 @@ import Negozi from './components/Negozi';
 import Buoni from './components/Buoni';
 import Info from './components/Info';
 
-// import AnimatedChildRoute from './components/AnimatedChildRoute';
-
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import rootReducer from './reducers/rootReducer';
 
 export const store = createStore(rootReducer);
+export const history = createMemoryHistory();
 
 export default class AppScreen extends React.Component {
     state = {
@@ -36,18 +32,18 @@ export default class AppScreen extends React.Component {
     render() {
         return (
             <Provider store={store}>
-                <NativeRouter>
+                <Router history={history}>
                     <View style={styles.container}>
                         <UpperMenu />
                         <Switch>
-                                <Route exact path="/" component={Nuovo} />
-                                <Route path="/negozi" component={Negozi} />
-                                <Route path="/buoni" component={Buoni} />
-                                <Route path="/info" component={Info} />
+                            <Route exact path="/" component={Nuovo} />
+                            <Route path="/negozi" component={Negozi} />
+                            <Route path="/buoni" component={Buoni} />
+                            <Route path="/info" component={Info} />
                         </Switch>
                         <Menu />
                     </View>
-                </NativeRouter>
+                </Router>
             </Provider>
         )
     }
