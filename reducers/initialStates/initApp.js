@@ -1,9 +1,12 @@
 const initialState = {
     hello: 'world',
-    selectedCategory: '',
-    selectedProductType: '',
-    couponValue: 0,
-    nuovoComplete: false,
+    // selectedCategory: '',
+    // selectedProductType: '',
+    // couponValue: 0,
+    selectedCategory: 'Cinema',
+    selectedProductType: 'Abbonamento/Card',
+    couponValue: 499,
+    nuovoComplete: true,
     new_categories: [
         {
             icon: '',
