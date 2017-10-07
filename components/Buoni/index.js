@@ -1,31 +1,20 @@
 import React, { PureComponent } from 'react';
 import { View, StyleSheet, Text, ScrollView } from 'react-native';
-import { connect } from 'react-redux';
-
+// import { TabViewAnimated, TabBar, SceneMap } from 'react-native-tab-view';
 import generalStyles from '../../style/generalStyles';
 
-class Nuovo extends PureComponent {
+export default class Buoni extends PureComponent {
 
     render() {
         return (
             <ScrollView style={generalStyles.pageContent}>
                 <Text>
-                    {this.props.app.hello}
+                    Buoni
                 </Text>
             </ScrollView>
         );
     }
 }
-
-const mapStateToProps = (state) => {
-    const { app } = state;
-
-    return {
-        app
-    };
-};
-
-export default connect(mapStateToProps, {})(Nuovo);
 
 const styles = StyleSheet.create({
     container: {

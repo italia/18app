@@ -14,62 +14,30 @@ import UpperMenu from './components/UpperMenu';
 
 import Nuovo from './components/Nuovo';
 import Negozi from './components/Negozi';
+import Buoni from './components/Buoni';
+import Info from './components/Info';
 
-const About = () => (
-    <Text style={styles.header}>
-        About
-    </Text>
-)
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import rootReducer from './reducers/rootReducer';
 
-const Topic = ({ match }) => (
-    <Text style={styles.topic}>
-        {match.params.topicId}
-    </Text>
-)
-
-const Topics = ({ match }) => (
-    <View>
-        <Text style={styles.header}>Topics</Text>
-        <View>
-            <Link
-                to={`${match.url}/rendering`}
-                style={styles.subNavItem}
-                underlayColor='#f0f4f7'>
-                <Text>Rendering with React</Text>
-            </Link>
-            <Link
-                to={`${match.url}/components`}
-                style={styles.subNavItem}
-                underlayColor='#f0f4f7'>
-                <Text>Components</Text>
-            </Link>
-            <Link
-                to={`${match.url}/props-v-state`}
-                style={styles.subNavItem}
-                underlayColor='#f0f4f7'>
-                <Text>Props v. State</Text>
-            </Link>
-        </View>
-
-        <Route path={`${match.url}/:topicId`} component={Topic} />
-        <Route exact path={match.url} render={() => (
-            <Text style={styles.topic}>Please select a topic.</Text>
-        )} />
-    </View>
-);
+export const store = createStore(rootReducer);
 
 export default class AppScreen extends React.Component {
     render() {
         return (
-            <NativeRouter>
-                <View style={styles.container}>
-                    <UpperMenu />
-                    <Route exact path="/" component={Nuovo} />
-                    <Route path="/negozi" component={Negozi} />
-                    <Route path="/topics" component={Topics} />
-                    <Menu />
-                </View>
-            </NativeRouter>
+            <Provider store={store}>
+                <NativeRouter>
+                    <View style={styles.container}>
+                        <UpperMenu />
+                        <Route exact path="/" component={Nuovo} />
+                        <Route path="/negozi" component={Negozi} />
+                        <Route path="/buoni" component={Buoni} />
+                        <Route path="/info" component={Info} />
+                        <Menu />
+                    </View>
+                </NativeRouter>
+            </Provider>
         )
     }
 }

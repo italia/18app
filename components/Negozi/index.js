@@ -1,8 +1,8 @@
-import generalStyles from '../../style/generalStyles';
-
 import React, { PureComponent } from 'react';
 import { View, StyleSheet } from 'react-native';
 import { TabViewAnimated, TabBar, SceneMap } from 'react-native-tab-view';
+
+import generalStyles from '../../style/generalStyles';
 
 const FirstRoute = () => <View style={[styles.container, { backgroundColor: '#ff4081' }]} />;
 const SecondRoute = () => <View style={[styles.container, { backgroundColor: '#673ab7' }]} />;

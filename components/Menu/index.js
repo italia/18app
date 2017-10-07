@@ -12,7 +12,6 @@ import styles from './style';
 
 import BottomNavigation, { Tab } from 'react-native-material-bottom-navigation'
 
-
 const Menu = () => (
     <View style={styles.nav}>
         <Link
@@ -31,7 +30,7 @@ const Menu = () => (
             </View>
         </Link>
         <Link
-            to="/about"
+            to="/buoni"
             underlayColor='transparent'
             style={styles.navItem}>
             <View style={{
@@ -62,7 +61,7 @@ const Menu = () => (
 
         </Link>
         <Link
-            to="/about"
+            to="/info"
             underlayColor='transparent'
             style={styles.navItem} >
             <View style={{
