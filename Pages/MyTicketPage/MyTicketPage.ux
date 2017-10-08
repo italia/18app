@@ -1,0 +1,13 @@
+<BasePage ux:Class="MyTicketPage">
+	<Router ux:Dependency="router" />
+	<JavaScript File="MyTicketPage.js" />
+	<Visual ux:Dependency="navBar" />
+	<NavBarTitle navBar="navBar"  Text="Nuovo buono: Categoria" />
+	<ScrollView>
+		<StackPanel  Height="100%" Margin="35,25">
+			<HomeText Alignment="Left">Scegli la categoria</HomeText>
+			<Rectangle Color="#FDFDFD" CornerRadius="8" Layer="Background"/>
+			
+		</StackPanel>
+	</ScrollView>
+</BasePage>

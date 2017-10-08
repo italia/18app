@@ -10,13 +10,13 @@
 		</DockPanel>
 	</Container>
 	
-	<IconAndLabel>
+	<IconAndLabel Clicked="{goToNew}">
 		<HomeIcon />
 	</IconAndLabel>
 
 	<Divider />
 
-	<IconAndLabel>
+	<IconAndLabel Clicked="{goToMyTicket}">
 		<BuoniIcon />
 	</IconAndLabel>
 
