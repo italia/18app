@@ -28,13 +28,6 @@ const app = (state = initialState, action) => {
             break;
 
         case INSERT_COUPON_VALUE:
-            console.log({
-                coupons: [
-                    ...state.coupons,
-                    action.payload
-                ],
-            });
-
             return {
                 ...state,
                 coupons: [

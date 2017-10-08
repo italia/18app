@@ -95,8 +95,6 @@ const mapStateToProps = (state) => {
 
 function mapDispatchToProps(dispatch) {
     return bindActionCreators({
-        // resetTemporaryState,
-        // changeCurrentRoute
     }, dispatch);
 }
 

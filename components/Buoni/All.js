@@ -9,8 +9,6 @@ class All extends PureComponent {
     render() {
         const { app } = this.props;
 
-        console.log(app.coupons);
-
         return (
             <View style={styles.container}>
                 {

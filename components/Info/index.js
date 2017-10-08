@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react';
 import { View, StyleSheet, Text, ScrollView } from 'react-native';
-// import { TabViewAnimated, TabBar, SceneMap } from 'react-native-tab-view';
 import generalStyles from '../../style/generalStyles';
 
 import { connect } from 'react-redux';
@@ -84,8 +83,6 @@ const mapStateToProps = (state) => {
 
 function mapDispatchToProps(dispatch) {
     return bindActionCreators({
-        // resetTemporaryState,
-        // changeCurrentRoute
     }, dispatch);
 }
 

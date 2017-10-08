@@ -39,7 +39,7 @@ class QuestionRow extends PureComponent {
                                 {question}
                             </Text>
                         </View>
-                        <View style={{ alignSelf: 'flex-end', flex: 0.5, flexDirection: 'row'  }}>
+                        <View style={{ alignSelf: 'flex-end', flex: 0.5, flexDirection: 'row' }}>
                             {this.state.showAnswer ? IconArrowDown : IconArrowRight}
                         </View>
                     </View >
@@ -62,8 +62,6 @@ const styles = StyleSheet.create({
         borderBottomWidth: 1,
         borderColor: '#d6d7da',
         flexDirection: 'row',
-
-        // justifyContent: 'space-between',
     },
     text: {
         fontSize: 18
