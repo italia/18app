@@ -22,7 +22,7 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import rootReducer from './reducers/rootReducer';
 
-import { changeCurrentRoute } from './actions/app';
+import { changeCurrentRoute, resetTemporaryState } from './actions/app';
 
 export const store = createStore(rootReducer);
 export const history = createMemoryHistory();

@@ -17,10 +17,10 @@ export function selectProductType(type) {
     };
 }
 
-export function insertCouponValue(value) {
+export function insertCouponValue(newCoupon) {
     history.push('/buoni');
     return {
         type: INSERT_COUPON_VALUE,
-        payload: value,
+        payload: newCoupon,
     };
 }

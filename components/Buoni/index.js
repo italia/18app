@@ -6,7 +6,6 @@ import { TabViewAnimated, TabBar, SceneMap } from 'react-native-tab-view';
 import generalStyles from '../../style/generalStyles';
 
 import colors from '../../style/colors';
-
 import { resetTemporaryState, changeCurrentRoute } from "../../actions/app";
 
 import All from "./All";
@@ -23,21 +22,6 @@ class Buoni extends PureComponent {
             { key: '3', title: 'GIÁ SPESI' },
         ],
     };
-
-    componentWillUnmount() {
-        const { selectedCategory,
-            selectedProductType,
-            couponValue,
-            nuovoComplete, selectedCoupon } = this.props.app;
-
-        if (selectedCategory ||
-            selectedProductType ||
-            couponValue ||
-            nuovoComplete || (typeof selectedCoupon === 'number')) {
-                this.props.resetTemporaryState()
-        }
-    }
-
 
     _handleIndexChange = index => this.setState({ index });
 
@@ -72,7 +56,9 @@ class Buoni extends PureComponent {
 
     render() {
         const { app } = this.props;
-        if (typeof app.selectedCoupon === 'number' || app.nuovoComplete === true) {
+
+        if (typeof app.selectedCoupon === 'number' || app.nuovoComplete === true
+            && app.currentRoute !== '/buoni') {
             return (
                 <CouponDetails couponId={app.selectedCoupon} />
             )

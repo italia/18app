@@ -30,12 +30,17 @@ class UpperMenu extends PureComponent {
 
         return (
             <View style={styles.nav}>
-                {selectedCategory || selectedProductType ||
-                    couponValue || nuovoComplete || (typeof selectedCoupon === 'number') ?
+                {selectedCategory && selectedProductType || couponValue ?
                     <TouchableWithoutFeedback onPress={() => resetTemporaryState()}>
                         {IconArrow}
                     </TouchableWithoutFeedback>
                     : null}
+                <Text style={{color: '#fff'}}>
+                    {app.currentRoute === '/' ? 'Nuovo buono' : null}
+                    {app.currentRoute === '/buoni' ? 'I tuoi buoni' : null}
+                    {app.currentRoute === '/info' ? 'Informazioni' : null}
+                    {app.currentRoute === '/negozi' ? 'Negozi' : null}
+                </Text>
             </View>);
     }
 };

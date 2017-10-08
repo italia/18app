@@ -25,7 +25,9 @@ class Menu extends PureComponent {
                             style={[styles.navIcon, { opacity: app.currentRoute === '/' ? 1 : 0.6 }]}
                             source={require('../../assets/icons/icon-plus-white-medium.png')}
                         />
-                        <Text style={[styles.navElement, { opacity: app.currentRoute === '/' ? 1 : 0.6 }]}>Nuovo</Text>
+                        <Text style={[styles.navElement, { opacity: app.currentRoute === '/' ? 1 : 0.6 }]}>
+                            Nuovo
+                        </Text>
                     </View>
                 </Link>
                 <Link
@@ -40,7 +42,9 @@ class Menu extends PureComponent {
                             style={[styles.navIcon, { opacity: app.currentRoute === '/buoni' ? 1 : 0.6 }]}
                             source={require('../../assets/icons/icon-wallet-white-medium.png')}
                         />
-                        <Text style={[styles.navElement, { opacity: app.currentRoute === '/buoni' ? 1 : 0.6 }]}>I tuoi buoni</Text>
+                        <Text style={[styles.navElement, { opacity: app.currentRoute === '/buoni' ? 1 : 0.6 }]}>
+                            I tuoi buoni
+                        </Text>
                     </View>
                 </Link>
                 <Link

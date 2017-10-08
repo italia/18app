@@ -28,7 +28,6 @@ class QuestionRow extends PureComponent {
 
         return (
             <TouchableWithoutFeedback
-
                 onPress={() => { this.setState({ showAnswer: !this.state.showAnswer }) }}>
                 <View>
                     <View style={styles.row}>

@@ -17,7 +17,12 @@ class SearchBar extends Component {
                 alignItems: 'center',
             }]}>
                 <Icon style={stylesI.icon} name="search" size={30} color={'#A9B1B8'} />
-                <TextInput style={stylesI.inputBox} placeholder="Cerca" onChangeText={() => { }} />
+                <TextInput
+                    underlineColorAndroid={styles.main}
+                    style={stylesI.inputBox}
+                    placeholder="Cerca"
+                    onChangeText={() => { }}
+                />
             </View>
         );
     }
@@ -46,9 +51,7 @@ const stylesI = StyleSheet.create({
         paddingTop: 5,
         paddingBottom: 15,
         paddingLeft: 40,
-        fontSize: 16
-        // ,
-        // underlineColorAndroid: styles.main
+        fontSize: 16,
     },
 
 });

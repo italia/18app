@@ -3,7 +3,6 @@ import { SELECT_CATEGORY, SELECT_PRODUCT_TYPE, INSERT_COUPON_VALUE } from '../ac
 import { SELECT_COUPON } from '../actions/buoni';
 import { RESET_TEMPORARY_STATE, CHANGE_CURRENT_ROUTE } from '../actions/app';
 
-
 const app = (state = initialState, action) => {
     switch (action.type) {
         case CHANGE_CURRENT_ROUTE:
@@ -11,60 +10,63 @@ const app = (state = initialState, action) => {
                 ...state,
                 currentRoute: action.payload,
             }
+            break;
+
         case SELECT_CATEGORY:
             return {
                 ...state,
                 selectedCategory: action.payload,
                 selectedProductType: ''
             }
+            break;
+
         case SELECT_PRODUCT_TYPE:
             return {
                 ...state,
                 selectedProductType: action.payload
             }
+            break;
+
         case INSERT_COUPON_VALUE:
-            if (!action.payload) {
-                return {
-                    ...state
-                }
-            }
+            console.log({
+                coupons: [
+                    ...state.coupons,
+                    action.payload
+                ],
+            });
+
             return {
                 ...state,
                 coupons: [
                     ...state.coupons,
-                    {
-                        selectedCategory: state.selectedCategory,
-                        selectedProductType: state.selectedProductType,
-                        couponValue: action.payload,
-                    },
+                    action.payload
                 ],
-                couponValue: action.payload,
-                temporaryNewCoupon: {
-                    selectedCategory: state.selectedCategory,
-                    selectedProductType: state.selectedProductType,
-                    couponValue: action.payload,
-                },
-                nuovoComplete: true
+                // couponValue: action.payload.couponValue,
+                nuovoComplete: true,
+                selectedCategory: '',
+                selectedProductType: '',
+                couponValue: 0,
+                nuovoComplete: false,
             }
+            break;
+
         case SELECT_COUPON:
             return {
                 ...state,
                 selectedCoupon: action.payload
             }
+            break;
+
         case RESET_TEMPORARY_STATE:
             return {
                 ...state,
-                selectedCoupon: 'No coupon selected',
-                temporaryNewCoupon: {
-                    selectedCategory: '',
-                    selectedProductType: '',
-                    couponValue: '',
-                },
                 selectedCategory: '',
                 selectedProductType: '',
-                couponValue: '',
+                couponValue: 0,
                 nuovoComplete: false,
             }
+            break;
+
         default:
             return state
     }

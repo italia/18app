@@ -51,7 +51,7 @@ const initialState = {
             spent: true
         },
     ],
-    selectedCoupon: 'Select a coupon',
+    selectedCoupon: {},
     temporaryNewCoupon: {
         icon: '',
         selectedCategory: '',

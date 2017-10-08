@@ -14,20 +14,6 @@ import InsertValue from './InsertValue';
 import RecapCoupon from './RecapCoupon';
 
 class Nuovo extends PureComponent {
-    componentDidMount() {
-        const { selectedCategory,
-            selectedProductType,
-            couponValue,
-            nuovoComplete } = this.props.app;
-
-        if (selectedCategory ||
-            selectedProductType ||
-            couponValue ||
-            nuovoComplete) {
-                this.props.resetTemporaryState()
-        }
-    }
-
     render() {
         const { app, selectCategory, selectProductType, insertCouponValue } = this.props;
         return (
@@ -65,17 +51,11 @@ class Nuovo extends PureComponent {
                         </Text> : false}
 
                 {app.selectedCategory && app.selectedProductType ?
-                    <InsertValue insertCouponValue={insertCouponValue} />
+                    <InsertValue
+                        selectedCategory={app.selectedCategory}
+                        selectedProductType={app.selectedProductType}
+                    />
                     : false}
-
-                {/*
-                    app.nuovoComplete ?
-                        <RecapCoupon
-                            selectedCategory={app.selectedCategory}
-                            selectedProductType={app.selectedProductType}
-                            couponValue={app.couponValue}
-                        /> : false
-                */}
 
             </ScrollView>
         );
@@ -93,7 +73,6 @@ function mapDispatchToProps(dispatch) {
     return bindActionCreators({
         selectCategory,
         selectProductType,
-        insertCouponValue,
         resetTemporaryState
     }, dispatch);
 }

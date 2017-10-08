@@ -1,17 +1,22 @@
 import React, { PureComponent } from 'react';
 import { View, StyleSheet, Text, TextInput, Form, TouchableWithoutFeedback, Button } from 'react-native';
 
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+
 import colors from '../../style/colors';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
+import { insertCouponValue } from "../../actions/nuovo";
 
-export default class InsertValue extends PureComponent {
+class InsertValue extends PureComponent {
     constructor(props) {
         super(props);
         this.state = { text: '' };
     }
     render() {
-        const { insertCouponValue } = this.props;
+        const { selectedCategory,
+            selectedProductType } = this.props;
         return (
             <View style={{
                 flexWrap: 'wrap',
@@ -30,7 +35,13 @@ export default class InsertValue extends PureComponent {
                     flex: 1,
                 }}>
                     <Button
-                        onPress={() => insertCouponValue(this.state.text)}
+                        onPress={() => this.props.insertCouponValue({
+                            icon: '',
+                            selectedCategory: selectedCategory,
+                            selectedProductType: selectedProductType,
+                            couponValue: this.state.text,
+                            spent: false
+                        })}
                         title="CREA"
                         style={styles.button}
                     />
@@ -64,3 +75,18 @@ const styles = {
         width: 107
     }
 }
+
+const mapStateToProps = (state) => {
+    const { app } = state;
+    return {
+        app
+    };
+};
+
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators({
+        insertCouponValue,
+    }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(InsertValue);
