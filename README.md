@@ -1,5 +1,5 @@
 ﻿----------
-# Raalizzazione frontend per app mobile ibrida 18app
+# Realizzazione frontend per app mobile ibrida 18app
 
 #Linguaggi utilizzati
 I linguaggi utilizzati per lo sviluppo parziale del frontend sono:
