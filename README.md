@@ -10,7 +10,17 @@ Consente di definire transizioni con un semplice XML
 
 Consente di inserire business logic con JS
 
-## Run in IOS
+## Create App
 
+fuse create app <projectname> 
+
+## Run in IOS / Android on Development PC
+
+$> fuse preview
 $> fuse preview -tios
+$> fuse preview -tandroid
+
+## Run on Connected Device
+
+$> fuse build --target=<iOS or Android> --run
 
