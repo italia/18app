@@ -20,6 +20,7 @@ class ToSpend extends PureComponent {
                         return (
                             <CouponRow
                                 key={i}
+                                arrayIndex={i}
                                 selectedCategory={o.selectedCategory}
                                 selectedProductType={o.selectedProductType}
                                 couponValue={o.couponValue}

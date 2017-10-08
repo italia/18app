@@ -4,6 +4,9 @@ import {
     ScrollView, AppRegistry, Animated
 } from 'react-native';
 
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+
 import { Router, Route, Link, Switch } from 'react-router-native';
 import createMemoryHistory from 'history/createMemoryHistory';
 
@@ -28,7 +31,9 @@ export default class AppScreen extends React.Component {
             this.props.isOpen ? 0 : 1
         )
     }
-
+    handleOnEnter() {
+        this.props.resetTemporaryState();
+    }
     render() {
         return (
             <Provider store={store}>

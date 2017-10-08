@@ -34,7 +34,7 @@ class CouponDetails extends PureComponent {
 
         return (
             <View style={styles.container}>
-                {app.nuovoComplete ?
+                {app.nuovoComplete || spent ?
                     <View style={[styles.row, {
                         borderBottomWidth: 1,
                         borderColor: '#ddd',
@@ -42,9 +42,10 @@ class CouponDetails extends PureComponent {
                         justifyContent: 'center',
                         alignItems: 'center',
                     }]}>
-                        <Text style={styles.messageSuccess}>
-                            Il nuovo buono è stato creato correttamente
-                    </Text>
+                        <Text style={!spent ? styles.messageSuccess : styles.messageError}>
+                            {spent ? 'Buono utilizzato il 12 marzo 2017 alle ore 23.12' :
+                                'Il nuovo buono è stato creato correttamente'}
+                        </Text>
                     </View> : null}
 
                 {/* Category */}
@@ -93,7 +94,11 @@ class CouponDetails extends PureComponent {
                     <View style={{
                         flex: 2,
                     }}>
-                        <Text style={[styles.text, { color: '#333', fontSize: 24, fontWeight: 'bold' }]}>
+                        <Text style={[styles.text,
+                            {
+                                color: '#333', fontSize: 24, fontWeight: 'bold',
+                                textDecorationLine: spent ? 'line-through' : 'none'
+                            }]}>
                             {couponValue}
                         </Text>
                     </View>
@@ -164,6 +169,10 @@ const styles = StyleSheet.create({
     },
     messageSuccess: {
         color: colors.success,
+        padding: 10
+    },
+    messageError: {
+        color: '#D0021B',
         padding: 10
     },
     btnNegozio: {

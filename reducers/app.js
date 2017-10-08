@@ -1,6 +1,8 @@
 import initialState from './initialStates/initApp';
 import { SELECT_CATEGORY, SELECT_PRODUCT_TYPE, INSERT_COUPON_VALUE } from '../actions/nuovo';
 import { SELECT_COUPON } from '../actions/buoni';
+import { RESET_TEMPORARY_STATE } from '../actions/app';
+
 
 const app = (state = initialState, action) => {
     switch (action.type) {
@@ -43,6 +45,20 @@ const app = (state = initialState, action) => {
             return {
                 ...state,
                 selectedCoupon: action.payload
+            }
+        case RESET_TEMPORARY_STATE:
+            return {
+                ...state,
+                selectedCoupon: 'No coupon selected',
+                temporaryNewCoupon: {
+                    selectedCategory: '',
+                    selectedProductType: '',
+                    couponValue: '',
+                },
+                selectedCategory: '',
+                selectedProductType: '',
+                couponValue: '',
+                nuovoComplete: false,
             }
         default:
             return state

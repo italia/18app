@@ -1,4 +1,8 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import { Link } from 'react-router-native';
 import {
@@ -9,39 +13,37 @@ import {
 
 import styles from './style';
 
+import { resetTemporaryState } from "../../actions/app";
+
+
 import BottomNavigation, { Tab } from 'react-native-material-bottom-navigation'
 
-
-const UpperMenu = () => (
-    <View style={styles.nav}>
-        
-        {/* <Link
-            to="/"
-            underlayColor='transparent'
-            style={styles.navItem}>
-            <Text style={styles.navElement}>Nuovo</Text>
-        </Link>
-        <Link
-            to="/about"
-            underlayColor='transparent'
-            style={styles.navItem}>
-            <Text style={styles.navElement}>I tuoi buoni</Text>
-        </Link>
-        <Link
-            to="/topics"
-            underlayColor='transparent'
-            style={styles.navItem} >
-            <Text style={styles.navElement}>Negozi</Text>
-        </Link>
-        <Link
-            to="/about"
-            underlayColor='transparent'
-            style={styles.navItem} >
-            <Text style={styles.navElement}>Info</Text>
-        </Link> */}
-    </View>
-);
+class UpperMenu extends PureComponent {
+    render() {
+        const IconArrow = (
+            <Icon name="keyboard-arrow-left" size={30} color={'#fff'} />
+        );
+        return (
+            <View style={styles.nav}>
+                {IconArrow}
+            </View>);
+    }
+};
 
 
 
-export default UpperMenu;
+
+const mapStateToProps = (state) => {
+    const { app } = state;
+    return {
+        app
+    };
+};
+
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators({
+        resetTemporaryState
+    }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(UpperMenu);

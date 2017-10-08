@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import { selectCategory, selectProductType, insertCouponValue } from '../../actions/nuovo';
+import { resetTemporaryState } from "../../actions/app";
 
 
 import generalStyles from '../../style/generalStyles';
@@ -13,6 +14,20 @@ import InsertValue from './InsertValue';
 import RecapCoupon from './RecapCoupon';
 
 class Nuovo extends PureComponent {
+    componentDidMount() {
+        const { selectedCategory,
+            selectedProductType,
+            couponValue,
+            nuovoComplete } = this.props.app;
+
+        if (selectedCategory ||
+            selectedProductType ||
+            couponValue ||
+            nuovoComplete) {
+                this.props.resetTemporaryState()
+        }
+    }
+
     render() {
         const { app, selectCategory, selectProductType, insertCouponValue } = this.props;
         return (
@@ -78,7 +93,8 @@ function mapDispatchToProps(dispatch) {
     return bindActionCreators({
         selectCategory,
         selectProductType,
-        insertCouponValue
+        insertCouponValue,
+        resetTemporaryState
     }, dispatch);
 }
 
