@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.ioxxy.a18app.activity.DettagliNegozioActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimary"
+            android:weightSum="1"
+            app:popupTheme="@style/AppTheme.PopupOverlay">
+
+            <ImageView
+                android:id="@+id/logo"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:src="@drawable/logo" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@+id/logo"
+                android:text="18app"
+                android:textColor="@color/textColor"
+                android:textSize="20dp" />
+
+        </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
+
+        <RelativeLayout
+            android:layout_marginTop="56dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:background="@android:color/background_light"
+            android:layout_alignParentEnd="true">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:id="@+id/sfondo"
+                android:src="@drawable/libriback"
+                android:scaleType="centerCrop"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/nomeNegozio"
+                android:maxLines="1"
+                android:textColor="@color/textColor"
+                android:text="Nome negozio"
+                android:layout_marginLeft="38dp"
+                android:layout_marginTop="170dp"
+                android:textSize="30dp"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_marker_white"
+                android:layout_below="@+id/nomeNegozio"
+                android:layout_marginLeft="10dp"
+                android:id="@+id/imageView3" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/indirizzoNegozio"
+                android:textColor="@color/textColor"
+                android:text="Indirizzo negozio"
+                android:layout_marginLeft="10dp"
+                android:textSize="20dp"
+                android:layout_below="@+id/nomeNegozio"
+                android:layout_toEndOf="@+id/imageView3"
+                android:layout_marginStart="10dp" />
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/btn_newbuono"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="50dp"
+                android:layout_below="@+id/sfondo"
+                app:cardCornerRadius="4dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorPrimary"
+                    android:gravity="center_horizontal">
+
+                    <ImageView
+                        android:id="@+id/ic_gps"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/icon_plus" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="11dp"
+                        android:id="@+id/tv_creditoMenu"
+                        android:layout_toEndOf="@id/ic_gps"
+                        android:text="NUOVO BUONO"
+                        android:textColor="@android:color/white"
+                        android:textStyle="bold"
+                        />
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="2"
+                android:layout_below="@+id/btn_newbuono"
+                android:orientation="horizontal"
+                android:layout_marginTop="32dp">
+                <android.support.v7.widget.CardView
+                    android:id="@+id/btn_mappa"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    app:cardBackgroundColor="@android:color/background_light"
+                    android:layout_weight="1"
+                    android:elevation="0dp"
+                    android:translationZ="0dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_horizontal">
+
+                        <ImageView
+                            android:id="@+id/ic_gps2"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/icon_map"
+                            android:tint="@color/colorPrimary" />
+
+                        <TextView
+                            android:id="@+id/tv_creditoMenu2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="11dp"
+                            android:layout_toEndOf="@id/ic_gps2"
+                            android:text="MAPPA"
+                            android:textColor="@color/colorPrimary"
+                            android:textStyle="bold" />
+                    </RelativeLayout>
+                </android.support.v7.widget.CardView>
+                <android.support.v7.widget.CardView
+                    android:id="@+id/btn_percorso"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    app:cardBackgroundColor="@android:color/background_light"
+                    android:elevation="0dp"
+                    android:translationZ="0dp"
+                    android:layout_weight="1">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_horizontal">
+
+                        <ImageView
+                            android:id="@+id/ic_gps3"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/ic_directions"
+                            android:tint="@color/colorPrimary"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="11dp"
+                            android:id="@+id/tv_creditoMenu3"
+                            android:layout_toEndOf="@id/ic_gps3"
+                            android:text="PERCORSO"
+                            android:textColor="@color/colorPrimary"
+                            android:textStyle="bold"
+                            />
+                    </RelativeLayout>
+                </android.support.v7.widget.CardView>
+            </LinearLayout>
+        </RelativeLayout>
+
+</RelativeLayout>

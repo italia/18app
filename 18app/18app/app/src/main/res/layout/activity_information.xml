@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorPrimary"
+        android:drawableLeft="@drawable/spidicon"
+        android:paddingLeft="84dp"
+        android:paddingRight="84dp"
+        android:text="Vai al sito 18app.it"
+        android:textColor="@color/textColor"
+        android:textSize="16dp"
+        android:id="@+id/spid"
+        android:autoLink="web"
+        android:onClick="goToSpid"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/spid">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Contatti e Assistenza"
+                android:id="@+id/TextView1"
+                android:padding="20dp"
+                android:textSize="20dp"
+                android:textColor="@color/colorPrimary"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/TextView2"
+                android:layout_below="@id/TextView1"
+                android:text="18app e il Bonus Cultura"
+                android:textStyle="italic"
+                android:textSize="20dp"
+                android:padding="20dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/TextView2"
+                android:text="Che cos'è 18app"
+                android:id="@+id/TextView3"
+                android:padding="20dp"
+                android:textSize="20dp"
+                android:textColor="@color/colorPrimary"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/TextView3"
+                android:text="Che cos'è il Bonus Cultura?"
+                android:id="@+id/TextView4"
+                android:padding="20dp"
+                android:textSize="20dp"
+                android:textColor="@color/colorPrimary"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/TextView4"
+                android:text="Chi può beneficiare del Bonus Cultura di 500€?"
+                android:id="@+id/TextView5"
+                android:padding="20dp"
+                android:textSize="20dp"
+                android:textColor="@color/colorPrimary"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/TextView5"
+                android:text="Come spendo il Bonus Cultura?"
+                android:id="@+id/TextView6"
+                android:padding="20dp"
+                android:textSize="20dp"
+                android:textColor="@color/colorPrimary"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/TextView6"
+                android:text="Come accedo a 18app?"
+                android:id="@+id/TextView7"
+                android:padding="20dp"
+                android:textSize="20dp"
+                android:textColor="@color/colorPrimary"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/TextView7"
+                android:text="Come mi registro a 18app?"
+                android:id="@+id/TextView8"
+                android:padding="20dp"
+                android:textSize="20dp"
+                android:textColor="@color/colorPrimary"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/TextView9"
+                android:layout_below="@id/TextView8"
+                android:text="Cosa acquistare"
+                android:textStyle="italic"
+                android:textSize="20dp"
+                android:padding="20dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/TextView9"
+                android:text="Cosa posso acquistare attraverso 18app con il Bonus Cultura?"
+                android:id="@+id/TextView10"
+                android:padding="20dp"
+                android:textSize="20dp"
+                android:textColor="@color/colorPrimary"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/TextView10"
+                android:text="Posso acquistare CD e DVD con 18app?"
+                android:id="@+id/TextView11"
+                android:padding="20dp"
+                android:textSize="20dp"
+                android:textColor="@color/colorPrimary"/>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="86dp"
+        android:clipToPadding="false">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txt1"
+                android:text="Mario Rossi"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:textSize="30dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txt2"
+                android:text="Codice Fiscale:"
+                android:textColor="@color/lightGray"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_below="@id/txt1"
+                android:layout_marginLeft="20dp"
+                android:textSize="15dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txt3"
+                android:text="RSS MRA 98T10 A5625"
+                android:layout_below="@id/txt2"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:textSize="20dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txt4"
+                android:text="Data e luogo di nascita:"
+                android:textColor="@color/lightGray"
+                android:layout_marginTop="20dp"
+                android:layout_below="@id/txt3"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:textSize="15dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txt5"
+                android:text="10/12/1998 San Giuliano Terme (PI)"
+                android:layout_below="@id/txt4"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:textSize="20dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txt6"
+                android:text="Residenza:"
+                android:layout_marginRight="20dp"
+                android:textColor="@color/lightGray"
+                android:layout_marginTop="20dp"
+                android:layout_below="@id/txt5"
+                android:layout_marginLeft="20dp"
+                android:textSize="15dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txt7"
+                android:layout_marginRight="20dp"
+                android:text="Viale della Repubblica 171,\n31100 Treviso (TV)"
+                android:layout_below="@id/txt6"
+                android:layout_marginLeft="20dp"
+                android:textSize="20dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txt8"
+                android:text="Recapiti:"
+                android:textColor="@color/lightGray"
+                android:layout_marginTop="20dp"
+                android:layout_below="@id/txt7"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:textSize="15dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txt9"
+                android:text="3331234567"
+                android:layout_below="@id/txt8"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:textSize="20dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txt10"
+                android:text="mario.rossi@email.it"
+                android:layout_below="@id/txt9"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:textSize="20dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txt11"
+                android:text="Questo è il riepilogo dei dati della tua identità SPID: per modificarli rivolgiti al tuo gestore."
+                android:textColor="@color/lightGray"
+                android:layout_marginTop="20dp"
+                android:layout_below="@id/txt10"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:textSize="15dp"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/img1"
+                android:layout_below="@id/txt11"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="20dp"
+                android:src="@drawable/logo_posteid"/>
+
+            <Button
+                android:id="@+id/logout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/img1"
+                android:background="@color/redColor"
+                android:textColor="@color/textColor"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_alignParentBottom="true"
+                android:text="LOGOUT"/>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

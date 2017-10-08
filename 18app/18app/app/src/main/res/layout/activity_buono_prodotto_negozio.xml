@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimary"
+            android:weightSum="1">
+
+            <ImageView
+                android:id="@+id/logo"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:src="@drawable/logo" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@+id/logo"
+                android:text="18app"
+                android:maxLines="1"
+                android:id="@+id/titolo"
+                android:textColor="@color/textColor"
+                android:textSize="20dp" />
+
+        </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
+
+    <RelativeLayout
+        android:layout_marginTop="56dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:background="@android:color/background_light"
+        android:layout_alignParentEnd="true">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            android:id="@+id/sfondoNegozio"
+            android:src="@drawable/libriback"
+            android:scaleType="centerCrop"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/nomeNegozio"
+            android:maxLines="1"
+            android:textColor="@color/textColor"
+            android:text="Nome negozio"
+            android:layout_marginLeft="38dp"
+            android:layout_marginTop="50dp"
+            android:textSize="30dp"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_marker_white"
+            android:layout_below="@+id/nomeNegozio"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/imageView3" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/indirizzoNegozio"
+            android:textColor="@color/textColor"
+            android:text="Indirizzo negozio"
+            android:layout_marginLeft="10dp"
+            android:textSize="20dp"
+            android:layout_below="@+id/nomeNegozio"
+            android:layout_toEndOf="@+id/imageView3"
+            android:layout_marginStart="10dp" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/sfondoNegozio"
+            android:layout_marginTop="30dp"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/textfiles"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/categoria"
+                    android:text="Categoria:"
+                    android:textSize="20sp"
+                    android:gravity="center_vertical"
+                    android:layout_marginLeft="15dp"/>
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentEnd="true"
+                    android:id="@+id/iconaCheck"
+                    android:src="@drawable/ic_check_black_48dp"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:background="@drawable/textfiles"
+                android:id="@+id/opzione1"
+                android:gravity="center_vertical"
+                android:foreground="?android:attr/selectableItemBackground">
+
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/ic_music"
+                    android:id="@+id/iconaOpzione1"
+                    android:tint="@color/colorPrimary"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="15dp"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Audiolibri"
+                    android:textSize="20dp"
+                    android:id="@+id/testoOpzione1"
+                    android:layout_marginLeft="6dp"
+                    android:layout_below="@+id/iconaOpzione1"
+                    android:layout_centerHorizontal="true" />
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:background="@drawable/textfiles"
+                android:id="@+id/optcin2"
+                android:gravity="center_vertical"
+                android:foreground="?android:attr/selectableItemBackground">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/ic_book"
+                    android:id="@+id/iconaOpzione2"
+                    android:tint="@color/colorPrimary"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="15dp"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Libri cartacei"
+                    android:textSize="20dp"
+                    android:id="@+id/testoOpzione2"
+                    android:layout_below="@id/iconaOpzione2"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="6dp"
+                    android:layout_marginTop="3dp"/>
+
+
+            </RelativeLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

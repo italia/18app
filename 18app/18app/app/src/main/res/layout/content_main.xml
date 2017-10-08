@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.ioxxy.a18app.activity.MainActivity"
+    tools:showIn="@layout/activity_main">
+
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/grayWhite"/>
+
+    <LinearLayout
+        android:backgroundTint="@color/grayWhite"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:weightSum="5"
+        android:elevation="16dp"
+        android:translationZ="10dp"
+        android:background="#fff"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true">
+
+        <ImageButton
+            android:id="@+id/btn_buoni"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_wallet"
+            android:tint="@color/colorGray"
+            android:background="@color/grayWhite"
+            android:foreground="?android:attr/selectableItemBackground"
+            />
+        <ImageButton
+            android:id="@+id/btn_negozi"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_position"
+            android:tint="@color/colorGray"
+            android:background="@color/grayWhite"
+            android:foreground="?android:attr/selectableItemBackground"
+            />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/grayWhite"></RelativeLayout>
+
+        <ImageButton
+            android:id="@+id/btn_info"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_navigation"
+            android:tint="@color/colorGray"
+            android:background="@color/grayWhite"
+            android:foreground="?android:attr/selectableItemBackground"
+            />
+        <ImageButton
+            android:id="@+id/btn_account"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_account"
+            android:tint="@color/colorGray"
+            android:background="@color/grayWhite"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:scaleType="fitXY"
+            android:padding="10dp"
+            />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:translationZ="30dp"
+        >
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/btn_credito"
+            android:layout_weight="1"
+            app:fabSize="mini"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_new"
+            android:tint="@color/colorPrimary"
+            android:background="@color/grayWhite"
+            android:gravity="center"
+            app:elevation="0dp"
+            />
+        <TextView
+            android:id="@+id/tv_fabtv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="174€"
+            android:textStyle="bold"
+            android:translationZ="40dp"
+            android:textColor="@android:color/white"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            />
+    </RelativeLayout>
+
+
+
+
+</RelativeLayout>

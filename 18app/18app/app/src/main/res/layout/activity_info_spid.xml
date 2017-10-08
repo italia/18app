@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorPrimary"
+        android:drawableLeft="@drawable/spidicon"
+        android:paddingLeft="72dp"
+        android:paddingRight="72dp"
+        android:text="VAI AL SITO spid.gov.it"
+        android:textColor="@color/textColor"
+        android:textSize="16dp"
+        android:id="@+id/spid"
+        android:autoLink="web"
+        android:onClick="goToSpid"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/spid">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Che cos'è Spid?"
+                android:id="@+id/TextView1"
+                android:padding="20dp"
+                android:textSize="20dp"
+                android:textColor="@color/colorPrimary"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/info_spid"
+                android:id="@+id/TextView2"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_below="@id/TextView1"
+                android:textSize="20dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/TextView2"
+                android:text="A chi mi devo rivolgere e cosa devo fare per ottenere lo SPID?"
+                android:id="@+id/TextView3"
+                android:padding="20dp"
+                android:textSize="20dp"
+                android:textColor="@color/colorPrimary"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/TextView3"
+                android:text="Posso richiedere SPID se sono nel diciottesimo anno di età ma non ho ancora compiuto i diciotto anni?"
+                android:id="@+id/TextView4"
+                android:padding="20dp"
+                android:textSize="20dp"
+                android:textColor="@color/colorPrimary"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/TextView4"
+                android:text="Ho perso le mie credenziali SPID, cosa devo fare per farmele rimandare?"
+                android:id="@+id/TextView5"
+                android:padding="20dp"
+                android:textSize="20dp"
+                android:textColor="@color/colorPrimary"/>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

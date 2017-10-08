@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rl_credito"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/tv_benvenuto"
+        android:layout_width="wrap_content"
+        android:text="Benvenuto Mario, ti restano"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:layout_marginTop="20dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/tv_credito"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_benvenuto"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="14dp"
+        android:text="174 €"
+        android:textSize="60sp"
+        android:textColor="#65dcdf"
+        android:textStyle="bold"
+        />
+
+
+
+    <com.jackandphantom.circularprogressbar.CircleProgressbar
+        android:id="@+id/progress_new"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        app:cpb_progress="35"
+        app:cpb_roundedCorner="true"
+        app:cpb_foregroundProgressWidth="20"
+        app:cpb_foregroundProgressColor="#65dcdf"
+        app:cpb_backgroundProgressColor="#134d98"
+        app:cpb_backgroundProgressWidth="5"
+        app:cpb_touchEnabled="false"
+        android:layout_below="@id/tv_credito"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_new"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        app:fabSize="normal"
+        android:layout_below="@id/tv_credito"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:src="@drawable/ic_add_48dp"
+        android:scaleType="center"/>
+
+
+    <TextView
+        android:id="@+id/tv_new"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/fab_new"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:text="NUOVO BUONO"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimary"
+        android:textSize="20sp"/>
+
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/btn_negvicini"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/tv_new"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        app:cardCornerRadius="4dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorPrimary"
+            android:gravity="center_horizontal">
+
+            <ImageView
+                android:id="@+id/ic_gps"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_gps" />
+
+            <TextView
+                android:id="@+id/tv_creditoMenu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="11dp"
+                android:layout_toEndOf="@id/ic_gps"
+                android:text="NEGOZI VICINO A ME"
+                android:textColor="@android:color/white"
+                android:textStyle="bold" />
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
+
+</RelativeLayout>

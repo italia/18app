@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="65dp"
+    android:id="@+id/frag1">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorGray"
+                android:text="Scegli una categoria"
+                android:textSize="20sp"
+                android:layout_marginLeft="15dp"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:background="@drawable/textfiles"
+                android:id="@+id/opt1"
+                android:foreground="?android:attr/selectableItemBackground">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/icon_cinema"
+                    android:id="@+id/ic1"
+                    android:tint="@color/colorPrimary"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cinema"
+                    android:textSize="20dp"
+                    android:layout_toEndOf="@id/ic1"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="6dp"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_keyboard_arrow_right_black_48dp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentEnd="true"
+                    />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:background="@drawable/textfiles"
+                android:id="@+id/opt2"
+                android:foreground="?android:attr/selectableItemBackground">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ico_concerti"
+                    android:id="@+id/ic2"
+                    android:tint="@color/colorPrimary"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Concerti"
+                    android:textSize="20dp"
+                    android:layout_toEndOf="@id/ic2"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="6dp"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_keyboard_arrow_right_black_48dp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentEnd="true"
+                    />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:background="@drawable/textfiles"
+                android:id="@+id/opt3"
+                android:foreground="?android:attr/selectableItemBackground">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/icon_eventi"
+                    android:id="@+id/ic3"
+                    android:tint="@color/colorPrimary"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Eventi culturali"
+                    android:textSize="20dp"
+                    android:layout_toEndOf="@id/ic3"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="6dp"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_keyboard_arrow_right_black_48dp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentEnd="true"
+                    />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:background="@drawable/textfiles"
+                android:id="@+id/opt4"
+                android:foreground="?android:attr/selectableItemBackground">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/icon_libri"
+                    android:id="@+id/ic4"
+                    android:tint="@color/colorPrimary"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Libri"
+                    android:textSize="20dp"
+                    android:layout_toEndOf="@id/ic4"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="6dp"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_keyboard_arrow_right_black_48dp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentEnd="true"
+                    />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:background="@drawable/textfiles"
+                android:id="@+id/opt5"
+                android:foreground="?android:attr/selectableItemBackground">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/icon_musei"
+                    android:id="@+id/ic5"
+                    android:tint="@color/colorPrimary"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Musei"
+                    android:textSize="20dp"
+                    android:layout_toEndOf="@id/ic5"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="6dp"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_keyboard_arrow_right_black_48dp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentEnd="true"
+                    />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:background="@drawable/textfiles"
+                android:id="@+id/opt6"
+                android:foreground="?android:attr/selectableItemBackground">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/icon_teatro"
+                    android:id="@+id/ic6"
+                    android:tint="@color/colorPrimary"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Teatro e danza"
+                    android:textSize="20dp"
+                    android:layout_toEndOf="@id/ic6"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="6dp"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_keyboard_arrow_right_black_48dp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentEnd="true"
+                    />
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

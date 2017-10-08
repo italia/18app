@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">18app</string>
+    <string name="action_settings">Settings</string>
+    <string name="info_spid">
+       Per ottenere le tue credenziali SPID devi rivolgerti a Infocert, Poste Italiane, Sielte o Tim. I quattro soggetti (che vengono chiamati Identity Provider), ti offrono diverse modalità di richiesta, scegli quella più adatta alle tue esigenze!
+
+Ecco in breve cosa devi fare:\n
+
+• Con Infocert: devi inserire i dati che ti vengono richiesti sul sito, una volta terminato potrai recarti in uno degli uffici presenti in tutta Italia per concludere la registrazione. (verifica dove si trova l’ufficio più vicino a te ) Se hai una webcam collegata al tuo computer puoi scegliere la modalità di riconoscimento completamente online. Seguendo le istruzioni che ti indicheranno gli operatori di Infocert potrai completare la registrazione senza doverti recare di persona in un ufficio. Questa modalità è a pagamento (9,90€ + iva), prima di cominciare dovrai quindi munirti di una carta di credito o una carta prepagata (non necessariamente intestata a te) da poter utilizzare per il pagamento online. (comincia la registrazione)
+\n
+• Con Poste Italiane: devi inserire i dati che ti vengono richiesti sul sito; una volta terminato potrai recarti in uno degli uffici presenti in tutta Italia per concludere la registrazione. (Verifica dove si trova l’ufficio postale più vicino a te) Se sei un cliente online Bancoposta puoi eseguire la procedura totalmente online dal sito di Poste utilizzando: il tuo numero di cellulare certificato o il lettore di carte Postamat. (comincia la registrazione)
+\n
+• Con Sielte: se hai un pc, tablet o uno smartphone dotati di webcam puoi scegliere la modalità di riconoscimento online gratuita. Dopo aver inserito i dati sul sito di Sielte, seguendo le istruzioni che ti indicheranno gli operatori puoi completare la registrazione attraverso web cam, anche tramite videochiamata su facebook (comincia la registrazione). Altrimenti puoi inserire i dati che ti vengono richiesti sul sito di Sielte e una volta terminato potrai recarti in uno degli uffici per concludere la registrazione
+\n
+• Con Tim: online con firma qualificata o digitale, la carta nazionale dei servizi (CNS) o la carta di identità elettronica abilitate (gratuito).\nPresto potrai scegliere tra altre modalità, rimani aggiornato su http://www.spid.gov.it/richiedi-spid#tim) Vai su Spid.gov.it per trovare tutte le informazioni aggiornate su dove e come richiedere le tue credenziali SPID. Tutte le informazioni su dove e come richiedere le tue credenziali SPID sul sito spid.gov.it/richiedi-spid.
+   </string>
+</resources>

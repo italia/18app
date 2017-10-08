@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/colorPrimary"
+        android:gravity="center_horizontal"
+        android:id="@+id/topbar"
+        android:elevation="20dp">
+
+        <ImageView
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:src="@drawable/logo"
+            android:id="@+id/logo"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/logo"
+            android:text="18app"
+            android:textColor="@color/textColor"
+            android:textSize="20dp" />
+
+    </RelativeLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorPrimary"
+        android:drawableLeft="@drawable/spidicon"
+        android:paddingLeft="80dp"
+        android:paddingRight="80dp"
+        android:text="ENTRA CON SPID"
+        android:textColor="@color/textColor"
+        android:textSize="20dp"
+        android:id="@+id/spid"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/slideLogin"
+        android:layout_above="@id/spid"
+        android:layout_below="@id/topbar"
+        android:background="@drawable/concerti"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hai 18 anni?"
+            android:textSize="35dp"
+            android:id="@+id/textView5"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="100dp"
+            android:textColor="@color/textColor"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Per te"
+            android:textSize="20dp"
+            android:id="@+id/textView6"
+            android:layout_below="@id/textView5"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/textColor"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="500€"
+            android:textSize="35dp"
+            android:id="@+id/textView7"
+            android:layout_below="@id/textView6"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/textColor"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="da spendere in"
+            android:textSize="20dp"
+            android:layout_below="@id/textView7"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/TextView8"
+            android:textColor="@color/textColor"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="concerti"
+            android:textSize="40dp"
+            android:id="@+id/textLogin"
+            android:layout_marginTop="290dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/textColor"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="2"
+            android:orientation="horizontal"
+            android:layout_alignParentBottom="true">
+
+            <Button
+                android:id="@+id/btn_info"
+                style="@style/Base.Widget.AppCompat.Button.Borderless"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:text="Informazioni"
+                android:textColor="@color/textColor"
+                android:textSize="16dp" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:text="Non hai spid?"
+                android:id="@+id/btn_spid"
+                style="@style/Base.Widget.AppCompat.Button.Borderless"
+                android:textColor="@color/textColor"
+                android:textSize="16dp"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>
