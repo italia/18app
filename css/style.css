@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css?family=Titillium+Web:300,400,600,700');
+
+html, body {
+	height: 100%;
+	font-family: 'Titillium Web', sans-serif;
+}
+
+body {
+	padding: 70px 0px;
+	background-color: #004d99;
+	color: white;
+}
+
+.navbar-toggle .navbar-inverse .navbar-toggle:hover, .navbar-inverse .navbar-toggle:focus {
+	background-color: #004d99;
+}
+
+.container .list-group .list-group-item-heading {
+	color: #0066CC;
+	font-weight: bold;
+}
+
+.container .list-group .list-group-item-text {
+	color: #0066CC;
+}
+
+.container .list-group .list-group-item.spended .list-group-item-heading {
+	color: grey;
+	font-weight: bold;
+}
+
+.container .list-group .list-group-item.cinema {
+	color: green;
+	font-weight: bold;
+	text-align: center;
+}
+
+.container .list-group .list-group-item.cinemaspended {
+	color: #b50000;
+	font-weight: bold;
+	text-align: center;
+}
+
+.container .list-group .list-group-item.spended .list-group-item-heading span {
+	text-decoration: line-through;
+}
+
+.container .list-group .list-group-item.spended .list-group-item-text {
+	color: grey;
+}
+
+.list-group {
+	overflow-y:scroll;
+}
+
+.btn-link {
+	color:white
+}
+
+.btn-link.active {
+	border-bottom: 3px solid white;
+	color: white;
+}
+
+a:active.btn-link, a:visited.btn-link, a:hover.btn-link  {
+	color: white;
+}
+
+.navbar-inverse {
+	background-color: #0066CC;
+	color: white
+}
+
+.navbar-fixed-top .navbar-brand, .navbar-fixed-top .navbar-text {
+	color: white;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+	color: white;
+}
+
+.navbar-inverse .navbar-toggle {
+	border-color: white;
+}
+
+/* Style the buttons that are used to open and close the accordion panel */
+button.accordion {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS),
+ and when you move the mouse over it (hover) */
+button.accordion.active, button.accordion:hover {
+    background-color: #ccc;
+}
+
+/* Style the accordion panel. Note: hidden by default */
+div.panel {
+    padding: 0 18px;
+    background-color: white;
+    display: none;
+}
+
+.container .list-group .list-group-item.spended .list-group-item-heading {
+	color: grey;
+	font-weight: bold;
+}
+
+.container .list-group .list-group-item.spended .list-group-item-heading span {
+	text-decoration: line-through
+}
+
+.container .list-group .list-group-item.spended .list-group-item-text {
+	color: grey;
+}
+
+/*Style index text carousel*/
+.carousel-content {
+    color:white;
+    text-align: center;
+}
+
+#text-carousel {
+  width: 100%;
+  height: auto;
+}
