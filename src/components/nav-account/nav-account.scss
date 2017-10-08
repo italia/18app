@@ -1,0 +1,37 @@
+nav-account {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  .credit{
+    padding-right: 10px;
+    direction: rtl;
+    p{
+      margin: 0;
+    }
+  }
+  .spid {
+    width: 3.2rem;
+    height: 3.2rem;
+    padding: 0;
+    background: transparent;
+    color: inherit;
+      ion-icon{
+      width: 3.2rem;
+      height: 3.2rem;
+    }
+  }
+  ion-badge.badge{
+    background-color: color($colors, white);
+    color: color($colors, side-menu);
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    font-size: 1rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: -1px;
+    bottom: -1px;
+  }
+}

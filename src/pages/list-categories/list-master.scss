@@ -1,0 +1,47 @@
+page-list-master {
+  p{
+    padding-left: 16px;
+    padding-top: 5px;
+    color: lightgrey;
+    font-size: 105%;
+
+  }
+
+  .label-md p{
+    padding: 10px;
+    font-size: 110%;
+
+  }
+
+  ion-item{
+      padding: 40px;
+      font-size: 150%;
+      border: none;
+  }
+
+  // button.item{
+  //   padding: 0px;
+  // }
+  // .item-md:first-child{
+  //   border: none;
+  // }
+  //
+  // .item-md{
+  //   border-top: 1px solid #dedede;
+  // }
+  .list-md .item-block .item-inner{
+    border: none;
+  }
+
+  .item-md.item-block .item-inner{
+    border:none;
+  }
+
+  .item-md{
+    border-bottom: 1px solid #dedede;
+  }
+  .item-md:last-child{
+    border: none;
+  }
+
+}

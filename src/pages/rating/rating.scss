@@ -1,0 +1,30 @@
+page-rating {
+  ion-card{
+    text-align: center;
+    background-color: color($colors, white);
+    color: color($colors, blue);
+  }
+  ion-card-title.card-title{
+    font-size: 4rem;
+  }
+  button.item{
+    background: transparent;
+    font-weight: 500;
+    font-size: 2rem;
+    border-bottom: 1px solid #e0dbdb;
+    ion-icon{
+      padding-right: 10px;
+    }
+  }
+  ion-card-title.card-title, button.item{
+    text-align: center;
+    color: color($colors, blue);
+  }
+  ion-list.list{
+    margin-top: 30px;
+  }
+  img {
+    width: 10rem;
+    display: initial;
+  }
+}

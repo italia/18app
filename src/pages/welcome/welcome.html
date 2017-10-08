@@ -1,0 +1,38 @@
+<ion-header>
+  <custom-navbar [type]="2"></custom-navbar>
+</ion-header>
+<ion-content scroll="false">
+
+  <div class="top20 imageText">
+    <p class="pImageStyle pImageStyle1">Hai 18 anni?</p>
+    <p class="pImageStyle pImageStyle2">Per te</p>
+    <p class="pImageStyle pImageStyle3">500€</p>
+    <p class="pImageStyle pImageStyle2">da spendere in</p>
+  </div>
+
+  <ion-slides loop autoplay="4000" class="slider">
+    <ion-slide *ngFor="let slide of slides">
+      <p class="imageText top30 sliderText">{{slide.name}}</p>
+      <img src="{{slide.image}}" class="imageSlider">
+    </ion-slide>
+  </ion-slides>
+
+  <div class="bottomDiv">
+    <ion-grid>
+      <ion-row>
+        <ion-col class="bottomTab">Informazioni</ion-col>
+        <ion-col class="bottomTab">Non hai SPID?</ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-footer style="position:relative;margin-top:10px">
+      <ion-toolbar color="main" class="bottomToolbar">
+        <button ion-button color="white" clear ion-button icon-left>
+          <ion-icon name="18app-spid" class="bottomToolbarIcon"></ion-icon>
+          ENTRA CON SPID
+        </button>
+      </ion-toolbar>
+    </ion-footer>
+  </div>
+
+</ion-content>

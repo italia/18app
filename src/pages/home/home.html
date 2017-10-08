@@ -1,0 +1,61 @@
+<!--
+  Generated template for the HomePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <custom-navbar [type]="1"></custom-navbar>
+
+</ion-header>
+
+
+<ion-content style="text-align:center">
+  <p>Benvenuto Mario, ti restano</p>
+  <h1 class="prezzo">174 €</h1>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-3>
+      </ion-col>
+      <ion-col col-6>
+        <div class="chart" id="graph" balance="174"></div>
+      </ion-col>
+      <ion-col col-3>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col><p class="testoBuono">NUOVO BUONO</p></ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
+
+<ion-footer class="barra">
+  <div style="padding:0 30px 30px 30px;width:100%">
+    <button ion-button block icon-left large>
+      <ion-icon name="ios-locate-outline"></ion-icon>
+      SONO GIA' IN NEGOZIO
+    </button>
+  </div>
+
+  <ion-toolbar color="primary">
+    <ion-grid>
+      <ion-row>
+        <ion-col col-3 style="text-align:center;color:#FFF">
+          <a href="#"><img src="assets/img/navigation-new.png" alt=""></a>
+        </ion-col>
+        <ion-col col-3 style="text-align:center;color:#FFF">
+          <a href="#"><img src="assets/img/navigation-wallet.png" alt=""></a>
+          </ion-col>
+        <ion-col col-3 style="text-align:center;color:#FFF">
+          <a href="#"><img src="assets/img/navigation-stores.png" alt=""></a>
+        </ion-col>
+        <ion-col col-3 style="text-align:center;color:#FFF">
+          <a href="#"><img src="assets/img/navigation-info.png" alt=""></a>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </ion-toolbar>
+</ion-footer>

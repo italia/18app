@@ -1,0 +1,140 @@
+page-welcome {
+  .splash-bg {
+    position: relative;
+    background: url('../assets/img/splashbg.png') no-repeat transparent;
+    background-size: cover;
+    height: 45%;
+    z-index: 1;
+    background-repeat: repeat-x;
+    animation: animatedBackground 40s linear infinite;
+  }
+
+  @keyframes animatedBackground {
+    from { background-position: 0 0; }
+    to { background-position: 100% 0; }
+  }
+
+  .splash-info {
+    position: relative;
+    z-index: 2;
+    margin-top: -64px;
+    text-align: center;
+  }
+  .splash-logo {
+    margin: auto;
+    background: url('../assets/img/appicon.png') repeat transparent;
+    background-size: 100%;
+    width: 128px;
+    height: 128px;
+  }
+  .splash-intro {
+    font-size: 18px;
+    font-weight: bold;
+    max-width: 80%;
+    margin: auto;
+  }
+  button.login {
+    margin-top: 25px;
+    background-color: white;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
+    color: #333;
+
+    &.activated {
+      background-color: rgb(220, 220, 220);
+    }
+  }
+
+  .imageText {
+    position: absolute;
+    top: 0;
+    color: #fff;
+    text-align: center;
+    width: 100%;
+    // font-style: italic;
+    font-size: 4rem;
+  }
+
+  .top20 {
+    top: 10%;
+    z-index: 100;
+    position: absolute;
+    width: 100%;
+  }
+
+  .top50 {
+    top: 50%;
+  }
+
+  .top40 {
+    top: 40%;
+  }
+
+  .top35 {
+    top: 35%;
+  }
+
+  .top30 {
+    top: 30%;
+  }
+
+  .imageSlider {
+    object-fit: cover !important;
+    height: 100%;
+  }
+
+  .slide-zoom {
+    height: 100% !important;
+  }
+
+  .bottomTab {
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+  }
+
+  .bottomDiv {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+  }
+
+  .pImageStyle {
+    margin-top:0;
+    margin-bottom:0;
+  }
+
+  .pImageStyle1 {
+    font-size:3rem;
+    font-weight:bold;
+  }
+
+  .pImageStyle2 {
+    font-size:1.5rem;
+
+  }
+
+  .pImageStyle3 {
+    font-size:4rem;
+    font-weight:bold;
+  }
+
+  .slider {
+    height: calc(100% - 56px);
+  }
+
+  .bottomToolbar {
+    text-align: center;
+  }
+
+  .bottomToolbarIcon {
+    margin-right: 10px;
+  }
+
+  .sliderText {
+    font-style: italic;
+    text-transform: lowercase;
+  }
+}

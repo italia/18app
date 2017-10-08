@@ -1,0 +1,45 @@
+page-acquisto-buono {
+  .list-md .item-block .item-inner{
+    border: none;
+  }
+
+  .item-md.item-block .item-inner{
+    border: none;
+  }
+
+  .item-md{
+    border-bottom: 1px solid #dedede;
+  }
+
+  .item-md:first-child{
+    border: none;
+  }
+
+  .text-input-md{
+    padding: 5px;
+    border-bottom: 2px solid #dedede;
+  }
+
+.item-input ion-input,
+.item-input ion-textarea{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 90px;
+    font-size: larger;
+  }
+.page-list-master
+.label-md p{
+    font-size: 115%;
+  }
+.label-md{
+    padding-left:20px;
+  }
+
+.button{
+    font-size: larger;
+
+  }
+
+
+}

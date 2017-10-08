@@ -1,0 +1,87 @@
+page-info {
+  @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
+
+body {
+  font-family: "Roboto", Arial;
+  background: #CCC;
+}
+main {
+  background: #EEE;
+  width: 600px;
+  margin: 20px auto;
+  padding: 10px 0;
+  box-shadow: 0 3px 5px rgba(0,0,0,0.3);
+}
+h2 {
+  text-align: center;
+}
+p {
+  font-size: 13px;
+}
+input {
+  display: none;
+  visibility: hidden;
+}
+label::before {
+  font-family: Roboto, monaco, monospace;
+  font-weight: bold;
+  font-size: 15px;
+  content: ">";
+  vertical-align: text-top;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 3px;
+  background: radial-gradient(ellipse at center, #CCC 50%, transparent 50%);
+}
+label {
+  display: block;
+  padding: 0.5em;
+  text-align: left; //gia fatto
+  border-bottom: 1px solid #CCC;
+  color: #666;
+}
+label:hover {
+  color: #000;
+}
+
+.expand1 {
+  height: 0px;
+  overflow: hidden;
+  transition: height 0.5s;
+  // background:;
+  // color: #FFF;
+}
+
+section {
+  padding: 0 20px;
+}
+#toggle:checked ~ .expand1 {
+  height: 250px;
+}
+#toggle:checked ~ label::before {
+  content: "-";
+}
+
+.toolbar-content
+{
+  display: inherit;
+}
+.title
+{
+    display:flex;
+    flex:1;
+}
+.titolo-lista
+{
+  font-style: italic;
+  color: #3C4145;
+
+}
+.barra
+{
+  botton:0;
+  position:absolute;
+}
+
+}

@@ -1,0 +1,34 @@
+page-notifiche
+{
+    .toolbar-content ion-icon{
+      font-size: 2.5em;
+    }
+    .toolbar-content p{
+      margin: 5px 0;
+    }
+    .titolo-lista
+    {
+      font-style:normal;
+      color: #3C4145;
+      margin:0;
+
+    }
+    .info-lista
+    {
+       margin:0;
+       margin-bottom: 20px;
+      font-family: "Roboto";
+    }
+
+  .barra
+  {
+    bottom:0;
+    position:absolute;
+  }
+
+  .vis
+  {
+    font-size: 3.0em;
+  }
+
+}

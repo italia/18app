@@ -1,0 +1,33 @@
+custom-navbar {
+  ion-navbar {
+    max-height: 56px;
+    color: color($colors, white);
+    &.toolbar-md{
+      padding-left: 1.3rem;
+      padding-right: 1.3rem;
+    }
+    .toolbar-background{
+      background-color: color($colors, blue);
+    }
+    .logo {
+      height: 3rem;
+      width: auto;
+      margin-top: 13px;
+      margin-bottom: 13px;
+    }
+    &:hover{
+      cursor:pointer;
+    }
+    .text {
+      display: flex;
+      align-items: center;
+      height:56px;
+      font-size: 1.6rem;
+    }
+    .account {
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+  }
+
+}

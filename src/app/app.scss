@@ -1,0 +1,181 @@
+// http://ionicframework.com/docs/v2/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+
+//Menu
+ion-menu{
+  font-weight: 300;
+  .close{
+    position: absolute;
+    top: 1.6rem;
+    font-size: 3rem;
+    right: 1.6rem;
+    color: color($colors, blue);
+    background: transparent;
+  }
+  .close:active{
+    color: color($colors, dark-blue);
+  }
+  ion-toolbar .toolbar-background{
+    color: color($colors, black);
+    background-color: color($colors, white);
+  }
+  ion-title .toolbar-title{
+    font-size: 2.3rem;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    font-weight: 300;
+  }
+  .credit{
+    padding-left: 12px;
+    font-size:1.3rem;
+    color: color($colors, grey);
+    h3{
+      margin-top:0px;
+      padding-left: 12px;
+    }
+  }
+  button.item-md{
+    padding-left:0px;
+    .item-inner{
+      padding-left:16px;
+    }
+  }
+  ion-content.content, button.item{
+    background-color: color($colors, side-menu);
+    color: color($colors, white);
+  }
+  button.item:active{
+    background-color: color($colors, dark-blue);
+  }
+  button.item div.item-inner{
+    border-bottom-color: color($colors, dark-blue) !important;
+  }
+  ion-icon{
+    vertical-align: middle;
+    font-size: 3rem;
+    width: 0.8em !important;
+  }
+  .button-title{
+    margin-left:10px;
+  }
+  ion-badge.badge{
+    background-color: color($colors, white);
+    color: color($colors, side-menu);
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    font-size: 1.7rem;
+    font-weight: bold;
+    line-height: 2rem;
+  }
+}
+
+//General css
+
+.left {
+  float: left;
+}
+.right {
+  float: right;
+}
+
+//Custom icons
+ion-icon {
+    &[class*="18app-"] {
+        // Instead of using the font-based icons
+        // We're applying SVG masks
+        mask-size: contain;
+        mask-position: 50% 50%;
+        mask-repeat: no-repeat;
+        background: currentColor;
+        width: 1em;
+        height: 1em;
+    }
+    // custom icons
+    &[class*="18app-tiket"] {
+        mask-image: url(../assets/icon/icon-biglietti-06c.svg);
+    }
+    &[class*="18app-cinema"] {
+        mask-image: url(../assets/icon/icon-cinema-06c.svg);
+    }
+    &[class*="18app-city"] {
+        mask-image: url(../assets/icon/icon-city-06c.svg);
+    }
+    &[class*="18app-concert"] {
+        mask-image: url(../assets/icon/icon-concerti-06c.svg);
+    }
+    &[class*="18app-event"] {
+        mask-image: url(../assets/icon/icon-eventi-06c.svg);
+    }
+    &[class*="18app-funnel"] {
+        mask-image: url(../assets/icon/icon-funnel.svg);
+    }
+    &[class*="18app-info"] {
+        mask-image: url(../assets/icon/icon-info.svg);
+    }
+    &[class*="18app-book"] {
+        mask-image: url(../assets/icon/icon-libri-06c.svg);
+    }
+    &[class*="18app-map"] {
+        mask-image: url(../assets/icon/icon-map-06c.svg);
+    }
+    &[class*="18app-marker"] {
+        mask-image: url(../assets/icon/icon-marker.svg);
+    }
+    &[class*="18app-museum"] {
+        mask-image: url(../assets/icon/icon-musei-06c.svg);
+    }
+    &[class*="18app-plus"] {
+        mask-image: url(../assets/icon/icon-plus.svg);
+    }
+    &[class*="18app-search"] {
+        mask-image: url(../assets/icon/icon-search.svg);
+    }
+    &[class*="18app-theatre"] {
+        mask-image: url(../assets/icon/icon-teatro-06c.svg);
+    }
+    &[class*="18app-wallet"] {
+        mask-image: url(../assets/icon/icon-wallet.svg);
+    }
+    &[class*="18app-navigation-info"] {
+        mask-image: url(../assets/icon/icon-navigation-info.svg);
+    }
+    &[class*="18app-navigation-new"] {
+        mask-image: url(../assets/icon/icon-navigation-new.svg);
+    }
+    &[class*="18app-navigation-stores"] {
+        mask-image: url(../assets/icon/icon-navigation-stores.svg);
+    }
+    &[class*="18app-navigation-wallet"] {
+        mask-image: url(../assets/icon/icon-navigation-wallet.svg);
+    }
+    &[class*="18app-spid"] {
+        mask-image: url(../assets/icon/spid-ico-circle-bb.svg);
+    }
+    &[class*="18app-book"] {
+        mask-image: url(../assets/icon/icon-books.svg);
+    }
+    &[class*="18app-euro"] {
+        mask-image: url(../assets/icon/icon-euro.svg);
+    }
+    &[class*="18app-qrcode"] {
+        mask-image: url(../assets/icon/icon-qrcode.svg);
+    }
+    &[class*="18app-gift"] {
+        mask-image: url(../assets/icon/icon-gift.svg);
+    }
+}

@@ -1,0 +1,62 @@
+page-home {
+  div.chart {
+    position:relative;
+    margin:0;
+    margin-top: 30px;
+    width:100%;
+    // left: 20%;
+    height:50vw;
+    text-align: center;
+  }
+  div.chart canvas {
+      display: block;
+      position:absolute;
+      top:0;
+      left:0;
+      width: 100% !important;
+  }
+
+  .prezzo {
+    font-size: 4rem;
+    font-weight: bold;
+    color: color($colors, light-blue);
+    margin-top: 0;
+  }
+
+  .aggiungiBuono {
+    width: 100%;
+    height: 100%;
+    // position: absolute;
+    vertical-align: middle;
+    margin: 0;
+    padding: 0;
+  }
+
+  p {
+    font-size: 1.8rem;
+  }
+
+  .testoBuono {
+    margin: 0;
+    padding: 0;
+    color: color($colors, blue);
+  }
+
+  .toolbar-content ion-icon{
+    font-size: 2.5em;
+  }
+
+  .toolbar-content img{
+    // width: 50%;
+  }
+
+  .barra
+  {
+    bottom:0;
+    position:absolute;
+  }
+
+  .barra::before {
+    background-image: none;
+  }
+}

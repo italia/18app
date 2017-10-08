@@ -1,0 +1,30 @@
+page-list-detail {
+  button.item{
+    padding: 0px;
+  }
+
+  p{
+    padding-left: 16px;
+    padding-top: 5px;
+    color: lightgrey;
+    font-size: 105%;
+  }
+
+  .item-block{
+    border-bottom: 1px solid #dedede;
+  }
+  
+  .list-md .item-block .item-inner{
+    border: none;
+  }
+  .item-md.item-block .item-inner{
+    border: none;
+  }
+
+  .item-md:last-child{
+    border: none;
+  }
+
+
+
+}

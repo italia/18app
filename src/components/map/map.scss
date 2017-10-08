@@ -1,0 +1,24 @@
+map {
+  #map {
+      height: 100%;
+      width: 100%;
+      top: 0;
+      left: 0;
+      position: absolute!important;
+      overflow: hidden!important;
+  }
+  #controlUI{
+    background-color: #fff;
+    color: color($colors, blue);
+    width: 28px;
+    height: 30px;
+    margin-right: 10px;
+
+    ion-icon{
+      padding: 0;
+    }
+  }
+  #controlUI:hover{
+    color:#000;
+  }
+}

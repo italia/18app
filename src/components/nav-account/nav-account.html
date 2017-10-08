@@ -1,0 +1,10 @@
+<div class="left credit">
+  <p>Credito</p>
+  <p><strong>{{credit | number: '1.2'}}€</strong></p>
+</div>
+<div class="right">
+  <button class="spid" menuToggle>
+    <ion-icon name="18app-spid"></ion-icon>
+    <ion-badge item-end *ngIf="notificationCounter>0">{{notificationCounter}}</ion-badge>
+  </button>
+</div>

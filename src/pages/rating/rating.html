@@ -1,0 +1,20 @@
+<ion-card>
+  <ion-card-content>
+    <img src="assets/img/blue-hand-logo.jpg"/>
+    <ion-card-title><strong>Ti piace 18app?</strong></ion-card-title>
+    <ion-list>
+      <button ion-item (click)="onResponse(response.yes)">
+        <ion-icon name="md-happy"></ion-icon>
+        SÌ, LA CONSIGLIEREI
+      </button>
+      <button ion-item (click)="onResponse(response.no)">
+        <ion-icon name="md-sad"></ion-icon>
+        NO, HO UN SUGGERIMENTO
+      </button>
+      <button ion-item (click)="onResponse(response.maybe)">
+        <ion-icon name="ios-outlet-outline"></ion-icon>
+        NON SO
+      </button>
+    </ion-list>
+  </ion-card-content>
+</ion-card>

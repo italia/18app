@@ -1,0 +1,25 @@
+<ion-menu side="right" [content]="content" menu-close>
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Mario Rossi</ion-title>
+      <span class="credit">Credito
+        <h3><strong>172,00€</strong></h3>
+      </span>
+      <button class="close" menuClose="right">
+        <ion-icon name="md-close"></ion-icon>
+      </button>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content color="blue-white">
+    <!-- <ion-list> -->
+      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+        <ion-icon name="{{p.icon}}"></ion-icon>
+        <span class="button-title">{{p.title}}</span>
+        <ion-badge item-end *ngIf="p.value>0">{{p.value}}</ion-badge>
+      </button>
+    <!-- </ion-list> -->
+  </ion-content>
+
+</ion-menu>
+<ion-nav #content [root]="rootPage"></ion-nav>

@@ -1,0 +1,29 @@
+<div [ngSwitch]="type">
+  <ion-navbar>
+
+    <div *ngSwitchCase="LEFT_TEXT_RIGHT_ACCOUNT">
+      <span class="text left">{{text}}</span>
+      <div class="account right">
+        <nav-account></nav-account>
+      </div>
+    </div>
+
+    <div *ngSwitchCase="LEFT_TEXT_RIGHT_LOGO">
+      <div class="text left">{{text}}</div>
+      <div class="right">
+        <img class="logo" src="assets/img/logo-nav.png" (click)="openPopUp()"/>
+      </div>
+    </div>
+
+    <div *ngSwitchCase="LEFT_LOGO_RIGHT_ACCOUNT">
+      <img class="logo left" src="assets/img/logo-nav.png" (click)="openPopUp()">
+      <div class="account right">
+        <nav-account></nav-account>
+      </div>
+    </div>
+
+    <div *ngSwitchDefault hideBackButton style="text-align: center;">
+      <img class="logo" src="assets/img/logo-nav.png" (click)="openPopUp()"/>
+    </div>
+  </ion-navbar>
+</div>

@@ -1,0 +1,50 @@
+<!--
+  Generated template for the AcquistoBuonoPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <custom-navbar [text]="Nuovo buono: valore" [type]="0"></custom-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-list>
+    <ion-item text-wrap>
+      <ion-icon name="md-camera" item-start></ion-icon>
+        <p style="font-size: normal">{{item.nome}}</p>
+      <ion-icon name="md-checkmark" item-end></ion-icon>
+    </ion-item>
+
+    <ion-item text-wrap>
+      <ion-icon name="md-camera" item-start></ion-icon>
+        <p style="font-size: larger">{{item.prodotto[prodotto].tipoPagamento}}</p>
+      <ion-icon name="md-checkmark" item-end></ion-icon>
+    </ion-item>
+  </ion-list>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <p>Inserisci il valore del buono</p>
+      </ion-col>
+    </ion-row>
+    <ion-row align-items-center>
+      <ion-col>
+        <ion-label>Valore</ion-label>
+      </ion-col>
+      <ion-col>
+          <ion-input placeholder="500.00"></ion-input>
+      </ion-col>
+      <ion-col pull-1>
+          <ion-label>€</ion-label>
+      </ion-col>
+      <ion-col>
+          <button type="submit">CREA</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
