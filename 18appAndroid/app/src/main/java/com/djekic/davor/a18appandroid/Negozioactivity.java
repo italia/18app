@@ -1,22 +1,21 @@
 package com.djekic.davor.a18appandroid;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.TabLayout;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-
 import android.widget.TextView;
 
 public class Negozioactivity extends AppCompatActivity {
@@ -40,6 +39,40 @@ public class Negozioactivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_negozioactivity);
+
+
+        BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_navigation);
+        bottomNavigationView.setSelectedItemId(R.id.action_shops);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.action_new:
+                        Intent intent0 = new Intent(Negozioactivity.this, NewOrderActivity.class);
+                        startActivity(intent0);
+                        overridePendingTransition(R.animator.slide_from_left, R.animator.slide_to_right);
+                        break;
+                    case R.id.action_buoni:
+                        Intent intent1 = new Intent(Negozioactivity.this, BuoniActivity.class);
+                        startActivity(intent1);
+                        overridePendingTransition(R.animator.slide_from_left, R.animator.slide_to_right);
+                        break;
+                    case R.id.action_shops:
+                        Intent intent2 = new Intent(Negozioactivity.this, Negozioactivity.class);
+                        startActivity(intent2);
+                        break;
+                    case R.id.action_info:
+                        Intent intent3 = new Intent(Negozioactivity.this, InfoActivity.class);
+                        startActivity(intent3);
+                        overridePendingTransition(R.animator.slide_from_right, R.animator.slide_to_left);
+                        break;
+                }
+                return true;
+            }
+        });
+
+
+
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
