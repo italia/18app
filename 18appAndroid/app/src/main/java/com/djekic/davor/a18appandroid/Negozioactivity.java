@@ -41,6 +41,9 @@ public class Negozioactivity extends AppCompatActivity {
         setContentView(R.layout.activity_negozioactivity);
 
 
+
+
+
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_navigation);
         bottomNavigationView.setSelectedItemId(R.id.action_shops);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
