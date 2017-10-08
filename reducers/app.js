@@ -41,7 +41,6 @@ const app = (state = initialState, action) => {
                     ...state.coupons,
                     action.payload
                 ],
-                // couponValue: action.payload.couponValue,
                 nuovoComplete: true,
                 selectedCategory: '',
                 selectedProductType: '',
@@ -60,6 +59,7 @@ const app = (state = initialState, action) => {
         case RESET_TEMPORARY_STATE:
             return {
                 ...state,
+                selectedCoupon: {},
                 selectedCategory: '',
                 selectedProductType: '',
                 couponValue: 0,
