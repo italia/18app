@@ -11,6 +11,7 @@
 
 	<Navigator DefaultPath="home">
 		<HomePage ux:Name="home" router="router" navBar="navBar"  Background="#fff" ></HomePage>
+		<NewTicketPage ux:Name="newTicket" router="router" navBar="navBar"  Background="#fff" ></NewTicketPage>
 	</Navigator>
 	
 	<BottomBar Dock="Bottom"/>

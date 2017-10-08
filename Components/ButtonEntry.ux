@@ -1,0 +1,8 @@
+<Grid ux:Class="ButtonEntry" Columns="40, 1*, 40" Padding="10,10">
+	<Image Source="{Resource icon}" Width="25" Alignment="CenterLeft" Color="#018BDB"/>
+	<StackPanel>
+		<Text Value="{Resource name}" Alignment="CenterLeft" />
+		<Text Value="{Resource text}" Color="#777" FontSize="13" Alignment="CenterLeft"/>
+	</StackPanel>
+	<GoForeward/>
+</Grid>

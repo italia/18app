@@ -1,5 +1,6 @@
 <BasePage ux:Class="HomePage">
 	<Router ux:Dependency="router" />
+	<JavaScript File="HomePage.js" />
 	<Visual ux:Dependency="navBar" />
 
 	<ScrollView>
@@ -9,8 +10,9 @@
 			<BalanceCircle></BalanceCircle>
 			<NativeViewHost>
 			    <Button  Color="#0066CC" Height="40"  >
-			    	<BaseText Color="White" Alignment="Center">
-			    		SONO GIÀ IN NEGOZIO 
+			    	<ButtonHomeLogo> </ButtonHomeLogo>
+			    	<BaseText Color="White" Alignment="Center" Clicked="{goToNew}">
+			    			SONO GIÀ IN NEGOZIO 
 			    	</BaseText>
 			    </Button>
 			</NativeViewHost>

@@ -1,0 +1,22 @@
+<BasePage ux:Class="NewTicketPage">
+	<Router ux:Dependency="router" />
+	<JavaScript File="NewTicketPage.js" />
+	<Visual ux:Dependency="navBar" />
+
+	<ScrollView>
+		<StackPanel>
+					<Rectangle Color="#FDFDFD" CornerRadius="8" Layer="Background"/>
+					<DividerCategorie />
+					<ButtonEntry>
+						<string ux:Key="name" ux:Value="Card"/>
+						<string ux:Key="text" ux:Value="Visa **** 4242"/>
+					</ButtonEntry>
+					<DividerCategorie />
+					<ButtonEntry>
+						<string ux:Key="name" ux:Value="Customer"/>
+						<string ux:Key="text" ux:Value="example@example.com"/>
+					</ButtonEntry>
+					<DividerCategorie />
+		</StackPanel>
+	</ScrollView>
+</BasePage>
