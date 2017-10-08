@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="14dp"
+    android:paddingBottom="14dp"
+    android:paddingStart="18dp"
+    android:paddingEnd="18dp">
+
+    <ImageView
+        android:id="@+id/iv_icon"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="32dp"
+        android:layout_centerVertical="true"/>
+    
+    <LinearLayout
+        android:id="@+id/ll_tvs_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginEnd="16dp"
+        android:layout_toStartOf="@+id/tv_value"
+        android:layout_toEndOf="@+id/iv_icon">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textColor="@color/colorPrimary" />
+
+        <TextView
+            android:id="@+id/tv_spent_in"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textColor="@color/colorLightGray" />
+        
+    </LinearLayout>
+    
+    <TextView
+        android:id="@+id/tv_value"
+        android:layout_width="64dp"
+        android:layout_height="32dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimary"
+        android:layout_toStartOf="@+id/iv_details"
+        android:layout_centerVertical="true"
+        android:gravity="center"
+        android:layout_marginEnd="16dp"/>
+
+    <ImageView
+        android:id="@+id/iv_details"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"/>
+</RelativeLayout>

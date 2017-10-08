@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">18app</string>
+
+    <!-- BottomNavigationView strings -->
+    <string name="bottombar_home">Home</string>
+    <string name="bottombar_your_coupon">I tuoi buoni</string>
+    <string name="bottombar_shops">Negozi</string>
+    <string name="bottombar_info">Info</string>
+    <string name="hello_blank_fragment">Hello World!</string>
+
+</resources>

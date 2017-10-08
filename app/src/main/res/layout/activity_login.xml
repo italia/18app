@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.zrickydev.italy18app.LoginActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:background="@color/colorPrimary"
+        android:minHeight="?attr/actionBarSize">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_marginEnd="16dp">
+
+            <ImageView
+                android:id="@+id/iv_logo"
+                android:layout_width="144dp"
+                android:layout_height="32dp"
+                android:src="@drawable/app_logo"
+                tools:ignore="ContentDescription" />
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.Toolbar>
+
+    <ss.com.bannerslider.views.BannerSlider
+        android:id="@+id/banner_slider"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/btn_spid_auth"
+        android:layout_below="@+id/toolbar"
+        app:interval="2000"
+        app:loopSlides="true" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@+id/toolbar"
+        android:layout_marginTop="48dp"
+        android:paddingStart="58dp"
+        android:paddingEnd="58dp"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Hai 18 anni?"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textSize="32sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Per te"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="500€"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textSize="32sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="da spendere in"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="42dp"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textSize="40sp"
+            android:textStyle="italic"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_above="@+id/btn_spid_auth"
+        android:layout_margin="16dp">
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:text="Informazioni"
+            android:textAllCaps="true"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:text="Non hai SPID?"
+            android:textAllCaps="true"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_spid_auth"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:background="@color/colorPrimary"
+        android:layout_alignParentBottom="true"
+        android:text="ENTRA CON SPID"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        android:drawableStart="@drawable/spid_ico_circle_bb"
+        android:paddingStart="96dp"
+        android:paddingEnd="96dp" />
+
+</RelativeLayout>

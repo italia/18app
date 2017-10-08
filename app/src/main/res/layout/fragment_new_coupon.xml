@@ -1,0 +1,166 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.zrickydev.italy18app.fragments.NewCouponFragment">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:minHeight="?attr/actionBarSize">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <ImageView
+                android:id="@+id/iv_logo"
+                android:layout_width="96dp"
+                android:layout_height="32dp"
+                android:src="@drawable/logo18app"
+                tools:ignore="ContentDescription"
+                android:layout_weight="0.05"/>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="0.9" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_weight="0.05">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Credito"
+                        android:textColor="@android:color/white"
+                        android:textSize="12sp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="174,00€"
+                        android:textColor="@android:color/white"
+                        android:textSize="13sp"
+                        android:textStyle="bold"/>
+
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/spid_ico_circle_bb"
+                    android:layout_marginStart="12dp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </android.support.v7.widget.Toolbar>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbar">
+
+        <com.github.lzyzsd.circleprogress.DonutProgress
+            android:id="@+id/donut_progress"
+            android:layout_width="125dp"
+            android:layout_height="125dp"
+            android:layout_centerInParent="true"
+            app:donut_circle_starting_degree="-90"
+            app:donut_finished_stroke_width="2dp"
+            app:donut_progress="70"
+            app:donut_show_text="false"
+            app:donut_unfinished_stroke_width="2dp"
+            app:donut_finished_color="@color/colorPrimary"
+            app:donut_unfinished_color="@color/unfinished_color"/>
+
+        <View
+            android:layout_width="115dp"
+            android:layout_height="115dp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/bg_add_button" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@drawable/ic_add_white_48dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/donut_progress"
+            android:layout_marginTop="8dp"
+            android:text="NUOVO BUONO"
+            android:gravity="center"
+            android:textSize="17dp"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimary"
+            android:layout_alignEnd="@+id/donut_progress"
+            android:layout_alignStart="@+id/donut_progress" />
+
+
+        <Button
+            android:id="@+id/btn_already_in_shop"
+            android:background="@drawable/bg_button_rounded"
+            android:textColor="@android:color/white"
+            android:layout_width="261dp"
+            android:layout_height="48dp"
+            android:layout_marginBottom="30dp"
+            android:text="SONO GIÀ IN NEGOZIO"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:drawableStart="@drawable/ic_my_location_white_24dp"
+            android:drawablePadding="-12dp"
+            android:paddingStart="32dp"
+            android:paddingEnd="20dp" />
+
+        <TextView
+            android:id="@+id/tv_welcome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="24dp"
+            android:layout_marginStart="57dp"
+            android:layout_marginEnd="57dp"
+            android:textColor="@color/welcome_view_color"
+            android:textSize="16sp"
+            android:gravity="center"
+            android:text="Benvenuto" />
+
+        <TextView
+            android:id="@+id/tv_cash"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/tv_welcome"
+            android:layout_marginTop="7dp"
+            android:layout_marginStart="57dp"
+            android:layout_marginEnd="57dp"
+            android:textColor="@color/unfinished_color"
+            android:textSize="40sp"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:text="€" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_new_coupon"
+        android:icon="@drawable/ic_home_white_24dp"
+        android:title="@string/bottombar_home" />
+
+    <item
+        android:id="@+id/navigation_your_coupon"
+        android:icon="@drawable/icon_wallet_white"
+        android:title="@string/bottombar_your_coupon" />
+
+    <item
+        android:id="@+id/navigation_shops"
+        android:icon="@drawable/icon_marker_white"
+        android:title="@string/bottombar_shops" />
+
+    <item
+        android:id="@+id/navigation_info"
+        android:icon="@drawable/icon_info_white"
+        android:title="@string/bottombar_info" />
+
+
+</menu>

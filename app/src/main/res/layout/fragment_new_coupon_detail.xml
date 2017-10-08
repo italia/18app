@@ -1,0 +1,474 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:minHeight="?attr/actionBarSize">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:weightSum="1">
+
+            <ImageView
+                android:id="@+id/iv_back_button"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/back_button"
+                tools:ignore="ContentDescription"
+                android:layout_weight="0.09"/>
+
+             <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="24dp"
+                android:text="Dettagli buono"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:layout_weight="0.9"/>
+
+            <LinearLayout
+                android:id="@+id/ll_credit_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_weight="0.01">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Credito"
+                        android:textColor="@android:color/white"
+                        android:textSize="12sp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="174,00€"
+                            android:textColor="@android:color/white"
+                            android:textSize="13sp"
+                            android:textStyle="bold"/>
+
+                 </LinearLayout>
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/spid_ico_circle_bb"
+                android:layout_marginStart="12dp"/>
+
+         </LinearLayout>
+
+        </LinearLayout>
+
+    </android.support.v7.widget.Toolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical"
+        android:layout_below="@+id/toolbar">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/ll_under_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:text="Il nuovo buono è stato creato correttamente"
+                    android:textAlignment="center"
+                    android:textColor="@color/green"
+                    android:textSize="14sp"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/darker_gray"/>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_selected_category"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ll_under_toolbar"
+                android:paddingTop="14dp"
+                android:paddingBottom="14dp"
+                android:paddingStart="18dp"
+                android:paddingEnd="18dp"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:id="@+id/iv_icon"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginEnd="32dp"
+                    android:layout_alignParentStart="true" />
+
+                <TextView
+                    android:id="@+id/tv_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16dp"
+                    android:textColor="@android:color/black"
+                    android:layout_marginEnd="32dp"
+                    android:layout_toStartOf="@+id/tv_category_desc"
+                    android:layout_toEndOf="@+id/iv_icon" />
+
+                <TextView
+                    android:id="@+id/tv_category_desc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="24dp"
+                    android:layout_alignParentEnd="true"
+                    android:text="Categoria"
+                    android:textColor="@color/colorLightGray"
+                    android:textSize="12sp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_selected_product_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rl_selected_category"
+                android:paddingTop="14dp"
+                android:paddingBottom="14dp"
+                android:paddingStart="18dp"
+                android:paddingEnd="18dp"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:id="@+id/iv_icon_pt"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginEnd="32dp"
+                    android:layout_alignParentStart="true" />
+
+                <TextView
+                    android:id="@+id/tv_title_pt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16dp"
+                    android:textColor="@android:color/black"
+                    android:layout_marginEnd="32dp"
+                    android:layout_toStartOf="@+id/tv_product_desc"
+                    android:layout_toEndOf="@+id/iv_icon_pt" />
+
+                <TextView
+                    android:id="@+id/tv_product_desc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="24dp"
+                    android:layout_alignParentEnd="true"
+                    android:text="Prodotto"
+                    android:textColor="@color/colorLightGray"
+                    android:textSize="12sp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_coupon_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rl_selected_product_type"
+                android:paddingTop="14dp"
+                android:paddingBottom="14dp"
+                android:paddingStart="18dp"
+                android:paddingEnd="18dp"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:id="@+id/iv_icon_euro"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginEnd="32dp"
+                    android:layout_alignParentStart="true"
+                    android:background="@drawable/ic_euro_symbol_white_24dp"
+                    android:backgroundTint="@android:color/black"/>
+
+                <TextView
+                    android:id="@+id/tv_title_value"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16dp"
+                    android:textColor="@android:color/black"
+                    android:textStyle="bold"
+                    android:layout_marginEnd="32dp"
+                    android:layout_toStartOf="@+id/tv_value_desc"
+                    android:layout_toEndOf="@+id/iv_icon_euro" />
+
+                <TextView
+                    android:id="@+id/tv_value_desc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="24dp"
+                    android:layout_alignParentEnd="true"
+                    android:text="Valore"
+                    android:textColor="@color/colorLightGray"
+                    android:textSize="12sp" />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/rl_coupon_code"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rl_coupon_value"
+                android:paddingTop="14dp"
+                android:paddingBottom="14dp"
+                android:paddingStart="18dp"
+                android:paddingEnd="18dp"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:id="@+id/iv_icon_code"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginEnd="32dp"
+                    android:layout_alignParentStart="true"
+                    android:background="@drawable/ic_qr_code"
+                    android:backgroundTint="@android:color/black"/>
+
+                <TextView
+                    android:id="@+id/tv_title_qr"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16dp"
+                    android:textColor="@android:color/black"
+                    android:textStyle="bold"
+                    android:text="45DH6789"
+                    android:layout_marginEnd="32dp"
+                    android:layout_toStartOf="@+id/tv_code_desc"
+                    android:layout_toEndOf="@+id/iv_icon_code" />
+
+                <TextView
+                    android:id="@+id/tv_code_desc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="24dp"
+                    android:layout_alignParentEnd="true"
+                    android:text="Codice"
+                    android:textColor="@color/colorLightGray"
+                    android:textSize="12sp" />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_coupon_code"
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                android:layout_below="@id/rl_coupon_code"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="160dp"
+                    android:orientation="vertical"
+                    android:layout_weight="1">
+                    <ImageView
+                        android:id="@+id/iv_qr_code"
+                        android:layout_width="110dp"
+                        android:layout_height="110dp"
+                        android:layout_margin="25dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/qr_code"/>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="160dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+                        android:orientation="horizontal"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:id="@+id/iv_bar_code"
+                            android:layout_width="88dp"
+                            android:layout_height="58dp"
+                            android:layout_margin="36dp"
+                            android:src="@drawable/barcode"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+                        android:orientation="horizontal"
+                        android:gravity="center">
+
+                        <Button
+                            android:layout_width="98dp"
+                            android:layout_height="wrap_content"
+                            android:text="SALVA IMMAGINE"
+                            android:textColor="@color/colorPrimary"
+                            android:background="@android:color/transparent" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_find_shop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_below="@id/ll_coupon_code"
+                android:gravity="center">
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/darker_gray"/>
+
+                <Button
+                    android:layout_width="292dp"
+                    android:layout_height="40dp"
+                    android:layout_margin="16dp"
+                    android:background="@drawable/bg_button_rounded"
+                    android:text="TROVA UN NEGOZIO"
+                    android:textColor="@android:color/white"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:drawableStart="@drawable/icon_marker_white"
+                    android:drawablePadding="-12dp"
+                    android:paddingStart="32dp"
+                    android:paddingEnd="20dp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/darker_gray"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_owner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_below="@id/ll_find_shop"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:text="Questo buono non è cedibile e appartiene a te."
+                    android:textColor="@color/colorLightGray"
+                    android:textAlignment="center"
+                    android:textSize="14sp"/>
+
+                <RelativeLayout
+                    android:id="@+id/rl_coupon_owner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/rl_coupon_owner"
+                    android:paddingTop="14dp"
+                    android:paddingBottom="14dp"
+                    android:paddingStart="18dp"
+                    android:paddingEnd="18dp"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:id="@+id/iv_icon_owner"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginEnd="32dp"
+                        android:layout_alignParentStart="true"
+                        android:background="@drawable/spid_ico_circle_bb"
+                        android:backgroundTint="@android:color/black"/>
+
+                    <TextView
+                        android:id="@+id/tv_title_owner"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="16dp"
+                        android:textColor="@android:color/black"
+                        android:textStyle="bold"
+                        android:layout_marginEnd="32dp"
+                        android:text="Mario Rossi"
+                        android:layout_toStartOf="@+id/tv_owner_desc"
+                        android:layout_toEndOf="@+id/iv_icon_owner" />
+
+                    <TextView
+                        android:id="@+id/tv_owner_desc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="24dp"
+                        android:layout_alignParentEnd="true"
+                        android:text="Intestatario"
+                        android:textColor="@color/colorLightGray"
+                        android:textSize="12sp" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/darker_gray"/>
+
+                <LinearLayout
+                    android:id="@+id/ll_delete_coupon"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_below="@id/rl_coupon_owner"
+                    android:layout_marginBottom="16dp"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="16dp"
+                        android:text="Puoi annullare in ogni momento questo buono e riversare l’intero suo valore nel tuo credito"
+                        android:textColor="@color/colorLightGray"
+                        android:textAlignment="center"
+                        android:textSize="14sp"
+                        android:layout_marginTop="18dp"/>
+
+                    <Button
+                        android:layout_width="292dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/bg_button_rounded_red"
+                        android:text="ANNULLA QUESTO BUONO"
+                        android:textColor="@android:color/white"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        android:drawableStart="@drawable/ic_delete_forever_white_24dp"
+                        android:drawablePadding="-12dp"
+                        android:paddingStart="32dp"
+                        android:paddingEnd="20dp"
+                        android:layout_marginTop="16dp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</RelativeLayout>
