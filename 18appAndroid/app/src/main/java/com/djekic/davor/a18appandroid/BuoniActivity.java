@@ -30,7 +30,7 @@ public class BuoniActivity extends AppCompatActivity {
                         startActivity(intent1);
                         break;
                     case R.id.action_shops:
-                        Intent intent2 = new Intent(BuoniActivity.this, MapsActivity.class);
+                        Intent intent2 = new Intent(BuoniActivity.this, Negozioactivity.class);
                         startActivity(intent2);
                         overridePendingTransition(R.animator.slide_from_right, R.animator.slide_to_left);
                         break;

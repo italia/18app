@@ -33,7 +33,7 @@ public class NewOrderActivity extends AppCompatActivity {
                         overridePendingTransition(R.animator.slide_from_right, R.animator.slide_to_left);
                         break;
                     case R.id.action_shops:
-                        Intent intent2 = new Intent(NewOrderActivity.this, MapsActivity.class);
+                        Intent intent2 = new Intent(NewOrderActivity.this, Negozioactivity.class);
                         startActivity(intent2);
                         overridePendingTransition(R.animator.slide_from_right, R.animator.slide_to_left);
                         break;

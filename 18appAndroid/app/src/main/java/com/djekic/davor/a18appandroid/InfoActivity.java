@@ -209,7 +209,7 @@ public class InfoActivity extends AppCompatActivity {
                         overridePendingTransition(R.animator.slide_from_left, R.animator.slide_to_right);
                         break;
                     case R.id.action_shops:
-                        Intent intent2 = new Intent(InfoActivity.this, MapsActivity.class);
+                        Intent intent2 = new Intent(InfoActivity.this, Negozioactivity.class);
                         startActivity(intent2);
                         overridePendingTransition(R.animator.slide_from_left, R.animator.slide_to_right);
                         break;
