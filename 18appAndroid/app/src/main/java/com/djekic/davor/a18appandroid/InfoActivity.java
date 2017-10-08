@@ -8,6 +8,7 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 import android.widget.Button;
@@ -23,6 +24,7 @@ public class InfoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info);
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
 
         TextView back = (TextView) findViewById(R.id.indietroInfo);
@@ -198,22 +200,21 @@ public class InfoActivity extends AppCompatActivity {
                 switch (item.getItemId()) {
                     case R.id.action_new:
                         Intent intent0 = new Intent(InfoActivity.this, NewOrderActivity.class);
-                        intent0.addFlags((Intent.FLAG_ACTIVITY_NO_ANIMATION));
                         startActivity(intent0);
+                        overridePendingTransition(R.animator.slide_from_left, R.animator.slide_to_right);
+                        break;
                     case R.id.action_buoni:
                         Intent intent1 = new Intent(InfoActivity.this, BuoniActivity.class);
-                        intent1.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                         startActivity(intent1);
-
+                        overridePendingTransition(R.animator.slide_from_left, R.animator.slide_to_right);
                         break;
                     case R.id.action_shops:
                         Intent intent2 = new Intent(InfoActivity.this, MapsActivity.class);
-                        intent2.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                         startActivity(intent2);
+                        overridePendingTransition(R.animator.slide_from_left, R.animator.slide_to_right);
                         break;
                     case R.id.action_info:
                         Intent intent3 = new Intent(InfoActivity.this, InfoActivity.class);
-                        intent3.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                         startActivity(intent3);
                         break;
                 }

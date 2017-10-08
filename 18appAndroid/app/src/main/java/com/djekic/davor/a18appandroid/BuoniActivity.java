@@ -15,31 +15,29 @@ public class BuoniActivity extends AppCompatActivity {
         setContentView(R.layout.activity_buoni);
 
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_navigation);
-
         bottomNavigationView.setSelectedItemId(R.id.action_buoni);
-
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.action_new:
                         Intent intent0 = new Intent(BuoniActivity.this, NewOrderActivity.class);
-                        intent0.addFlags((Intent.FLAG_ACTIVITY_NO_ANIMATION));
                         startActivity(intent0);
+                        overridePendingTransition(R.animator.slide_from_left, R.animator.slide_to_right);
+                        break;
                     case R.id.action_buoni:
                         Intent intent1 = new Intent(BuoniActivity.this, BuoniActivity.class);
-                        intent1.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                         startActivity(intent1);
                         break;
                     case R.id.action_shops:
                         Intent intent2 = new Intent(BuoniActivity.this, MapsActivity.class);
-                        intent2.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                         startActivity(intent2);
+                        overridePendingTransition(R.animator.slide_from_right, R.animator.slide_to_left);
                         break;
                     case R.id.action_info:
                         Intent intent3 = new Intent(BuoniActivity.this, InfoActivity.class);
-                        intent3.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                         startActivity(intent3);
+                        overridePendingTransition(R.animator.slide_from_right, R.animator.slide_to_left);
                         break;
                 }
                 return true;

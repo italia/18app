@@ -1,5 +1,296 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.djekic.davor.a18appandroid.NewOrderActivity">
 
+
+    <RelativeLayout
+        android:id="@+id/homeLayoutNewOrder"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
+
+        <RelativeLayout
+            android:id="@+id/layoutTopNewOrder"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:background="#005DBE">
+
+            <TextView
+                android:id="@+id/indietroNewOrder"
+                android:layout_width="300dp"
+                android:layout_height="30dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:paddingLeft="15dp"
+                android:paddingTop="5dp"
+                android:text="\u003c Nuovo buono: categoria"
+                android:textColor="@android:color/white"
+                android:textSize="20sp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_toStartOf="@+id/btnUserProfileNewOrder"
+                android:orientation="vertical"
+                android:paddingRight="20dp"
+                android:paddingTop="10dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Credito"
+                    android:textColor="@android:color/white" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="174,00€"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <ImageButton
+                android:id="@+id/btnUserProfileNewOrder"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:src="@drawable/login_button_icon" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/layoutTopNewOrder"
+            android:orientation="vertical"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="15dp"
+                android:text="Scegli la categoria"
+                android:textColor="@color/colorAccent"
+                android:textStyle="italic" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:paddingTop="35dp">
+
+                <ImageView
+                    android:id="@+id/imgNewOrder0"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_centerVertical="true"
+                    android:src="@mipmap/ic_cinema"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Cinema"
+                    android:paddingLeft="10dp"
+                    android:textColor="@android:color/holo_blue_dark"
+                    android:layout_toRightOf="@id/imgNewOrder0"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginEnd="37dp"
+                    android:text=">"
+                    android:textColor="@android:color/holo_blue_dark"
+                    android:textSize="20sp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:paddingTop="35dp">
+
+                <ImageView
+                    android:id="@+id/imgNewOrder1"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_centerVertical="true"
+                    android:src="@mipmap/ic_music"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Concerti"
+                    android:paddingLeft="10dp"
+                    android:textColor="@android:color/holo_blue_dark"
+                    android:layout_toRightOf="@id/imgNewOrder1"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginEnd="37dp"
+                    android:text=">"
+                    android:textColor="@android:color/holo_blue_dark"
+                    android:textSize="20sp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:paddingTop="35dp">
+
+                <ImageView
+                    android:id="@+id/imgNewOrder2"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_centerVertical="true"
+                    android:src="@mipmap/ic_events"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Eventi culturali"
+                    android:paddingLeft="10dp"
+                    android:textColor="@android:color/holo_blue_dark"
+                    android:layout_toRightOf="@id/imgNewOrder2"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginEnd="37dp"
+                    android:text=">"
+                    android:textColor="@android:color/holo_blue_dark"
+                    android:textSize="20sp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:paddingTop="35dp">
+
+                <ImageView
+                    android:id="@+id/imgNewOrder3"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_centerVertical="true"
+                    android:src="@mipmap/ic_books"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Libri"
+                    android:paddingLeft="10dp"
+                    android:textColor="@android:color/holo_blue_dark"
+                    android:layout_toRightOf="@id/imgNewOrder3"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginEnd="37dp"
+                    android:text=">"
+                    android:textColor="@android:color/holo_blue_dark"
+                    android:textSize="20sp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:paddingTop="25dp">
+
+                <ImageView
+                    android:id="@+id/imgNewOrder4"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:paddingTop="10dp"
+                    android:layout_centerVertical="true"
+                    android:src="@mipmap/ic_cinema" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:maxWidth="300dp"
+                    android:paddingLeft="10dp"
+                    android:text="Musei, monumenti, parchi naturali"
+                    android:textColor="@android:color/holo_blue_dark"
+                    android:textSize="20sp"
+                    android:layout_toEndOf="@+id/imgNewOrder4" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:paddingTop="10dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginEnd="37dp"
+                    android:text=">"
+                    android:textColor="@android:color/holo_blue_dark"
+                    android:textSize="20sp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:paddingTop="35dp">
+
+                <ImageView
+                    android:id="@+id/imgNewOrder5"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:src="@mipmap/ic_theatre"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentStart="true" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Teatro e danza"
+                    android:paddingLeft="10dp"
+                    android:textColor="@android:color/holo_blue_dark"
+                    android:textSize="20sp"
+                    android:id="@+id/textView3"
+                    android:layout_alignParentTop="true"
+                    android:layout_toEndOf="@+id/imgNewOrder5" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="36dp"
+                    android:text=">"
+                    android:textColor="@android:color/holo_blue_dark"
+                    android:textSize="20sp"
+                    android:layout_alignBaseline="@+id/textView3"
+                    android:layout_alignBottom="@+id/textView3"
+                    android:layout_alignParentEnd="true" />
+            </RelativeLayout>
+
+        </LinearLayout>
+        <android.support.design.widget.BottomNavigationView
+            android:id="@+id/bottom_navigation"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_alignParentBottom="true"
+            android:background="#005DBE"
+            app:itemIconTint="@android:color/white"
+            app:itemTextColor="@android:color/white"
+            app:menu="@menu/bottom_navigation" />
+
+    </RelativeLayout>
 </RelativeLayout>
