@@ -21,7 +21,7 @@ class ViewLogin: UIViewController {
         names = ["concerti", "libri", "cinema"]
         images = ["bg-concerti.png","bg-libri.png","bg-cinema.png"]
         imgViewBg.image = UIImage.init(named: "bg-concerti.png")
-        timer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(onTransition), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(onTransition), userInfo: nil, repeats: true)
     }
     
     override func didReceiveMemoryWarning() {
@@ -37,8 +37,11 @@ class ViewLogin: UIViewController {
             photoCount = 0;
         }
         
-        UIView.transition(with: self.imgViewBg, duration: 5.0, options: .transitionCrossDissolve, animations: {
+        UIView.transition(with: self.labelBg, duration: 2.0, options: .transitionCrossDissolve, animations: {
             self.labelBg.text = self.names[self.photoCount]
+        }, completion: nil)
+        
+        UIView.transition(with: self.imgViewBg, duration: 2.0, options: .transitionCrossDissolve, animations: {
             self.imgViewBg.image = UIImage.init(named: self.images[self.photoCount])
         }, completion: nil)
     }
