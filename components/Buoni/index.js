@@ -28,12 +28,12 @@ class Buoni extends PureComponent {
         const { selectedCategory,
             selectedProductType,
             couponValue,
-            nuovoComplete } = this.props.app;
+            nuovoComplete, selectedCoupon } = this.props.app;
 
         if (selectedCategory ||
             selectedProductType ||
             couponValue ||
-            nuovoComplete) {
+            nuovoComplete || (typeof selectedCoupon === 'number')) {
                 this.props.resetTemporaryState()
         }
     }

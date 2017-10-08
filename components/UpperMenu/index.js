@@ -18,15 +18,24 @@ import { resetTemporaryState } from "../../actions/app";
 
 class UpperMenu extends PureComponent {
     render() {
-        const { resetTemporaryState } = this.props;
+        const { resetTemporaryState, app } = this.props;
+        const { selectedCategory,
+            selectedProductType,
+            couponValue,
+            nuovoComplete, selectedCoupon } = app;
+
         const IconArrow = (
             <Icon name="keyboard-arrow-left" style={styles.iconArrowBack} size={30} color={'#fff'} />
         );
+
         return (
             <View style={styles.nav}>
-                <TouchableWithoutFeedback onPress={() => resetTemporaryState()}>
-                    {IconArrow}
-                </TouchableWithoutFeedback>
+                {selectedCategory || selectedProductType ||
+                    couponValue || nuovoComplete || (typeof selectedCoupon === 'number') ?
+                    <TouchableWithoutFeedback onPress={() => resetTemporaryState()}>
+                        {IconArrow}
+                    </TouchableWithoutFeedback>
+                    : null}
             </View>);
     }
 };
