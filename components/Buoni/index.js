@@ -55,7 +55,7 @@ class Buoni extends PureComponent {
 
     render() {
         const { app } = this.props;
-        if (typeof app.selectedCoupon === 'number') {
+        if (typeof app.selectedCoupon === 'number' || app.nuovoComplete === true) {
             return (
                 <CouponDetails couponId={app.selectedCoupon}/>
             )

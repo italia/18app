@@ -23,7 +23,20 @@ const app = (state = initialState, action) => {
             }
             return {
                 ...state,
+                coupons: [
+                    ...state.coupons,
+                    {
+                        selectedCategory: state.selectedCategory,
+                        selectedProductType: state.selectedProductType,
+                        couponValue: action.payload,
+                    },
+                ],
                 couponValue: action.payload,
+                temporaryNewCoupon: {
+                    selectedCategory: state.selectedCategory,
+                    selectedProductType: state.selectedProductType,
+                    couponValue: action.payload,
+                },
                 nuovoComplete: true
             }
         case SELECT_COUPON:

@@ -51,7 +51,14 @@ const initialState = {
             spent: true
         },
     ],
-    selectedCoupon: 'Select a coupon'
+    selectedCoupon: 'Select a coupon',
+    temporaryNewCoupon: {
+        icon: '',
+        selectedCategory: '',
+        selectedProductType: '',
+        couponValue: 0,
+        spent: false
+    }
 }
 
 export default initialState;
