@@ -33,7 +33,6 @@
                 android:value="com.djekic.davor.a18appandroid.MainActivity" />
         </activity>
         <activity android:name=".MainActivity" />
-        <activity android:name=".Mapsactivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -50,7 +49,10 @@
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps" />
         <activity android:name=".BuoniActivity"></activity>
-        <activity android:name=".PreLoginActivity"></activity>
+
+        <activity android:name=".InfoActivity" />
+
+
     </application>
 
 </manifest>
