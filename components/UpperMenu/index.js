@@ -8,30 +8,28 @@ import { Link } from 'react-router-native';
 import {
     Text,
     View,
-    AppRegistry,
+    AppRegistry, StyleSheet,
+    TouchableWithoutFeedback
 } from 'react-native';
 
 import styles from './style';
 
 import { resetTemporaryState } from "../../actions/app";
 
-
-import BottomNavigation, { Tab } from 'react-native-material-bottom-navigation'
-
 class UpperMenu extends PureComponent {
     render() {
+        const { resetTemporaryState } = this.props;
         const IconArrow = (
-            <Icon name="keyboard-arrow-left" size={30} color={'#fff'} />
+            <Icon name="keyboard-arrow-left" style={styles.iconArrowBack} size={30} color={'#fff'} />
         );
         return (
             <View style={styles.nav}>
-                {IconArrow}
+                <TouchableWithoutFeedback onPress={() => resetTemporaryState()}>
+                    {IconArrow}
+                </TouchableWithoutFeedback>
             </View>);
     }
 };
-
-
-
 
 const mapStateToProps = (state) => {
     const { app } = state;
