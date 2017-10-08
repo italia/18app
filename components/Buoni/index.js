@@ -7,7 +7,7 @@ import generalStyles from '../../style/generalStyles';
 
 import colors from '../../style/colors';
 
-import { resetTemporaryState } from "../../actions/app";
+import { resetTemporaryState, changeCurrentRoute } from "../../actions/app";
 
 import All from "./All";
 import ToSpend from "./ToSpend";
@@ -125,7 +125,8 @@ const mapStateToProps = (state) => {
 
 function mapDispatchToProps(dispatch) {
     return bindActionCreators({
-        resetTemporaryState
+        resetTemporaryState,
+        changeCurrentRoute
     }, dispatch);
 }
 

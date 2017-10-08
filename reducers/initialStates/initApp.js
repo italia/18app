@@ -1,5 +1,5 @@
 const initialState = {
-    hello: 'world',
+    currentRoute: '/',
     selectedCategory: '',
     selectedProductType: '',
     couponValue: 0,

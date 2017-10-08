@@ -1,11 +1,16 @@
 import initialState from './initialStates/initApp';
 import { SELECT_CATEGORY, SELECT_PRODUCT_TYPE, INSERT_COUPON_VALUE } from '../actions/nuovo';
 import { SELECT_COUPON } from '../actions/buoni';
-import { RESET_TEMPORARY_STATE } from '../actions/app';
+import { RESET_TEMPORARY_STATE, CHANGE_CURRENT_ROUTE } from '../actions/app';
 
 
 const app = (state = initialState, action) => {
     switch (action.type) {
+        case CHANGE_CURRENT_ROUTE:
+            return {
+                ...state,
+                currentRoute: action.payload,
+            }
         case SELECT_CATEGORY:
             return {
                 ...state,

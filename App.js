@@ -22,18 +22,16 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import rootReducer from './reducers/rootReducer';
 
+import { changeCurrentRoute } from './actions/app';
+
 export const store = createStore(rootReducer);
 export const history = createMemoryHistory();
 
+history.listen((e) => {
+    store.dispatch(changeCurrentRoute(e.pathname));
+});
+
 export default class AppScreen extends React.Component {
-    state = {
-        anim: new Animated.Value(
-            this.props.isOpen ? 0 : 1
-        )
-    }
-    handleOnEnter() {
-        this.props.resetTemporaryState();
-    }
     render() {
         return (
             <Provider store={store}>
