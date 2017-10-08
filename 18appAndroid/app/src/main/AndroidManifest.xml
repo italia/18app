@@ -16,16 +16,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".PreLoginActivity"></activity>
-        <activity
-            android:name=".navigation"
-            android:label="@string/title_activity_navigation"
-            android:parentActivityName=".MainActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.djekic.davor.a18appandroid.MainActivity" />
-        </activity>
         <activity android:name=".MainActivity">
-
         </activity>
     </application>
 

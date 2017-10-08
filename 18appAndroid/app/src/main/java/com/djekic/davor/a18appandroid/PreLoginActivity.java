@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageSwitcher;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -39,6 +41,12 @@ public class PreLoginActivity extends AppCompatActivity {
                 return imageView;
             }
         });
+
+        //effettua animazione durante la transizione dell'immagine
+        Animation in = AnimationUtils.loadAnimation(this, android.R.anim.slide_in_left);
+        Animation out = AnimationUtils.loadAnimation(this, android.R.anim.slide_out_right);
+        img.setInAnimation(in);
+        img.setOutAnimation(out);
 
         //cambia immagine dell'imageSwitcher ogni 3 secondi
         img.postDelayed(new Runnable() {
