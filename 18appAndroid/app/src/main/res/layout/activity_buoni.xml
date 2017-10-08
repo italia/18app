@@ -7,11 +7,63 @@
     android:layout_height="match_parent"
     tools:context="com.djekic.davor.a18appandroid.BuoniActivity">
 
+    <RelativeLayout
+        android:id="@+id/layoutTopNewOrder"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="#005DBE">
+
+        <TextView
+            android:id="@+id/indietroNewOrder"
+            android:layout_width="300dp"
+            android:layout_height="30dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:paddingLeft="15dp"
+            android:paddingTop="5dp"
+            android:text="\u003c Nuovo buono: categoria"
+            android:textColor="@android:color/white"
+            android:textSize="20sp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_toStartOf="@+id/btnUserProfileNewOrder"
+            android:orientation="vertical"
+            android:paddingRight="20dp"
+            android:paddingTop="10dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Credito"
+                android:textColor="@android:color/white" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="174,00€"
+                android:textColor="@android:color/white"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/btnUserProfileNewOrder"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:src="@drawable/login_button_icon" />
+
+    </RelativeLayout>
+
    <RelativeLayout
        android:id="@+id/layout1Buoni"
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
-       android:layout_marginTop="50dp">
+       android:layout_marginTop="100dp">
 
        <ImageView
            android:id="@+id/imageView1"
