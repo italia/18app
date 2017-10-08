@@ -6,9 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-/**
- * Created by Dario Carraro on 08/10/2017.
- */
 
 public class Tab2  extends Fragment {
     @Override

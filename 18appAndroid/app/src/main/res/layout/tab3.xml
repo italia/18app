@@ -8,10 +8,33 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.djekic.davor.a18appandroid.Negozioactivity$PlaceholderFragment">
 
-    <TextView
-        android:id="@+id/section_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="tab3"/>
 
+    <EditText
+        android:id="@+id/edit1"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:background="@android:color/holo_blue_light"
+        android:hint="Tutte le categorie" />
+
+    <EditText
+        android:id="@+id/edit2"
+        android:layout_below="@+id/edit1"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:background="@android:color/holo_blue_light"
+        android:hint="Scegli il comune" />
+
+    <EditText
+        android:id="@+id/edit3"
+        android:layout_below="@id/edit2"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:background="@android:color/holo_blue_light"
+        android:hint="Cerca nel nome" />
 </RelativeLayout>
