@@ -1,5 +1,6 @@
 import initialState from './initialStates/initApp';
 import { SELECT_CATEGORY, SELECT_PRODUCT_TYPE, INSERT_COUPON_VALUE } from '../actions/nuovo';
+import { SELECT_COUPON } from '../actions/buoni';
 
 const app = (state = initialState, action) => {
     switch (action.type) {
@@ -24,6 +25,11 @@ const app = (state = initialState, action) => {
                 ...state,
                 couponValue: action.payload,
                 nuovoComplete: true
+            }
+        case SELECT_COUPON:
+            return {
+                ...state,
+                selectedCoupon: action.payload
             }
         default:
             return state

@@ -1,12 +1,9 @@
 const initialState = {
     hello: 'world',
-    // selectedCategory: '',
-    // selectedProductType: '',
-    // couponValue: 0,
-    selectedCategory: 'Cinema',
-    selectedProductType: 'Abbonamento/Card',
-    couponValue: 499,
-    nuovoComplete: true,
+    selectedCategory: '',
+    selectedProductType: '',
+    couponValue: 0,
+    nuovoComplete: false,
     new_categories: [
         {
             icon: '',
@@ -37,7 +34,24 @@ const initialState = {
             icon: '',
             label: 'Biglietto d\'ingresso',
         },
-    ]
+    ],
+    coupons: [
+        {
+            icon: '',
+            selectedCategory: 'Libri',
+            selectedProductType: 'Abbonamento/Card',
+            couponValue: 8.10,
+            spent: false
+        },
+        {
+            icon: '',
+            selectedCategory: 'Concerti',
+            selectedProductType: 'Biglietto d\'ingresso',
+            couponValue: 100,
+            spent: true
+        },
+    ],
+    selectedCoupon: 'Select a coupon'
 }
 
 export default initialState;
