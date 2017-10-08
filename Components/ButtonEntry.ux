@@ -1,8 +1,9 @@
-<Grid ux:Class="ButtonEntry" Columns="40, 1*, 40" Padding="10,10">
-	<Image Source="{Resource icon}" Width="25" Alignment="CenterLeft" Color="#018BDB"/>
+<Grid ux:Class="ButtonEntry" Columns=" 40, 1*, 10" Padding="0,20">
+	<Image File="{pathImg}" Width="20"  Height="20" Alignment="CenterLeft" />
 	<StackPanel>
-		<Text Value="{Resource name}" Alignment="CenterLeft" />
-		<Text Value="{Resource text}" Color="#777" FontSize="13" Alignment="CenterLeft"/>
+		<HomeBlueText Value="{name}" Alignment="CenterLeft" />
 	</StackPanel>
-	<GoForeward/>
+	<StackPanel>
+		<HomeBlueText Value=">" Alignment="CenterLeft" />
+	</StackPanel>
 </Grid>

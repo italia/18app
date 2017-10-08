@@ -7,11 +7,10 @@
 		<StackPanel Height="100%" Margin="35,25">
 			<HomeText>Benvenuto Mario, ti restano </HomeText>
 			<HomeBalanceText>174 € </HomeBalanceText>
-			<BalanceCircle></BalanceCircle>
+			<BalanceCircle  Clicked="{goToNew}"></BalanceCircle>
 			<NativeViewHost>
 			    <Button  Color="#0066CC" Height="40"  >
-			    	<ButtonHomeLogo> </ButtonHomeLogo>
-			    	<BaseText Color="White" Alignment="Center" Clicked="{goToNew}">
+			    	<BaseText Color="White" Alignment="Center">
 			    			SONO GIÀ IN NEGOZIO 
 			    	</BaseText>
 			    </Button>

@@ -3,6 +3,7 @@
 	<Font ux:Global="BaseFont" File="Assets/Titillium_Web/TitilliumWeb-Bold.ttf"></Font>
 	<Font ux:Global="BoldFont" File="Assets/Titillium_Web/TitilliumWeb-Black.ttf"></Font>
 	<Text ux:Class="BaseText" Font="BaseFont" FontSize="12" Color="#222"></Text>
+	<Text ux:Class="NavbarTitleText" Font="BaseFont" FontSize="15" Color="#FFF"></Text>
 	<Text ux:Class="SmallText" Font="BaseFont" FontSize="9" Color="#0066CC"></Text>
 	<Text ux:Class="HomeText" Font="BaseFont" FontSize="16" Color="#5A6772" Alignment="Center"></Text>
 	<Text ux:Class="HomeBalanceText" Font="BaseFont" FontSize="40" Color="#65DCDF" Alignment="Center"></Text>
@@ -58,6 +59,21 @@
 		</MultiDensityImageSource>
 	</BottomBarIcon>
 
-	<Rectangle ux:Class="DividerCategorie" Height="1" Color="#ddd"/>
+	<BottomBarIcon ux:Class="CinemaIcon">
+		<MultiDensityImageSource>
+			<FileImageSource File="Assets/images/icon-cinema-06c.png" Density="1" />
+			<FileImageSource File="Assets/images/icon-cinema-06c@2x.png" Density="2" />
+			<FileImageSource File="Assets/images/icon-cinema-06c@3x.png" Density="3" />
+		</MultiDensityImageSource>
+	</BottomBarIcon>
 
+	<Rectangle ux:Class="DividerCategorie" Height="1" Margin="-35,0" Color="#ddd"/>
+
+	<Image ux:Class="BackwardIcon" Width="10" Height="13">
+	<MultiDensityImageSource>
+		<FileImageSource File="Assets/images/back-button.png" Density="1" />
+		<FileImageSource File="Assets/images/back-button@2x.png" Density="2" />
+		<FileImageSource File="Assets/images/back-button@3x.png" Density="3" />
+	</MultiDensityImageSource>
+	</Image>
 </Panel>

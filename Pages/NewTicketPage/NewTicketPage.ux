@@ -2,21 +2,19 @@
 	<Router ux:Dependency="router" />
 	<JavaScript File="NewTicketPage.js" />
 	<Visual ux:Dependency="navBar" />
-
+	<NavBarTitle navBar="navBar"  Text="Nuovo buono: Categoria" />
 	<ScrollView>
-		<StackPanel>
-					<Rectangle Color="#FDFDFD" CornerRadius="8" Layer="Background"/>
-					<DividerCategorie />
-					<ButtonEntry>
-						<string ux:Key="name" ux:Value="Card"/>
-						<string ux:Key="text" ux:Value="Visa **** 4242"/>
-					</ButtonEntry>
-					<DividerCategorie />
-					<ButtonEntry>
-						<string ux:Key="name" ux:Value="Customer"/>
-						<string ux:Key="text" ux:Value="example@example.com"/>
-					</ButtonEntry>
-					<DividerCategorie />
+		<StackPanel  Height="100%" Margin="35,25">
+			<HomeText Alignment="Left">Scegli la categoria</HomeText>
+			<Rectangle Color="#FDFDFD" CornerRadius="8" Layer="Background"/>
+			<Each Items="{catgorie}">
+				<ButtonEntry>
+
+					<string ux:Value="{name}" ux:Key="name" />
+					<FileImageSource  ux:Key="pathImg" File="{pathImg}"/>
+				</ButtonEntry>
+				<DividerCategorie />
+			</Each>
 		</StackPanel>
 	</ScrollView>
 </BasePage>
