@@ -19,16 +19,16 @@
            android:layout_height="60dp"
            android:elevation="12dp"
            android:visibility="visible"
-           app:srcCompat="@drawable/ic_books" />
+           app:srcCompat="@drawable/ic_film" />
 
        <Button
            android:id="@+id/button1"
            android:layout_width="250dp"
            android:layout_height="50dp"
-           android:text="Button"
-           android:layout_toRightOf="@+id/imageView1"
+           android:layout_marginEnd="8dp"
            android:layout_marginStart="16dp"
-           android:layout_marginEnd="8dp" />
+           android:layout_toRightOf="@+id/imageView1"
+           android:text="Cinema" />
 
    </RelativeLayout>
 
@@ -45,16 +45,16 @@
             android:layout_height="60dp"
             android:elevation="12dp"
             android:visibility="visible"
-            app:srcCompat="@drawable/ic_books" />
+            app:srcCompat="@drawable/ic_music" />
 
         <Button
             android:id="@+id/button2"
             android:layout_width="250dp"
             android:layout_height="50dp"
-            android:text="Button"
-            android:layout_toRightOf="@+id/imageView2"
+            android:layout_marginEnd="8dp"
             android:layout_marginStart="16dp"
-            android:layout_marginEnd="8dp" />
+            android:layout_toRightOf="@+id/imageView2"
+            android:text="Concerti" />
 
     </RelativeLayout>
 
@@ -71,16 +71,16 @@
             android:layout_height="60dp"
             android:elevation="12dp"
             android:visibility="visible"
-            app:srcCompat="@drawable/ic_books" />
+            app:srcCompat="@drawable/theatre_mask1600" />
 
         <Button
             android:id="@+id/button3"
             android:layout_width="250dp"
             android:layout_height="50dp"
-            android:text="Button"
-            android:layout_toRightOf="@+id/imageView3"
+            android:layout_marginEnd="8dp"
             android:layout_marginStart="16dp"
-            android:layout_marginEnd="8dp" />
+            android:layout_toRightOf="@+id/imageView3"
+            android:text="Teatro e danza" />
 
     </RelativeLayout>
 
@@ -88,13 +88,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/layout4Buoni"
+        android:layout_marginTop="15dp"
         android:layout_below="@+id/layout3Buoni"
-        android:layout_marginTop="15dp">
+        android:layout_alignParentStart="true">
 
         <ImageView
             android:id="@+id/imageView4"
             android:layout_width="70dp"
             android:layout_height="60dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
             android:elevation="12dp"
             android:visibility="visible"
             app:srcCompat="@drawable/ic_books" />
@@ -103,10 +106,10 @@
             android:id="@+id/button4"
             android:layout_width="250dp"
             android:layout_height="50dp"
-            android:text="Button"
-            android:layout_toRightOf="@+id/imageView4"
+            android:layout_marginEnd="8dp"
             android:layout_marginStart="16dp"
-            android:layout_marginEnd="8dp" />
+            android:layout_toRightOf="@+id/imageView4"
+            android:text="Libri" />
 
     </RelativeLayout>
 
@@ -116,23 +119,6 @@
         android:id="@+id/layout5Buoni"
         android:layout_below="@+id/layout4Buoni"
         android:layout_marginTop="15dp">
-
-        <ImageView
-            android:id="@+id/imageView5"
-            android:layout_width="70dp"
-            android:layout_height="60dp"
-            android:elevation="12dp"
-            android:visibility="visible"
-            app:srcCompat="@drawable/ic_books" />
-
-        <Button
-            android:id="@+id/button5"
-            android:layout_width="250dp"
-            android:layout_height="50dp"
-            android:text="Button"
-            android:layout_toRightOf="@+id/imageView5"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="8dp" />
 
     </RelativeLayout>
 

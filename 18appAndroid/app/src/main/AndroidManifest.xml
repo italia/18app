@@ -48,11 +48,18 @@
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps" />
-        <activity android:name=".BuoniActivity"></activity>
+        <activity android:name=".BuoniActivity" />
         <activity android:name=".InfoActivity" />
         <activity android:name=".NewOrderActivity" />
-
-
+        <activity android:name=".Negozi" />
+        <activity
+            android:name=".Negoziactivity"
+            android:label="@string/title_activity_negoziactivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".Negozioactivity"
+            android:label="@string/title_activity_negozioactivity"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>
