@@ -55,3 +55,8 @@ Attempts have been made to use a unic source of style with a generalized object 
 They are all in the `assets` folder.
 Inside there is already the `icons` folder.
 
+# TODO
+
+* Page Negozi
+* The login and sections for the user
+* The introduction part of the app
