@@ -64,10 +64,7 @@ const initialState = {
             q: 'Contatti e Assistenza',
             a: 'E\' una iniziativa a cura del Ministero dei Beni e delle Attività Culturali e del Turismo e della Presidenza del Consiglio dei Ministri dedicato a promuovere la cultura.Il programma, destinato a chi compie 18 anni nel 2016, permette loro di ottenere 500€ da spendere in cinema, concerti, eventi culturali, libri, musei, monumenti e parchi, teatro e danza. I ragazzi hanno tempo fino al 31 gennaio 2017 per registrarsi al Bonus Cultura e fino al 31 dicembre 2017 per spendere il bonus.'
         }],
-        '18app e il Bonus Cultura': [{
-            q: 'Che cos’è 18app?',
-            a: 'E\' una iniziativa a cura del Ministero dei Beni e delle Attività Culturali e del Turismo e della Presidenza del Consiglio dei Ministri dedicato a promuovere la cultura.Il programma, destinato a chi compie 18 anni nel 2016, permette loro di ottenere 500€ da spendere in cinema, concerti, eventi culturali, libri, musei, monumenti e parchi, teatro e danza. I ragazzi hanno tempo fino al 31 gennaio 2017 per registrarsi al Bonus Cultura e fino al 31 dicembre 2017 per spendere il bonus.'
-        },
+        '18app e il Bonus Cultura': [
         {
             q: 'Che cos’è 18app?',
             a: 'E\' una iniziativa a cura del Ministero dei Beni e delle Attività Culturali e del Turismo e della Presidenza del Consiglio dei Ministri dedicato a promuovere la cultura.Il programma, destinato a chi compie 18 anni nel 2016, permette loro di ottenere 500€ da spendere in cinema, concerti, eventi culturali, libri, musei, monumenti e parchi, teatro e danza. I ragazzi hanno tempo fino al 31 gennaio 2017 per registrarsi al Bonus Cultura e fino al 31 dicembre 2017 per spendere il bonus.'
