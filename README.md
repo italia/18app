@@ -60,3 +60,4 @@ Inside there is already the `icons` folder.
 * Page Negozi
 * The login and sections for the user
 * The introduction part of the app
+* Use real assets in lists and menu. They are easy to add.
