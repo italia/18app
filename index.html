@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Prova</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link href="css/bootstrap.css" rel="stylesheet">
+		<link href="css/style.css" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	</head>
+	<body>
+		<!--BARRA DI NAVIGAZIONE-->
+		<nav class="navbar navbar-inverse navbar-fixed-top">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-nav-demo" aria-expanded="false">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#">
+						<i class="fa fa-user-circle"></i>
+						<span>18app</span>
+					</a>
+				</div>
+				<div class="collapse navbar-collapse" id="bs-nav-demo">
+					<ul class="nav navbar-nav">
+						<li><a href="notloggedabout.html">About</a></li>
+						<li><a href="#">Exit</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+		<div class="container">
+      <!--Elemento principale-->
+			<div class="jumbotron list-group" style="background-color:#004d99">
+				<center><h2>Hai 18 anni?</h2>
+				<p>Per te</p>
+				<h2>500€</h2>
+				<p>Da spendere in</p></center>
+
+			<h2><div id="text-carousel" class="carousel slide" data-ride="carousel">
+			    <!-- Wrapper for slides -->
+			    <div class="row">
+			        <div class="col-xs-offset-3 col-xs-6">
+			            <div class="carousel-inner">
+			                <div class="item active">
+			                    <div class="carousel-content">
+			                          <em>Concerti</em>
+			                    </div>
+			                </div>
+			                <div class="item">
+			                    <div class="carousel-content">
+			                            <em>Libri</em>
+			                    </div>
+			                </div>
+			                <div class="item">
+			                    <div class="carousel-content">
+			                            <em>Cinema</em>
+			                    </div>
+			                </div>
+			            </div>
+			        </div>
+			    </div>
+			</div></h2>
+			</div>
+      	<!--SOTTOMENU-->
+		  <div class="btn-group btn-group-2 btn-group-justified" role="group" aria-label="...">
+			  <a href="notloggedinfo.html" class="btn btn-link active"><p>INFORMAZIONI</p></a>
+			  <a href="#" class="btn btn-link"><p>NON HAI SPID?</p></a>
+		  </div>
+		</div>
+
+		<!--BARRA DI NAVIGAZIONE INFERIORE-->
+		<div class="btn-group btn-group-justified navbar-inverse navbar-fixed-bottom" role="group" aria-label="...">
+			<a href="profilo.html" class="btn btn-link"><i class="fa fa-user-circle"></i></i><p>Entra con SPID</p></a>
+
+		</div>
+
+		<script src="js/jquery-3.2.1.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/custom.js"></script>
+	</body>
+</html>
