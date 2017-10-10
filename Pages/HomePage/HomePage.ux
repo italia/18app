@@ -3,14 +3,18 @@
 	<JavaScript File="HomePage.js" />
 	<Visual ux:Dependency="navBar" />
 
-	<ScrollView>
-		<StackPanel Height="100%" Margin="35,25">
+		<StackPanel Margin="35,25">
 			<HomeText>Benvenuto Mario, ti restano </HomeText>
 			<HomeBalanceText>174 €</HomeBalanceText>
-			<BalanceCircle  Clicked="{goToNew}"></BalanceCircle>
-				
 		</StackPanel>
-	</ScrollView>
+	
+		<Grid RowCount="1">
+			<StackPanel Alignment="VerticalCenter">
+				<BalanceCircle  Alignment="HorizontalCenter" Clicked="{goToNew}"></BalanceCircle>
+			</StackPanel>
+		</Grid>
+				
+
 	<Panel Height="50"  Alignment="Bottom" Margin="35" >
 				<Rectangle Layer="Background" CornerRadius="3" Color="#0066CC" />
 				<BaseText Value="SONO GIÀ IN NEGOZIO" Alignment="Center" Color="White" FontSize="15" />
