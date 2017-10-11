@@ -7,9 +7,8 @@
 		<StackPanel  Height="100%" Margin="35,25">
 			<HomeText Alignment="Left">Scegli la categoria</HomeText>
 			<Rectangle Color="#FDFDFD" CornerRadius="8" Layer="Background"/>
-			<Each Items="{catgorie}">
+			<Each Items="{categorie}">
 				<ButtonEntry>
-
 					<string ux:Value="{name}" ux:Key="name" />
 					<FileImageSource  ux:Key="pathImg" File="{pathImg}"/>
 				</ButtonEntry>
