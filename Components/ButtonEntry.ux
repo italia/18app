@@ -1,9 +1,8 @@
-<Grid ux:Class="ButtonEntry" Columns=" 40, 1*, 10" Padding="0,20">
-	<Image File="{pathImg}" Width="20"  Height="20" Alignment="CenterLeft" />
-	<StackPanel>
-		<HomeBlueText Value="{name}" Alignment="CenterLeft" />
-	</StackPanel>
-	<StackPanel>
-		<HomeBlueText Value=">" Alignment="CenterLeft" />
-	</StackPanel>
+<Grid ux:Class="ButtonEntry" Columns="40, 1*, 10" Padding="0,20">
+	<string ux:Property="Value"/>
+	<FileSource ux:Property="PathIcon" />
+
+	<Image File="{ReadProperty PathIcon}" Width="20"  Height="20" Alignment="CenterLeft" />
+	<HomeBlueText Value="{ReadProperty Value}" Alignment="CenterLeft" />
+	<HomeBlueText Value=">" Alignment="CenterLeft" />
 </Grid>

@@ -1,9 +1,8 @@
 var Observable = require("FuseJS/Observable");
 
-function Categoria(name, pathImg) {
+function Categoria(name, pathIcon) {
 	this.name = name;
-	this.pathImg = pathImg;
-	
+	this.pathIcon = pathIcon;
 }
 
 var categorie = Observable(
@@ -14,9 +13,6 @@ var categorie = Observable(
 	new Categoria("Musei","Assets/images/icon-musei-06c.png"),
 	new Categoria("Teatro e Danza","Assets/images/icon-teatro-06c.png")
 );
-
-
-
 
 module.exports = {
 	categorie: categorie

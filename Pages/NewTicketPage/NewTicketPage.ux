@@ -8,10 +8,7 @@
 			<HomeText Alignment="Left">Scegli la categoria</HomeText>
 			<Rectangle Color="#FDFDFD" CornerRadius="8" Layer="Background"/>
 			<Each Items="{categorie}">
-				<ButtonEntry>
-					<string ux:Value="{name}" ux:Key="name" />
-					<FileImageSource  ux:Key="pathImg" File="{pathImg}"/>
-				</ButtonEntry>
+				<ButtonEntry PathIcon="{pathIcon}" Value="{name}"/>
 				<DividerCategorie />
 			</Each>
 		</StackPanel>
