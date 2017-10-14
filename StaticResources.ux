@@ -1,28 +1,41 @@
 <Panel ux:Class="StaticResources">
 	
+
+	<!-- COLORS -->
+	<float4 ux:Global="color.Gray" ux:Value="#a9b1b8"/>
+	<float4 ux:Global="color.Blue" ux:Value="#0066CC"/>
+	<float4 ux:Global="color.Black" ux:Value="#000000"/>
+	<float4  ux:Global="color.GrayLight" ux:Value="#f5f5f5"/>
+	<!-- FONTS-->
+	<Font ux:Global="RegularFont" File="Assets/Titillium_Web/TitilliumWeb-Regular.ttf"></Font>
 	<Font ux:Global="BaseFont" File="Assets/Titillium_Web/TitilliumWeb-Bold.ttf"></Font>
 	<Font ux:Global="BoldFont" File="Assets/Titillium_Web/TitilliumWeb-Black.ttf"></Font>
+
+	<!-- ELEMENTS -->
 	<Text ux:Class="BaseText" Font="BaseFont" FontSize="12" Color="#222"></Text>
 	<Text ux:Class="NavbarTitleText" Font="BaseFont" FontSize="15" Color="#FFF"></Text>
+	<Text ux:Class="H2" Font="BaseFont" FontSize="30" Color="color.Blue"></Text>
+	<Text ux:Class="H3" Font="RegularFont" FontSize="15" Color="color.Gray"></Text>
 	<Text ux:Class="SmallText" Font="BaseFont" FontSize="9" Color="#0066CC"></Text>
 	<Text ux:Class="HomeText" Font="BaseFont" FontSize="16" Color="#5A6772" Alignment="Center"></Text>
 	<Text ux:Class="HomeBalanceText" Font="BaseFont" FontSize="40" Color="#65DCDF" Alignment="Center"></Text>
-	<Text ux:Class="HomeBlueText" Font="BaseFont" FontSize="16" Color="#0066CC" Alignment="Center"></Text>
+	<Text ux:Class="P" Font="RegularFont" FontSize="16" Color="color.Blue" Alignment="Center"></Text>
 	<BaseText ux:Class="BoldText" Font="BoldFont"></BaseText>
 
+	<!-- ICONS -->
 	<Image ux:Class="NavBarLogo" Alignment="Center" Width="24" Height="24" >
-				<MultiDensityImageSource>
-					<FileImageSource Density="1" File="Assets/images/spid-ico-circle-bb.png"></FileImageSource>
-					<FileImageSource Density="2" File="Assets/images/spid-ico-circle-bb@2x.png"></FileImageSource>
-					<FileImageSource Density="3" File="Assets/images/spid-ico-circle-bb@3x.png"></FileImageSource>
-				</MultiDensityImageSource>
+		<MultiDensityImageSource>
+			<FileImageSource Density="1" File="Assets/images/spid-ico-circle-bb.png"></FileImageSource>
+			<FileImageSource Density="2" File="Assets/images/spid-ico-circle-bb@2x.png"></FileImageSource>
+			<FileImageSource Density="3" File="Assets/images/spid-ico-circle-bb@3x.png"></FileImageSource>
+		</MultiDensityImageSource>
 	</Image>
 	<Image ux:Class="GoForeward" Width="24" Height="24" >
-				<MultiDensityImageSource>
-					<FileImageSource Density="1" File="Assets/images/back-button.png"></FileImageSource>
-					<FileImageSource Density="2" File="Assets/images/back-button@2x.png"></FileImageSource>
-					<FileImageSource Density="3" File="Assets/images/back-button@3x.png"></FileImageSource>
-				</MultiDensityImageSource>
+		<MultiDensityImageSource>
+			<FileImageSource Density="1" File="Assets/images/back-button.png"></FileImageSource>
+			<FileImageSource Density="2" File="Assets/images/back-button@2x.png"></FileImageSource>
+			<FileImageSource Density="3" File="Assets/images/back-button@3x.png"></FileImageSource>
+		</MultiDensityImageSource>
 	</Image>
 
 	<Image ux:Class="BottomBarIcon"  Height="40"/>
@@ -67,13 +80,13 @@
 		</MultiDensityImageSource>
 	</BottomBarIcon>
 
-	<Rectangle ux:Class="DividerCategorie" Height="1" Margin="-35,0" Color="#ddd"/>
+	<Rectangle ux:Class="Separator" Height="1" Margin="-35,0" Color="#ddd"/>
 
 	<Image ux:Class="BackwardIcon" Width="10" Height="13">
-	<MultiDensityImageSource>
-		<FileImageSource File="Assets/images/back-button.png" Density="1" />
-		<FileImageSource File="Assets/images/back-button@2x.png" Density="2" />
-		<FileImageSource File="Assets/images/back-button@3x.png" Density="3" />
-	</MultiDensityImageSource>
+		<MultiDensityImageSource>
+			<FileImageSource File="Assets/images/back-button.png" Density="1" />
+			<FileImageSource File="Assets/images/back-button@2x.png" Density="2" />
+			<FileImageSource File="Assets/images/back-button@3x.png" Density="3" />
+		</MultiDensityImageSource>
 	</Image>
 </Panel>

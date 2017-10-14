@@ -14,9 +14,5 @@
 			</StackPanel>
 		</Grid>
 				
-
-	<Panel Height="50"  Alignment="Bottom" Margin="35" >
-				<Rectangle Layer="Background" CornerRadius="3" Color="#0066CC" />
-				<BaseText Value="SONO GIÀ IN NEGOZIO" Alignment="Center" Color="White" FontSize="15" />
-	</Panel>	
+	<app18.Button Value="SONO GIÀ IN NEGOZIO" Margin="35"/>
 </BasePage>

@@ -1,24 +1,24 @@
 <App>
 
-<iOS.StatusBarConfig Style="Light" IsVisible="True"/>
-<Android.StatusBarConfig Color="#0066CC"  IsVisible="True" />
-<JavaScript File="./MainFunction.js" />
-<Router ux:Name="router"></Router>
+	<iOS.StatusBarConfig Style="Light" IsVisible="True"/>
+	<Android.StatusBarConfig Color="#0066CC"  IsVisible="True" />
+	<JavaScript File="./MainFunction.js" />
+	<Router ux:Name="router"></Router>
 
-<DockPanel Background="#0066CC">
-	<StatusBarBackground Dock="Top" />
-	<NavBar ux:Name="navBar" Dock="Top"></NavBar>
+	<DockPanel Background="#0066CC">
+		<StatusBarBackground Dock="Top" />
+		<NavBar ux:Name="navBar" Dock="Top"></NavBar>
 
-	<Navigator DefaultPath="home">
-		<HomePage ux:Name="home" router="router" navBar="navBar"  Background="#fff" ></HomePage>
-		<NewTicketPage ux:Name="newTicket" router="router" navBar="navBar"  Background="#fff" ></NewTicketPage>
-		<MyTicketPage ux:Name="myTicket" router="router" navBar="navBar"  Background="#fff" ></MyTicketPage>
-	</Navigator>
-	
-	<BottomBar Dock="Bottom"/>
-	<BottomBarBackground Dock="Bottom" />
-</DockPanel>
+		<Navigator DefaultPath="home">
+			<HomePage ux:Name="home" router="router" navBar="navBar"  Background="#fff" />
+			<NewTicketStep1Page ux:Name="newTicketStep1" router="router" navBar="navBar" Background="#fff" />
+			<NewTicketStep2Page ux:Name="newTicketStep2" router="router" navBar="navBar" Background="#fff" />
+			<NewTicketStep3Page ux:Name="newTicketStep3" router="router" navBar="navBar" Background="#fff" />
+			<MyTicketPage ux:Name="myTicket" router="router" navBar="navBar"  Background="#fff"/>
+		</Navigator>
 
-
+		<BottomBar Dock="Bottom"/>
+		<BottomBarBackground Dock="Bottom" />
+	</DockPanel>
 
 </App>

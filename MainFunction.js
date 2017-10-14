@@ -2,7 +2,7 @@ var Observable = require("FuseJS/Observable");
 
 module.exports = {
 	goToNew: function() {
-		router.push("newTicket");
+		router.push("newTicketStep1");
 	},
 	goToMyTicket: function() {
 		router.push("myTicket");

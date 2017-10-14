@@ -1,0 +1,10 @@
+<Panel ux:Class="TextInputPrice" >
+	<string ux:Property="PlaceholderText"/>
+	<StackPanel Orientation="Horizontal" ItemSpacing="6">
+		<TextInput Font="BaseFont" PlaceholderText="{ReadProperty PlaceholderText}" FontSize="30" PlaceholderColor="color.GrayLight" InputHint="Decimal" >
+			<Rectangle Height="3" Width="100%" Color="color.Blue" Alignment="Bottom"/>
+		</TextInput>
+		<H2 Margin="0,2,0,0">€</H2>
+	</StackPanel>
+	
+</Panel>

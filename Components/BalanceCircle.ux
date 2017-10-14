@@ -19,5 +19,5 @@
 			<Change CurrentBalance.EndAngleDegrees="180" Duration="1.5" Easing="BounceIn"/>
 		</AddingAnimation>
 	</Panel>
-	<HomeBlueText>NUOVO BUONO</HomeBlueText>
+	<P>NUOVO BUONO</P>
 </StackPanel>

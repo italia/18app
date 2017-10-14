@@ -1,0 +1,5 @@
+<Panel ux:Class="app18.Button" Height="50" Alignment="Bottom">
+	<string ux:Property="Value"/>
+	<Rectangle Layer="Background" CornerRadius="3" Color="#0066CC" />
+	<BaseText Value="{ReadProperty Value}" Alignment="Center" Color="White" FontSize="15" />
+</Panel>
