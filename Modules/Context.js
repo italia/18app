@@ -33,5 +33,6 @@ var getMacrocategories= function(){
 };
 
 module.exports={
-	getMicroCategories:getMicroCategories
+	getMicroCategories:getMicroCategories,
+	getMacrocategories:getMacrocategories
 };

@@ -1,16 +1,12 @@
 var Observable = require("FuseJS/Observable");
 
-var Backend = require("Modules/Backend");
+var Context = require("Modules/Context");
 
 var Option = require("Entities/Option");
 
 var options = Observable();
 
-Backend.getMacrocategories().then(function(list) {
-	var items = [];
-	list.forEach(function(macro) {
-		items.push(new Option(macro.id, macro.name, macro.icon));
-	});
+Context.getMacrocategories().then(function(items) {
 	options.replaceAll(items);
 }).catch(function(e) {
 	console.log(error.message);
