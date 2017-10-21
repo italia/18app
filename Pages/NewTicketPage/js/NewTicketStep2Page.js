@@ -1,12 +1,12 @@
 var Observable = require("FuseJS/Observable");
-var Option = require("Entities/Option");
+var ItemList = require("Entities/ItemList");
 var Context = require("Modules/Context");
 
-var options = Observable();
+var items = Observable();
 
 var macrocategory = this.Parameter.flatMap(function(param) {
-	Context.getMicroCategories(param.macrocategory.id).then(function(items) {
-		options.replaceAll(items);
+	Context.getMicroCategories(param.macrocategory.id).then(function(microcategories) {
+		items.replaceAll(microcategories);
 	}).catch(function(e) {
 		console.log("errore",error.message);
 	});
@@ -14,7 +14,7 @@ var macrocategory = this.Parameter.flatMap(function(param) {
 });
 
 
-var optionClicked = function(args) {
+var onTapItemList = function(args) {
 	var selected=[];
 	selected.push(macrocategory.value);
 	selected.push(args.data);
@@ -25,7 +25,7 @@ var optionClicked = function(args) {
 };
 
 module.exports = {
-	options: options,
-	optionClicked: optionClicked,
+	items: items,
+	onTapItemList: onTapItemList,
 	selected: macrocategory
 };

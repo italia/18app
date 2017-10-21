@@ -1,8 +1,8 @@
 var Observable = require("FuseJS/Observable");
-var Option = require("Entities/Option");
+var ItemList = require("Entities/ItemList");
 var Context = require("Modules/Context");
 
-var options = Observable();
+var items = Observable();
 
 var selected = this.Parameter.flatMap(function(param) {
 	return param.selected;
@@ -11,8 +11,13 @@ var selected = this.Parameter.flatMap(function(param) {
 var optionClicked = function(args) {
 
 };
+
+var onTapCreateTicket = function(){
+
+};
+
 module.exports = {
-	options: options,
-	optionClicked: optionClicked,
+	items: items,
+	onTapCreateTicket: onTapCreateTicket,
 	selected: selected
 };

@@ -3,5 +3,5 @@
 	<JavaScript File="js/NewTicketStep2Page.js" />
 	<Visual ux:Dependency="navBar" />
 	<NavBarTitle navBar="navBar"  Text="Nuovo buono: prodotto" />
-	<List Options="{options}" Selected="{selected}" Title="Scegli la categoria"/>
+	<List Items="{items}" Selected="{selected}" Title="Scegli la categoria"/>
 </BasePage>

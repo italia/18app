@@ -1,5 +1,5 @@
 <ScrollView ux:Class="List">
-	<object ux:Property="Options"/>
+	<object ux:Property="Items"/>
 	<object ux:Property="Selected"/>
 	<string ux:Property="Title"/>
 
@@ -16,11 +16,11 @@
 		<WhileString Value="{ReadProperty Title}" Test="IsNotEmpty">
 			<H3 Alignment="Left" Margin="0,25,0,0">{ReadProperty Title}</H3>
 		</WhileString>
-		<Each Items="{ReadProperty Options}">
+		<Each Items="{ReadProperty Items}">
 			<NodeGroup>
 				<ButtonEntry PathIcon="{pathIcon}" Value="{name}">
 					<Clicked>
-						<Callback Handler="{optionClicked}"/>
+						<Callback Handler="{onTapItemList}"/>
 					</Clicked>
 				</ButtonEntry>
 				<Separator />

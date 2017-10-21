@@ -2,22 +2,22 @@ var Observable = require("FuseJS/Observable");
 
 var Context = require("Modules/Context");
 
-var Option = require("Entities/Option");
+var ItemList = require("Entities/ItemList");
 
-var options = Observable();
+var items = Observable();
 
-Context.getMacrocategories().then(function(items) {
-	options.replaceAll(items);
+Context.getMacrocategories().then(function(macrocategories) {
+	items.replaceAll(macrocategories);
 }).catch(function(e) {
 	console.log(error.message);
 });
 
-var optionClicked = function(args) {
+var onTapItemList = function(args) {
 	router.push('newTicketStep2', {
 		macrocategory: args.data
 	});
 };
 module.exports = {
-	options: options,
-	optionClicked: optionClicked
+	items: items,
+	onTapItemList: onTapItemList
 };
