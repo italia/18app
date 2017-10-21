@@ -2,6 +2,7 @@
 	
 
 	<!-- COLORS -->
+	<float4 ux:Global="color.Green" ux:Value="#02a45f"/>
 	<float4 ux:Global="color.Gray" ux:Value="#a9b1b8"/>
 	<float4 ux:Global="color.Blue" ux:Value="#0066CC"/>
 	<float4 ux:Global="color.Black" ux:Value="#000000"/>
@@ -20,6 +21,7 @@
 	<Text ux:Class="HomeText" Font="BaseFont" FontSize="16" Color="#5A6772" Alignment="Center"></Text>
 	<Text ux:Class="HomeBalanceText" Font="BaseFont" FontSize="40" Color="#65DCDF" Alignment="Center"></Text>
 	<Text ux:Class="P" Font="RegularFont" FontSize="16" Color="color.Blue" Alignment="Center"></Text>
+	<Text ux:Class="B" Font="BaseFont" FontSize="16" Color="color.Blue" Alignment="Center"></Text>
 	<BaseText ux:Class="BoldText" Font="BoldFont"></BaseText>
 
 	<!-- ICONS -->

@@ -14,6 +14,7 @@
 			<NewTicketStep1Page ux:Name="newTicketStep1" router="router" navBar="navBar" Background="#fff" />
 			<NewTicketStep2Page ux:Name="newTicketStep2" router="router" navBar="navBar" Background="#fff" />
 			<NewTicketStep3Page ux:Name="newTicketStep3" router="router" navBar="navBar" Background="#fff" />
+			<NewTicketStep4Page ux:Name="newTicketStep4" router="router" navBar="navBar" Background="#fff" />
 			<MyTicketPage ux:Name="myTicket" router="router" navBar="navBar"  Background="#fff"/>
 		</Navigator>
 

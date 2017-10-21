@@ -1,3 +1,3 @@
-<ButtonEntry ux:Class="OptionSelected" TextColor="color.Black">
+<ButtonEntry ux:Class="ItemListSelected" TextColor="color.Black">
 	<P ux:Template="RightIcon" TextColor="color.Black">V</P>
 </ButtonEntry>

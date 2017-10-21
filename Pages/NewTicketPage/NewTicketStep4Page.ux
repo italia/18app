@@ -1,0 +1,17 @@
+<BasePage ux:Class="NewTicketStep4Page">
+	<Router ux:Dependency="router" />
+	<JavaScript File="js/NewTicketStep4Page.js" />
+	<Visual ux:Dependency="navBar" />
+	<NavBarTitle navBar="navBar"  Text="Nuovo buono: valore" />
+	<StackPanel Margin="20">
+		<B Color="color.Green">Il nuovo buono è stato creato correttamente</B>
+		<Separator Margin="-35,20"/>
+		<StackPanel>
+			<Each Items="{selectedItems}">
+				<NodeGroup>
+					<ItemListSelected PathIcon="{pathIcon}" Value="{name}"/>
+				</NodeGroup>
+			</Each>
+		</StackPanel>
+	</StackPanel>
+</BasePage>

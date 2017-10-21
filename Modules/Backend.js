@@ -1,83 +1,101 @@
 var macroCategories =
-	[{
-		id: "cinema",
-		name: "Cinema",
+[{
+	id: "cinema",
+	name: "Cinema",
+	icon: "Assets/images/icon-cinema-06c.png",
+	type: "Categoria",
+	microCategories: [{
+		id: "abbonamento_card",
+		name: "Abbonamento/Card",
 		icon: "Assets/images/icon-cinema-06c.png",
-		microCategories: [{
-			id: "abbonamento_card",
-			name: "Abbonamento/Card",
-			icon: "Assets/images/icon-cinema-06c.png",
-		}, {
-			id: "biglietto",
-			name: "Biglietto d'ingresso",
-			icon: "Assets/images/icon-concerti-06c.png",
-		}]
+		type:"prodotto"
 	}, {
-		id: "concerti",
-		name: "Concerti",
+		id: "biglietto",
+		name: "Biglietto d'ingresso",
 		icon: "Assets/images/icon-concerti-06c.png",
-		microCategories: [{
-			id: "abbonamento_card",
-			name: "Abbonamento/Card",
-			icon: "Assets/images/icon-cinema-06c.png",
-		}, {
-			id: "biglietto",
-			name: "Biglietto d'ingresso",
-			icon: "Assets/images/icon-concerti-06c.png",
-		}]
+		type:"prodotto"
+	}]
+}, {
+	id: "concerti",
+	name: "Concerti",
+	icon: "Assets/images/icon-concerti-06c.png",
+	type: "Categoria",
+	microCategories: [{
+		id: "abbonamento_card",
+		name: "Abbonamento/Card",
+		icon: "Assets/images/icon-cinema-06c.png",
+		type:"prodotto"
 	}, {
-		id: "eventi",
-		name: "Eventi culturali",
-		icon: "Assets/images/icon-eventi-06c.png",
-		microCategories: [{
-			id: "abbonamento_card",
-			name: "Abbonamento/Card",
-			icon: "Assets/images/icon-cinema-06c.png",
-		}, {
-			id: "biglietto",
-			name: "Biglietto d'ingresso",
-			icon: "Assets/images/icon-concerti-06c.png",
-		}]
+		id: "biglietto",
+		name: "Biglietto d'ingresso",
+		icon: "Assets/images/icon-concerti-06c.png",
+		type:"prodotto"
+	}]
+}, {
+	id: "eventi",
+	name: "Eventi culturali",
+	icon: "Assets/images/icon-eventi-06c.png",
+	type:"Categoria",
+	microCategories: [{
+		id: "abbonamento_card",
+		name: "Abbonamento/Card",
+		icon: "Assets/images/icon-cinema-06c.png",
+		type:"prodotto"
 	}, {
-		id: "libri",
-		name: "Libri",
-		icon: "Assets/images/icon-libri-06c.png",
-		microCategories: [{
-			id: "abbonamento_card",
-			name: "Abbonamento/Card",
-			icon: "Assets/images/icon-cinema-06c.png",
-		}, {
-			id: "biglietto",
-			name: "Biglietto d'ingresso",
-			icon: "Assets/images/icon-concerti-06c.png",
-		}]
+		id: "biglietto",
+		name: "Biglietto d'ingresso",
+		icon: "Assets/images/icon-concerti-06c.png",
+		type:"prodotto"
+	}]
+}, {
+	id: "libri",
+	name: "Libri",
+	icon: "Assets/images/icon-libri-06c.png",
+	type:"Categoria",
+	microCategories: [{
+		id: "abbonamento_card",
+		name: "Abbonamento/Card",
+		icon: "Assets/images/icon-cinema-06c.png",
+		type:"prodotto"
 	}, {
-		id: "musei",
-		name: "Musei",
-		icon: "Assets/images/icon-musei-06c.png",
-		microCategories: [{
-			id: "abbonamento_card",
-			name: "Abbonamento/Card",
-			icon: "Assets/images/icon-cinema-06c.png",
-		}, {
-			id: "biglietto",
-			name: "Biglietto d'ingresso",
-			icon: "Assets/images/icon-concerti-06c.png",
-		}]
+		id: "biglietto",
+		name: "Biglietto d'ingresso",
+		icon: "Assets/images/icon-concerti-06c.png",
+		type:"prodotto"
+	}]
+}, {
+	id: "musei",
+	name: "Musei",
+	icon: "Assets/images/icon-musei-06c.png",
+	type:"Categoria",
+	microCategories: [{
+		id: "abbonamento_card",
+		name: "Abbonamento/Card",
+		icon: "Assets/images/icon-cinema-06c.png",
+		type:"prodotto"
 	}, {
-		id: "teatro_danza",
-		name: "Teatro e Danza",
-		icon: "Assets/images/icon-teatro-06c.png",
-		microCategories: [{
-			id: "abbonamento_card",
-			name: "Abbonamento/Card",
-			icon: "Assets/images/icon-cinema-06c.png",
-		}, {
-			id: "biglietto",
-			name: "Biglietto d'ingresso",
-			icon: "Assets/images/icon-concerti-06c.png",
-		}]
-	}];
+		id: "biglietto",
+		name: "Biglietto d'ingresso",
+		icon: "Assets/images/icon-concerti-06c.png",
+		type:"prodotto"
+	}]
+}, {
+	id: "teatro_danza",
+	name: "Teatro e Danza",
+	icon: "Assets/images/icon-teatro-06c.png",
+	type:"Categoria",
+	microCategories: [{
+		id: "abbonamento_card",
+		name: "Abbonamento/Card",
+		icon: "Assets/images/icon-cinema-06c.png",
+		type:"prodotto"
+	}, {
+		id: "biglietto",
+		name: "Biglietto d'ingresso",
+		icon: "Assets/images/icon-concerti-06c.png",
+		type:"prodotto"
+	}]
+}];
 
 var getMacrocategories = function() {
 	return new Promise(function(resolve, reject) {

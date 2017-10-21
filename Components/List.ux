@@ -8,7 +8,7 @@
 			<Rectangle Color="#FDFDFD" CornerRadius="8" Layer="Background"/>
 			<Each Items="{ReadProperty Selected}">
 				<NodeGroup>
-					<OptionSelected PathIcon="{pathIcon}" Value="{name}"/>
+					<ItemListSelected PathIcon="{pathIcon}" Value="{name}"/>
 					<Separator />
 				</NodeGroup>
 			</Each>
