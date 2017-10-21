@@ -9,7 +9,8 @@
     "*",
     "Entities/*.js:Bundle",
     "Modules/*.js:Bundle",
-    "Assets/images/*.png:Bundle"
+    "Assets/images/*.png:Bundle",
+    "Assets/images/*.jpg:Bundle"
   ]
 }
 

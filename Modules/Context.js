@@ -2,6 +2,12 @@ var Backend = require("Modules/Backend");
 var ItemList = require("Entities/ItemList");
 var HelpInformation = require("Entities/HelpInformation");
 
+
+
+var createCoupon=function(price,macroCategory,microCategory){
+	return Backend.createCoupon(price, macroCategory, microCategory);
+};
+
 var getMicroCategories= function(macroID){
 	return Backend.getMicroCategories(macroID).then(function(list) {
 		try {
@@ -52,6 +58,7 @@ var getHelpInformations  = function(){
 };
 
 module.exports={
+	createCoupon:createCoupon,
 	getMicroCategories:getMicroCategories,
 	getMacrocategories:getMacrocategories,
 	getHelpInformations:getHelpInformations

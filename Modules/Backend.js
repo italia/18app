@@ -98,11 +98,47 @@ var macroCategories =
 }];
 
 var helpInformations = [
-	{ id:'spid', title: "spid", text:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro facilis esse repellendus pariatur cumque. Vel quis repellendus, molestiae mollitia culpa, voluptatem hic blanditiis ipsa dicta consequatur dolorem nesciunt iure, libero."},
-	{ id:'testo2', title: "testo secondo elemento", text:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro facilis esse repellendus pariatur cumque. Vel quis repellendus, molestiae mollitia culpa, voluptatem hic blanditiis ipsa dicta consequatur dolorem nesciunt iure, libero."},
-	{ id:'testo3', title: "testo terzo elemento", text:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro facilis esse repellendus pariatur cumque. Vel quis repellendus, molestiae mollitia culpa, voluptatem hic blanditiis ipsa dicta consequatur dolorem nesciunt iure, libero."},
+{ id:'spid', title: "spid", text:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro facilis esse repellendus pariatur cumque. Vel quis repellendus, molestiae mollitia culpa, voluptatem hic blanditiis ipsa dicta consequatur dolorem nesciunt iure, libero."},
+{ id:'testo2', title: "testo secondo elemento", text:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro facilis esse repellendus pariatur cumque. Vel quis repellendus, molestiae mollitia culpa, voluptatem hic blanditiis ipsa dicta consequatur dolorem nesciunt iure, libero."},
+{ id:'testo3', title: "testo terzo elemento", text:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro facilis esse repellendus pariatur cumque. Vel quis repellendus, molestiae mollitia culpa, voluptatem hic blanditiis ipsa dicta consequatur dolorem nesciunt iure, libero."},
 ];
 
+var coupon ={
+	code:"45DH6789",
+	price:8.00,
+	currency:"€",
+	user:{
+		id:"1001010",
+		"name":"Mario",
+		"surname":"Rossi"
+	},
+	macroCategory:{
+		id: "teatro_danza",
+		name: "Teatro e Danza",
+		icon: "Assets/images/icon-teatro-06c.png",
+		type:"Categoria"
+	},
+	microcategory:{
+		id: "biglietto",
+		name: "Biglietto d'ingresso",
+		icon: "Assets/images/icon-concerti-06c.png",
+		type:"prodotto"
+	},
+	qrcode:"Assets/images/qrcode-example.jpg",
+	barcode:"Assets/images/barcode-example.jpg"
+};
+
+
+var createCoupon = function(price,macroCategory,microCategory){
+	return new Promise(function(resolve, reject) {
+		setTimeout(function() {
+			coupon.price=price;
+			coupon.macroCategory=macroCategory;
+			coupon.microCategory=microCategory;
+			resolve(coupon);
+		}, 0);
+	});
+};
 
 var getMacrocategories = function() {
 	return new Promise(function(resolve, reject) {
@@ -115,7 +151,6 @@ var getMacrocategories = function() {
 var getMicroCategories = function(idmacro) {
 	return new Promise(function(resolve, reject) {
 		setTimeout(function() {
-			console.log(idmacro);
 			for (var i = 0; i < macroCategories.length; i++) {
 				console.log(macroCategories[i].id);
 				if (macroCategories[i].id == idmacro) {
@@ -137,6 +172,7 @@ var getHelpInformations = function() {
 };
 
 module.exports = {
+	createCoupon:createCoupon,
 	getMacrocategories: getMacrocategories,
 	getMicroCategories: getMicroCategories,
 	getHelpInformations:getHelpInformations

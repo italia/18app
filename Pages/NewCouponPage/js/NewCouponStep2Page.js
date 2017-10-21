@@ -16,8 +16,9 @@ var macrocategory = this.Parameter.flatMap(function(param) {
 
 var onTapItemList = function(args) {
 	var selected=[];
-	selected.push(macrocategory.value);
 	selected.push(args.data);
+	selected.push(macrocategory.value);
+	
 
 	router.push('newCouponStep3', {
 		selected:selected

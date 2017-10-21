@@ -7,10 +7,9 @@ var selectedItems = this.Parameter.flatMap(function(param) {
 	return param.selectedItems;
 });
 
-var price = this.Parameter.map(function(param) {
-	return param.price;
+var coupon = this.Parameter.map(function(param) {
+	return param.coupon;
 });
-
 
 function onTapCancelCoupon(){
 	console.log("TODO: call api cancel Coupon");
@@ -18,7 +17,7 @@ function onTapCancelCoupon(){
 
 module.exports = {
 	selectedItems: selectedItems,
-	price:price,
+	coupon:coupon,
 	onTapCancelCoupon:onTapCancelCoupon
 
 };

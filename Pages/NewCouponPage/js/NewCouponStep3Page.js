@@ -15,7 +15,12 @@ var optionClicked = function(args) {
 };
 
 var onTapCreateCoupon = function(){
-	router.push("newCouponStep4",{selectedItems:selected.toArray(),price:price.value});
+	var selectedItems=selected.toArray();
+	Context.createCoupon(price.value,selectedItems[0],selectedItems[1]).then(function(coupon){
+		router.push("newCouponStep4",{selectedItems:selected.toArray(),coupon:coupon});
+	}).catch(function(error){
+		console.log("impossibile creare buono",error);
+	});
 };
 
 module.exports = {
