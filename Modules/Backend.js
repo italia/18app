@@ -128,10 +128,28 @@ var coupon ={
 	barcode:"Assets/images/barcode-example.jpg"
 };
 
+var deleteCoupon = function (code){
+	return new Promise(function(resolve, reject) {
+		console.log("cancellazione coupon",code);
+		setTimeout(function() {
+			resolve({success:true});
+		}, 0);
+	});
+};
+
+function randomString(length) {
+	var chars='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    var result = '';
+    for (var i = length; i > 0; --i) result += chars[Math.floor(Math.random() * chars.length)];
+    return result;
+}
+
 
 var createCoupon = function(price,macroCategory,microCategory){
 	return new Promise(function(resolve, reject) {
+		console.log("creazione coupon...");
 		setTimeout(function() {
+			coupon.code = randomString(8);
 			coupon.price=price;
 			coupon.macroCategory=macroCategory;
 			coupon.microCategory=microCategory;
@@ -152,7 +170,6 @@ var getMicroCategories = function(idmacro) {
 	return new Promise(function(resolve, reject) {
 		setTimeout(function() {
 			for (var i = 0; i < macroCategories.length; i++) {
-				console.log(macroCategories[i].id);
 				if (macroCategories[i].id == idmacro) {
 					resolve(macroCategories[i].microCategories);
 					return;
@@ -172,6 +189,7 @@ var getHelpInformations = function() {
 };
 
 module.exports = {
+	deleteCoupon:deleteCoupon,
 	createCoupon:createCoupon,
 	getMacrocategories: getMacrocategories,
 	getMicroCategories: getMicroCategories,

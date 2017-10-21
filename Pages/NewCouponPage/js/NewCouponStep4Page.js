@@ -12,9 +12,12 @@ var coupon = this.Parameter.map(function(param) {
 });
 
 function onTapCancelCoupon(){
-	console.log("TODO: call api cancel Coupon");
+	Context.deleteCoupon(coupon.value.code).then(function(){
+		console.log("coupon cancellato"); //TODO: portarlo su una schermata in cui si avvisa che il coupon è stato cancellato
+	}).catch(function(error){
+		console.log("impossibile cancellare coupon",error);
+	});
 }
-
 module.exports = {
 	selectedItems: selectedItems,
 	coupon:coupon,

@@ -3,10 +3,13 @@ var ItemList = require("Entities/ItemList");
 var HelpInformation = require("Entities/HelpInformation");
 
 
-
 var createCoupon=function(price,macroCategory,microCategory){
 	return Backend.createCoupon(price, macroCategory, microCategory);
 };
+var deleteCoupon=function(code){
+	return Backend.deleteCoupon(code);
+};
+
 
 var getMicroCategories= function(macroID){
 	return Backend.getMicroCategories(macroID).then(function(list) {
@@ -59,6 +62,7 @@ var getHelpInformations  = function(){
 
 module.exports={
 	createCoupon:createCoupon,
+	deleteCoupon:deleteCoupon,
 	getMicroCategories:getMicroCategories,
 	getMacrocategories:getMacrocategories,
 	getHelpInformations:getHelpInformations
