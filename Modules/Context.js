@@ -1,5 +1,5 @@
 var Backend = require("Modules/Backend");
-var Option = require("Entities/Option");
+var ItemList = require("Entities/ItemList");
 var HelpInformation = require("Entities/HelpInformation");
 
 var getMicroCategories= function(macroID){
@@ -8,7 +8,7 @@ var getMicroCategories= function(macroID){
 			var options = [];
 			if (list != null && list.length > 0) {
 				list.forEach(function(micro) {
-					options.push(new Option(micro.id, micro.name, micro.icon));
+					options.push(new ItemList(micro.id, micro.name, micro.icon));
 				});
 			}
 			return options;
@@ -24,7 +24,7 @@ var getMacrocategories= function(){
 			var options = [];
 			if (list != null && list.length > 0) {
 				list.forEach(function(macro) {
-					options.push(new Option(macro.id, macro.name, macro.icon));
+					options.push(new ItemList(macro.id, macro.name, macro.icon));
 				});
 			}
 			return options;
