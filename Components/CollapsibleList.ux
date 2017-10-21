@@ -1,0 +1,25 @@
+<ScrollView ux:Class="CollapsibleList">
+	<object ux:Property="Items"/>
+	<string ux:Property="Title"/>
+
+	<StackPanel Margin="23,0">
+		<WhileString Value="{ReadProperty Title}" Test="IsNotEmpty">
+			<H3 Alignment="Left" Margin="0,25,0,0">{ReadProperty Title}</H3>
+		</WhileString>
+
+		<Each Items="{ReadProperty Items}">
+			<NodeGroup>
+				<CollapsibleEntry Id="{id}" Value="{title}">
+					<!-- <Clicked>
+						<Callback Handler="..."/>
+						TO DO :: qui vorrei direttamente in XML dire di chiudere tutte le Text che possono essere aperte e aprire solo quella che si riferisce a questo item
+					</Clicked> -->
+				</CollapsibleEntry>
+		
+				<Text Color="{color.Black}" Font="RegularFont" Value="{text}" TextWrapping="Wrap" Margin="0,0,0,20"/>
+
+				<Separator />
+			</NodeGroup>
+		</Each>
+	</StackPanel>
+</ScrollView>

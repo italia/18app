@@ -6,6 +6,9 @@ module.exports = {
 	},
 	goToMyTicket: function() {
 		router.push("myTicket");
+	},
+	goToInfo: function() {
+		router.push("info");
 	}
 };
 

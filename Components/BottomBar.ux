@@ -28,7 +28,7 @@
 
 	<Divider />
 
-	<IconAndLabel>
+	<IconAndLabel Clicked="{goToInfo}">
 		<InfoIcon />
 	</IconAndLabel>
 	

@@ -1,6 +1,7 @@
 <Panel ux:Class="StaticResources">
 	
-
+	<Font File="Assets/fonts/font-awesome-4.7.0/fonts/fontawesome-webfont.ttf" ux:Global="FontAwesome" />
+	
 	<!-- COLORS -->
 	<float4 ux:Global="color.Green" ux:Value="#02a45f"/>
 	<float4 ux:Global="color.Gray" ux:Value="#a9b1b8"/>

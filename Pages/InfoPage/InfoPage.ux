@@ -1,0 +1,14 @@
+<BasePage ux:Class="InfoPage">
+	<Router ux:Dependency="router" />
+	<JavaScript File="InfoPage.js" />
+	<Visual ux:Dependency="navBar" />
+	<NavBarTitle navBar="navBar"  Text="Informazioni" />
+	<ScrollView>
+		<StackPanel Height="100%" >
+			<TextInputSearch PlaceholderText="Cerca" Margin="35,25"/>
+		
+			<CollapsibleList Items="{items}">
+			</CollapsibleList>
+		</StackPanel>	
+	</ScrollView>
+</BasePage>

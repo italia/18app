@@ -16,6 +16,7 @@
 			<NewTicketStep3Page ux:Name="newTicketStep3" router="router" navBar="navBar" Background="#fff" />
 			<NewTicketStep4Page ux:Name="newTicketStep4" router="router" navBar="navBar" Background="#fff" />
 			<MyTicketPage ux:Name="myTicket" router="router" navBar="navBar"  Background="#fff"/>
+			<InfoPage ux:Name="info" router="router" navBar="navBar"  Background="#fff"/>
 		</Navigator>
 
 		<BottomBar Dock="Bottom"/>

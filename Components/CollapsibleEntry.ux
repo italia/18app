@@ -1,0 +1,10 @@
+<Grid ux:Class="CollapsibleEntry" Columns="1*, 10" TextColor="color.Blue" Padding="0,20" HitTestMode="LocalBoundsAndChildren">
+	<string ux:Property="Id"/>
+	<string ux:Property="Value"/>
+	<float4 ux:Property="TextColor"/>
+	
+	<Each TemplateSource="this" TemplateKey="RightIcon" Count="1">
+		<P Color="{ReadProperty TextColor}" Value="{ReadProperty Value}" Alignment="CenterLeft" />
+		<P Color="{ReadProperty TextColor}" Value=">" />
+	</Each>
+</Grid>

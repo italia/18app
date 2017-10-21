@@ -97,6 +97,12 @@ var macroCategories =
 	}]
 }];
 
+var helpInformations = [
+	{ id:'spid', title: "spid", text:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro facilis esse repellendus pariatur cumque. Vel quis repellendus, molestiae mollitia culpa, voluptatem hic blanditiis ipsa dicta consequatur dolorem nesciunt iure, libero."},
+	{ id:'testo2', title: "testo secondo elemento", text:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro facilis esse repellendus pariatur cumque. Vel quis repellendus, molestiae mollitia culpa, voluptatem hic blanditiis ipsa dicta consequatur dolorem nesciunt iure, libero."},
+	{ id:'testo3', title: "testo terzo elemento", text:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro facilis esse repellendus pariatur cumque. Vel quis repellendus, molestiae mollitia culpa, voluptatem hic blanditiis ipsa dicta consequatur dolorem nesciunt iure, libero."},
+];
+
 var getMacrocategories = function() {
 	return new Promise(function(resolve, reject) {
 		setTimeout(function() {
@@ -121,7 +127,16 @@ var getMicroCategories = function(idmacro) {
 	});
 };
 
+var getHelpInformations = function() {
+	return new Promise(function(resolve, reject) {
+		setTimeout(function() {
+			resolve(helpInformations);
+		}, 0);
+	});
+};
+
 module.exports = {
 	getMacrocategories: getMacrocategories,
-	getMicroCategories: getMicroCategories
+	getMicroCategories: getMicroCategories,
+	getHelpInformations:getHelpInformations
 };
