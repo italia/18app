@@ -11,11 +11,11 @@
 
 		<Navigator DefaultPath="home">
 			<HomePage ux:Name="home" router="router" navBar="navBar"  Background="#fff" />
-			<NewTicketStep1Page ux:Name="newTicketStep1" router="router" navBar="navBar" Background="#fff" />
-			<NewTicketStep2Page ux:Name="newTicketStep2" router="router" navBar="navBar" Background="#fff" />
-			<NewTicketStep3Page ux:Name="newTicketStep3" router="router" navBar="navBar" Background="#fff" />
-			<NewTicketStep4Page ux:Name="newTicketStep4" router="router" navBar="navBar" Background="#fff" />
-			<MyTicketPage ux:Name="myTicket" router="router" navBar="navBar"  Background="#fff"/>
+			<NewCouponStep1Page ux:Name="newCouponStep1" router="router" navBar="navBar" Background="#fff" />
+			<NewCouponStep2Page ux:Name="newCouponStep2" router="router" navBar="navBar" Background="#fff" />
+			<NewCouponStep3Page ux:Name="newCouponStep3" router="router" navBar="navBar" Background="#fff" />
+			<NewCouponStep4Page ux:Name="newCouponStep4" router="router" navBar="navBar" Background="#fff" />
+			<MyCouponPage ux:Name="myCoupon" router="router" navBar="navBar"  Background="#fff"/>
 			<InfoPage ux:Name="info" router="router" navBar="navBar"  Background="#fff"/>
 		</Navigator>
 

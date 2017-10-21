@@ -16,7 +16,7 @@
 
 	<Divider />
 
-	<IconAndLabel Clicked="{goToMyTicket}">
+	<IconAndLabel Clicked="{goToMyCoupon}">
 		<BuoniIcon />
 	</IconAndLabel>
 

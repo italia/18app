@@ -1,18 +1,8 @@
-<BasePage ux:Class="NewTicketStep4Page">
+<BasePage ux:Class="NewCouponStep4Page">
 	<Router ux:Dependency="router" />
-	<JavaScript File="js/NewTicketStep4Page.js" />
+	<JavaScript File="js/NewCouponStep4Page.js" />
 	<Visual ux:Dependency="navBar" />
 	<NavBarTitle navBar="navBar"  Text="Nuovo buono: valore" />
-
-	<JavaScript>
-
-	function onTapCancelTicket(){
-		console.log("TODO: call api cancel ticket");
-	}
-	module.exports={
-		onTapCancelTicket:onTapCancelTicket
-	}
-	</JavaScript>
 	<ScrollView>
 		<StackPanel Margin="20">
 			<B Color="color.Green">Il nuovo buono è stato creato correttamente</B>
@@ -55,7 +45,7 @@
 					Puoi annullare in ogni momento questo  buono e riversare l’intero suo valore nel tuo credito
 				</P>
 				<!--TODO aggiungere icona -->
-				<app18.Button Value="ANNULLA QUESTO BUONO" Height="40" BackgroundColor="color.Red" Clicked="{onTapCancelTicket}"/> 
+				<app18.Button Value="ANNULLA QUESTO BUONO" Height="40" BackgroundColor="color.Red" Clicked="{onTapCancelCoupon}"/> 
 
 			</StackPanel>
 		</StackPanel>

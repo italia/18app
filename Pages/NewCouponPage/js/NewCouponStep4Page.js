@@ -12,8 +12,13 @@ var price = this.Parameter.map(function(param) {
 });
 
 
+function onTapCancelCoupon(){
+	console.log("TODO: call api cancel Coupon");
+}
+
 module.exports = {
 	selectedItems: selectedItems,
-	price:price
+	price:price,
+	onTapCancelCoupon:onTapCancelCoupon
 
 };

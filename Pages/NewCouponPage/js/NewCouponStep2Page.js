@@ -19,7 +19,7 @@ var onTapItemList = function(args) {
 	selected.push(macrocategory.value);
 	selected.push(args.data);
 
-	router.push('newTicketStep3', {
+	router.push('newCouponStep3', {
 		selected:selected
 	});
 };

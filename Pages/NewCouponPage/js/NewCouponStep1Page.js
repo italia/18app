@@ -13,7 +13,7 @@ Context.getMacrocategories().then(function(macrocategories) {
 });
 
 var onTapItemList = function(args) {
-	router.push('newTicketStep2', {
+	router.push('newCouponStep2', {
 		macrocategory: args.data
 	});
 };

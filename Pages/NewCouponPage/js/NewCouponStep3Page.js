@@ -14,13 +14,13 @@ var optionClicked = function(args) {
 
 };
 
-var onTapCreateTicket = function(){
-	router.push("newTicketStep4",{selectedItems:selected.toArray(),price:price.value});
+var onTapCreateCoupon = function(){
+	router.push("newCouponStep4",{selectedItems:selected.toArray(),price:price.value});
 };
 
 module.exports = {
 	items: items,
-	onTapCreateTicket: onTapCreateTicket,
+	onTapCreateCoupon: onTapCreateCoupon,
 	selected: selected,
 	price:price
 };

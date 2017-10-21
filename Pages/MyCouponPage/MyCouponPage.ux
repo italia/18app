@@ -1,6 +1,6 @@
-<BasePage ux:Class="MyTicketPage">
+<BasePage ux:Class="MyCouponPage">
 	<Router ux:Dependency="router" />
-	<JavaScript File="MyTicketPage.js" />
+	<JavaScript File="MyCouponPage.js" />
 	<Visual ux:Dependency="navBar" />
 	<NavBarTitle navBar="navBar"  Text="Nuovo buono: Categoria" />
 	<ScrollView>
