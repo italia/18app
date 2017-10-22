@@ -2,12 +2,12 @@ var Observable = require("FuseJS/Observable");
 
 var Context = require("Modules/Context");
 
-var ItemList = require("Entities/ItemList");
+var CouponList = require("Entities/CouponList");
 
 var items = Observable();
 
-Context.getMacrocategories().then(function(macrocategories) {
-	items.replaceAll(macrocategories);
+Context.getMyCoupon().then(function(coupon) {
+	items.replaceAll(coupon);
 }).catch(function(e) {
 	console.log(error.message);
 });
@@ -15,7 +15,7 @@ Context.getMacrocategories().then(function(macrocategories) {
 var onTapItemList = function(args) {
 	router.push('newTicketStep2', {
 		macrocategory: args.data
-	});
+	}); 
 };
 module.exports = {
 	items: items,

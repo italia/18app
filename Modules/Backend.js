@@ -128,7 +128,143 @@ var helpInformations = [
 	},
 ];
 
-
+var myCoupon =
+[
+	{
+		code:"45DH6790",
+		price:8.00,
+		currency:"€",
+		typeCoupon: "Biglietto d’ingresso",
+		state:'Valido',
+		shopPlace:"",
+		user:{
+			id:"1001010",
+			"name":"Mario",
+			"surname":"Rossi"
+		},
+		macroCategory:{
+			id: "cinema",
+			name: "Cinema",
+			icon: "Assets/images/icon-cinema-06c.png",
+			type:"Categoria"
+		},
+		microcategory:{
+			id: "biglietto",
+			name: "Biglietto d'ingresso",
+			icon: "Assets/images/icon-concerti-06c.png",
+			type:"prodotto"
+		},
+		qrcode:"Assets/images/qrcode-example.jpg",
+		barcode:"Assets/images/barcode-example.jpg"
+	},
+	{
+		code:"45DH6791",
+		price:56.00,
+		currency:"€",
+		typeCoupon: "Biglietto d’ingresso",
+		state:'Valido',
+		shopPlace:"",
+		user:{
+			id:"1001010",
+			"name":"Mario",
+			"surname":"Rossi"
+		},
+		macroCategory:{
+			id: "concerti",
+			name: "Concerti",
+			icon: "Assets/images/icon-concerti-06c.png",
+			type:"Categoria"
+		},
+		microcategory:{
+			id: "biglietto",
+			name: "Biglietto d'ingresso",
+			icon: "Assets/images/icon-concerti-06c.png",
+			type:"prodotto"
+		},
+		qrcode:"Assets/images/qrcode-example.jpg",
+		barcode:"Assets/images/barcode-example.jpg"
+	},{
+		code:"45DH6792",
+		price:128.00,
+		currency:"€",
+		typeCoupon: "Abbonamento / Card",
+		state:'Valido',
+		shopPlace:"",
+		user:{
+			id:"1001010",
+			"name":"Mario",
+			"surname":"Rossi"
+		},
+		macroCategory:{
+			id: "teatro_danza",
+			name: "Teatro e Danza",
+			icon: "Assets/images/icon-teatro-06c.png",
+			type:"Categoria"
+		},
+		microcategory:{
+			id: "biglietto",
+			name: "Biglietto d'ingresso",
+			icon: "Assets/images/icon-concerti-06c.png",
+			type:"prodotto"
+		},
+		qrcode:"Assets/images/qrcode-example.jpg",
+		barcode:"Assets/images/barcode-example.jpg"
+	}
+	,{
+		code:"45DH6792",
+		price:128.00,
+		currency:"€",
+		typeCoupon: "ebook",
+		state:'Usato',
+		shopPlace:"Libreria Leggidipu'",
+		user:{
+			id:"1001010",
+			"name":"Mario",
+			"surname":"Rossi"
+		},
+		macroCategory:{
+			id: "cinema",
+			name: "Cinema",
+			icon: "Assets/images/icon-cinema-06c.png",
+			type:"Categoria"
+		},
+		microcategory:{
+			id: "libri",
+			name: "Libri",
+			icon: "Assets/images/icon-libri-06c.png",
+			type:"prodotto"
+		},
+		qrcode:"Assets/images/qrcode-example.jpg",
+		barcode:"Assets/images/barcode-example.jpg"
+	}
+	,{
+		code:"45DH6792",
+		price:128.00,
+		currency:"€",
+		typeCoupon: "Abbonamento / Card",
+		state:'Usato',
+		shopPlace:"Nuovo cinema Paradiso",
+		user:{
+			id:"1001010",
+			"name":"Mario",
+			"surname":"Rossi"
+		},
+		macroCategory:{
+			id: "teatro_danza",
+			name: "Teatro e Danza",
+			icon: "Assets/images/icon-teatro-06c.png",
+			type:"Categoria"
+		},
+		microcategory:{
+			id: "biglietto",
+			name: "Biglietto d'ingresso",
+			icon: "Assets/images/icon-concerti-06c.png",
+			type:"prodotto"
+		},
+		qrcode:"Assets/images/qrcode-example.jpg",
+		barcode:"Assets/images/barcode-example.jpg"
+	}
+];
 
 var coupon ={
 	code:"45DH6789",
@@ -163,7 +299,7 @@ var deleteCoupon = function (code){
 		}, 0);
 	});
 };
-
+ 
 function randomString(length) {
 	var chars='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
     var result = '';
@@ -216,10 +352,18 @@ var getHelpInformations = function() {
 	});
 };
 
+var getMyCoupon = function() {
+	return new Promise(function(resolve, reject) {
+		setTimeout(function() {
+			resolve(myCoupon);
+		}, 0);
+	});
+};
 module.exports = {
 	deleteCoupon:deleteCoupon,
 	createCoupon:createCoupon,
 	getMacrocategories: getMacrocategories,
 	getMicroCategories: getMicroCategories,
-	getHelpInformations:getHelpInformations
+	getHelpInformations:getHelpInformations,
+	getMyCoupon: getMyCoupon
 };

@@ -1,5 +1,6 @@
 var Backend = require("Modules/Backend");
 var ItemList = require("Entities/ItemList");
+var CouponList = require("Entities/CouponList");
 var HelpInformation = require("Entities/HelpInformation");
 
 // Architettura
@@ -71,10 +72,27 @@ var getHelpInformations  = function(){
 	});
 };
 
+var getMyCoupon= function(){
+	return Backend.getMyCoupon().then(function(list) {
+		try {
+			var options = [];
+			if (list != null && list.length > 0) {
+				list.forEach(function(coupon) {
+					options.push(new CouponList(coupon.id,"testnome", coupon.macroCategory.icon, coupon.typeCoupon,coupon.price,coupon.currency,coupon.state,coupon.shopPlace));
+				});
+			}
+			return options;
+		} catch (err) {
+			console.log(err.message);
+		}
+	});
+};
+
 module.exports={
 	createCoupon:createCoupon,
 	deleteCoupon:deleteCoupon,
 	getMicroCategories:getMicroCategories,
 	getMacrocategories:getMacrocategories,
-	getHelpInformations:getHelpInformations
+	getHelpInformations:getHelpInformations,
+	getMyCoupon:getMyCoupon
 };
