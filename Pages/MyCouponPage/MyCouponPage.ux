@@ -4,7 +4,7 @@
 	<JavaScript File="MyCouponPage.js" />
 	<NavBarTitle navBar="navBar"  Text="I tuoi buoni" />
 
-	<Rectangle ux:Name="indicator" LayoutMaster="page1Tab" Alignment="Bottom" Height="4" Color="#003E90">
+	<Rectangle ux:Name="indicator" LayoutMaster="page1Tab" Alignment="Bottom" Height="4"  Color="color.White">
 		<LayoutAnimation>
 			<Move RelativeTo="WorldPositionChange" X="1" Duration="0.4" Easing="BackIn"/>
 		</LayoutAnimation>
@@ -16,7 +16,7 @@
 		<StatusBarBackground Dock="Top" />
 		<BottomBarBackground Dock="Bottom" />
 
-		<Grid Dock="Top" ColumnCount="3" Height="50" Background="#fff">
+		<Grid Dock="Top" ColumnCount="3" Height="50" Background="#003E90">
 			<Panel ux:Name="page1Tab">
 				<Tab Text="TUTTI">
 					<Clicked>

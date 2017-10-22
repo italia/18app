@@ -18,7 +18,7 @@
 	<float4 ux:Global="color.Red" ux:Value="#d0021b"/>
 	<float4 ux:Global="color.Blue" ux:Value="#0066CC"/>
 	<float4 ux:Global="color.Black" ux:Value="#000000"/>
-	<float4  ux:Global="color.GrayLight" ux:Value="#F0F0F0"/>
+	<float4 ux:Global="color.GrayLight" ux:Value="#F0F0F0"/>
 	<!-- FONTS-->
 	<Font ux:Global="RegularFont" File="Assets/Titillium_Web/TitilliumWeb-Regular.ttf"></Font>
 	<Font ux:Global="BaseFont" File="Assets/Titillium_Web/TitilliumWeb-Bold.ttf"></Font>
