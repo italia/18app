@@ -9,19 +9,11 @@
 
 		<Each Items="{ReadProperty Items}">
 			<NodeGroup>
-
-				<WhileString Value="{group}" Equals="" Invert="true">
-					<Grid Columns="1*"  Padding="0,30,30,0">
-						<P Value="{group}" Color="color.Gray" Alignment="CenterLeft" />
-					</Grid>
-				</WhileString>
-				
 				<Each Items="{items}">
 					<NodeGroup>
-						<CollapsibleEntry Title="{title}" Description="{description}"/>
+						<CollapsibleEntry Title="{title}" Group="{group}" Description="{description}"/>
 					</NodeGroup>
 				</Each>
-
 			</NodeGroup>
 		</Each>
 	</StackPanel>

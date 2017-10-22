@@ -2,6 +2,13 @@
 	<string ux:Property="Title"/>
 	<string ux:Property="Description"/>
 	<float4 ux:Property="TextColor"/>
+	<string ux:Property="Group"/>
+
+	<WhileString Value="{ReadProperty Group}" Equals="" Invert="true">
+		<Grid Columns="1*"  Padding="0,30,30,0">
+			<P Value="{ReadProperty Group}" Color="color.Gray" Alignment="CenterLeft" />
+		</Grid>
+	</WhileString>
 
 	<Grid Columns="1*, 10"  Padding="0,20">
 		<P Value="{ReadProperty Title}" Alignment="CenterLeft" TextWrapping="Wrap"/>
