@@ -1,10 +1,37 @@
-<Grid ux:Class="CollapsibleEntry" Columns="1*, 10" TextColor="color.Blue" Padding="0,20" HitTestMode="LocalBoundsAndChildren">
-	<string ux:Property="Id"/>
-	<string ux:Property="Value"/>
+<StackPanel ux:Class="CollapsibleEntry" HitTestMode="LocalBoundsAndChildren" ClipToBounds="true">
+	<string ux:Property="Title"/>
+	<string ux:Property="Description"/>
 	<float4 ux:Property="TextColor"/>
-	
-	<Each TemplateSource="this" TemplateKey="RightIcon" Count="1">
-		<P Color="{ReadProperty TextColor}" Value="{ReadProperty Value}" Alignment="CenterLeft" />
-		<P Color="{ReadProperty TextColor}" Value=">" />
-	</Each>
-</Grid>
+
+	<Grid Columns="1*, 10"  Padding="0,20">
+		<P Value="{ReadProperty Title}" Alignment="CenterLeft" />
+		<P ux:Name="icon" Value=">" />
+	</Grid>
+
+	<Panel>
+		<P ux:Name="description" LayoutRole="Inert" Color="color.Black" TextWrapping="Wrap" Alignment="Left" Padding="0,0,0,20">{ReadProperty Description}</P>
+	</Panel>
+
+	<Separator>
+		<LayoutAnimation>
+			<Resize Vector="1" RelativeTo="SizeChange" Duration="0.5" Easing="QuadraticOut" EasingBack="QuadraticIn" />
+			<Move Vector="1" RelativeTo="PositionChange" Duration="0.5" Easing="QuadraticOut" EasingBack="QuadraticIn" />
+		</LayoutAnimation>
+	</Separator>
+
+	<WhileTrue ux:Name="showDescription">
+		<DebugAction Message="show"/>
+		<Change description.LayoutRole="Standard" />
+		<Change icon.Value="V"/>
+	</WhileTrue>
+
+	<Clicked>
+		<Toggle Target="showDescription" />
+	</Clicked>
+
+	<LayoutAnimation>
+		<Resize Vector="1" RelativeTo="SizeChange" Duration="0.5" Easing="QuadraticOut" EasingBack="QuadraticIn" />
+		<Move Vector="1" RelativeTo="PositionChange" Duration="0.5" Easing="QuadraticOut" EasingBack="QuadraticIn" />
+	</LayoutAnimation>
+
+</StackPanel>

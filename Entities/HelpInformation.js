@@ -1,7 +1,7 @@
-function HelpInformation(id, title, text) {
+function HelpInformation(id, title, description) {
 	this.id = id;
 	this.title = title;
-	this.text = text;
+	this.description = description;
 }
 
 module.exports = HelpInformation;

@@ -50,7 +50,7 @@ var getHelpInformations  = function(){
 			var options = [];
 			if (list != null && list.length > 0) {
 				list.forEach(function(info) {
-					options.push(new HelpInformation(info.id, info.title, info.text));
+					options.push(new HelpInformation(info.id, info.title, info.description));
 				});
 			}
 			return options;

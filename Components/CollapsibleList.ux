@@ -9,16 +9,8 @@
 
 		<Each Items="{ReadProperty Items}">
 			<NodeGroup>
-				<CollapsibleEntry Id="{id}" Value="{title}">
-					<!-- <Clicked>
-						<Callback Handler="..."/>
-						TO DO :: qui vorrei direttamente in XML dire di chiudere tutte le Text che possono essere aperte e aprire solo quella che si riferisce a questo item
-					</Clicked> -->
-				</CollapsibleEntry>
+				<CollapsibleEntry Title="{title}" Description="{description}"/>
 		
-				<Text Color="{color.Black}" Font="RegularFont" Value="{text}" TextWrapping="Wrap" Margin="0,0,0,20"/>
-
-				<Separator />
 			</NodeGroup>
 		</Each>
 	</StackPanel>

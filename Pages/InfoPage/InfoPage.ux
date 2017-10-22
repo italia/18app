@@ -4,6 +4,7 @@
 	<Visual ux:Dependency="navBar" />
 	<NavBarTitle navBar="navBar"  Text="Informazioni" />
 	<DockPanel>
+		<!--TODO si potrebbe dinamicizzare i filtri di ricerca aiutandosi con la libreria http://fusejs.io -->
 		<TextInputSearch PlaceholderText="Cerca" Margin="35,25" Dock="Top"/>
 		<CollapsibleList Items="{items}">
 		</CollapsibleList>
