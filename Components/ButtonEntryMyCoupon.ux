@@ -1,4 +1,4 @@
-<Grid ux:Class="ButtonEntryMyCoupon" Columns="40, 1*, 10" TextColor="color.Blue" Padding="0,20" HitTestMode="LocalBoundsAndChildren">
+<Grid ux:Class="ButtonEntryMyCoupon" Columns="40, 2*,1*,10" TextColor="color.Blue" Padding="0,20" HitTestMode="LocalBoundsAndChildren">
 	<string ux:Property="Category"/>
 	<string ux:Property="Price"/>
 	<string ux:Property="Currency"/>
@@ -10,12 +10,13 @@
 
 	<Image File="{ReadProperty PathIcon}" Width="20"  Height="20" Alignment="CenterLeft" />
 	<StackPanel>
-		<P Color="{ReadProperty TextColor}" Font="BoldFont" Value="{ReadProperty Category}" Alignment="CenterLeft" />
+		<B Color="{ReadProperty TextColor}" Value="{ReadProperty Category}" Alignment="CenterLeft" />
 		<P Color="{ReadProperty TextColor}" Value="{ReadProperty TypeCoupon}" Alignment="CenterLeft" />
 	</StackPanel>
 
-	<Each TemplateSource="this" TemplateKey="RightIcon" Count="1">
-		<P Color="{ReadProperty TextColor}" Value=">" />
-	</Each>
+	<B Color="{ReadProperty TextColor}" Value="{ReadProperty Price}"/>
+
+	<P Color="{ReadProperty TextColor}" Value=">" />
 
 </Grid>
+

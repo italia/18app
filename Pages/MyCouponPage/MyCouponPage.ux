@@ -51,13 +51,13 @@
 				<WhileActive Threshold="0.5">
 					<Set indicator.LayoutMaster="page2Tab" />
 				</WhileActive>
-				<ListMyCoupon Items="{items}" Title="Buoni spesi"/>
+				<ListMyCoupon Items="{validItems}" Title="Buoni da spendere"/>
 			</Page>
 			<Page ux:Name="page3" Background="#fff">
 				<WhileActive Threshold="0.5">
 					<Set indicator.LayoutMaster="page3Tab" />
 				</WhileActive>
-				<ListMyCoupon Items="{items}" Title="Buoni gia' spesi"/>
+				<ListMyCoupon Items="{notValidItems}" Title="Buoni gia' spesi"/>
 			</Page>
 		</PageControl>
 
