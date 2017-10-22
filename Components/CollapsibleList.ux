@@ -13,6 +13,10 @@
 				<WhileString Value="{group}" Equals="" Invert="true">
 					<Grid Columns="1*"  Padding="0,30,30,0">
 						<P Value="{group}" Color="color.Gray" Alignment="CenterLeft" />
+						<LayoutAnimation>
+							<Resize Vector="1" RelativeTo="SizeChange" Duration="0.5" Easing="QuadraticOut" EasingBack="QuadraticIn" />
+							<Move Vector="1" RelativeTo="PositionChange" Duration="0.5" Easing="QuadraticOut" EasingBack="QuadraticIn" />
+						</LayoutAnimation>
 					</Grid>
 				</WhileString>
 				
