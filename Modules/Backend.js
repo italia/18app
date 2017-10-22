@@ -128,7 +128,7 @@ var helpInformations = [
 	},
 ];
 
-var myCoupon =
+var coupons =
 [
 	{
 		code:"45DH6790",
@@ -148,7 +148,7 @@ var myCoupon =
 			icon: "Assets/images/icon-cinema-06c.png",
 			type:"Categoria"
 		},
-		microcategory:{
+		microCategory:{
 			id: "biglietto",
 			name: "Biglietto d'ingresso",
 			icon: "Assets/images/icon-concerti-06c.png",
@@ -175,7 +175,7 @@ var myCoupon =
 			icon: "Assets/images/icon-concerti-06c.png",
 			type:"Categoria"
 		},
-		microcategory:{
+		microCategory:{
 			id: "biglietto",
 			name: "Biglietto d'ingresso",
 			icon: "Assets/images/icon-concerti-06c.png",
@@ -201,7 +201,7 @@ var myCoupon =
 			icon: "Assets/images/icon-teatro-06c.png",
 			type:"Categoria"
 		},
-		microcategory:{
+		microCategory:{
 			id: "biglietto",
 			name: "Biglietto d'ingresso",
 			icon: "Assets/images/icon-concerti-06c.png",
@@ -228,7 +228,7 @@ var myCoupon =
 			icon: "Assets/images/icon-cinema-06c.png",
 			type:"Categoria"
 		},
-		microcategory:{
+		microCategory:{
 			id: "libri",
 			name: "Libri",
 			icon: "Assets/images/icon-libri-06c.png",
@@ -236,8 +236,7 @@ var myCoupon =
 		},
 		qrcode:"Assets/images/qrcode-example.jpg",
 		barcode:"Assets/images/barcode-example.jpg"
-	}
-	,{
+	},{
 		code:"45DH6792",
 		price:128.00,
 		currency:"€",
@@ -255,7 +254,7 @@ var myCoupon =
 			icon: "Assets/images/icon-teatro-06c.png",
 			type:"Categoria"
 		},
-		microcategory:{
+		microCategory:{
 			id: "biglietto",
 			name: "Biglietto d'ingresso",
 			icon: "Assets/images/icon-concerti-06c.png",
@@ -352,10 +351,10 @@ var getHelpInformations = function() {
 	});
 };
 
-var getMyCoupon = function() {
+var getCoupons = function() {
 	return new Promise(function(resolve, reject) {
 		setTimeout(function() {
-			resolve(myCoupon);
+			resolve(coupons);
 		}, 0);
 	});
 };
@@ -365,5 +364,5 @@ module.exports = {
 	getMacrocategories: getMacrocategories,
 	getMicroCategories: getMicroCategories,
 	getHelpInformations:getHelpInformations,
-	getMyCoupon: getMyCoupon
+	getCoupons: getCoupons
 };

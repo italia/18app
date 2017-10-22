@@ -18,7 +18,7 @@
 		</WhileString>
 		<Each Items="{ReadProperty Items}">
 			<NodeGroup>
-				<ButtonEntryMyCoupon PathIcon="{pathIcon}" Name="{name}" TypeCoupon="{typeCoupon}" Price="{price}" Currency="{currency}" State="{state}" ShopPlace="{shopPlace}">
+				<ButtonEntryMyCoupon PathIcon="{macroCategory.icon}" Category="{macroCategory.name}" TypeCoupon="{microCategory.name}" Price="{price}" Currency="{currency}" State="{state}" ShopPlace="{shopPlace}">
 					<Clicked>
 						<Callback Handler="{onTapItemList}"/>
 					</Clicked>
