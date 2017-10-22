@@ -147,12 +147,12 @@ function randomString(length) {
 
 var createCoupon = function(price,macroCategory,microCategory){
 	return new Promise(function(resolve, reject) {
-		console.log("creazione coupon...");
 		setTimeout(function() {
 			coupon.code = randomString(8);
 			coupon.price=price;
 			coupon.macroCategory=macroCategory;
 			coupon.microCategory=microCategory;
+			console.log("creato Coupon: "+coupon.code);
 			resolve(coupon);
 		}, 0);
 	});
