@@ -22,7 +22,7 @@
 
 	<Divider />
 
-	<IconAndLabel>
+	<IconAndLabel  Clicked="{goToMerchants}">
 		<NegoziIcon />
 	</IconAndLabel>
 

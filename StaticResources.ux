@@ -14,10 +14,11 @@
 	<!-- COLORS -->
 	<float4 ux:Global="color.Green" ux:Value="#02a45f"/>
 	<float4 ux:Global="color.Gray" ux:Value="#a9b1b8"/>
+	<float4 ux:Global="color.White" ux:Value="#ffffff"/>
 	<float4 ux:Global="color.Red" ux:Value="#d0021b"/>
 	<float4 ux:Global="color.Blue" ux:Value="#0066CC"/>
 	<float4 ux:Global="color.Black" ux:Value="#000000"/>
-	<float4  ux:Global="color.GrayLight" ux:Value="#f5f5f5"/>
+	<float4  ux:Global="color.GrayLight" ux:Value="#F0F0F0"/>
 	<!-- FONTS-->
 	<Font ux:Global="RegularFont" File="Assets/Titillium_Web/TitilliumWeb-Regular.ttf"></Font>
 	<Font ux:Global="BaseFont" File="Assets/Titillium_Web/TitilliumWeb-Bold.ttf"></Font>
@@ -38,13 +39,27 @@
 	<!-- ICONS -->
 
 	<Text ux:Class="icon.Profile" Font="FontAwesome" Color="color.Black">&#xf007;</Text>
-
-	<Text ux:Class="icon.Search" Font="FontAwesome" Color="color.GrayLight" FontSize="25" Margin="0, 5, 0, 0">&#xf002;</Text>
+	<Text ux:Class="icon.CaretDown" Font="FontAwesome" Color="color.GrayLight" Alignment="VerticalCenter">&#xf0d7;</Text>
+	<Text ux:Class="icon.Search" Font="FontAwesome" Color="color.GrayLight">&#xf002;</Text>
 	<Image ux:Class="icon.Qrcode" Alignment="Center">
 		<MultiDensityImageSource>
 			<FileImageSource Density="1" File="Assets/images/icon-qrcode.png"></FileImageSource>
 			<FileImageSource Density="2" File="Assets/images/icon-qrcode@2x.png"></FileImageSource>
 			<FileImageSource Density="3" File="Assets/images/icon-qrcode@3x.png"></FileImageSource>
+		</MultiDensityImageSource>
+	</Image>
+	<Image ux:Class="icon.Funnel" Alignment="Center">
+		<MultiDensityImageSource>
+			<FileImageSource Density="1" File="Assets/images/icon-funnel.png"></FileImageSource>
+			<FileImageSource Density="2" File="Assets/images/icon-funnel@2x.png"></FileImageSource>
+			<FileImageSource Density="3" File="Assets/images/icon-funnel@3x.png"></FileImageSource>
+		</MultiDensityImageSource>
+	</Image>
+	<Image ux:Class="icon.City" Alignment="Center">
+		<MultiDensityImageSource>
+			<FileImageSource Density="1" File="Assets/images/icon-city.png"></FileImageSource>
+			<FileImageSource Density="2" File="Assets/images/icon-city@2x.png"></FileImageSource>
+			<FileImageSource Density="3" File="Assets/images/icon-city@3x.png"></FileImageSource>
 		</MultiDensityImageSource>
 	</Image>
 	<Image ux:Class="icon.Euro" Alignment="Center" >

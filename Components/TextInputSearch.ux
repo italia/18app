@@ -1,7 +1,7 @@
 <Panel ux:Class="TextInputSearch" >
 	<string ux:Property="PlaceholderText"/>
 	<DockPanel>
-		<icon.Search Dock="Left"/>
+		<icon.Search Dock="Left" FontSize="25" Margin="0, 5, 0, 0"/>
 		<TextInput Margin="10,0,0,0" Font="RegularFont" PlaceholderText="{ReadProperty PlaceholderText}" FontSize="25" PlaceholderColor="color.GrayLight">
 		</TextInput>
 	</DockPanel>

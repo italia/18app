@@ -9,6 +9,9 @@ module.exports = {
 	},
 	goToInfo: function() {
 		router.push("info");
+	},
+	goToMerchants: function(){
+		router.push("merchants");
 	}
 };
 
