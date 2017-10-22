@@ -5,14 +5,15 @@ var Context = require("Modules/Context");
 var items = Observable();
 
 var selected = this.Parameter.flatMap(function(param) {
+	resetPage();
 	return param.selected;
 });
 
 var price =Observable();
 
-var optionClicked = function(args) {
-
-};
+function resetPage(){
+	price.value=null;
+}
 
 var onTapCreateCoupon = function(){
 	var selectedItems=selected.toArray();
