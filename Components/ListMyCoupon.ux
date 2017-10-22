@@ -1,0 +1,30 @@
+<ScrollView ux:Class="ListMyCoupon">
+	<object ux:Property="Items"/>
+	<object ux:Property="Selected"/>
+	<string ux:Property="Title"/>
+
+	<StackPanel Margin="23,0">
+		<WhileNotEmpty Items="{ReadProperty Selected}">
+			<Rectangle Color="#FDFDFD" CornerRadius="8" Layer="Background"/>
+			<Each Items="{ReadProperty Selected}">
+				<NodeGroup>
+					<ItemListSelected PathIcon="{pathIcon}" Value="{name}"/>
+					<Separator />
+				</NodeGroup>
+			</Each>
+		</WhileNotEmpty>
+		<WhileString Value="{ReadProperty Title}" Test="IsNotEmpty">
+			<H3 Alignment="Left" Margin="0,25,0,0">{ReadProperty Title}</H3>
+		</WhileString>
+		<Each Items="{ReadProperty Items}">
+			<NodeGroup>
+				<ButtonEntryMyCoupon PathIcon="{pathIcon}" Value="{name}">
+					<Clicked>
+						<Callback Handler="{onTapItemList}"/>
+					</Clicked>
+				</ButtonEntryMyCoupon>
+				<Separator />
+			</NodeGroup>
+		</Each>
+	</StackPanel>
+</ScrollView>
