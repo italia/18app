@@ -1,12 +1,65 @@
 <BasePage ux:Class="MyCouponPage">
 	<Router ux:Dependency="router" />
-	<JavaScript File="MyCouponPage.js" />
 	<Visual ux:Dependency="navBar" />
-	<NavBarTitle navBar="navBar"  Text="Nuovo buono: Categoria" />
-	<ScrollView>
-		<StackPanel  Height="100%" Margin="35,25">
-			<HomeText Alignment="Left">Scegli la categoria</HomeText>
-			<Rectangle Color="#FDFDFD" CornerRadius="8" Layer="Background"/>
-		</StackPanel>
-	</ScrollView>
+	<JavaScript File="MyCouponPage.js" />
+	<NavBarTitle navBar="navBar"  Text="I tuoi buoni" />
+
+	<Rectangle ux:Name="indicator" LayoutMaster="page1Tab" Alignment="Bottom" Height="4" Color="#003E90">
+		<LayoutAnimation>
+			<Move RelativeTo="WorldPositionChange" X="1" Duration="0.4" Easing="BackIn"/>
+		</LayoutAnimation>
+	</Rectangle>
+
+	<Text ux:Class="WelcomeText" FontSize="30" Alignment="Center"/>
+
+	<DockPanel>
+		<StatusBarBackground Dock="Top" />
+		<BottomBarBackground Dock="Bottom" />
+
+		<Grid Dock="Top" ColumnCount="3" Height="50" Background="#fff">
+			<Panel ux:Name="page1Tab">
+				<Tab Text="TUTTI">
+					<Clicked>
+						<Set navigation.Active="page1" />
+					</Clicked>
+				</Tab>
+			</Panel>
+			<Panel ux:Name="page2Tab">
+				<Tab Text="DA SPENDERE">
+					<Clicked>
+						<Set navigation.Active="page2" />
+					</Clicked>
+				</Tab>
+			</Panel>
+			<Panel ux:Name="page3Tab">
+				<Tab Text="GIÀ SPESI">
+					<Clicked>
+						<Set navigation.Active="page3" />
+					</Clicked>
+				</Tab>
+			</Panel>
+		</Grid>
+
+		<PageControl ux:Name="navigation">
+			<Page ux:Name="page1" Background="#fff">
+				<WhileActive Threshold="0.5">
+					<Set indicator.LayoutMaster="page1Tab" />
+				</WhileActive>
+				<ListMyCoupon Items="{items}" Title="Ci sono 2 buoni da spendere"/>
+			</Page>
+			<Page ux:Name="page2" Background="#fff">
+				<WhileActive Threshold="0.5">
+					<Set indicator.LayoutMaster="page2Tab" />
+				</WhileActive>
+				<ListMyCoupon Items="{items}" Title="Buoni spesi"/>
+			</Page>
+			<Page ux:Name="page3" Background="#fff">
+				<WhileActive Threshold="0.5">
+					<Set indicator.LayoutMaster="page3Tab" />
+				</WhileActive>
+				<ListMyCoupon Items="{items}" Title="Buoni gia' spesi"/>
+			</Page>
+		</PageControl>
+
+	</DockPanel>
 </BasePage>
