@@ -1,10 +1,9 @@
 <Panel ux:Class="TextInputSearch" >
 	<string ux:Property="PlaceholderText"/>
-	<StackPanel Orientation="Horizontal" ItemSpacing="15">
-		
-		<icon.Search/>
-		<TextInput Font="RegularFont" PlaceholderText="{ReadProperty PlaceholderText}" FontSize="25" PlaceholderColor="color.GrayLight" InputHint="Default" Width="100%">
+	<DockPanel>
+		<icon.Search Dock="Left"/>
+		<TextInput Margin="10,0,0,0" Font="RegularFont" PlaceholderText="{ReadProperty PlaceholderText}" FontSize="25" PlaceholderColor="color.GrayLight">
 		</TextInput>
-	</StackPanel>
+	</DockPanel>
 	<Rectangle Height="2" Width="100%" Color="color.GrayLight" Alignment="Bottom"/>
 </Panel>
