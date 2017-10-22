@@ -2,6 +2,11 @@ var Backend = require("Modules/Backend");
 var ItemList = require("Entities/ItemList");
 var HelpInformation = require("Entities/HelpInformation");
 
+// Architettura
+// queste funzioni rappresentano un layer di Traduzione dal formato dati del mondo del "backend"
+// al formato dati che l'app si aspetta nel contesto
+// questo livello ci consente di migliorare la modificabilita' del codice nel momento in cui
+// verra' implementato o modificato in futuro il backend
 
 var createCoupon=function(price,macroCategory,microCategory){
 	return Backend.createCoupon(price, macroCategory, microCategory);
@@ -49,8 +54,14 @@ var getHelpInformations  = function(){
 		try {
 			var options = [];
 			if (list != null && list.length > 0) {
+				list.reverse();
 				list.forEach(function(info) {
-					options.push(new HelpInformation(info.id, info.title, info.description));
+					var group = { group: info.group, items: [] };
+					info.items.reverse();
+					info.items.forEach(function(info) {
+						group.items.push(new HelpInformation(info.id, info.title, info.description));
+					});
+					options.push(group);
 				});
 			}
 			return options;
