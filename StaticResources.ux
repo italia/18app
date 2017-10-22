@@ -39,6 +39,7 @@
 
 	<Text ux:Class="icon.Profile" Font="FontAwesome" Color="color.Black">&#xf007;</Text>
 
+	<Text ux:Class="icon.Search" Font="FontAwesome" Color="color.GrayLight" FontSize="25" Margin="0, 5, 0, 0">&#xf002;</Text>
 	<Image ux:Class="icon.Qrcode" Alignment="Center">
 		<MultiDensityImageSource>
 			<FileImageSource Density="1" File="Assets/images/icon-qrcode.png"></FileImageSource>
