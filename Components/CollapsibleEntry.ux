@@ -4,7 +4,7 @@
 	<float4 ux:Property="TextColor"/>
 
 	<Grid Columns="1*, 10"  Padding="0,20">
-		<P Value="{ReadProperty Title}" Alignment="CenterLeft" />
+		<P Value="{ReadProperty Title}" Alignment="CenterLeft" TextWrapping="Wrap"/>
 		<P ux:Name="icon" Value=">" />
 	</Grid>
 
