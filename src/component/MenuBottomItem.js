@@ -6,11 +6,12 @@ import * as Constant from '../common/constants';
 export default class MenuBottomItem extends PureComponent {
   static propTypes = {
     active: PropTypes.bool,
+    onPress: PropTypes.func,
   }
 
   render() {
     return (
-      <TouchableOpacity>
+      <TouchableOpacity onPress={this.props.onPress}>
         <View style={[styles.container, this.props.active ? styles.activeContainer : null]}>
           <Image
             style={styles.image}
