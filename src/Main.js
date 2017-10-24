@@ -1,5 +1,5 @@
 import React from 'react';
-import {View} from 'react-native';
+import {View, StatusBar} from 'react-native';
 import {connect} from 'react-redux';
 import { addNavigationHelpers } from 'react-navigation';
 import MainNavigation from './MainNavigation';
@@ -9,6 +9,7 @@ class Main extends React.Component {
   render() {
     return (
       <View style={{flex: 1}}>
+        <StatusBar barStyle="light-content" />
         <View style={{flex: 1}}>
           <MainNavigation navigation={addNavigationHelpers({
             dispatch: this.props.dispatch,
