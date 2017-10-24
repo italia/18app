@@ -1,10 +1,10 @@
-import reducer from './coupons'
+import reducer from './coupons';
 
 it('should return default state on init', () => {
-  const nextState = reducer(undefined, {})
+    const nextState = reducer(undefined, {});
 
-  expect(nextState).toMatchObject({
-    items: [],
-    isLoading: false
-  })
-})
+    expect(nextState).toMatchObject({
+        items: [],
+        isLoading: false,
+    });
+});

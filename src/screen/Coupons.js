@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
-import { Text } from 'react-native';
+import React, {Component} from 'react';
+import {Text} from 'react-native';
 
 export default class Coupon extends Component {
-  static navigationOptions = {
-    title: 'I tuoi buoni',
-  };
+    static navigationOptions = {
+        title: 'I tuoi buoni',
+    };
 
-  render() {
-    return <Text>Buoni</Text>;
-  }
+    render() {
+        return <Text>Buoni</Text>;
+    }
 }

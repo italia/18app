@@ -1,5 +1,5 @@
-import React, { PureComponent } from 'react';
-import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
+import React, {PureComponent} from 'react';
+import {View, Text, Image, TouchableOpacity, StyleSheet} from 'react-native';
 import PropTypes from 'prop-types';
 import * as Constants from '../common/constants';
 
@@ -14,9 +14,14 @@ export default class HeaderProfileButton extends PureComponent {
                     </View>
 
                     <View style={styles.notificationContainer}>
-                        <Image source={require('../res/spid-ico-circle-bb.png')} style={styles.icon} />
+                        <Image
+                            source={require('../res/spid-ico-circle-bb.png')}
+                            style={styles.icon}
+                        />
                         <View style={styles.notificationCounter}>
-                            <Text style={styles.notificationCounterText}>2</Text>
+                            <Text style={styles.notificationCounterText}>
+                                2
+                            </Text>
                         </View>
                     </View>
                 </View>
@@ -49,7 +54,7 @@ const styles = StyleSheet.create({
     icon: {
         width: 24,
         height: 24,
-        tintColor: Constants.WHITE
+        tintColor: Constants.WHITE,
     },
     notificationCounter: {
         width: 10,
@@ -68,6 +73,6 @@ const styles = StyleSheet.create({
         backgroundColor: 'transparent',
         fontFamily: Constants.TITILLIUM_REGULAR,
         fontSize: 9,
-        color: Constants.PRIMARY_BLUE
-    }
+        color: Constants.PRIMARY_BLUE,
+    },
 });
