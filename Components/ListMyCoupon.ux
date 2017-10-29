@@ -18,7 +18,7 @@
 		</WhileString>
 		<Each Items="{ReadProperty Items}">
 			<StackPanel>
-				<ButtonEntryMyCoupon PathIcon="{macroCategory.icon}" Category="{macroCategory.name}" TypeCoupon="{microCategory.name}" Price="{price}" Currency="{currency}" State="{state}" ShopPlace="{shopPlace}">
+				<ButtonEntryMyCoupon PathIcon="{macroCategory.icon}" Category="{macroCategory.name}" TypeCoupon="{microCategory.name}" Price="{price}" Currency="{currency}" State="{state}" ShopPlace="{shopPlace}" id="{id}">
 					<Clicked>
 						<Callback Handler="{onTapItemList}"/>
 					</Clicked>

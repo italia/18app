@@ -149,7 +149,7 @@ var helpInformations = [{
 var coupons =
 [{
 	code: "45DH6790",
-	price: 8.00,
+	price: "8.00",
 	currency: "€",
 	typeCoupon: "Biglietto d’ingresso",
 	state: 'Valido',
@@ -175,7 +175,7 @@ var coupons =
 	barcode: "Assets/images/barcode-example.jpg"
 }, {
 	code: "45DH6791",
-	price: 56.00,
+	price: "56.00",
 	currency: "€",
 	typeCoupon: "Biglietto d’ingresso",
 	state: 'Valido',
@@ -201,7 +201,7 @@ var coupons =
 	barcode: "Assets/images/barcode-example.jpg"
 }, {
 	code: "45DH6792",
-	price: 128.00,
+	price: "128.00",
 	currency: "€",
 	typeCoupon: "Abbonamento / Card",
 	state: 'Valido',
@@ -227,7 +227,7 @@ var coupons =
 	barcode: "Assets/images/barcode-example.jpg"
 }, {
 	code: "45DH6792",
-	price: 128.00,
+	price: "128.00",
 	currency: "€",
 	typeCoupon: "ebook",
 	state: 'Usato',
@@ -253,7 +253,7 @@ var coupons =
 	barcode: "Assets/images/barcode-example.jpg"
 }, {
 	code: "45DH6792",
-	price: 128.00,
+	price: "128.00",
 	currency: "€",
 	typeCoupon: "Abbonamento / Card",
 	state: 'Usato',
@@ -314,11 +314,7 @@ var merchants = [{
 		street:"Via Carulli 5",
 		city:"Bari",
 		state:"BA",
-		postalCode:"70100",
-		gps:{
-			lat:41.1199864,
-			lng:16.872977300000002
-		}
+		postalCode:"70100"
 	},
 	macroCategories: [{
 		id: "cinema",
@@ -333,11 +329,7 @@ var merchants = [{
 		street:"Piazza Luigi di Savoia, 40",
 		city:"Bari",
 		state:"BA",
-		postalCode:"70100",
-		gps:{
-			lat:41.1182953,
-			lng:16.87449689999994
-		}
+		postalCode:"70100"
 	},
 	macroCategories: [{
 		id: "concerti",
@@ -352,11 +344,7 @@ var merchants = [{
 		street:"Via A. da Bari, 48",
 		city:"Bari",
 		state:"BA",
-		postalCode:"70100",
-		gps:{
-			lat:41.1239987,
-			lng:16.868739000000005
-		}
+		postalCode:"70100"
 	},
 	macroCategories: [{
 		id: "libri",
@@ -371,11 +359,7 @@ var merchants = [{
 		street:"Via Sparano, 5",
 		city:"Bari",
 		state:"BA",
-		postalCode:"70100",
-		gps:{
-			lat:41.1259,
-			lng:16.869280000000003
-		}
+		postalCode:"70100"
 	},
 	macroCategories: [{
 		id: "teatro_danza",
@@ -387,14 +371,10 @@ var merchants = [{
 	type: "local_store",
 	cover:"Assets/images/cover-teatro@3x.png",
 	address:{
-		street:"Piazza Aldo Moro, 10",
+		street:"Piazza Moro, 10",
 		city:"Bari",
 		state:"BA",
-		postalCode:"70100",
-		gps:{
-			lat:41.11907,
-			lng:16.869680000000017
-		}
+		postalCode:"70100"
 	},
 	macroCategories: [{
 		id: "teatro_danza",
@@ -405,7 +385,7 @@ var merchants = [{
 	name: "Scuolabook",
 	type: "internet_store",
 	cover:"Assets/images/cover-libri@3x.png",
-	site: "http://www.scuolabook.it",
+	site: "www.scuolabook.it",
 	macroCategories: [{
 		id: "libri",
 		name: "Libri"
@@ -413,7 +393,7 @@ var merchants = [{
 }, {
 	id: 7,
 	name: "Cineteatro Nuovo arcore",
-	site: "http://www.cinemanuovoarcore.it",
+	site: "www.cinemanuovoarcore.it",
 	type: "internet_store",
 	cover:"Assets/images/cover-teatro@3x.png",
 	macroCategories: [{
@@ -423,7 +403,7 @@ var merchants = [{
 }, {
 	id: 8,
 	name: "TicketOne",
-	site: "https://www.ticketone.it/18app",
+	site: "www.ticketone.it/18app",
 	type: "internet_store",
 	cover:"Assets/images/cover-concerti@3x.png",
 	macroCategories: [{
@@ -601,16 +581,27 @@ var getCoupons = function() {
  * @param  {int} max valore massimo dell'intervallo
  * @return {int} numero intero casuale
  */
- function getRandomInt(min, max) {
- 	return Math.floor(Math.random() * (max - min + 1)) + min;
- }
- module.exports = {
- 	deleteCoupon: deleteCoupon,
- 	getInternetMerchants: getInternetMerchants,
- 	getNearByMerchants:getNearByMerchants,
- 	createCoupon: createCoupon,
- 	getMacrocategories: getMacrocategories,
- 	getMicroCategories: getMicroCategories,
- 	getHelpInformations: getHelpInformations,
- 	getCoupons: getCoupons
- };
+
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function getCouponByID(id) {
+    for (var i=0; i < coupons.length; i++) {
+        if (coupons[i].code === id) {
+            return coupons[i];
+        }
+    }
+}
+module.exports = {
+	deleteCoupon: deleteCoupon,
+	getInternetMerchants: getInternetMerchants,
+	getNearByMerchants:getNearByMerchants,
+	createCoupon: createCoupon,
+	getMacrocategories: getMacrocategories,
+	getMicroCategories: getMicroCategories,
+	getHelpInformations: getHelpInformations,
+	getCoupons: getCoupons,
+	getCouponByID: getCouponByID
+};
+
