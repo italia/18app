@@ -7,21 +7,28 @@
 
 	<EdgeNavigator>
 
-		<Panel ux:Name="sidebar" Edge="Right" Width="100%" Margin="56,0,0,0" Background="#37474F">
-			<Shadow ux:Name="shadow" Angle="180" Distance="8" Size="16" Color="#0000" />
+		<DockPanel ux:Name="sidebar" Edge="Right" Width="100%" Margin="56,0,0,0" Background="#0066CC">
+			<Shadow ux:Name="shadow" Angle="0" Distance="16" Size="32" Color="#0000" />
 			<ActivatingAnimation>
 				<Change shadow.Color="#0004" />
 				<Change sidebarFade.Opacity="1" />
 			</ActivatingAnimation>
-			<Text Color="White" Value="Chiudi" FontSize="size.XL">
-				<Clicked>
-					<NavigateToggle Target="sidebar" />
-				</Clicked>
-			</Text>
-		</Panel>
-
-		<Rectangle ux:Name="sidebarFade" Layer="Overlay" Color="#0005" Opacity="0" HitTestMode="None" />
-		
+			<!-- parte bianca -->
+			<Panel Dock="Top"  Background="#FFF">
+				<StackPanel Padding="20,20">
+					<Grid Columns="1*, 15">
+						<Text Color="color.Black" Value="Mario Rossi" FontSize="size.XL"/>
+						<Text Color="color.Blue" Value="X" FontSize="size.XL">
+							<Clicked>
+								<NavigateToggle Target="sidebar" />
+							</Clicked>
+						</Text>
+					</Grid>
+					<Text Color="color.GrayDark" Value="Credito" FontSize="size.S" Margin="0,20,0,0"/>
+					<Text Color="color.GrayDark" Value="174,00 €" FontSize="size.XL" Font="BaseFont"/>
+				</StackPanel>
+			</Panel>
+		</DockPanel>	
 	
 	<DockPanel Background="#0066CC">
 		<StatusBarBackground Dock="Top" />
@@ -30,6 +37,8 @@
 				<NavigateToggle Target="sidebar" />
 			</OnUserEvent>
 		</NavBar>
+
+		<Rectangle ux:Name="sidebarFade" Layer="Overlay" Color="#0003" Opacity="0" HitTestMode="None" />
 
 		<Navigator DefaultPath="home">
 			<HomePage ux:Name="home" router="router" navBar="navBar"  Background="#fff" />
