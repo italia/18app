@@ -16,7 +16,7 @@
 			<NewCouponStep3Page ux:Name="newCouponStep3" router="router" navBar="navBar" Background="#fff" />
 			<NewCouponStep4Page ux:Name="newCouponStep4" router="router" navBar="navBar" Background="#fff" />
 			<MyCouponPage ux:Name="myCoupon" router="router" navBar="navBar"  Background="#fff"/>
-			<MerchantsPage ux:Name="merchants" router="router" navBar="navBar"  Background="#fff"/>
+			<MerchantsListPage ux:Name="merchants" router="router" navBar="navBar"  Background="#fff"/>
 			<InfoPage ux:Name="info" router="router" navBar="navBar"  Background="#fff"/>
 		</Navigator>
 

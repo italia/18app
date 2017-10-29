@@ -1,7 +1,7 @@
-<BasePage ux:Class="MerchantsPage">
+<BasePage ux:Class="MerchantsListPage">
 	<Router ux:Dependency="router" />
 	<Visual ux:Dependency="navBar" />
-	<JavaScript File="js/MerchantsPage.js" />
+	<JavaScript File="js/MerchantsListPage.js" />
 	<NavBarTitle navBar="navBar"  Text="Negozi" />
 
 	<Rectangle ux:Name="indicator" LayoutMaster="page1Tab" Alignment="Bottom" Height="4" Color="color.White">
