@@ -190,5 +190,13 @@
 		</MultiDensityImageSource>
 	</Image>
 
+	<!-- icone per pagina profilo -->
+	<Image ux:Class="LogoPosteIcon" Width="132" Height="37">
+		<MultiDensityImageSource>
+			<FileImageSource File="Assets/images/logo-poste.png" Density="1" />
+			<FileImageSource File="Assets/images/logo-poste@2x.png" Density="2" />
+			<FileImageSource File="Assets/images/logo-poste@3x.png" Density="3" />
+		</MultiDensityImageSource>
+	</Image>
 
 </Panel>
