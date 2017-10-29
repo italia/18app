@@ -13,12 +13,6 @@ La logica di business e' scritta in Javascript.
 
 Fuse tools consente di definire transizioni grafiche di UI con un semplice linguaggio dichiarativo XML, che viene compilato in codice nativo, ottenendo un'interfaccia fluida e priva di 'blocchi' inattesi.
 
-## Create App
-
-Per creare una nuova applicazione
-
-fuse create app <projectname> 
-
 ## Run in IOS / Android on Development PC
 
 Dopo aver installato https://www.fusetools.com/downloads e' possibile lanciare la preview sul sistema operativo di sviluppo con il comando:
