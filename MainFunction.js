@@ -12,6 +12,12 @@ module.exports = {
 	},
 	goToMerchants: function(){
 		router.push("merchants");
+	},
+	goToProfile: function(){
+		router.push("profile");
+	},
+	goToNotifications: function(){
+		router.push("notifications");
 	}
 };
 

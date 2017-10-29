@@ -1,0 +1,9 @@
+<BasePage ux:Class="ProfilePage">
+	<Router ux:Dependency="router" />
+	<JavaScript File="ProfilePage.js" />
+	<Visual ux:Dependency="navBar" />
+	<NavBarTitle navBar="navBar"  Text="il tuo profilo" />
+	<DockPanel>
+		<Text>CIAO</Text>
+	</DockPanel>
+</BasePage>
