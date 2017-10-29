@@ -1,4 +1,5 @@
 <Panel ux:Class="NavBar" Height="48" Color="#0066CC">
+	<UserEvent ux:Name="openSideBar" />
 	<!-- NavBar per pagine che possono andare indietro -->
 	<WhileCanGoBack>
 		<BackButton Alignment="CenterLeft">
@@ -22,7 +23,7 @@
 		</StackPanel>
 	</WhileCanGoBack>
 
-	<StackPanel Orientation="Horizontal" Alignment="Right" Margin="0, 5, 5, 10" ItemSpacing="10">
+	<StackPanel Orientation="Horizontal" Alignment="Right" Margin="0, 5, 5, 10" ItemSpacing="10" HitTestMode="LocalBounds" >
 		<StackPanel Orientation="Vertical" ItemSpacing="-5">
 			<BaseText Color="#FFF" Alignment="Right">Credito</BaseText>
 			<BoldText Color="#FFF" Alignment="Right">174,00€</BoldText>
@@ -40,6 +41,9 @@
 			<NavBarLogo/>
 		</StackPanel>
 
+		<Clicked>
+			<RaiseUserEvent EventName="openSideBar" />
+		</Clicked>
 		
 	</StackPanel>
 
