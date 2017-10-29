@@ -17,14 +17,14 @@
 			<H3 Alignment="Left" Margin="0,25,0,0">{ReadProperty Title}</H3>
 		</WhileString>
 		<Each Items="{ReadProperty Items}">
-			<NodeGroup>
+			<StackPanel>
 				<ButtonEntryMyCoupon PathIcon="{macroCategory.icon}" Category="{macroCategory.name}" TypeCoupon="{microCategory.name}" Price="{price}" Currency="{currency}" State="{state}" ShopPlace="{shopPlace}">
 					<Clicked>
 						<Callback Handler="{onTapItemList}"/>
 					</Clicked>
 				</ButtonEntryMyCoupon>
 				<Separator />
-			</NodeGroup>
+			</StackPanel>
 		</Each>
 	</StackPanel>
 </ScrollView>
