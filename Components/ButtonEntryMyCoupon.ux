@@ -1,22 +1,35 @@
-<Grid ux:Class="ButtonEntryMyCoupon" Columns="40, 2*,1*,10" TextColor="color.Blue" Padding="0,20" HitTestMode="LocalBoundsAndChildren">
+<Grid ux:Class="ButtonEntryMyCoupon" Columns="40, 2*,1*,10" TextColorBlue="color.Blue" TextColorGray="color.Gray" Padding="0,20" HitTestMode="LocalBoundsAndChildren">
 	<string ux:Property="Category"/>
-	<string ux:Property="Price"/>
+	<double ux:Property="Price"/>
 	<string ux:Property="Currency"/>
 	<string ux:Property="State"/>
 	<string ux:Property="ShopPlace"/>
 	<string ux:Property="TypeCoupon"/>
 	<FileSource ux:Property="PathIcon" />
-	<float4 ux:Property="TextColor"/>
-
-	<Image File="{ReadProperty PathIcon}" Width="20"  Height="20" Alignment="CenterLeft" />
-	<StackPanel>
-		<B Color="{ReadProperty TextColor}" Value="{ReadProperty Category}" Alignment="CenterLeft" />
-		<P Color="{ReadProperty TextColor}" Value="{ReadProperty TypeCoupon}" Alignment="CenterLeft" />
-	</StackPanel>
-
-	<B Color="{ReadProperty TextColor}" Value="{ReadProperty Price}"/>
-
-	<P Color="{ReadProperty TextColor}" Value=">" />
+	<float4 ux:Property="TextColorBlue"/>
+	<float4 ux:Property="TextColorGray"/>
+	<WhileString Value="{ReadProperty State}" Equals="Valido" >
+		<Image File="{ReadProperty PathIcon}" Width="20"  Height="20" Alignment="CenterLeft" />
+		<StackPanel>
+			<B Color="{ReadProperty TextColorBlue}" Value="{ReadProperty Category}" Alignment="CenterLeft" />
+			<P Color="{ReadProperty TextColorBlue}" Value="{ReadProperty TypeCoupon}" Alignment="CenterLeft" />
+		</StackPanel>
+		
+		<B Color="{ReadProperty TextColorBlue}"  Value="{ReadProperty Price}"/>
+		<P Color="{ReadProperty TextColorBlue}" Value=">" />
+	</WhileString>
+	<WhileString Value="{ReadProperty State}" Equals="Usato" >
+		<Image File="{ReadProperty PathIcon}" Width="20"  Height="20" Alignment="CenterLeft" />
+		<StackPanel>
+			<B Color="{ReadProperty TextColorGray}" Value="{ReadProperty Category}" Alignment="CenterLeft" />
+			<P Color="{ReadProperty TextColorGray}" Value="{ReadProperty TypeCoupon}" Alignment="CenterLeft" />
+			<P Color="{ReadProperty TextColorGray}" Value="{ReadProperty ShopPlace}" Alignment="CenterLeft" />
+		</StackPanel>
+		
+		<B Color="{ReadProperty TextColorGray}" Value="{ReadProperty Price}"/>
+		<P Color="{ReadProperty TextColorGray}" Value=">" />
+	</WhileString>
+	
 
 </Grid>
 
