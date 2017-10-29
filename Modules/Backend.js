@@ -149,7 +149,7 @@ var helpInformations = [{
 var coupons =
 [{
 	code: "45DH6790",
-	price: 8.00,
+	price: "8.00",
 	currency: "€",
 	typeCoupon: "Biglietto d’ingresso",
 	state: 'Valido',
@@ -175,7 +175,7 @@ var coupons =
 	barcode: "Assets/images/barcode-example.jpg"
 }, {
 	code: "45DH6791",
-	price: 56.00,
+	price: "56.00",
 	currency: "€",
 	typeCoupon: "Biglietto d’ingresso",
 	state: 'Valido',
@@ -201,7 +201,7 @@ var coupons =
 	barcode: "Assets/images/barcode-example.jpg"
 }, {
 	code: "45DH6792",
-	price: 128.00,
+	price: "128.00",
 	currency: "€",
 	typeCoupon: "Abbonamento / Card",
 	state: 'Valido',
@@ -227,7 +227,7 @@ var coupons =
 	barcode: "Assets/images/barcode-example.jpg"
 }, {
 	code: "45DH6792",
-	price: 128.00,
+	price: "128.00",
 	currency: "€",
 	typeCoupon: "ebook",
 	state: 'Usato',
@@ -253,7 +253,7 @@ var coupons =
 	barcode: "Assets/images/barcode-example.jpg"
 }, {
 	code: "45DH6792",
-	price: 128.00,
+	price: "128.00",
 	currency: "€",
 	typeCoupon: "Abbonamento / Card",
 	state: 'Usato',
@@ -315,10 +315,10 @@ var merchants = [{
 		city:"Bari",
 		state:"BA",
 		postalCode:"70100",
-		gps:{
-			lat:41.1199864,
-			lng:16.872977300000002
-		}
+  		gps:{
+  			lat:41.1199864,
+  			lng:16.872977300000002
+  		}
 	},
 	macroCategories: [{
 		id: "cinema",
@@ -334,10 +334,10 @@ var merchants = [{
 		city:"Bari",
 		state:"BA",
 		postalCode:"70100",
-		gps:{
-			lat:41.1182953,
-			lng:16.87449689999994
-		}
+ 		gps:{
+ 			lat:41.1182953,
+ 			lng:16.87449689999994
+ 		}
 	},
 	macroCategories: [{
 		id: "concerti",
@@ -353,10 +353,10 @@ var merchants = [{
 		city:"Bari",
 		state:"BA",
 		postalCode:"70100",
-		gps:{
-			lat:41.1239987,
-			lng:16.868739000000005
-		}
+ 		gps:{
+ 			lat:41.1239987,
+ 			lng:16.868739000000005
+ 		}
 	},
 	macroCategories: [{
 		id: "libri",
@@ -372,10 +372,10 @@ var merchants = [{
 		city:"Bari",
 		state:"BA",
 		postalCode:"70100",
-		gps:{
-			lat:41.1259,
-			lng:16.869280000000003
-		}
+ 		gps:{
+ 			lat:41.1259,
+ 			lng:16.869280000000003
+ 		}
 	},
 	macroCategories: [{
 		id: "teatro_danza",
@@ -391,10 +391,10 @@ var merchants = [{
 		city:"Bari",
 		state:"BA",
 		postalCode:"70100",
-		gps:{
-			lat:41.11907,
-			lng:16.869680000000017
-		}
+ 		gps:{
+ 			lat:41.11907,
+ 			lng:16.869680000000017
+ 		}
 	},
 	macroCategories: [{
 		id: "teatro_danza",
@@ -601,16 +601,26 @@ var getCoupons = function() {
  * @param  {int} max valore massimo dell'intervallo
  * @return {int} numero intero casuale
  */
- function getRandomInt(min, max) {
- 	return Math.floor(Math.random() * (max - min + 1)) + min;
- }
- module.exports = {
- 	deleteCoupon: deleteCoupon,
- 	getInternetMerchants: getInternetMerchants,
- 	getNearByMerchants:getNearByMerchants,
- 	createCoupon: createCoupon,
- 	getMacrocategories: getMacrocategories,
- 	getMicroCategories: getMicroCategories,
- 	getHelpInformations: getHelpInformations,
- 	getCoupons: getCoupons
- };
+
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function getCouponByID(id) {
+    for (var i=0; i < coupons.length; i++) {
+        if (coupons[i].code === id) {
+            return coupons[i];
+        }
+    }
+}
+module.exports = {
+	deleteCoupon: deleteCoupon,
+	getInternetMerchants: getInternetMerchants,
+	getNearByMerchants:getNearByMerchants,
+	createCoupon: createCoupon,
+	getMacrocategories: getMacrocategories,
+	getMicroCategories: getMicroCategories,
+	getHelpInformations: getHelpInformations,
+	getCoupons: getCoupons,
+	getCouponByID: getCouponByID
+};

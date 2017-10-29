@@ -20,9 +20,8 @@ Context.getCoupons().then(function(coupon) {
 });
 
 var onTapItemList = function(args) {
-	router.push('newTicketStep2', {
-		macrocategory: args.data
-	});
+	var couponSelected = Context.getCouponByID(args.data.id);
+	router.push("newCouponStep4",{selectedItems:couponSelected.microCategory,coupon:couponSelected});
 };
 module.exports = {
 	items: items,

@@ -75,12 +75,18 @@ var getCoupons = function() {
 		var coupons = [];
 		if (list != null && list.length > 0) {
 			list.forEach(function(coupon) {
-				coupons.push(new Coupon(coupon.id, coupon.macroCategory, coupon.microCategory, coupon.price, coupon.currency, coupon.state, coupon.shopPlace));
+				coupons.push(new Coupon(coupon.code, coupon.macroCategory, coupon.microCategory, coupon.price, coupon.currency, coupon.state, coupon.shopPlace));
 			});
 		}
 		return coupons;
 	});
 };
+
+var getCouponByID = function(id) {
+	return Backend.getCouponByID(id);
+};
+
+
 
 var getInternetMerchants = function(filters) {
 	return Backend.getInternetMerchants(filters).then(function(list) {
@@ -110,5 +116,6 @@ module.exports = {
 	getHelpInformations: getHelpInformations,
 	getCoupons: getCoupons,
 	getInternetMerchants:getInternetMerchants,
-	getNearByMerchants:getNearByMerchants
+	getNearByMerchants:getNearByMerchants,
+	getCouponByID:getCouponByID
 };

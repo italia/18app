@@ -1,9 +1,9 @@
 <Grid ux:Class="ButtonEntry" Columns="40, 1*, 10" TextColor="color.Blue" Padding="0,20" HitTestMode="LocalBoundsAndChildren">
 	<string ux:Property="Value"/>
-	<FileSource ux:Property="PathIcon" />
+	<FileSource ux:Property="icon" />
 	<float4 ux:Property="TextColor"/>
 
-	<Image File="{ReadProperty PathIcon}" Width="20"  Height="20" Alignment="CenterLeft" />
+	<Image File="{ReadProperty icon}" Width="20"  Height="20" Alignment="CenterLeft" />
 	<P Color="{ReadProperty TextColor}" Value="{ReadProperty Value}" Alignment="CenterLeft" />
 
 	<Each TemplateSource="this" TemplateKey="RightIcon" Count="1">

@@ -8,7 +8,7 @@
 			<Rectangle Color="#FDFDFD" CornerRadius="8" Layer="Background"/>
 			<Each Items="{ReadProperty Selected}">
 				<NodeGroup>
-					<ItemListSelected PathIcon="{pathIcon}" Value="{name}"/>
+					<ItemListSelected icon="{icon}" Value="{name}"/>
 					<Separator />
 				</NodeGroup>
 			</Each>
@@ -18,7 +18,7 @@
 		</WhileString>
 		<Each Items="{ReadProperty Items}">
 			<NodeGroup>
-				<ButtonEntry PathIcon="{pathIcon}" Value="{name}">
+				<ButtonEntry icon="{icon}" Value="{name}">
 					<Clicked>
 						<Callback Handler="{onTapItemList}"/>
 					</Clicked>
