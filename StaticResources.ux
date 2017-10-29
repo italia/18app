@@ -37,19 +37,13 @@
 	<Text ux:Class="B" Font="BaseFont" FontSize="16" Color="color.Blue" Alignment="Center"></Text>
 	<BaseText ux:Class="BoldText" Font="BoldFont"></BaseText>
 
-	<Image ux:Class="cover.Books" Alignment="Center" StretchMode="UniformToFill" Layer="Background" >
+	<Image ux:Class="cover" Alignment="Center" File="Assets/images/cover-libri@3x.png" StretchMode="UniformToFill" Layer="Background" >
 		<Rectangle Opacity="0.85">
 			<LinearGradient StartPoint="0,0" EndPoint="0,1">
 				<GradientStop Offset="0" Color="#003D8F" />
 				<GradientStop Offset="1" Color="#0066CC" />
 			</LinearGradient>
 		</Rectangle>
-
-		<MultiDensityImageSource>
-			<FileImageSource Density="1" File="Assets/images/cover-libri.png"></FileImageSource>
-			<FileImageSource Density="2" File="Assets/images/cover-libri@2x.png"></FileImageSource>
-			<FileImageSource Density="3" File="Assets/images/cover-libri@3x.png"></FileImageSource>
-		</MultiDensityImageSource>
 	</Image>
 	<!-- ICONS -->
 

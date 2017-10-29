@@ -6,6 +6,7 @@ function Merchant(item){
 	this.site=item.site;
 	this.distance=item.distance;
 	this.address= item.address;
+	this.cover = item.cover;
 	this.tag=createTag(this.macroCategories);
 }
 

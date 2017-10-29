@@ -4,7 +4,7 @@
 	<JavaScript File="js/MerchantProfilePage.js" />
 	<NavBarTitle navBar="navBar"  Text="Negozi" />
 
-	<cover.Books/>
+	<cover File="{cover}"/>
 	<DockPanel>
 		<StatusBarBackground Dock="Top" />
 		<BottomBarBackground Dock="Bottom" />
