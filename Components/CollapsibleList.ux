@@ -8,24 +8,28 @@
 		</WhileString>
 
 		<Each Items="{ReadProperty Items}">
-			<NodeGroup>
+			<WhileTrue Value="{visible}">
+				<NodeGroup>
 
-				<WhileString Value="{group}" Equals="" Invert="true">
-					<Grid Columns="1*"  Padding="0,30,30,0">
-						<P Value="{group}" Color="color.Gray" Alignment="CenterLeft" />
-						<LayoutAnimation>
-							<Move Vector="1" RelativeTo="PositionChange" Duration="0.5" Easing="QuadraticOut" EasingBack="QuadraticIn" />
-						</LayoutAnimation>
-					</Grid>
-				</WhileString>
-				
-				<Each Items="{items}">
-					<NodeGroup>
-						<CollapsibleEntry Title="{title}" Description="{description}"/>
-					</NodeGroup>
-				</Each>
+					<WhileString Value="{group}" Equals="" Invert="true">
+						<Grid Columns="1*"  Padding="0,30,30,0" >
+							<P Value="{group}" Color="color.Gray" Alignment="CenterLeft" />
+							<LayoutAnimation>
+								<Move Vector="1" RelativeTo="PositionChange" Duration="0.5" Easing="QuadraticOut" EasingBack="QuadraticIn" />
+							</LayoutAnimation>
+						</Grid>
+					</WhileString>
+					
+					<Each Items="{items}">
+						<WhileTrue Value="{visible}">
+							<NodeGroup>
+								<CollapsibleEntry Title="{title}" Description="{description}" />
+							</NodeGroup>
+						</WhileTrue>
+					</Each>
 
-			</NodeGroup>
+				</NodeGroup>
+			</WhileTrue>
 		</Each>
 	</StackPanel>
 </ScrollView>

@@ -20,7 +20,7 @@
 	</Separator>
 
 	<WhileTrue ux:Name="showDescription">
-		<DebugAction Message="show"/>
+		<!-- <DebugAction Message="show"/> -->
 		<Change description.LayoutRole="Standard" />
 		<Change icon.Value="V"/>
 	</WhileTrue>
