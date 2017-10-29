@@ -1,4 +1,4 @@
-<Grid ux:Class="ButtonEntryMyCoupon" Columns="40, 2*,1*,10" TextColorBlue="color.Blue" TextColorGray="color.Gray" Padding="0,20" HitTestMode="LocalBoundsAndChildren">
+<Grid ux:Class="ButtonEntryMyCoupon" Columns="40, 2*,1*,10"  Padding="0,20" HitTestMode="LocalBoundsAndChildren">
 	<string ux:Property="Category"/>
 	<string ux:Property="Price"/>
 	<string ux:Property="Currency"/>
@@ -7,30 +7,28 @@
 	<string ux:Property="TypeCoupon"/>
 	<string ux:Property="id"/>
 	<FileSource ux:Property="icon" />
-	<float4 ux:Property="TextColorBlue"/>
-	<float4 ux:Property="TextColorGray"/>
 	<WhileString Value="{ReadProperty State}" Equals="Valido" >
 		<Image File="{ReadProperty icon}" Width="20"  Height="20" Alignment="CenterLeft" />
 		<StackPanel>
-			<B Color="{ReadProperty TextColorBlue}" Value="{ReadProperty Category}" Alignment="CenterLeft" />
-			<P Color="{ReadProperty TextColorBlue}" Value="{ReadProperty TypeCoupon}" Alignment="CenterLeft" />
+			<B Color="color.Blue" Value="{ReadProperty Category}" Alignment="CenterLeft" />
+			<P Color="color.Blue" Value="{ReadProperty TypeCoupon}" Alignment="CenterLeft" />
 		</StackPanel>
 		
-		<B Color="{ReadProperty TextColorBlue}"  Value="{ReadProperty Price} {ReadProperty Currency}"/>
-		<P Color="{ReadProperty TextColorBlue}" Value=">" />
+		<B Color="color.Blue"  Value="{ReadProperty Price} {ReadProperty Currency}"/>
+		<P Color="color.Blue" Value=">" />
 	</WhileString>
 	<WhileString Value="{ReadProperty State}" Equals="Usato" >
 		<Image File="{ReadProperty icon}" Width="20"  Height="20" Alignment="CenterLeft" />
 		<StackPanel>
-			<B Color="{ReadProperty TextColorGray}" Value="{ReadProperty Category}" Alignment="CenterLeft" />
-			<P Color="{ReadProperty TextColorGray}" Value="{ReadProperty TypeCoupon}" Alignment="CenterLeft" />
-			<P Color="{ReadProperty TextColorGray}" Value="{ReadProperty ShopPlace}" Alignment="CenterLeft" />
+			<B Color="color.Gray" Value="{ReadProperty Category}" Alignment="CenterLeft" />
+			<P Color="color.Gray" Value="{ReadProperty TypeCoupon}" Alignment="CenterLeft" />
+			<P Color="color.Gray" Value="{ReadProperty ShopPlace}" Alignment="CenterLeft" />
 		</StackPanel>
 	
-		<B Color="{ReadProperty TextColorGray}" Value="{ReadProperty Price} {ReadProperty Currency}">
-			<Rectangle Height="2" Margin="0,0" Color="{ReadProperty TextColorGray}"/>
+		<B Color="color.Gray" Value="{ReadProperty Price} {ReadProperty Currency}">
+			<Rectangle Height="2" Margin="0,0" Color="color.Gray"/>
 		</B>
-		<P Color="{ReadProperty TextColorGray}" Value=">" />
+		<P Color="color.Gray" Value=">" />
 	</WhileString>
 	
 

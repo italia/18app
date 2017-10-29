@@ -10,8 +10,6 @@
 		</LayoutAnimation>
 	</Rectangle>
 
-	<Text ux:Class="WelcomeText" FontSize="30" Alignment="Center"/>
-
 	<DockPanel>
 		<StatusBarBackground Dock="Top" />
 		<BottomBarBackground Dock="Bottom" />
@@ -45,7 +43,7 @@
 				<WhileActive Threshold="0.5">
 					<Set indicator.LayoutMaster="page1Tab" />
 				</WhileActive>
-				<ListMyCoupon Items="{items}" Title="Ci sono 2 buoni da spendere"/>
+				<ListMyCoupon Items="{items}" Title="Ci sono 3 buoni da spendere"/>
 			</Page>
 			<Page ux:Name="page2" Background="#fff">
 				<WhileActive Threshold="0.5">
