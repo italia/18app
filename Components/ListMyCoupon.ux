@@ -8,7 +8,7 @@
 			<Rectangle Color="#FDFDFD" CornerRadius="8" Layer="Background"/>
 			<Each Items="{ReadProperty Selected}">
 				<NodeGroup>
-					<ItemListSelected PathIcon="{pathIcon}" Value="{typeCoupon}"/>
+					<ItemListSelected icon="{icon}" Value="{typeCoupon}"/>
 					<Separator />
 				</NodeGroup>
 			</Each>
@@ -18,7 +18,7 @@
 		</WhileString>
 		<Each Items="{ReadProperty Items}">
 			<StackPanel>
-				<ButtonEntryMyCoupon PathIcon="{macroCategory.icon}" Category="{macroCategory.name}" TypeCoupon="{microCategory.name}" Price="{price}" Currency="{currency}" State="{state}" ShopPlace="{shopPlace}" id="{id}">
+				<ButtonEntryMyCoupon icon="{macroCategory.icon}" Category="{macroCategory.name}" TypeCoupon="{microCategory.name}" Price="{price}" Currency="{currency}" State="{state}" ShopPlace="{shopPlace}" id="{id}">
 					<Clicked>
 						<Callback Handler="{onTapItemList}"/>
 					</Clicked>

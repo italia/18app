@@ -6,11 +6,11 @@
 	<string ux:Property="ShopPlace"/>
 	<string ux:Property="TypeCoupon"/>
 	<string ux:Property="id"/>
-	<FileSource ux:Property="PathIcon" />
+	<FileSource ux:Property="icon" />
 	<float4 ux:Property="TextColorBlue"/>
 	<float4 ux:Property="TextColorGray"/>
 	<WhileString Value="{ReadProperty State}" Equals="Valido" >
-		<Image File="{ReadProperty PathIcon}" Width="20"  Height="20" Alignment="CenterLeft" />
+		<Image File="{ReadProperty icon}" Width="20"  Height="20" Alignment="CenterLeft" />
 		<StackPanel>
 			<B Color="{ReadProperty TextColorBlue}" Value="{ReadProperty Category}" Alignment="CenterLeft" />
 			<P Color="{ReadProperty TextColorBlue}" Value="{ReadProperty TypeCoupon}" Alignment="CenterLeft" />
@@ -20,7 +20,7 @@
 		<P Color="{ReadProperty TextColorBlue}" Value=">" />
 	</WhileString>
 	<WhileString Value="{ReadProperty State}" Equals="Usato" >
-		<Image File="{ReadProperty PathIcon}" Width="20"  Height="20" Alignment="CenterLeft" />
+		<Image File="{ReadProperty icon}" Width="20"  Height="20" Alignment="CenterLeft" />
 		<StackPanel>
 			<B Color="{ReadProperty TextColorGray}" Value="{ReadProperty Category}" Alignment="CenterLeft" />
 			<P Color="{ReadProperty TextColorGray}" Value="{ReadProperty TypeCoupon}" Alignment="CenterLeft" />
