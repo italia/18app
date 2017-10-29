@@ -2,7 +2,8 @@
 	<Router ux:Dependency="router" />
 	<Visual ux:Dependency="navBar" />
 	<JavaScript File="js/MerchantProfilePage.js" />
-	<NavBarTitle navBar="navBar"  Text="Negozi" />
+
+	<NavBarTitle navBar="navBar"  Text="{titlePage}" />
 
 	<cover File="{cover}"/>
 	<DockPanel>

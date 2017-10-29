@@ -60,6 +60,13 @@ var site = this.Parameter.map(function(param){
 	return param.merchant.site;
 });
 
+var titlePage = this.Parameter.map(function(param){
+	if(param.merchant.type=='internet_store')
+		return 'Negozio Online';
+	else
+		return 'Negozio';
+});
+
 function OpenSite(){
 	if(site.value!=null)
 		InterApp.launchUri(site.value);
@@ -75,6 +82,7 @@ function OpenMap(){
 
 module.exports = {
 	name:name,
+	titlePage:titlePage,
 	tag:tag,
 	gps:gps,
 	cover:cover,
