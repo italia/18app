@@ -30,14 +30,18 @@
 			</Panel>
 			<!-- parte azzurra -->
 			<Panel Margin="35,0,0,0">
+
 				<StackPanel >
-					<Grid Columns="1,1*" CellSpacing="20" HitTestMode="LocalBoundsAndChildren">
+					<Grid Columns="1,1*" CellSpacing="20" HitTestMode="LocalBoundsAndChildren" Clicked="{goToProfile}">
     					<ProfileIcon Alignment="Center"/>
     					<Text Color="color.White" Value="Profilo" FontSize="size.M" Margin="0,15,0,15"/>
+    					<Clicked>
+							<NavigateToggle Target="sidebar" />
+						</Clicked>
      				</Grid>
      				<Separator Color="color.DarkBlue"/>
 
-     				<Grid Columns="1,1*,1" CellSpacing="20" HitTestMode="LocalBoundsAndChildren">
+     				<Grid Columns="1,1*,1" CellSpacing="20" HitTestMode="LocalBoundsAndChildren" Clicked="{goToNotifications}">
     					<NotificationsIcon Alignment="Center"/>
     					<Text Color="color.White" Value="Notifiche" FontSize="size.M" Margin="0,15,0,15"/>
     					
@@ -47,12 +51,18 @@
 							<Text Font="BoldFont" Color="color.Blue" TextAlignment="Center" Margin="0, 0, 0, 0" Layer="Overlay">2
 							</Text>
 						</StackPanel>
+						<Clicked>
+							<NavigateToggle Target="sidebar" />
+						</Clicked>
      				</Grid>
      				<Separator Color="color.DarkBlue"/>
 
      				<Grid Columns="1,1*" CellSpacing="20" HitTestMode="LocalBoundsAndChildren">
     					<LogoutIcon Alignment="Center"/>
     					<Text Color="color.White" Value="Logout" FontSize="size.M" Margin="0,15,0,15"/>
+    					<Clicked>
+							<NavigateToggle Target="sidebar" />
+						</Clicked>
      				</Grid>
      				<Separator Color="color.DarkBlue"/>
 				</StackPanel>
@@ -79,6 +89,9 @@
 				<MerchantsListPage ux:Name="merchants" router="router" navBar="navBar"  Background="#fff"/>
 				<MerchantProfilePage ux:Name="merchantProfile" router="router" navBar="navBar"  Background="#fff"/>
 				<InfoPage ux:Name="info" router="router" navBar="navBar"  Background="#fff"/>
+
+				<ProfilePage ux:Name="profile" router="router" navBar="navBar"  Background="#fff"/>
+				<NotificationsPage ux:Name="notifications" router="router" navBar="navBar"  Background="#fff"/>
 			</Navigator>
 
 			<BottomBar Dock="Bottom"/>
