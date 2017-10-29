@@ -4,7 +4,10 @@
 
 ## Tecnologia
 
-Abbiamo scelto di usare fuse tools che e' uno strumento open source con licenza MIT per lo sviluppo app native multipiattaforma.
+Abbiamo scelto di usare fuse tools che e' uno strumento open source con licenza MIT per lo sviluppo di app native multipiattaforma.
+
+Oggigiorno ci sono molti framework per la creazione di app mobile native cross-platform e allora perché un nuovo framework? Fuse porta con se nuovi concetti tecnici e nuovi flussi di lavoro al fine di garantire una visualizzazione regolare di *60* *fotogrammi* al secondo e migliorare l’efficienza di sviluppo e la collaborazione tra designer e developer. 
+
 Fuse tools produce codice UI compilato in Objective-C per iOS e C++ per Android.
 La logica di business e' scritta in Javascript.
 
