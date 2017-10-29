@@ -1,12 +1,13 @@
 <Panel ux:Class="NavBar" Height="48" Color="#0066CC">
 	<UserEvent ux:Name="openSideBar" />
+	<Router ux:Dependency="router" />
 	<!-- NavBar per pagine che possono andare indietro -->
-	<WhileCanGoBack>
+	<WhileCanGoBack NavigationContext="router" >
 		<BackButton Alignment="CenterLeft">
 			<Clicked>
-				<GoBack></GoBack>
+				<GoBack NavigationContext="router"></GoBack>
 			</Clicked>
-		
+
 			<!-- Movimento del bottone back -->
 			<AddingAnimation>
 				<Move X="-1" RelativeTo="Size" Duration="0.8" Easing="CubicIn" />
@@ -17,7 +18,7 @@
 		</BackButton>
 	</WhileCanGoBack>
 	<!-- Navbar per pagine che non vanno indietro -->
-	<WhileCanGoBack Invert="True">
+	<WhileCanGoBack Invert="True" NavigationContext="router">
 		<StackPanel Orientation="Horizontal" Padding="15">
 			<TopBarLogo />
 		</StackPanel>
@@ -28,7 +29,7 @@
 			<BaseText Color="#FFF" Alignment="Right">Credito</BaseText>
 			<BoldText Color="#FFF" Alignment="Right">174,00€</BoldText>
 		</StackPanel>
-		 
+
 		<StackPanel Margin="0, -5, 5, 0" >
 			
 			<StackPanel>

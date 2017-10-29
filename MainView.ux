@@ -29,32 +29,32 @@
 				</StackPanel>
 			</Panel>
 		</DockPanel>	
-	
-	<DockPanel Background="#0066CC">
-		<StatusBarBackground Dock="Top" />
-		<NavBar ux:Name="navBar" Dock="Top">
-			<OnUserEvent EventName="openSideBar">
-				<NavigateToggle Target="sidebar" />
-			</OnUserEvent>
-		</NavBar>
 
-		<Rectangle ux:Name="sidebarFade" Layer="Overlay" Color="#0003" Opacity="0" HitTestMode="None" />
+		<DockPanel Background="#0066CC">
+			<StatusBarBackground Dock="Top" />
+			<NavBar ux:Name="navBar" Dock="Top" router="router">
+				<OnUserEvent EventName="openSideBar">
+					<NavigateToggle Target="sidebar" />
+				</OnUserEvent>
+			</NavBar>
 
-		<Navigator DefaultPath="home">
-			<HomePage ux:Name="home" router="router" navBar="navBar"  Background="#fff" />
-			<NewCouponStep1Page ux:Name="newCouponStep1" router="router" navBar="navBar" Background="#fff" />
-			<NewCouponStep2Page ux:Name="newCouponStep2" router="router" navBar="navBar" Background="#fff" />
-			<NewCouponStep3Page ux:Name="newCouponStep3" router="router" navBar="navBar" Background="#fff" />
-			<NewCouponStep4Page ux:Name="newCouponStep4" router="router" navBar="navBar" Background="#fff" />
-			<MyCouponPage ux:Name="myCoupon" router="router" navBar="navBar"  Background="#fff"/>
-			<MerchantsListPage ux:Name="merchants" router="router" navBar="navBar"  Background="#fff"/>
-			<MerchantProfilePage ux:Name="merchantProfile" router="router" navBar="navBar"  Background="#fff"/>
-			<InfoPage ux:Name="info" router="router" navBar="navBar"  Background="#fff"/>
-		</Navigator>
+			<Rectangle ux:Name="sidebarFade" Layer="Overlay" Color="#0003" Opacity="0" HitTestMode="None" />
 
-		<BottomBar Dock="Bottom"/>
-		<BottomBarBackground Dock="Bottom" />
-	</DockPanel>
+			<Navigator DefaultPath="home">
+				<HomePage ux:Name="home" router="router" navBar="navBar"  Background="#fff" />
+				<NewCouponStep1Page ux:Name="newCouponStep1" router="router" navBar="navBar" Background="#fff" />
+				<NewCouponStep2Page ux:Name="newCouponStep2" router="router" navBar="navBar" Background="#fff" />
+				<NewCouponStep3Page ux:Name="newCouponStep3" router="router" navBar="navBar" Background="#fff" />
+				<NewCouponStep4Page ux:Name="newCouponStep4" router="router" navBar="navBar" Background="#fff" />
+				<MyCouponPage ux:Name="myCoupon" router="router" navBar="navBar"  Background="#fff"/>
+				<MerchantsListPage ux:Name="merchants" router="router" navBar="navBar"  Background="#fff"/>
+				<MerchantProfilePage ux:Name="merchantProfile" router="router" navBar="navBar"  Background="#fff"/>
+				<InfoPage ux:Name="info" router="router" navBar="navBar"  Background="#fff"/>
+			</Navigator>
 
-</EdgeNavigator>
+			<BottomBar Dock="Bottom"/>
+			<BottomBarBackground Dock="Bottom" />
+		</DockPanel>
+
+	</EdgeNavigator>
 </App>
