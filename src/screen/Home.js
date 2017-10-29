@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {View, Button, Text} from 'react-native';
+import ShopRow from '../component/ShopRow';
 
 export default class Home extends Component {
     static navigationOptions = {
@@ -14,6 +15,7 @@ export default class Home extends Component {
                     onPress={() => navigate('Coupons')}
                     title="I tuoi buoni"
                 />
+                <Button onPress={() => navigate('Shops')} title="Negozi" />
             </View>
         );
     }
