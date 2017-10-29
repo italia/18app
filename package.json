@@ -1,0 +1,42 @@
+{
+  "name": "18app",
+  "version": "0.1.0",
+  "private": true,
+  "devDependencies": {
+    "@improntaadvance/eslint-config": "^0.8.2",
+    "babel-eslint": "^7.2.3",
+    "eslint": ">=4.3.0",
+    "eslint-config-prettier": "^2.3.0",
+    "eslint-plugin-flowtype": "^2.35.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^5.1.1",
+    "eslint-plugin-prettier": "^2.2.0",
+    "eslint-plugin-react": "^7.1.0",
+    "jest-expo": "^21.0.2",
+    "prettier": "^1.5.3",
+    "react-native-scripts": "1.5.0",
+    "react-test-renderer": "16.0.0-alpha.12"
+  },
+  "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
+  "scripts": {
+    "start": "react-native-scripts start",
+    "eject": "react-native-scripts eject",
+    "android": "react-native-scripts android",
+    "ios": "react-native-scripts ios",
+    "test": "node node_modules/jest/bin/jest.js --watch"
+  },
+  "jest": {
+    "preset": "jest-expo"
+  },
+  "dependencies": {
+    "expo": "^21.0.0",
+    "react": "16.0.0-alpha.12",
+    "react-native": "^0.48.4",
+    "react-navigation": "^1.0.0-beta.13",
+    "react-redux": "^5.0.6",
+    "redux": "^3.7.2",
+    "redux-define": "^1.1.1",
+    "redux-promise-middleware": "^4.4.1",
+    "redux-thunk": "^2.2.0"
+  }
+}
