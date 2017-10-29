@@ -37,9 +37,26 @@
 	<Text ux:Class="B" Font="BaseFont" FontSize="16" Color="color.Blue" Alignment="Center"></Text>
 	<BaseText ux:Class="BoldText" Font="BoldFont"></BaseText>
 
+	<Image ux:Class="cover.Books" Alignment="Center" StretchMode="UniformToFill" Layer="Background" >
+		<Rectangle Opacity="0.85">
+			<LinearGradient StartPoint="0,0" EndPoint="0,1">
+				<GradientStop Offset="0" Color="#003D8F" />
+				<GradientStop Offset="1" Color="#0066CC" />
+			</LinearGradient>
+		</Rectangle>
+
+		<MultiDensityImageSource>
+			<FileImageSource Density="1" File="Assets/images/cover-libri.png"></FileImageSource>
+			<FileImageSource Density="2" File="Assets/images/cover-libri@2x.png"></FileImageSource>
+			<FileImageSource Density="3" File="Assets/images/cover-libri@3x.png"></FileImageSource>
+		</MultiDensityImageSource>
+	</Image>
 	<!-- ICONS -->
 
+	<Text ux:Class="icon.PaperPlane" Font="FontAwesome" Color="color.Blue">&#xf1d8;</Text>
 	<Text ux:Class="icon.Profile" Font="FontAwesome" Color="color.Black">&#xf007;</Text>
+	<Text ux:Class="icon.Map" Font="FontAwesome" Color="color.Blue">&#xf279;</Text>
+
 	<Text ux:Class="icon.CaretDown" Font="FontAwesome" Color="color.GrayLight" Alignment="VerticalCenter">&#xf0d7;</Text>
 	<Text ux:Class="icon.Search" Font="FontAwesome" Color="color.GrayLight">&#xf002;</Text>
 	<Image ux:Class="icon.Qrcode" Alignment="Center">

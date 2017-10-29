@@ -49,7 +49,7 @@
 						<P Color="color.Gray" FontSize="size.S" TextWrapping="Wrap"> Questa è la lista dei 10 negozi più vicini al punto in cui ti trovi.</P>
 						<Each Items="{nearByMerchants}">
 							<NodeGroup>
-								<Grid Columns="4*,1*,40" Padding="0,11">
+								<Grid Columns="4*,1*,40" Padding="0,11" Clicked="{onTapItemList}" HitTestMode="LocalBoundsAndChildren">
 									<StackPanel>
 										<B Alignment="Left">{name}</B>
 										<P FontSize="size.S" Alignment="Left">{tag}</P>
@@ -71,8 +71,8 @@
 					<StackPanel Margin="16">
 						<!--TODO AGGIUNGERE FILTRO LISTA PER CATEGORIA -->
 						<Each Items="{internetMerchants}">
-							<NodeGroup>
-								<Grid Columns="1*,40" Padding="0,11">
+							<NodeGroup >
+								<Grid Columns="1*,40" Padding="0,11" Clicked="{onTapItemList}" HitTestMode="LocalBoundsAndChildren">
 									<StackPanel>
 										<B Alignment="Left">{name}</B>
 										<P FontSize="size.S" Alignment="Left" Color="color.GrayDark">{site}</P>

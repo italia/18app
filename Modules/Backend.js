@@ -309,6 +309,12 @@ var merchants = [{
 	id: 1,
 	name: "Nuovo Cinema Paradiso",
 	type: "local_store",
+	address:{
+		street:"Via Carulli 5",
+		city:"Bari",
+		state:"BA",
+		postalCode:"70100"
+	},
 	macroCategories: [{
 		id: "libri",
 		name: "Libri"
@@ -320,6 +326,12 @@ var merchants = [{
 	id: 2,
 	name: "The blues Brothers",
 	type: "local_store",
+	address:{
+		street:"Piazza Luigi di Savoia, 40",
+		city:"Bari",
+		state:"BA",
+		postalCode:"70100"
+	},
 	macroCategories: [{
 		id: "concerti",
 		name: "Concerti"
@@ -328,6 +340,12 @@ var merchants = [{
 	id: 3,
 	name: "Il libraio magico",
 	type: "local_store",
+	address:{
+		street:"Via A. da Bari, 48",
+		city:"Bari",
+		state:"BA",
+		postalCode:"70100"
+	},
 	macroCategories: [{
 		id: "libri",
 		name: "Libri"
@@ -336,6 +354,12 @@ var merchants = [{
 	id: 4,
 	name: "Cats",
 	type: "local_store",
+	address:{
+		street:"Via Sparano, 5",
+		city:"Bari",
+		state:"BA",
+		postalCode:"70100"
+	},
 	macroCategories: [{
 		id: "teatro_danza",
 		name: "Teatro e danza"
@@ -344,6 +368,12 @@ var merchants = [{
 	id: 5,
 	name: "Granteatro dell'assurdo",
 	type: "local_store",
+	address:{
+		street:"Piazza Moro, 10",
+		city:"Bari",
+		state:"BA",
+		postalCode:"70100"
+	},
 	macroCategories: [{
 		id: "teatro_danza",
 		name: "Teatro e danza"

@@ -1,0 +1,38 @@
+<BasePage ux:Class="MerchantProfilePage">
+	<Router ux:Dependency="router" />
+	<Visual ux:Dependency="navBar" />
+	<JavaScript File="js/MerchantProfilePage.js" />
+	<NavBarTitle navBar="navBar"  Text="Negozi" />
+
+	<cover.Books/>
+	<DockPanel>
+		<StatusBarBackground Dock="Top" />
+		<BottomBarBackground Dock="Bottom" />
+		<Grid Rows="3*,1*">
+			<DockPanel Padding="24">
+				<B Dock="Top" Alignment="Left" Color="color.White">{tag}</B>
+				<StackPanel Dock="Bottom">
+					<H2 Color="color.White"  Alignment="Left" >{name}</H2>
+					<StackPanel Orientation="Horizontal" ItemSpacing="8">
+						<icon.Search FontSize="20" Alignment="VerticalCenter"/>
+						<StackPanel ItemSpacing="-6">
+							<P FontSize="size.S" Color="color.White" Alignment="Left">{street} {postalCode}</P>
+							<P FontSize="size.S" Color="color.White" Alignment="Left">{city} ({state})</P>
+						</StackPanel>
+					</StackPanel>
+				</StackPanel>
+			</DockPanel>
+			<StackPanel Color="color.White" Padding="24" ItemSpacing="5">
+				<app18.Button Value="NUOVO BUONO" />
+				<Grid Columns="1*,1*" CellSpacing="10">
+					<ButtonIcon Value="MAPPA">
+						<icon.Map ux:Template="Icon"/>
+					</ButtonIcon>
+					<ButtonIcon Value="PERCORSO">
+						<icon.PaperPlane ux:Template="Icon"/>
+					</ButtonIcon>
+				</Grid>
+			</StackPanel>
+		</Grid>
+	</DockPanel>
+</BasePage>

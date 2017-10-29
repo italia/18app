@@ -1,3 +1,7 @@
+/**
+ * MOCKUP: recupera le coordinate gps del dispositivo
+ * @return {Object} coordinate gps
+ */
 function getCoordinate() {
 	return {
 		lat: 41.1114800,

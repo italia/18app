@@ -5,6 +5,7 @@ function Merchant(item){
 	this.macroCategories=item.macroCategories;
 	this.site=item.site;
 	this.distance=item.distance;
+	this.address= item.address;
 	this.tag=createTag(this.macroCategories);
 }
 

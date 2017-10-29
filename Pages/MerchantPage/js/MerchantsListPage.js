@@ -23,8 +23,8 @@ Context.getNearByMerchants(coordinateGps.lat,coordinateGps.lng).then(function(me
 });
 
 var onTapItemList = function(args) {
-	router.push('newTicketStep2', {
-		macrocategory: args.data
+	router.push('merchantProfile', {
+		merchant: args.data
 	});
 };
 module.exports = {
