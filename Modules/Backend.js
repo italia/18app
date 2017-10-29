@@ -314,7 +314,11 @@ var merchants = [{
 		street:"Via Carulli 5",
 		city:"Bari",
 		state:"BA",
-		postalCode:"70100"
+		postalCode:"70100",
+  		gps:{
+  			lat:41.1199864,
+  			lng:16.872977300000002
+  		}
 	},
 	macroCategories: [{
 		id: "cinema",
@@ -329,7 +333,11 @@ var merchants = [{
 		street:"Piazza Luigi di Savoia, 40",
 		city:"Bari",
 		state:"BA",
-		postalCode:"70100"
+		postalCode:"70100",
+ 		gps:{
+ 			lat:41.1182953,
+ 			lng:16.87449689999994
+ 		}
 	},
 	macroCategories: [{
 		id: "concerti",
@@ -344,7 +352,11 @@ var merchants = [{
 		street:"Via A. da Bari, 48",
 		city:"Bari",
 		state:"BA",
-		postalCode:"70100"
+		postalCode:"70100",
+ 		gps:{
+ 			lat:41.1239987,
+ 			lng:16.868739000000005
+ 		}
 	},
 	macroCategories: [{
 		id: "libri",
@@ -359,7 +371,11 @@ var merchants = [{
 		street:"Via Sparano, 5",
 		city:"Bari",
 		state:"BA",
-		postalCode:"70100"
+		postalCode:"70100",
+ 		gps:{
+ 			lat:41.1259,
+ 			lng:16.869280000000003
+ 		}
 	},
 	macroCategories: [{
 		id: "teatro_danza",
@@ -371,10 +387,14 @@ var merchants = [{
 	type: "local_store",
 	cover:"Assets/images/cover-teatro@3x.png",
 	address:{
-		street:"Piazza Moro, 10",
+		street:"Piazza Aldo Moro, 10",
 		city:"Bari",
 		state:"BA",
-		postalCode:"70100"
+		postalCode:"70100",
+ 		gps:{
+ 			lat:41.11907,
+ 			lng:16.869680000000017
+ 		}
 	},
 	macroCategories: [{
 		id: "teatro_danza",
@@ -385,7 +405,7 @@ var merchants = [{
 	name: "Scuolabook",
 	type: "internet_store",
 	cover:"Assets/images/cover-libri@3x.png",
-	site: "www.scuolabook.it",
+	site: "http://www.scuolabook.it",
 	macroCategories: [{
 		id: "libri",
 		name: "Libri"
@@ -393,7 +413,7 @@ var merchants = [{
 }, {
 	id: 7,
 	name: "Cineteatro Nuovo arcore",
-	site: "www.cinemanuovoarcore.it",
+	site: "http://www.cinemanuovoarcore.it",
 	type: "internet_store",
 	cover:"Assets/images/cover-teatro@3x.png",
 	macroCategories: [{
@@ -403,7 +423,7 @@ var merchants = [{
 }, {
 	id: 8,
 	name: "TicketOne",
-	site: "www.ticketone.it/18app",
+	site: "https://www.ticketone.it/18app",
 	type: "internet_store",
 	cover:"Assets/images/cover-concerti@3x.png",
 	macroCategories: [{
@@ -604,4 +624,3 @@ module.exports = {
 	getCoupons: getCoupons,
 	getCouponByID: getCouponByID
 };
-
