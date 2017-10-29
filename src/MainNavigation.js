@@ -12,7 +12,7 @@ export default StackNavigator(
         Home: {
             screen: Home,
         },
-        Coupons: {
+        coupons: {
             screen: Coupons,
         },
     },
