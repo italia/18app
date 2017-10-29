@@ -1,15 +1,25 @@
 var Observable = require("FuseJS/Observable");
 
 var Context = require("Modules/Context");
-
+var Gps = require("Modules/Helpers/Gps");
 var ItemList = require("Entities/ItemList");
 
-var items = Observable();
+var internetMerchants = Observable();
+var nearByMerchants = Observable();
 
-Context.getMacrocategories().then(function(macrocategories) {
-	items.replaceAll(macrocategories);
+
+var coordinateGps= Gps.getCoordinate();
+
+Context.getInternetMerchants().then(function(merchants) {
+	internetMerchants.replaceAll(merchants);
 }).catch(function(e) {
-	console.log(error.message);
+	console.log(e);
+});
+
+Context.getNearByMerchants(coordinateGps.lat,coordinateGps.lng).then(function(merchants) {
+	nearByMerchants.replaceAll(merchants);
+}).catch(function(e) {
+	console.log(e);
 });
 
 var onTapItemList = function(args) {
@@ -18,6 +28,7 @@ var onTapItemList = function(args) {
 	});
 };
 module.exports = {
-	items: items,
+	internetMerchants: internetMerchants,
+	nearByMerchants:nearByMerchants,
 	onTapItemList: onTapItemList
 };

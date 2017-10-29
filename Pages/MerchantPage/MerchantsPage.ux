@@ -47,15 +47,15 @@
 				<ScrollView>
 					<StackPanel Margin="16">
 						<P Color="color.Gray" FontSize="size.S" TextWrapping="Wrap"> Questa è la lista dei 10 negozi più vicini al punto in cui ti trovi.</P>
-						<Each Items="{items}">
+						<Each Items="{nearByMerchants}">
 							<NodeGroup>
 								<Grid Columns="4*,1*,40" Padding="0,11">
 									<StackPanel>
-										<P Alignment="Left">Nuovo Cinema Paradiso</P>
-										<P FontSize="size.S" Alignment="Left">Cinema,Libri</P>
+										<B Alignment="Left">{name}</B>
+										<P FontSize="size.S" Alignment="Left">{tag}</P>
 									</StackPanel>
-									<P FontSize="size.S">500m</P>
-									<P>></P>
+									<P FontSize="size.S" Color="color.GrayDark">{distance}</P>
+									<B>></B>
 								</Grid>
 								<Separator/>
 							</NodeGroup>
@@ -70,15 +70,14 @@
 				<ScrollView>
 					<StackPanel Margin="16">
 						<!--TODO AGGIUNGERE FILTRO LISTA PER CATEGORIA -->
-						<Each Items="{items}">
+						<Each Items="{internetMerchants}">
 							<NodeGroup>
-								<Grid Columns="4*,1*,40" Padding="0,11">
+								<Grid Columns="1*,40" Padding="0,11">
 									<StackPanel>
-										<P Alignment="Left">Scuolabook</P>
-										<P FontSize="size.S" Alignment="Left" Color="color.Gray">www.scuolabook.it</P>
-										<P Alignment="Left" TextWrapping="Wrap">Cinema,Libri,Teatro e Danza, Musei,Eventi Culturali, Concerti</P>
+										<B Alignment="Left">{name}</B>
+										<P FontSize="size.S" Alignment="Left" Color="color.GrayDark">{site}</P>
+										<P Alignment="Left" TextWrapping="Wrap">{tag}</P>
 									</StackPanel>
-									<P FontSize="size.S">500m</P>
 									<P>></P>
 								</Grid>
 								<Separator/>
@@ -92,13 +91,13 @@
 					<Set indicator.LayoutMaster="page3Tab" />
 					<StackPanel Margin="20" ItemSpacing="10">
 						<Grid Columns="40,1*,40">
-							<icon.Funnel/>
+							<icon.Funnel Width="20"/>
 							<P Color="color.Gray" Alignment="Left">Tutte le categorie</P>
 							<icon.CaretDown/>
 						</Grid>
 						<Separator Margin="0"/>
 						<Grid Columns="40,1*,40">
-							<icon.City/>
+							<icon.City Width="20"/>
 							<P Color="color.Gray" Alignment="Left">Scegli il comune</P>
 							<icon.CaretDown/>
 						</Grid>
@@ -107,7 +106,8 @@
 							<icon.Search FontSize="22" Alignment="Center"/>
 							<TextInput Font="RegularFont" PlaceholderText="Cerca nel nome" PlaceholderColor="color.Gray">
 							</TextInput>
-						</Grid>						<Separator Margin="0"/>
+						</Grid>						
+						<Separator Margin="0"/>
 						<P Color="color.Gray" Alignment="Left" FontSize="size.S">Scegli almeno un criterio di ricerca</P>
 					</StackPanel>
 				</WhileActive>

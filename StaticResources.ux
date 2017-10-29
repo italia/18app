@@ -14,6 +14,7 @@
 	<!-- COLORS -->
 	<float4 ux:Global="color.Green" ux:Value="#02a45f"/>
 	<float4 ux:Global="color.Gray" ux:Value="#a9b1b8"/>
+	<float4 ux:Global="color.GrayDark" ux:Value="#5A6772"/>
 	<float4 ux:Global="color.White" ux:Value="#ffffff"/>
 	<float4 ux:Global="color.Red" ux:Value="#d0021b"/>
 	<float4 ux:Global="color.Blue" ux:Value="#0066CC"/>
