@@ -309,6 +309,7 @@ var merchants = [{
 	id: 1,
 	name: "Nuovo Cinema Paradiso",
 	type: "local_store",
+	cover:"Assets/images/cover-cinema@3x.png",
 	address:{
 		street:"Via Carulli 5",
 		city:"Bari",
@@ -316,9 +317,6 @@ var merchants = [{
 		postalCode:"70100"
 	},
 	macroCategories: [{
-		id: "libri",
-		name: "Libri"
-	}, {
 		id: "cinema",
 		name: "Cinema"
 	}]
@@ -326,6 +324,7 @@ var merchants = [{
 	id: 2,
 	name: "The blues Brothers",
 	type: "local_store",
+	cover:"Assets/images/cover-concerti@3x.png",
 	address:{
 		street:"Piazza Luigi di Savoia, 40",
 		city:"Bari",
@@ -340,6 +339,7 @@ var merchants = [{
 	id: 3,
 	name: "Il libraio magico",
 	type: "local_store",
+	cover:"Assets/images/cover-libri@3x.png",
 	address:{
 		street:"Via A. da Bari, 48",
 		city:"Bari",
@@ -354,6 +354,7 @@ var merchants = [{
 	id: 4,
 	name: "Cats",
 	type: "local_store",
+	cover:"Assets/images/cover-teatro@3x.png",
 	address:{
 		street:"Via Sparano, 5",
 		city:"Bari",
@@ -368,6 +369,7 @@ var merchants = [{
 	id: 5,
 	name: "Granteatro dell'assurdo",
 	type: "local_store",
+	cover:"Assets/images/cover-teatro@3x.png",
 	address:{
 		street:"Piazza Moro, 10",
 		city:"Bari",
@@ -382,16 +384,18 @@ var merchants = [{
 	id: 6,
 	name: "Scuolabook",
 	type: "internet_store",
+	cover:"Assets/images/cover-libri@3x.png",
 	site: "www.scuolabook.it",
 	macroCategories: [{
-		id: "concerti",
-		name: "Concerti"
+		id: "libri",
+		name: "Libri"
 	}]
 }, {
 	id: 7,
 	name: "Cineteatro Nuovo arcore",
 	site: "www.cinemanuovoarcore.it",
 	type: "internet_store",
+	cover:"Assets/images/cover-teatro@3x.png",
 	macroCategories: [{
 		id: "concerti",
 		name: "Concerti"
@@ -401,6 +405,7 @@ var merchants = [{
 	name: "TicketOne",
 	site: "www.ticketone.it/18app",
 	type: "internet_store",
+	cover:"Assets/images/cover-concerti@3x.png",
 	macroCategories: [{
 		id: "concerti",
 		name: "Concerti"
@@ -489,9 +494,9 @@ var getCoupons = function() {
  * @param  {[type]} lng [description]
  * @return {[type]}     [description]
  */
-var getNearByMerchants = function(lat,lng){
-	return new Promise(function(resolve, reject) {
-		setTimeout(function() {
+ var getNearByMerchants = function(lat,lng){
+ 	return new Promise(function(resolve, reject) {
+ 		setTimeout(function() {
 			//per simulare la ricerca usiamo una libreria fuzzy per ricercare all'interno del nostro mockup json 
 			//fuzzy-search library -http://fusejs.io/
 			var options = {
@@ -525,16 +530,16 @@ var getNearByMerchants = function(lat,lng){
 			
 			resolve(filteredMerchants);
 		}, 0);
-	});
-}; 
+ 	});
+ }; 
 /**
  * MOCKUP: restituisce la lista dei merchants presenti su internet. 
  * @param  filters{[object]} la lista può essere filtrata secondo diversi criteri (categoria, città, etc.)
  * @return {Promise}       
  */
-var getInternetMerchants = function(filters) {
-	return new Promise(function(resolve, reject) {
-		setTimeout(function() {
+ var getInternetMerchants = function(filters) {
+ 	return new Promise(function(resolve, reject) {
+ 		setTimeout(function() {
 			//per simulare la ricerca usiamo una libreria fuzzy per ricercare all'interno del nostro mockup json 
 			//fuzzy-search library -http://fusejs.io/
 			var options = {
@@ -555,20 +560,20 @@ var getInternetMerchants = function(filters) {
 			
 			resolve(result);
 		}, 0);
-	});
-};
+ 	});
+ };
 
 /**
  * Genera una stringa casuale
  * @param  {int} length lunghezza della stringa
  * @return {stirng} stringa casuale
  */
-function randomString(length) {
-	var chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-	var result = '';
-	for (var i = length; i > 0; --i) result += chars[Math.floor(Math.random() * chars.length)];
-		return result;
-}
+ function randomString(length) {
+ 	var chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+ 	var result = '';
+ 	for (var i = length; i > 0; --i) result += chars[Math.floor(Math.random() * chars.length)];
+ 		return result;
+ }
 
 /**
  * Genera una numero intero casuale all'interno di un intervallo. gli estremi dell'intervallo sono inclusi
@@ -576,16 +581,16 @@ function randomString(length) {
  * @param  {int} max valore massimo dell'intervallo
  * @return {int} numero intero casuale
  */
-function getRandomInt(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-module.exports = {
-	deleteCoupon: deleteCoupon,
-	getInternetMerchants: getInternetMerchants,
-	getNearByMerchants:getNearByMerchants,
-	createCoupon: createCoupon,
-	getMacrocategories: getMacrocategories,
-	getMicroCategories: getMicroCategories,
-	getHelpInformations: getHelpInformations,
-	getCoupons: getCoupons
-};
+ function getRandomInt(min, max) {
+ 	return Math.floor(Math.random() * (max - min + 1)) + min;
+ }
+ module.exports = {
+ 	deleteCoupon: deleteCoupon,
+ 	getInternetMerchants: getInternetMerchants,
+ 	getNearByMerchants:getNearByMerchants,
+ 	createCoupon: createCoupon,
+ 	getMacrocategories: getMacrocategories,
+ 	getMicroCategories: getMicroCategories,
+ 	getHelpInformations: getHelpInformations,
+ 	getCoupons: getCoupons
+ };

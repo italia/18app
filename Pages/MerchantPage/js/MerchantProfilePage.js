@@ -6,6 +6,10 @@ var name = this.Parameter.map(function(param) {
 	return param.merchant.name;
 });
 
+var cover = this.Parameter.map(function(param) {
+	return param.merchant.cover;
+});
+
 var tag = this.Parameter.map(function(param) {
 	return param.merchant.tag;
 });
@@ -35,6 +39,7 @@ var type = this.Parameter.map(function(param) {
 module.exports = {
 	name:name,
 	tag:tag,
+	cover:cover,
 	street:street,
 	postalCode:postalCode,
 	city:city,
