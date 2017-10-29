@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import {FlatList} from 'react-native';
 import ShopRow from '../component/ShopRow';
+import * as Constants from '../common/constants';
+import CategoryPicker from '../component/CategoryPicker';
 
 export default class NearShops extends Component {
     static navigationOptions = {
@@ -11,6 +13,7 @@ export default class NearShops extends Component {
 
         return (
             <FlatList
+                style={{backgroundColor: Constants.WHITE}}
                 data={[
                     {
                         title: 'Nuovo cinema Paradiso',
@@ -24,6 +27,7 @@ export default class NearShops extends Component {
                     },
                 ]}
                 renderItem={({item}) => <ShopRow shop={item} />}
+                ListHeaderComponent={() => <CategoryPicker />}
             />
         );
     }
