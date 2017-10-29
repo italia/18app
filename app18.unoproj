@@ -3,6 +3,7 @@
   "RootNamespace":"",
   "Packages": [
     "Fuse",
+    "Fuse.Launcher",
     "FuseJS"
   ],
   "Includes": [

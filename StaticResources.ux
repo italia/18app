@@ -51,7 +51,9 @@
 	<Text ux:Class="icon.PaperPlane" Font="FontAwesome" Color="color.Blue">&#xf1d8;</Text>
 	<Text ux:Class="icon.Profile" Font="FontAwesome" Color="color.Black">&#xf007;</Text>
 	<Text ux:Class="icon.Map" Font="FontAwesome" Color="color.Blue">&#xf279;</Text>
-
+	<Text ux:Class="icon.Link" Font="FontAwesome" Color="color.White">&#xf0c1;</Text>
+	<Text ux:Class="icon.MapMarker" Font="FontAwesome" Color="color.White">&#xf041;</Text>
+	
 	<Text ux:Class="icon.CaretDown" Font="FontAwesome" Color="color.GrayLight" Alignment="VerticalCenter">&#xf0d7;</Text>
 	<Text ux:Class="icon.Search" Font="FontAwesome" Color="color.GrayLight">&#xf002;</Text>
 	<Image ux:Class="icon.Qrcode" Alignment="Center">

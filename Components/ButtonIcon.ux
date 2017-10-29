@@ -1,4 +1,4 @@
-<Grid ux:Class="ButtonIcon" Columns="40, 1*" CellSpacing="10" TextColor="color.Blue" Padding="0,20" HitTestMode="LocalBoundsAndChildren">
+<StackPanel Orientation="Horizontal" ItemSpacing="10" ux:Class="ButtonIcon" TextColor="color.Blue" Padding="0,20" HitTestMode="LocalBoundsAndChildren">
 	<string ux:Property="Value"/>
 	<float4 ux:Property="TextColor"/>
 
@@ -6,5 +6,5 @@
 		<Each TemplateSource="this" TemplateKey="Icon" Count="1">
 		</Each>
 	</Panel>
-	<P Color="{ReadProperty TextColor}" Alignment="Left" Value="{ReadProperty Value}" />
-</Grid>
+	<B Color="{ReadProperty TextColor}" Alignment="Left" Value="{ReadProperty Value}" />
+</StackPanel>
