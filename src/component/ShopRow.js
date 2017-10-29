@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         padding: 15,
         justifyContent: 'space-between',
-        borderBottomWidth: 1,
+        borderBottomWidth: StyleSheet.hairlineWidth,
         borderColor: Constants.SECONDARY_GREY,
     },
     forward: {
@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
     link: {
         fontFamily: Constants.TITILLIUM_REGULAR,
         fontSize: 14,
-        color: '#939393',
+        color: Constants.PRIMARY_GREY,
     },
     icon: {
         tintColor: Constants.PRIMARY_BLUE,
