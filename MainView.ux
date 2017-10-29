@@ -18,14 +18,43 @@
 				<StackPanel Padding="20,20">
 					<Grid Columns="1*, 15">
 						<Text Color="color.Black" Value="Mario Rossi" FontSize="size.XL"/>
-						<Text Color="color.Blue" Value="X" FontSize="size.XL">
+						<CloseIcon Alignment="Center">
 							<Clicked>
 								<NavigateToggle Target="sidebar" />
 							</Clicked>
-						</Text>
+						</CloseIcon>
 					</Grid>
 					<Text Color="color.GrayDark" Value="Credito" FontSize="size.S" Margin="0,20,0,0"/>
 					<Text Color="color.GrayDark" Value="174,00 €" FontSize="size.XL" Font="BaseFont"/>
+				</StackPanel>
+			</Panel>
+			<!-- parte azzurra -->
+			<Panel Margin="35,0,0,0">
+				<StackPanel >
+					<Grid Columns="1,1*" CellSpacing="20" HitTestMode="LocalBoundsAndChildren">
+    					<ProfileIcon Alignment="Center"/>
+    					<Text Color="color.White" Value="Profilo" FontSize="size.M" Margin="0,15,0,15"/>
+     				</Grid>
+     				<Separator Color="color.DarkBlue"/>
+
+     				<Grid Columns="1,1*,1" CellSpacing="20" HitTestMode="LocalBoundsAndChildren">
+    					<NotificationsIcon Alignment="Center"/>
+    					<Text Color="color.White" Value="Notifiche" FontSize="size.M" Margin="0,15,0,15"/>
+    					
+    					<StackPanel Margin="-50,10,0,0">
+							<Circle Color="#FFF" Width="25" Height="25"></Circle>
+							
+							<Text Font="BoldFont" Color="color.Blue" TextAlignment="Center" Margin="0, 0, 0, 0" Layer="Overlay">2
+							</Text>
+						</StackPanel>
+     				</Grid>
+     				<Separator Color="color.DarkBlue"/>
+
+     				<Grid Columns="1,1*" CellSpacing="20" HitTestMode="LocalBoundsAndChildren">
+    					<LogoutIcon Alignment="Center"/>
+    					<Text Color="color.White" Value="Logout" FontSize="size.M" Margin="0,15,0,15"/>
+     				</Grid>
+     				<Separator Color="color.DarkBlue"/>
 				</StackPanel>
 			</Panel>
 		</DockPanel>	

@@ -18,6 +18,7 @@
 	<float4 ux:Global="color.White" ux:Value="#ffffff"/>
 	<float4 ux:Global="color.Red" ux:Value="#d0021b"/>
 	<float4 ux:Global="color.Blue" ux:Value="#0066CC"/>
+	<float4 ux:Global="color.DarkBlue" ux:Value="#0A4490"/>
 	<float4 ux:Global="color.Black" ux:Value="#000000"/>
 	<float4 ux:Global="color.GrayLight" ux:Value="#F0F0F0"/>
 	<!-- FONTS-->
@@ -155,4 +156,39 @@
 			<FileImageSource File="Assets/images/back-button@3x.png" Density="3" />
 		</MultiDensityImageSource>
 	</Image>
+	
+	<!-- icone per user side menu -->
+	<Image ux:Class="CloseIcon" Width="14" Height="14">
+		<MultiDensityImageSource>
+			<FileImageSource File="Assets/images/ic_close_black_24px.png" Density="1" />
+			<FileImageSource File="Assets/images/ic_close_black_24px@2x.png" Density="2" />
+			<FileImageSource File="Assets/images/ic_close_black_24px@3x.png" Density="3" />
+		</MultiDensityImageSource>
+	</Image>
+
+	<Image ux:Class="ProfileIcon" Width="24" Height="24">
+		<MultiDensityImageSource>
+			<FileImageSource File="Assets/images/icon-profilo.png" Density="1" />
+			<FileImageSource File="Assets/images/icon-profilo@2x.png" Density="2" />
+			<FileImageSource File="Assets/images/icon-profilo@3x.png" Density="3" />
+		</MultiDensityImageSource>
+	</Image>
+
+	<Image ux:Class="NotificationsIcon" Width="24" Height="24">
+		<MultiDensityImageSource>
+			<FileImageSource File="Assets/images/icon-notifiche.png" Density="1" />
+			<FileImageSource File="Assets/images/icon-notifiche@2x.png" Density="2" />
+			<FileImageSource File="Assets/images/icon-notifiche@3x.png" Density="3" />
+		</MultiDensityImageSource>
+	</Image>
+
+	<Image ux:Class="LogoutIcon" Width="24" Height="24">
+		<MultiDensityImageSource>
+			<FileImageSource File="Assets/images/icon-logout.png" Density="1" />
+			<FileImageSource File="Assets/images/icon-logout@2x.png" Density="2" />
+			<FileImageSource File="Assets/images/icon-logout@3x.png" Density="3" />
+		</MultiDensityImageSource>
+	</Image>
+
+
 </Panel>
