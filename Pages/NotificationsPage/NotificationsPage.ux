@@ -1,0 +1,9 @@
+<BasePage ux:Class="NotificationsPage">
+	<Router ux:Dependency="router" />
+	<JavaScript File="NotificationsPage.js" />
+	<Visual ux:Dependency="navBar" />
+	<NavBarTitle navBar="navBar"  Text="Notifiche" />
+	<DockPanel>
+		<Text>NOTIFICHE</Text>
+	</DockPanel>
+</BasePage>
