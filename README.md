@@ -17,6 +17,10 @@ Fuse tools consente di definire transizioni grafiche di UI con un semplice lingu
 
 Per facilitare il testing dell'app su Android abbiamo deciso di includere l'apk compilato nella cartella _dist/android_ del repository.
 
+## Progetto xcode per iOS
+
+Per facilitare la creazione dell'app iOS abbiamo incluso la build iOS che consta nel progetto xcode nel quale vanno configurate le chiavi di sviluppatori apple per poi compilare e testare sul proprio dispositivo. cartella _dist/ios_
+
 ## Run in IOS / Android on Development PC
 
 Dopo aver installato https://www.fusetools.com/downloads e' possibile lanciare la preview sul sistema operativo di sviluppo con il comando:
