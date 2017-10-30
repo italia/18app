@@ -39,7 +39,7 @@
 					</StackPanel>
 				</Grid>
 				<Separator/>
-				<app18.Button Value="TROVA UN NEGOZIO" Margin="0,17,0,0" Height="40" Width="100%"/> <!--TODO aggiungere icona -->
+				<app18.Button Value="TROVA UN NEGOZIO" Margin="0,17,0,0" Height="40" Width="100%" Clicked="{onTapFindMerchant}"/> <!--TODO aggiungere icona -->
 				<P Margin="0,30,0,10" FontSize="size.S" Color="color.Gray">Questo buono non è cedibile e appartiene a te</P>
 				<Row>
 					<icon.Profile Color="color.Black" FontSize="size.XL" Alignment="CenterLeft" />
