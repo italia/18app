@@ -1,0 +1,17 @@
+<BasePage ux:Class="NewCouponStep3Page">
+	<Router ux:Dependency="router" />
+	<JavaScript File="js/NewCouponStep3Page.js" />
+	<Visual ux:Dependency="navBar" />
+	<NavBarTitle navBar="navBar"  Text="Nuovo buono: valore" />
+	<StackPanel>
+		<List Items="{items}" Selected="{selected}"/>
+		<StackPanel Margin="23,0">
+			<H3 Alignment="Left" Margin="0,25,0,0">Inserisci il valore del buono</H3>
+			<StackPanel Orientation="Horizontal" ItemSpacing="16" Margin="0,10" >
+				<P>Valore</P>
+				<TextInputPrice PlaceholderText="499,99" MinWidth="40" Value="{price}"/>
+				<app18.Button Width="100" Value="CREA" Clicked="{onTapCreateCoupon}"/>
+			</StackPanel>
+		</StackPanel>
+	</StackPanel>
+</BasePage>

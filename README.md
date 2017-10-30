@@ -13,19 +13,16 @@ La logica di business e' scritta in Javascript.
 
 Fuse tools consente di definire transizioni grafiche di UI con un semplice linguaggio dichiarativo XML, che viene compilato in codice nativo, ottenendo un'interfaccia fluida e priva di 'blocchi' inattesi.
 
+## File apk per Android
+
+Per facilitare il testing dell'app su Android abbiamo deciso di includere l'apk compilato nella cartella _dist/android_ del repository.
+
 ## Run in IOS / Android on Development PC
 
 Dopo aver installato https://www.fusetools.com/downloads e' possibile lanciare la preview sul sistema operativo di sviluppo con il comando:
 
+$> cd src
 $> fuse preview
-
-preview su iOS collegato al sistema di sviluppo:
-
-$> fuse preview -tios
-
-preview su Android collegato al sistema di sviluppo:
-
-$> fuse preview -tandroid
 
 ## Compliazione iOS / Android e preview sul dispositivo
 
@@ -37,7 +34,10 @@ $> fuse build --target=android --run
 
 documentazione [qui](https://www.fusetools.com/docs/basics/preview-and-export#android)
 
+$> fuse install android
 $> fuse build --target=Android --configuration=Release
+
+documentazione [qui](https://www.fusetools.com/docs/basics/preview-and-export#ios)
 
 $> fuse build --target=iOS --configuration=Release
 

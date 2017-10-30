@@ -1,0 +1,55 @@
+<App>
+
+	<iOS.StatusBarConfig Style="Light" IsVisible="True"/>
+	<Android.StatusBarConfig Color="#0066CC"  IsVisible="True" />
+	<JavaScript File="./MainFunction.js" />
+	<Router ux:Name="router"></Router>
+
+	<EdgeNavigator>
+
+		
+		<ux:Include File="Components/SidebarMenu.ux"/>
+		<DockPanel Background="#0066CC">
+			<StatusBarBackground Dock="Top" />
+			<DockPanel>
+				
+				<NavBar ux:Name="navBar" Dock="Top" router="router">
+					<OnUserEvent EventName="openSideBar">
+						<NavigateToggle Target="sidebar" />
+					</OnUserEvent>
+				</NavBar>
+
+				<Rectangle ux:Name="sidebarFade" Layer="Overlay" Color="#0003" Opacity="0" HitTestMode="None" />
+
+				<Navigator DefaultPath="home">
+					<HomePage ux:Name="home" router="router" navBar="navBar"  Background="#fff" />
+					<NewCouponStep1Page ux:Name="newCouponStep1" router="router" navBar="navBar" Background="#fff" />
+					<NewCouponStep2Page ux:Name="newCouponStep2" router="router" navBar="navBar" Background="#fff" />
+					<NewCouponStep3Page ux:Name="newCouponStep3" router="router" navBar="navBar" Background="#fff" />
+					<NewCouponStep4Page ux:Name="newCouponStep4" router="router" navBar="navBar" Background="#fff" />
+					<MyCouponPage ux:Name="myCoupon" router="router" navBar="navBar"  Background="#fff"/>
+
+					<MerchantsListPage ux:Name="merchants" router="router" navBar="navBar"  Background="#fff"/>
+					<MerchantProfilePage ux:Name="merchantProfile" router="router" navBar="navBar"  Background="#fff"/>
+
+					<NewCouponMerchantStep1Page ux:Name="newCouponMerchantStep1" router="router" navBar="navBar" Background="#fff" />
+					<NewCouponMerchantStep2Page ux:Name="newCouponMerchantStep2" router="router" navBar="navBar" Background="#fff" />
+					<NewCouponMerchantStep3Page ux:Name="newCouponMerchantStep3" router="router" navBar="navBar" Background="#fff" />
+					<NewCouponMerchantStep4Page ux:Name="newCouponMerchantStep4" router="router" navBar="navBar" Background="#fff" />
+
+					<InfoPage ux:Name="info" router="router" navBar="navBar"  Background="#fff"/>
+
+					<ProfilePage ux:Name="profile" router="router" navBar="navBar"  Background="#fff"/>
+					<NotificationsPage ux:Name="notifications" router="router" navBar="navBar"  Background="#fff"/>
+				</Navigator>
+
+				<BottomBar Dock="Bottom" ux:Name="bottomBar"/>
+				<WhileKeyboardVisible>
+					<Change bottomBar.Visibility="Collapsed"/>
+				</WhileKeyboardVisible>
+			</DockPanel>
+			<BottomBarBackground Dock="Bottom" />
+		</DockPanel>
+
+	</EdgeNavigator>
+</App>

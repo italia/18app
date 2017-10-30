@@ -1,4 +1,0 @@
-<Panel ux:Class="Tab" ClipToBounds="false" Margin="0,0,0,4" Background="#003E90">
-		<string ux:Property="Text" />
-		<Text Value="{ReadProperty Text}" Color="#FFF"   Alignment="Center" />
-</Panel>

@@ -1,0 +1,18 @@
+<BasePage ux:Class="HomePage">
+	<Router ux:Dependency="router" />
+	<JavaScript File="HomePage.js" />
+	<Visual ux:Dependency="navBar" />
+
+		<StackPanel Margin="35,25">
+			<HomeText>Benvenuto Mario, ti restano </HomeText>
+			<HomeBalanceText>174 €</HomeBalanceText>
+		</StackPanel>
+	
+		<Grid RowCount="1">
+			<StackPanel Alignment="VerticalCenter">
+				<BalanceCircle  Alignment="HorizontalCenter" Clicked="{goToNew}"></BalanceCircle>
+			</StackPanel>
+		</Grid>
+				
+	<app18.Button Value="SONO GIÀ IN NEGOZIO" Margin="35"/>
+</BasePage>

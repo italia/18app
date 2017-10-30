@@ -1,0 +1,7 @@
+<Image ux:Class="ButtonHomeLogo" Width="75" Height="24" Alignment="Left">
+	<MultiDensityImageSource>
+		<FileImageSource Density="1" File="../Assets/images/navigation-wallet.png"></FileImageSource>
+		<FileImageSource Density="2" File="../Assets/images/navigation-wallet@2x.png"></FileImageSource>
+		<FileImageSource Density="3" File="../Assets/images/navigation-wallet@3x.png"></FileImageSource>
+	</MultiDensityImageSource>
+</Image>

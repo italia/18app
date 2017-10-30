@@ -1,0 +1,114 @@
+<BasePage ux:Class="MerchantsListPage">
+	<Router ux:Dependency="router" />
+	<Visual ux:Dependency="navBar" />
+	<JavaScript File="js/MerchantsListPage.js" />
+	<NavBarTitle navBar="navBar"  Text="Negozi" />
+
+	<Rectangle ux:Name="indicator" LayoutMaster="page1Tab" Alignment="Bottom" Height="4" Color="color.White">
+		<LayoutAnimation>
+			<Move RelativeTo="WorldPositionChange" X="1" Duration="0.4" Easing="BackIn"/>
+		</LayoutAnimation>
+	</Rectangle>
+
+	<DockPanel>
+		<Grid Dock="Top" ColumnCount="3" Height="50" Background="#003E90">
+			<Panel ux:Name="page1Tab">
+				<Tab Text="VICINO A">
+					<Clicked>
+						<Set navigation.Active="page1" />
+					</Clicked>
+				</Tab>
+			</Panel>
+			<Panel ux:Name="page2Tab">
+				<Tab Text="SU INTERNET">
+					<Clicked>
+						<Set navigation.Active="page2" />
+					</Clicked>
+				</Tab>
+			</Panel>
+			<Panel ux:Name="page3Tab">
+				<Tab Text="RICERCA">
+					<Clicked>
+						<Set navigation.Active="page3" />
+					</Clicked>
+				</Tab>
+			</Panel>
+		</Grid>
+
+		<PageControl ux:Name="navigation">
+			<Page ux:Name="page1" Background="#fff">
+				<WhileActive Threshold="0.5">
+					<Set indicator.LayoutMaster="page1Tab" />
+				</WhileActive>
+				<ScrollView>
+					<StackPanel Margin="16">
+						<P Color="color.Gray" FontSize="size.S" TextWrapping="Wrap"> Questa è la lista dei 10 negozi più vicini al punto in cui ti trovi.</P>
+						<Each Items="{nearByMerchants}">
+							<NodeGroup>
+								<Grid Columns="4*,1*,40" Padding="0,11" Clicked="{onTapItemList}" HitTestMode="LocalBoundsAndChildren">
+									<StackPanel>
+										<B Alignment="Left">{name}</B>
+										<P FontSize="size.S" Alignment="Left">{tag}</P>
+									</StackPanel>
+									<P FontSize="size.S" Color="color.GrayDark">{distance}</P>
+									<B>></B>
+								</Grid>
+								<Separator/>
+							</NodeGroup>
+						</Each>
+					</StackPanel>
+				</ScrollView>
+			</Page>
+			<Page ux:Name="page2" Background="#fff">
+				<WhileActive Threshold="0.5">
+					<Set indicator.LayoutMaster="page2Tab" />
+				</WhileActive>
+				<ScrollView>
+					<StackPanel Margin="16">
+						<!--TODO AGGIUNGERE FILTRO LISTA PER CATEGORIA -->
+						<Each Items="{internetMerchants}">
+							<NodeGroup >
+								<Grid Columns="1*,40" Padding="0,11" Clicked="{onTapItemList}" HitTestMode="LocalBoundsAndChildren">
+									<StackPanel>
+										<B Alignment="Left">{name}</B>
+										<P FontSize="size.S" Alignment="Left" Color="color.GrayDark">{site}</P>
+										<P Alignment="Left" TextWrapping="Wrap">{tag}</P>
+									</StackPanel>
+									<P>></P>
+								</Grid>
+								<Separator/>
+							</NodeGroup>
+						</Each>
+					</StackPanel>
+				</ScrollView>
+			</Page>
+			<Page ux:Name="page3" Background="#fff">
+				<WhileActive Threshold="0.5">
+					<Set indicator.LayoutMaster="page3Tab" />
+					<StackPanel Margin="20" ItemSpacing="10">
+						<Grid Columns="40,1*,40">
+							<icon.Funnel Width="20"/>
+							<P Color="color.Gray" Alignment="Left">Tutte le categorie</P>
+							<icon.CaretDown/>
+						</Grid>
+						<Separator Margin="0"/>
+						<Grid Columns="40,1*,40">
+							<icon.City Width="20"/>
+							<P Color="color.Gray" Alignment="Left">Scegli il comune</P>
+							<icon.CaretDown/>
+						</Grid>
+						<Separator Margin="0"/>
+						<Grid Columns="40,1*">
+							<icon.Search FontSize="22" Alignment="Center"/>
+							<TextInput Font="RegularFont" PlaceholderText="Cerca nel nome" PlaceholderColor="color.Gray">
+							</TextInput>
+						</Grid>						
+						<Separator Margin="0"/>
+						<P Color="color.Gray" Alignment="Left" FontSize="size.S">Scegli almeno un criterio di ricerca</P>
+					</StackPanel>
+				</WhileActive>
+			</Page>
+		</PageControl>
+
+	</DockPanel>
+</BasePage>

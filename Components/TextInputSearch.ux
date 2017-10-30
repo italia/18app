@@ -1,9 +1,0 @@
-<Panel ux:Class="TextInputSearch" >
-	<string ux:Property="PlaceholderText"/>
-	<DockPanel>
-		<icon.Search Dock="Left" FontSize="25" Margin="0, 5, 0, 0"/>
-		<TextInput Margin="10,0,0,0" Font="RegularFont" PlaceholderText="{ReadProperty PlaceholderText}" FontSize="25" PlaceholderColor="color.GrayLight" ValueChanged="{onSearch}"><!-- TO DO sub ottimale -->
-		</TextInput>
-	</DockPanel>
-	<Rectangle Height="2" Width="100%" Color="color.GrayLight" Alignment="Bottom"/>
-</Panel>

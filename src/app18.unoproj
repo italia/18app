@@ -1,0 +1,19 @@
+{
+  "Name": "app18",
+  "RootNamespace":"",
+  "Packages": [
+    "Fuse",
+    "Fuse.Launcher",
+    "FuseJS"
+  ],
+  "Includes": [
+    "*",
+    "Entities/*.js:Bundle",
+    "Modules/*.js:Bundle",
+    "Modules/Helpers/*.js:Bundle",
+    "Libraries/*.js:Bundle",
+    "Assets/images/*.png:Bundle",
+    "Assets/images/*.jpg:Bundle"
+  ]
+}
+

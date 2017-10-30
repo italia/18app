@@ -1,0 +1,30 @@
+<BasePage ux:Class="ProfilePage">
+	<Router ux:Dependency="router" />
+	<JavaScript File="ProfilePage.js" />
+	<Visual ux:Dependency="navBar" />
+	<NavBarTitle navBar="navBar"  Text="il tuo profilo" />
+	<ScrollView>
+		<StackPanel Padding="20,20" Background="#FFF" >
+			<H2 Color="color.Black">Mario Rossi</H2>
+
+			<BaseText Color="color.GrayDark" Margin="0,20,0,0">Codice Fiscale</BaseText>
+			<H3 Color="color.Black">RSS MRA 98T10 A562S</H3>
+
+			<BaseText Color="color.GrayDark" Margin="0,20,0,0">Data e luogo di nascita</BaseText>
+			<H3 Color="color.Black">10/12/1998 San Giuliano Terme (PI)</H3>
+
+			<BaseText Color="color.GrayDark" Margin="0,20,0,0">Residenza</BaseText>
+			<H3 Color="color.Black">Viale della Repubblica, 171</H3>
+			<H3 Color="color.Black">31100 Treviso (TV)</H3>
+
+			<BaseText Color="color.GrayDark" Margin="0,20,0,0">Recapiti</BaseText>
+			<H3 Color="color.Black">3331234567</H3>
+			<H3 Color="color.Black">mario.rossi@email.it</H3>
+
+			<BaseText Color="color.GrayDark" Margin="0,20,0,0">Questo e' il riepilogo dei dari della tua identità</BaseText>
+			<BaseText Color="color.GrayDark">SPID: per modificarli rivolgiti al gestore.</BaseText>
+
+			<LogoPosteIcon Margin="0,20,0,0" Alignment="CenterLeft"/>
+		</StackPanel>
+	</ScrollView>
+</BasePage>

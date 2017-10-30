@@ -1,0 +1,7 @@
+<BasePage ux:Class="NewCouponStep2Page">
+	<Router ux:Dependency="router" />
+	<JavaScript File="js/NewCouponStep2Page.js" />
+	<Visual ux:Dependency="navBar" />
+	<NavBarTitle navBar="navBar"  Text="Nuovo buono: prodotto" />
+	<List Items="{items}" Selected="{selected}" Title="Scegli la categoria"/>
+</BasePage>

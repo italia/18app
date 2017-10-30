@@ -1,3 +1,0 @@
-<Panel ux:Class="BackButton" Width="40" Height="40" HitTestMode="LocalBounds">
-	<BackwardIcon Alignment="Center" />
-</Panel>

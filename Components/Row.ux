@@ -1,4 +1,0 @@
-<Container ux:Class="Row" Subtree="innerPannel">
-	<Grid  Columns="48, 1*,auto" Padding="0,10" HitTestMode="LocalBoundsAndChildren"  ux:Binding="Children" ux:Name="innerPannel">
-	</Grid>
-</Container>
