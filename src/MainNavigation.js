@@ -16,7 +16,7 @@ export default StackNavigator(
         coupons: {
             screen: Coupons,
         },
-        Shops: {
+        shops: {
             screen: Shops,
         },
     },

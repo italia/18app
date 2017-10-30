@@ -42,8 +42,8 @@ class MenuBottom extends Component {
                 <MenuBottomItem
                     text="Negozi"
                     icon={require('../res/icon-marker-white.png')}
-                    onPress={() => this.props.goTo('merchants')}
-                    active={this._activeHelper('merchants')}
+                    onPress={() => this.props.goTo('shops')}
+                    active={this._activeHelper('shops')}
                 />
                 <MenuBottomItem
                     text="Info"

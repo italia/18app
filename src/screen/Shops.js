@@ -6,13 +6,13 @@ import * as Constants from '../common/constants';
 
 export default TabNavigator(
     {
-        NearToYou: {
+        'shops/near': {
             screen: NearShops,
         },
-        Online: {
+        'shops/online': {
             screen: OnlineShops,
         },
-        Search: {
+        'shops/search': {
             screen: SearchShop,
         },
     },
