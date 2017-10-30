@@ -61,6 +61,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
+    dispatch,
     onLogin: token => dispatch(loginAction(token)),
 });
 
