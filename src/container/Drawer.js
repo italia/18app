@@ -7,7 +7,7 @@ import * as Constants from '../common/constants';
 class Drawer extends Component {
     render() {
         return (
-            <View style={{flex: 1}}>
+            <View style={{flex: 1}} testID="drawer">
                 <View style={styles.headerContainer}>
                     <View style={styles.heading}>
                         <Text style={styles.userText}>

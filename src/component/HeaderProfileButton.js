@@ -8,7 +8,9 @@ import * as Constants from '../common/constants';
 class HeaderProfileButton extends PureComponent {
     render() {
         return (
-            <TouchableOpacity onPress={this.props.onPress}>
+            <TouchableOpacity
+                onPress={this.props.onPress}
+                testID="header-profile-button">
                 <View style={styles.container}>
                     <View style={styles.textContainer}>
                         <Text style={styles.credit}>Credito</Text>

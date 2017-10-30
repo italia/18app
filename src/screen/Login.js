@@ -7,7 +7,7 @@ import * as Constants from '../common/constants';
 export default class Login extends Component {
     render() {
         return (
-            <View style={styles.container}>
+            <View style={styles.container} testID="login-screen">
                 <View style={styles.header}>
                     <Text style={styles.loginText}>18app</Text>
                 </View>
@@ -49,7 +49,9 @@ export default class Login extends Component {
                         </TouchableOpacity>
                     </View>
                 </Image>
-                <TouchableOpacity onPress={this.props.onLogin}>
+                <TouchableOpacity
+                    onPress={this.props.onLogin}
+                    testID="login-spid">
                     <View style={styles.login}>
                         <Text style={styles.loginText}>ENTRA CON SPID</Text>
                     </View>
