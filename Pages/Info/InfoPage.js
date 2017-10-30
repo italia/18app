@@ -4,7 +4,7 @@ var FuseSearch = require('Libraries/fuse.min.js');
 var items = Observable();
 
 var delayTimer; // start search only when user stop typing
-var searchDelay = 600;
+var searchDelay = 500;
 var allHelpInformations = [];
 var fuseSearchOptions = {
 	  tokenize: true,
@@ -22,7 +22,7 @@ var fuseSearchEmptyCollection = [];
 var fuseSearch = new FuseSearch(fuseSearchEmptyCollection, fuseSearchOptions);
 
 function showAnyHelpInformations(){
-	console.log('Visualizzo tutto');
+	// console.log('Visualizzo tutto');
 	allHelpInformations.forEach(function(group){
 		group.items.forEach(function(item){
 			item.visible = true;
@@ -33,7 +33,7 @@ function showAnyHelpInformations(){
 }
 
 function showOnlyThoseKeysHelpInformations(keys){
-	console.log("Fuzzy search ha trovato: ", JSON.stringify(keys));
+	// console.log("Fuzzy search ha trovato: ", JSON.stringify(keys));
 	allHelpInformations.forEach(function(group){
 		group.items.forEach(function(item){
 			item.visible = keys.includes(item.id);
@@ -52,15 +52,15 @@ Context.getHelpInformations().then(function(helpInformations) {
 });
 
 function onSearch(args) {
-	clearTimeout(delayTimer);
-	delayTimer = setTimeout(function(){
+	// clearTimeout(delayTimer);
+	// delayTimer = setTimeout(function(){
 		if (args.value === "") {
 			showAnyHelpInformations();
 			return;
 		} 
 		var keys = fuseSearch.search(args.value);
 		showOnlyThoseKeysHelpInformations(keys);
-	}, searchDelay);
+	// }, searchDelay);
 }
 
 module.exports = {
