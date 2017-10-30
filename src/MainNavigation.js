@@ -6,6 +6,7 @@ import * as Constants from './common/constants';
 import Home from './screen/Home';
 import Coupons from './screen/Coupons';
 import HeaderProfileButton from './component/HeaderProfileButton';
+import Shops from './screen/Shops';
 
 export default StackNavigator(
     {
@@ -14,6 +15,9 @@ export default StackNavigator(
         },
         coupons: {
             screen: Coupons,
+        },
+        Shops: {
+            screen: Shops,
         },
     },
     {
