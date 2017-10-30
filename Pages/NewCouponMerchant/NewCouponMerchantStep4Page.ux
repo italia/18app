@@ -11,12 +11,12 @@
 				<Separator Margin="-35,20"/>
 				<StackPanel>
 					<Row>
-						<Image File="{coupon.macroCategory.pathIcon}" Width="20"  Height="20" Alignment="CenterLeft" />
+						<Image File="{coupon.macroCategory.icon}" Width="20"  Height="20" Alignment="CenterLeft" />
 						<P Color="color.Black" Value="{coupon.macroCategory.name}" Alignment="CenterLeft" />
 						<P Color="color.Gray" Value="Categoria" FontSize="size.XS" />
 					</Row>
 					<Row>
-						<Image File="{coupon.microCategory.pathIcon}" Width="20"  Height="20" Alignment="CenterLeft" />
+						<Image File="{coupon.microCategory.icon}" Width="20"  Height="20" Alignment="CenterLeft" />
 						<P Color="color.Black" Value="{coupon.microCategory.name}" Alignment="CenterLeft" />
 						<P Color="color.Gray" Value="Prodotto" FontSize="size.XS" />
 					</Row>
