@@ -1,15 +1,16 @@
 import React from 'react';
 import Expo from 'expo';
-import {StackNavigator} from 'react-navigation';
+import {StackNavigator, DrawerNavigator} from 'react-navigation';
 import {Platform, StyleSheet} from 'react-native';
 import * as Constants from './common/constants';
+import Drawer from './container/Drawer';
 import Home from './screen/Home';
 import Coupons from './screen/Coupons';
 import Coupon from './screen/Coupon';
 import HeaderProfileButton from './component/HeaderProfileButton';
 import Shops from './screen/Shops';
 
-export default StackNavigator(
+const stackNavigator = StackNavigator(
     {
         Home: {
             screen: Home,
@@ -25,7 +26,7 @@ export default StackNavigator(
         },
     },
     {
-        navigationOptions: ({navigation, screenProps}) => ({
+        navigationOptions: () => ({
             headerRight: <HeaderProfileButton />,
             headerStyle: [
                 {
@@ -37,6 +38,18 @@ export default StackNavigator(
                 color: '#fff',
             },
         }),
+    },
+);
+
+export default DrawerNavigator(
+    {
+        root: {
+            screen: stackNavigator,
+        },
+    },
+    {
+        drawerPosition: 'right',
+        contentComponent: Drawer,
     },
 );
 

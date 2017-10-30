@@ -2,6 +2,7 @@ import React, {PureComponent} from 'react';
 import {View, Text, Image, TouchableOpacity, StyleSheet} from 'react-native';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
+import {NavigationActions} from 'react-navigation';
 import * as Constants from '../common/constants';
 
 class HeaderProfileButton extends PureComponent {
@@ -37,7 +38,18 @@ const mapStateToProps = state => ({
     credit: state.user.credit,
 });
 
-export default connect(mapStateToProps)(HeaderProfileButton);
+const mapDispatchToProps = dispatch => ({
+    onPress: () =>
+        dispatch(
+            NavigationActions.navigate({
+                routeName: 'DrawerToggle',
+            }),
+        ),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(
+    HeaderProfileButton,
+);
 
 const styles = StyleSheet.create({
     container: {

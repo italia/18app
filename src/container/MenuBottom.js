@@ -16,9 +16,8 @@ class MenuBottom extends Component {
     };
 
     _activeHelper(route) {
-        const currentRoute = this.props.navigation.routes[
-            this.props.navigation.index
-        ];
+        const stackNavigator = this.props.navigation.routes[0].routes[0];
+        const currentRoute = stackNavigator.routes[stackNavigator.index];
 
         return route === currentRoute.routeName;
     }
