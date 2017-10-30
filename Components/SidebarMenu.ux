@@ -1,0 +1,61 @@
+<DockPanel ux:Name="sidebar" Edge="Right" Width="100%" Margin="56,0,0,0" Background="#0066CC">
+	<Shadow ux:Name="shadow" Angle="0" Distance="16" Size="32" Color="#0000" />
+	<ActivatingAnimation>
+		<Change shadow.Color="#0004" />
+		<Change sidebarFade.Opacity="1" />
+	</ActivatingAnimation>
+	<!-- parte bianca -->
+	<Panel Dock="Top"  Background="#FFF">
+		<StackPanel Padding="20,20">
+			<Grid Columns="1*, 15">
+				<Text Color="color.Black" Value="Mario Rossi" FontSize="size.XL"/>
+				<CloseIcon Alignment="Center">
+					<Clicked>
+						<NavigateToggle Target="sidebar" />
+					</Clicked>
+				</CloseIcon>
+			</Grid>
+			<Text Color="color.GrayDark" Value="Credito" FontSize="size.S" Margin="0,20,0,0"/>
+			<Text Color="color.GrayDark" Value="174,00 €" FontSize="size.XL" Font="BaseFont"/>
+		</StackPanel>
+	</Panel>
+	<!-- parte azzurra -->
+	<Panel Margin="35,0,0,0">
+
+		<StackPanel >
+			<Grid Columns="1,1*" CellSpacing="20" HitTestMode="LocalBoundsAndChildren" Clicked="{goToProfile}">
+				<ProfileIcon Alignment="Center"/>
+				<Text Color="color.White" Value="Profilo" FontSize="size.M" Margin="0,15,0,15"/>
+				<Clicked>
+					<NavigateToggle Target="sidebar" />
+				</Clicked>
+			</Grid>
+			<Separator Color="color.DarkBlue"/>
+
+			<Grid Columns="1,1*,1" CellSpacing="20" HitTestMode="LocalBoundsAndChildren" Clicked="{goToNotifications}">
+				<NotificationsIcon Alignment="Center"/>
+				<Text Color="color.White" Value="Notifiche" FontSize="size.M" Margin="0,15,0,15"/>
+
+				<StackPanel Margin="-50,10,0,0">
+					<Circle Color="#FFF" Width="25" Height="25"></Circle>
+
+					<Text Font="BoldFont" Color="color.Blue" TextAlignment="Center" Margin="0, 0, 0, 0" Layer="Overlay">2
+					</Text>
+				</StackPanel>
+				<Clicked>
+					<NavigateToggle Target="sidebar" />
+				</Clicked>
+			</Grid>
+			<Separator Color="color.DarkBlue"/>
+
+			<Grid Columns="1,1*" CellSpacing="20" HitTestMode="LocalBoundsAndChildren">
+				<LogoutIcon Alignment="Center"/>
+				<Text Color="color.White" Value="Logout" FontSize="size.M" Margin="0,15,0,15"/>
+				<Clicked>
+					<NavigateToggle Target="sidebar" />
+				</Clicked>
+			</Grid>
+			<Separator Color="color.DarkBlue"/>
+		</StackPanel>
+	</Panel>
+</DockPanel>	
