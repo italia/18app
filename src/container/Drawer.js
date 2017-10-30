@@ -112,7 +112,7 @@ const styles = StyleSheet.create({
     },
     nav: {
         flex: 1,
-        backgroundColor: Constants.SECONDARY_BLUE,
+        backgroundColor: Constants.LIGHT_BLUE,
     },
     amountContainer: {
         marginTop: 15,
@@ -132,7 +132,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         borderBottomWidth: 1,
-        borderBottomColor: '#000',
+        borderBottomColor: 'rgba(0,0,0,0.2)',
     },
     iconContainer: {
         width: 48,

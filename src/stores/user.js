@@ -30,6 +30,15 @@ export function loginAction(token) {
             name: 'Mario',
             surname: 'Rossi',
             credit: 174.0,
+            fiscalCode: 'RSSMRA98T10A562S',
+            birthDay: '10/12/1998',
+            birthPlace: 'San Giuliano Terme (PI)',
+            address: 'Viale della Repubblica 171',
+            postalCode: '31100',
+            city: 'Treviso',
+            province: '(TV)',
+            mobile: '3331234567',
+            email: 'mario.rossi@email.it',
         }),
     };
 }

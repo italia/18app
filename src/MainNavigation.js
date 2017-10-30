@@ -5,6 +5,7 @@ import {Platform, StyleSheet} from 'react-native';
 import * as Constants from './common/constants';
 import Drawer from './container/Drawer';
 import Home from './screen/Home';
+import Profile from './screen/Profile';
 import Coupons from './screen/Coupons';
 import Coupon from './screen/Coupon';
 import HeaderProfileButton from './component/HeaderProfileButton';
@@ -24,8 +25,14 @@ const stackNavigator = StackNavigator(
         'coupons/details': {
             screen: Coupon,
         },
+        profile: {
+            screen: Profile,
+        },
     },
     {
+        cardStyle: {
+            backgroundColor: '#fff',
+        },
         navigationOptions: () => ({
             headerRight: <HeaderProfileButton />,
             headerStyle: [

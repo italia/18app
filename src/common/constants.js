@@ -2,6 +2,7 @@ export const PRIMARY_BLUE = '#0066CC';
 export const SECONDARY_BLUE = '#003E90';
 export const AQUAMARINE = '#65DCDF';
 export const WHITE = '#FFFFFF';
+export const LIGHT_BLUE = '#0C50A9';
 export const LIGHTNING_BLUE = '#1168C9';
 export const PRIMARY_GREY = '#5A6772';
 export const SECONDARY_GREY = '#A9B1B8';
