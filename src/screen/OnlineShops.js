@@ -7,15 +7,22 @@ import CategoryPicker from '../component/CategoryPicker';
 const onlineShops = [
     {
         id: 1,
-        title: 'Nuovo cinema Paradiso',
+        title: 'Scuolabook',
         categories: 'Cinema/Libri',
-        link: 'www.prova.it',
+        link: 'www.scuolabook.it',
     },
     {
         id: 2,
-        title: 'The Blues Brother',
+        title: 'Cineteatro Nuovo Arcore',
         categories: 'concerti',
-        link: 'www.prova.it',
+        link: 'www.cineteatronuovoarcore.it',
+    },
+    {
+        id: 3,
+        title: 'TicketOne',
+        categories:
+            'Concerti / Eventi Culturali / Musei, monumenti e parchi naturali / Teatro e Danza',
+        link: 'www.ticketone.it/18app',
     },
 ];
 

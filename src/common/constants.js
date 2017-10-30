@@ -15,3 +15,5 @@ export const ICON_GREY = '#30373D';
 export const TITILLIUM_REGULAR = 'titillium-regular';
 export const TITILLIUM_BOLD = 'titillium-bold';
 export const TITILLIUM_SEMIBOLD = 'titillium-semibold';
+export const TITILLIUM_SEMIBOLD_ITALIC = 'titillium-semibold-italic';
+export const TITILLIUM_ITALIC = 'titillium-italic';

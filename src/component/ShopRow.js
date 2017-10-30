@@ -1,11 +1,15 @@
 import React, {Component} from 'react';
 import {View, StyleSheet, Text, Image, TouchableOpacity} from 'react-native';
 import * as Constants from '../common/constants';
+import {connect} from 'react-redux';
+import {NavigationActions} from 'react-navigation';
 
-export default class ShopRow extends Component {
+class ShopRow extends Component {
     render() {
         return (
-            <TouchableOpacity style={styles.container}>
+            <TouchableOpacity
+                onPress={() => this.props.goTo('shops/single')}
+                style={styles.container}>
                 <View style={styles.content}>
                     <Text style={styles.title}>{this.props.shop.title}</Text>
                     {this.props.shop.link && (
@@ -34,6 +38,19 @@ export default class ShopRow extends Component {
         );
     }
 }
+
+const mapDispatchToProps = (dispatch, props) => ({
+    goTo: route =>
+        dispatch(
+            NavigationActions.navigate({
+                routeName: route,
+                params: {shop: props.shop},
+            }),
+        ),
+});
+
+export default connect(null, mapDispatchToProps)(ShopRow);
+
 const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',

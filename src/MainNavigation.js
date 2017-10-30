@@ -10,6 +10,7 @@ import Coupons from './screen/Coupons';
 import Coupon from './screen/Coupon';
 import HeaderProfileButton from './component/HeaderProfileButton';
 import Shops from './screen/Shops';
+import Shop from './screen/Shop';
 
 const stackNavigator = StackNavigator(
     {
@@ -19,11 +20,14 @@ const stackNavigator = StackNavigator(
         coupons: {
             screen: Coupons,
         },
+        'coupons/details': {
+            screen: Coupon,
+        },
         shops: {
             screen: Shops,
         },
-        'coupons/details': {
-            screen: Coupon,
+        'shops/single': {
+            screen: Shop,
         },
         profile: {
             screen: Profile,

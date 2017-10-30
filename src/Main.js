@@ -22,6 +22,8 @@ class Main extends React.Component {
             'titillium-regular': require('./res/fonts/TitilliumWeb-Regular.ttf'),
             'titillium-bold': require('./res/fonts/TitilliumWeb-Bold.ttf'),
             'titillium-semibold': require('./res/fonts/TitilliumWeb-SemiBold.ttf'),
+            'titillium-semibold-italic': require('./res/fonts/TitilliumWeb-SemiBoldItalic.ttf'),
+            'titillium-italic': require('./res/fonts/TitilliumWeb-Italic.ttf'),
         });
 
         this.setState({
