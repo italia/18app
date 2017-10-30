@@ -6,11 +6,13 @@ import CategoryPicker from '../component/CategoryPicker';
 
 const onlineShops = [
     {
+        id: 1,
         title: 'Nuovo cinema Paradiso',
         categories: 'Cinema/Libri',
         link: 'www.prova.it',
     },
     {
+        id: 2,
         title: 'The Blues Brother',
         categories: 'concerti',
         link: 'www.prova.it',
@@ -26,6 +28,7 @@ export default class NearShops extends Component {
 
         return (
             <FlatList
+                keyExtractor={item => item.id}
                 style={{backgroundColor: Constants.WHITE}}
                 data={onlineShops}
                 renderItem={({item}) => <ShopRow shop={item} />}

@@ -12,26 +12,31 @@ import * as Constants from '../common/constants';
 
 const nearShops = [
     {
+        id: 1,
         title: 'Nuovo cinema Paradiso',
         categories: 'Cinema/Libri',
         distance: 500,
     },
     {
+        id: 2,
         title: 'The Blues Brother',
         categories: 'concerti',
         distance: 1300,
     },
     {
+        id: 3,
         title: 'The Blues Brother',
         categories: 'concerti',
         distance: 1300,
     },
     {
+        id: 4,
         title: 'The Blues Brother',
         categories: 'concerti',
         distance: 1300,
     },
     {
+        id: 5,
         title: 'The Blues Brother',
         categories: 'concerti',
         distance: 1300,
@@ -49,11 +54,12 @@ export default class NearShops extends Component {
             <View style={styles.container}>
                 <FlatList
                     data={nearShops}
+                    keyExtractor={item => item.id}
                     renderItem={({item}) => <ShopRow shop={item} />}
                     ListHeaderComponent={() => (
                         <Text style={styles.headerText}>
-                            Questa è la lista dei 10 negozi più vicini al punto
-                            in cui ti trovi.
+                            Questa è la lista dei {nearShops.length} negozi più
+                            vicini al punto in cui ti trovi.
                         </Text>
                     )}
                 />
