@@ -2,6 +2,13 @@
 
 ##  hack.italia - team: Fusi - Luogo: BARI
 
+## Video descrittivo
+
+[video 01 - Introduzione - perche' fuse](https://youtu.be/wQCZudhLNZM)
+
+[video 02 - preview app e architettura del codice]()
+
+
 ## Tecnologia
 
 Abbiamo scelto di usare fuse tools che e' uno strumento open source con licenza MIT per lo sviluppo di app native multipiattaforma.
