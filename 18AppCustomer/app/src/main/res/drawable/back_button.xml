@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="12dp"
+    android:height="20dp"
+    android:viewportWidth="12"
+    android:viewportHeight="20">
+
+    <group
+            android:name="header"
+            android:translateX="-18.000000"
+            android:translateY="-14.000000">
+        <path
+            android:name="Rectangle"
+            android:fillType="evenOdd"
+            android:strokeWidth="1"
+            android:pathData="M 0 0 H 48 V 48 H 0 V 0 Z" />
+        <path
+            android:name="Combined-Shape"
+            android:fillColor="#FFFFFF"
+            android:fillType="evenOdd"
+            android:strokeWidth="1"
+            android:pathData="M19,23 L28,14 L30,16 L22,24 L30,32 L28,34 L18,24 L19,23 Z" />
+    </group>
+</vector>

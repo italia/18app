@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="18dp"
+    android:height="18dp"
+    android:viewportWidth="18"
+    android:viewportHeight="18">
+
+    <group
+            android:name="negozi-fisici"
+            android:translateX="-65.000000"
+            android:translateY="-566.000000">
+        <group
+                android:name="Group-5"
+                android:translateY="547.000000">
+            <group
+                    android:name="Group-4"
+                    android:translateX="16.000000"
+                    android:translateY="8.000000">
+                <group
+                        android:name="Group-6"
+                        android:translateX="46.000000"
+                        android:translateY="8.000000">
+                    <path
+                        android:name="Shape"
+                        android:fillType="evenOdd"
+                        android:strokeWidth="1"
+                        android:pathData="M 0 0 L 24 0 L 24 24 L 0 24 Z" />
+                    <path
+                        android:name="Shape"
+                        android:fillColor="#0066CC"
+                        android:fillType="evenOdd"
+                        android:strokeWidth="1"
+                        android:pathData="M20.5,3 L20.34,3.03 L15,5.1 L9,3 L3.36,4.9 C3.15,4.97 3,5.15 3,5.38 L3,20.5
+C3,20.78 3.22,21 3.5,21 L3.66,20.97 L9,18.9 L15,21 L20.64,19.1 C20.85,19.03
+21,18.85 21,18.62 L21,3.5 C21,3.22 20.78,3 20.5,3 Z M15,19 L9,16.89 L9,5
+L15,7.11 L15,19 Z" />
+                </group>
+            </group>
+        </group>
+    </group>
+</vector>

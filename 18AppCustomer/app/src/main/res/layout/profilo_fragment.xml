@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:id="@+id/nome"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:paddingLeft="15dp"
+        android:paddingTop="20dp"
+        android:text="Mario Rossi"
+        android:textColor="@android:color/black"
+        android:textSize="20sp" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:text="Codice Fiscale"
+        android:paddingLeft="15dp"
+        android:id="@+id/viewcf"
+        />
+
+    <TextView
+        android:id="@+id/codicefiscale"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:paddingLeft="15dp"
+        android:text="NDRFRSJKSJHSS"
+        android:textColor="@android:color/black"
+        android:textSize="20sp" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:text="Data e luogo di nascita"
+        android:paddingLeft="15dp"
+        android:id="@+id/viewdata"
+        />
+
+    <TextView
+        android:id="@+id/data"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:paddingLeft="15dp"
+        android:text="Napoli 23/3/1999"
+        android:textColor="@android:color/black"
+        android:textSize="20sp" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:text="Residenza"
+        android:paddingLeft="15dp"
+        android:id="@+id/viewresidenza"
+        />
+
+    <TextView
+        android:id="@+id/residenza"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:paddingLeft="15dp"
+        android:text="Viale delle prove 123,Treviso"
+        android:textColor="@android:color/black"
+        android:textSize="20sp" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:text="Recapiti"
+        android:paddingLeft="15dp"
+        android:id="@+id/viewrecapiti"
+        />
+
+    <TextView
+        android:id="@+id/recapiti"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:paddingLeft="15dp"
+        android:text="3334343454"
+        android:textColor="@android:color/black"
+        android:textSize="20sp" />
+    </LinearLayout>

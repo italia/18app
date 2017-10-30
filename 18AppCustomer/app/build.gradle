@@ -1,0 +1,62 @@
+//noinspection GradleCompatible
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion '26.0.2'
+    defaultConfig {
+        applicationId "a18app.a18appcustomer"
+        minSdkVersion 15
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
+    }
+}
+
+dependencies {
+    implementation 'com.google.android.gms:play-services-maps:11.4.2'
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile("com.android.support:support-v4:25.3.1")
+    compile("com.android.support:support-annotations:25.3.1")
+    compile("com.android.support:recyclerview-v7:25.3.1")
+    compile("com.android.support:design:25.3.1")
+    compile 'com.github.ittianyu:BottomNavigationViewEx:1.2.1'
+    compile('com.mikepenz:materialdrawer:5.9.5@aar') {
+        transitive = true
+        exclude group: 'com.android.support'
+    }
+
+//the core iconcis library (without any widgets)
+    implementation "com.mikepenz:iconics-core:2.9.4@aar"
+    implementation "com.android.support:appcompat-v7:25.3.1"
+
+    implementation 'com.mikepenz:google-material-typeface:3.0.1.2.original@aar'
+    implementation 'com.mikepenz:material-design-iconic-typeface:2.2.0.4@aar'
+    implementation 'com.mikepenz:fontawesome-typeface:4.7.0.2@aar'
+    implementation 'com.mikepenz:octicons-typeface:3.2.0.4@aar'
+    implementation 'com.mikepenz:meteocons-typeface:1.1.0.4@aar'
+    implementation 'com.mikepenz:community-material-typeface:2.0.46.1@aar'
+    implementation 'com.mikepenz:weather-icons-typeface:2.0.10.4@aar'
+    implementation 'com.mikepenz:typeicons-typeface:2.0.7.4@aar'
+    implementation 'com.mikepenz:entypo-typeface:1.0.0.4@aar'
+    implementation 'com.mikepenz:devicon-typeface:2.0.0.4@aar'
+    implementation 'com.mikepenz:foundation-icons-typeface:3.0.0.4@aar'
+    implementation 'com.mikepenz:pixeden-7-stroke-typeface:1.2.0.2@aar'
+    testCompile 'junit:junit:4.12'
+}

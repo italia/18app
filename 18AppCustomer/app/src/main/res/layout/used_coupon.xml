@@ -1,0 +1,90 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:background="@android:color/holo_blue_dark"
+        android:paddingLeft="20dp"
+        android:text="CINEMA MODERNISSIMO"
+        android:textColor="@android:color/background_light"
+        android:textSize="25dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:textColor="@android:color/background_light"
+        android:background="@android:color/holo_blue_dark"
+        android:paddingLeft="20dp"
+        android:drawableLeft="@drawable/icon_marker_white"
+        android:text="via Roma 34,Napoli"
+        android:gravity="center"
+        android:textSize="15dp"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="93dp"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <ImageView
+            android:id="@+id/icona"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_gravity="center"
+            android:layout_margin="20dp"
+            android:src="@drawable/icon_cinema_06c" />
+
+        <TextView
+            android:id="@+id/subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="40dp"
+            android:text="QUI"
+            android:layout_weight="0.20"
+            android:textSize="12sp"
+            />
+
+        <TextView
+            android:id="@+id/subtitle2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="30dp"
+            android:layout_weight="0.20"
+            android:text="descrizione"
+            android:textSize="12sp" />
+
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="230dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginBottom="40dp"
+            android:layout_marginEnd="75dp"
+            android:layout_marginRight="75dp"
+            android:background="@android:color/holo_blue_dark"
+            android:drawableLeft="@drawable/icon_marker_white"
+            android:text="Dettagli del Negozio" />
+
+    </RelativeLayout>
+</LinearLayout>

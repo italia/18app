@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="18dp"
+    android:height="24dp"
+    android:viewportWidth="18"
+    android:viewportHeight="24">
+
+    <group
+            android:name="navigation-stores"
+            android:translateX="-31.000000"
+            android:translateY="-14.000000">
+        <group
+                android:translateX="4.000000"
+                android:translateY="14.000000">
+            <group
+                    android:name="icon-marker-white"
+                    android:translateX="27.000000">
+                <path
+                    android:name="Oval-2"
+                    android:fillType="evenOdd"
+                    android:strokeColor="#FFFFFF"
+                    android:strokeWidth="1"
+                    android:pathData="M9.00048596,23.3140765 C12.695687,19.770991 17.5,12.6953152 17.5,9
+C17.5,4.30557963 13.6944204,0.5 9,0.5 C4.30557963,0.5 0.5,4.30557963 0.5,9
+C0.5,12.7095704 5.2385617,19.7009789 9.00048596,23.3140765 Z" />
+                <path
+                    android:name="path-1"
+                    android:fillColor="#FFFFFF"
+                    android:fillType="evenOdd"
+                    android:strokeWidth="1"
+                    android:pathData="M 9 5 C 11.2091389993 5 13 6.79086100068 13 9 C 13 11.2091389993 11.2091389993 13 9 13 C 6.79086100068 13 5 11.2091389993 5 9 C 5 6.79086100068 6.79086100068 5 9 5 Z" />
+                <path
+                    android:fillType="evenOdd"
+                    android:strokeColor="#FFFFFF"
+                    android:strokeWidth="2"
+                    android:pathData="M 9 6 C 10.6568542495 6 12 7.34314575051 12 9 C 12 10.6568542495 10.6568542495 12 9 12 C 7.34314575051 12 6 10.6568542495 6 9 C 6 7.34314575051 7.34314575051 6 9 6 Z" />
+            </group>
+        </group>
+    </group>
+</vector>

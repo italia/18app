@@ -1,0 +1,18 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/action_nuovo"
+        android:icon="@drawable/navigation_new"
+        android:title="Nuovo"
+        android:orderInCategory="0"/>
+    <item android:id="@+id/action_portafoglio"
+        android:icon="@drawable/navigation_wallet"
+        android:title="I tuoi buoni"
+        android:orderInCategory="1"/>
+    <item android:id="@+id/action_negozi"
+        android:icon="@drawable/navigation_stores"
+        android:title="Negozi"
+        android:orderInCategory="2"/>
+    <item android:id="@+id/action_info"
+        android:icon="@drawable/navigation_info"
+        android:title="Info"
+        android:orderInCategory="3"/>
+</menu>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="16dp"
+    android:height="18dp"
+    android:viewportWidth="16"
+    android:viewportHeight="18">
+
+    <group
+            android:name="negozi-fisici-categoria"
+            android:translateX="-31.000000"
+            android:translateY="-76.000000">
+        <group
+                android:name="Group-18"
+                android:translateX="10.000000"
+                android:translateY="8.000000">
+            <group
+                    android:name="Group-4"
+                    android:translateX="17.000000"
+                    android:translateY="65.000000">
+                <path
+                    android:name="Shape"
+                    android:fillType="evenOdd"
+                    android:strokeWidth="1"
+                    android:pathData="M 0 0 L 24 0 L 24 24 L 0 24 Z" />
+                <path
+                    android:name="Shape"
+                    android:fillColor="#0066CC"
+                    android:fillType="evenOdd"
+                    android:strokeWidth="1"
+                    android:pathData="M18,3 L18,5 L16,5 L16,3 L8,3 L8,5 L6,5 L6,3 L4,3 L4,21 L6,21 L6,19 L8,19 L8,21
+L16,21 L16,19 L18,19 L18,21 L20,21 L20,3 L18,3 Z M8,17 L6,17 L6,15 L8,15 L8,17 Z
+M8,13 L6,13 L6,11 L8,11 L8,13 Z M8,9 L6,9 L6,7 L8,7 L8,9 Z M18,17 L16,17 L16,15
+L18,15 L18,17 Z M18,13 L16,13 L16,11 L18,11 L18,13 Z M18,9 L16,9 L16,7 L18,7
+L18,9 Z" />
+            </group>
+        </group>
+    </group>
+</vector>

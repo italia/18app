@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="18dp"
+    android:height="19dp"
+    android:viewportWidth="18"
+    android:viewportHeight="19">
+
+    <group
+            android:name="negozi-fisici-comune"
+            android:translateX="-31.000000"
+            android:translateY="-103.000000">
+        <group
+                android:name="Group-18"
+                android:translateX="10.000000"
+                android:translateY="32.000000">
+            <group
+                    android:name="ic_location_city_black_24px"
+                    android:translateX="18.000000"
+                    android:translateY="69.000000">
+                <path
+                    android:name="icon-city-06c"
+                    android:fillColor="#0066CC"
+                    android:fillType="evenOdd"
+                    android:strokeWidth="1"
+                    android:pathData="M15,11 L15,5 L12,2 L9,5 L9,7 L3,7 L3,21 L21,21 L21,11 L15,11 Z M7,19 L5,19 L5,17
+L7,17 L7,19 Z M7,15 L5,15 L5,13 L7,13 L7,15 Z M7,11 L5,11 L5,9 L7,9 L7,11 Z
+M13,19 L11,19 L11,17 L13,17 L13,19 Z M13,15 L11,15 L11,13 L13,13 L13,15 Z M13,11
+L11,11 L11,9 L13,9 L13,11 Z M13,7 L11,7 L11,5 L13,5 L13,7 Z M19,19 L17,19 L17,17
+L19,17 L19,19 Z M19,15 L17,15 L17,13 L19,13 L19,15 Z" />
+            </group>
+        </group>
+    </group>
+</vector>

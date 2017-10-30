@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="16dp"
+    android:height="20dp"
+    android:viewportWidth="16"
+    android:viewportHeight="20">
+
+    <group
+            android:name="user-menu"
+            android:translateX="-63.000000"
+            android:translateY="-193.000000">
+        <group
+                android:name="Group-17-Copy"
+                android:translateX="48.000000"
+                android:translateY="179.000000">
+            <path
+                android:name="Rectangle-5"
+                android:fillType="evenOdd"
+                android:strokeWidth="1"
+                android:pathData="M 0 0 H 48 V 48 H 0 V 0 Z" />
+            <path
+                android:name="Shape"
+                android:fillColor="#FFFFFF"
+                android:fillType="evenOdd"
+                android:strokeWidth="1"
+                android:pathData="M23,34 C24.65,34 26,32.65 26,31 L20,31 C20,32.65 21.335,34 23,34 Z M23,33
+C24.1,33 25,32.1 25,31 L21,31 C21,32.1 21.89,33 23,33 Z M18.001532,22 L18,22
+L18,29 L28,29 L28,22 L27.998468,22 C27.9321279,19.2270118 25.7196354,17 23,17
+C20.2803646,17 18.0678721,19.2270118 18.001532,22 Z M29,26.8461538
+L31,28.8974359 L31,29.9230769 L15,29.9230769 L15,28.8974359 L17,26.8461538
+L17,22.7179487 C17,19.5589744 18.63,16.9333333 21.5,16.2358974 L21.5,15.5384615
+C21.5,14.6871795 22.17,14 23,14 C23.83,14 24.5,14.6871795 24.5,15.5384615
+L24.5,16.2358974 C27.36,16.9333333 29,19.5692308 29,22.7179487 L29,26.8461538 Z
+M18,27 L16,29 L18,29 L18,27 Z M28,27 L28,29 L30,29 L28,27 Z" />
+        </group>
+    </group>
+</vector>

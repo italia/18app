@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+
+    <group
+            android:name="user-menu"
+            android:translateX="-60.000000"
+            android:translateY="-144.000000">
+        <group
+                android:name="Group-17"
+                android:translateX="48.000000"
+                android:translateY="132.000000">
+            <path
+                android:name="Rectangle-5"
+                android:fillType="evenOdd"
+                android:strokeWidth="1"
+                android:pathData="M 0 0 H 48 V 48 H 0 V 0 Z" />
+            <group
+                    android:name="spid-ico-circle-bb"
+                    android:translateX="12.000000"
+                    android:translateY="12.000000">
+                <path
+                    android:name="Oval-3"
+                    android:fillType="evenOdd"
+                    android:strokeColor="#FFFFFF"
+                    android:strokeWidth="1"
+                    android:pathData="M 12 0.5 C 18.3512746231 0.5 23.5 5.64872537695 23.5 12 C 23.5 18.3512746231 18.3512746231 23.5 12 23.5 C 5.64872537695 23.5 0.5 18.3512746231 0.5 12 C 0.5 5.64872537695 5.64872537695 0.5 12 0.5 Z" />
+                <path
+                    android:name="XMLID_2_"
+                    android:fillColor="#FFFFFF"
+                    android:fillType="evenOdd"
+                    android:strokeWidth="1"
+                    android:pathData="M9.13942308,11.8431487 C8.37980769,11.0734694 8,10.1172012 8,8.97900875
+C8,7.8361516 8.37980769,6.88921283 9.13461538,6.1335277 C9.88942308,5.37784257
+10.8509615,5 12.0288462,5 C13.2019231,5 14.1586538,5.38250729
+14.8942308,6.16151603 C15.6298077,6.93586006 16,7.88746356 16,9.0303207
+C16,10.1638484 15.6298077,11.1107872 14.8942308,11.8664723
+C14.1586538,12.6174927 13.2115385,13 12.0384615,13 C10.8653846,13
+9.89903846,12.6174927 9.13942308,11.8431487 Z" />
+                <path
+                    android:name="XMLID_1_"
+                    android:fillColor="#FFFFFF"
+                    android:fillType="evenOdd"
+                    android:strokeWidth="1"
+                    android:pathData="M8,17.9490741 C8,16.8148148 8.37980769,15.875 9.12980769,15.125
+C9.88461538,14.375 10.8461538,14 12.0336538,14 C13.2067308,14
+14.1634615,14.3796296 14.8942308,15.1527778 C15.6298077,15.9259259 16,16.8703704
+16,18" />
+            </group>
+        </group>
+    </group>
+</vector>

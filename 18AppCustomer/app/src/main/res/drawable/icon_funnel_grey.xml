@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="18dp"
+    android:height="20dp"
+    android:viewportWidth="18"
+    android:viewportHeight="20">
+
+    <group
+            android:name="negozi-fisici-filtered-by-category-grouped"
+            android:translateX="-31.000000"
+            android:translateY="-141.000000">
+        <group
+                android:name="Group-2"
+                android:translateX="20.000000"
+                android:translateY="131.000000">
+            <group
+                    android:name="icon-funnel-grey"
+                    android:translateX="8.000000"
+                    android:translateY="8.000000">
+                <path
+                    android:name="Rectangle-3"
+                    android:fillType="evenOdd"
+                    android:strokeWidth="1"
+                    android:pathData="M 0 0 H 24 V 24 H 0 V 0 Z" />
+                <path
+                    android:name="Shape"
+                    android:fillColor="#A9B1B8"
+                    android:fillType="evenOdd"
+                    android:strokeWidth="1"
+                    android:pathData="M3,2 L3,5 L9,12 L15,12 L21,5 L21,2 L3,2 Z M5,4 L19,4 L19,4.28125 L17.5,6 L6.5,6
+L5,4.28125 L5,4 Z M9,13 L9,18.5 L15,22 L15,13 L9,13 Z M11,15 L13,15 L13,19
+L11,17.6548673 L11,15 Z" />
+            </group>
+        </group>
+    </group>
+</vector>

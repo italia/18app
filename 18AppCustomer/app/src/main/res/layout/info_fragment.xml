@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:divider="@android:drawable/divider_horizontal_textfield"
+    android:orientation="vertical"
+    android:showDividers="beginning|end">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@android:drawable/divider_horizontal_textfield"
+        android:orientation="vertical"
+        android:showDividers="beginning|end">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:showDividers="beginning|end">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_weight="1"
+                android:animationCache="false"
+
+                android:divider="@color/colorBgToolbar"
+                android:dividerPadding="@dimen/activity_horizontal_margin"
+                android:orientation="vertical"
+                android:showDividers="beginning|end">
+
+
+                <TextView
+                    android:id="@+id/subtitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="17dp"
+                    android:layout_weight="0"
+                    android:text="Contatti e Assistenza"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="15sp"
+
+                    />
+            </LinearLayout>
+
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:rotation="180"
+                android:src="@drawable/back_button"
+                android:tint="@color/colorPrimary" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@android:drawable/divider_horizontal_textfield"
+        android:orientation="vertical"
+        android:showDividers="beginning|end">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:showDividers="beginning|end">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_weight="1"
+                android:animationCache="false"
+
+                android:divider="@color/colorBgToolbar"
+                android:dividerPadding="@dimen/activity_horizontal_margin"
+                android:orientation="vertical"
+                android:showDividers="beginning|end">
+
+
+                <TextView
+                    android:id="@+id/subtitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="17dp"
+                    android:layout_weight="0"
+                    android:text="Cos'è 18App?"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="15sp"
+
+                    />
+            </LinearLayout>
+
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:rotation="180"
+                android:src="@drawable/back_button"
+                android:tint="@color/colorPrimary" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@android:drawable/divider_horizontal_textfield"
+        android:orientation="vertical"
+        android:showDividers="beginning|end">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:showDividers="beginning|end">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_weight="1"
+                android:animationCache="false"
+
+                android:divider="@color/colorBgToolbar"
+                android:dividerPadding="@dimen/activity_horizontal_margin"
+                android:orientation="vertical"
+                android:showDividers="beginning|end">
+
+
+                <TextView
+                    android:id="@+id/subtitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="17dp"
+                    android:layout_weight="0"
+                    android:text="Cos'è il bonus cultura?"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="15sp"
+
+                    />
+            </LinearLayout>
+
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:rotation="180"
+                android:src="@drawable/back_button"
+                android:tint="@color/colorPrimary" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@android:drawable/divider_horizontal_textfield"
+        android:orientation="vertical"
+        android:showDividers="beginning|end">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:showDividers="beginning|end">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_weight="1"
+                android:animationCache="false"
+
+                android:divider="@color/colorBgToolbar"
+                android:dividerPadding="@dimen/activity_horizontal_margin"
+                android:orientation="vertical"
+                android:showDividers="beginning|end">
+
+
+                <TextView
+                    android:id="@+id/subtitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="17dp"
+                    android:layout_weight="0"
+                    android:text="Chi può beneficiare del bonus cultura di 500€?"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="15sp"
+
+                    />
+            </LinearLayout>
+
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:rotation="180"
+                android:src="@drawable/back_button"
+                android:tint="@color/colorPrimary" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:showDividers="beginning|end">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_weight="1"
+            android:animationCache="false"
+
+            android:divider="@color/colorBgToolbar"
+            android:dividerPadding="@dimen/activity_horizontal_margin"
+            android:orientation="vertical"
+            android:showDividers="beginning|end">
+
+
+            <TextView
+                android:id="@+id/subtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="17dp"
+                android:layout_weight="0"
+                android:text="Come spendo il bonus cultura?"
+                android:textColor="@color/colorPrimary"
+                android:textSize="15sp"
+
+                />
+        </LinearLayout>
+
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:rotation="180"
+            android:src="@drawable/back_button"
+            android:tint="@color/colorPrimary" />
+
+    </LinearLayout>
+
+
+</LinearLayout>
