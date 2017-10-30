@@ -1,16 +1,19 @@
 import React, {PureComponent} from 'react';
 import {View, Text, Image, TouchableOpacity, StyleSheet} from 'react-native';
 import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
 import * as Constants from '../common/constants';
 
-export default class HeaderProfileButton extends PureComponent {
+class HeaderProfileButton extends PureComponent {
     render() {
         return (
             <TouchableOpacity onPress={this.props.onPress}>
                 <View style={styles.container}>
                     <View style={styles.textContainer}>
                         <Text style={styles.credit}>Credito</Text>
-                        <Text style={styles.creditAmount}>174,00€</Text>
+                        <Text style={styles.creditAmount}>
+                            {this.props.credit.toFixed(2)}€
+                        </Text>
                     </View>
 
                     <View style={styles.notificationContainer}>
@@ -29,6 +32,12 @@ export default class HeaderProfileButton extends PureComponent {
         );
     }
 }
+
+const mapStateToProps = state => ({
+    credit: state.user.credit,
+});
+
+export default connect(mapStateToProps)(HeaderProfileButton);
 
 const styles = StyleSheet.create({
     container: {
