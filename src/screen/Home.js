@@ -12,7 +12,7 @@ class Home extends Component {
     };
     render() {
         return (
-            <View style={styles.container}>
+            <View style={styles.container} testID="home-screen">
                 <View style={{alignItems: 'center'}}>
                     <Text style={styles.welcomeText}>
                         Benvenuto {this.props.user.name}, ti restano

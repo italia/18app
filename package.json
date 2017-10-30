@@ -6,6 +6,8 @@
     "@improntaadvance/eslint-config": "^0.8.2",
     "babel-eslint": "^7.2.3",
     "babel-preset-expo": "^4.0.0",
+    "detox": "^5.9.2",
+    "detox-expo-helpers": "^0.2.0",
     "eslint": ">=4.3.0",
     "eslint-config-prettier": "^2.3.0",
     "eslint-plugin-flowtype": "^2.35.0",
@@ -14,6 +16,7 @@
     "eslint-plugin-prettier": "^2.2.0",
     "eslint-plugin-react": "^7.1.0",
     "jest-expo": "^21.0.2",
+    "mocha": "^4.0.1",
     "prettier": "^1.5.3",
     "react-native-scripts": "1.5.0",
     "react-test-renderer": "16.0.0-alpha.12"
@@ -24,7 +27,9 @@
     "eject": "react-native-scripts eject",
     "android": "react-native-scripts android",
     "ios": "react-native-scripts ios",
-    "test": "node node_modules/jest/bin/jest.js --watch"
+    "test": "node node_modules/jest/bin/jest.js --watch",
+    "e2e": "detox test --configuration ios.sim -d",
+    "postinstall": "mkdir -p bin/expo.app && curl https://dpq5q02fu5f55.cloudfront.net/Exponent-2.0.1.tar.gz | tar -C bin/expo.app/ -xz"
   },
   "jest": {
     "preset": "jest-expo"
@@ -42,5 +47,14 @@
     "redux-define": "^1.1.1",
     "redux-promise-middleware": "^4.4.1",
     "redux-thunk": "^2.2.0"
+  },
+  "detox": {
+    "configurations": {
+      "ios.sim": {
+        "binaryPath": "bin/expo.app",
+        "type": "ios.simulator",
+        "name": "iPhone 5s"
+      }
+    }
   }
 }
