@@ -1,7 +1,7 @@
-function ItemList(id,name, pathIcon,type) {
+function ItemList(id,name, icon,type) {
 	this.id = id;
 	this.name = name;
-	this.pathIcon = pathIcon;
+	this.icon = icon;
 	this.type=type;
 }
 
