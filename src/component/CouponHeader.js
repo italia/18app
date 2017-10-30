@@ -38,12 +38,12 @@ const styles = StyleSheet.create({
     },
     text: {
         fontFamily: Constants.TITILLIUM_REGULAR,
-        color: Constants.LIGHT_GREY,
+        color: Constants.SECONDARY_GREY,
         fontSize: 14,
     },
     textBold: {
         fontFamily: Constants.TITILLIUM_BOLD,
-        color: Constants.LIGHT_GREY,
+        color: Constants.SECONDARY_GREY,
         fontSize: 14,
     },
 });

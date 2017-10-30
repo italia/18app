@@ -54,7 +54,7 @@ class Coupon extends Component {
     _renderBottom() {
         if (this.props.coupon.used) {
             return (
-                <View style={styles.buttonContainer}>
+                <View style={styles.buttonContainerWithLine}>
                     <Button
                         icon={require('../res/icon-marker-white.png')}
                         text="DETTAGLI DEL NEGOZIO"
@@ -66,10 +66,10 @@ class Coupon extends Component {
         return (
             //View per qrcode e barcode
             <View>
-                <View>
+                <View style={styles.qrcode}>
                     <Text>Qui il QRcode</Text>
                 </View>
-                <View style={styles.buttonContainer}>
+                <View style={styles.buttonContainerWithLine}>
                     <Button
                         icon={require('../res/icon-marker-white.png')}
                         text="TROVA UN NEGOZIO"
@@ -78,11 +78,11 @@ class Coupon extends Component {
                 <Text style={styles.disclaimer}>
                     Questo buono non &egrave; cedibile e appartiene a te.
                 </Text>
-                <View style={styles.rowContainer}>
+                <View style={styles.rowContainerWithLine}>
                     <View style={styles.iconContainer}>
                         <Image
                             style={styles.icon}
-                            source={Categories[this.props.coupon.category].icon}
+                            source={require('../res/profile.png')}
                         />
                     </View>
                     <Text style={styles.disclaimerIdentity}>Mario Rossi</Text>
@@ -90,15 +90,13 @@ class Coupon extends Component {
                 </View>
                 <Text style={styles.disclaimer}>
                     Puoi annullare in ogni momento questo buono e riversare
-                    l'intero suo valore nel tuo credito
+                    l&rsquo;intero suo valore nel tuo credito
                 </Text>
                 <View style={styles.buttonContainer}>
                     <Button
-                        onPress={() =>
-                            this.props.deleteCoupon(this.props.coupon)}
-                        icon={require('../res/icon-marker-white.png')}
+                        icon={require('../res/icon-trash.png')}
                         text="ANNULLA QUESTO BUONO"
-                        style={styles.buttonDeleteContainer}
+                        style={styles.buttonDelete}
                     />
                 </View>
             </View>
@@ -231,6 +229,19 @@ const styles = StyleSheet.create({
         paddingBottom: 10,
         paddingTop: 10,
     },
+    rowContainerWithLine: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        paddingBottom: 10,
+        paddingTop: 10,
+        borderBottomWidth: 1,
+        borderBottomColor: Constants.LINE_GREY,
+    },
+    qrcode: {
+        paddingBottom: 10,
+        borderBottomWidth: 1,
+        borderBottomColor: Constants.LINE_GREY,
+    },
     iconContainer: {
         alignItems: 'center',
         paddingLeft: 24,
@@ -278,7 +289,13 @@ const styles = StyleSheet.create({
         paddingHorizontal: 20,
         paddingVertical: 17,
     },
-    buttonDeleteContainer: {
+    buttonContainerWithLine: {
+        paddingHorizontal: 20,
+        paddingVertical: 17,
+        borderBottomWidth: 1,
+        borderBottomColor: Constants.LINE_GREY,
+    },
+    buttonDelete: {
         backgroundColor: Constants.RED,
     },
     disclaimer: {
@@ -287,6 +304,7 @@ const styles = StyleSheet.create({
         color: Constants.LIGHT_GREY,
         paddingLeft: 24,
         paddingRight: 21,
+        paddingTop: 10,
     },
     disclaimerIdentity: {
         color: Constants.ICON_GREY,
@@ -294,9 +312,4 @@ const styles = StyleSheet.create({
         fontSize: 16,
         flex: 1,
     },
-    // disclaimerMinor: {
-    //     fontFamily: Constants.TITILLIUM_REGULAR,
-    //     fontSize: 12,
-    //     color: Constants.LIGHT_GREY,
-    // },
 });
