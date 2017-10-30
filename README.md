@@ -1,23 +1,46 @@
 # 18 App
-## Multi-platform mobile application for 18app service
+## Android and iOS mobile application for 18app service
 
-This application in built in React Native and bootstrapped with [Create React Native App](https://github.com/react-community/create-react-native-app).
+![iPhone home](./docs/iphone-home.png)
 
-[...]
+This application in built in [React Native](https://github.com/facebook/react-native) and bootstrapped with [Create React Native App](https://github.com/react-community/create-react-native-app).
+
+It's based on Expo app. It means that until the publish, you can develop it without any native requirement. You just need [Expo app](https://expo.io) and Node.js running on your machine.
+
+At the end of development, it will compiled into a native package (.ipa and .apk) ready to be uploaded to Apple Store and Google Play.
+
+* [Why React Native](#why-react-native)
+* [Getting Started](#getting-started)
+  * [Requirements](#requirements)
+  * [First run](#first-run)
+  * [Available scripts](#available-scripts)
+* [Contributing](#contributing)
+  * [Folder Structure](#folder-structure)
+  * [Handle actions in Redux](#handle-actions-in-redux)
+  * [Writing and Running Tests](#writing-and-running-tests)
+* [Troubleshooting](#troubleshooting)
+
+## Why React Native
+
+Since its 2013 release, React has brought a new way to design UI components in the world wide web. The same fundamentals have been taken to another important environment in our contemporary world: the mobile applications. In the last two years React Native has become one of the most powerful multi-platform framework to develop mobile application. According to [Google Trend](https://trends.google.it/trends/explore?date=2015-01-01%202017-10-29&q=react%20native,iOS%20Development,Android%20Development), it seems to be the victorious horse.
+
+We decided to use React Native due its popularity and its huge community around the world.<br />
+And because [JavaScript is the most popular language](https://insights.stackoverflow.com/survey/2017#technology-programming-languages) and React.js one of [the most used framework](https://insights.stackoverflow.com/survey/2017#technology-frameworks-libraries-and-other-technologies).
 
 
+## Getting Started
 ### Requirements
-* Nodejs
+* Node.js
 * XCode and/or iOS Simulator (optional)
 * Android Studio and/or AVD (optional)
 
-## Getting started
+### First run
 1. Clone the repo
-1. `yarn install` or `npm instal`
+1. `yarn install` or `npm install`
 1. `npm run ios` or `npm run android` or `npm start`. See [available scripts](#available-scripts) below.
 
-## Available Scripts
-### `npm start`
+### Available Scripts
+#### `npm start`
 
 Runs your app in development mode.
 
@@ -54,34 +77,114 @@ Like `npm start`, but also attempts to open your app on a connected Android devi
 2. Add the Genymotion tools directory to your path (instructions for [Mac](http://osxdaily.com/2014/08/14/add-new-path-to-path-command-line/), [Linux](http://www.computerhope.com/issues/ch001647.htm), and [Windows](https://www.howtogeek.com/118594/how-to-edit-your-system-path-for-easy-command-line-access/)).
 3. Make sure that you can run adb from your terminal.
 
-## Writing and Running Tests
+
+## Contributing
+### Folder structure
+
+```
+18app/
+  App.js
+  app.json
+  src/
+    component/
+    container/
+    screen/
+    res/
+    stores/
+    utils/
+    Main.js
+    MainNavigation.js
+```
+
+#### Screen
+
+This directory contains the most external component of your single page. _E.g. Home, Coupons, Profile._
+
+That component should structure your page, using [containers](#containers) components.
+
+#### Container
+
+This directory contains components which uses other [components](#components). It can be connected to Redux and keep inside business logic.
+
+#### Component
+
+This directory contains components _dummy_, with the minimal state needed and based on props. The most of them are not connected to Redux.
+
+#### Utils
+
+This directory contains utilities such as API, [reselect](https://github.com/reactjs/reselect) functions, and so on.
+
+#### Stores
+
+This directory contains the reducers of [Redux](https://github.com/reactjs/redux/).
+
+We are using [Ducks approach](https://github.com/erikras/ducks-modular-redux), with reducers and action creators in same file.
+
+### Handle actions in Redux
+
+We uses [redux-promise-middleware](https://github.com/pburtchaell/redux-promise-middleware) and [redux-thunk](https://github.com/gaearon/redux-thunk) as handlers for async actions in Redux. Actions call the right middleware based on their payload.
+
+If action dispatched is a function, `redux-thunk` will handle the action.
+
+```js
+// Action creator
+export function thunkAction () {
+  return dispatch => {
+    myAsyncOperation(function callback() {
+      dispatch({
+        type: 'action',
+        items: []
+      })
+    });
+  }
+}
+```
+
+If action returns an object with a promise in `payload` property, `redux-promise-middleware` will handle it.
+
+```js
+// Action creator
+export function promiseAction () {
+  return {
+    type: 'action',
+    payload: api('[...]/my-coupons')
+      .then(({coupons}) => coupons)
+  }
+}
+```
+
+**CAUTION**: api endpoints should not be hardcoded inside action creators. They should be defined in `utils/api` and invoked by action creators.<br />
+The example above is only to show how `redux-promise-middleware` works.
+
+It will dispatch 3 events:
+1. `action_PENDING` when the promise is run
+1. `action_FULFILLED` when the promise is resolved
+1. `action_REJECTED` when the promise is rejected
+
+To create the actions for your reducer, there is `defineAsyncAction` utility function:
+
+```js
+// Actions
+const LOAD = defineAsyncActions('LOAD')
+
+LOAD // LOAD
+LOAD.PENDING // LOAD_PENDING
+LOAD.FULFILLED // LOAD_FULFILLED
+LOAD.REJECTED // LOAD_REJECTED
+```
+
+
+
+### Writing and Running Tests
 
 This project is set up to use [jest](https://facebook.github.io/jest/) for tests. You can configure whatever testing strategy you like, but jest works out of the box. Create test files in directories called `__tests__` or with the `.test` extension to have the files loaded by jest. See the [the template project](https://github.com/react-community/create-react-native-app/blob/master/react-native-scripts/template/App.test.js) for an example test. The [jest documentation](https://facebook.github.io/jest/docs/getting-started.html) is also a wonderful resource, as is the [React Native testing tutorial](https://facebook.github.io/jest/docs/tutorial-react-native.html).
 
-* [Available Scripts](#available-scripts)
-  * [npm start](#npm-start)
-  * [npm test](#npm-test)
-  * [npm run ios](#npm-run-ios)
-  * [npm run android](#npm-run-android)
-  * [npm run eject](#npm-run-eject)
-* [Writing and Running Tests](#writing-and-running-tests)
-* [Environment Variables](#environment-variables)
-  * [Configuring Packager IP Address](#configuring-packager-ip-address)
-* [Adding Flow](#adding-flow)
-* [Customizing App Display Name and Icon](#customizing-app-display-name-and-icon)
-* [Sharing and Deployment](#sharing-and-deployment)
-  * [Publishing to Expo's React Native Community](#publishing-to-expos-react-native-community)
-  * [Building an Expo "standalone" app](#building-an-expo-standalone-app)
-  * [Ejecting from Create React Native App](#ejecting-from-create-react-native-app)
-    * [Build Dependencies (Xcode & Android Studio)](#build-dependencies-xcode-android-studio)
-    * [Should I Use ExpoKit?](#should-i-use-expokit)
-* [Troubleshooting](#troubleshooting)
-  * [Networking](#networking)
-  * [iOS Simulator won't open](#ios-simulator-wont-open)
-  * [QR Code does not scan](#qr-code-does-not-scan)
+#### e2e tests
 
+This project uses [detox](https://github.com/wix/detox) as e2e test runner. You can write your spec inside the `e2e` directory and run them with `npm run e2e`.
 
-
+E.g.:
+![Detox demo](./docs/detox.gif)
 
 ## Troubleshooting
 
