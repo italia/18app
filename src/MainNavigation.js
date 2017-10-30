@@ -5,6 +5,7 @@ import {Platform, StyleSheet} from 'react-native';
 import * as Constants from './common/constants';
 import Home from './screen/Home';
 import Coupons from './screen/Coupons';
+import Coupon from './screen/Coupon';
 import HeaderProfileButton from './component/HeaderProfileButton';
 import Shops from './screen/Shops';
 
@@ -18,6 +19,9 @@ export default StackNavigator(
         },
         shops: {
             screen: Shops,
+        },
+        'coupons/details': {
+            screen: Coupon,
         },
     },
     {
