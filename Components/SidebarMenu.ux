@@ -6,7 +6,7 @@
 	</ActivatingAnimation>
 	<!-- parte bianca -->
 	<Panel Dock="Top"  Background="#FFF">
-		<StackPanel Padding="20,20">
+		<StackPanel Padding="20,20" Margin="0,40,0,0">
 			<Grid Columns="1*, 15">
 				<Text Color="color.Black" Value="Mario Rossi" FontSize="size.XL"/>
 				<CloseIcon Alignment="Center">
@@ -15,7 +15,7 @@
 					</Clicked>
 				</CloseIcon>
 			</Grid>
-			<Text Color="color.GrayDark" Value="Credito" FontSize="size.S" Margin="0,20,0,0"/>
+			<Text Color="color.GrayDark" Value="Credito" FontSize="size.S" Margin="0,40,0,0"/>
 			<Text Color="color.GrayDark" Value="174,00 €" FontSize="size.XL" Font="BaseFont"/>
 		</StackPanel>
 	</Panel>
