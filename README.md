@@ -27,12 +27,19 @@ preview su Android collegato al sistema di sviluppo:
 
 $> fuse preview -tandroid
 
-## Compliazione iOS / Android
+## Compliazione iOS / Android e preview sul dispositivo
 
-$> fuse build --target=ios
+$> fuse build --target=ios --run
 
-$> fuse build --target=android
+$> fuse build --target=android --run
 
+## Compliazione iOS / Android per deploy
+
+documentazione [qui](https://www.fusetools.com/docs/basics/preview-and-export#android)
+
+$> fuse build --target=Android --configuration=Release
+
+$> fuse build --target=iOS --configuration=Release
 
 ## Modificabilita' del codice
 
