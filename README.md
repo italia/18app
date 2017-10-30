@@ -6,7 +6,7 @@
 
 [video 01 - Introduzione - perche' fuse](https://youtu.be/wQCZudhLNZM)
 
-[video 02 - preview app e architettura del codice]()
+[video 02 - preview app e architettura del codice](https://youtu.be/HuwkO5OEEX8)
 
 
 ## Tecnologia
