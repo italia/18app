@@ -7,11 +7,12 @@
 
 	<EdgeNavigator>
 
+		
 		<ux:Include File="Components/SidebarMenu.ux"/>
-
 		<DockPanel Background="#0066CC">
 			<StatusBarBackground Dock="Top" />
 			<DockPanel>
+				
 				<NavBar ux:Name="navBar" Dock="Top" router="router">
 					<OnUserEvent EventName="openSideBar">
 						<NavigateToggle Target="sidebar" />
@@ -27,7 +28,7 @@
 					<NewCouponStep3Page ux:Name="newCouponStep3" router="router" navBar="navBar" Background="#fff" />
 					<NewCouponStep4Page ux:Name="newCouponStep4" router="router" navBar="navBar" Background="#fff" />
 					<MyCouponPage ux:Name="myCoupon" router="router" navBar="navBar"  Background="#fff"/>
-					
+
 					<MerchantsListPage ux:Name="merchants" router="router" navBar="navBar"  Background="#fff"/>
 					<MerchantProfilePage ux:Name="merchantProfile" router="router" navBar="navBar"  Background="#fff"/>
 
@@ -42,7 +43,10 @@
 					<NotificationsPage ux:Name="notifications" router="router" navBar="navBar"  Background="#fff"/>
 				</Navigator>
 
-				<BottomBar Dock="Bottom"/>
+				<BottomBar Dock="Bottom" ux:Name="bottomBar"/>
+				<WhileKeyboardVisible>
+					<Change bottomBar.Visibility="Collapsed"/>
+				</WhileKeyboardVisible>
 			</DockPanel>
 			<BottomBarBackground Dock="Bottom" />
 		</DockPanel>
