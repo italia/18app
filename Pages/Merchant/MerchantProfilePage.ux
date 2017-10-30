@@ -5,39 +5,37 @@
 
 	<NavBarTitle navBar="navBar"  Text="{titlePage}" />
 
-	<cover File="{cover}"/>
+	<cover Image="{merchant.cover}"/>
 	<DockPanel>
 		<StatusBarBackground Dock="Top" />
 		<BottomBarBackground Dock="Bottom" />
-		<Grid Rows="3*,1*">
-			<DockPanel Padding="24">
-				<B Dock="Top" Alignment="Left" Color="color.White" TextWrapping="Wrap">{tag}</B>
+		<DockPanel Padding="24">
+				<B Dock="Top" Alignment="Left" Color="color.White" TextWrapping="Wrap">{merchant.tag}</B>
 				<StackPanel Dock="Bottom">
-					<H2 Color="color.White"  Alignment="Left" >{name}</H2>
+					<H2 Color="color.White"  Alignment="Left" >{merchant.name}</H2>
 					<!-- TEMPLATE LOCAL STORE-->
-					<WhileString Value="{type}" Equals="local_store">
+					<WhileString Value="{merchant.type}" Equals="local_store">
 						<StackPanel Orientation="Horizontal" ItemSpacing="8">
 							<icon.MapMarker FontSize="20" Alignment="VerticalCenter"/>
 							<StackPanel ItemSpacing="-6">
-								<P FontSize="size.S" Color="color.White" Alignment="Left">{street} {postalCode}</P>
-								<P FontSize="size.S" Color="color.White" Alignment="Left">{city} ({state})</P>
+								<P FontSize="size.S" Color="color.White" Alignment="Left">{merchant.address.street} {merchant.address.postalCode}</P>
+								<P FontSize="size.S" Color="color.White" Alignment="Left">{merchant.address.city} ({merchant.address.state})</P>
 							</StackPanel>
 						</StackPanel>
 					</WhileString>
 					<!-- TEMPLATE INTERNET STORE-->
-					<WhileString Value="{type}" Equals="internet_store">
+					<WhileString Value="{merchant.type}" Equals="internet_store">
 						<StackPanel Orientation="Horizontal" ItemSpacing="8">
 							<icon.Link FontSize="20" Alignment="VerticalCenter"/>
-							<P FontSize="size.S" Color="color.White" Alignment="Left">{site}</P>
+							<P FontSize="size.S" Color="color.White" Alignment="Left">{merchant.site}</P>
 						</StackPanel>
 					</WhileString>
 				</StackPanel>
 			</DockPanel>
-
-			<StackPanel Color="color.White" Padding="24" ItemSpacing="5">
-				<app18.Button Value="NUOVO BUONO" />
+			<StackPanel Dock="Bottom" Color="color.White" Padding="24,24,24,0" ItemSpacing="5">
+				<app18.Button Value="NUOVO BUONO" Clicked="{CreateCoupon}" />
 				<!-- TEMPLATE LOCAL STORE-->
-				<WhileString Value="{type}" Equals="local_store">
+				<WhileString Value="{merchant.type}" Equals="local_store">
 					<Grid Columns="1*,1*" CellSpacing="10">
 						<ButtonIcon Value="MAPPA" Alignment="Center" Clicked="{OpenMap}" HitTestMode="LocalBoundsAndChildren">
 							<icon.Map ux:Template="Icon"/>
@@ -48,12 +46,11 @@
 					</Grid>
 				</WhileString>
 				<!-- TEMPLATE INTERNET STORE-->
-				<WhileString Value="{type}" Equals="internet_store">
+				<WhileString Value="{merchant.type}" Equals="internet_store">
 					<ButtonIcon Value="VAI AL SITO DEL NEGOZIO" Alignment="Center" HitTestMode="LocalBoundsAndChildren" Clicked="{OpenSite}">
 						<icon.Map ux:Template="Icon"/>
 					</ButtonIcon>
 				</WhileString>
 			</StackPanel>
-		</Grid>
 	</DockPanel>
 </BasePage>

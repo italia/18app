@@ -1,0 +1,10 @@
+<BasePage ux:Class="NewCouponMerchantStep1Page">
+	<Router ux:Dependency="router" />
+	<JavaScript File="js/NewCouponMerchantStep1Page.js" />
+	<Visual ux:Dependency="navBar" />
+	<NavBarTitle navBar="navBar"  Text="Nuovo buono: categoria" />
+	<DockPanel>
+		<BannerMerchant/>
+		<List Items="{macroCategories}" Title="Scegli la categoria"/>
+	</DockPanel>
+</BasePage>

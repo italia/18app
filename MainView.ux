@@ -86,8 +86,15 @@
 				<NewCouponStep3Page ux:Name="newCouponStep3" router="router" navBar="navBar" Background="#fff" />
 				<NewCouponStep4Page ux:Name="newCouponStep4" router="router" navBar="navBar" Background="#fff" />
 				<MyCouponPage ux:Name="myCoupon" router="router" navBar="navBar"  Background="#fff"/>
+				
 				<MerchantsListPage ux:Name="merchants" router="router" navBar="navBar"  Background="#fff"/>
 				<MerchantProfilePage ux:Name="merchantProfile" router="router" navBar="navBar"  Background="#fff"/>
+
+				<NewCouponMerchantStep1Page ux:Name="newCouponMerchantStep1" router="router" navBar="navBar" Background="#fff" />
+				<NewCouponMerchantStep2Page ux:Name="newCouponMerchantStep2" router="router" navBar="navBar" Background="#fff" />
+				<NewCouponMerchantStep3Page ux:Name="newCouponMerchantStep3" router="router" navBar="navBar" Background="#fff" />
+				<NewCouponMerchantStep4Page ux:Name="newCouponMerchantStep4" router="router" navBar="navBar" Background="#fff" />
+
 				<InfoPage ux:Name="info" router="router" navBar="navBar"  Background="#fff"/>
 
 				<ProfilePage ux:Name="profile" router="router" navBar="navBar"  Background="#fff"/>

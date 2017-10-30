@@ -8,7 +8,7 @@ var internetMerchants = Observable();
 var nearByMerchants = Observable();
 
 
-var coordinateGps= Gps.getCoordinate();
+var coordinateGps = Gps.getCoordinate();
 
 Context.getInternetMerchants().then(function(merchants) {
 	internetMerchants.replaceAll(merchants);
@@ -16,7 +16,7 @@ Context.getInternetMerchants().then(function(merchants) {
 	console.log(e);
 });
 
-Context.getNearByMerchants(coordinateGps.lat,coordinateGps.lng).then(function(merchants) {
+Context.getNearByMerchants(coordinateGps.lat, coordinateGps.lng).then(function(merchants) {
 	nearByMerchants.replaceAll(merchants);
 }).catch(function(e) {
 	console.log(e);
@@ -29,6 +29,6 @@ var onTapItemList = function(args) {
 };
 module.exports = {
 	internetMerchants: internetMerchants,
-	nearByMerchants:nearByMerchants,
+	nearByMerchants: nearByMerchants,
 	onTapItemList: onTapItemList
 };

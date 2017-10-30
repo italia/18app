@@ -14,6 +14,10 @@ var HelpInformation = require("Entities/HelpInformation");
 var createCoupon = function(price, macroCategory, microCategory) {
 	return Backend.createCoupon(price, macroCategory, microCategory);
 };
+
+var createCouponMerchant = function(price, macroCategory,microCategory,id_merchant) {
+	return Backend.createCouponMerchant(price, macroCategory, microCategory,id_merchant);
+};
 var deleteCoupon = function(code) {
 	return Backend.deleteCoupon(code);
 };
@@ -110,6 +114,7 @@ var getNearByMerchants = function(lat,lng) {
 
 module.exports = {
 	createCoupon: createCoupon,
+	createCouponMerchant:createCouponMerchant,
 	deleteCoupon: deleteCoupon,
 	getMicroCategories: getMicroCategories,
 	getMacrocategories: getMacrocategories,

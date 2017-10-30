@@ -1,103 +1,103 @@
 var FuzzySearch = require('Libraries/fuse.min.js');
 
 var macroCategories =
-[{
-	id: "cinema",
-	name: "Cinema",
-	icon: "Assets/images/icon-cinema-06c.png",
-	type: "Categoria",
-	microCategories: [{
-		id: "abbonamento_card",
-		name: "Abbonamento/Card",
+	[{
+		id: "cinema",
+		name: "Cinema",
 		icon: "Assets/images/icon-cinema-06c.png",
-		type: "prodotto"
+		type: "Categoria",
+		microCategories: [{
+			id: "abbonamento_card",
+			name: "Abbonamento/Card",
+			icon: "Assets/images/icon-cinema-06c.png",
+			type: "prodotto"
+		}, {
+			id: "biglietto",
+			name: "Biglietto d'ingresso",
+			icon: "Assets/images/icon-concerti-06c.png",
+			type: "prodotto"
+		}]
 	}, {
-		id: "biglietto",
-		name: "Biglietto d'ingresso",
+		id: "concerti",
+		name: "Concerti",
 		icon: "Assets/images/icon-concerti-06c.png",
-		type: "prodotto"
-	}]
-}, {
-	id: "concerti",
-	name: "Concerti",
-	icon: "Assets/images/icon-concerti-06c.png",
-	type: "Categoria",
-	microCategories: [{
-		id: "abbonamento_card",
-		name: "Abbonamento/Card",
-		icon: "Assets/images/icon-cinema-06c.png",
-		type: "prodotto"
+		type: "Categoria",
+		microCategories: [{
+			id: "abbonamento_card",
+			name: "Abbonamento/Card",
+			icon: "Assets/images/icon-cinema-06c.png",
+			type: "prodotto"
+		}, {
+			id: "biglietto",
+			name: "Biglietto d'ingresso",
+			icon: "Assets/images/icon-concerti-06c.png",
+			type: "prodotto"
+		}]
 	}, {
-		id: "biglietto",
-		name: "Biglietto d'ingresso",
-		icon: "Assets/images/icon-concerti-06c.png",
-		type: "prodotto"
-	}]
-}, {
-	id: "eventi",
-	name: "Eventi culturali",
-	icon: "Assets/images/icon-eventi-06c.png",
-	type: "Categoria",
-	microCategories: [{
-		id: "abbonamento_card",
-		name: "Abbonamento/Card",
-		icon: "Assets/images/icon-cinema-06c.png",
-		type: "prodotto"
+		id: "eventi",
+		name: "Eventi culturali",
+		icon: "Assets/images/icon-eventi-06c.png",
+		type: "Categoria",
+		microCategories: [{
+			id: "abbonamento_card",
+			name: "Abbonamento/Card",
+			icon: "Assets/images/icon-cinema-06c.png",
+			type: "prodotto"
+		}, {
+			id: "biglietto",
+			name: "Biglietto d'ingresso",
+			icon: "Assets/images/icon-concerti-06c.png",
+			type: "prodotto"
+		}]
 	}, {
-		id: "biglietto",
-		name: "Biglietto d'ingresso",
-		icon: "Assets/images/icon-concerti-06c.png",
-		type: "prodotto"
-	}]
-}, {
-	id: "libri",
-	name: "Libri",
-	icon: "Assets/images/icon-libri-06c.png",
-	type: "Categoria",
-	microCategories: [{
-		id: "abbonamento_card",
-		name: "Abbonamento/Card",
-		icon: "Assets/images/icon-cinema-06c.png",
-		type: "prodotto"
+		id: "libri",
+		name: "Libri",
+		icon: "Assets/images/icon-libri-06c.png",
+		type: "Categoria",
+		microCategories: [{
+			id: "abbonamento_card",
+			name: "Abbonamento/Card",
+			icon: "Assets/images/icon-cinema-06c.png",
+			type: "prodotto"
+		}, {
+			id: "biglietto",
+			name: "Biglietto d'ingresso",
+			icon: "Assets/images/icon-concerti-06c.png",
+			type: "prodotto"
+		}]
 	}, {
-		id: "biglietto",
-		name: "Biglietto d'ingresso",
-		icon: "Assets/images/icon-concerti-06c.png",
-		type: "prodotto"
-	}]
-}, {
-	id: "musei",
-	name: "Musei",
-	icon: "Assets/images/icon-musei-06c.png",
-	type: "Categoria",
-	microCategories: [{
-		id: "abbonamento_card",
-		name: "Abbonamento/Card",
-		icon: "Assets/images/icon-cinema-06c.png",
-		type: "prodotto"
+		id: "musei",
+		name: "Musei",
+		icon: "Assets/images/icon-musei-06c.png",
+		type: "Categoria",
+		microCategories: [{
+			id: "abbonamento_card",
+			name: "Abbonamento/Card",
+			icon: "Assets/images/icon-cinema-06c.png",
+			type: "prodotto"
+		}, {
+			id: "biglietto",
+			name: "Biglietto d'ingresso",
+			icon: "Assets/images/icon-concerti-06c.png",
+			type: "prodotto"
+		}]
 	}, {
-		id: "biglietto",
-		name: "Biglietto d'ingresso",
-		icon: "Assets/images/icon-concerti-06c.png",
-		type: "prodotto"
-	}]
-}, {
-	id: "teatro_danza",
-	name: "Teatro e Danza",
-	icon: "Assets/images/icon-teatro-06c.png",
-	type: "Categoria",
-	microCategories: [{
-		id: "abbonamento_card",
-		name: "Abbonamento/Card",
-		icon: "Assets/images/icon-cinema-06c.png",
-		type: "prodotto"
-	}, {
-		id: "biglietto",
-		name: "Biglietto d'ingresso",
-		icon: "Assets/images/icon-concerti-06c.png",
-		type: "prodotto"
-	}]
-}];
+		id: "teatro_danza",
+		name: "Teatro e Danza",
+		icon: "Assets/images/icon-teatro-06c.png",
+		type: "Categoria",
+		microCategories: [{
+			id: "abbonamento_card",
+			name: "Abbonamento/Card",
+			icon: "Assets/images/icon-cinema-06c.png",
+			type: "prodotto"
+		}, {
+			id: "biglietto",
+			name: "Biglietto d'ingresso",
+			icon: "Assets/images/icon-concerti-06c.png",
+			type: "prodotto"
+		}]
+	}];
 
 var helpInformations = [{
 	group: '',
@@ -147,137 +147,137 @@ var helpInformations = [{
 }, ];
 
 var coupons =
-[{
-	code: "45DH6790",
-	price: "8.00",
-	currency: "€",
-	typeCoupon: "Biglietto d’ingresso",
-	state: 'Valido',
-	shopPlace: "",
-	user: {
-		id: "1001010",
-		"name": "Mario",
-		"surname": "Rossi"
-	},
-	macroCategory: {
-		id: "cinema",
-		name: "Cinema",
-		icon: "Assets/images/icon-cinema-06c.png",
-		type: "Categoria"
-	},
-	microCategory: {
-		id: "biglietto",
-		name: "Biglietto d'ingresso",
-		icon: "Assets/images/icon-concerti-06c.png",
-		type: "prodotto"
-	},
-	qrcode: "Assets/images/qrcode-example.jpg",
-	barcode: "Assets/images/barcode-example.jpg"
-}, {
-	code: "45DH6791",
-	price: "56.00",
-	currency: "€",
-	typeCoupon: "Biglietto d’ingresso",
-	state: 'Valido',
-	shopPlace: "",
-	user: {
-		id: "1001010",
-		"name": "Mario",
-		"surname": "Rossi"
-	},
-	macroCategory: {
-		id: "concerti",
-		name: "Concerti",
-		icon: "Assets/images/icon-concerti-06c.png",
-		type: "Categoria"
-	},
-	microCategory: {
-		id: "biglietto",
-		name: "Biglietto d'ingresso",
-		icon: "Assets/images/icon-concerti-06c.png",
-		type: "prodotto"
-	},
-	qrcode: "Assets/images/qrcode-example.jpg",
-	barcode: "Assets/images/barcode-example.jpg"
-}, {
-	code: "45DH6792",
-	price: "128.00",
-	currency: "€",
-	typeCoupon: "Abbonamento / Card",
-	state: 'Valido',
-	shopPlace: "",
-	user: {
-		id: "1001010",
-		"name": "Mario",
-		"surname": "Rossi"
-	},
-	macroCategory: {
-		id: "teatro_danza",
-		name: "Teatro e Danza",
-		icon: "Assets/images/icon-teatro-06c.png",
-		type: "Categoria"
-	},
-	microCategory: {
-		id: "biglietto",
-		name: "Biglietto d'ingresso",
-		icon: "Assets/images/icon-concerti-06c.png",
-		type: "prodotto"
-	},
-	qrcode: "Assets/images/qrcode-example.jpg",
-	barcode: "Assets/images/barcode-example.jpg"
-}, {
-	code: "45DH6792",
-	price: "128.00",
-	currency: "€",
-	typeCoupon: "ebook",
-	state: 'Usato',
-	shopPlace: "Libreria Leggidipu'",
-	user: {
-		id: "1001010",
-		"name": "Mario",
-		"surname": "Rossi"
-	},
-	macroCategory: {
-		id: "cinema",
-		name: "Cinema",
-		icon: "Assets/images/icon-cinema-06c.png",
-		type: "Categoria"
-	},
-	microCategory: {
-		id: "libri",
-		name: "Libri",
-		icon: "Assets/images/icon-libri-06c.png",
-		type: "prodotto"
-	},
-	qrcode: "Assets/images/qrcode-example.jpg",
-	barcode: "Assets/images/barcode-example.jpg"
-}, {
-	code: "45DH6792",
-	price: "128.00",
-	currency: "€",
-	typeCoupon: "Abbonamento / Card",
-	state: 'Usato',
-	shopPlace: "Nuovo cinema Paradiso",
-	user: {
-		id: "1001010",
-		"name": "Mario",
-		"surname": "Rossi"
-	},
-	macroCategory: {
-		id: "teatro_danza",
-		name: "Teatro e Danza",
-		icon: "Assets/images/icon-teatro-06c.png",
-		type: "Categoria"
-	},
-	microCategory: {
-		id: "biglietto",
-		name: "Biglietto d'ingresso",
-		icon: "Assets/images/icon-concerti-06c.png",
-		type: "prodotto"
-	},
-	qrcode: "Assets/images/qrcode-example.jpg",
-	barcode: "Assets/images/barcode-example.jpg"
-}];
+	[{
+		code: "45DH6790",
+		price: "8.00",
+		currency: "€",
+		typeCoupon: "Biglietto d’ingresso",
+		state: 'Valido',
+		shopPlace: "",
+		user: {
+			id: "1001010",
+			"name": "Mario",
+			"surname": "Rossi"
+		},
+		macroCategory: {
+			id: "cinema",
+			name: "Cinema",
+			icon: "Assets/images/icon-cinema-06c.png",
+			type: "Categoria"
+		},
+		microCategory: {
+			id: "biglietto",
+			name: "Biglietto d'ingresso",
+			icon: "Assets/images/icon-concerti-06c.png",
+			type: "prodotto"
+		},
+		qrcode: "Assets/images/qrcode-example.jpg",
+		barcode: "Assets/images/barcode-example.jpg"
+	}, {
+		code: "45DH6791",
+		price: "56.00",
+		currency: "€",
+		typeCoupon: "Biglietto d’ingresso",
+		state: 'Valido',
+		shopPlace: "",
+		user: {
+			id: "1001010",
+			"name": "Mario",
+			"surname": "Rossi"
+		},
+		macroCategory: {
+			id: "concerti",
+			name: "Concerti",
+			icon: "Assets/images/icon-concerti-06c.png",
+			type: "Categoria"
+		},
+		microCategory: {
+			id: "biglietto",
+			name: "Biglietto d'ingresso",
+			icon: "Assets/images/icon-concerti-06c.png",
+			type: "prodotto"
+		},
+		qrcode: "Assets/images/qrcode-example.jpg",
+		barcode: "Assets/images/barcode-example.jpg"
+	}, {
+		code: "45DH6792",
+		price: "128.00",
+		currency: "€",
+		typeCoupon: "Abbonamento / Card",
+		state: 'Valido',
+		shopPlace: "",
+		user: {
+			id: "1001010",
+			"name": "Mario",
+			"surname": "Rossi"
+		},
+		macroCategory: {
+			id: "teatro_danza",
+			name: "Teatro e Danza",
+			icon: "Assets/images/icon-teatro-06c.png",
+			type: "Categoria"
+		},
+		microCategory: {
+			id: "biglietto",
+			name: "Biglietto d'ingresso",
+			icon: "Assets/images/icon-concerti-06c.png",
+			type: "prodotto"
+		},
+		qrcode: "Assets/images/qrcode-example.jpg",
+		barcode: "Assets/images/barcode-example.jpg"
+	}, {
+		code: "45DH6792",
+		price: "128.00",
+		currency: "€",
+		typeCoupon: "ebook",
+		state: 'Usato',
+		shopPlace: "Libreria Leggidipu'",
+		user: {
+			id: "1001010",
+			"name": "Mario",
+			"surname": "Rossi"
+		},
+		macroCategory: {
+			id: "cinema",
+			name: "Cinema",
+			icon: "Assets/images/icon-cinema-06c.png",
+			type: "Categoria"
+		},
+		microCategory: {
+			id: "libri",
+			name: "Libri",
+			icon: "Assets/images/icon-libri-06c.png",
+			type: "prodotto"
+		},
+		qrcode: "Assets/images/qrcode-example.jpg",
+		barcode: "Assets/images/barcode-example.jpg"
+	}, {
+		code: "45DH6792",
+		price: "128.00",
+		currency: "€",
+		typeCoupon: "Abbonamento / Card",
+		state: 'Usato',
+		shopPlace: "Nuovo cinema Paradiso",
+		user: {
+			id: "1001010",
+			"name": "Mario",
+			"surname": "Rossi"
+		},
+		macroCategory: {
+			id: "teatro_danza",
+			name: "Teatro e Danza",
+			icon: "Assets/images/icon-teatro-06c.png",
+			type: "Categoria"
+		},
+		microCategory: {
+			id: "biglietto",
+			name: "Biglietto d'ingresso",
+			icon: "Assets/images/icon-concerti-06c.png",
+			type: "prodotto"
+		},
+		qrcode: "Assets/images/qrcode-example.jpg",
+		barcode: "Assets/images/barcode-example.jpg"
+	}];
 
 var coupon = {
 	code: "45DH6789",
@@ -309,16 +309,16 @@ var merchants = [{
 	id: 1,
 	name: "Nuovo Cinema Paradiso",
 	type: "local_store",
-	cover:"Assets/images/cover-cinema@3x.png",
-	address:{
-		street:"Via Carulli 5",
-		city:"Bari",
-		state:"BA",
-		postalCode:"70100",
-  		gps:{
-  			lat:41.1199864,
-  			lng:16.872977300000002
-  		}
+	cover: "Assets/images/cover-cinema@3x.png",
+	address: {
+		street: "Via Carulli 5",
+		city: "Bari",
+		state: "BA",
+		postalCode: "70100",
+		gps: {
+			lat: 41.1199864,
+			lng: 16.872977300000002
+		}
 	},
 	macroCategories: [{
 		id: "cinema",
@@ -328,116 +328,246 @@ var merchants = [{
 	id: 2,
 	name: "The blues Brothers",
 	type: "local_store",
-	cover:"Assets/images/cover-concerti@3x.png",
-	address:{
-		street:"Piazza Luigi di Savoia, 40",
-		city:"Bari",
-		state:"BA",
-		postalCode:"70100",
- 		gps:{
- 			lat:41.1182953,
- 			lng:16.87449689999994
- 		}
+	cover: "Assets/images/cover-concerti@3x.png",
+	address: {
+		street: "Piazza Luigi di Savoia, 40",
+		city: "Bari",
+		state: "BA",
+		postalCode: "70100",
+		gps: {
+			lat: 41.1182953,
+			lng: 16.87449689999994
+		}
 	},
 	macroCategories: [{
 		id: "concerti",
-		name: "Concerti"
+		name: "Concerti",
+		icon: "Assets/images/icon-concerti-06c.png",
+		type: "Categoria",
+		microCategories: [{
+			id: "abbonamento_card",
+			name: "Abbonamento/Card",
+			icon: "Assets/images/icon-cinema-06c.png",
+			type: "prodotto"
+		}, {
+			id: "biglietto",
+			name: "Biglietto d'ingresso",
+			icon: "Assets/images/icon-concerti-06c.png",
+			type: "prodotto"
+		}]
 	}]
 }, {
 	id: 3,
 	name: "Il libraio magico",
 	type: "local_store",
-	cover:"Assets/images/cover-libri@3x.png",
-	address:{
-		street:"Via A. da Bari, 48",
-		city:"Bari",
-		state:"BA",
-		postalCode:"70100",
- 		gps:{
- 			lat:41.1239987,
- 			lng:16.868739000000005
- 		}
+	cover: "Assets/images/cover-libri@3x.png",
+	address: {
+		street: "Via A. da Bari, 48",
+		city: "Bari",
+		state: "BA",
+		postalCode: "70100",
+		gps: {
+			lat: 41.1239987,
+			lng: 16.868739000000005
+		}
 	},
 	macroCategories: [{
 		id: "libri",
-		name: "Libri"
+		name: "Libri",
+		icon: "Assets/images/icon-libri-06c.png",
+		type: "Categoria",
+		microCategories: [{
+			id: "abbonamento_card",
+			name: "Abbonamento/Card",
+			icon: "Assets/images/icon-cinema-06c.png",
+			type: "prodotto"
+		}, {
+			id: "biglietto",
+			name: "Biglietto d'ingresso",
+			icon: "Assets/images/icon-concerti-06c.png",
+			type: "prodotto"
+		}]
 	}]
 }, {
 	id: 4,
 	name: "Cats",
 	type: "local_store",
-	cover:"Assets/images/cover-teatro@3x.png",
-	address:{
-		street:"Via Sparano, 5",
-		city:"Bari",
-		state:"BA",
-		postalCode:"70100",
- 		gps:{
- 			lat:41.1259,
- 			lng:16.869280000000003
- 		}
+	cover: "Assets/images/cover-teatro@3x.png",
+	address: {
+		street: "Via Sparano, 5",
+		city: "Bari",
+		state: "BA",
+		postalCode: "70100",
+		gps: {
+			lat: 41.1259,
+			lng: 16.869280000000003
+		}
 	},
 	macroCategories: [{
 		id: "teatro_danza",
-		name: "Teatro e danza"
+		name: "Teatro e Danza",
+		icon: "Assets/images/icon-teatro-06c.png",
+		type: "Categoria",
+		microCategories: [{
+			id: "abbonamento_card",
+			name: "Abbonamento/Card",
+			icon: "Assets/images/icon-cinema-06c.png",
+			type: "prodotto"
+		}, {
+			id: "biglietto",
+			name: "Biglietto d'ingresso",
+			icon: "Assets/images/icon-concerti-06c.png",
+			type: "prodotto"
+		}]
 	}]
 }, {
 	id: 5,
 	name: "Granteatro dell'assurdo",
 	type: "local_store",
-	cover:"Assets/images/cover-teatro@3x.png",
-	address:{
-		street:"Piazza Aldo Moro, 10",
-		city:"Bari",
-		state:"BA",
-		postalCode:"70100",
- 		gps:{
- 			lat:41.11907,
- 			lng:16.869680000000017
- 		}
+	cover: "Assets/images/cover-teatro@3x.png",
+	address: {
+		street: "Piazza Aldo Moro, 10",
+		city: "Bari",
+		state: "BA",
+		postalCode: "70100",
+		gps: {
+			lat: 41.11907,
+			lng: 16.869680000000017
+		}
 	},
 	macroCategories: [{
 		id: "teatro_danza",
-		name: "Teatro e danza"
+		name: "Teatro e Danza",
+		icon: "Assets/images/icon-teatro-06c.png",
+		type: "Categoria",
+		microCategories: [{
+			id: "abbonamento_card",
+			name: "Abbonamento/Card",
+			icon: "Assets/images/icon-cinema-06c.png",
+			type: "prodotto"
+		}, {
+			id: "biglietto",
+			name: "Biglietto d'ingresso",
+			icon: "Assets/images/icon-concerti-06c.png",
+			type: "prodotto"
+		}]
 	}]
 }, {
 	id: 6,
 	name: "Scuolabook",
 	type: "internet_store",
-	cover:"Assets/images/cover-libri@3x.png",
+	cover: "Assets/images/cover-libri@3x.png",
 	site: "http://www.scuolabook.it",
 	macroCategories: [{
 		id: "libri",
-		name: "Libri"
+		name: "Libri",
+		icon: "Assets/images/icon-libri-06c.png",
+		type: "Categoria",
+		microCategories: [{
+			id: "abbonamento_card",
+			name: "Abbonamento/Card",
+			icon: "Assets/images/icon-cinema-06c.png",
+			type: "prodotto"
+		}, {
+			id: "biglietto",
+			name: "Biglietto d'ingresso",
+			icon: "Assets/images/icon-concerti-06c.png",
+			type: "prodotto"
+		}]
 	}]
 }, {
 	id: 7,
 	name: "Cineteatro Nuovo arcore",
 	site: "http://www.cinemanuovoarcore.it",
 	type: "internet_store",
-	cover:"Assets/images/cover-teatro@3x.png",
+	cover: "Assets/images/cover-teatro@3x.png",
 	macroCategories: [{
 		id: "concerti",
-		name: "Concerti"
+		name: "Concerti",
+		icon: "Assets/images/icon-concerti-06c.png",
+		type: "Categoria",
+		microCategories: [{
+			id: "abbonamento_card",
+			name: "Abbonamento/Card",
+			icon: "Assets/images/icon-cinema-06c.png",
+			type: "prodotto"
+		}, {
+			id: "biglietto",
+			name: "Biglietto d'ingresso",
+			icon: "Assets/images/icon-concerti-06c.png",
+			type: "prodotto"
+		}]
 	}]
 }, {
 	id: 8,
 	name: "TicketOne",
 	site: "https://www.ticketone.it/18app",
 	type: "internet_store",
-	cover:"Assets/images/cover-concerti@3x.png",
+	cover: "Assets/images/cover-concerti@3x.png",
 	macroCategories: [{
 		id: "concerti",
-		name: "Concerti"
+		name: "Concerti",
+		icon: "Assets/images/icon-concerti-06c.png",
+		type: "Categoria",
+		microCategories: [{
+			id: "abbonamento_card",
+			name: "Abbonamento/Card",
+			icon: "Assets/images/icon-cinema-06c.png",
+			type: "prodotto"
+		}, {
+			id: "biglietto",
+			name: "Biglietto d'ingresso",
+			icon: "Assets/images/icon-concerti-06c.png",
+			type: "prodotto"
+		}]
 	}, {
 		id: "eventi",
-		name: "Eventi Culturali"
+		name: "Eventi culturali",
+		icon: "Assets/images/icon-eventi-06c.png",
+		type: "Categoria",
+		microCategories: [{
+			id: "abbonamento_card",
+			name: "Abbonamento/Card",
+			icon: "Assets/images/icon-cinema-06c.png",
+			type: "prodotto"
+		}, {
+			id: "biglietto",
+			name: "Biglietto d'ingresso",
+			icon: "Assets/images/icon-concerti-06c.png",
+			type: "prodotto"
+		}]
 	}, {
 		id: "musei",
-		name: "Musei,monumenti e parchi naturali"
+		name: "Musei",
+		icon: "Assets/images/icon-musei-06c.png",
+		type: "Categoria",
+		microCategories: [{
+			id: "abbonamento_card",
+			name: "Abbonamento/Card",
+			icon: "Assets/images/icon-cinema-06c.png",
+			type: "prodotto"
+		}, {
+			id: "biglietto",
+			name: "Biglietto d'ingresso",
+			icon: "Assets/images/icon-concerti-06c.png",
+			type: "prodotto"
+		}]
 	}, {
 		id: "teatro_danza",
-		name: "Teatro e danza"
+		name: "Teatro e Danza",
+		icon: "Assets/images/icon-teatro-06c.png",
+		type: "Categoria",
+		microCategories: [{
+			id: "abbonamento_card",
+			name: "Abbonamento/Card",
+			icon: "Assets/images/icon-cinema-06c.png",
+			type: "prodotto"
+		}, {
+			id: "biglietto",
+			name: "Biglietto d'ingresso",
+			icon: "Assets/images/icon-concerti-06c.png",
+			type: "prodotto"
+		}]
 	}]
 }];
 
@@ -459,6 +589,20 @@ var createCoupon = function(price, macroCategory, microCategory) {
 		setTimeout(function() {
 			coupon.code = randomString(8);
 			coupon.price = price;
+			coupon.macroCategory = macroCategory;
+			coupon.microCategory = microCategory;
+			console.log("creato Coupon: " + coupon.code);
+			resolve(coupon);
+		}, 0);
+	});
+};
+
+var createCouponMerchant = function(price, macroCategory, microCategory,merchant_id) {
+	return new Promise(function(resolve, reject) {
+		setTimeout(function() {
+			coupon.code = randomString(8);
+			coupon.price = price;
+			coupon.merchant_id=merchant_id;
 			coupon.macroCategory = macroCategory;
 			coupon.microCategory = microCategory;
 			console.log("creato Coupon: " + coupon.code);
@@ -514,86 +658,86 @@ var getCoupons = function() {
  * @param  {[type]} lng [description]
  * @return {[type]}     [description]
  */
- var getNearByMerchants = function(lat,lng){
- 	return new Promise(function(resolve, reject) {
- 		setTimeout(function() {
+var getNearByMerchants = function(lat, lng) {
+	return new Promise(function(resolve, reject) {
+		setTimeout(function() {
 			//per simulare la ricerca usiamo una libreria fuzzy per ricercare all'interno del nostro mockup json 
 			//fuzzy-search library -http://fusejs.io/
 			var options = {
 				shouldSort: true,
 				threshold: 0,
-				tokenize:true,
+				tokenize: true,
 				location: 0,
 				distance: 0,
 				maxPatternLength: 32,
 				minMatchCharLength: 1,
 				keys: [
-				"type"
+					"type"
 				]
 			};
 			//filtro il mockup della lista degli merchants rispetto agli store locali (e non quelli su internet)
 			var fuzzySearch = new FuzzySearch(merchants, options);
 			var filteredMerchants = fuzzySearch.search("local_store");
 			//simulo il valore della distanza in metri
-			filteredMerchants.forEach(function(merchant){
-				merchant.distance=getRandomInt(50,1000)+"m";
+			filteredMerchants.forEach(function(merchant) {
+				merchant.distance = getRandomInt(50, 1000) + "m";
 			});
 			//ordino i risultati in base alla distanza generata casualmente
-			filteredMerchants.sort(function(a,b){
-				if(a.distance < b.distance)
+			filteredMerchants.sort(function(a, b) {
+				if (a.distance < b.distance)
 					return 1;
-				else if(a.distance>b.distance)
+				else if (a.distance > b.distance)
 					return -1;
-				else 
+				else
 					return 0;
 			});
-			
+
 			resolve(filteredMerchants);
 		}, 0);
- 	});
- }; 
+	});
+};
 /**
  * MOCKUP: restituisce la lista dei merchants presenti su internet. 
  * @param  filters{[object]} la lista può essere filtrata secondo diversi criteri (categoria, città, etc.)
  * @return {Promise}       
  */
- var getInternetMerchants = function(filters) {
- 	return new Promise(function(resolve, reject) {
- 		setTimeout(function() {
+var getInternetMerchants = function(filters) {
+	return new Promise(function(resolve, reject) {
+		setTimeout(function() {
 			//per simulare la ricerca usiamo una libreria fuzzy per ricercare all'interno del nostro mockup json 
 			//fuzzy-search library -http://fusejs.io/
 			var options = {
 				shouldSort: true,
 				threshold: 0,
-				tokenize:true,
+				tokenize: true,
 				location: 0,
 				distance: 0,
 				maxPatternLength: 32,
 				minMatchCharLength: 1,
 				keys: [
-				"type"
+					"type"
 				]
 			};
 			//filtro il mockup della lista degli merchants rispetto agli store presente su internet 
 			var fuzzySearch = new FuzzySearch(merchants, options);
 			var result = fuzzySearch.search("internet_store");
-			
+
 			resolve(result);
 		}, 0);
- 	});
- };
+	});
+};
 
 /**
  * Genera una stringa casuale
  * @param  {int} length lunghezza della stringa
  * @return {stirng} stringa casuale
  */
- function randomString(length) {
- 	var chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
- 	var result = '';
- 	for (var i = length; i > 0; --i) result += chars[Math.floor(Math.random() * chars.length)];
- 		return result;
- }
+function randomString(length) {
+	var chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+	var result = '';
+	for (var i = length; i > 0; --i) result += chars[Math.floor(Math.random() * chars.length)];
+	return result;
+}
 
 /**
  * Genera una numero intero casuale all'interno di un intervallo. gli estremi dell'intervallo sono inclusi
@@ -603,21 +747,22 @@ var getCoupons = function() {
  */
 
 function getRandomInt(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
+	return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 function getCouponByID(id) {
-    for (var i=0; i < coupons.length; i++) {
-        if (coupons[i].code === id) {
-            return coupons[i];
-        }
-    }
+	for (var i = 0; i < coupons.length; i++) {
+		if (coupons[i].code === id) {
+			return coupons[i];
+		}
+	}
 }
 module.exports = {
 	deleteCoupon: deleteCoupon,
 	getInternetMerchants: getInternetMerchants,
-	getNearByMerchants:getNearByMerchants,
+	getNearByMerchants: getNearByMerchants,
 	createCoupon: createCoupon,
+	createCouponMerchant:createCouponMerchant,
 	getMacrocategories: getMacrocategories,
 	getMicroCategories: getMicroCategories,
 	getHelpInformations: getHelpInformations,

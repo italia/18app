@@ -13,7 +13,6 @@
 	<Text ux:Class="WelcomeText" FontSize="30" Alignment="Center"/>
 
 	<DockPanel>
-		<StatusBarBackground Dock="Top" />
 		<BottomBarBackground Dock="Bottom" />
 
 		<Grid Dock="Top" ColumnCount="3" Height="50" Background="#003E90">

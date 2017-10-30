@@ -1,0 +1,59 @@
+<BasePage ux:Class="NewCouponMerchantStep4Page">
+	<Router ux:Dependency="router" />
+	<JavaScript File="js/NewCouponMerchantStep4Page.js" />
+	<Visual ux:Dependency="navBar" />
+	<NavBarTitle navBar="navBar"  Text="Nuovo buono: valore" />
+	<DockPanel>
+		<BannerMerchant/>
+		<ScrollView>
+			<StackPanel Margin="20">
+				<B Color="color.Green">Il nuovo buono è stato creato correttamente</B>
+				<Separator Margin="-35,20"/>
+				<StackPanel>
+					<Row>
+						<Image File="{coupon.macroCategory.pathIcon}" Width="20"  Height="20" Alignment="CenterLeft" />
+						<P Color="color.Black" Value="{coupon.macroCategory.name}" Alignment="CenterLeft" />
+						<P Color="color.Gray" Value="Categoria" FontSize="size.XS" />
+					</Row>
+					<Row>
+						<Image File="{coupon.microCategory.pathIcon}" Width="20"  Height="20" Alignment="CenterLeft" />
+						<P Color="color.Black" Value="{coupon.microCategory.name}" Alignment="CenterLeft" />
+						<P Color="color.Gray" Value="Prodotto" FontSize="size.XS" />
+					</Row>
+					<Row>
+						<icon.Euro Width="20"  Height="20" Alignment="CenterLeft" />
+						<P Color="color.Black" FontSize="24" Value="{coupon.price}" Alignment="CenterLeft" />
+						<P Color="color.Gray" Value="Valore" FontSize="size.XS" />
+					</Row>
+					<Row>
+						<icon.Qrcode  Width="20"  Height="20" Alignment="CenterLeft" />
+						<P Color="color.Black" FontSize="24" Value="{coupon.code}" Alignment="CenterLeft" />
+						<P Color="color.Gray" Value="Codice" FontSize="size.XS"/>
+					</Row>
+					<Grid Columns="1*,1*" Margin="0,17">
+						<Image File="{coupon.qrcode}" Width="109" Alignment="Center" />
+						<StackPanel Width="87" ItemSpacing="13">
+							<Image File="{coupon.barcode}" Alignment="Center">
+							</Image>
+							<P TextWrapping="Wrap" TextAlignment="Center">SALVA IMMAGINE</P>
+						</StackPanel>
+					</Grid>
+					<Separator/>
+					<app18.Button Value="TROVA UN NEGOZIO" Margin="0,17,0,0" Height="40" Width="100%" Clicked="{onTapFindMerchant}"/> 
+					<P Margin="0,30,0,10" FontSize="size.S" Color="color.Gray">Questo buono non è cedibile e appartiene a te</P>
+					<Row>
+						<icon.Profile Color="color.Black" FontSize="size.XL" Alignment="CenterLeft" />
+						<P Color="color.Black" Value="{coupon.user.name} {coupon.user.surname}" Alignment="CenterLeft" />
+						<P Color="color.Gray" Value="Intestatario" FontSize="size.XS"/>
+					</Row>
+					<P Color="color.Gray" TextWrapping="Wrap" Margin="0,20">
+						Puoi annullare in ogni momento questo  buono e riversare l’intero suo valore nel tuo credito
+					</P>
+					<!--TODO aggiungere icona -->
+					<app18.Button Value="ANNULLA QUESTO BUONO" Height="40" BackgroundColor="color.Red" Clicked="{onTapCancelCoupon}"/> 
+
+				</StackPanel>
+			</StackPanel>
+		</ScrollView>
+	</DockPanel>
+</BasePage>
