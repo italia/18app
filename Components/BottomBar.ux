@@ -2,11 +2,11 @@
 
 	<Rectangle ux:Class="Divider" Width="1"  Margin="0,12" />
 	
-	<Container ux:Class="IconAndLabel" Subtree="iconContainer">
+	<Container ux:Class="IconAndLabel" Subtree="iconContainer" HitTestMode="LocalBoundsAndChildren">
 		<string ux:Property="Text" />
 		
-		<DockPanel ux:Binding="Children" Height="64" Padding="0,10">
-			<Panel ux:Name="iconContainer" Alignment="Center" />
+		<DockPanel ux:Binding="Children">
+			<Panel ux:Name="iconContainer"  />
 		</DockPanel>
 	</Container>
 	
