@@ -14,9 +14,8 @@ var fuseSearchOptions = {
 	  threshold: 0.1,
 	  location: 0,
 	  distance: 100,
-	  keys: ['items.title', 'items.description'],
-	  //keys: ['items.title'],
-	  id: 'items.id'
+	  keys: ['title', 'description'],
+	  id: 'id'
 };
 var fuseSearchEmptyCollection = [];
 var fuseSearch = new FuseSearch(fuseSearchEmptyCollection, fuseSearchOptions);
@@ -45,7 +44,16 @@ function showOnlyThoseKeysHelpInformations(keys){
 
 Context.getHelpInformations().then(function(helpInformations) {
 	allHelpInformations = helpInformations;
-	fuseSearch.setCollection(helpInformations);
+	
+	// imposto una collezione piatta senza gruppi, per la ricerca
+	searchInformationCollection = [];
+	allHelpInformations.forEach(function(group){
+		group.items.forEach(function(item){
+			searchInformationCollection.push(item);
+		});
+	});
+	fuseSearch.setCollection(searchInformationCollection);
+
 	showAnyHelpInformations();
 }).catch(function(e) {
 	console.log(error.message);
