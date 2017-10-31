@@ -21,7 +21,7 @@ La filosofia di Fuse, rispetto ad altri framework competitor, è quella di focal
 Infine, la vera potenza è che il linguaggio  UI è compilato in codice puro nativo (Objective-C in iOS e C++ per android) ottenendo un'interfaccia fluida di 60 framerate al secondo, priva di 'blocchi' inattesi e garatendo un approccio  “write once, run everywhere” .
 
 
-Per maggiori approfondimenti sul frameowork si lasciano alcune riferimenti utili:
+Per maggiori approfondimenti sul framework si lasciano alcune riferimenti utili:
 - [Overview Fuse](https://www.facebook.com/fusetools/videos/1469174709856577/)
 - [How Fuse differs from React Native and NativeScript](
 https://blog.fusetools.com/how-fuse-differs-from-react-native-and-nativescript-525344f02aaf)
@@ -57,12 +57,12 @@ fuse preview
 ```sh 
 cd src
 fuse install android
-fuse build --target=ios --run
+fuse build --target=android --run
 ```
 #### iOS
 ```sh 
 cd src
-fuse build --target=android --run
+fuse build --target=ios --run
 ```
 
 Si rimanda alla [documentazione ](https://www.fusetools.com/docs/basics/preview-and-export#android) per maggiori dettagli 
