@@ -88,7 +88,6 @@
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/blame" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/build-info" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/builds" />
-      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/check-manifest" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/classes" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/incremental" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/incremental-classes" />
@@ -115,14 +114,15 @@
     <orderEntry type="jdk" jdkName="Android API 25 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" scope="TEST" name="com.android.support.test:exposed-instrumentation-api-publish-0.5" level="project" />
-    <orderEntry type="library" name="com.google.android.gms:play-services-base-license-11.4.2" level="project" />
+    <orderEntry type="library" name="com.google.android.gms:play-services-base-license-11.6.0" level="project" />
     <orderEntry type="library" name="com.mikepenz:octicons-typeface-3.2.0.4" level="project" />
+    <orderEntry type="library" name="com.android.support:cardview-v7-25.3.1" level="project" />
     <orderEntry type="library" name="com.android.support:support-core-ui-25.3.1" level="project" />
     <orderEntry type="library" scope="TEST" name="com.squareup:javawriter:2.1.1@jar" level="project" />
     <orderEntry type="library" name="com.android.support:support-compat-25.3.1" level="project" />
     <orderEntry type="library" name="com.mikepenz:foundation-icons-typeface-3.0.0.4" level="project" />
     <orderEntry type="library" name="com.mikepenz:weather-icons-typeface-2.0.10.4" level="project" />
-    <orderEntry type="library" name="com.google.android.gms:play-services-basement-license-11.4.2" level="project" />
+    <orderEntry type="library" name="com.google.android.gms:play-services-basement-license-11.6.0" level="project" />
     <orderEntry type="library" name="com.mikepenz:google-material-typeface-3.0.1.2.original" level="project" />
     <orderEntry type="library" name="com.android.support.constraint:constraint-layout-solver:1.0.2@jar" level="project" />
     <orderEntry type="library" name="com.android.support:support-core-utils-25.3.1" level="project" />
@@ -134,38 +134,49 @@
     <orderEntry type="library" name="com.github.ittianyu:BottomNavigationViewEx-1.2.1" level="project" />
     <orderEntry type="library" scope="TEST" name="org.hamcrest:hamcrest-core:1.3@jar" level="project" />
     <orderEntry type="library" scope="TEST" name="com.android.support.test.espresso:espresso-core-2.2.2" level="project" />
+    <orderEntry type="library" name="com.mashape.unirest:unirest-java:1.4.9@jar" level="project" />
     <orderEntry type="library" scope="TEST" name="com.android.support.test:rules-0.5" level="project" />
     <orderEntry type="library" name="com.android.support:transition-25.3.1" level="project" />
     <orderEntry type="library" name="com.android.support:design-25.3.1" level="project" />
     <orderEntry type="library" name="com.mikepenz:fastadapter-2.6.3" level="project" />
-    <orderEntry type="library" name="com.google.android.gms:play-services-tasks-11.4.2" level="project" />
+    <orderEntry type="library" name="com.google.android.gms:play-services-tasks-11.6.0" level="project" />
     <orderEntry type="library" scope="TEST" name="org.hamcrest:hamcrest-integration:1.3@jar" level="project" />
+    <orderEntry type="library" name="com.google.android.gms:play-services-places-license-11.6.0" level="project" />
+    <orderEntry type="library" name="commons-codec:commons-codec:1.9@jar" level="project" />
     <orderEntry type="library" name="com.mikepenz:meteocons-typeface-1.1.0.4" level="project" />
     <orderEntry type="library" name="com.google.zxing:core:3.3.0@jar" level="project" />
     <orderEntry type="library" scope="TEST" name="com.android.support.test.espresso:espresso-idling-resource-2.2.2" level="project" />
     <orderEntry type="library" scope="TEST" name="javax.annotation:javax.annotation-api:1.2@jar" level="project" />
-    <orderEntry type="library" name="com.google.android.gms:play-services-base-11.4.2" level="project" />
+    <orderEntry type="library" name="com.google.android.gms:play-services-base-11.6.0" level="project" />
     <orderEntry type="library" name="com.android.support:support-vector-drawable-25.3.1" level="project" />
     <orderEntry type="library" name="com.android.support:recyclerview-v7-25.3.1" level="project" />
     <orderEntry type="library" name="com.mikepenz:community-material-typeface-2.0.46.1" level="project" />
-    <orderEntry type="library" name="com.google.android.gms:play-services-tasks-license-11.4.2" level="project" />
+    <orderEntry type="library" name="com.google.android.gms:play-services-tasks-license-11.6.0" level="project" />
+    <orderEntry type="library" name="com.google.android.gms:play-services-places-11.6.0" level="project" />
     <orderEntry type="library" scope="TEST" name="junit:junit:4.12@jar" level="project" />
+    <orderEntry type="library" name="org.apache.httpcomponents:httpcore-nio:4.4.4@jar" level="project" />
+    <orderEntry type="library" name="org.apache.httpcomponents:httpclient:4.5.2@jar" level="project" />
     <orderEntry type="library" name="com.mikepenz:devicon-typeface-2.0.0.4" level="project" />
     <orderEntry type="library" scope="TEST" name="javax.inject:javax.inject:1@jar" level="project" />
-    <orderEntry type="library" name="com.google.android.gms:play-services-maps-license-11.4.2" level="project" />
+    <orderEntry type="library" name="org.apache.httpcomponents:httpasyncclient:4.1.1@jar" level="project" />
+    <orderEntry type="library" name="com.google.android.gms:play-services-maps-license-11.6.0" level="project" />
     <orderEntry type="library" name="com.mikepenz:materialize-1.0.3" level="project" />
-    <orderEntry type="library" name="com.google.android.gms:play-services-basement-11.4.2" level="project" />
+    <orderEntry type="library" name="com.google.android.gms:play-services-basement-11.6.0" level="project" />
     <orderEntry type="library" name="com.mikepenz:typeicons-typeface-2.0.7.4" level="project" />
     <orderEntry type="library" name="com.android.support:support-fragment-25.3.1" level="project" />
+    <orderEntry type="library" name="commons-logging:commons-logging:1.2@jar" level="project" />
+    <orderEntry type="library" name="org.apache.httpcomponents:httpcore:4.4.4@jar" level="project" />
     <orderEntry type="library" name="com.android.support:animated-vector-drawable-25.3.1" level="project" />
+    <orderEntry type="library" name="com.google.android.gms:play-services-maps-11.6.0" level="project" />
     <orderEntry type="library" scope="TEST" name="org.hamcrest:hamcrest-library:1.3@jar" level="project" />
+    <orderEntry type="library" name="org.json:json:20160212@jar" level="project" />
     <orderEntry type="library" name="com.mikepenz:iconics-core-2.9.4" level="project" />
-    <orderEntry type="library" name="com.google.android.gms:play-services-maps-11.4.2" level="project" />
     <orderEntry type="library" name="com.android.support:appcompat-v7-25.3.1" level="project" />
     <orderEntry type="library" scope="TEST" name="com.android.support.test:runner-0.5" level="project" />
     <orderEntry type="library" name="com.mikepenz:fontawesome-typeface-4.7.0.2" level="project" />
     <orderEntry type="library" name="com.github.kenglxn.QRGen:android:2.3.0@jar" level="project" />
     <orderEntry type="library" name="com.mikepenz:material-design-iconic-typeface-2.2.0.4" level="project" />
+    <orderEntry type="library" name="org.apache.httpcomponents:httpmime:4.5.2@jar" level="project" />
     <orderEntry type="library" name="com.mikepenz:entypo-typeface-1.0.0.4" level="project" />
     <orderEntry type="library" name="com.mikepenz:materialdrawer-5.9.5" level="project" />
     <orderEntry type="library" name="com.android.support:support-annotations:25.3.1@jar" level="project" />
