@@ -5,7 +5,7 @@ using System.Linq;
 using Foundation;
 using UIKit;
 
-namespace _18App.iOS
+namespace Italia.DiciottoApp.iOS
 {
     public class Application
     {

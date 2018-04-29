@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace _18App
+namespace Italia.DiciottoApp
 {
 	public partial class MainPage : ContentPage
 	{

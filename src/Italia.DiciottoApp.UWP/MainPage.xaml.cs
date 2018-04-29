@@ -13,7 +13,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-namespace _18App.UWP
+namespace Italia.DiciottoApp.UWP
 {
     public sealed partial class MainPage
     {
@@ -21,7 +21,7 @@ namespace _18App.UWP
         {
             this.InitializeComponent();
 
-            LoadApplication(new _18App.App());
+            LoadApplication(new Italia.DiciottoApp.App());
         }
     }
 }

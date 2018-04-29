@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <ProjectGuid>{53768698-4FAB-4D9C-9ADF-661B0313EE99}</ProjectGuid>
+    <ProjectGuid>{5B2591BA-32D1-4658-ADF2-423441C901CB}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>_18App.UWP</RootNamespace>
-    <AssemblyName>18App.UWP</AssemblyName>
+    <RootNamespace>Italia.DiciottoApp.UWP</RootNamespace>
+    <AssemblyName>Italia.DiciottoApp.UWP</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion>10.0.16299.0</TargetPlatformVersion>
@@ -17,7 +17,7 @@
     <EnableDotNetNativeCompatibleProfile>true</EnableDotNetNativeCompatibleProfile>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <PackageCertificateKeyFile>_18App.UWP_TemporaryKey.pfx</PackageCertificateKeyFile>
+    <PackageCertificateKeyFile>Italia.DiciottoApp.UWP_TemporaryKey.pfx</PackageCertificateKeyFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
     <DebugSymbols>true</DebugSymbols>
@@ -144,12 +144,12 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="3.0.0.354232-pre3" />
-    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.0.1" />
+    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.0.1"/>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\_18App\_18App.csproj">
-      <Project>{1373899C-2396-4221-BFDD-2F6B47D83AD3}</Project>
-      <Name>_18App</Name>
+    <ProjectReference Include="..\Italia.DiciottoApp\Italia.DiciottoApp.csproj">
+      <Project>{509C0543-7310-42DC-9FD2-747DA96FFF99}</Project>
+      <Name>Italia.DiciottoApp</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">

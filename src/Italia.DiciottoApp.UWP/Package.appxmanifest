@@ -7,15 +7,15 @@
   IgnorableNamespaces="uap mp">
 
   <Identity
-    Name="9936d600-c249-4242-92d4-3d64f0c3ce15"
-    Publisher="CN=7058cfa3-064c-4bab-bef7-8b1840367b0d"
+    Name="383cbf5d-5217-4b90-8dc3-fadce5a83dd7"
+    Publisher="CN=ccb2042a-eddd-4dc0-a5e7-ee59352e7a71"
     Version="1.0.0.0" />
 
   <mp:PhoneIdentity PhoneProductId="ec0cc741-fd3e-485c-81be-68815c480690" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
-    <DisplayName>_18App.UWP</DisplayName>
-    <PublisherDisplayName>7058cfa3-064c-4bab-bef7-8b1840367b0d</PublisherDisplayName>
+    <DisplayName>Italia.DiciottoApp.UWP</DisplayName>
+    <PublisherDisplayName>ccb2042a-eddd-4dc0-a5e7-ee59352e7a71</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
 
@@ -30,12 +30,12 @@
   <Applications>
     <Application Id="App"
       Executable="$targetnametoken$.exe"
-      EntryPoint="_18App.UWP.App">
+      EntryPoint="Italia.DiciottoApp.UWP.App">
       <uap:VisualElements
-        DisplayName="_18App.UWP"
+        DisplayName="Italia.DiciottoApp.UWP"
         Square150x150Logo="Assets\Square150x150Logo.png"
         Square44x44Logo="Assets\Square44x44Logo.png"
-        Description="_18App.UWP"
+        Description="Italia.DiciottoApp.UWP"
         BackgroundColor="transparent">
         <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" Square310x310Logo="Assets\LargeTile.png" Square71x71Logo="Assets\SmallTile.png">
           <uap:ShowNameOnTiles>

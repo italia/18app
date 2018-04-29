@@ -1,12 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:_18App"
-             x:Class="_18App.MainPage">
+             xmlns:local="clr-namespace:Italia.DiciottoApp"
+             x:Class="Italia.DiciottoApp.MainPage"
+             Title="18App">
 
     <StackLayout>
         <!-- Place new controls here -->
-    	<Label Text="Welcome to Xamarin.Forms!" 
+        <Label Text="Welcome to 18App!" 
            HorizontalOptions="Center"
            VerticalOptions="CenterAndExpand" />
     </StackLayout>

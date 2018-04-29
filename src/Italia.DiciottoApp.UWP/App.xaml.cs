@@ -15,7 +15,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-namespace _18App.UWP
+namespace Italia.DiciottoApp.UWP
 {
     /// <summary>
     /// Provides application-specific behavior to supplement the default Application class.
