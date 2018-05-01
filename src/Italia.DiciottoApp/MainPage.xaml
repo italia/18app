@@ -7,7 +7,7 @@
 
     <StackLayout>
         <!-- Place new controls here -->
-        <Label Text="Welcome to 18App!" 
+        <Label Text="Benvenuto nell'applicazione 18App!" 
            HorizontalOptions="Center"
            VerticalOptions="CenterAndExpand" />
     </StackLayout>
