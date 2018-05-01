@@ -1,3 +1,5 @@
+using Italia.DiciottoApp.Interfaces;
+using Italia.DiciottoApp.Models;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -7,12 +9,21 @@ namespace Italia.DiciottoApp
 {
 	public partial class App : Application
 	{
-		public App ()
+        IAppSettings appSettings = new AppSettings();
+
+        public App ()
 		{
 			InitializeComponent();
 
-			MainPage = new NavigationPage(new MainPage());
-		}
+            if (appSettings.UserLogged)
+            {
+                MainPage = new NavigationPage(new MainPage());
+            }
+            else
+            {
+                MainPage = new MainPage();
+            }
+        }
 
 		protected override void OnStart ()
 		{
