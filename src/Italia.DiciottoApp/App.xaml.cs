@@ -1,5 +1,6 @@
 using Italia.DiciottoApp.Interfaces;
 using Italia.DiciottoApp.Models;
+using Italia.DiciottoApp.Views;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -21,7 +22,7 @@ namespace Italia.DiciottoApp
             }
             else
             {
-                MainPage = new MainPage();
+                MainPage = new WelcomePage();
             }
         }
 
