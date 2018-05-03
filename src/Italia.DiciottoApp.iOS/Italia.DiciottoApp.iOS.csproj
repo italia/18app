@@ -144,6 +144,26 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\bkgnd_libri.imageset\bg-libri.png" />
+    <ImageAsset Include="Assets.xcassets\bkgnd_libri.imageset\bg-libri%402x.png" />
+    <ImageAsset Include="Assets.xcassets\bkgnd_libri.imageset\bg-libri%403x.png" />
+    <ImageAsset Include="Assets.xcassets\bkgnd_libri.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\bkgnd_cinema.imageset\bg-cinema.png" />
+    <ImageAsset Include="Assets.xcassets\bkgnd_cinema.imageset\bg-cinema%402x.png" />
+    <ImageAsset Include="Assets.xcassets\bkgnd_cinema.imageset\bg-cinema%403x.png" />
+    <ImageAsset Include="Assets.xcassets\bkgnd_cinema.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\bkgnd_concerti.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\bkgnd_concerti.imageset\bg-concerti.png" />
+    <ImageAsset Include="Assets.xcassets\bkgnd_concerti.imageset\bg-concerti%402x.png" />
+    <ImageAsset Include="Assets.xcassets\bkgnd_concerti.imageset\bg-concerti%403x.png" />
+    <ImageAsset Include="Assets.xcassets\bonus.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\bonus.imageset\bonus.png" />
+    <ImageAsset Include="Assets.xcassets\bonus.imageset\bonus%402x.png" />
+    <ImageAsset Include="Assets.xcassets\bonus.imageset\bonus%403x.png" />
+    <ImageAsset Include="Assets.xcassets\header_logo.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\header_logo.imageset\header_logo.png" />
+    <ImageAsset Include="Assets.xcassets\header_logo.imageset\header_logo%402x.png" />
+    <ImageAsset Include="Assets.xcassets\header_logo.imageset\header_logo%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -160,8 +180,28 @@
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
     <ProjectReference Include="..\Italia.DiciottoApp\Italia.DiciottoApp.csproj">
-      <Project>{509C0543-7310-42DC-9FD2-747DA96FFF99}</Project>
+      <Project>{FE71765B-2044-417E-84E4-D128C95B7870}</Project>
       <Name>Italia.DiciottoApp</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Assets.xcassets\bkgnd_libri.imageset\" />
+    <Folder Include="Assets.xcassets\bkgnd_cinema.imageset\" />
+    <Folder Include="Assets.xcassets\bkgnd_concerti.imageset\" />
+    <Folder Include="Assets.xcassets\bonus.imageset\" />
+    <Folder Include="Assets.xcassets\header_logo.imageset\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\TitilliumWeb-Black.ttf" />
+    <BundleResource Include="Resources\TitilliumWeb-Bold.ttf" />
+    <BundleResource Include="Resources\TitilliumWeb-BoldItalic.ttf" />
+    <BundleResource Include="Resources\TitilliumWeb-ExtraLight.ttf" />
+    <BundleResource Include="Resources\TitilliumWeb-ExtraLightItalic.ttf" />
+    <BundleResource Include="Resources\TitilliumWeb-Italic.ttf" />
+    <BundleResource Include="Resources\TitilliumWeb-Light.ttf" />
+    <BundleResource Include="Resources\TitilliumWeb-LightItalic.ttf" />
+    <BundleResource Include="Resources\TitilliumWeb-Regular.ttf" />
+    <BundleResource Include="Resources\TitilliumWeb-SemiBold.ttf" />
+    <BundleResource Include="Resources\TitilliumWeb-SemiBoldItalic.ttf" />
   </ItemGroup>
 </Project>
