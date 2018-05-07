@@ -26,8 +26,6 @@
 	<string>18App</string>
 	<key>CFBundleIdentifier</key>
 	<string>it.Italia.DiciottoApp</string>
-	<key>CFBundleVersion</key>
-	<string>1.0</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>CFBundleName</key>
@@ -40,5 +38,7 @@
 		<string>TitilliumWeb-Italic.ttf</string>
 		<string>TitilliumWeb-Regular.ttf</string>
 	</array>
+	<key>Custom Property</key>
+	<string></string>
 </dict>
 </plist>

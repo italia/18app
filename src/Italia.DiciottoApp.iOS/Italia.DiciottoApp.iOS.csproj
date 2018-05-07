@@ -144,23 +144,27 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\bkgnd_libri.imageset\bg-libri.png" />
-    <ImageAsset Include="Assets.xcassets\bkgnd_libri.imageset\bg-libri%402x.png" />
-    <ImageAsset Include="Assets.xcassets\bkgnd_libri.imageset\bg-libri%403x.png" />
     <ImageAsset Include="Assets.xcassets\bkgnd_libri.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\bkgnd_cinema.imageset\bg-cinema.png" />
-    <ImageAsset Include="Assets.xcassets\bkgnd_cinema.imageset\bg-cinema%402x.png" />
-    <ImageAsset Include="Assets.xcassets\bkgnd_cinema.imageset\bg-cinema%403x.png" />
     <ImageAsset Include="Assets.xcassets\bkgnd_cinema.imageset\Contents.json" />
     <ImageAsset Include="Assets.xcassets\bkgnd_concerti.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\bkgnd_concerti.imageset\bg-concerti.png" />
-    <ImageAsset Include="Assets.xcassets\bkgnd_concerti.imageset\bg-concerti%402x.png" />
-    <ImageAsset Include="Assets.xcassets\bkgnd_concerti.imageset\bg-concerti%403x.png" />
     <ImageAsset Include="Assets.xcassets\bonus.imageset\Contents.json" />
     <ImageAsset Include="Assets.xcassets\bonus.imageset\bonus.png" />
     <ImageAsset Include="Assets.xcassets\bonus.imageset\bonus%402x.png" />
     <ImageAsset Include="Assets.xcassets\bonus.imageset\bonus%403x.png" />
     <ImageAsset Include="Assets.xcassets\header_logo.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\logo_utente_spid.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\logo_utente_spid.imageset\logo_utente_spid.png" />
+    <ImageAsset Include="Assets.xcassets\logo_utente_spid.imageset\logo_utente_spid%402x.png" />
+    <ImageAsset Include="Assets.xcassets\logo_utente_spid.imageset\logo_utente_spid%403x.png" />
+    <ImageAsset Include="Assets.xcassets\bkgnd_cinema.imageset\bkgnd_cinema.png" />
+    <ImageAsset Include="Assets.xcassets\bkgnd_cinema.imageset\bkgnd_cinema%402x.png" />
+    <ImageAsset Include="Assets.xcassets\bkgnd_cinema.imageset\bkgnd_cinema%403x.png" />
+    <ImageAsset Include="Assets.xcassets\bkgnd_libri.imageset\bkgnd_libri.png" />
+    <ImageAsset Include="Assets.xcassets\bkgnd_libri.imageset\bkgnd_libri%402x.png" />
+    <ImageAsset Include="Assets.xcassets\bkgnd_libri.imageset\bkgnd_libri%403x.png" />
+    <ImageAsset Include="Assets.xcassets\bkgnd_concerti.imageset\bkgnd_concerti.png" />
+    <ImageAsset Include="Assets.xcassets\bkgnd_concerti.imageset\bkgnd_concerti%402x.png" />
+    <ImageAsset Include="Assets.xcassets\bkgnd_concerti.imageset\bkgnd_concerti%403x.png" />
     <ImageAsset Include="Assets.xcassets\header_logo.imageset\header_logo.png" />
     <ImageAsset Include="Assets.xcassets\header_logo.imageset\header_logo%402x.png" />
     <ImageAsset Include="Assets.xcassets\header_logo.imageset\header_logo%403x.png" />
@@ -190,6 +194,7 @@
     <Folder Include="Assets.xcassets\bkgnd_concerti.imageset\" />
     <Folder Include="Assets.xcassets\bonus.imageset\" />
     <Folder Include="Assets.xcassets\header_logo.imageset\" />
+    <Folder Include="Assets.xcassets\logo_utente_spid.imageset\" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\TitilliumWeb-Black.ttf" />

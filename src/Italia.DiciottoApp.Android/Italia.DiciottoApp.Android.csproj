@@ -96,13 +96,18 @@
     <AndroidResource Include="Resources\mipmap-xxhdpi\launcher_foreground.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\Icon.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\logo_utente_spid.png" />
+    <AndroidResource Include="Resources\drawable\logo_utente_spid.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\logo_utente_spid.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\logo_utente_spid.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\logo_utente_spid.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\header_logo.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Italia.DiciottoApp\Italia.DiciottoApp.csproj">
-      <Project>{509C0543-7310-42DC-9FD2-747DA96FFF99}</Project>
+      <Project>{FE71765B-2044-417E-84E4-D128C95B7870}</Project>
       <Name>Italia.DiciottoApp</Name>
     </ProjectReference>
   </ItemGroup>

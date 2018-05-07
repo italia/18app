@@ -33,7 +33,7 @@ namespace Italia.DiciottoApp.Views
                 }
 
                 ExpenceTitle.Text = pageTitles[actualPage];
-                BackgroundImage = pageBackgrounds[actualPage];
+				BackImage.Source = pageBackgrounds[actualPage];
 
                 return true; // True = Repeat again, False = Stop the timer
             });
