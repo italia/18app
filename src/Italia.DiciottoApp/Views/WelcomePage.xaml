@@ -1,16 +1,15 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Italia.DiciottoApp.Views.WelcomePage"
-             BackgroundColor="#0066CC"
-             BackgroundImage="bkgnd_libri.png" >
+             BackgroundColor="#0066CC" >
 
     <ContentPage.Resources>
         <ResourceDictionary>
             <Style x:Key="BoldLabelStyle" TargetType="Label">
                 <Setter Property="TextColor" Value="White" />
-                <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
-                <Setter Property="FontSize" Value="44" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="FontSize" Value="32" />
                 <Setter Property="FontFamily">
                     <Setter.Value>
                         <OnPlatform x:TypeArguments="x:String">
@@ -23,8 +22,8 @@
             </Style>
             <Style x:Key="ItalicLabelStyle" TargetType="Label">
                 <Setter Property="TextColor" Value="White" />
-                <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
-                <Setter Property="FontSize" Value="54" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="FontSize" Value="40" />
                 <Setter Property="FontFamily">
                     <Setter.Value>
                         <OnPlatform x:TypeArguments="x:String">
@@ -37,8 +36,23 @@
             </Style>
             <Style x:Key="RegularLabelStyle" TargetType="Label">
                 <Setter Property="TextColor" Value="White" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="FontSize" Value="16" />
+                <Setter Property="FontFamily">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="x:String">
+                            <On Platform="iOS" Value="TitilliumWeb-Regular" />
+                            <On Platform="Android" Value="fonts/TitilliumWeb-Regular.ttf#TitilliumWeb-Regular" />
+                            <On Platform="UWP" Value="Assets/Fonts/TitilliumWeb-Regular.ttf#TitilliumWeb" />
+                        </OnPlatform>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <Style x:Key="InfoButtonStyle" TargetType="Button">
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="BackgroundColor" Value="Transparent" />
                 <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
-                <Setter Property="FontSize" Value="22" />
+                <Setter Property="FontSize" Value="16" />
                 <Setter Property="FontFamily">
                     <Setter.Value>
                         <OnPlatform x:TypeArguments="x:String">
@@ -52,32 +66,70 @@
         </ResourceDictionary>
     </ContentPage.Resources>
 
-    <ContentPage.Content>
-        <AbsoluteLayout>
-            <StackLayout BackgroundColor="#0066CC"
-                         AbsoluteLayout.LayoutBounds="0,0,1,.1"
-                         AbsoluteLayout.LayoutFlags="All"
-                         Spacing="0" >
-                <Image Source="header_logo.jpg" Margin="0"/>
-            </StackLayout>
+    <Grid Margin="0" RowSpacing ="0" ColumnSpacing="0" >
+            
+        <Grid.Padding>
+            <OnPlatform x:TypeArguments="Thickness">
+                <On Platform="iOS" Value="0, 20, 0, 0" />
+            </OnPlatform>
+        </Grid.Padding>
 
-            <StackLayout  Spacing="0" VerticalOptions="Center"
-                          AbsoluteLayout.LayoutBounds="0.5,0.5,1,.8"
-                          AbsoluteLayout.LayoutFlags="All">
-                <Label Text="Hai 18 anni?"
-                       Style="{StaticResource Key=BoldLabelStyle}" />
-                <Label Text="Per te"
-                       Style="{StaticResource Key=RegularLabelStyle}"
-                       Margin="0,-7,0,0"/>
-                <Image Source="bonus.png" Margin="0,8,0,0" Scale=".8"/>
-                <Label Text="da spendere in"
-                       Style="{StaticResource Key=RegularLabelStyle}" />
-                <Label x:Name="ExpenceTitle" Text="libri "
-                       Style="{StaticResource Key=ItalicLabelStyle}"
-                       FontAttributes="Italic"
-                       Margin="0,38,0,0" />
-            </StackLayout>
-        </AbsoluteLayout>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="48" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="64" />
+        </Grid.RowDefinitions>
         
-     </ContentPage.Content>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Image Grid.Row="0" Grid.ColumnSpan="2"
+               Source="header_logo.png" />
+
+        <Image x:Name="BackImage" Aspect="AspectFill"
+               Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="2"
+               Source="bkgnd_libri.png" />
+
+        <StackLayout Grid.Row="1" Grid.ColumnSpan="2"
+                     Spacing="0"
+                     Margin="0,40,0,0">
+            <Label Text="Hai 18 anni?"
+                   Style="{StaticResource Key=BoldLabelStyle}" />
+            <Label Text="Per te"
+                   Style="{StaticResource Key=RegularLabelStyle}"
+                   Margin="0,-7,0,0"/>
+            <Image Source="bonus.png" Margin="0,8,0,0" Scale=".65"/>
+            <Label Text="da spendere in"
+                   Style="{StaticResource Key=RegularLabelStyle}" />
+            <Label x:Name="ExpenceTitle" Text="libri "
+                   Style="{StaticResource Key=ItalicLabelStyle}"
+                   FontAttributes="Italic"
+                   Margin="0,38,0,0" />
+        </StackLayout>
+
+        <Button Grid.Row="2" Grid.Column="0"
+                Text="INFORMAZIONI"
+                Style="{StaticResource Key=InfoButtonStyle}"/>
+        
+        <Button Grid.Row="2" Grid.Column="1"
+                Text="NON HAI SPID?"
+                Style="{StaticResource Key=InfoButtonStyle}"/>
+        
+        <StackLayout Grid.Row="3" Grid.ColumnSpan="2"
+                     Spacing="0"
+                     Orientation="Horizontal"
+                     HorizontalOptions="Center">
+            <Image Source="logo_utente_spid.png"
+                   VerticalOptions="Center" />
+            <Label Text="ENTRA CON SPID"
+                   VerticalOptions="Center"
+                   Style="{StaticResource Key=RegularLabelStyle}"
+                   FontAttributes="Italic"
+                   Margin="10,0,0,0" />
+        </StackLayout>
+
+    </Grid>
 </ContentPage>
