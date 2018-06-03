@@ -15,6 +15,7 @@ namespace Italia.DiciottoApp.Views
 		public WelcomePage ()
 		{
 			InitializeComponent ();
+            NavigationPage.SetHasNavigationBar(this, false);
             SetCarousel();
         }
 
@@ -37,6 +38,21 @@ namespace Italia.DiciottoApp.Views
 
                 return true; // True = Repeat again, False = Stop the timer
             });
+        }
+
+        private async void ButtonInfo_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new InfoPage());
+        }
+
+        private async void ButtonSpidInfo_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new InfoPage(spidOnlyInfo: true));
+        }
+
+        private async void ButtonLogin_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new SpidLoginPage());
         }
     }
 }

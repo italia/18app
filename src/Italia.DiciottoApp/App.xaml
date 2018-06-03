@@ -2,7 +2,72 @@
 <Application xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Italia.DiciottoApp.App">
-	<Application.Resources>
-    
-	</Application.Resources>
+    <Application.Resources>
+        <Color x:Key="AppBkgndColor">#0066CC</Color>
+
+        <Style x:Key="PageTitleLabelStyle" TargetType="Label">
+            <Setter Property="TextColor" Value="White" />
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="FontFamily">
+                <Setter.Value>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="iOS" Value="TitilliumWeb-Regular" />
+                        <On Platform="Android" Value="fonts/TitilliumWeb-Regular.ttf#TitilliumWeb-Regular" />
+                        <On Platform="UWP" Value="Assets/Fonts/TitilliumWeb-Regular.ttf#TitilliumWeb" />
+                    </OnPlatform>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <ControlTemplate x:Key="InfoPageTemplate" >
+            <Grid VerticalOptions="FillAndExpand"
+                  HorizontalOptions="FillAndExpand"
+                  BindingContext="{TemplateBinding BindingContext}"
+                  RowSpacing="0" ColumnSpacing="0" >
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <Grid.Padding>
+                    <OnPlatform x:TypeArguments="Thickness" iOS="0, 20, 0, 0" />
+                </Grid.Padding>
+
+                <BoxView Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"
+                         BackgroundColor="{StaticResource AppBkgndColor}" />
+
+                <StackLayout Grid.Row="0" Grid.Column="0"
+                             Orientation="Horizontal"
+                             Margin="0,6">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnBackButtonPressed" />
+                    </StackLayout.GestureRecognizers>
+
+                    <Image Margin="10,0,0,0"
+                           Source="back" />
+
+                    <Label Style="{StaticResource PageTitleLabelStyle}"
+                           HorizontalOptions="Start" VerticalOptions="Center"
+                           Margin="10,0"
+                           Text ="{TemplateBinding Title}" />
+                </StackLayout>
+
+                <Image Grid.Row="0" Grid.Column="2"
+                       HorizontalOptions="End"
+                       Margin="10,0"
+                       Source="header_logo" />
+
+                <ContentPresenter Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3"
+                                  VerticalOptions="FillAndExpand"
+                                  HorizontalOptions="FillAndExpand" />
+            </Grid>
+        </ControlTemplate>
+    </Application.Resources>
 </Application>

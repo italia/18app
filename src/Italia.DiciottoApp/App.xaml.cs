@@ -10,20 +10,31 @@ namespace Italia.DiciottoApp
 {
 	public partial class App : Application
 	{
+        public static NavigationPage Navigation = null;
+
         IAppSettings appSettings = new AppSettings();
+
+        public string ThisPageTitle { get; set; }
 
         public App ()
 		{
-			InitializeComponent();
+            // Initialize Live Reload.
+            LiveReload.Init();
+
+            InitializeComponent();
+
+            ThisPageTitle = "Pippo";
 
             if (appSettings.UserLogged)
             {
-                MainPage = new NavigationPage(new MainPage());
+                Navigation = new NavigationPage(new MainPage());
             }
             else
             {
-                MainPage = new WelcomePage();
+                Navigation = new NavigationPage(new WelcomePage());
             }
+
+            MainPage = Navigation;
         }
 
 		protected override void OnStart ()
@@ -40,5 +51,11 @@ namespace Italia.DiciottoApp
 		{
 			// Handle when your app resumes
 		}
-	}
+
+        public async void OnBackButtonPressed(object sender, EventArgs e)
+        {
+            await Navigation.PopAsync();
+        }
+
+    }
 }

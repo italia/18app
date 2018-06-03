@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Italia.DiciottoApp.Views.WelcomePage"
-             BackgroundColor="#0066CC" >
+             BackgroundColor="{StaticResource AppBkgndColor}" >
 
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -51,7 +51,7 @@
             <Style x:Key="InfoButtonStyle" TargetType="Button">
                 <Setter Property="TextColor" Value="White" />
                 <Setter Property="BackgroundColor" Value="Transparent" />
-                <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
+                <Setter Property="HorizontalOptions" Value="Center" />
                 <Setter Property="FontSize" Value="16" />
                 <Setter Property="FontFamily">
                     <Setter.Value>
@@ -112,24 +112,20 @@
 
         <Button Grid.Row="2" Grid.Column="0"
                 Text="INFORMAZIONI"
-                Style="{StaticResource Key=InfoButtonStyle}"/>
+                Style="{StaticResource Key=InfoButtonStyle}"
+                Clicked="ButtonInfo_Clicked" />
         
         <Button Grid.Row="2" Grid.Column="1"
                 Text="NON HAI SPID?"
-                Style="{StaticResource Key=InfoButtonStyle}"/>
-        
-        <StackLayout Grid.Row="3" Grid.ColumnSpan="2"
-                     Spacing="0"
-                     Orientation="Horizontal"
-                     HorizontalOptions="Center">
-            <Image Source="logo_utente_spid.png"
-                   VerticalOptions="Center" />
-            <Label Text="ENTRA CON SPID"
-                   VerticalOptions="Center"
-                   Style="{StaticResource Key=RegularLabelStyle}"
-                   FontAttributes="Italic"
-                   Margin="10,0,0,0" />
-        </StackLayout>
+                Style="{StaticResource Key=InfoButtonStyle}"
+                Clicked="ButtonSpidInfo_Clicked" />
 
+        <Button Grid.Row="3" Grid.ColumnSpan="2"
+                HorizontalOptions="Center"
+                Image="logo_utente_spid.png"
+                Text="ENTRA CON SPID"
+                VerticalOptions="Center"
+                Style="{StaticResource Key=InfoButtonStyle}"
+                Clicked="ButtonLogin_Clicked" />
     </Grid>
 </ContentPage>

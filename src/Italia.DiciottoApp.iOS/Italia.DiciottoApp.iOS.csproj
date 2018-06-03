@@ -137,37 +137,121 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon87.png">
       <Visible>false</Visible>
     </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\back.imageset\back.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\back.imageset\back@2x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\back.imageset\back@3x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\back.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\bkgnd_cinema.imageset\bkgnd_cinema.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\bkgnd_cinema.imageset\bkgnd_cinema@2x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\bkgnd_cinema.imageset\bkgnd_cinema@3x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\bkgnd_concerti.imageset\bkgnd_concerti.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\bkgnd_concerti.imageset\bkgnd_concerti@2x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\bkgnd_concerti.imageset\bkgnd_concerti@3x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\bkgnd_libri.imageset\bkgnd_libri.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\bkgnd_libri.imageset\bkgnd_libri@2x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\bkgnd_libri.imageset\bkgnd_libri@3x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\bonus.imageset\bonus.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\bonus.imageset\bonus@2x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\bonus.imageset\bonus@3x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\header_logo.imageset\header_logo.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\header_logo.imageset\header_logo@2x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\header_logo.imageset\header_logo@3x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\logo_utente_spid.imageset\logo_utente_spid.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\logo_utente_spid.imageset\logo_utente_spid@2x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\logo_utente_spid.imageset\logo_utente_spid@3x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\splash_bkgnd.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\splash_bkgnd.imageset\Splash_Background.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\splash_bkgnd.imageset\Splash_Background@2x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\splash_bkgnd.imageset\Splash_Background@3x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\splash_logo.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\LaunchImages.launchimage\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\splash_logo.imageset\Splash_Logo.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\splash_logo.imageset\Splash_Logo@2x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\splash_logo.imageset\Splash_Logo@3x.png">
       <Visible>false</Visible>
     </ImageAsset>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\bkgnd_libri.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\bkgnd_cinema.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\bkgnd_concerti.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\bonus.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\bonus.imageset\bonus.png" />
-    <ImageAsset Include="Assets.xcassets\bonus.imageset\bonus%402x.png" />
-    <ImageAsset Include="Assets.xcassets\bonus.imageset\bonus%403x.png" />
-    <ImageAsset Include="Assets.xcassets\header_logo.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\logo_utente_spid.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\logo_utente_spid.imageset\logo_utente_spid.png" />
-    <ImageAsset Include="Assets.xcassets\logo_utente_spid.imageset\logo_utente_spid%402x.png" />
-    <ImageAsset Include="Assets.xcassets\logo_utente_spid.imageset\logo_utente_spid%403x.png" />
-    <ImageAsset Include="Assets.xcassets\bkgnd_cinema.imageset\bkgnd_cinema.png" />
-    <ImageAsset Include="Assets.xcassets\bkgnd_cinema.imageset\bkgnd_cinema%402x.png" />
-    <ImageAsset Include="Assets.xcassets\bkgnd_cinema.imageset\bkgnd_cinema%403x.png" />
-    <ImageAsset Include="Assets.xcassets\bkgnd_libri.imageset\bkgnd_libri.png" />
-    <ImageAsset Include="Assets.xcassets\bkgnd_libri.imageset\bkgnd_libri%402x.png" />
-    <ImageAsset Include="Assets.xcassets\bkgnd_libri.imageset\bkgnd_libri%403x.png" />
-    <ImageAsset Include="Assets.xcassets\bkgnd_concerti.imageset\bkgnd_concerti.png" />
-    <ImageAsset Include="Assets.xcassets\bkgnd_concerti.imageset\bkgnd_concerti%402x.png" />
-    <ImageAsset Include="Assets.xcassets\bkgnd_concerti.imageset\bkgnd_concerti%403x.png" />
-    <ImageAsset Include="Assets.xcassets\header_logo.imageset\header_logo.png" />
-    <ImageAsset Include="Assets.xcassets\header_logo.imageset\header_logo%402x.png" />
-    <ImageAsset Include="Assets.xcassets\header_logo.imageset\header_logo%403x.png" />
+    <ImageAsset Include="Assets.xcassets\bkgnd_libri.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\bkgnd_cinema.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\bkgnd_concerti.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\bonus.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\header_logo.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\logo_utente_spid.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -177,9 +261,9 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Xam.Plugins.Settings">
-      <Version>4.0.0.3-beta</Version>
+      <Version>3.1.1</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.Forms" Version="3.0.0.427558-pre4" />
+    <PackageReference Include="Xamarin.Forms" Version="3.0.0.446417" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
@@ -189,9 +273,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Assets.xcassets\bkgnd_libri.imageset\" />
     <Folder Include="Assets.xcassets\bkgnd_cinema.imageset\" />
     <Folder Include="Assets.xcassets\bkgnd_concerti.imageset\" />
+    <Folder Include="Assets.xcassets\bkgnd_libri.imageset\" />
     <Folder Include="Assets.xcassets\bonus.imageset\" />
     <Folder Include="Assets.xcassets\header_logo.imageset\" />
     <Folder Include="Assets.xcassets\logo_utente_spid.imageset\" />
