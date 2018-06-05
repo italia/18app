@@ -1,5 +1,4 @@
-﻿using Italia.DiciottoApp.Interfaces;
-using Plugin.Settings;
+﻿using Plugin.Settings;
 using Plugin.Settings.Abstractions;
 using System;
 using System.Collections.Generic;
