@@ -38,5 +38,6 @@ namespace Italia.DiciottoApp.Models
             get => AppSettings.GetValueOrDefault("UserSurname", String.Empty);
             set => AppSettings.AddOrUpdateValue("UserSurname", value);
         }
+
     }
 }
