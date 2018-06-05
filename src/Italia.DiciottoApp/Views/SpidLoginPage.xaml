@@ -6,9 +6,12 @@
     
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="TO BE DONE"
+            <Label Text="TO BE DONE RIGHT NOW"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
+            <Button
+                Text="Fake SPID login"
+                Clicked="ButtonFakeSpidLogin_Clicked" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

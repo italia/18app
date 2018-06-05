@@ -12,8 +12,6 @@ namespace Italia.DiciottoApp
 	{
         public static NavigationPage Navigation = null;
 
-        IAppSettings appSettings = new AppSettings();
-
         public string ThisPageTitle { get; set; }
 
         public App ()
@@ -25,14 +23,7 @@ namespace Italia.DiciottoApp
 
             ThisPageTitle = "Pippo";
 
-            if (appSettings.UserLogged)
-            {
-                Navigation = new NavigationPage(new MainPage());
-            }
-            else
-            {
-                Navigation = new NavigationPage(new WelcomePage());
-            }
+            Navigation = Settings.UserLogged ? new NavigationPage(new MainPage()) : new NavigationPage(new WelcomePage());
 
             MainPage = Navigation;
         }

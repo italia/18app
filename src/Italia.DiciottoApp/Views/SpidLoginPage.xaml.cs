@@ -18,5 +18,10 @@ namespace Italia.DiciottoApp.Views
             NavigationPage.SetHasNavigationBar(this, false);
             Title = "SPID Login";
 		}
-	}
+
+        private async void ButtonFakeSpidLogin_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new SpidLoginPage());
+        }
+    }
 }

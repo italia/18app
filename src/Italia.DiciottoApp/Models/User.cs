@@ -6,7 +6,7 @@ namespace Italia.DiciottoApp.Models
 {
     public class User
     {
-        public int UserID { get; set; }
+        public string Id { get; set; }
 
         public string Name { get; set; }
 
