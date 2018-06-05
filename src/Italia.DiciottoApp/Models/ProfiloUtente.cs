@@ -16,9 +16,9 @@ namespace Italia.DiciottoApp.Models
 
         public DateTime DataNascita { get; set; }
 
-        public Indirizzo LuogoNascita { get; set; }
+        public Address LuogoNascita { get; set; }
 
-        public Indirizzo Residenza { get; set; }
+        public Address Residenza { get; set; }
 
         public string RecapitoTelefonico { get; set; }
 

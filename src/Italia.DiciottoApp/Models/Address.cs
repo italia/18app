@@ -4,9 +4,9 @@ using System.Text;
 
 namespace Italia.DiciottoApp.Models
 {
-    public class Indirizzo
+    public class Address
     {
-        public string Via { get; set; }
+        public string Indirizzo { get; set; }
 
         public string NumeroCivico { get; set; }
 
