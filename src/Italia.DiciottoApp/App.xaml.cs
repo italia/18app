@@ -1,4 +1,3 @@
-using Italia.DiciottoApp.Interfaces;
 using Italia.DiciottoApp.Models;
 using Italia.DiciottoApp.Views;
 using System;
