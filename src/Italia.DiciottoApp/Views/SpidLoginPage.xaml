@@ -6,7 +6,7 @@
     
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="TO BE DONE RIGHT NOW"
+            <Label Text="TO BE DONE RIGHT NOW!"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
             <Button

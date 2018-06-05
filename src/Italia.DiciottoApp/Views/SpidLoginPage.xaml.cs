@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Italia.DiciottoApp.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,7 +22,20 @@ namespace Italia.DiciottoApp.Views
 
         private async void ButtonFakeSpidLogin_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new SpidLoginPage());
+            Settings.UserLogged = true;
+            Settings.UserId = Guid.NewGuid().ToString();
+            Settings.UserName = "Nicolò";
+            Settings.UserSurname = "Carandini";
+
+            // Get the root page
+            IReadOnlyList<Page> navStack = Navigation.NavigationStack;
+            Page welcomePage = navStack[0];
+
+            // Insert page before WelcomePage
+            Navigation.InsertPageBefore(new NearToYouShopsPage(), welcomePage);
+
+            // Clear navigation stack
+            await Navigation.PopToRootAsync();
         }
     }
 }
