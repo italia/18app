@@ -29,10 +29,10 @@ namespace Italia.DiciottoApp.Views
 
             // Get the root page
             IReadOnlyList<Page> navStack = Navigation.NavigationStack;
-            Page welcomePage = navStack[0];
+            Page currentRootPage = navStack[0];
 
             // Insert page before WelcomePage
-            Navigation.InsertPageBefore(new NearToYouShopsPage(), welcomePage);
+            Navigation.InsertPageBefore(new NearToYouShopsPage(), currentRootPage);
 
             // Clear navigation stack
             await Navigation.PopToRootAsync();

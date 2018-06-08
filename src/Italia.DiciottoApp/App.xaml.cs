@@ -20,9 +20,7 @@ namespace Italia.DiciottoApp
 
             InitializeComponent();
 
-            ThisPageTitle = "Pippo";
-
-            Navigation = Settings.UserLogged ? new NavigationPage(new MainPage()) : new NavigationPage(new WelcomePage());
+            Navigation = Settings.UserLogged ? new NavigationPage(new NearToYouShopsPage()) : new NavigationPage(new WelcomePage());
 
             MainPage = Navigation;
         }

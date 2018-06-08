@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Class="Italia.DiciottoApp.Views.NearToYouShopsPage"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:Italia.DiciottoApp.ViewModels"
+             ControlTemplate="{StaticResource AppHeaderTemplate}" >
+
+    <ContentPage.BindingContext>
+        <vm:NearToYouShopsViewModel />
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Content>
+        <Grid VerticalOptions="FillAndExpand"
+              HorizontalOptions="FillAndExpand"
+              RowSpacing="0" ColumnSpacing="0" >
+            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <BoxView Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"
+                     BackgroundColor="{StaticResource TabsBkgndColor}" />
+
+            <BoxView Grid.Row="0" Grid.Column="0"
+                     HeightRequest="5"
+                     VerticalOptions="End"
+                     BackgroundColor="White" />
+
+            <Label Grid.Row="0" Grid.Column="0"
+                   Text="VICINO A TE"
+                   Style="{StaticResource TabLabelStyle}" />
+            
+            <Label Grid.Row="0" Grid.Column="1"
+                   Text="SU INTERNET"
+                   Style="{StaticResource TabLabelStyle}" />
+            
+            <Label Grid.Row="0" Grid.Column="2"
+                   Text="RICERCA"
+                   Style="{StaticResource TabLabelStyle}" />
+            
+            <Label Grid.Row="1" Grid.ColumnSpan="3"
+                   Text="TODO: Negozi"
+                   VerticalOptions="CenterAndExpand" 
+                   HorizontalOptions="CenterAndExpand" />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
