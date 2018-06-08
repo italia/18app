@@ -1,10 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Application xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:conv="clr-namespace:Italia.DiciottoApp.Converters"
              x:Class="Italia.DiciottoApp.App">
+    
     <Application.Resources>
         <Color x:Key="AppBkgndColor">#0066CC</Color>
-        <Color x:Key="TabsBkgndColor">#00469C</Color> 
+        <Color x:Key="TabsBkgndColor">#00469C</Color>
+
+        <conv:AppAreaOpacityConverter x:Key="AppAreaOpacityConverter" />
 
         <Style x:Key="BoldLabelStyle" TargetType="Label">
             <Setter Property="FontFamily">
@@ -153,84 +157,141 @@
             </Grid>
         </ControlTemplate>
         
-        <ControlTemplate x:Key="AppHeaderTemplate" >
-            <Grid VerticalOptions="FillAndExpand"
-                  HorizontalOptions="FillAndExpand"
-                  BindingContext="{TemplateBinding BindingContext}"
-                  RowSpacing="0" ColumnSpacing="0" >
+        <ControlTemplate x:Key="AppHeaderTemplate">
+            <Grid BindingContext="{TemplateBinding BindingContext}"
+                  RowSpacing="0" ColumnSpacing="0">
 
                 <Grid.RowDefinitions>
                     <RowDefinition Height="50"/>
                     <RowDefinition Height="*"/>
+                    <RowDefinition Height="64"/>
                 </Grid.RowDefinitions>
-
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition Width="Auto" />
-                </Grid.ColumnDefinitions>
 
                 <Grid.Padding>
                     <OnPlatform x:TypeArguments="Thickness" iOS="0, 20, 0, 0" />
                 </Grid.Padding>
 
-                <BoxView Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4"
-                         BackgroundColor="{StaticResource AppBkgndColor}" />
+                <!-- Top bar -->
+                <Grid Grid.Row="0"
+                      HorizontalOptions="FillAndExpand"
+                      VerticalOptions="FillAndExpand"
+                      RowSpacing="0" ColumnSpacing="0"
+                      BackgroundColor="{StaticResource AppBkgndColor}">
+                    
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
 
-                <Image Grid.Row="0" Grid.Column="0"
-                       Margin="10,0,0,0" Source="back" >
-                    <Image.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="OnBackButtonPressed" />
-                    </Image.GestureRecognizers>
-                </Image>
+                    <Image Grid.Column="0"
+                           Margin="10,0,0,0" Source="back" >
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnBackButtonPressed" />
+                        </Image.GestureRecognizers>
+                    </Image>
 
-                <Label Grid.Row="0" Grid.Column="1"
-                       Style="{StaticResource PageTitleLabelStyle}"
-                       HorizontalOptions="Start" VerticalOptions="Center"
-                       Margin="10,0"
-                       Text ="{Binding Path=PageTitle}" />
+                    <Label Grid.Column="1"
+                           Style="{StaticResource PageTitleLabelStyle}"
+                           HorizontalOptions="Start" VerticalOptions="Center"
+                           Margin="10,0"
+                           Text ="{Binding Path=PageTitle}" />
 
-                <StackLayout Grid.Row="0" Grid.Column="2"
-                             VerticalOptions="Center"
-                             Spacing="0">
+                    <StackLayout Grid.Column="2"
+                                 VerticalOptions="Center"
+                                 Spacing="0">
 
-                    <Label Style="{StaticResource CreditLabelStyle}"
-                           HorizontalOptions="End" VerticalOptions="Center"
-                           Margin="10,0,10,-3"
-                           Text ="Credito" />
+                        <Label Style="{StaticResource CreditLabelStyle}"
+                               HorizontalOptions="End" VerticalOptions="Center"
+                               Margin="10,0,10,-3"
+                               Text ="Credito" />
 
-                    <Label Style="{StaticResource CreditValueLabelStyle}"
-                           HorizontalOptions="End" VerticalOptions="Center"
-                           Margin="10,-3,10,0"
-                           Text ="174,00€" />
+                        <Label Style="{StaticResource CreditValueLabelStyle}"
+                               HorizontalOptions="End" VerticalOptions="Center"
+                               Margin="10,-3,10,0"
+                               Text ="174,00€" />
 
-                </StackLayout>
+                    </StackLayout>
 
-                <Image Grid.Row="0" Grid.Column="3"
-                       HorizontalOptions="End"
-                       Margin="0,0,10,0"
-                       Source="usericon" />
+                    <Image Grid.Row="0" Grid.Column="3"
+                           HorizontalOptions="End"
+                           Margin="0,0,10,0"
+                           Source="usericon" />
 
-                <Grid Grid.Row="0" Grid.Column="3"
-                       HorizontalOptions="End"
-                       VerticalOptions="End"
-                       Margin="0,0,10,8">
+                    <Grid Grid.Row="0" Grid.Column="3"
+                           HorizontalOptions="End"
+                           VerticalOptions="End"
+                           Margin="0,0,10,8">
 
-                    <Image HorizontalOptions="Center"
-                           VerticalOptions="Center"
-                           Source="user_msg_count" />
+                        <Image HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               Source="user_msg_count" />
 
-                    <Label Style="{StaticResource MsgCountLabelStyle}"
-                           HorizontalOptions="Center" VerticalOptions="Center"
-                           Margin="0,0,0,1"
-                           Text ="2" />
-
+                        <Label Style="{StaticResource MsgCountLabelStyle}"
+                               HorizontalOptions="Center" VerticalOptions="Center"
+                               Margin="0,0,0,1"
+                               Text ="2" />
+                    </Grid>
                 </Grid>
 
-                <ContentPresenter Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4"
+                <!-- Page content -->
+                <ContentPresenter Grid.Row="1"
                                   VerticalOptions="FillAndExpand"
                                   HorizontalOptions="FillAndExpand" />
+
+                <!-- Bottom bar -->
+                <Grid Grid.Row="2"
+                      BackgroundColor="{StaticResource AppBkgndColor}"
+                      RowSpacing="0" ColumnSpacing="0">
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Image Grid.Column="0"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           Opacity="{Binding Path=AppArea, Converter={StaticResource AppAreaOpacityConverter}, ConverterParameter=NewCoupon}"
+                           Source="nav_nuovo">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnNewCouponIconTapped" />
+                        </Image.GestureRecognizers>
+                    </Image>
+
+                    <Image Grid.Column="1"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           Opacity="{Binding Path=AppArea, Converter={StaticResource AppAreaOpacityConverter}, ConverterParameter=Wallet}"
+                           Source="nav_wallet">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnWalletIconTapped" />
+                        </Image.GestureRecognizers>
+                    </Image>
+
+                    <Image Grid.Column="2"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           Opacity="{Binding Path=AppArea, Converter={StaticResource AppAreaOpacityConverter}, ConverterParameter=Stores}"
+                           Source="nav_stores">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnStoresIconTapped" />
+                        </Image.GestureRecognizers>
+                    </Image>
+
+                    <Image Grid.Column="3"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           Opacity="{Binding Path=AppArea, Converter={StaticResource AppAreaOpacityConverter}, ConverterParameter=Info}"
+                           Source="nav_info">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnInfoIconTapped" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                </Grid>
             </Grid>
         </ControlTemplate>
 

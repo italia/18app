@@ -11,15 +11,20 @@ using Xamarin.Forms.Xaml;
 namespace Italia.DiciottoApp.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class NearToYouShopsPage : ContentPage
+	public partial class FindShopsPage : ContentPage
 	{
-        private NearToYouShopsViewModel vm;
+        private FindShopsViewModel vm;
 
-        public NearToYouShopsPage()
+        public FindShopsPage ()
 		{
 			InitializeComponent ();
             NavigationPage.SetHasNavigationBar(this, false);
-            vm = BindingContext as NearToYouShopsViewModel;
+            vm = BindingContext as FindShopsViewModel;
+        }
+
+        private async void OnNearToYouTabTapped(object sender, EventArgs e)
+        {
+            await NoPushNavigate(new NearToYouShopsPage());
         }
 
         private async void OnOnlineTabTapped(object sender, EventArgs e)
@@ -27,16 +32,11 @@ namespace Italia.DiciottoApp.Views
             await NoPushNavigate(new OnlineShopsPage());
         }
 
-        private async void OnFindTabTapped(object sender, EventArgs e)
-        {
-            await NoPushNavigate(new FindShopsPage());
-        }
-
         private async Task NoPushNavigate(ContentPage targetPage)
         {
             // Get actual page
             IReadOnlyList<Page> navStack = Navigation.NavigationStack;
-            Page currentPage = navStack[navStack.Count - 1];
+            Page currentPage = navStack[navStack.Count-1];
 
             // Insert target page before actual page
             Navigation.InsertPageBefore(targetPage, currentPage);
@@ -44,5 +44,6 @@ namespace Italia.DiciottoApp.Views
             // Navigate to target
             await Navigation.PopAsync();
         }
+
     }
 }

@@ -1,19 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage x:Class="Italia.DiciottoApp.Views.NearToYouShopsPage"
+<ContentPage x:Class="Italia.DiciottoApp.Views.OnlineShopsPage"
              xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:Italia.DiciottoApp.ViewModels"
              ControlTemplate="{StaticResource AppHeaderTemplate}" >
 
     <ContentPage.BindingContext>
-        <vm:NearToYouShopsViewModel />
+        <vm:OnlineShopsViewModel />
     </ContentPage.BindingContext>
-    
+
     <ContentPage.Content>
         <Grid VerticalOptions="FillAndExpand"
               HorizontalOptions="FillAndExpand"
               RowSpacing="0" ColumnSpacing="0" >
-            
+
             <Grid.RowDefinitions>
                 <RowDefinition Height="50"/>
                 <RowDefinition Height="*"/>
@@ -28,22 +28,22 @@
             <BoxView Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"
                      BackgroundColor="{StaticResource TabsBkgndColor}" />
 
-            <BoxView Grid.Row="0" Grid.Column="0"
+            <BoxView Grid.Row="0" Grid.Column="1"
                      HeightRequest="5"
                      VerticalOptions="End"
                      BackgroundColor="White" />
 
             <Label Grid.Row="0" Grid.Column="0"
                    Text="VICINO A TE"
-                   Style="{StaticResource TabLabelStyle}" />
+                   Style="{StaticResource TabLabelStyle}">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnNearToYouTabTapped" />
+                </Label.GestureRecognizers>
+            </Label>
 
             <Label Grid.Row="0" Grid.Column="1"
                    Text="SU INTERNET"
-                   Style="{StaticResource TabLabelStyle}">
-                <Label.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="OnOnlineTabTapped" />
-                </Label.GestureRecognizers>
-            </Label>
+                   Style="{StaticResource TabLabelStyle}" />
 
             <Label Grid.Row="0" Grid.Column="2"
                    Text="RICERCA"
@@ -52,9 +52,9 @@
                     <TapGestureRecognizer Tapped="OnFindTabTapped" />
                 </Label.GestureRecognizers>
             </Label>
-            
+
             <Label Grid.Row="1" Grid.ColumnSpan="3"
-                   Text="TODO: Negozi vicini a te"
+                   Text="TODO: Negozi online"
                    VerticalOptions="CenterAndExpand" 
                    HorizontalOptions="CenterAndExpand" />
         </Grid>

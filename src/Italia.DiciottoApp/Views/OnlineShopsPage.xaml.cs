@@ -11,20 +11,20 @@ using Xamarin.Forms.Xaml;
 namespace Italia.DiciottoApp.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class NearToYouShopsPage : ContentPage
+	public partial class OnlineShopsPage : ContentPage
 	{
-        private NearToYouShopsViewModel vm;
+        private OnlineShopsViewModel vm;
 
-        public NearToYouShopsPage()
+        public OnlineShopsPage ()
 		{
 			InitializeComponent ();
             NavigationPage.SetHasNavigationBar(this, false);
-            vm = BindingContext as NearToYouShopsViewModel;
+            vm = BindingContext as OnlineShopsViewModel;
         }
 
-        private async void OnOnlineTabTapped(object sender, EventArgs e)
+        private async void OnNearToYouTabTapped(object sender, EventArgs e)
         {
-            await NoPushNavigate(new OnlineShopsPage());
+            await NoPushNavigate(new NearToYouShopsPage());
         }
 
         private async void OnFindTabTapped(object sender, EventArgs e)
