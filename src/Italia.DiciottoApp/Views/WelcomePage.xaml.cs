@@ -42,12 +42,12 @@ namespace Italia.DiciottoApp.Views
 
         private async void ButtonInfo_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new InfoPage());
+            await Navigation.PushAsync(new UnloggedInfoPage());
         }
 
         private async void ButtonSpidInfo_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new InfoPage(spidOnlyInfo: true));
+            await Navigation.PushAsync(new UnloggedInfoPage(spidOnlyInfo: true));
         }
 
         private async void ButtonLogin_Clicked(object sender, EventArgs e)

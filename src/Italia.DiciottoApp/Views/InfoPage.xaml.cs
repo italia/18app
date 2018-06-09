@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Italia.DiciottoApp.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,14 +13,14 @@ namespace Italia.DiciottoApp.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class InfoPage : ContentPage
 	{
-        public string LabelText { get; set; } = "INFORMATION PAGE -TO BE DONE";
+        private InfoViewModel vm;
 
-        public InfoPage (bool spidOnlyInfo = false)
-		{
-            InitializeComponent ();
+        public InfoPage()
+        {
+            InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
-            Title = $"Informazioni{(spidOnlyInfo ? " (SPID only)": "")}";
-            BindingContext = this;
-		}
+            vm = BindingContext as InfoViewModel;
+        }
+
 	}
 }
