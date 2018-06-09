@@ -1,4 +1,5 @@
 ﻿using Italia.DiciottoApp.Models;
+using Italia.DiciottoApp.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,12 +14,14 @@ namespace Italia.DiciottoApp.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class SpidLoginPage : ContentPage
 	{
+        SpidLoginViewModel vm;
+
 		public SpidLoginPage ()
 		{
 			InitializeComponent ();
             NavigationPage.SetHasNavigationBar(this, false);
-            Title = "SPID Login";
-		}
+            vm = BindingContext as SpidLoginViewModel;
+        }
 
         private async void ButtonFakeSpidLogin_Clicked(object sender, EventArgs e)
         {

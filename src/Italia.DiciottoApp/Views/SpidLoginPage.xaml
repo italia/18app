@@ -1,12 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<ContentPage x:Class="Italia.DiciottoApp.Views.SpidLoginPage"
+             xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Italia.DiciottoApp.Views.SpidLoginPage"
-             ControlTemplate="{StaticResource InfoPageTemplate}" >
-    
+             xmlns:vm="clr-namespace:Italia.DiciottoApp.ViewModels"
+             ControlTemplate="{StaticResource LoginPageTemplate}">
+
+    <ContentPage.BindingContext>
+        <vm:SpidLoginViewModel />
+    </ContentPage.BindingContext>
+
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="TO BE DONE RIGHT NOW!"
+            <Label Text="TODO: SPID login"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
             <Button
