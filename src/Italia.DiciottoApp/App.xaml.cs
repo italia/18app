@@ -48,6 +48,11 @@ namespace Italia.DiciottoApp
             await Navigation.PopAsync();
         }
 
+        private async void ButtonLogin_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new SpidLoginPage());
+        }
+
         private async void OnNewCouponIconTapped(object sender, EventArgs e)
         {
             await NavigateToPage("NewCoupon");
@@ -65,27 +70,32 @@ namespace Italia.DiciottoApp
             await NavigateToPage("Info");
         }
 
-        private async Task NavigateToPage(string appAreaTitle)
+        private async Task NavigateToPage(string appAreaTarget)
         {
             // Get the current page
             IReadOnlyList<Page> navStack = Navigation.Navigation.NavigationStack;
             Type currentPageType = navStack[navStack.Count - 1].GetType();
 
-            if (appAreaTitle == "NewCoupon" && currentPageType != typeof(NewCouponPage))
+            if (appAreaTarget == "NewCoupon" && currentPageType != typeof(NewCouponPage))
             {
                 await Navigation.PushAsync(new NewCouponPage());
             }
 
-            if (appAreaTitle == "Wallet" && currentPageType != typeof(WalletPage))
+            if (appAreaTarget == "Wallet" && currentPageType != typeof(WalletPage))
             {
                 await Navigation.PushAsync(new WalletPage());
             }
 
-            if (appAreaTitle == "Stores" && currentPageType != typeof(NearToYouShopsPage)
+            if (appAreaTarget == "Stores" && currentPageType != typeof(NearToYouShopsPage)
                                          && currentPageType != typeof(OnlineShopsPage)
                                          && currentPageType != typeof(FindShopsPage))
             {
                 await Navigation.PushAsync(new NearToYouShopsPage());
+            }
+
+            if (appAreaTarget == "Info" && currentPageType != typeof(InfoPage))
+            {
+                await Navigation.PushAsync(new InfoPage());
             }
         }
     }

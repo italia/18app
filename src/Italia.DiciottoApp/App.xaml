@@ -106,58 +106,139 @@
             </Setter>
         </Style>
 
-        <ControlTemplate x:Key="InfoPageTemplate" >
-            <Grid VerticalOptions="FillAndExpand"
-                  HorizontalOptions="FillAndExpand"
-                  BindingContext="{TemplateBinding BindingContext}"
-                  RowSpacing="0" ColumnSpacing="0" >
+      <Style x:Key="InfoButtonStyle" TargetType="Button">
+        <Setter Property="TextColor" Value="White" />
+        <Setter Property="BackgroundColor" Value="Transparent" />
+        <Setter Property="HorizontalOptions" Value="Center" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="FontFamily">
+          <Setter.Value>
+            <OnPlatform x:TypeArguments="x:String">
+              <On Platform="iOS" Value="TitilliumWeb-Regular" />
+              <On Platform="Android" Value="fonts/TitilliumWeb-Regular.ttf#TitilliumWeb-Regular" />
+              <On Platform="UWP" Value="Assets/Fonts/TitilliumWeb-Regular.ttf#TitilliumWeb" />
+            </OnPlatform>
+          </Setter.Value>
+        </Setter>
+      </Style>
 
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="50"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
+      <ControlTemplate x:Key="UnloggedInfoPageTemplate" >
+        <Grid VerticalOptions="FillAndExpand"
+              HorizontalOptions="FillAndExpand"
+              BindingContext="{TemplateBinding BindingContext}"
+              RowSpacing="0" ColumnSpacing="0" >
 
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="Auto" />
-                </Grid.ColumnDefinitions>
+          <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="64" />
+          </Grid.RowDefinitions>
 
-                <Grid.Padding>
-                    <OnPlatform x:TypeArguments="Thickness" iOS="0, 20, 0, 0" />
-                </Grid.Padding>
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+          </Grid.ColumnDefinitions>
 
-                <BoxView Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"
-                         BackgroundColor="{StaticResource AppBkgndColor}" />
+          <Grid.Padding>
+            <OnPlatform x:TypeArguments="Thickness" iOS="0, 20, 0, 0" />
+          </Grid.Padding>
 
-                <StackLayout Grid.Row="0" Grid.Column="0"
-                             Orientation="Horizontal"
-                             Margin="0,6">
-                    <StackLayout.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="OnBackButtonPressed" />
-                    </StackLayout.GestureRecognizers>
+          <BoxView Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"
+                   BackgroundColor="{StaticResource AppBkgndColor}" />
 
-                    <Image Margin="10,0,0,0"
-                           Source="back" />
+          <StackLayout Grid.Row="0" Grid.Column="0"
+                       Orientation="Horizontal"
+                       Margin="0,6">
+            <StackLayout.GestureRecognizers>
+              <TapGestureRecognizer Tapped="OnBackButtonPressed" />
+            </StackLayout.GestureRecognizers>
 
-                    <Label Style="{StaticResource PageTitleLabelStyle}"
-                           HorizontalOptions="Start" VerticalOptions="Center"
-                           Margin="10,0"
-                           Text ="{TemplateBinding Title}" />
-                </StackLayout>
+            <Image Margin="10,0,0,0"
+                   Source="back" />
 
-                <Image Grid.Row="0" Grid.Column="2"
-                       HorizontalOptions="End"
-                       Margin="10,0"
-                       Source="header_logo" />
+            <Label Style="{StaticResource PageTitleLabelStyle}"
+                   HorizontalOptions="Start" VerticalOptions="Center"
+                   Margin="10,0"
+                   Text ="{Binding PageTitle}" />
 
-                <ContentPresenter Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3"
-                                  VerticalOptions="FillAndExpand"
-                                  HorizontalOptions="FillAndExpand" />
-            </Grid>
-        </ControlTemplate>
-        
-        <ControlTemplate x:Key="AppHeaderTemplate">
+          </StackLayout>
+
+          <Image Grid.Row="0" Grid.Column="2"
+                 HorizontalOptions="End"
+                 Margin="10,0"
+                 Source="header_logo" />
+
+          <ContentPresenter Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3"
+                            VerticalOptions="FillAndExpand"
+                            HorizontalOptions="FillAndExpand" />
+
+          <BoxView Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3"
+                   BackgroundColor="{StaticResource AppBkgndColor}" />
+
+          <Button Grid.Row="2"  Grid.Column="0" Grid.ColumnSpan="3"
+                  HorizontalOptions="Center"
+                  VerticalOptions="Center"
+                  Style="{StaticResource Key=InfoButtonStyle}"
+                  Image="logo_utente_spid.png"
+                  Text="ENTRA CON SPID"
+                  Clicked="ButtonLogin_Clicked" />
+        </Grid>
+      </ControlTemplate>
+      
+      <ControlTemplate x:Key="LoginPageTemplate" >
+        <Grid VerticalOptions="FillAndExpand"
+              HorizontalOptions="FillAndExpand"
+              BindingContext="{TemplateBinding BindingContext}"
+              RowSpacing="0" ColumnSpacing="0" >
+
+          <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+          </Grid.RowDefinitions>
+
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+          </Grid.ColumnDefinitions>
+
+          <Grid.Padding>
+            <OnPlatform x:TypeArguments="Thickness" iOS="0, 20, 0, 0" />
+          </Grid.Padding>
+
+          <BoxView Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"
+                   BackgroundColor="{StaticResource AppBkgndColor}" />
+
+          <StackLayout Grid.Row="0" Grid.Column="0"
+                       Orientation="Horizontal"
+                       Margin="0,6">
+            <StackLayout.GestureRecognizers>
+              <TapGestureRecognizer Tapped="OnBackButtonPressed" />
+            </StackLayout.GestureRecognizers>
+
+            <Image Margin="10,0,0,0"
+                   Source="back" />
+
+            <Label Style="{StaticResource PageTitleLabelStyle}"
+                   HorizontalOptions="Start" VerticalOptions="Center"
+                   Margin="10,0"
+                   Text ="{Binding PageTitle}" />
+
+          </StackLayout>
+
+          <Image Grid.Row="0" Grid.Column="2"
+                 HorizontalOptions="End"
+                 Margin="10,0"
+                 Source="header_logo" />
+
+          <ContentPresenter Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3"
+                            VerticalOptions="FillAndExpand"
+                            HorizontalOptions="FillAndExpand" />
+        </Grid>
+      </ControlTemplate>
+
+      <ControlTemplate x:Key="AppHeaderTemplate">
             <Grid BindingContext="{TemplateBinding BindingContext}"
                   RowSpacing="0" ColumnSpacing="0">
 
