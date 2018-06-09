@@ -18,19 +18,25 @@ namespace Italia.DiciottoApp.ViewModels
 
         #region Properties
 
-        private string userCredit;
-        public string UserCredit
+        public double InitialCredit { get; } = 500.00;
+
+        public double UsedPercentage { get => (InitialCredit - ActualCredit) / InitialCredit;  }
+
+        public string UserCredit { get => $"{ActualCredit.ToString("###.00")}€"; }
+
+        private double actualCredit;
+        public double ActualCredit
         {
             get
             {
-                return userCredit;
+                return actualCredit;
             }
 
             set
             {
-                if (value != userCredit)
+                if (value != actualCredit)
                 {
-                    userCredit = value;
+                    actualCredit = value;
                     NotifyPropertyChanged();
                 }
             }
@@ -64,7 +70,8 @@ namespace Italia.DiciottoApp.ViewModels
         private void GetUserStatus()
         {
             // TODO: get data from service
-            UserCredit = "174,00€";
+            Random rnd = new Random(DateTime.Now.Millisecond);
+            ActualCredit = 50.00 + rnd.Next(0, 450);
             UnreadMessages = "2";
         }
 

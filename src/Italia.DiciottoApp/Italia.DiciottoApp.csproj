@@ -11,6 +11,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Views\UnloggedInfoPage.xaml.cs">
+      <DependentUpon>UnloggedInfoPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\NearToYouShopsPage.xaml.cs">
       <DependentUpon>NearToYouShopsPage.xaml</DependentUpon>
     </Compile>
@@ -24,6 +27,12 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\InfoPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\LoggedRootPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\UnloggedInfoPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\NearToYouShopsPage.xaml">

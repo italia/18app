@@ -23,7 +23,7 @@ namespace Italia.DiciottoApp
 
             InitializeComponent();
 
-            Navigation = Settings.UserLogged ? new NavigationPage(new NearToYouShopsPage()) : new NavigationPage(new WelcomePage());
+            Navigation = Settings.UserLogged ? new NavigationPage(new LoggedRootPage()) : new NavigationPage(new WelcomePage());
 
             MainPage = Navigation;
         }
@@ -51,6 +51,11 @@ namespace Italia.DiciottoApp
         private async void ButtonLogin_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new SpidLoginPage());
+        }
+
+        private async void AppLogoTapped(object sender, EventArgs e)
+        {
+            await NavigateToPage("Info");
         }
 
         private async void OnNewCouponIconTapped(object sender, EventArgs e)

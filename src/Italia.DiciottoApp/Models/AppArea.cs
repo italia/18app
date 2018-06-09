@@ -9,6 +9,7 @@ namespace Italia.DiciottoApp.Models
         NewCoupon,
         Wallet,
         Stores,
-        Info
+        Info,
+        None
     }
 }

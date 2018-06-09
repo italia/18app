@@ -35,7 +35,7 @@ namespace Italia.DiciottoApp.Views
             Page currentRootPage = navStack[0];
 
             // Insert page before WelcomePage
-            Navigation.InsertPageBefore(new NearToYouShopsPage(), currentRootPage);
+            Navigation.InsertPageBefore(new LoggedRootPage(), currentRootPage);
 
             // Clear navigation stack
             await Navigation.PopToRootAsync();

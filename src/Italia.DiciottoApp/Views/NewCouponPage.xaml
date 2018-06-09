@@ -14,8 +14,7 @@
               HorizontalOptions="FillAndExpand"
               RowSpacing="0" ColumnSpacing="0" >
 
-            <Label Grid.Row="1" Grid.ColumnSpan="3"
-                   Text="TODO: Creazione nuovo buono"
+            <Label Text="TODO: Creazione nuovo buono"
                    VerticalOptions="CenterAndExpand" 
                    HorizontalOptions="CenterAndExpand" />
         </Grid>

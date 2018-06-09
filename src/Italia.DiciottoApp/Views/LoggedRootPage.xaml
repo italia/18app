@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Class="Italia.DiciottoApp.Views.LoggedRootPage"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:Italia.DiciottoApp.ViewModels"
+             xmlns:cr="clr-namespace:Italia.DiciottoApp.CustomRenders"
+             ControlTemplate="{StaticResource AppRootTemplate}" >
+
+    <ContentPage.BindingContext>
+        <vm:LoggedRootViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <Grid RowSpacing="0" ColumnSpacing="0" >
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row="0"
+                   Margin="0,20,0,0"
+                   HorizontalOptions="CenterAndExpand"
+                   Style="{StaticResource RegularLabelStyle}"
+                   TextColor="#FF596672"
+                   Text="{Binding Greetings}"/>
+
+            <StackLayout Grid.Row="1"
+                         Orientation="Horizontal"
+                         HorizontalOptions="CenterAndExpand"
+                         Margin="0,0,0,0">
+
+                <Label VerticalOptions="Center"
+                       Style="{StaticResource RegularLabelStyle}" 
+                       FontSize="48"
+                       TextColor="#FF66DBDD"  
+                       Text="{Binding ActualCredit}"/>
+
+                <Label VerticalOptions="Center"
+                       Style="{StaticResource RegularLabelStyle}"
+                       FontSize="24"
+                       TextColor="#FF66DBDD"  
+                       Text="€"/>
+
+            </StackLayout>
+
+            <cr:RadialGauge Grid.Row="2" Margin="0,40,0,0"
+                            WidthRequest="116" HeightRequest="116"
+                            StrokeWidth="5"
+                            FillColor="#FF0066CC"
+                            UnusedStrokeColor="#FF66DBDD"
+                            UsedStrokeColor="#FF003D8E"
+                            UsedPercentage="{Binding UsedPercentage}">
+                <cr:RadialGauge.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnNewCouponTapped" />
+                </cr:RadialGauge.GestureRecognizers>
+            </cr:RadialGauge>
+
+            <Label Grid.Row="3"
+                   Margin="0,8,0,0"
+                   HorizontalOptions="CenterAndExpand"
+                   Style="{StaticResource RegularLabelStyle}"
+                   FontSize="16" TextColor="#FF0066CC"
+                   Text="NUOVO BUONO"/>
+
+            <Grid Grid.Row="4"
+                  RowSpacing="0" ColumnSpacing="0">
+
+                <Frame CornerRadius="5" Padding="1"
+                       Margin="30,0,30,28" HeightRequest="48"
+                       VerticalOptions="End"
+                       BackgroundColor="{StaticResource TabsBkgndColor}" >
+
+                    <StackLayout Grid.Row="1"
+                         Orientation="Horizontal"
+                         HorizontalOptions="CenterAndExpand"
+                         Margin="0,0,0,0">
+
+                        <Image Source="gps_marker" />
+
+                        <Label VerticalOptions="Center"
+                               Style="{StaticResource RegularLabelStyle}" 
+                               FontSize="16"
+                               TextColor="White"  
+                               Text="SONO GIÀ IN NEGOZIO"/>
+
+                    </StackLayout>
+                </Frame>
+
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
