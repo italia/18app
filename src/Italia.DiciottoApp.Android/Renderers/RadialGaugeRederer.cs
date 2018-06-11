@@ -30,8 +30,8 @@ namespace Italia.DiciottoApp.Droid.Renderers
             base.OnElementChanged(e);
             if (Control == null)
             {
-                var circleDotView = new Android.Views.View(Context);
-                SetNativeControl(circleDotView);
+                var radialGaugeView = new Android.Views.View(Context);
+                SetNativeControl(radialGaugeView);
             }
         }
 

@@ -186,6 +186,18 @@
     <ImageAsset Include="Assets.xcassets\bonus.imageset\bonus@3x.png">
       <Visible>false</Visible>
     </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\euro_acquamarine.imageset\euro_acquamarine.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\euro_acquamarine.imageset\euro_acquamarine@2x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\euro_acquamarine.imageset\euro_acquamarine@3x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\gps_marker.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\gps_marker.imageset\gps_marker.png">
       <Visible>false</Visible>
     </ImageAsset>
@@ -204,7 +216,7 @@
     <ImageAsset Include="Assets.xcassets\header_logo.imageset\header_logo@3x.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\gps_marker.imageset\Contents.json">
+    <ImageAsset Include="Assets.xcassets\euro_acquamarine.imageset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\logo_utente_spid.imageset\logo_utente_spid.png">

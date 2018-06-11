@@ -31,19 +31,24 @@
             <StackLayout Grid.Row="1"
                          Orientation="Horizontal"
                          HorizontalOptions="CenterAndExpand"
+                         VerticalOptions="CenterAndExpand"
                          Margin="0,0,0,0">
 
                 <Label VerticalOptions="Center"
-                       Style="{StaticResource RegularLabelStyle}" 
+                       Style="{StaticResource BoldLabelStyle}" 
                        FontSize="48"
                        TextColor="#FF66DBDD"  
                        Text="{Binding ActualCredit}"/>
 
-                <Label VerticalOptions="Center"
-                       Style="{StaticResource RegularLabelStyle}"
-                       FontSize="24"
-                       TextColor="#FF66DBDD"  
-                       Text="€"/>
+                <Image VerticalOptions="CenterAndExpand"
+                       Source="euro_acquamarine">
+                    <Image.Margin>
+                        <OnPlatform x:TypeArguments="Thickness"
+                                    iOS="0, 5, 0, 0"
+                                    Android="0, 10, 0, 0" />
+
+                    </Image.Margin>
+                </Image>
 
             </StackLayout>
 
