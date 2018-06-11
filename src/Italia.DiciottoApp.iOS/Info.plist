@@ -38,7 +38,7 @@
 		<string>TitilliumWeb-Italic.ttf</string>
 		<string>TitilliumWeb-Regular.ttf</string>
 	</array>
-	<key>Custom Property</key>
-	<string></string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>18app vorrebbe usare la tua posizione corrente</string>
 </dict>
 </plist>
