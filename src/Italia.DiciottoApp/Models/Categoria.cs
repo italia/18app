@@ -67,17 +67,43 @@ namespace Italia.DiciottoApp.Models
                 }
             },
         };
+        public TipoCategoria Tipo { get; }
 
-        public TipoCategoria Tipo { get; set; }
+        public string Titolo => categorie[(int)Tipo];
 
-        public string Titolo
+        public string ElencoProdotti { get; }
+
+        public Categoria(TipoCategoria tipo)
         {
-            get => categorie[(int)Tipo];
+            this.Tipo = tipo;
+            ElencoProdotti = CreaListaProdotti();
         }
 
-        public Prodotto[] Prodotti
+        public string CreaListaProdotti()
         {
-            get => prodotti[Tipo];
+            if (prodotti[Tipo].Length == 0)
+            {
+                return String.Empty;
+            }
+            else
+            {
+                StringBuilder sb = new StringBuilder();
+                bool firstTime = true;
+                foreach (var prod in prodotti[Tipo])
+                {
+                    if (firstTime)
+                    {
+                        firstTime = false;
+                    }
+                    else
+                    {
+                        sb.Append(", ");
+                    }
+                    sb.Append(prod.Titolo);
+                }
+                return sb.ToString();
+            }
         }
+
     }
 }

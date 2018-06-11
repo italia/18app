@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.Essentials;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -20,6 +21,34 @@ namespace Italia.DiciottoApp.Views
 			InitializeComponent ();
             NavigationPage.SetHasNavigationBar(this, false);
             vm = BindingContext as NearToYouShopsViewModel;
+        }
+
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+            await GetGeolocation();
+        }
+
+        private async Task GetGeolocation()
+        {
+            vm.GeoLocationActive = true;
+            try
+            {
+                vm.GeoLocation = await Geolocation.GetLastKnownLocationAsync();
+                vm.GeoLocationActive = true;
+            }
+            catch (FeatureNotSupportedException fnsEx)
+            {
+                // Handle not supported on device exception
+            }
+            catch (PermissionException pEx)
+            {
+                // Handle permission exception
+            }
+            catch (Exception ex)
+            {
+                // Unable to get location
+            }
         }
 
         private async void OnOnlineTabTapped(object sender, EventArgs e)
