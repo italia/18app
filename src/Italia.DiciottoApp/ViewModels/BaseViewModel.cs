@@ -7,11 +7,11 @@ using System.Text;
 
 namespace Italia.DiciottoApp.ViewModels
 {
-    public class BaseViewModel
+    public class BaseViewModel: INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        protected void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
+        protected void OnNotifyPropertyChanged([CallerMemberName] String propertyName = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
@@ -37,7 +37,7 @@ namespace Italia.DiciottoApp.ViewModels
                 if (value != actualCredit)
                 {
                     actualCredit = value;
-                    NotifyPropertyChanged();
+                    OnNotifyPropertyChanged();
                 }
             }
         }
@@ -55,7 +55,7 @@ namespace Italia.DiciottoApp.ViewModels
                 if (value != unreadMessages)
                 {
                     unreadMessages = value;
-                    NotifyPropertyChanged();
+                    OnNotifyPropertyChanged();
                 }
             }
         }
