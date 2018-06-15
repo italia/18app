@@ -75,6 +75,7 @@
                   RowSpacing="0" ColumnSpacing="0">
 
                 <Frame CornerRadius="5" Padding="1"
+                       HasShadow="False"
                        Margin="30,0,30,28" HeightRequest="48"
                        VerticalOptions="End"
                        BackgroundColor="{StaticResource TabsBkgndColor}" >
