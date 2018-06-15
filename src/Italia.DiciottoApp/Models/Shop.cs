@@ -15,6 +15,8 @@ namespace Italia.DiciottoApp.Models
 
         public Location Location { get; set; }
 
+        public string DistanceFromUser { get; set; }
+
         public Categoria[] Categorie { get; set; }
 
         public string Url { get; set; }

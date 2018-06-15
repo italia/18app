@@ -26,29 +26,7 @@ namespace Italia.DiciottoApp.Views
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-            await GetGeolocation();
-        }
-
-        private async Task GetGeolocation()
-        {
-            vm.GeoLocationActive = true;
-            try
-            {
-                vm.GeoLocation = await Geolocation.GetLastKnownLocationAsync();
-                vm.GeoLocationActive = true;
-            }
-            catch (FeatureNotSupportedException fnsEx)
-            {
-                // Handle not supported on device exception
-            }
-            catch (PermissionException pEx)
-            {
-                // Handle permission exception
-            }
-            catch (Exception ex)
-            {
-                // Unable to get location
-            }
+            await vm.GetShopListAsync();
         }
 
         private async void OnOnlineTabTapped(object sender, EventArgs e)

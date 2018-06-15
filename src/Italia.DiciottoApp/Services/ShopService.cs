@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using Italia.DiciottoApp.Models;
 using Xamarin.Essentials;
 
@@ -9,7 +10,7 @@ namespace Italia.DiciottoApp.Services
 {
     public class ShopService : IShopsService
     {
-        public IEnumerable<Shop> NearToLocationShops(Location location, int maxItems = 10)
+        public async Task<IEnumerable<Shop>> NearToLocationShopsAsync(Location location, int maxItems = 10)
         {
             if (location == null)
             {
@@ -20,7 +21,7 @@ namespace Italia.DiciottoApp.Services
 
             // TODO: Get shops from 18App SOAP Service
             var fakeShopsService = new FakeShopService();
-            shops = fakeShopsService.NearToLocationShops(location, maxItems);
+            shops = await fakeShopsService.NearToLocationShopsAsync(location, maxItems);
 
             return shops;
         }

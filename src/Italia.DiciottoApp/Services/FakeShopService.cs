@@ -3,21 +3,26 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using Xamarin.Essentials;
 
 namespace Italia.DiciottoApp.Services
 {
     class FakeShopService : IShopsService
     {
-        public IEnumerable<Shop> NearToLocationShops(Location location, int maxItems = 10)
+        public async Task<IEnumerable<Shop>> NearToLocationShopsAsync(Location location, int maxItems = 10)
         {
             if (location == null)
             {
                 throw new ArgumentNullException("location");
             }
 
+            // simulate delay
+            await Task.Delay(5000);
+
             return FakeShops.List().Take(maxItems);
         }
+
     }
 
     public static class FakeShops
@@ -46,7 +51,8 @@ namespace Italia.DiciottoApp.Services
                 },
                     IsOnline = false,
                     Url = string.Empty,
-                    Location = new Location(location.Latitude + 0.01, location.Longitude + 0.01)
+                    Location = new Location(location.Latitude + 0.01, location.Longitude + 0.01),
+                    DistanceFromUser = "500m"
                 },
                 new Shop
                 {
@@ -66,7 +72,8 @@ namespace Italia.DiciottoApp.Services
                     },
                     IsOnline = false,
                     Url = string.Empty,
-                    Location = new Location(location.Latitude + 0.015, location.Longitude + 0.015)
+                    Location = new Location(location.Latitude + 0.015, location.Longitude + 0.015),
+                    DistanceFromUser = "1,3km"
                 },
                 new Shop
                 {
@@ -86,7 +93,8 @@ namespace Italia.DiciottoApp.Services
                     },
                     IsOnline = false,
                     Url = string.Empty,
-                    Location = new Location(location.Latitude + 0.01, location.Longitude - 0.01)
+                    Location = new Location(location.Latitude + 0.01, location.Longitude - 0.01),
+                    DistanceFromUser = "3km"
                 },
                 new Shop
                 {
@@ -106,7 +114,8 @@ namespace Italia.DiciottoApp.Services
                     },
                     IsOnline = false,
                     Url = string.Empty,
-                    Location = new Location(location.Latitude - 0.01, location.Longitude - 0.01)
+                    Location = new Location(location.Latitude - 0.01, location.Longitude - 0.01),
+                    DistanceFromUser = "3km"
                 },
                 new Shop
                 {
@@ -126,7 +135,8 @@ namespace Italia.DiciottoApp.Services
                     },
                     IsOnline = false,
                     Url = string.Empty,
-                    Location = new Location(location.Latitude - 0.01, location.Longitude - 0.01)
+                    Location = new Location(location.Latitude - 0.01, location.Longitude - 0.01),
+                    DistanceFromUser = "3km"
                 }
             };
         }

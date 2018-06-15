@@ -10,18 +10,6 @@
 
         <conv:AppAreaOpacityConverter x:Key="AppAreaOpacityConverter" />
 
-        <Style x:Key="BoldLabelStyle" TargetType="Label">
-            <Setter Property="FontFamily">
-                <Setter.Value>
-                    <OnPlatform x:TypeArguments="x:String">
-                        <On Platform="iOS" Value="TitilliumWeb-Bold" />
-                        <On Platform="Android" Value="fonts/TitilliumWeb-Bold.ttf#TitilliumWeb-Bold" />
-                        <On Platform="UWP" Value="Assets/Fonts/TitilliumWeb-Bold.ttf#TitilliumWeb" />
-                    </OnPlatform>
-                </Setter.Value>
-            </Setter>
-        </Style>
-
         <Style x:Key="RegularLabelStyle" TargetType="Label">
             <Setter Property="FontFamily">
                 <Setter.Value>
@@ -29,6 +17,18 @@
                         <On Platform="iOS" Value="TitilliumWeb-Regular" />
                         <On Platform="Android" Value="fonts/TitilliumWeb-Regular.ttf#TitilliumWeb-Regular" />
                         <On Platform="UWP" Value="Assets/Fonts/TitilliumWeb-Regular.ttf#TitilliumWeb" />
+                    </OnPlatform>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="BoldLabelStyle" TargetType="Label">
+            <Setter Property="FontFamily">
+                <Setter.Value>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="iOS" Value="TitilliumWeb-Bold" />
+                        <On Platform="Android" Value="fonts/TitilliumWeb-Bold.ttf#TitilliumWeb-Bold" />
+                        <On Platform="UWP" Value="Assets/Fonts/TitilliumWeb-Bold.ttf#TitilliumWeb" />
                     </OnPlatform>
                 </Setter.Value>
             </Setter>
