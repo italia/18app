@@ -115,6 +115,9 @@
                          Orientation="Horizontal"
                          HorizontalOptions="Center"
                          IsVisible="{Binding GoToMapMessageIsVisible}">
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnGoToMapTapped" />
+                </StackLayout.GestureRecognizers>
 
                 <Image Source="map_icon" />
 

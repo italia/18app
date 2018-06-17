@@ -51,5 +51,10 @@ namespace Italia.DiciottoApp.Views
             // Navigate to target
             await Navigation.PopAsync();
         }
+
+        private async void OnGoToMapTapped(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new ShopsMapPage());
+        }
     }
 }
