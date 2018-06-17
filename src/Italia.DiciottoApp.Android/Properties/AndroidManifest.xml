@@ -1,5 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionName="0.1" package="it.Italia.DiciottoApp" android:installLocation="auto" android:versionCode="1">
-	<uses-sdk android:minSdkVersion="16" android:targetSdkVersion="27" />
-	<application android:label="18App"></application>
+	<uses-sdk android:minSdkVersion="19" />
+	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+	<uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" />
+	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+	<uses-permission android:name="android.permission.INTERNET" />
+	<application android:label="18App" android:icon="@mipmap/icon"></application>
+	<meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyAOv-2TJD-_67kxONvcKawTHZ2uTAcwm6c" />
 </manifest>
