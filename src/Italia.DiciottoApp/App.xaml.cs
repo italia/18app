@@ -19,8 +19,9 @@ namespace Italia.DiciottoApp
         public App ()
 		{
             // Initialize Live Reload.
+#if DEBUG
             LiveReload.Init();
-
+#endif
             InitializeComponent();
 
             Navigation = Settings.UserLogged ? new NavigationPage(new LoggedRootPage()) : new NavigationPage(new WelcomePage());
