@@ -42,7 +42,7 @@ namespace Italia.DiciottoApp.Views
             Navigation.InsertPageBefore(targetPage, currentPage);
 
             // Navigate to target
-            await Navigation.PopAsync();
+            await Navigation.PopAsync(false);
         }
 
     }

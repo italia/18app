@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Xamarin.Essentials;
 
 using Xamarin.Forms;
+using Xamarin.Forms.Maps;
 using Xamarin.Forms.Xaml;
 
 namespace Italia.DiciottoApp.Views
@@ -49,7 +50,7 @@ namespace Italia.DiciottoApp.Views
             Navigation.InsertPageBefore(targetPage, currentPage);
 
             // Navigate to target
-            await Navigation.PopAsync();
+            await Navigation.PopAsync(false);
         }
 
         private async void OnGoToMapTapped(object sender, EventArgs e)
