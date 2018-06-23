@@ -18,7 +18,7 @@ namespace Italia.DiciottoApp.Services
             }
 
             // simulate delay
-            await Task.Delay(5000);
+            await Task.Delay(4000);
 
             return FakeShops.List().Take(maxItems);
         }
@@ -135,7 +135,7 @@ namespace Italia.DiciottoApp.Services
                     },
                     IsOnline = false,
                     Url = string.Empty,
-                    Location = new Location(location.Latitude - 0.01, location.Longitude - 0.01),
+                    Location = new Location(location.Latitude - 0.02, location.Longitude - 0.01),
                     DistanceFromUser = "3km"
                 }
             };
