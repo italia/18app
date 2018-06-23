@@ -140,5 +140,15 @@ namespace Italia.DiciottoApp.ViewModels
             OnPropertyChanged("ShopListIsVisible");
         }
 
+        public override void OnDisappearing()
+        {
+            if (IsBusy)
+            {
+                if (cts != null && !cts.IsCancellationRequested)
+                    cts.Cancel();
+            }
+            base.OnDisappearing();
+        }
+
     }
 }
