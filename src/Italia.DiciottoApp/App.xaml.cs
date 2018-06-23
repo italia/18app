@@ -16,6 +16,7 @@ namespace Italia.DiciottoApp
         public static NavigationPage Navigation = null;
 
         public static Location LastLocation = null;
+        public static IEnumerable<Shop> Shops = null;
 
         public string ThisPageTitle { get; set; }
 

@@ -95,27 +95,31 @@ namespace Italia.DiciottoApp.ViewModels
             }
             else
             {
-                if (Shops.Count == 0 ||
-                    App.LastLocation == null ||
-                    Location.CalculateDistance(App.LastLocation.Latitude, 
+                ContentHeader = "Ricerca dei negozi vicini a te...";
+                var shopService = Service.Resolve<IShopsService>();
+                if (App.LastLocation == null ||
+                    Location.CalculateDistance(App.LastLocation.Latitude,
                                                UserLocation.Latitude,
                                                App.LastLocation.Longitude,
                                                UserLocation.Longitude,
                                                DistanceUnits.Kilometers) > Constants.NEW_LOCATION_MINIMUM_KM)
                 {
-                    ContentHeader = "Ricerca dei negozi vicini a te...";
-                    Shops.Clear();
-                    var shopService = Service.Resolve<IShopsService>();
                     shops = await shopService.NearToLocationShopsAsync(UserLocation);
-                    if (shops != null)
-                    {
-                        foreach (var shop in shops)
-                        {
-                            Shops.Add(shop);
-                        }
-                    }
-
+                    App.Shops = shops;
                     App.LastLocation = UserLocation;
+                }
+                else
+                {
+                    shops = App.Shops;
+                }
+
+                if (shops != null)
+                {
+                    Shops.Clear();
+                    foreach (var shop in shops)
+                    {
+                        Shops.Add(shop);
+                    }
                 }
 
                 switch (Shops.Count)
