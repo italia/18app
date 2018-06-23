@@ -11,7 +11,7 @@ using Xamarin.Forms.Xaml;
 namespace Italia.DiciottoApp.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class FindShopsPage : ContentPage
+	public partial class FindShopsPage : BasePage
 	{
         private FindShopsViewModel vm;
 

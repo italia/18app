@@ -12,8 +12,8 @@ using Xamarin.Forms.Xaml;
 namespace Italia.DiciottoApp.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class SpidLoginPage : ContentPage
-	{
+	public partial class SpidLoginPage : BasePage
+    {
         SpidLoginViewModel vm;
 
 		public SpidLoginPage ()

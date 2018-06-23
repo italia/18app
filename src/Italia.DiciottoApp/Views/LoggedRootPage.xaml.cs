@@ -11,8 +11,8 @@ using Xamarin.Forms.Xaml;
 namespace Italia.DiciottoApp.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class LoggedRootPage : ContentPage
-	{
+	public partial class LoggedRootPage : BasePage
+    {
         private LoggedRootViewModel vm;
 
         public LoggedRootPage ()

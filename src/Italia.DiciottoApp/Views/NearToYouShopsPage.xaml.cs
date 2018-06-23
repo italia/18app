@@ -13,8 +13,8 @@ using Xamarin.Forms.Xaml;
 namespace Italia.DiciottoApp.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class NearToYouShopsPage : ContentPage
-	{
+	public partial class NearToYouShopsPage : BasePage
+    {
         private NearToYouShopsViewModel vm;
 
         public NearToYouShopsPage()

@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Italia.DiciottoApp.Views.WelcomePage"
-             BackgroundColor="{StaticResource AppBkgndColor}" >
+<views:BasePage xmlns="http://xamarin.com/schemas/2014/forms"
+                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                x:Class="Italia.DiciottoApp.Views.WelcomePage"
+                xmlns:views="clr-namespace:Italia.DiciottoApp.Views"
+                BackgroundColor="{StaticResource AppBkgndColor}" >
 
-    <ContentPage.Resources>
+    <views:BasePage.Resources>
         <ResourceDictionary>
             <Style x:Key="BoldLabelStyle" TargetType="Label">
                 <Setter Property="TextColor" Value="White" />
@@ -49,7 +50,7 @@
                 </Setter>
             </Style>
         </ResourceDictionary>
-    </ContentPage.Resources>
+    </views:BasePage.Resources>
 
     <Grid Margin="0" RowSpacing ="0" ColumnSpacing="0" >
             
@@ -115,4 +116,4 @@
                 Style="{StaticResource Key=InfoButtonStyle}"
                 Clicked="ButtonLogin_Clicked" />
     </Grid>
-</ContentPage>
+</views:BasePage>

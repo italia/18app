@@ -4,13 +4,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Italia.DiciottoApp.ViewModels
 {
     public class BaseViewModel: ObservableObject
     {
-        #region Properties
-
         bool isBusy;
         public bool IsBusy
         {
@@ -19,6 +18,23 @@ namespace Italia.DiciottoApp.ViewModels
         }
 
         public bool IsNotBusy => !IsBusy;
+
+        public virtual void OnAppearing()
+        {
+        }
+
+        public virtual void OnDisappearing()
+        {
+        }
+
+        internal event Func<string, Task> DoDisplayAlert;
+
+        public Task DisplayAlertAsync(string message)
+        {
+            return DoDisplayAlert?.Invoke(message) ?? Task.CompletedTask;
+        }
+
+        #region 18App Properties
 
         public double InitialCredit => 500.00;
 

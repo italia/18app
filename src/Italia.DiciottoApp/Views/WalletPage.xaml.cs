@@ -11,8 +11,8 @@ using Xamarin.Forms.Xaml;
 namespace Italia.DiciottoApp.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class WalletPage : ContentPage
-	{
+	public partial class WalletPage : BasePage
+    {
         private WalletViewModel vm;
 
         public WalletPage ()

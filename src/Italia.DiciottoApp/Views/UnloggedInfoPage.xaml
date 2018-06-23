@@ -1,19 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage x:Class="Italia.DiciottoApp.Views.UnloggedInfoPage"
-             xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:vm="clr-namespace:Italia.DiciottoApp.ViewModels"
-             ControlTemplate="{StaticResource UnloggedInfoPageTemplate}" >
+<views:BasePage x:Class="Italia.DiciottoApp.Views.UnloggedInfoPage"
+                xmlns="http://xamarin.com/schemas/2014/forms"
+                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                xmlns:views="clr-namespace:Italia.DiciottoApp.Views"
+                xmlns:vm="clr-namespace:Italia.DiciottoApp.ViewModels"
+                ControlTemplate="{StaticResource UnloggedInfoPageTemplate}" >
 
-    <ContentPage.BindingContext>
+    <views:BasePage.BindingContext>
         <vm:UnloggedInfoViewModel />
-    </ContentPage.BindingContext>
+    </views:BasePage.BindingContext>
 
-    <ContentPage.Content>
+    <views:BasePage.Content>
         
         <Label Text="{Binding TodoText}"
                VerticalOptions="CenterAndExpand" 
                HorizontalOptions="CenterAndExpand" />
         
-    </ContentPage.Content>
-</ContentPage>
+    </views:BasePage.Content>
+</views:BasePage>

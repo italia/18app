@@ -14,8 +14,8 @@ using Xamarin.Forms.Xaml;
 namespace Italia.DiciottoApp.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class ShopsMapPage : ContentPage
-	{
+	public partial class ShopsMapPage : BasePage
+    {
         private ShopsMapViewModel vm;
         private IEnumerable<Shop> shops;
         private Location userLocation;

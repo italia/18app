@@ -11,7 +11,7 @@ using Xamarin.Forms.Xaml;
 namespace Italia.DiciottoApp.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class InfoPage : ContentPage
+	public partial class InfoPage : BasePage
 	{
         private InfoViewModel vm;
 

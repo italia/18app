@@ -11,8 +11,8 @@ using Xamarin.Forms.Xaml;
 namespace Italia.DiciottoApp.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class UnloggedInfoPage : ContentPage
-	{
+	public partial class UnloggedInfoPage : BasePage
+    {
         private UnloggedInfoViewModel vm;
 
         public UnloggedInfoPage (bool spidOnlyInfo = false)

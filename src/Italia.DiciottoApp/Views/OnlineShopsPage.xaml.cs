@@ -11,8 +11,8 @@ using Xamarin.Forms.Xaml;
 namespace Italia.DiciottoApp.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class OnlineShopsPage : ContentPage
-	{
+	public partial class OnlineShopsPage : BasePage
+    {
         private OnlineShopsViewModel vm;
 
         public OnlineShopsPage ()

@@ -11,8 +11,8 @@ using Xamarin.Forms.Xaml;
 namespace Italia.DiciottoApp.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class NewCouponPage : ContentPage
-	{
+	public partial class NewCouponPage : BasePage
+    {
         private NewCouponViewModel vm;
 
         public NewCouponPage()

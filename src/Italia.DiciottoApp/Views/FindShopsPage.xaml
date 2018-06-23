@@ -1,15 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage x:Class="Italia.DiciottoApp.Views.FindShopsPage"
-             xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:vm="clr-namespace:Italia.DiciottoApp.ViewModels"
-             ControlTemplate="{StaticResource AppHeaderTemplate}" >
+<views:BasePage x:Class="Italia.DiciottoApp.Views.FindShopsPage"
+                xmlns="http://xamarin.com/schemas/2014/forms"
+                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                xmlns:views="clr-namespace:Italia.DiciottoApp.Views"
+                xmlns:vm="clr-namespace:Italia.DiciottoApp.ViewModels"
+                ControlTemplate="{StaticResource AppHeaderTemplate}" >
 
-    <ContentPage.BindingContext>
+    <views:BasePage.BindingContext>
         <vm:FindShopsViewModel />
-    </ContentPage.BindingContext>
+    </views:BasePage.BindingContext>
 
-    <ContentPage.Content>
+    <views:BasePage.Content>
         <Grid VerticalOptions="FillAndExpand"
               HorizontalOptions="FillAndExpand"
               RowSpacing="0" ColumnSpacing="0" >
@@ -59,5 +60,5 @@
                    VerticalOptions="CenterAndExpand" 
                    HorizontalOptions="CenterAndExpand" />
         </Grid>
-    </ContentPage.Content>
-</ContentPage>
+    </views:BasePage.Content>
+</views:BasePage>

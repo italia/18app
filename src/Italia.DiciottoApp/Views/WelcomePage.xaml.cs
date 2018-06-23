@@ -10,8 +10,8 @@ using Xamarin.Forms.Xaml;
 namespace Italia.DiciottoApp.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class WelcomePage : ContentPage
-	{
+	public partial class WelcomePage : BasePage
+    {
 		public WelcomePage ()
 		{
 			InitializeComponent ();
