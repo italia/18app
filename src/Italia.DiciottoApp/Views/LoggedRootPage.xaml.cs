@@ -26,5 +26,11 @@ namespace Italia.DiciottoApp.Views
         {
             // TODO: Create new coupon
         }
+
+        private async void OnAlreadyInShopTapped(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new NearToYouShopsPage());
+        }
+
     }
 }

@@ -81,10 +81,14 @@
                        BackgroundColor="{StaticResource TabsBkgndColor}" >
 
                     <StackLayout Grid.Row="1"
-                         Orientation="Horizontal"
-                         HorizontalOptions="CenterAndExpand"
-                         Margin="0,0,0,0">
-
+                                 Orientation="Horizontal"
+                                 HorizontalOptions="CenterAndExpand"
+                                 Margin="0,0,0,0">
+                        
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnAlreadyInShopTapped" />
+                        </StackLayout.GestureRecognizers>
+                        
                         <Image Source="gps_marker" />
 
                         <Label VerticalOptions="Center"
