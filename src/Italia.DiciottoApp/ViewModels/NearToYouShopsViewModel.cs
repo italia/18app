@@ -97,7 +97,6 @@ namespace Italia.DiciottoApp.ViewModels
             {
                 if (Shops.Count == 0 ||
                     App.LastLocation == null ||
-                    UserLocation == null ||
                     Location.CalculateDistance(App.LastLocation.Latitude, 
                                                UserLocation.Latitude,
                                                App.LastLocation.Longitude,
@@ -115,6 +114,8 @@ namespace Italia.DiciottoApp.ViewModels
                             Shops.Add(shop);
                         }
                     }
+
+                    App.LastLocation = UserLocation;
                 }
 
                 switch (Shops.Count)
