@@ -11,7 +11,8 @@
     </ContentPage.BindingContext>
     
     <ContentPage.Content>
-        <Grid VerticalOptions="FillAndExpand"
+        <Grid BackgroundColor="{StaticResource ContentBkgndColor}"
+              VerticalOptions="FillAndExpand"
               HorizontalOptions="FillAndExpand"
               RowSpacing="0" ColumnSpacing="0" >
             
@@ -69,7 +70,7 @@
             <!-- Shop list -->
             <ListView Grid.Row="2" Grid.ColumnSpan="3" Margin="16,0,16,0"
                       ItemsSource="{Binding Shops, Mode=OneWay}"
-                      HasUnevenRows="true" >
+                      HasUnevenRows="true" IsVisible="{Binding ShopListIsVisible}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -103,7 +104,6 @@
                                        Style="{StaticResource RegularLabelStyle}"
                                        FontSize="16"
                                        Text=">" />
-                                
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>
@@ -114,7 +114,7 @@
             <StackLayout Grid.Row="3" Grid.ColumnSpan="3"
                          Orientation="Horizontal"
                          HorizontalOptions="Center"
-                         IsVisible="{Binding GoToMapMessageIsVisible}">
+                         IsVisible="{Binding ShopListIsVisible}">
                 <StackLayout.GestureRecognizers>
                     <TapGestureRecognizer Tapped="OnGoToMapTapped" />
                 </StackLayout.GestureRecognizers>

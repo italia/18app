@@ -55,7 +55,7 @@ namespace Italia.DiciottoApp.Views
 
         private async void OnGoToMapTapped(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new ShopsMapPage());
+            await Navigation.PushAsync(new ShopsMapPage(vm.Shops, vm.UserLocation));
         }
     }
 }

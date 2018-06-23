@@ -4,6 +4,7 @@ using Italia.DiciottoApp.Views;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -13,6 +14,8 @@ namespace Italia.DiciottoApp
 	public partial class App : Application
 	{
         public static NavigationPage Navigation = null;
+
+        public static Location LastLocation = null;
 
         public string ThisPageTitle { get; set; }
 
