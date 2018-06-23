@@ -9,9 +9,25 @@ namespace Italia.DiciottoApp.ViewModels
     {
         #region Properties
 
-        public string PageTitle { get; set; } = "Mappa dei negozi";
+        public string PageTitle => "Mappa dei negozi";
 
-        public AppArea AppArea { get; set; } = AppArea.Stores;
+        public AppArea AppArea => AppArea.Stores;
+
+        public bool TouchPinNoteIsVisible => !PinSelected;
+
+        private bool pinSelected;
+        public bool PinSelected
+        {
+            get => pinSelected;
+            set => SetProperty(ref pinSelected, value, onChanged: () => OnPropertyChanged(nameof(TouchPinNoteIsVisible)));
+        }
+
+        private Shop selectedShop;
+        public Shop SelectedShop
+        {
+            get => selectedShop;
+            set => SetProperty(ref selectedShop, value);
+        }
 
         #endregion
 

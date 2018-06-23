@@ -10,9 +10,9 @@ namespace Italia.DiciottoApp.ViewModels
     {
         #region Properties
 
-        public AppArea AppArea { get; set; } = AppArea.None;
+        public AppArea AppArea => AppArea.None;
 
-        public string Greetings { get => $"Benvenuto {Settings.UserName}, ti restano";  }
+        public string Greetings => $"Benvenuto {Settings.UserName}, ti restano";
 
         #endregion
 

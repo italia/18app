@@ -9,15 +9,14 @@ namespace Italia.DiciottoApp.ViewModels
     {
         #region Properties
 
-        public string PageTitle { get; set; } = "Informazioni";
+        public string PageTitle => "Informazioni";
 
-        public AppArea AppArea { get; set; } = AppArea.Info;
+        public AppArea AppArea => AppArea.Info;
 
         #endregion
 
         public InfoViewModel() : base()
         {
-
         }
 
     }

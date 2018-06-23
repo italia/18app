@@ -1,46 +1,35 @@
 ﻿using Italia.DiciottoApp.Models;
+using Italia.DiciottoApp.Services;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
-using System.Text;
-using Xamarin.Forms;
-using Xamarin.Essentials;
 using System.Collections.ObjectModel;
-using Italia.DiciottoApp.Services;
+using System.Threading;
 using System.Threading.Tasks;
+using Xamarin.Essentials;
 
 namespace Italia.DiciottoApp.ViewModels
 {
     class NearToYouShopsViewModel: BaseViewModel
     {
-        private Location geoLocation;
         private Exception gpsException;
+        private IEnumerable<Shop> shops;
+        CancellationTokenSource cts;
 
         #region Properties
 
-        public string PageTitle { get; set; } = "Negozi";
+        public Location UserLocation { get; private set; }
 
-        public AppArea AppArea { get; set; } = AppArea.Stores;
+        public string PageTitle => "Negozi";
 
-        public bool GoToMapMessageIsVisible => (Shops != null && Shops.Count > 0);
+        public AppArea AppArea => AppArea.Stores;
+
+        public bool ShopListIsVisible => (Shops != null && Shops.Count > 0 && !IsBusy);
 
         private string contentHeader;
         public string ContentHeader
         {
-            get
-            {
-                return contentHeader;
-            }
-
-            set
-            {
-                if (value != contentHeader)
-                {
-                    contentHeader = value;
-                    OnNotifyPropertyChanged();
-                }
-            }
+            get => contentHeader;
+            set => SetProperty(ref contentHeader, value);
         }
 
         public ObservableCollection<Shop> Shops { get; set; } = new ObservableCollection<Shop>();
@@ -54,15 +43,21 @@ namespace Italia.DiciottoApp.ViewModels
 
         public async Task GetShopListAsync()
         {
-            geoLocation = null;
+            if (IsBusy)
+                return;
+
+            IsBusy = true;
+            OnPropertyChanged("ShopListIsVisible");
+            UserLocation = null;
             gpsException = null;
-            Shops.Clear();
-            OnNotifyPropertyChanged("GoToMapMessageIsVisible");
             ContentHeader = "Lettura posizione GPS...";
 
             try
             {
-                geoLocation = await Geolocation.GetLastKnownLocationAsync();
+                var request = new GeolocationRequest(Constants.GPS_ACCURACY);
+                cts = new CancellationTokenSource();
+                var location = await Geolocation.GetLocationAsync(request, cts.Token);
+                UserLocation = await Geolocation.GetLastKnownLocationAsync();
             }
             catch (FeatureNotSupportedException fnsEx)
             {
@@ -82,43 +77,62 @@ namespace Italia.DiciottoApp.ViewModels
                 gpsException = ex;
                 ContentHeader = $"Impossibile recuperare la tua posizione dal GPS. ({ex.Message})";
             }
+            finally
+            {
+                cts.Dispose();
+                cts = null;
+            }
 
-            // TODO: Remove next line when GeoLoacation Service returns a location also on emulated devices
-            if (geoLocation == null) { geoLocation = new Location(41.8919300, 12.5113300); }
+            // TODO: Remove!
+            // When debugging just set the center of Rome position
+#if DEBUG
+            UserLocation = new Location(41.8919300, 12.5113300); // Center of Rome, Italy
+#endif
 
-            if (geoLocation == null)
+            if (UserLocation == null)
             {
                 ContentHeader = "Impossibile recuperare la tua posizione dal GPS.";
             }
             else
             {
-                ContentHeader = "Ricerca dei negozi vicini a te...";
-
-                var shopService = Service.Resolve<IShopsService>();
-                IEnumerable<Shop> shops = await shopService.NearToLocationShopsAsync(geoLocation);
-                if (shops != null)
+                if (Shops.Count == 0 ||
+                    App.LastLocation == null ||
+                    UserLocation == null ||
+                    Location.CalculateDistance(App.LastLocation.Latitude, 
+                                               UserLocation.Latitude,
+                                               App.LastLocation.Longitude,
+                                               UserLocation.Longitude,
+                                               DistanceUnits.Kilometers) > Constants.NEW_LOCATION_MINIMUM_KM)
                 {
-                    foreach (var shop in shops)
+                    ContentHeader = "Ricerca dei negozi vicini a te...";
+                    Shops.Clear();
+                    var shopService = Service.Resolve<IShopsService>();
+                    shops = await shopService.NearToLocationShopsAsync(UserLocation);
+                    if (shops != null)
                     {
-                        Shops.Add(shop);
+                        foreach (var shop in shops)
+                        {
+                            Shops.Add(shop);
+                        }
                     }
+                }
+
+                switch (Shops.Count)
+                {
+                    case 0:
+                        ContentHeader = $"La ricerca non ha restituito alcun negozio.";
+                        break;
+                    case 1:
+                        ContentHeader = $"Questo è l'unico negozio vicino al punto in cui ti trovi.";
+                        break;
+                    default:
+                        ContentHeader = $"Questa è la lista dei {Shops.Count} negozi più vicini al punto in cui ti trovi.";
+                        break;
                 }
             }
 
-            switch (Shops.Count)
-            {
-                case 0:
-                    ContentHeader = $"La ricerca non ha restituito alcun negozio.";
-                    break;
-                case 1:
-                    ContentHeader = $"Questo è l'unico negozio vicino al punto in cui ti trovi.";
-                    break;
-                default:
-                    ContentHeader = $"Questa è la lista dei {Shops.Count} negozi più vicini al punto in cui ti trovi.";
-                    break;
-            }
-
-            OnNotifyPropertyChanged("GoToMapMessageIsVisible");
+            IsBusy = false;
+            OnPropertyChanged("ShopListIsVisible");
         }
 
     }

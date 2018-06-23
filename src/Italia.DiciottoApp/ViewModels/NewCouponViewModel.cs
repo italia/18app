@@ -9,15 +9,14 @@ namespace Italia.DiciottoApp.ViewModels
     {
         #region Properties
 
-        public string PageTitle { get; set; } = "Nuovo buono: categoria";
+        public string PageTitle => "Nuovo buono: categoria";
 
-        public AppArea AppArea { get; set; } = AppArea.NewCoupon;
+        public AppArea AppArea => AppArea.NewCoupon;
 
         #endregion
 
         public NewCouponViewModel() : base()
         {
-
         }
 
     }

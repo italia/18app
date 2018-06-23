@@ -7,57 +7,37 @@ using System.Text;
 
 namespace Italia.DiciottoApp.ViewModels
 {
-    public class BaseViewModel: INotifyPropertyChanged
+    public class BaseViewModel: ObservableObject
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected void OnNotifyPropertyChanged([CallerMemberName] String propertyName = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
         #region Properties
 
-        public double InitialCredit { get; } = 500.00;
+        bool isBusy;
+        public bool IsBusy
+        {
+            get => isBusy;
+            set => SetProperty(ref isBusy, value, onChanged: () => OnPropertyChanged(nameof(IsNotBusy)));
+        }
 
-        public double UsedPercentage { get => (InitialCredit - ActualCredit) / InitialCredit;  }
+        public bool IsNotBusy => !IsBusy;
 
-        public string UserCredit { get => $"{ActualCredit.ToString("###.00")}€"; }
+        public double InitialCredit => 500.00;
 
         private double actualCredit;
         public double ActualCredit
         {
-            get
-            {
-                return actualCredit;
-            }
-
-            set
-            {
-                if (value != actualCredit)
-                {
-                    actualCredit = value;
-                    OnNotifyPropertyChanged();
-                }
-            }
+            get => actualCredit;
+            set => SetProperty(ref actualCredit, value);
         }
+
+        public double UsedPercentage => (InitialCredit - ActualCredit) / InitialCredit;
+
+        public string UserCredit => $"{ActualCredit.ToString("###.00")}€";
 
         private string unreadMessages;
         public string UnreadMessages
         {
-            get
-            {
-                return unreadMessages;
-            }
-
-            set
-            {
-                if (value != unreadMessages)
-                {
-                    unreadMessages = value;
-                    OnNotifyPropertyChanged();
-                }
-            }
+            get => unreadMessages;
+            set => SetProperty(ref unreadMessages, value);
         }
 
         #endregion

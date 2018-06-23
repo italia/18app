@@ -10,15 +10,14 @@ namespace Italia.DiciottoApp.ViewModels
     {
         #region Properties
 
-        public string PageTitle { get; set; } = "I tuoi buoni";
+        public string PageTitle => "I tuoi buoni";
 
-        public AppArea AppArea { get; set; } = AppArea.Wallet;
+        public AppArea AppArea => AppArea.Wallet;
 
         #endregion
 
         public WalletViewModel() : base()
         {
-
         }
 
     }

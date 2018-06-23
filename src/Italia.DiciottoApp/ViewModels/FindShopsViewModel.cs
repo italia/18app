@@ -9,15 +9,14 @@ namespace Italia.DiciottoApp.ViewModels
     {
         #region Properties
 
-        public string PageTitle { get; set; } = "Negozi";
+        public string PageTitle => "Negozi";
 
-        public AppArea AppArea { get; set; } = AppArea.Stores;
+        public AppArea AppArea => AppArea.Stores;
 
         #endregion
 
         public FindShopsViewModel() : base()
         {
-
         }
 
     }
