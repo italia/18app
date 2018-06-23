@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Xamarin.Forms;
 
-namespace Italia.DiciottoApp.CustomRenders
+namespace Italia.DiciottoApp.CustomRenderers
 {
     public class RadialGauge: View
     {
