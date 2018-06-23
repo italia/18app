@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
 using Android.App;
 using Android.Content;
 using Android.Graphics;
@@ -10,15 +9,15 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
-using Italia.DiciottoApp.CustomRenders;
+using Italia.DiciottoApp.CustomRenderers;
 using Italia.DiciottoApp.Droid.Renderers;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 
-[assembly: ExportRenderer(typeof(RadialGauge), typeof(RadialGaugeRederer))]
+[assembly: ExportRenderer(typeof(RadialGauge), typeof(RadialGaugeRenderer))]
 namespace Italia.DiciottoApp.Droid.Renderers
 {
-    public class RadialGaugeRederer : ViewRenderer<RadialGauge, Android.Views.View>
+    public class RadialGaugeRenderer : ViewRenderer<RadialGauge, Android.Views.View>
     {
         public RadialGaugeRederer(Context context): base(context)
         {

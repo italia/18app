@@ -5,16 +5,16 @@ using System.Linq;
 using System.Text;
 using CoreGraphics;
 using Foundation;
-using Italia.DiciottoApp.CustomRenders;
+using Italia.DiciottoApp.CustomRenderers;
 using Italia.DiciottoApp.iOS.Renderers;
 using UIKit;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
 
-[assembly: ExportRenderer(typeof(RadialGauge), typeof(RadialGaugeRederer))]
+[assembly: ExportRenderer(typeof(RadialGauge), typeof(RadialGaugeRenderer))]
 namespace Italia.DiciottoApp.iOS.Renderers
 {
-    public class RadialGaugeRederer: ViewRenderer<RadialGauge, UIView>
+    public class RadialGaugeRenderer: ViewRenderer<RadialGauge, UIView>
     {
         protected override void OnElementChanged(ElementChangedEventArgs<RadialGauge> e)
         {
