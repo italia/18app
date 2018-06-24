@@ -26,11 +26,7 @@ namespace Italia.DiciottoApp.Models
         {
             get
             {
-                if (elencoCategorie != null)
-                {
-                    return elencoCategorie;
-                }
-                else
+                if (elencoCategorie == null)
                 {
                     if (Categorie.Length == 0)
                     {
@@ -52,9 +48,10 @@ namespace Italia.DiciottoApp.Models
                             }
                             sb.Append(categoria.Titolo);
                         }
-                        return sb.ToString();
+                        elencoCategorie = sb.ToString();
                     }
                 }
+                return elencoCategorie;
             }
         }
     }
