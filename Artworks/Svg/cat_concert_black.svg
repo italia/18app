@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="24"
+   height="24"
+   viewBox="0 0 24 24"
+   version="1.1"
+   id="svg16"
+   sodipodi:docname="cat_concert_black.svg"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)"
+   inkscape:export-filename="C:\Users\ncara\Desktop\fucina\cat_concert_black.png"
+   inkscape:export-xdpi="344"
+   inkscape:export-ydpi="344">
+  <metadata
+     id="metadata20">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>icon-concerti-06c</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="2377"
+     inkscape:window-height="1307"
+     id="namedview18"
+     showgrid="false"
+     inkscape:zoom="11.8"
+     inkscape:cx="-0.94067797"
+     inkscape:cy="12"
+     inkscape:window-x="688"
+     inkscape:window-y="732"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg16"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
+  <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+  <title
+     id="title2">icon-concerti-06c</title>
+  <desc
+     id="desc4">Created with Sketch.</desc>
+  <defs
+     id="defs6" />
+  <g
+     style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1"
+     id="icon-concerti-06c"
+     inkscape:label="cat_concert_black">
+    <rect
+       id="Rectangle-9"
+       x="0"
+       y="0"
+       width="24"
+       height="24"
+       inkscape:label="Frame" />
+    <path
+       style="fill:#000000"
+       inkscape:connector-curvature="0"
+       id="Shape"
+       d="m 9.234375,2 c -1.1045695,0 -2,0.8954305 -2,2 0,1.1045695 0.8954305,2 2,2 1.104569,0 2,-0.8954305 2,-2 0,-1.1045695 -0.895431,-2 -2,-2 z m 2.59375,4.1875 C 11.675577,6.18614 11.513111,6.214277 11.359375,6.25 V 6.21875 l -0.15625,0.03125 -2.125,0.375 h -0.09375 l -0.0625,0.03125 c -0.4897367,0.1632456 -0.9702692,0.4866538 -1.3125,1 l -0.03125,0.03125 -0.03125,0.03125 -1.375,2.5 H 6.140625 V 10.25 c -0.1913003,0.382601 -0.6071939,0.576874 -1.09375,0.46875 l -1.75,-0.46875 -0.53125,1.90625 1.8125,0.5 0.03125,0.03125 c 1.2981796,0.288484 2.6618079,-0.310891 3.28125,-1.5 h 0.03125 c 0.0035,-0.0069 -0.00345,-0.02434 0,-0.03125 l 0.3125,-0.5625 v 3.3125 l -1.59375,2.40625 c -0.4,0.6 -0.41875,1.275 -0.21875,1.875 L 8.046875,22 h 2.09375 L 8.546875,17.8125 C 8.446875,17.5125 8.440625,17.2 8.640625,17 L 9.921875,15.0625 10.234375,15 v 1.09375 c 0,0.822222 0.310924,1.591779 0.8125,2.21875 l 2.40625,3 1.5625,-1.25 -2.375,-2.96875 -0.03125,-0.03125 c -0.298424,-0.373029 -0.375,-0.590972 -0.375,-0.96875 v -1.5 -5.9375 l 0.625,0.59375 h 0.03125 c 1.015613,0.870525 2.519081,1.042762 3.6875,0.3125 L 16.609375,9.53125 16.640625,9.5 17.828125,8.59375 16.640625,7 l -1.125,0.84375 C 15.094032,8.1072457 14.583891,8.0592595 14.203125,7.75 h -0.03125 l -1.125,-1.0625 C 13.036975,6.67759 13.025815,6.66595 13.015625,6.65625 12.712738,6.3679873 12.28577,6.1915815 11.828125,6.1875 Z m 6.40625,5 v 0.875 c -0.0052,0.0415 -0.0052,0.0835 0,0.125 V 13 15.25 c -0.161317,-0.01152 -0.322222,0.01806 -0.5,0.0625 -0.8,0.2 -1.5,0.89375 -1.5,1.59375 0,0.7 0.7,1.10625 1.5,0.90625 0.732927,-0.183232 1.365077,-0.799409 1.46875,-1.4375 0.01349,-0.03014 0.02395,-0.06155 0.03125,-0.09375 0.0016,-0.01918 -5.24e-4,-0.0433 0,-0.0625 3.26e-4,-0.01041 3.26e-4,-0.02084 0,-0.03125 V 13.125 c 1.697779,0.428367 2,1.875 2,1.875 v -1 c 0,-1.4 -1.1,-2.8125 -3,-2.8125 z" />
+  </g>
+</svg>
