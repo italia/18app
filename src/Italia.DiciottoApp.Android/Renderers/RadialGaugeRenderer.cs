@@ -19,7 +19,7 @@ namespace Italia.DiciottoApp.Droid.Renderers
 {
     public class RadialGaugeRenderer : ViewRenderer<RadialGauge, Android.Views.View>
     {
-        public RadialGaugeRederer(Context context): base(context)
+        public RadialGaugeRenderer(Context context): base(context)
         {
             SetWillNotDraw(false);
         }
