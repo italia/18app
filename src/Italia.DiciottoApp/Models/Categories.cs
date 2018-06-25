@@ -89,6 +89,12 @@ namespace Italia.DiciottoApp.Models
             new Categoria(TipoCategoria.TeatroDanza),
         };
 
-        
+        public static Categoria Cinema { get; } = new Categoria(TipoCategoria.Cinema);
+        public static Categoria Concerti { get; } = new Categoria(TipoCategoria.Concerti);
+        public static Categoria EventiCulturali { get; } = new Categoria(TipoCategoria.EventiCulturali);
+        public static Categoria Libri { get; } = new Categoria(TipoCategoria.Libri);
+        public static Categoria MuseiMonumentiParchiNaturali { get; } = new Categoria(TipoCategoria.MuseiMonumentiParchiNaturali);
+        public static Categoria TeatroDanza { get; } = new Categoria(TipoCategoria.TeatroDanza);
+
     }
 }
