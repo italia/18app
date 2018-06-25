@@ -16,20 +16,18 @@ namespace Italia.DiciottoApp.Models
 
         private static readonly string[] imageSources = new string[]
         {
-            "cat_movie",
-            "cat_concert",
-            "cat_event",
-            "cat_book",
-            "cat_museum",
-            "cat_theatre"
+            "prod_ticket",
+            "prod_subscription",
+            "prod_paperbook",
+            "prod_audiobook"
         };
 
         public TipoProdotto Tipo { get; set; }
 
         public string Titolo => prodotti[(int)Tipo];
 
-        public string ImageSource => Categories.ImageSources[(int)Tipo];
+        public string ImageSource => imageSources[(int)Tipo];
 
-        public string BlackImageSource => $"{Categories.ImageSources[(int)Tipo]}_black";
+        public string BlackImageSource => $"{imageSources[(int)Tipo]}_black";
     }
 }
