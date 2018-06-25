@@ -27,9 +27,15 @@ namespace Italia.DiciottoApp.Views
         private async void OnProductListItemTapped(object sender, ItemTappedEventArgs e)
         {
 
-            if (e.Item is Categoria categoria)
+            if (e.Item is Prodotto prodotto)
             {
-                await Navigation.PushAsync(new NewCouponProductPage(categoria));
+                // Clear the item selection
+                if (sender is ListView listView)
+                {
+                    listView.SelectedItem = null;
+                }
+
+                await Navigation.PushAsync(new NewCouponValuePage(vm.Categoria, prodotto));
             }
 
         }
