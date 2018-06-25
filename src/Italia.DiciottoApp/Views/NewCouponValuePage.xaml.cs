@@ -1,4 +1,5 @@
-﻿using Italia.DiciottoApp.ViewModels;
+﻿using Italia.DiciottoApp.Models;
+using Italia.DiciottoApp.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,11 +16,13 @@ namespace Italia.DiciottoApp.Views
     {
         private NewCouponValueViewModel vm;
 
-        public NewCouponValuePage()
+        public NewCouponValuePage(Categoria categoria, Prodotto prodotto)
         {
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
             vm = BindingContext as NewCouponValueViewModel;
+            vm.Categoria = categoria;
+            vm.Prodotto = prodotto;
         }
 
     }
