@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Italia.DiciottoApp.ViewModels
 {
-    public class NewCouponViewModel : BaseViewModel
+    public class NewCouponCategoryViewModel : BaseViewModel
     {
         #region Properties
 
@@ -13,9 +13,13 @@ namespace Italia.DiciottoApp.ViewModels
 
         public AppArea AppArea => AppArea.NewCoupon;
 
+        public string ContentHeader => "Scegli la categoria";
+
+        public IEnumerable<Categoria> Categories => Models.Categories.List;
+
         #endregion
 
-        public NewCouponViewModel() : base()
+        public NewCouponCategoryViewModel() : base()
         {
         }
 

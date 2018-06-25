@@ -86,9 +86,11 @@ namespace Italia.DiciottoApp
             IReadOnlyList<Page> navStack = Navigation.Navigation.NavigationStack;
             Type currentPageType = navStack[navStack.Count - 1].GetType();
 
-            if (appAreaTarget == "NewCoupon" && currentPageType != typeof(NewCouponPage))
+            if (appAreaTarget == "NewCoupon" && currentPageType != typeof(NewCouponCategoryPage)
+                                             && currentPageType != typeof(NewCouponProductPage)
+                                             && currentPageType != typeof(NewCouponValuePage))
             {
-                await Navigation.PushAsync(new NewCouponPage());
+                await Navigation.PushAsync(new NewCouponCategoryPage());
             }
 
             if (appAreaTarget == "Wallet" && currentPageType != typeof(WalletPage))

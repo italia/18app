@@ -11,15 +11,15 @@ using Xamarin.Forms.Xaml;
 namespace Italia.DiciottoApp.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class NewCouponPage : BasePage
+	public partial class NewCouponCategoryPage : BasePage
     {
-        private NewCouponViewModel vm;
+        private NewCouponCategoryViewModel vm;
 
-        public NewCouponPage()
+        public NewCouponCategoryPage()
         {
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
-            vm = BindingContext as NewCouponViewModel;
+            vm = BindingContext as NewCouponCategoryViewModel;
         }
 
 	}
