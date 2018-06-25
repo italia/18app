@@ -13,9 +13,16 @@ namespace Italia.DiciottoApp.ViewModels
 
         public AppArea AppArea => AppArea.NewCoupon;
 
-        public string ContentHeader => "Scegli la categoria";
+        public string ListHeader => "Scegli il prodotto";
 
-        public IEnumerable<Categoria> Categories => Models.Categories.List;
+        private Categoria categoria;
+        public Categoria Categoria
+        {
+            get => categoria;
+            set => SetProperty(ref categoria, value, onChanged: () => OnPropertyChanged(nameof(Products)));
+        }
+
+        public IEnumerable<Prodotto> Products => Categoria?.Prodotti;
 
         #endregion
 

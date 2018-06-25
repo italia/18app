@@ -1,4 +1,5 @@
-﻿using Italia.DiciottoApp.ViewModels;
+﻿using Italia.DiciottoApp.Models;
+using Italia.DiciottoApp.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,11 +16,22 @@ namespace Italia.DiciottoApp.Views
     {
         private NewCouponProductViewModel vm;
 
-        public NewCouponProductPage()
+        public NewCouponProductPage(Categoria categoria)
         {
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
             vm = BindingContext as NewCouponProductViewModel;
+            vm.Categoria = categoria;
+        }
+
+        private async void OnProductListItemTapped(object sender, ItemTappedEventArgs e)
+        {
+
+            if (e.Item is Categoria categoria)
+            {
+                await Navigation.PushAsync(new NewCouponProductPage(categoria));
+            }
+
         }
 
     }
