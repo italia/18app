@@ -8,8 +8,21 @@ using Xamarin.Essentials;
 
 namespace Italia.DiciottoApp.Services
 {
-    class FakeShopService : IShopsService
+    class FakeShopsService : IShopsService
     {
+        public async Task<Shop> GetShopByIdAsync(string shopId)
+        {
+            if (string.IsNullOrWhiteSpace(shopId))
+            {
+                throw new ArgumentNullException("shopId");
+            }
+
+            // simulate delay
+            await Task.Delay(4000);
+
+            return FakeShops.List().Where(s => s.Id == shopId).FirstOrDefault();
+        }
+
         public async Task<IEnumerable<Shop>> NearToLocationShopsAsync(Location location, int maxItems = 10)
         {
             if (location == null)

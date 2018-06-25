@@ -11,7 +11,8 @@ namespace Italia.DiciottoApp.Services
 
         static Service()
         {
-            container.Register<IShopsService, ShopService>();
+            container.Register<IShopsService, ShopsService>();
+            container.Register<ICouponsService, CouponsService>();
         }
 
         public static TTypeToResolve Resolve<TTypeToResolve>()
