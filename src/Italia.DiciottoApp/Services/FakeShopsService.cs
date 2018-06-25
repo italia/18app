@@ -10,6 +10,8 @@ namespace Italia.DiciottoApp.Services
 {
     class FakeShopsService : IShopsService
     {
+        private static readonly int simulatedDelay = 3000;
+
         public async Task<Shop> GetShopByIdAsync(string shopId)
         {
             if (string.IsNullOrWhiteSpace(shopId))
@@ -18,7 +20,7 @@ namespace Italia.DiciottoApp.Services
             }
 
             // simulate delay
-            await Task.Delay(4000);
+            await Task.Delay(simulatedDelay);
 
             return FakeShops.List().Where(s => s.Id == shopId).FirstOrDefault();
         }
@@ -31,7 +33,7 @@ namespace Italia.DiciottoApp.Services
             }
 
             // simulate delay
-            await Task.Delay(4000);
+            await Task.Delay(simulatedDelay);
 
             return FakeShops.List().Take(maxItems);
         }
