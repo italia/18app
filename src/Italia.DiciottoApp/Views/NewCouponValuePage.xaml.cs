@@ -25,5 +25,14 @@ namespace Italia.DiciottoApp.Views
             vm.Prodotto = prodotto;
         }
 
+        private void OnEntryTextChanged(object sender, TextChangedEventArgs e)
+        {
+            vm.ValidateEntry(e);
+        }
+
+        private async void OnCreaButtonClicked(object sender, EventArgs e)
+        {
+            await vm.CreateCouponAsync();
+        }
     }
 }

@@ -107,23 +107,39 @@
             </Setter>
         </Style>
 
-      <Style x:Key="InfoButtonStyle" TargetType="Button">
-        <Setter Property="TextColor" Value="White" />
-        <Setter Property="BackgroundColor" Value="Transparent" />
-        <Setter Property="HorizontalOptions" Value="Center" />
-        <Setter Property="FontSize" Value="14" />
-        <Setter Property="FontFamily">
-          <Setter.Value>
-            <OnPlatform x:TypeArguments="x:String">
-              <On Platform="iOS" Value="TitilliumWeb-Regular" />
-              <On Platform="Android" Value="fonts/TitilliumWeb-Regular.ttf#TitilliumWeb-Regular" />
-              <On Platform="UWP" Value="Assets/Fonts/TitilliumWeb-Regular.ttf#TitilliumWeb" />
-            </OnPlatform>
-          </Setter.Value>
-        </Setter>
-      </Style>
+        <Style x:Key="InfoButtonStyle" TargetType="Button">
+            <Setter Property="TextColor" Value="White" />
+            <Setter Property="BackgroundColor" Value="Transparent" />
+            <Setter Property="HorizontalOptions" Value="Center" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="FontFamily">
+                <Setter.Value>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="iOS" Value="TitilliumWeb-Regular" />
+                        <On Platform="Android" Value="fonts/TitilliumWeb-Regular.ttf#TitilliumWeb-Regular" />
+                        <On Platform="UWP" Value="Assets/Fonts/TitilliumWeb-Regular.ttf#TitilliumWeb" />
+                    </OnPlatform>
+                </Setter.Value>
+            </Setter>
+        </Style>
 
-      <ControlTemplate x:Key="UnloggedInfoPageTemplate" >
+        <Style x:Key="CommandButtonStyle" TargetType="Button">
+            <Setter Property="TextColor" Value="White" />
+            <Setter Property="BackgroundColor" Value="{StaticResource AppBkgndColor}" />
+            <Setter Property="HorizontalOptions" Value="Center" />
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="FontFamily">
+                <Setter.Value>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="iOS" Value="TitilliumWeb-Regular" />
+                        <On Platform="Android" Value="fonts/TitilliumWeb-Regular.ttf#TitilliumWeb-Regular" />
+                        <On Platform="UWP" Value="Assets/Fonts/TitilliumWeb-Regular.ttf#TitilliumWeb" />
+                    </OnPlatform>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <ControlTemplate x:Key="UnloggedInfoPageTemplate" >
         <Grid VerticalOptions="FillAndExpand"
               HorizontalOptions="FillAndExpand"
               BackgroundColor="{StaticResource ContentBkgndColor}"

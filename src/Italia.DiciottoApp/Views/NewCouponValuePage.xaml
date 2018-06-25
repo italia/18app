@@ -20,6 +20,7 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
@@ -71,8 +72,7 @@
                    HorizontalOptions="StartAndExpand"
                    Style="{StaticResource RegularLabelStyle}"
                    TextColor="#FFAAAAAA" FontSize="14"
-                   Text="{Binding ValueMessage}"
-                   />
+                   Text="{Binding ValueMessage}" />
 
             <!-- Value -->
             <StackLayout Grid.Row="3" Margin="16,20,16,0"
@@ -86,19 +86,31 @@
                        Text="Valore" />
 
                 <Entry Margin="16,0"
-                       Placeholder="499,99"
+                       Placeholder="{Binding EntryValuePlaceholder}"
+                       Keyboard="Numeric"
+                       MaxLength="6"
+                       TextChanged="OnEntryTextChanged"
                        Text="{Binding EntryValore}"/>
 
-                <Image Margin="0,0,22,0"
-                       HorizontalOptions="End" VerticalOptions="CenterAndExpand"
-                       Source="selected_black"/>
+                <Image HorizontalOptions="End" VerticalOptions="CenterAndExpand"
+                       Source="euro"/>
                 
-                <Button Margin="32,20,16,20"
-                       HorizontalOptions="StartAndExpand" VerticalOptions="Center"
-                       Style="{StaticResource RegularLabelStyle}"
-                       TextColor="#FF30383D" FontSize="16"
-                       Text="{Binding Categoria.Titolo}" />
+                <Button Margin="0,0,8,0"
+                        HorizontalOptions="EndAndExpand" VerticalOptions="Center"
+                        HeightRequest="40" WidthRequest="107"
+                        Style="{StaticResource CommandButtonStyle}"
+                        FontSize="16"
+                        Text="CREA"
+                        Clicked="OnCreaButtonClicked"/>
             </StackLayout>
+            
+            <!-- Error Message -->
+            <Label Grid.Row="4" Margin="16,16,16,0"
+                   VerticalOptions="StartAndExpand" 
+                   HorizontalOptions="StartAndExpand"
+                   Style="{StaticResource RegularLabelStyle}"
+                   TextColor="Red" FontSize="14"
+                   Text="{Binding ErrorMessage}" />
         </Grid>
     </views:BasePage.Content>
 </views:BasePage>
