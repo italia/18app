@@ -34,6 +34,7 @@ namespace Italia.DiciottoApp.Services
             {
                 new Shop
                 {
+                    Id = "2375F804-5744-48C0-813C-0B87F2E0750E",
                     Title = "Nuovo Cinema Paradiso",
                     Address = new Address
                     {
@@ -56,6 +57,7 @@ namespace Italia.DiciottoApp.Services
                 },
                 new Shop
                 {
+                    Id = "16D55D17-BD46-48CE-94FF-BB4F28971A21",
                     Title = "The Blues Brothers",
                     Address = new Address
                     {
@@ -77,6 +79,7 @@ namespace Italia.DiciottoApp.Services
                 },
                 new Shop
                 {
+                    Id = "7E0C6AA6-ADF0-4710-A6EF-C7E24B2FFDFF",
                     Title = "Il libraio Magico",
                     Address = new Address
                     {
@@ -98,6 +101,7 @@ namespace Italia.DiciottoApp.Services
                 },
                 new Shop
                 {
+                    Id = "27E7A6D6-3C76-4CC4-81E5-4AD3B6211D0A",
                     Title = "Cats",
                     Address = new Address
                     {
@@ -119,6 +123,7 @@ namespace Italia.DiciottoApp.Services
                 },
                 new Shop
                 {
+                    Id = "5F6A3844-CAAB-43E6-A80C-5C21C7AC44F1",
                     Title = "Granteatro dell'assurdo",
                     Address = new Address
                     {

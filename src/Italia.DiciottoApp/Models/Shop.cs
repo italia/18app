@@ -7,6 +7,8 @@ namespace Italia.DiciottoApp.Models
 {
     public class Shop
     {
+        public string Id { get; set; }
+
         public bool IsOnline { get; set; }
 
         public string Title { get; set; }
