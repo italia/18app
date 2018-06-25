@@ -8,6 +8,8 @@ namespace Italia.DiciottoApp.Services
 {
     public class FakeCouponsService: ICouponsService
     {
+        private static readonly int simulatedDelay = 3000;
+
         public async Task<Coupon> GetCouponByIdAsync(string userId)
         {
             if (string.IsNullOrWhiteSpace(userId))
@@ -16,7 +18,7 @@ namespace Italia.DiciottoApp.Services
             }
 
             // simulate delay
-            await Task.Delay(4000);
+            await Task.Delay(simulatedDelay);
 
             return FakeCoupons.List().Where(s => s.Id == userId).FirstOrDefault();
         }
@@ -29,7 +31,7 @@ namespace Italia.DiciottoApp.Services
             }
 
             // simulate delay
-            await Task.Delay(4000);
+            await Task.Delay(simulatedDelay);
 
             var fakeCouponList = FakeCoupons.List().Take(pageItems);
             IShopsService shopsService = Service.Resolve<IShopsService>();
@@ -38,6 +40,12 @@ namespace Italia.DiciottoApp.Services
                 fakeCoupon.Shop = await shopsService.GetShopByIdAsync(fakeCoupon.ShopId);
             }
             return fakeCouponList;
+        }
+
+        public async Task CreateCoupon(Categoria categoria, Prodotto prodotto, double valore, string shopId = null)
+        {
+            // simulate delay
+            await Task.Delay(simulatedDelay);
         }
 
         public static class FakeCoupons

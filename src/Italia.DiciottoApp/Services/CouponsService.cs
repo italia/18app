@@ -35,5 +35,28 @@ namespace Italia.DiciottoApp.Services
 
             return coupons;
         }
+
+        public async Task CreateCoupon(Categoria categoria, Prodotto prodotto, double valore, string shopId = null)
+        {
+            if (categoria == null)
+            {
+                throw new ArgumentNullException("categoria");
+            }
+
+            if (prodotto == null)
+            {
+                throw new ArgumentNullException("prodotto");
+            }
+
+            if (valore <= 0 || valore > 500)
+            {
+                throw new ArgumentOutOfRangeException("valore");
+            }
+
+            // TODO: Get shops from 18App SOAP Service
+            var fakeCouponsService = new FakeCouponsService();
+            await fakeCouponsService.CreateCoupon(categoria, prodotto, valore);
+        }
+
     }
 }

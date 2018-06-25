@@ -11,5 +11,7 @@ namespace Italia.DiciottoApp.Services
         Task<Coupon> GetCouponByIdAsync(string userId);
 
         Task<IEnumerable<Coupon>> GetUserCouponsAsync(string userId, int page = 1, int pageItems = 10);
+
+        Task CreateCoupon(Categoria categoria, Prodotto prodotto, double valore, string shopId = null);
     }
 }
