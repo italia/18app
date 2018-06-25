@@ -1,4 +1,5 @@
 ﻿using Italia.DiciottoApp.Models;
+using Italia.DiciottoApp.Services;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -42,8 +43,12 @@ namespace Italia.DiciottoApp.ViewModels
             set => SetProperty(ref entryValue, value);
         }
 
-        public bool EntryValueIsValid => string.IsNullOrWhiteSpace(ErrorMessage);
-        public bool EntryValueIsNotValid => !string.IsNullOrWhiteSpace(ErrorMessage);
+        private bool entryValueIsValid;
+        public bool EntryValueIsValid
+        {
+            get => entryValueIsValid;
+            set => SetProperty(ref entryValueIsValid, value);
+        }
 
         private string errorMessage = null;
         public string ErrorMessage
@@ -58,16 +63,47 @@ namespace Italia.DiciottoApp.ViewModels
         {
         }
 
-        public void ValidateEntry(TextChangedEventArgs e)
+        public bool ValidateEntry(string valueText)
         {
-            double.TryParse(entryValue, out valore);
-            EntryValue = valore.ToString("###.##");
-            ErrorMessage = valore > ActualCredit ? "Il valore non può essere superiore al credito disponibile." : string.Empty;
-        }
+            bool isValid = true;
+            if (string.IsNullOrWhiteSpace(valueText))
+            {
+                isValid = false;
+                ErrorMessage = string.Empty;
+            }
+            else
+            {
+                if (!double.TryParse(valueText, out valore))
+                {
+                    isValid = false;
+                    ErrorMessage = "Il valore inserito non è un numero.";
+                }
+                else if (valore <= 0 || valore > ActualCredit)
+                {
+                    isValid = false;
+                    ErrorMessage = "Il valore dev'essere maggiore di zero e non superiore al credito disponibile.";
+                }
+                else if (Math.Abs(valore - Math.Round(valore, 2)) > 0)
+                {
+                    isValid = false;
+                    ErrorMessage = "Il valore non deve avere più di due cifre decimali.";
+                }
+                else
+                {
+                    ErrorMessage = string.Empty;
+                }
+            }
 
+            EntryValueIsValid = isValid;
+            return isValid;
+        }
         public async Task CreateCouponAsync()
         {
-
+            if (ValidateEntry(EntryValue))
+            {
+                ICouponsService couponsService = Service.Resolve<ICouponsService>();
+                await couponsService.CreateCoupon(Categoria, Prodotto, valore);
+            }
         }
 
     }
