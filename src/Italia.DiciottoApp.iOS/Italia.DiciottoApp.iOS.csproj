@@ -299,6 +299,15 @@
     <ImageAsset Include="Assets.xcassets\cat_theatre_black.imageset\cat_theatre_black@3x.png">
       <Visible>false</Visible>
     </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\euro.imageset\euro.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\euro.imageset\euro@2x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\euro.imageset\euro@3x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\euro_acquamarine.imageset\euro_acquamarine.png">
       <Visible>false</Visible>
     </ImageAsset>
@@ -368,6 +377,9 @@
     <ImageAsset Include="Assets.xcassets\gps_marker.imageset\gps_marker@3x.png">
       <Visible>false</Visible>
     </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\forward.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\header_logo.imageset\header_logo.png">
       <Visible>false</Visible>
     </ImageAsset>
@@ -377,7 +389,7 @@
     <ImageAsset Include="Assets.xcassets\header_logo.imageset\header_logo@3x.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\forward.imageset\Contents.json">
+    <ImageAsset Include="Assets.xcassets\euro.imageset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\logo_utente_spid.imageset\logo_utente_spid.png">
