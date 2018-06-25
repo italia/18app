@@ -10,14 +10,16 @@ namespace Italia.DiciottoApp.Models
 
         public bool Spent { get; set; }
 
+        public DateTime SpentDateTime { get; set; }
+
         public string ShopId { get; set; }
+
+        public Shop Shop { get; set; }
 
         public Categoria Category { get; set; }
 
         public Prodotto Product { get; set; }
 
         public decimal Value { get; set; }
-
-        public Shop Shop { get; set; }
     }
 }

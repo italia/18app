@@ -76,6 +76,7 @@ namespace Italia.DiciottoApp.Services
                     {
                         Id = "3702DA97",
                         Spent = true,
+                        SpentDateTime = new DateTime(2017,3,12,23,12,0),
                         Category = Categories.Libri,
                         Product = Categories.Libri.Prodotti[0],
                         ShopId = "7E0C6AA6-ADF0-4710-A6EF-C7E24B2FFDFF",
@@ -85,6 +86,7 @@ namespace Italia.DiciottoApp.Services
                     {
                         Id = "DFA13EC3",
                         Spent = true,
+                        SpentDateTime = new DateTime(2018,2,21,11,37,0),
                         Category = Categories.Libri,
                         Product = Categories.Libri.Prodotti[1],
                         ShopId = "7E0C6AA6-ADF0-4710-A6EF-C7E24B2FFDFF",
