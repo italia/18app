@@ -27,7 +27,7 @@ namespace Italia.DiciottoApp.Views
 
         private void OnEntryTextChanged(object sender, TextChangedEventArgs e)
         {
-            vm.ValidateEntry(e);
+            vm.ValidateEntry(e.NewTextValue);
         }
 
         private async void OnCreaButtonClicked(object sender, EventArgs e)
