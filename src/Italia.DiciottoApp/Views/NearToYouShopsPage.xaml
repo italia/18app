@@ -64,11 +64,10 @@
                    HorizontalOptions="StartAndExpand"
                    Style="{StaticResource RegularLabelStyle}"
                    TextColor="#FFAAAAAA" FontSize="14"
-                   Text="{Binding ContentHeader}"
-                   />
+                   Text="{Binding ContentHeader}" />
             
             <!-- Shop list -->
-            <ListView Grid.Row="2" Grid.ColumnSpan="3" Margin="16,0,16,0"
+            <ListView Grid.Row="2" Grid.ColumnSpan="3" Margin="0,0,16,0"
                       ItemsSource="{Binding Shops, Mode=OneWay}"
                       HasUnevenRows="true" IsVisible="{Binding ShopListIsVisible}">
                 <ListView.ItemTemplate>
@@ -77,7 +76,8 @@
                             <StackLayout Padding="0" Spacing="0"
                                          Orientation="Horizontal">
                                 
-                                <StackLayout Padding="0" Spacing="0" HorizontalOptions="StartAndExpand">
+                                <StackLayout Padding="0" Spacing="0" Margin="16,0,0,0"
+                                             HorizontalOptions="StartAndExpand">
                                     
                                     <Label Margin="0,11,0,0"
                                        Style="{StaticResource BoldLabelStyle}"
@@ -99,11 +99,9 @@
                                        TextColor="#FF596672"  FontSize="16"
                                        Text="{Binding DistanceFromUser}" />
 
-                                <Label Margin="18,0,6,0"
+                                <Image Margin="18,0,6,0"
                                        HorizontalOptions="Start" VerticalOptions="CenterAndExpand"
-                                       Style="{StaticResource RegularLabelStyle}"
-                                       FontSize="16"
-                                       Text=">" />
+                                       Source="forward"/>
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>
