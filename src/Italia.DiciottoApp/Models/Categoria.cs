@@ -14,6 +14,8 @@ namespace Italia.DiciottoApp.Models
 
         public string BlackImageSource => $"{Categories.ImageSources[(int)Tipo]}_black";
 
+        public Prodotto[] Prodotti => Categories.CategoryTypeProducts[Tipo];
+
         public string ElencoProdotti { get; }
 
         public Categoria(TipoCategoria tipo)
@@ -22,7 +24,7 @@ namespace Italia.DiciottoApp.Models
             ElencoProdotti = CreaListaProdotti();
         }
 
-        public string CreaListaProdotti()
+        private string CreaListaProdotti()
         {
             var prodotti = Categories.CategoryTypeProducts[Tipo];
             if (prodotti.Length == 0)
