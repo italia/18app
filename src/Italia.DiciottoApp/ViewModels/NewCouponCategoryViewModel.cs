@@ -13,7 +13,7 @@ namespace Italia.DiciottoApp.ViewModels
 
         public AppArea AppArea => AppArea.NewCoupon;
 
-        public string ContentHeader => "Scegli la categoria";
+        public string ListtHeader => "Scegli la categoria";
 
         public IEnumerable<Categoria> Categories => Models.Categories.List;
 

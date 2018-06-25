@@ -1,4 +1,5 @@
-﻿using Italia.DiciottoApp.ViewModels;
+﻿using Italia.DiciottoApp.Models;
+using Italia.DiciottoApp.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,5 +23,19 @@ namespace Italia.DiciottoApp.Views
             vm = BindingContext as NewCouponCategoryViewModel;
         }
 
-	}
+        private async void OnCategoryListItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            if (e.Item is Categoria categoria)
+            {
+                // Clear the item selection
+                if (sender is ListView listView)
+                {
+                    listView.SelectedItem = null;
+                }
+
+                await Navigation.PushAsync(new NewCouponProductPage(categoria));
+            }
+
+        }
+    }
 }
