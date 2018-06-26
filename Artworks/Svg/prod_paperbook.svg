@@ -15,8 +15,8 @@
    sodipodi:docname="prod_paperbook.svg"
    inkscape:version="0.92.3 (2405546, 2018-03-11)"
    inkscape:export-filename="C:\Users\ncara\Desktop\fucina\prod_paperbook.png"
-   inkscape:export-xdpi="344"
-   inkscape:export-ydpi="344">
+   inkscape:export-xdpi="376"
+   inkscape:export-ydpi="376">
   <metadata
      id="metadata19">
     <rdf:RDF>
@@ -38,15 +38,15 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="2736"
-     inkscape:window-height="1824"
+     inkscape:window-width="1229"
+     inkscape:window-height="809"
      id="namedview17"
      showgrid="false"
-     inkscape:zoom="31.999999"
-     inkscape:cx="8.949154"
-     inkscape:cy="4.50485"
-     inkscape:window-x="0"
-     inkscape:window-y="0"
+     inkscape:zoom="7.9999998"
+     inkscape:cx="13.506224"
+     inkscape:cy="15.378865"
+     inkscape:window-x="987"
+     inkscape:window-y="214"
      inkscape:window-maximized="0"
      inkscape:current-layer="svg15"
      fit-margin-top="0"
@@ -65,7 +65,7 @@
      id="prod_paperbook"
      inkscape:label="prod_paperbook">
     <rect
-       id="Rectangle-7"
+       id="Frame"
        x="0"
        y="0"
        width="24"

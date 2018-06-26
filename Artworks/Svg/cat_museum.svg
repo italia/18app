@@ -38,15 +38,15 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="2736"
-     inkscape:window-height="1824"
+     inkscape:window-width="1210"
+     inkscape:window-height="943"
      id="namedview17"
      showgrid="false"
      inkscape:zoom="11.313708"
-     inkscape:cx="-20.752908"
+     inkscape:cx="7.552392"
      inkscape:cy="3.1811101"
-     inkscape:window-x="0"
-     inkscape:window-y="0"
+     inkscape:window-x="931"
+     inkscape:window-y="250"
      inkscape:window-maximized="0"
      inkscape:current-layer="svg15"
      fit-margin-top="0"
@@ -62,10 +62,13 @@
      id="defs6" />
   <g
      style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1"
-     id="icon-musei-06c"
-     inkscape:label="cat_museum">
+     id="cat_museum"
+     inkscape:label="cat_museum"
+     inkscape:export-filename="C:\Users\ncara\Desktop\fucina\cat_museum.png"
+     inkscape:export-xdpi="376"
+     inkscape:export-ydpi="376">
     <rect
-       id="Rectangle-7"
+       id="Frame"
        x="0"
        y="0"
        width="24"
@@ -73,7 +76,7 @@
        inkscape:label="Frame" />
     <path
        d="M 12,1.3333332 22,7.4285713 H 2 Z M 2,19.619048 h 20 v 3.047619 H 2 Z M 2,7.4285713 H 22 V 9.4603174 H 2 Z m 9,3.0476197 h 2 v 8.126984 h -2 z m -4,0 h 2 v 8.126984 H 7 Z m 12,0 h 2 v 8.126984 h -2 z m -16,0 h 2 v 8.126984 H 3 Z m 12,0 h 2 v 8.126984 h -2 z"
-       id="Combined-Shape"
+       id="Shape"
        inkscape:connector-curvature="0"
        style="fill:#0271d2"
        inkscape:label="Shape" />

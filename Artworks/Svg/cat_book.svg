@@ -15,8 +15,8 @@
    sodipodi:docname="cat_book.svg"
    inkscape:version="0.92.3 (2405546, 2018-03-11)"
    inkscape:export-filename="C:\Users\ncara\Desktop\fucina\cat_book.png"
-   inkscape:export-xdpi="344"
-   inkscape:export-ydpi="344">
+   inkscape:export-xdpi="376"
+   inkscape:export-ydpi="376">
   <metadata
      id="metadata20">
     <rdf:RDF>
@@ -39,7 +39,7 @@
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
      inkscape:window-width="2494"
-     inkscape:window-height="1885"
+     inkscape:window-height="1440"
      id="namedview18"
      showgrid="false"
      fit-margin-top="0"
@@ -47,10 +47,10 @@
      fit-margin-right="0"
      fit-margin-bottom="0"
      inkscape:zoom="11.8"
-     inkscape:cx="-15.559322"
+     inkscape:cx="-31.364407"
      inkscape:cy="12"
-     inkscape:window-x="877"
-     inkscape:window-y="768"
+     inkscape:window-x="495"
+     inkscape:window-y="138"
      inkscape:window-maximized="0"
      inkscape:current-layer="svg16" />
   <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
@@ -62,7 +62,7 @@
      id="defs6" />
   <g
      style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1"
-     id="icon-libri-06c"
+     id="cat_book"
      inkscape:label="cat_book">
     <rect
        id="Rectangle-11"

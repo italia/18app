@@ -14,7 +14,7 @@
    id="svg15"
    sodipodi:docname="euro_acquamarine.svg"
    inkscape:version="0.92.3 (2405546, 2018-03-11)"
-   inkscape:export-filename="C:\Users\ncara\Desktop\fucina\euro_acquamarine.png"
+   inkscape:export-filename="C:\Users\ncara\Desktop\fucina\euro.png"
    inkscape:export-xdpi="378.67001"
    inkscape:export-ydpi="378.67001">
   <metadata
@@ -45,8 +45,8 @@
      inkscape:zoom="13.111111"
      inkscape:cx="-7.0550847"
      inkscape:cy="7.0932201"
-     inkscape:window-x="290"
-     inkscape:window-y="12"
+     inkscape:window-x="205"
+     inkscape:window-y="145"
      inkscape:window-maximized="0"
      inkscape:current-layer="svg15"
      fit-margin-top="0"
@@ -61,12 +61,12 @@
   <defs
      id="defs6" />
   <g
-     id="euro_acquamarine"
+     id="euro"
      style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1"
-     inkscape:label="euro_acquamarine">
+     inkscape:label="euro">
     <path
        inkscape:label="Shape"
-       style="fill:#66dbdd;fill-opacity:1"
+       style="fill:#0066cc;fill-opacity:1"
        inkscape:connector-curvature="0"
        id="Shape"
        d="M 12,15.5 C 9.49,15.5 7.32,14.08 6.24,12 H 12 V 10 H 5.58 C 5.53,9.67 5.5,9.34 5.5,9 5.5,8.66 5.53,8.33 5.58,8 H 12 V 6 H 6.24 C 7.32,3.92 9.5,2.5 12,2.5 c 1.61,0 3.09,0.59 4.23,1.57 L 18,2.3 C 16.41,0.87 14.3,0 12,0 8.08,0 4.76,2.51 3.52,6 H 0 V 8 H 3.06 C 3.02,8.33 3,8.66 3,9 3,9.34 3.02,9.67 3.06,10 H 0 v 2 h 3.52 c 1.24,3.49 4.56,6 8.48,6 2.31,0 4.41,-0.87 6,-2.3 L 16.22,13.93 C 15.09,14.91 13.62,15.5 12,15.5 Z" />

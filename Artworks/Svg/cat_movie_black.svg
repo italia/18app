@@ -15,8 +15,8 @@
    sodipodi:docname="cat_movie_black.svg"
    inkscape:version="0.92.3 (2405546, 2018-03-11)"
    inkscape:export-filename="C:\Users\ncara\Desktop\fucina\cat_movie_black.png"
-   inkscape:export-xdpi="344"
-   inkscape:export-ydpi="344">
+   inkscape:export-xdpi="376"
+   inkscape:export-ydpi="376">
   <metadata
      id="metadata20">
     <rdf:RDF>
@@ -38,15 +38,15 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="2692"
-     inkscape:window-height="1535"
+     inkscape:window-width="1270"
+     inkscape:window-height="1187"
      id="namedview18"
      showgrid="false"
      inkscape:zoom="11.313708"
-     inkscape:cx="-30.9257"
+     inkscape:cx="-14.313788"
      inkscape:cy="-5.176507"
-     inkscape:window-x="52"
-     inkscape:window-y="1100"
+     inkscape:window-x="909"
+     inkscape:window-y="187"
      inkscape:window-maximized="0"
      inkscape:current-layer="svg16"
      fit-margin-top="0"
@@ -62,11 +62,14 @@
      id="defs6" />
   <g
      style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1"
-     id="icon-cinema-06c"
-     inkscape:label="cat_movie_black">
+     id="cat_movie_black"
+     inkscape:label="cat_movie_black"
+     inkscape:export-filename="C:\Users\ncara\Desktop\fucina\cat_movie_black.png"
+     inkscape:export-xdpi="344"
+     inkscape:export-ydpi="344">
     <polygon
        id="Shape"
-       points="24,24 0,24 0,0 24,0 "
+       points="0,0 24,0 24,24 0,24 "
        inkscape:label="Frame" />
     <path
        d="M 18,3 V 5 H 16 V 3 H 8 V 5 H 6 V 3 H 4 v 18 h 2 v -2 h 2 v 2 h 8 v -2 h 2 v 2 h 2 V 3 Z M 8,17 H 6 V 15 H 8 Z M 8,13 H 6 V 11 H 8 Z M 8,9 H 6 V 7 h 2 z m 10,8 h -2 v -2 h 2 z m 0,-4 h -2 v -2 h 2 z M 18,9 H 16 V 7 h 2 z"
