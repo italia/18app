@@ -20,7 +20,7 @@ namespace Italia.DiciottoApp.Models
 
         public Prodotto Product { get; set; }
 
-        public decimal Value { get; set; }
+        public double Value { get; set; }
 
         public string QrCodeValue { get; set; }
 
