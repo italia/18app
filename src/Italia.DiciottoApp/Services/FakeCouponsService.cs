@@ -61,7 +61,7 @@ namespace Italia.DiciottoApp.Services
                         Category = Categories.Cinema,
                         Product = Categories.Cinema.Prodotti[0],
                         ShopId = "2375F804-5744-48C0-813C-0B87F2E0750E",
-                        Value = 12.0M
+                        Value = 12.0
                     },
                     new Coupon
                     {
@@ -70,7 +70,7 @@ namespace Italia.DiciottoApp.Services
                         Category = Categories.Concerti,
                         Product = Categories.Concerti.Prodotti[1],
                         ShopId = "16D55D17-BD46-48CE-94FF-BB4F28971A21",
-                        Value = 28.0M
+                        Value = 28.0
                     },
                     new Coupon
                     {
@@ -80,7 +80,7 @@ namespace Italia.DiciottoApp.Services
                         Category = Categories.Libri,
                         Product = Categories.Libri.Prodotti[0],
                         ShopId = "7E0C6AA6-ADF0-4710-A6EF-C7E24B2FFDFF",
-                        Value = 9.0M
+                        Value = 9.0
                     },
                     new Coupon
                     {
@@ -90,7 +90,7 @@ namespace Italia.DiciottoApp.Services
                         Category = Categories.Libri,
                         Product = Categories.Libri.Prodotti[1],
                         ShopId = "7E0C6AA6-ADF0-4710-A6EF-C7E24B2FFDFF",
-                        Value = 14.0M
+                        Value = 14.0
                     },
                     new Coupon
                     {
@@ -99,7 +99,7 @@ namespace Italia.DiciottoApp.Services
                         Category = Categories.TeatroDanza,
                         Product = Categories.TeatroDanza.Prodotti[0],
                         ShopId = "2375F804-5744-48C0-813C-0B87F2E0750E",
-                        Value = 15.0M
+                        Value = 15.0
                     },
                     new Coupon
                     {
@@ -108,7 +108,7 @@ namespace Italia.DiciottoApp.Services
                         Category = Categories.TeatroDanza,
                         Product = Categories.TeatroDanza.Prodotti[1],
                         ShopId = "27E7A6D6-3C76-4CC4-81E5-4AD3B6211D0A",
-                        Value = 70.0M
+                        Value = 70.0
                     }
                 };
             }
