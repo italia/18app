@@ -21,5 +21,9 @@ namespace Italia.DiciottoApp.Models
         public Prodotto Product { get; set; }
 
         public decimal Value { get; set; }
+
+        public string QrCodeValue { get; set; }
+
+        public string BarCodeValue { get; set; }
     }
 }
