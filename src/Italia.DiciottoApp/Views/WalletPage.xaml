@@ -29,7 +29,7 @@
             <BoxView Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"
                      BackgroundColor="{StaticResource TabsBkgndColor}" />
 
-            <BoxView Grid.Row="0" Grid.Column="1"
+            <BoxView Grid.Row="0" Grid.Column="{Binding WalletTabIndex}"
                      HeightRequest="5"
                      VerticalOptions="End"
                      BackgroundColor="White" />
@@ -40,16 +40,131 @@
 
             <Label Grid.Row="0" Grid.Column="1"
                    Text="DA SPENDERE"
-                   Style="{StaticResource TabLabelStyle}" />
+                   Style="{StaticResource TabLabelStyle}">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnAvailableTabTapped" />
+                </Label.GestureRecognizers>
+            </Label>
 
             <Label Grid.Row="0" Grid.Column="2"
                    Text="GIÀ SPESI"
-                   Style="{StaticResource TabLabelStyle}" />
+                   Style="{StaticResource TabLabelStyle}">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnSpentTabTapped" />
+                </Label.GestureRecognizers>
+            </Label>
 
-            <Label Grid.Row="1" Grid.ColumnSpan="3"
-                   Text="TODO: I tuoi buoni"
+            <!-- Content header -->
+            <Label Grid.Row="1" Grid.ColumnSpan="3" Margin="16,16,16,0"
                    VerticalOptions="CenterAndExpand" 
-                   HorizontalOptions="CenterAndExpand" />
+                   HorizontalOptions="StartAndExpand"
+                   Style="{StaticResource RegularLabelStyle}"
+                   TextColor="#FFAAAAAA" FontSize="14"
+                   Text="{Binding ContentHeader}" />
+
+            <!-- All coupon list -->
+            <ListView Grid.Row="2" Grid.ColumnSpan="3" Margin="0,0,16,0"
+                      ItemsSource="{Binding AllCoupons, Mode=OneWay}"
+                      HasUnevenRows="true" IsVisible="{Binding CouponListIsVisible}"
+                      ItemTapped="OnListViewItemTapped">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="0" Spacing="0">
+                                
+                                <!-- Available -->
+                                <StackLayout Padding="0" Spacing="0"
+                                             Orientation="Horizontal"
+                                             IsVisible="{Binding Spent, Converter={StaticResource NegativeConverter}}">
+
+                                    <Image Margin="16,0,0,0"
+                                           Source="{Binding Category.ImageSource}"
+                                           HeightRequest="22" WidthRequest="22"
+                                           VerticalOptions="Center" />
+
+                                    <StackLayout Padding="0" Spacing="0"
+                                                 VerticalOptions="Center"
+                                                 HorizontalOptions="StartAndExpand">
+
+                                        <Label Margin="32,20,16,20"
+                                               HorizontalOptions="Start" VerticalOptions="Center"
+                                               Style="{StaticResource BoldLabelStyle}"
+                                               TextColor="#FF1168C9" FontSize="16"
+                                               Text="{Binding Category.Titolo}" />
+
+                                        <Label Margin="32,20,16,20"
+                                               HorizontalOptions="Start" VerticalOptions="Center"
+                                               Style="{StaticResource RegularLabelStyle}"
+                                               TextColor="#FF1168C9" FontSize="14"
+                                               Text="{Binding Product.Titolo}" />
+
+                                        <Label Margin="32,20,16,20"
+                                               IsVisible="{Binding HasShop}"
+                                               HorizontalOptions="Start" VerticalOptions="Center"
+                                               Style="{StaticResource RegularLabelStyle}"
+                                               TextColor="#FF1168C9" FontSize="14"
+                                               Text="{Binding Shop.Title}" />
+                                    </StackLayout>
+
+                                    <Label Margin="32,20,16,20"
+                                           HorizontalOptions="End" VerticalOptions="Center"
+                                           Style="{StaticResource BoldLabelStyle}"
+                                           TextColor="#FF1168C9" FontSize="28"
+                                           Text="{Binding Value, StringFormat='{0:F2}'}" />
+
+                                    <Image Margin="0,0,6,0"
+                                           HorizontalOptions="End" VerticalOptions="CenterAndExpand"
+                                           Source="forward"/>
+                                </StackLayout>
+                                
+                                <!-- Spent -->
+                                <StackLayout Padding="0" Spacing="0"
+                                             Orientation="Horizontal"
+                                             IsVisible="{Binding Spent}">
+
+                                    <Image Margin="16,0,0,0"
+                                           Source="{Binding Category.BlackImageSource}"
+                                           HeightRequest="22" WidthRequest="22"
+                                           VerticalOptions="Center" />
+
+                                    <StackLayout Padding="0" Spacing="0"
+                                                 VerticalOptions="Center">
+
+                                        <Label Margin="32,20,16,20"
+                                               HorizontalOptions="StartAndExpand" VerticalOptions="Center"
+                                               Style="{StaticResource BoldLabelStyle}"
+                                               TextColor="#FF66727C" FontSize="16"
+                                               Text="{Binding Category.Titolo}" />
+
+                                        <Label Margin="32,20,16,20"
+                                               HorizontalOptions="StartAndExpand" VerticalOptions="Center"
+                                               Style="{StaticResource RegularLabelStyle}"
+                                               TextColor="#FF66727C" FontSize="14"
+                                               Text="{Binding Product.Titolo}" />
+                                        
+                                        <Label Margin="32,20,16,20"
+                                               IsVisible="{Binding HasShop}"
+                                               HorizontalOptions="Start" VerticalOptions="Center"
+                                               Style="{StaticResource RegularLabelStyle}"
+                                               TextColor="{StaticResource AppLightGrayColor}" FontSize="14"
+                                               Text="{Binding Shop.Title}" />
+                                    </StackLayout>
+
+                                    <Label Margin="32,20,16,20"
+                                           HorizontalOptions="End" VerticalOptions="Center"
+                                           Style="{StaticResource BoldLabelStyle}"
+                                           TextColor="#FF1168C9" FontSize="28"
+                                           Text="{Binding Value, StringFormat='{0:F2}'}" />
+
+                                    <Image Margin="0,0,6,0"
+                                           HorizontalOptions="End" VerticalOptions="CenterAndExpand"
+                                           Source="forward"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </Grid>
     </views:BasePage.Content>
 </views:BasePage>

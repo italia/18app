@@ -22,6 +22,9 @@
     <Compile Update="Views\NewCouponCategoryPage.xaml.cs">
       <DependentUpon>NewCouponCategoryPage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\WalletPage.xaml.cs">
+      <DependentUpon>WalletPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
