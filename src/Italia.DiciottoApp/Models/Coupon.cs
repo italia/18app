@@ -8,6 +8,8 @@ namespace Italia.DiciottoApp.Models
     {
         public string Id { get; set; }
 
+        public string UserId { get; set; }
+
         public bool Spent { get; set; }
 
         public DateTime SpentDateTime { get; set; }
