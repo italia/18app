@@ -36,7 +36,7 @@ namespace Italia.DiciottoApp.Services
             return coupons;
         }
 
-        public async Task CreateCoupon(Categoria categoria, Prodotto prodotto, double valore, string shopId = null)
+        public async Task<Coupon> CreateCoupon(Categoria categoria, Prodotto prodotto, double valore, string shopId = null)
         {
             if (categoria == null)
             {
@@ -55,7 +55,7 @@ namespace Italia.DiciottoApp.Services
 
             // TODO: Get shops from 18App SOAP Service
             var fakeCouponsService = new FakeCouponsService();
-            await fakeCouponsService.CreateCoupon(categoria, prodotto, valore);
+            return await fakeCouponsService.CreateCoupon(categoria, prodotto, valore);
         }
 
     }
