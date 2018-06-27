@@ -90,7 +90,7 @@
                        Keyboard="Numeric"
                        MaxLength="6"
                        TextChanged="OnEntryTextChanged"
-                       Text="{Binding EntryValore}"/>
+                       Text="{Binding EntryValue}"/>
 
                 <Image HorizontalOptions="End" VerticalOptions="CenterAndExpand"
                        Source="euro"/>
