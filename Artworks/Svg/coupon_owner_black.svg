@@ -78,8 +78,8 @@
        id="Frame"
        style="fill:none;fill-opacity:0.98380564;stroke:none;stroke-width:0.10937731;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
     <path
-       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.13609003;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="m 12.309525,4.0080596 a 4,4 0 0 0 -4.0000003,4 4,4 0 0 0 4.0000003,4.0000004 4,4 0 0 0 4,-4.0000004 4,4 0 0 0 -4,-4 z M 12.268509,13.69556 A 11.798457,11.6875 0 0 0 4.3798372,16.711185 V 19.88306 H 20.192337 v -3.09375 h 0.04687 a 11.798457,11.6875 0 0 0 -7.970698,-3.09375 z"
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.13722917;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 12.309523,3.9455596 A 4.0354693,4.0314958 0 0 0 8.2740531,7.9770554 4.0354693,4.0314958 0 0 0 12.309523,12.008553 4.0354693,4.0314958 0 0 0 16.344992,7.9770554 4.0354693,4.0314958 0 0 0 12.309523,3.9455596 Z m -0.04138,9.7637804 a 11.903078,11.779527 0 0 0 -7.9586232,3.03937 v 3.19685 H 20.262235 v -3.11811 h 0.04729 a 11.903078,11.779527 0 0 0 -8.041377,-3.11811 z"
        id="Shape"
        inkscape:connector-curvature="0"
        inkscape:label="Shape" />
