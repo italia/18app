@@ -6,11 +6,13 @@
     
     <Application.Resources>
         <Color x:Key="AppBkgndColor">#0066CC</Color>
+        <Color x:Key="AppLightGrayColor">#A9B1B8</Color>
         <Color x:Key="TabsBkgndColor">#00469C</Color>
         <Color x:Key="ContentBkgndColor">#FFFFFF</Color>
 
         <conv:AppAreaOpacityConverter x:Key="AppAreaOpacityConverter" />
-
+        <conv:NegativeConverter x:Key="NegativeConverter" />
+        
         <Style x:Key="RegularLabelStyle" TargetType="Label">
             <Setter Property="FontFamily">
                 <Setter.Value>
