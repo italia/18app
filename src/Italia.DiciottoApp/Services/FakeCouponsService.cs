@@ -42,10 +42,30 @@ namespace Italia.DiciottoApp.Services
             return fakeCouponList;
         }
 
-        public async Task CreateCoupon(Categoria categoria, Prodotto prodotto, double valore, string shopId = null)
+        public async Task<Coupon> CreateCoupon(Categoria categoria, Prodotto prodotto, double valore, string shopId = null)
         {
             // simulate delay
             await Task.Delay(simulatedDelay);
+
+            string id = "DF69A8D5";
+            Coupon coupon = new Coupon
+            {
+                Id = id,
+                Category = categoria,
+                Product = prodotto,
+                Value = valore,
+                QrCodeValue = id,
+                BarCodeValue = id,
+                ShopId = shopId
+            };
+
+            if (!string.IsNullOrWhiteSpace(shopId))
+            {
+                IShopsService shopService = Service.Resolve<IShopsService>();
+                coupon.Shop = await shopService.GetShopByIdAsync(shopId);
+            }
+
+            return coupon;
         }
 
         public static class FakeCoupons
