@@ -10,7 +10,7 @@ namespace Italia.DiciottoApp.Services
     {
         Task<Coupon> GetCouponByIdAsync(string userId);
 
-        Task<IEnumerable<Coupon>> GetUserCouponsAsync(string userId, int page = 1, int pageItems = 10);
+        Task<IEnumerable<Coupon>> GetUserCouponsAsync(string userId, WalletKind walletKind = WalletKind.All, int page = 0, int pageItems = 100);
 
         Task<Coupon> CreateCoupon(Categoria categoria, Prodotto prodotto, double valore, string shopId = null);
     }

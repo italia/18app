@@ -20,21 +20,30 @@ namespace Italia.DiciottoApp.Services
             // simulate delay
             await Task.Delay(simulatedDelay);
 
-            return FakeCoupons.List().Where(s => s.Id == userId).FirstOrDefault();
+            return FakeCoupons.GetList().Where(s => s.Id == userId).FirstOrDefault();
         }
 
-        public async Task<IEnumerable<Coupon>> GetUserCouponsAsync(string userId, int page = 1, int pageItems = 10)
+        public async Task<IEnumerable<Coupon>> GetUserCouponsAsync(string userId, WalletKind walletKind = WalletKind.All, int page = 0, int pageItems = 100)
         {
             if (string.IsNullOrWhiteSpace(userId))
             {
-                throw new ArgumentNullException("userId");
+                throw new ArgumentNullException(nameof(userId));
             }
 
             // simulate delay
             await Task.Delay(simulatedDelay);
 
-            var fakeCouponList = FakeCoupons.List().Take(pageItems);
             IShopsService shopsService = Service.Resolve<IShopsService>();
+
+            var fakeCouponList = (walletKind == WalletKind.All) ? FakeCoupons.GetList() :
+                                 (walletKind == WalletKind.Available) ? FakeCoupons.GetList().Where(c => !c.Spent) :
+                                 FakeCoupons.GetList().Where(c => c.Spent);
+
+            if (page > 0 && pageItems > 0)
+            {
+                fakeCouponList = fakeCouponList.Skip((page - 1) * pageItems).Take(pageItems);
+            }
+
             foreach (var fakeCoupon in fakeCouponList)
             {
                 fakeCoupon.Shop = await shopsService.GetShopByIdAsync(fakeCoupon.ShopId);
@@ -70,7 +79,7 @@ namespace Italia.DiciottoApp.Services
 
         public static class FakeCoupons
         {
-            public static IEnumerable<Coupon> List()
+            public static IEnumerable<Coupon> GetList()
             {
                 return new List<Coupon>
                 {

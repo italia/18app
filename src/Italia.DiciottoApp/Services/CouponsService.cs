@@ -20,7 +20,7 @@ namespace Italia.DiciottoApp.Services
             return await fakeCouponsService.GetCouponByIdAsync(userId);
         }
 
-        public async Task<IEnumerable<Coupon>> GetUserCouponsAsync(string userId, int page = 1, int pageItems = 10)
+        public async Task<IEnumerable<Coupon>> GetUserCouponsAsync(string userId, WalletKind walletKind = WalletKind.All, int page = 0, int pageItems = 100)
         {
             if (string.IsNullOrWhiteSpace(userId))
             {
@@ -31,7 +31,7 @@ namespace Italia.DiciottoApp.Services
 
             // TODO: Get shops from 18App SOAP Service
             var fakeCouponsService = new FakeCouponsService();
-            coupons = await fakeCouponsService.GetUserCouponsAsync(userId);
+            coupons = await fakeCouponsService.GetUserCouponsAsync(userId, walletKind, page, pageItems);
 
             return coupons;
         }
