@@ -35,6 +35,42 @@
             </Setter>
         </Style>
 
+        <Style x:Key="ItalicLabelStyle" TargetType="Label">
+            <Setter Property="FontFamily">
+                <Setter.Value>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="iOS" Value="TitilliumWeb-Italic" />
+                        <On Platform="Android" Value="fonts/TitilliumWeb-Italic.ttf#TitilliumWeb-Italic" />
+                        <On Platform="UWP" Value="Assets/Fonts/TitilliumWeb-Italic.ttf#TitilliumWeb" />
+                    </OnPlatform>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="BoldItalicLabelStyle" TargetType="Label">
+            <Setter Property="FontFamily">
+                <Setter.Value>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="iOS" Value="TitilliumWeb-BoldItalic" />
+                        <On Platform="Android" Value="fonts/TitilliumWeb-BoldItalic.ttf#TitilliumWeb-BoldItalic" />
+                        <On Platform="UWP" Value="Assets/Fonts/TitilliumWeb-BoldItalic.ttf#TitilliumWeb" />
+                    </OnPlatform>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="SemiBoldItalicLabelStyle" TargetType="Label">
+            <Setter Property="FontFamily">
+                <Setter.Value>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="iOS" Value="TitilliumWeb-SemiBoldItalic" />
+                        <On Platform="Android" Value="fonts/TitilliumWeb-SemiBoldItalic.ttf#TitilliumWeb-SemiBoldItalic" />
+                        <On Platform="UWP" Value="Assets/Fonts/TitilliumWeb-SemiBoldItalic.ttf#TitilliumWeb" />
+                    </OnPlatform>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
         <Style x:Key="PageTitleLabelStyle" TargetType="Label">
             <Setter Property="TextColor" Value="White" />
             <Setter Property="FontSize" Value="16" />
