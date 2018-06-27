@@ -27,6 +27,17 @@ namespace Italia.DiciottoApp.Models
             "cat_theatre"
         };
 
+        // TODO: Set missing backgrounds
+        public static string[] BkgndImageSources { get; } = new string[]
+        {
+            "bkgnd_cinema",
+            "bkgnd_concerti",
+            "bkgnd_concerti",
+            "bkgnd_libri",
+            "bkgnd_libri",
+            "bkgnd_cinema"
+        };
+        
         public static Dictionary<TipoCategoria, Prodotto[]> CategoryTypeProducts { get; } = new Dictionary<TipoCategoria, Prodotto[]>
         {
             {
