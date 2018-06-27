@@ -22,7 +22,7 @@ namespace Italia.DiciottoApp.Services
             // simulate delay
             await Task.Delay(simulatedDelay);
 
-            return FakeShops.List().Where(s => s.Id == shopId).FirstOrDefault();
+            return FakeShops.GetList().Where(s => s.Id == shopId).FirstOrDefault();
         }
 
         public async Task<IEnumerable<Shop>> NearToLocationShopsAsync(Location location, int maxItems = 10)
@@ -35,14 +35,14 @@ namespace Italia.DiciottoApp.Services
             // simulate delay
             await Task.Delay(simulatedDelay);
 
-            return FakeShops.List().Take(maxItems);
+            return FakeShops.GetList().Take(maxItems);
         }
 
     }
 
     public static class FakeShops
     {
-        public static IEnumerable<Shop> List()
+        public static IEnumerable<Shop> GetList()
         {
             Location location = new Location(41.8919300, 12.5113300);
             return new List<Shop>
@@ -61,10 +61,10 @@ namespace Italia.DiciottoApp.Services
                         SiglaProvincia = "RM"
                     },
                     Categorie = new Categoria[]
-                {
-                    new Categoria(TipoCategoria.Cinema),
-                    new Categoria(TipoCategoria.Libri)
-                },
+                    {
+                        new Categoria(TipoCategoria.Cinema),
+                        new Categoria(TipoCategoria.Libri)
+                    },
                     IsOnline = false,
                     Url = string.Empty,
                     Location = new Location(location.Latitude + 0.01, location.Longitude + 0.01),
