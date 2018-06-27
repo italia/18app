@@ -14,6 +14,8 @@ namespace Italia.DiciottoApp.Models
 
         public string BlackImageSource => $"{Categories.ImageSources[(int)Tipo]}_black";
 
+        public string BkgndImageSource => Categories.BkgndImageSources[(int)Tipo];
+
         public Prodotto[] Prodotti => Categories.CategoryTypeProducts[Tipo];
 
         public string ElencoProdotti { get; }
