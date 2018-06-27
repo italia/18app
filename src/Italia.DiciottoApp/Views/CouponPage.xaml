@@ -72,12 +72,12 @@
                     <!-- Categoria -->
                     <StackLayout Padding="0" Spacing="0" Orientation="Horizontal">
 
-                        <Image Margin="16,0,0,0"
+                        <Image Margin="23,0,0,0"
                                Source="{Binding Coupon.Category.BlackImageSource}"
                                HeightRequest="22" WidthRequest="22"
                                VerticalOptions="Center"/>
 
-                        <Label Margin="32,14,24,14"
+                        <Label Margin="28,10,24,10"
                                HorizontalOptions="StartAndExpand" VerticalOptions="Center"
                                Style="{StaticResource BoldLabelStyle}"
                                TextColor="#FF30383D" FontSize="16"
@@ -93,12 +93,12 @@
                     <!-- Prodotto -->
                     <StackLayout  Padding="0" Spacing="0" Orientation="Horizontal">
 
-                        <Image Margin="16,0,0,0"
+                        <Image Margin="23,0,0,0"
                            Source="{Binding Coupon.Product.BlackImageSource}"
                            HeightRequest="22" WidthRequest="22"
                            VerticalOptions="Center"/>
 
-                        <Label Margin="32,0,24,0"
+                        <Label Margin="28,4,24,4"
                            HorizontalOptions="StartAndExpand" VerticalOptions="Center"
                            Style="{StaticResource RegularLabelStyle}"
                            TextColor="#FF30383D" FontSize="16"
@@ -114,12 +114,12 @@
                     <!-- Valore -->
                     <StackLayout Padding="0" Spacing="0" Orientation="Horizontal">
 
-                        <Image Margin="16,0,0,0"
+                        <Image Margin="23,0,0,0"
                            Source="euro_black"
                            HeightRequest="22" WidthRequest="22"
                            VerticalOptions="Center"/>
 
-                        <Label Margin="32,12,24,12"
+                        <Label Margin="28,8,24,8"
                            HorizontalOptions="StartAndExpand" VerticalOptions="Center"
                            Style="{StaticResource BoldLabelStyle}"
                            TextColor="#FF30383D" FontSize="24"
@@ -135,12 +135,12 @@
                     <!-- Codice -->
                     <StackLayout Padding="0" Spacing="0" Orientation="Horizontal">
 
-                        <Image Margin="16,0,0,0"
+                        <Image Margin="23,0,0,0"
                            Source="qrcode_black"
                            HeightRequest="22" WidthRequest="22"
                            VerticalOptions="Center"/>
 
-                        <Label Margin="32,0,24,0"
+                        <Label Margin="28,0,24,0"
                            HorizontalOptions="StartAndExpand" VerticalOptions="Center"
                            Style="{StaticResource BoldLabelStyle}"
                            TextColor="#FF30383D" FontSize="24"
@@ -153,36 +153,35 @@
                            Text="Codice" />
                     </StackLayout>
 
-                    <BoxView HeightRequest="1" BackgroundColor="#FFEFEFEF" />
-
                     <!-- Buono non utilizzato -->
                     <StackLayout Padding="0" Spacing="0"
                                  IsVisible="{Binding CouponNotSpent}">
 
-                        <!-- Bottone: usa il buono sul sito-->
+                        <BoxView HeightRequest="1" BackgroundColor="#FFEFEFEF"
+                                 IsVisible="{Binding UseCouponOnlineButtonIsVisible}" />
+
                         <Frame CornerRadius="5" Padding="1"
                                HasShadow="False"
-                               Margin="16,16" HeightRequest="48"
-                               VerticalOptions="Center"
+                               Margin="16,16" HeightRequest="40"
                                BackgroundColor="{StaticResource AppBkgndColor}"
                                IsVisible="{Binding UseCouponOnlineButtonIsVisible}">
 
-                            <StackLayout Grid.Row="1"
-                                     Orientation="Horizontal"
-                                     HorizontalOptions="CenterAndExpand"
-                                     Margin="0,0,0,0">
+                            <StackLayout Grid.Row="1" Padding="0" Spacing="8"
+                                         Orientation="Horizontal"
+                                         HorizontalOptions="Center"
+                                         Margin="0,0,0,0">
 
                                 <StackLayout.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="OnUseCouponOnShopOnlineButtonTapped" />
                                 </StackLayout.GestureRecognizers>
 
-                                <Image Source="link_white" HeightRequest="22" />
+                                <Image Source="link_white"  VerticalOptions="Center" />
 
-                                <Label Margin="0,11" VerticalOptions="Center"
-                                   Style="{StaticResource BoldLabelStyle}" 
-                                   FontSize="16"
-                                   TextColor="White"  
-                                   Text="USA IL BUONO SUL SITO"/>
+                                <Label VerticalOptions="Center"
+                                       Style="{StaticResource BoldLabelStyle}" 
+                                       FontSize="16"
+                                       TextColor="White"  
+                                       Text="USA IL BUONO SUL SITO"/>
                             </StackLayout>
                         </Frame>
 
@@ -190,29 +189,30 @@
                                  IsVisible="{Binding UseCouponOnlineButtonIsVisible}" />
 
                         <!-- Bottone: percorso per il negozio -->
+                        <BoxView HeightRequest="1" BackgroundColor="#FFEFEFEF"
+                                 IsVisible="{Binding ShopRouteButtonIsVisible}" />
+
                         <Frame CornerRadius="5" Padding="1"
                            HasShadow="False"
-                           Margin="16,16" HeightRequest="48"
-                           VerticalOptions="Center"
+                           Margin="16,16" HeightRequest="40"
                            BackgroundColor="{StaticResource AppBkgndColor}"
                            IsVisible="{Binding ShopRouteButtonIsVisible}">
 
-                            <StackLayout Grid.Row="1"
-                                     Orientation="Horizontal"
-                                     HorizontalOptions="CenterAndExpand"
-                                     Margin="0,0,0,0">
+                            <StackLayout Grid.Row="1" Padding="0" Spacing="8"
+                                         Orientation="Horizontal"
+                                         HorizontalOptions="Center" >
 
                                 <StackLayout.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="OnUseCouponOnShopOnlineButtonTapped" />
+                                    <TapGestureRecognizer Tapped="OnRouteToShopButtonTapped" />
                                 </StackLayout.GestureRecognizers>
 
-                                <Image Source="route_white" />
+                                <Image Source="route_white" VerticalOptions="Center" />
 
-                                <Label Margin="0,11" VerticalOptions="Center"
-                                   Style="{StaticResource BoldLabelStyle}" 
-                                   FontSize="16"
-                                   TextColor="White"  
-                                   Text="PERCORSO PER IL NEGOZIO"/>
+                                <Label VerticalOptions="Center"
+                                       Style="{StaticResource BoldLabelStyle}" 
+                                       FontSize="16"
+                                       TextColor="White"
+                                       Text="PERCORSO PER IL NEGOZIO"/>
                             </StackLayout>
                         </Frame>
 
@@ -220,7 +220,7 @@
                                  IsVisible="{Binding ShopRouteButtonIsVisible}" />
 
                         <!-- QRcode, barcode e bottone salva immagine -->
-                        <StackLayout Padding="24,24" Spacing="0"
+                        <StackLayout Padding="26,24" Spacing="0"
                                  Orientation="Horizontal"
                                  IsVisible="{Binding CouponNotSpent}">
 
@@ -253,9 +253,37 @@
                             </StackLayout>
                         </StackLayout>
 
-                        <BoxView HeightRequest="1" BackgroundColor="#FFEFEFEF" />
+                        <!-- Bottone: trova un negozio -->
+                        <BoxView HeightRequest="1" BackgroundColor="#FFEFEFEF" 
+                                 IsVisible="{Binding ShopNotDefined}" />
+                        
+                        <Frame CornerRadius="5" Padding="1"
+                               HasShadow="False"
+                               Margin="16,16" HeightRequest="40"
+                               BackgroundColor="{StaticResource AppBkgndColor}"
+                               IsVisible="{Binding ShopNotDefined}">
+
+                            <StackLayout Grid.Row="1" Padding="0" Spacing="8"
+                                         Orientation="Horizontal"
+                                         HorizontalOptions="Center" >
+
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnFindShopButtonTapped" />
+                                </StackLayout.GestureRecognizers>
+
+                                <Image Source="location_white" VerticalOptions="Center" />
+
+                                <Label VerticalOptions="Center"
+                                       Style="{StaticResource BoldLabelStyle}" 
+                                       FontSize="16"
+                                       TextColor="White"
+                                       Text="TROVA UN NEGOZIO"/>
+                            </StackLayout>
+                        </Frame>
 
                         <!-- Intestatario -->
+                        <BoxView HeightRequest="1" BackgroundColor="#FFEFEFEF" />
+
                         <Label Margin="16,10,16,0"
                                VerticalOptions="Start" 
                                HorizontalOptions="Center"
@@ -265,16 +293,16 @@
 
                         <StackLayout Padding="0" Spacing="0" Orientation="Horizontal">
 
-                            <Image Margin="16,0,0,0"
+                            <Image Margin="23,0,0,0"
                                Source="coupon_owner_black"
                                HeightRequest="22" WidthRequest="22"
                                VerticalOptions="Center"/>
 
-                            <Label Margin="32,14,24,14"
+                            <Label Margin="28,8,24,8"
                                HorizontalOptions="StartAndExpand" VerticalOptions="Center"
                                Style="{StaticResource BoldLabelStyle}"
                                TextColor="#FF30383D" FontSize="16"
-                               Text="{Binding Coupon.Category.Titolo}" />
+                               Text="{Binding CouponOwner}" />
 
                             <Label Margin="0,0,16,0"
                                HorizontalOptions="End" VerticalOptions="Center"
@@ -282,18 +310,107 @@
                                TextColor="#FFAAAAAA" FontSize="12"
                                Text="Intestatario" />
                         </StackLayout>
-                        
-                        <!-- Trova un (altro) negozio -->
+
+                        <!-- Trova un altro negozio -->
+                        <BoxView HeightRequest="1" BackgroundColor="#FFEFEFEF"
+                                 IsVisible="{Binding ShopIsVisible}" />
+
+                        <Label Margin="16,10,16,0"
+                               VerticalOptions="Start" 
+                               HorizontalOptions="Center"
+                               Style="{StaticResource RegularLabelStyle}"
+                               TextColor="#FFAAAAAA" FontSize="14"
+                               Text="Il buono potrà essere speso anche in altri negozi."
+                               IsVisible="{Binding ShopIsVisible}" />
+
+                        <!-- Bottone: trova un altro negozio -->
+                        <Frame CornerRadius="5" Padding="1"
+                           HasShadow="False"
+                           Margin="16,16" HeightRequest="40"
+                           BackgroundColor="{StaticResource AppBkgndColor}"
+                           IsVisible="{Binding ShopIsVisible}">
+
+                            <StackLayout Grid.Row="1" Padding="0" Spacing="8"
+                                         Orientation="Horizontal"
+                                         HorizontalOptions="Center" >
+
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnDeleteCouponButtonTapped" />
+                                </StackLayout.GestureRecognizers>
+
+                                <Image Source="location_white" VerticalOptions="Center" />
+
+                                <Label VerticalOptions="Center"
+                                       Style="{StaticResource BoldLabelStyle}" 
+                                       FontSize="16"
+                                       TextColor="White"
+                                       Text="TROVA UN ALTRO NEGOZIO"/>
+                            </StackLayout>
+                        </Frame>
 
                         <!-- Delete coupon message -->
-                        <Label Margin="16,16,16,0"
-                               VerticalOptions="StartAndExpand" 
-                               HorizontalOptions="StartAndExpand"
+                        <BoxView HeightRequest="1" BackgroundColor="#FFEFEFEF" />
+
+                        <Label Margin="16,10,16,0"
+                               VerticalOptions="Start" 
+                               HorizontalOptions="Center"
                                Style="{StaticResource RegularLabelStyle}"
-                               TextColor="Red" FontSize="14"
-                               Text="{Binding DeleteCouponMessage}" />
+                               TextColor="#FFAAAAAA" FontSize="14"
+                               Text="Puoi annullare in ogni momento questo buono e riversare l'intero suo valore nel tuo credito." />
 
                         <!-- Delete button -->
+                        <Frame CornerRadius="5" Padding="1"
+                               HasShadow="False"
+                               Margin="16,16" HeightRequest="40"
+                               BackgroundColor="#FFD1021C">
+
+                            <StackLayout Grid.Row="1" Padding="0" Spacing="8"
+                                         Orientation="Horizontal"
+                                         HorizontalOptions="Center" >
+
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnFindAnotherShopButtonTapped" />
+                                </StackLayout.GestureRecognizers>
+
+                                <Image Source="bin_white" VerticalOptions="Center" />
+
+                                <Label VerticalOptions="Center"
+                                       Style="{StaticResource BoldLabelStyle}" 
+                                       FontSize="16"
+                                       TextColor="White"
+                                       Text="ANNULLA QUESTO BUONO"/>
+                            </StackLayout>
+                        </Frame>
+                    </StackLayout>
+
+                    <!-- Buono già utilizzato -->
+                    <StackLayout Padding="0" Spacing="0"
+                                 IsVisible="{Binding CouponSpent}">
+
+                        <!-- Bottone: dettagli del negozio -->
+                        <Frame CornerRadius="5" Padding="1"
+                               HasShadow="False"
+                               Margin="16,32" HeightRequest="40"
+                               BackgroundColor="{StaticResource AppBkgndColor}">
+
+                            <StackLayout Grid.Row="1" Padding="0" Spacing="8"
+                                         Orientation="Horizontal"
+                                         HorizontalOptions="Center" >
+
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnShopDetailButtonTapped" />
+                                </StackLayout.GestureRecognizers>
+
+                                <Image Source="location_white" VerticalOptions="Center" />
+
+                                <Label VerticalOptions="Center"
+                                       Style="{StaticResource BoldLabelStyle}" 
+                                       FontSize="16"
+                                       TextColor="White"
+                                       Text="DETTAGLI DEL NEGOZIO"/>
+                            </StackLayout>
+                        </Frame>
+                        
                     </StackLayout>
                 </StackLayout>
             </Grid>

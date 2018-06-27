@@ -35,7 +35,7 @@ namespace Italia.DiciottoApp.Views
             Coupon coupon = await vm.CreateCouponAsync();
             if (coupon != null)
             {
-                await Navigation.PushAsync(new CouponPage(coupon));
+                await Navigation.PushAsync(new CouponPage(coupon, justCreated: true));
             }
         }
     }

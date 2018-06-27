@@ -16,15 +16,27 @@ namespace Italia.DiciottoApp.ViewModels
         #region Properties
 
         private string pageTitle;
-        public string PageTitle
+        public string PageTitle => (Coupon?.Spent ?? false) ? "Buono utilizzato"
+                                   : JustCreated ? "Buono creato"
+                                   : "Dettagli del buono";
+
+        private bool justCreated;
+        public bool JustCreated
         {
-            get => pageTitle;
-            set => SetProperty(ref pageTitle, value);
+            get => justCreated;
+            set => SetProperty(ref justCreated, value, onChanged: () =>
+            {
+                OnPropertyChanged(nameof(PageTitle));
+            });
         }
 
         public AppArea AppArea => AppArea.NewCoupon;
 
+        public string CouponOwner => $"{Settings.UserName} {Settings.UserSurname}";
+
         public bool ShopIsVisible => (Coupon?.Shop != null);
+
+        public bool ShopNotDefined => (Coupon?.Shop == null);
 
         public string ShopBkgndImageSource => (Coupon?.Shop?.Categorie?.Count() > 0) ? Coupon.Shop.Categorie[0].BkgndImageSource : null;
 
@@ -36,7 +48,7 @@ namespace Italia.DiciottoApp.ViewModels
 
         public string CouponStatus =>
             Coupon == null ? string.Empty
-                           : Coupon.Spent ? $"Buono utilizzato il {Coupon.SpentDateTime.ToString("gg MMMM aa")} alle ore {Coupon.SpentDateTime.ToString("mm.hh")}"
+                           : Coupon.Spent ? $"Buono utilizzato il {Coupon.SpentDateTime.ToString("dd MMMM yy")} alle ore {Coupon.SpentDateTime.ToString("hh.mm")}"
                            : $"Il nuovo buono è stato creato correttamente";
 
         public Color CouponStatusTextColor => (Coupon?.Spent ?? false) ? red : green;
@@ -45,7 +57,9 @@ namespace Italia.DiciottoApp.ViewModels
 
         public bool ShopRouteButtonIsVisible => (!Coupon?.Spent ?? false) && (!Coupon?.Shop?.IsOnline ?? false);
 
-        public bool CouponNotSpent => !Coupon?.Spent ?? true;
+        public bool CouponNotSpent => !Coupon?.Spent ?? false;
+
+        public bool CouponSpent => Coupon?.Spent ?? false;
 
         public string QRcodeImageSource => "fake_qrcode";
 
@@ -58,6 +72,7 @@ namespace Italia.DiciottoApp.ViewModels
             set => SetProperty(ref coupon, value, onChanged: () =>
             {
                 OnPropertyChanged(nameof(ShopIsVisible));
+                OnPropertyChanged(nameof(ShopNotDefined));
                 OnPropertyChanged(nameof(ShopBkgndImageSource));
                 OnPropertyChanged(nameof(ShopKindImageSource));
                 OnPropertyChanged(nameof(ShopAddress));
@@ -66,6 +81,7 @@ namespace Italia.DiciottoApp.ViewModels
                 OnPropertyChanged(nameof(UseCouponOnlineButtonIsVisible));
                 OnPropertyChanged(nameof(ShopRouteButtonIsVisible));
                 OnPropertyChanged(nameof(CouponNotSpent));
+                OnPropertyChanged(nameof(CouponSpent));
                 OnPropertyChanged(nameof(QRcodeImageSource));
                 OnPropertyChanged(nameof(BarcodeImageSource));
             });
@@ -82,7 +98,7 @@ namespace Italia.DiciottoApp.ViewModels
         private void FakeInitialize()
         {
             // Title
-            PageTitle = "Buono creato";
+            JustCreated = false;
 
             // Coupon
             string id = "DF69A8D5";
@@ -96,7 +112,8 @@ namespace Italia.DiciottoApp.ViewModels
                 QrCodeValue = id,
                 BarCodeValue = id,
                 ShopId = fakeShop.Id,
-                Shop = fakeShop
+                Shop = fakeShop,
+                Spent = true
             };
 
             Coupon = coupon;

@@ -17,12 +17,12 @@ namespace Italia.DiciottoApp.Views
     {
         private CouponViewModel vm;
 
-        public CouponPage(Coupon coupon, string title = "Buono creato")
+        public CouponPage(Coupon coupon, bool justCreated = false)
         {
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
             vm = BindingContext as CouponViewModel;
-            vm.PageTitle = title;
+            vm.JustCreated = justCreated;
             vm.Coupon = coupon;
         }
 
@@ -35,5 +35,31 @@ namespace Italia.DiciottoApp.Views
         {
             // TODO: da fare!
         }
+
+        private void OnRouteToShopButtonTapped(object sender, EventArgs e)
+        {
+            // TODO: da fare!
+        }
+
+        private void OnFindAnotherShopButtonTapped(object sender, EventArgs e)
+        {
+            // TODO: da fare!
+        }
+
+        private void OnFindShopButtonTapped(object sender, EventArgs e)
+        {
+            // TODO: da fare!
+        }
+
+        private void OnDeleteCouponButtonTapped(object sender, EventArgs e)
+        {
+            // TODO: da fare!
+        }
+
+        private void OnShopDetailButtonTapped(object sender, EventArgs e)
+        {
+            // TODO: da fare!
+        }
+
     }
 }
