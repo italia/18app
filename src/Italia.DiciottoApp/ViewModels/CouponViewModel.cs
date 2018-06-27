@@ -15,11 +15,6 @@ namespace Italia.DiciottoApp.ViewModels
 
         #region Properties
 
-        private string pageTitle;
-        public string PageTitle => (Coupon?.Spent ?? false) ? "Buono utilizzato"
-                                   : JustCreated ? "Buono creato"
-                                   : "Dettagli del buono";
-
         private bool justCreated;
         public bool JustCreated
         {
@@ -30,13 +25,13 @@ namespace Italia.DiciottoApp.ViewModels
             });
         }
 
+        public string PageTitle => (Coupon?.Spent ?? false) ? "Buono utilizzato"
+                                   : JustCreated ? "Buono creato"
+                                   : "Dettagli del buono";
+
         public AppArea AppArea => AppArea.NewCoupon;
 
         public string CouponOwner => $"{Settings.UserName} {Settings.UserSurname}";
-
-        public bool ShopIsVisible => (Coupon?.Shop != null);
-
-        public bool ShopNotDefined => (Coupon?.Shop == null);
 
         public string ShopBkgndImageSource => (Coupon?.Shop?.Categorie?.Count() > 0) ? Coupon.Shop.Categorie[0].BkgndImageSource : null;
 
@@ -71,8 +66,6 @@ namespace Italia.DiciottoApp.ViewModels
             get => coupon;
             set => SetProperty(ref coupon, value, onChanged: () =>
             {
-                OnPropertyChanged(nameof(ShopIsVisible));
-                OnPropertyChanged(nameof(ShopNotDefined));
                 OnPropertyChanged(nameof(ShopBkgndImageSource));
                 OnPropertyChanged(nameof(ShopKindImageSource));
                 OnPropertyChanged(nameof(ShopAddress));
