@@ -27,5 +27,7 @@ namespace Italia.DiciottoApp.Models
         public string QrCodeValue { get; set; }
 
         public string BarCodeValue { get; set; }
+
+        public bool HasShop => !string.IsNullOrWhiteSpace(ShopId) && Shop != null;
     }
 }
