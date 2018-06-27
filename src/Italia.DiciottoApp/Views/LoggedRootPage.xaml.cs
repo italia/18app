@@ -22,15 +22,14 @@ namespace Italia.DiciottoApp.Views
             vm = BindingContext as LoggedRootViewModel;
         }
 
-        private async void OnNewCouponTapped(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new NewCouponCategoryPage());
-        }
-
         private async void OnAlreadyInShopTapped(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new NearToYouShopsPage());
         }
 
+        private async void OnNewCouponTapped(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new NewCouponCategoryPage());
+        }
     }
 }
