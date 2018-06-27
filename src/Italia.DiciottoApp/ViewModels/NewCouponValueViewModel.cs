@@ -97,13 +97,17 @@ namespace Italia.DiciottoApp.ViewModels
             EntryValueIsValid = isValid;
             return isValid;
         }
-        public async Task CreateCouponAsync()
+        public async Task<Coupon> CreateCouponAsync()
         {
+            Coupon coupon = null;
+
             if (ValidateEntry(EntryValue))
             {
                 ICouponsService couponsService = Service.Resolve<ICouponsService>();
-                await couponsService.CreateCoupon(Categoria, Prodotto, valore);
+                coupon = await couponsService.CreateCoupon(Categoria, Prodotto, valore);
             }
+
+            return coupon;
         }
 
     }
