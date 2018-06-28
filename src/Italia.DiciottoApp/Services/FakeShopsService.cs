@@ -20,7 +20,7 @@ namespace Italia.DiciottoApp.Services
             }
 
             // simulate delay
-            await Task.Delay(simulatedDelay);
+            await Task.Delay(100);
 
             return FakeShops.GetList().Where(s => s.Id == shopId).FirstOrDefault();
         }

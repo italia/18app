@@ -8,7 +8,7 @@ namespace Italia.DiciottoApp.Services
 {
     public class FakeCouponsService: ICouponsService
     {
-        private static readonly int simulatedDelay = 3000;
+        private static readonly int simulatedDelay = 1000;
 
         public async Task<Coupon> GetCouponByIdAsync(string userId)
         {
