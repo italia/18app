@@ -11,6 +11,10 @@ namespace Italia.DiciottoApp.ViewModels
 {
     class WalletViewModel : BaseViewModel
     {
+        ICouponsService couponService;
+        IEnumerable<Coupon> availableCoupons = null;
+        IEnumerable<Coupon> spentCoupons = null;
+
         #region Properties
 
         public string PageTitle => "I tuoi buoni";
@@ -49,12 +53,12 @@ namespace Italia.DiciottoApp.ViewModels
             set => SetProperty(ref contentHeader, value);
         }
 
-
         #endregion
 
         public WalletViewModel() : base()
         {
             ContentHeader = "Richiesta buoni in corso...";
+            couponService = Service.Resolve<ICouponsService>();
         }
 
         public async Task SetTab(WalletKind walletKind)
@@ -64,26 +68,21 @@ namespace Italia.DiciottoApp.ViewModels
                 return;
             }
 
-            WalletKind = walletKind;
             IsBusy = true;
             OnPropertyChanged(nameof(CouponListIsVisible));
             ContentHeader = "Richiesta buoni in corso...";
-            var couponService = Service.Resolve<ICouponsService>();
 
-            IEnumerable<Coupon> availableCoupons = null;
-            if (WalletKind == WalletKind.All || WalletKind == WalletKind.Available)
-            {
+            WalletKind = walletKind;
+            if(WalletKind == WalletKind.All || availableCoupons == null || spentCoupons == null)
+            { 
+            
                 availableCoupons = await couponService.GetUserCouponsAsync(Settings.UserId, WalletKind.Available);
-            }
-
-            IEnumerable<Coupon> spentCoupons = null;
-            if (WalletKind == WalletKind.All || WalletKind == WalletKind.Spent)
-            {
                 spentCoupons = await couponService.GetUserCouponsAsync(Settings.UserId, WalletKind.Spent);
             }
 
             Coupons.Clear();
-            if (availableCoupons != null)
+
+            if (availableCoupons != null && (WalletKind == WalletKind.All || WalletKind == WalletKind.Available))
             {
                 foreach (var coupon in availableCoupons)
                 {
@@ -91,7 +90,7 @@ namespace Italia.DiciottoApp.ViewModels
                 }
             }
 
-            if (spentCoupons != null)
+            if (spentCoupons != null && (WalletKind == WalletKind.All || WalletKind == WalletKind.Spent))
             {
                 foreach (var coupon in spentCoupons)
                 {

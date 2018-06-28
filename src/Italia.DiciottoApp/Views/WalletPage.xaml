@@ -17,6 +17,7 @@
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="50"/>
+                <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
@@ -36,7 +37,11 @@
 
             <Label Grid.Row="0" Grid.Column="0"
                    Text="TUTTI"
-                   Style="{StaticResource TabLabelStyle}" />
+                   Style="{StaticResource TabLabelStyle}">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnAllTabTapped" />
+                </Label.GestureRecognizers>
+            </Label>
 
             <Label Grid.Row="0" Grid.Column="1"
                    Text="DA SPENDERE"
@@ -56,16 +61,17 @@
 
             <!-- Content header -->
             <Label Grid.Row="1" Grid.ColumnSpan="3" Margin="16,16,16,0"
-                   VerticalOptions="CenterAndExpand" 
-                   HorizontalOptions="StartAndExpand"
+                   VerticalOptions="Center" 
+                   HorizontalOptions="Start"
                    Style="{StaticResource RegularLabelStyle}"
                    TextColor="#FFAAAAAA" FontSize="14"
                    Text="{Binding ContentHeader}" />
 
             <!-- All coupon list -->
             <ListView Grid.Row="2" Grid.ColumnSpan="3" Margin="0,0,16,0"
-                      ItemsSource="{Binding AllCoupons, Mode=OneWay}"
-                      HasUnevenRows="true" IsVisible="{Binding CouponListIsVisible}"
+                      ItemsSource="{Binding Coupons, Mode=OneWay}"
+                      HasUnevenRows="true"
+                      IsVisible="{Binding CouponListIsVisible}"
                       ItemTapped="OnListViewItemTapped">
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -83,30 +89,28 @@
                                            VerticalOptions="Center" />
 
                                     <StackLayout Padding="0" Spacing="0"
+                                                 Margin="32,0,16,0"
                                                  VerticalOptions="Center"
                                                  HorizontalOptions="StartAndExpand">
 
-                                        <Label Margin="32,20,16,20"
-                                               HorizontalOptions="Start" VerticalOptions="Center"
+                                        <Label HorizontalOptions="Start" VerticalOptions="Center"
                                                Style="{StaticResource BoldLabelStyle}"
                                                TextColor="#FF1168C9" FontSize="16"
                                                Text="{Binding Category.Titolo}" />
 
-                                        <Label Margin="32,20,16,20"
-                                               HorizontalOptions="Start" VerticalOptions="Center"
+                                        <Label HorizontalOptions="Start" VerticalOptions="Center"
                                                Style="{StaticResource RegularLabelStyle}"
                                                TextColor="#FF1168C9" FontSize="14"
                                                Text="{Binding Product.Titolo}" />
 
-                                        <Label Margin="32,20,16,20"
-                                               IsVisible="{Binding HasShop}"
+                                        <Label IsVisible="{Binding HasShop}"
                                                HorizontalOptions="Start" VerticalOptions="Center"
                                                Style="{StaticResource RegularLabelStyle}"
                                                TextColor="#FF1168C9" FontSize="14"
                                                Text="{Binding Shop.Title}" />
                                     </StackLayout>
 
-                                    <Label Margin="32,20,16,20"
+                                    <Label Margin="16,0"
                                            HorizontalOptions="End" VerticalOptions="Center"
                                            Style="{StaticResource BoldLabelStyle}"
                                            TextColor="#FF1168C9" FontSize="28"
@@ -128,32 +132,31 @@
                                            VerticalOptions="Center" />
 
                                     <StackLayout Padding="0" Spacing="0"
-                                                 VerticalOptions="Center">
+                                                 Margin="32,0,16,0"
+                                                 VerticalOptions="Center"
+                                                 HorizontalOptions="StartAndExpand">
 
-                                        <Label Margin="32,20,16,20"
-                                               HorizontalOptions="StartAndExpand" VerticalOptions="Center"
+                                        <Label HorizontalOptions="Start" VerticalOptions="Center"
                                                Style="{StaticResource BoldLabelStyle}"
                                                TextColor="#FF66727C" FontSize="16"
                                                Text="{Binding Category.Titolo}" />
 
-                                        <Label Margin="32,20,16,20"
-                                               HorizontalOptions="StartAndExpand" VerticalOptions="Center"
+                                        <Label HorizontalOptions="Start" VerticalOptions="Center"
                                                Style="{StaticResource RegularLabelStyle}"
                                                TextColor="#FF66727C" FontSize="14"
                                                Text="{Binding Product.Titolo}" />
                                         
-                                        <Label Margin="32,20,16,20"
-                                               IsVisible="{Binding HasShop}"
+                                        <Label IsVisible="{Binding HasShop}"
                                                HorizontalOptions="Start" VerticalOptions="Center"
                                                Style="{StaticResource RegularLabelStyle}"
                                                TextColor="{StaticResource AppLightGrayColor}" FontSize="14"
                                                Text="{Binding Shop.Title}" />
                                     </StackLayout>
 
-                                    <Label Margin="32,20,16,20"
+                                    <Label Margin="16,0"
                                            HorizontalOptions="End" VerticalOptions="Center"
                                            Style="{StaticResource BoldLabelStyle}"
-                                           TextColor="#FF1168C9" FontSize="28"
+                                           TextColor="#FF66727C" FontSize="28"
                                            Text="{Binding Value, StringFormat='{0:F2}'}" />
 
                                     <Image Margin="0,0,6,0"
