@@ -1,4 +1,5 @@
-﻿using Italia.DiciottoApp.ViewModels;
+﻿using Italia.DiciottoApp.Models;
+using Italia.DiciottoApp.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -56,6 +57,20 @@ namespace Italia.DiciottoApp.Views
         private async void OnGoToMapTapped(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new ShopsMapPage(vm.Shops, vm.UserLocation));
+        }
+
+        private async void OnListViewItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            if (e.Item is Shop shop)
+            {
+                // Clear the item selection
+                if (sender is ListView listView)
+                {
+                    listView.SelectedItem = null;
+                }
+
+                await Navigation.PushAsync(new ShopPage(shop));
+            }
         }
     }
 }

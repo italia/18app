@@ -69,7 +69,9 @@
             <!-- Shop list -->
             <ListView Grid.Row="2" Grid.ColumnSpan="3" Margin="0,0,16,0"
                       ItemsSource="{Binding Shops, Mode=OneWay}"
-                      HasUnevenRows="true" IsVisible="{Binding ShopListIsVisible}">
+                      HasUnevenRows="true"
+                      ItemTapped="OnListViewItemTapped"
+                      IsVisible="{Binding ShopListIsVisible}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
