@@ -46,7 +46,7 @@ namespace Italia.DiciottoApp.Models
                             }
                             else
                             {
-                                sb.Append(", ");
+                                sb.Append(" / ");
                             }
                             sb.Append(categoria.Titolo);
                         }
