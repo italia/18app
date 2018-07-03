@@ -13,7 +13,7 @@ namespace Italia.DiciottoApp.Models
             "Concerti",
             "Eventi culturali",
             "Libri",
-            "Musei, monumenti, parchi naturali",
+            "Musei, monumenti e parchi naturali",
             "Teatro e danza"
         };
 
