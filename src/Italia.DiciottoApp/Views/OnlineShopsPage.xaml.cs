@@ -1,4 +1,5 @@
 ﻿using Italia.DiciottoApp.ViewModels;
+using Rg.Plugins.Popup.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -47,7 +48,7 @@ namespace Italia.DiciottoApp.Views
 
         private void OnCategoryButtonTapped(object sender, EventArgs e)
         {
-            // TODO
+            PopupNavigation.Instance.PushAsync(new CategoriesSelectorPopupPage());
         }
     }
 }
