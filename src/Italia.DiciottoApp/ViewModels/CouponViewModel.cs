@@ -66,6 +66,7 @@ namespace Italia.DiciottoApp.ViewModels
             get => coupon;
             set => SetProperty(ref coupon, value, onChanged: () =>
             {
+                OnPropertyChanged(nameof(PageTitle));
                 OnPropertyChanged(nameof(ShopBkgndImageSource));
                 OnPropertyChanged(nameof(ShopKindImageSource));
                 OnPropertyChanged(nameof(ShopAddress));
