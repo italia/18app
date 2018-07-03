@@ -74,7 +74,11 @@
                    HorizontalOptions="CenterAndExpand"
                    Style="{StaticResource RegularLabelStyle}"
                    FontSize="16" TextColor="#FF0066CC"
-                   Text="NUOVO BUONO"/>
+                   Text="NUOVO BUONO">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnNewCouponTapped" />
+                </Label.GestureRecognizers>
+            </Label>
 
             <Grid Grid.Row="4"
                   RowSpacing="0" ColumnSpacing="0">
