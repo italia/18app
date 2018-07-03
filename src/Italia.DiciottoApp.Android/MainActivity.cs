@@ -19,6 +19,8 @@ namespace Italia.DiciottoApp.Droid
 
             base.OnCreate(bundle);
 
+            global::Rg.Plugins.Popup.Popup.Init(this, bundle);
+
             global::Xamarin.Forms.Forms.Init(this, bundle);
             global::Xamarin.FormsMaps.Init(this, bundle);
             LoadApplication(new App());
