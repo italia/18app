@@ -42,7 +42,11 @@ namespace Italia.DiciottoApp.ViewModels
         public double ActualCredit
         {
             get => actualCredit;
-            set => SetProperty(ref actualCredit, value);
+            set => SetProperty(ref actualCredit, value, onChanged: () =>
+            {
+                OnPropertyChanged(nameof(UsedPercentage));
+                OnPropertyChanged(nameof(UserCredit));
+            });
         }
 
         public double UsedPercentage => (InitialCredit - ActualCredit) / InitialCredit;
@@ -53,8 +57,10 @@ namespace Italia.DiciottoApp.ViewModels
         public string UnreadMessages
         {
             get => unreadMessages;
-            set => SetProperty(ref unreadMessages, value);
+            set => SetProperty(ref unreadMessages, value, onChanged: () => { OnPropertyChanged(nameof(HasUnreadMessages)); });
         }
+
+        public bool HasUnreadMessages => UnreadMessages != "0";
 
         #endregion
 
@@ -68,7 +74,7 @@ namespace Italia.DiciottoApp.ViewModels
             // TODO: get data from service
             Random rnd = new Random(DateTime.Now.Millisecond);
             ActualCredit = 50.00 + rnd.Next(0, 450);
-            UnreadMessages = "2";
+            UnreadMessages = rnd.Next(0, 5).ToString();
         }
 
     }
