@@ -129,7 +129,8 @@
                                     <Image Margin="16,0,0,0"
                                            Source="{Binding Category.BlackImageSource}"
                                            HeightRequest="22" WidthRequest="22"
-                                           VerticalOptions="Center" />
+                                           VerticalOptions="Center"
+                                           Opacity=".7"/>
 
                                     <StackLayout Padding="0" Spacing="0"
                                                  Margin="32,0,16,0"
@@ -138,12 +139,12 @@
 
                                         <Label HorizontalOptions="Start" VerticalOptions="Center"
                                                Style="{StaticResource BoldLabelStyle}"
-                                               TextColor="#FF66727C" FontSize="16"
+                                               TextColor="#FF596672" FontSize="16"
                                                Text="{Binding Category.Titolo}" />
 
                                         <Label HorizontalOptions="Start" VerticalOptions="Center"
                                                Style="{StaticResource RegularLabelStyle}"
-                                               TextColor="#FF66727C" FontSize="14"
+                                               TextColor="#FF596672" FontSize="14"
                                                Text="{Binding Product.Titolo}" />
                                         
                                         <Label IsVisible="{Binding HasShop}"
@@ -153,11 +154,16 @@
                                                Text="{Binding Shop.Title}" />
                                     </StackLayout>
 
-                                    <Label Margin="16,0"
-                                           HorizontalOptions="End" VerticalOptions="Center"
-                                           Style="{StaticResource BoldLabelStyle}"
-                                           TextColor="#FF66727C" FontSize="28"
-                                           Text="{Binding Value, StringFormat='{0:F2}'}" />
+                                    <Grid Margin="16,0"
+                                          HorizontalOptions="Start" VerticalOptions="Center" >
+                                        
+                                        <Label HorizontalOptions="End" VerticalOptions="Center"
+                                               Style="{StaticResource BoldLabelStyle}"
+                                               TextColor="#FF596672" FontSize="28"
+                                               Text="{Binding Value, StringFormat='{0:F2}'}" />
+
+                                        <BoxView HeightRequest="1" BackgroundColor="#FF596672" VerticalOptions="Center"/>
+                                    </Grid>
 
                                     <Image Margin="0,0,6,0"
                                            HorizontalOptions="End" VerticalOptions="CenterAndExpand"
