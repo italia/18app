@@ -79,7 +79,7 @@
 
                         <Label Margin="28,10,24,10"
                                HorizontalOptions="StartAndExpand" VerticalOptions="Center"
-                               Style="{StaticResource BoldLabelStyle}"
+                               Style="{StaticResource RegularLabelStyle}"
                                TextColor="#FF30383D" FontSize="16"
                                Text="{Binding Coupon.Category.Titolo}" />
 
@@ -119,11 +119,25 @@
                            HeightRequest="22" WidthRequest="22"
                            VerticalOptions="Center"/>
 
-                        <Label Margin="28,8,24,8"
+                        <Grid Margin="28,8,24,8"
+                              HorizontalOptions="StartAndExpand" VerticalOptions="Center" >
+
+                            <Label HorizontalOptions="StartAndExpand" VerticalOptions="Center"
+                                   Style="{StaticResource BoldLabelStyle}"
+                                   TextColor="#FF30383D" FontSize="28"
+                                   Text="{Binding Coupon.Value, StringFormat='{0:F2}'}" />
+
+                            <BoxView HeightRequest="1"
+                                     BackgroundColor="#FF30383D"
+                                     VerticalOptions="Center"
+                                     IsVisible="{Binding Coupon.Spent}"/>
+                        </Grid>
+
+                        <!--<Label Margin="28,8,24,8"
                            HorizontalOptions="StartAndExpand" VerticalOptions="Center"
                            Style="{StaticResource BoldLabelStyle}"
                            TextColor="#FF30383D" FontSize="24"
-                           Text="{Binding Coupon.Value, StringFormat='{0:F2}'}" />
+                           Text="{Binding Coupon.Value, StringFormat='{0:F2}'}" />-->
 
                         <Label Margin="0,0,16,0"
                            HorizontalOptions="End" VerticalOptions="Center"
