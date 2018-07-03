@@ -17,6 +17,7 @@
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="50"/>
+                <RowDefinition Height="80"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
@@ -54,10 +55,46 @@
                 </Label.GestureRecognizers>
             </Label>
 
-            <Label Grid.Row="1" Grid.ColumnSpan="3"
-                   Text="TODO: Negozi online"
-                   VerticalOptions="CenterAndExpand" 
-                   HorizontalOptions="CenterAndExpand" />
+            <!--Scelta categoria -->
+            <StackLayout Grid.Row="1" Grid.ColumnSpan="3" Margin="20,0"
+                         VerticalOptions="Center" HorizontalOptions="Fill" >
+
+                <StackLayout Padding="0" Spacing="0"
+                             Orientation="Horizontal"
+                             HorizontalOptions="Fill">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnCategoryButtonTapped" />
+                    </StackLayout.GestureRecognizers>
+
+                    <Image Margin="11,0,0,0" VerticalOptions="Center" Source="funnel_gray" />
+
+                    <Label Margin="12,0,0,0"
+                           VerticalOptions="Center" HorizontalOptions="Start"
+                           Style="{StaticResource BoldLabelStyle}" 
+                           FontSize="16"
+                           TextColor="#FF0C6DCE"
+                           Text="{Binding SelectedCategory.Titolo}"
+                           IsVisible="{Binding IsCategorySelected}" />
+
+                    <Label Margin="12,0,0,0"
+                           VerticalOptions="Center" HorizontalOptions="Start"
+                           Style="{StaticResource ItalicLabelStyle}" 
+                           FontSize="16"
+                           TextColor="{StaticResource AppLightGrayColor}"
+                           Text="Scegli la categoria..."
+                           IsVisible="{Binding IsCategoryNotSelected}" />
+
+                    <Image Margin="0,0,15,0" VerticalOptions="Center"
+                           HorizontalOptions="EndAndExpand"
+                           Source="down_gray" />
+                </StackLayout>
+
+                <BoxView HeightRequest="2"
+                         VerticalOptions="End"
+                         BackgroundColor="#FFF0F0F0"/>
+            </StackLayout>
+
+            
         </Grid>
     </views:BasePage.Content>
 </views:BasePage>

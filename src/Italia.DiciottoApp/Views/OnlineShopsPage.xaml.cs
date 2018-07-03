@@ -44,5 +44,10 @@ namespace Italia.DiciottoApp.Views
             // Navigate to target
             await Navigation.PopAsync(false);
         }
+
+        private void OnCategoryButtonTapped(object sender, EventArgs e)
+        {
+            // TODO
+        }
     }
 }
