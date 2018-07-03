@@ -80,6 +80,16 @@ namespace Italia.DiciottoApp
             await NavigateToPage("Info");
         }
 
+        private async void OnUserIconTapped(object sender, EventArgs e)
+        {
+            Settings.UserLogged = false;
+            await Navigation.PushAsync(new WelcomePage());
+        }
+
+        private async void OnCreditTapped(object sender, EventArgs e)
+        {
+            await NavigateToPage("Credit");
+        }
         private async Task NavigateToPage(string appAreaTarget)
         {
             // Get the current page
@@ -109,6 +119,12 @@ namespace Italia.DiciottoApp
             {
                 await Navigation.PushAsync(new InfoPage());
             }
+
+            if (appAreaTarget == "Credit" && currentPageType != typeof(LoggedRootPage))
+            {
+                await Navigation.PushAsync(new LoggedRootPage());
+            }
         }
+
     }
 }
