@@ -317,6 +317,15 @@
     <ImageAsset Include="Assets.xcassets\coupon_owner_black.imageset\coupon_owner_black@3x.png">
       <Visible>false</Visible>
     </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\down_gray.imageset\down_gray.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\down_gray.imageset\down_gray@2x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\down_gray.imageset\down_gray@3x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\euro.imageset\euro.png">
       <Visible>false</Visible>
     </ImageAsset>
@@ -369,6 +378,15 @@
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\forward.imageset\forward@3x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\funnel_gray.imageset\funnel_gray.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\funnel_gray.imageset\funnel_gray@2x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\funnel_gray.imageset\funnel_gray@3x.png">
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\gps_marker.imageset\Contents.json">
@@ -428,6 +446,12 @@
     <ImageAsset Include="Assets.xcassets\fake_qrcode.imageset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\coupon_owner_black.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\bin_white.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\gps_marker.imageset\gps_marker.png">
       <Visible>false</Visible>
     </ImageAsset>
@@ -435,6 +459,9 @@
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\gps_marker.imageset\gps_marker@3x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\funnel_gray.imageset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\header_logo.imageset\header_logo.png">
@@ -446,13 +473,19 @@
     <ImageAsset Include="Assets.xcassets\header_logo.imageset\header_logo@3x.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\coupon_owner_black.imageset\Contents.json">
+    <ImageAsset Include="Assets.xcassets\down_gray.imageset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\bin_white.imageset\Contents.json">
+    <ImageAsset Include="Assets.xcassets\link.imageset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\link_white.imageset\Contents.json">
+    <ImageAsset Include="Assets.xcassets\link.imageset\link.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\link.imageset\link@2x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\link.imageset\link@3x.png">
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\link_white.imageset\link_white.png">
@@ -617,6 +650,21 @@
     <ImageAsset Include="Assets.xcassets\qrcode_black.imageset\qrcode_black@3x.png">
       <Visible>false</Visible>
     </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\route.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\link_white.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\route.imageset\route.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\route.imageset\route@2x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\route.imageset\route@3x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\route_white.imageset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
@@ -771,14 +819,14 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Xam.Plugins.Settings">
-      <Version>3.1.1</Version>
+      <Version>4.0.0.10-beta</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Essentials">
-      <Version>0.6.0-preview</Version>
+      <Version>0.8.0-preview</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.Forms" Version="3.0.0.561731" />
+    <PackageReference Include="Xamarin.Forms" Version="3.1.0.583944" />
     <PackageReference Include="Xamarin.Forms.Maps">
-      <Version>3.0.0.561731</Version>
+      <Version>3.1.0.583944</Version>
     </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
