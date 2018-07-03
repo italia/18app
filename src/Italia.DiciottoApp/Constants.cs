@@ -9,6 +9,6 @@ namespace Italia.DiciottoApp
     {
         public static readonly double NEW_LOCATION_MINIMUM_KM = 0.5; // 500 meters
         public static readonly GeolocationAccuracy GPS_ACCURACY = GeolocationAccuracy.Medium;
-
+        public static readonly int NEW_REQUEST_MINIMUM_SECONDS = 60;
     }
 }

@@ -11,9 +11,10 @@ namespace Italia.DiciottoApp.ViewModels
 {
     class WalletViewModel : BaseViewModel
     {
-        ICouponsService couponService;
-        IEnumerable<Coupon> availableCoupons = null;
-        IEnumerable<Coupon> spentCoupons = null;
+        private ICouponsService couponService;
+        private IEnumerable<Coupon> availableCoupons = null;
+        private IEnumerable<Coupon> spentCoupons = null;
+        private DateTime lastRequest = DateTime.Now;
 
         #region Properties
 
@@ -73,9 +74,10 @@ namespace Italia.DiciottoApp.ViewModels
             ContentHeader = "Richiesta buoni in corso...";
 
             WalletKind = walletKind;
-            if(WalletKind == WalletKind.All || availableCoupons == null || spentCoupons == null)
-            { 
-            
+            if((WalletKind == WalletKind.All && (DateTime.Now - lastRequest).TotalSeconds > Constants.NEW_REQUEST_MINIMUM_SECONDS)
+                || availableCoupons == null || spentCoupons == null)
+            {
+                lastRequest = DateTime.Now;
                 availableCoupons = await couponService.GetUserCouponsAsync(Settings.UserId, WalletKind.Available);
                 spentCoupons = await couponService.GetUserCouponsAsync(Settings.UserId, WalletKind.Spent);
             }
