@@ -14,7 +14,10 @@
    version="1.1"
    id="svg25"
    sodipodi:docname="nav_stores.svg"
-   inkscape:version="0.92.3 (2405546, 2018-03-11)">
+   inkscape:version="0.92.3 (2405546, 2018-03-11)"
+   inkscape:export-filename="C:\Users\ncara\source\repos\18App\Artworks\Svg\nav_stores.png"
+   inkscape:export-xdpi="376"
+   inkscape:export-ydpi="376">
   <metadata
      id="metadata29">
     <rdf:RDF>
@@ -37,33 +40,41 @@
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
      inkscape:window-width="2736"
-     inkscape:window-height="1824"
+     inkscape:window-height="1440"
      id="namedview27"
      showgrid="false"
      fit-margin-top="0"
      fit-margin-left="0"
      fit-margin-right="0"
      fit-margin-bottom="0"
-     inkscape:zoom="8.34386"
-     inkscape:cx="15.047295"
-     inkscape:cy="12.121744"
+     inkscape:zoom="8"
+     inkscape:cx="19.804432"
+     inkscape:cy="35.58518"
      inkscape:window-x="-10"
      inkscape:window-y="0"
      inkscape:window-maximized="0"
-     inkscape:current-layer="svg25" />
+     inkscape:current-layer="navigation-stores"
+     inkscape:snap-bbox="true"
+     inkscape:bbox-paths="true"
+     inkscape:bbox-nodes="true"
+     inkscape:snap-bbox-edge-midpoints="true"
+     inkscape:snap-bbox-midpoints="true"
+     showguides="true"
+     inkscape:guide-bbox="true" />
   <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
   <title
      id="title2">nav_stores</title>
   <desc
      id="desc4">Created with Sketch.</desc>
   <rect
-     style="fill:#0066cc;stroke-width:0.89666778;fill-opacity:1"
+     style="display:inline;fill:#0066cc;fill-opacity:1;stroke-width:0.89666778"
      id="rect31"
      width="80"
      height="64"
      x="0"
      y="0"
-     inkscape:label="Bkgnd" />
+     inkscape:label="Bkgnd"
+     sodipodi:insensitive="true" />
   <defs
      id="defs7">
     <circle
@@ -81,17 +92,18 @@
        font-weight="500"
        font-size="11"
        id="Negozi"
-       x="3.9999998"
-       y="13.597333">
+       x="3.999999"
+       y="16.991941">
       <tspan
          style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:14.66666698px;font-family:'Titillium Web';-inkscape-font-specification:'Titillium Web, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start"
          id="tspan17"
-         y="50.597332"
+         y="53.991943"
          x="24.683001">Negozi</tspan>
     </text>
     <g
        transform="matrix(1.0000086,0,0,0.99969826,37.311215,14)"
-       id="icon-location">
+       id="icon-location"
+       sodipodi:insensitive="true">
       <path
          style="stroke:#ffffff"
          inkscape:connector-curvature="0"
