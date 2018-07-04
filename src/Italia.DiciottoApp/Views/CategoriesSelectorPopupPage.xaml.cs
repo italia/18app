@@ -1,4 +1,7 @@
-﻿using Rg.Plugins.Popup.Pages;
+﻿using Italia.DiciottoApp.Models;
+using Italia.DiciottoApp.ViewModels;
+using Rg.Plugins.Popup.Pages;
+using Rg.Plugins.Popup.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,10 +16,13 @@ namespace Italia.DiciottoApp.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class CategoriesSelectorPopupPage : PopupPage
     {
-		public CategoriesSelectorPopupPage()
+        private CategoriesSelectorPopupViewModel vm;
+
+        public CategoriesSelectorPopupPage()
 		{
 			InitializeComponent ();
-		}
+            vm = BindingContext as CategoriesSelectorPopupViewModel;
+        }
 
         protected override void OnAppearing()
         {
@@ -88,6 +94,27 @@ namespace Italia.DiciottoApp.Views
         {
             // Return false if you don't want to close this popup page when a background of the popup page is clicked
             return base.OnBackgroundClicked();
+        }
+
+        private async void OnAllCategoriesButtonTapped(object sender, EventArgs e)
+        {
+            App.SelectedCategory = null;
+            await PopupNavigation.Instance.PopAllAsync();
+        }
+
+        private async void OnCategoryListItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            if (e.Item is Categoria categoria)
+            {
+                // Clear the item selection
+                if (sender is ListView listView)
+                {
+                    listView.SelectedItem = null;
+                }
+
+                App.SelectedCategory = categoria;
+                await PopupNavigation.Instance.PopAllAsync();
+            }
         }
     }
 }

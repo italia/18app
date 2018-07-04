@@ -3,27 +3,62 @@
                   xmlns="http://xamarin.com/schemas/2014/forms"
                   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                   xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
-                  xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup" >
-    
-    <!--You can set an animation in the xaml file or in the csharp code behind-->
-    <pages:PopupPage.Animation>
-        <animations:ScaleAnimation 
-            PositionIn="Center"
-            PositionOut="Center"
-            ScaleIn="1.2"
-            ScaleOut="0.8"
-            DurationIn="400"
-            DurationOut="300"
-            EasingIn="SinOut"
-            EasingOut="SinIn"
-            HasBackgroundAnimation="True"/>
-    </pages:PopupPage.Animation>
-    
+                  xmlns:vm="clr-namespace:Italia.DiciottoApp.ViewModels">
+
+    <pages:PopupPage.BindingContext>
+        <vm:CategoriesSelectorPopupViewModel />
+    </pages:PopupPage.BindingContext>
+
     <!--You can use any elements here which are extended from Xamarin.Forms.View-->
-    <StackLayout 
-        VerticalOptions="Center" 
-        HorizontalOptions="Center" 
-        Padding="20, 20, 20, 20">
-        <Label Text="Test"/>
+    <StackLayout Padding="20,20" Margin="20,110,20,160"
+                 HorizontalOptions="Fill" VerticalOptions="Start"
+                 BackgroundColor="White">
+
+        <StackLayout Padding="0" Spacing="0"
+                             Orientation="Horizontal"
+                             HorizontalOptions="Fill">
+            <StackLayout.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnAllCategoriesButtonTapped" />
+            </StackLayout.GestureRecognizers>
+
+            <Image Margin="11,0,0,0" VerticalOptions="Center" Source="funnel_gray" />
+
+            <Label Margin="12,0,0,0"
+                           VerticalOptions="Center" HorizontalOptions="Start"
+                           Style="{StaticResource RegularLabelStyle}" 
+                           FontSize="16"
+                           TextColor="#FF30383D"
+                           Text="Tutte le categorie"
+                           IsVisible="{Binding IsCategoryNotSelected}" />
+        </StackLayout>
+
+        <BoxView HeightRequest="1"
+                 BackgroundColor="#FFF0F0F0"/>
+
+        <!-- Category list -->
+        <ListView ItemsSource="{Binding Categories, Mode=OneWay}"
+                  HasUnevenRows="true"
+                  SeparatorVisibility="None"
+                  ItemTapped="OnCategoryListItemTapped">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Padding="0" Spacing="0"
+                                     Orientation="Horizontal">
+
+                            <Image Margin="11,0,0,0"
+                                   Source="{Binding ImageSource}"
+                                   VerticalOptions="Center"/>
+
+                            <Label Margin="12,10,16,10"
+                                   HorizontalOptions="StartAndExpand" VerticalOptions="Center"
+                                   Style="{StaticResource RegularLabelStyle}"
+                                   TextColor="#FF1168C9" FontSize="16"
+                                   Text="{Binding Titolo}" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </StackLayout>
 </pages:PopupPage>
