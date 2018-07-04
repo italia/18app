@@ -109,8 +109,7 @@ namespace Italia.DiciottoApp.Views
 
         private async void OnSelectedShopTapped(object sender, EventArgs e)
         {
-            // TODO: go to shop
-            // await Navigation.PushAsync(new ShopPage(vm.SelectedShop));
+            await Navigation.PushAsync(new ShopPage(vm.SelectedShop));
         }
     }
 }
