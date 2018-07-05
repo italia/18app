@@ -35,7 +35,7 @@ namespace Italia.DiciottoApp.Services
             // simulate delay
             await Task.Delay(simulatedDelay);
 
-            return FakeShops.GetList().Take(maxItems);
+            return FakeShops.GetList().Where(s => !s.IsOnline).Take(maxItems);
         }
 
         public async Task<IEnumerable<Shop>> OnlineShopsAsync(Categoria category, int maxItems = 10)
@@ -43,7 +43,7 @@ namespace Italia.DiciottoApp.Services
             // simulate delay
             await Task.Delay(simulatedDelay);
 
-            var shops = FakeOnlineShops.GetList();
+            var shops = FakeShops.GetList().Where(s => s.IsOnline);
             
             if (category != null)
             {
@@ -171,21 +171,10 @@ namespace Italia.DiciottoApp.Services
                     Url = string.Empty,
                     Location = new Location(location.Latitude - 0.02, location.Longitude - 0.01),
                     DistanceFromUser = "3km"
-                }
-            };
-        }
-    }
-
-    public static class FakeOnlineShops
-    {
-        public static IEnumerable<Shop> GetList()
-        {
-            Location location = new Location(41.8919300, 12.5113300);
-            return new List<Shop>
-            {
+                },
                 new Shop
                 {
-                    Id = "2375F804-5744-48C0-813C-0B87F2E0750E",
+                    Id = "62138162-7CC7-4F56-9247-1C7F04D09BC4",
                     Title = "Scuolabook",
                     Address = null,
                     Categorie = new Categoria[]
@@ -199,7 +188,7 @@ namespace Italia.DiciottoApp.Services
                 },
                 new Shop
                 {
-                    Id = "16D55D17-BD46-48CE-94FF-BB4F28971A21",
+                    Id = "84A6D7E3-4C6B-46F8-A75F-64DCD5B6ECF1",
                     Title = "Cineteatro Nuovo Arcore",
                     Address = null,
                     Categorie = new Categoria[]
@@ -215,7 +204,7 @@ namespace Italia.DiciottoApp.Services
                 },
                 new Shop
                 {
-                    Id = "7E0C6AA6-ADF0-4710-A6EF-C7E24B2FFDFF",
+                    Id = "3C202BA1-7511-4064-90AA-4492F5C9FB69",
                     Title = "TicketOne",
                     Address = null,
                     Categorie = new Categoria[]
