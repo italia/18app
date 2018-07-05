@@ -57,7 +57,7 @@ namespace Italia.DiciottoApp.ViewModels
             {
                 var request = new GeolocationRequest(Constants.GPS_ACCURACY);
                 cts = new CancellationTokenSource();
-                var location = await Geolocation.GetLocationAsync(request, cts.Token);
+                // var location = await Geolocation.GetLocationAsync(request, cts.Token);
                 UserLocation = await Geolocation.GetLastKnownLocationAsync();
             }
             catch (FeatureNotSupportedException fnsEx)
