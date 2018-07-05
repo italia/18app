@@ -27,6 +27,7 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
+            <!-- Tabs -->
             <BoxView Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"
                      BackgroundColor="{StaticResource TabsBkgndColor}" />
 
@@ -56,7 +57,7 @@
             </Label>
 
             <!--Scelta categoria -->
-            <StackLayout Grid.Row="1" Grid.ColumnSpan="3" Margin="20,0"
+            <StackLayout Grid.Row="1" Grid.ColumnSpan="3" Margin="16,0"
                          VerticalOptions="Center" HorizontalOptions="Fill" >
 
                 <StackLayout Padding="0" Spacing="0"
@@ -72,7 +73,7 @@
                            VerticalOptions="Center" HorizontalOptions="Start"
                            Style="{StaticResource BoldLabelStyle}" 
                            FontSize="16"
-                           TextColor="#FF0C6DCE"
+                           TextColor="#FF30383D"
                            Text="{Binding SelectedCategory.Titolo}"
                            IsVisible="{Binding IsCategorySelected}" />
 
@@ -84,6 +85,14 @@
                            Text="Scegli la categoria..."
                            IsVisible="{Binding IsCategoryNotSelected}" />
 
+                    <Label Margin="12,0,0,0"
+                           VerticalOptions="Center" HorizontalOptions="Start"
+                           Style="{StaticResource BoldLabelStyle}" 
+                           FontSize="16"
+                           TextColor="#FF30383D"
+                           Text="Tutte le categorie"
+                           IsVisible="{Binding AllCategoriesSelected}" />
+
                     <Image Margin="0,0,15,0" VerticalOptions="Center"
                            HorizontalOptions="EndAndExpand"
                            Source="down_gray" />
@@ -94,7 +103,51 @@
                          BackgroundColor="#FFF0F0F0"/>
             </StackLayout>
 
-            
+            <!-- Lista negozi online -->
+            <ListView Grid.Row="2" Grid.ColumnSpan="3" Margin="0,0,16,0"
+                      ItemsSource="{Binding Shops, Mode=OneWay}"
+                      HasUnevenRows="true"
+                      ItemTapped="OnListViewItemTapped"
+                      Footer=""
+                      IsVisible="{Binding ShopListIsVisible}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="0" Spacing="0"
+                                         Orientation="Horizontal">
+
+                                <StackLayout Padding="0" Spacing="0" Margin="16,0,0,0"
+                                             HorizontalOptions="StartAndExpand">
+
+                                    <Label Margin="0,11,0,0"
+                                       Style="{StaticResource BoldLabelStyle}"
+                                       HorizontalOptions="Start" VerticalOptions="Start"
+                                       TextColor="#FF1168C9" FontSize="16"
+                                       Text="{Binding Title}" />
+
+                                    <Label Margin="0,0,0,0"
+                                       Style="{StaticResource RegularLabelStyle}"
+                                       VerticalTextAlignment="Start"
+                                       TextColor="#FF596672" FontSize="14"
+                                       Text="{Binding Url}" />
+
+                                    <Label Margin="0,0,0,15"
+                                       Style="{StaticResource RegularLabelStyle}"
+                                       VerticalTextAlignment="Start"
+                                       TextColor="#FF1168C9" FontSize="14"
+                                       Text="{Binding ElencoCategorie}" />
+
+                                </StackLayout>
+
+                                <Image Margin="18,0,6,0"
+                                       HorizontalOptions="Start" VerticalOptions="CenterAndExpand"
+                                       Source="forward"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
         </Grid>
     </views:BasePage.Content>
 </views:BasePage>

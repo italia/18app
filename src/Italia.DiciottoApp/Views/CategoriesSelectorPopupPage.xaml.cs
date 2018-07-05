@@ -17,11 +17,13 @@ namespace Italia.DiciottoApp.Views
 	public partial class CategoriesSelectorPopupPage : PopupPage
     {
         private CategoriesSelectorPopupViewModel vm;
+        private ISelectCategory caller;
 
-        public CategoriesSelectorPopupPage()
+        public CategoriesSelectorPopupPage(ISelectCategory caller)
 		{
 			InitializeComponent ();
             vm = BindingContext as CategoriesSelectorPopupViewModel;
+            this.caller = caller;
         }
 
         protected override void OnAppearing()
@@ -98,8 +100,8 @@ namespace Italia.DiciottoApp.Views
 
         private async void OnAllCategoriesButtonTapped(object sender, EventArgs e)
         {
-            App.SelectedCategory = null;
             await PopupNavigation.Instance.PopAllAsync();
+            await caller.SelectCategoryAsync(categoria: null, allSelected: true);
         }
 
         private async void OnCategoryListItemTapped(object sender, ItemTappedEventArgs e)
@@ -112,8 +114,8 @@ namespace Italia.DiciottoApp.Views
                     listView.SelectedItem = null;
                 }
 
-                App.SelectedCategory = categoria;
                 await PopupNavigation.Instance.PopAllAsync();
+                await caller.SelectCategoryAsync(categoria, allSelected: false);
             }
         }
     }

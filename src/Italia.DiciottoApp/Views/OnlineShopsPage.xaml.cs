@@ -1,4 +1,5 @@
-﻿using Italia.DiciottoApp.ViewModels;
+﻿using Italia.DiciottoApp.Models;
+using Italia.DiciottoApp.ViewModels;
 using Rg.Plugins.Popup.Services;
 using System;
 using System.Collections.Generic;
@@ -15,7 +16,6 @@ namespace Italia.DiciottoApp.Views
 	public partial class OnlineShopsPage : BasePage
     {
         private OnlineShopsViewModel vm;
-
         public OnlineShopsPage ()
 		{
 			InitializeComponent ();
@@ -48,7 +48,24 @@ namespace Italia.DiciottoApp.Views
 
         private void OnCategoryButtonTapped(object sender, EventArgs e)
         {
-            PopupNavigation.Instance.PushAsync(new CategoriesSelectorPopupPage());
+            if (!vm.IsBusy)
+            {
+                PopupNavigation.Instance.PushAsync(new CategoriesSelectorPopupPage(vm), animate: false);
+            }
+        }
+
+        private async void OnListViewItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            if (e.Item is Shop shop)
+            {
+                // Clear the item selection
+                if (sender is ListView listView)
+                {
+                    listView.SelectedItem = null;
+                }
+
+                await Navigation.PushAsync(new ShopPage(shop));
+            }
         }
     }
 }
