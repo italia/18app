@@ -39,6 +39,7 @@ namespace Italia.DiciottoApp.ViewModels
         public NearToYouShopsViewModel() : base()
         {
             ContentHeader = "Lettura posizione GPS...";
+            IsBusy = false;
         }
 
         public async Task GetShopListAsync()
@@ -147,6 +148,7 @@ namespace Italia.DiciottoApp.ViewModels
                 if (cts != null && !cts.IsCancellationRequested)
                     cts.Cancel();
             }
+            IsBusy = false;
             base.OnDisappearing();
         }
 
