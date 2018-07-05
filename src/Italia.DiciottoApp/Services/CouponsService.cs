@@ -55,7 +55,7 @@ namespace Italia.DiciottoApp.Services
 
             // TODO: Get shops from 18App SOAP Service
             var fakeCouponsService = new FakeCouponsService();
-            return await fakeCouponsService.CreateCoupon(categoria, prodotto, valore);
+            return await fakeCouponsService.CreateCoupon(categoria, prodotto, valore, shopId);
         }
 
     }

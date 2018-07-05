@@ -2,6 +2,7 @@
 using Italia.DiciottoApp.Services;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
@@ -17,6 +18,32 @@ namespace Italia.DiciottoApp.ViewModels
         public string PageTitle => "Nuovo buono: valore";
 
         public AppArea AppArea => AppArea.NewCoupon;
+
+        public bool HasShop => (Shop != null);
+
+        public string ShopBkgndImageSource => (Shop?.Categorie?.Count() > 0) ? Shop.Categorie[0].BkgndImageSource : null;
+
+        public string ShopKindImageSource => (Shop?.IsOnline ?? false) ? "location_online_white" : "location_white";
+
+        public string ShopAddress => (Shop == null) ? string.Empty
+                                     : Shop.IsOnline ? Shop.Url
+                                     : $"{Shop.Address?.Comune} ({Shop.Address?.SiglaProvincia})";
+
+        public bool IsNotOnline => !(Shop?.IsOnline ?? false);
+
+        private Shop shop;
+        public Shop Shop
+        {
+            get => shop;
+            set => SetProperty(ref shop, value, onChanged: () =>
+            {
+                OnPropertyChanged(nameof(HasShop));
+                OnPropertyChanged(nameof(ShopBkgndImageSource));
+                OnPropertyChanged(nameof(ShopKindImageSource));
+                OnPropertyChanged(nameof(ShopAddress));
+                OnPropertyChanged(nameof(IsNotOnline));
+            });
+        }
 
         public string ValueMessage => "Inserisci il valore del buono";
 
@@ -104,7 +131,7 @@ namespace Italia.DiciottoApp.ViewModels
             if (ValidateEntry(EntryValue))
             {
                 ICouponsService couponsService = Service.Resolve<ICouponsService>();
-                coupon = await couponsService.CreateCoupon(Categoria, Prodotto, valore);
+                coupon = await couponsService.CreateCoupon(Categoria, Prodotto, valore, Shop?.Id);
             }
 
             return coupon;

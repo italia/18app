@@ -16,11 +16,12 @@ namespace Italia.DiciottoApp.Views
     {
         private NewCouponCategoryViewModel vm;
 
-        public NewCouponCategoryPage()
+        public NewCouponCategoryPage(Shop shop = null)
         {
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
             vm = BindingContext as NewCouponCategoryViewModel;
+            vm.Shop = shop;
         }
 
         private async void OnCategoryListItemTapped(object sender, ItemTappedEventArgs e)
@@ -33,7 +34,7 @@ namespace Italia.DiciottoApp.Views
                     listView.SelectedItem = null;
                 }
 
-                await Navigation.PushAsync(new NewCouponProductPage(categoria));
+                await Navigation.PushAsync(new NewCouponProductPage(vm.Shop, categoria));
             }
 
         }

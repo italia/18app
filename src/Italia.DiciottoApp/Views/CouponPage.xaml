@@ -22,7 +22,7 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
-                <!-- Shop-->
+                <!-- Shop image-->
                 <Image Grid.Row="0"
                        IsVisible="{Binding Coupon.HasShop}"
                        WidthRequest="{Binding Width, Source={x:Reference ContentGrid}}"
@@ -30,6 +30,7 @@
                        Aspect="AspectFill"
                        Source="{Binding ShopBkgndImageSource}" />
 
+                <!-- Shop info -->
                 <StackLayout Grid.Row="0" Padding="24,0" Spacing="0"
                              VerticalOptions="Center"
                              IsVisible="{Binding Coupon.HasShop}" >
@@ -77,13 +78,16 @@
                                HeightRequest="22" WidthRequest="22"
                                VerticalOptions="Center"/>
 
-                        <Label Margin="28,10,24,10"
+                        <Label Margin="28,10,16,10"
                                HorizontalOptions="StartAndExpand" VerticalOptions="Center"
                                Style="{StaticResource RegularLabelStyle}"
                                TextColor="#FF30383D" FontSize="16"
                                Text="{Binding Coupon.Category.Titolo}" />
 
                         <Label Margin="0,0,16,0"
+                               WidthRequest="60"
+                               LineBreakMode="NoWrap"
+                               HorizontalTextAlignment="End"
                                HorizontalOptions="End" VerticalOptions="Center"
                                Style="{StaticResource RegularLabelStyle}"
                                TextColor="#FFAAAAAA" FontSize="12"
@@ -98,7 +102,7 @@
                            HeightRequest="22" WidthRequest="22"
                            VerticalOptions="Center"/>
 
-                        <Label Margin="28,4,24,4"
+                        <Label Margin="28,4,16,4"
                            HorizontalOptions="StartAndExpand" VerticalOptions="Center"
                            Style="{StaticResource RegularLabelStyle}"
                            TextColor="#FF30383D" FontSize="16"
@@ -132,12 +136,6 @@
                                      VerticalOptions="Center"
                                      IsVisible="{Binding Coupon.Spent}"/>
                         </Grid>
-
-                        <!--<Label Margin="28,8,24,8"
-                           HorizontalOptions="StartAndExpand" VerticalOptions="Center"
-                           Style="{StaticResource BoldLabelStyle}"
-                           TextColor="#FF30383D" FontSize="24"
-                           Text="{Binding Coupon.Value, StringFormat='{0:F2}'}" />-->
 
                         <Label Margin="0,0,16,0"
                            HorizontalOptions="End" VerticalOptions="Center"
