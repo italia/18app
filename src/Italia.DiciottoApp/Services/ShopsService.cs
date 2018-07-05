@@ -17,7 +17,7 @@ namespace Italia.DiciottoApp.Services
                 throw new ArgumentNullException("shopId");
             }
 
-            // TODO: Get shop from 18App SOAP Service
+            // TODO: Get shop from 18App REST Service
             var fakeShopsService = new FakeShopsService();
             return await fakeShopsService.GetShopByIdAsync(shopId);
         }
@@ -31,9 +31,20 @@ namespace Italia.DiciottoApp.Services
 
             IEnumerable<Shop> shops;
 
-            // TODO: Get shops from 18App SOAP Service
+            // TODO: Get shops from 18App REST Service
             var fakeShopsService = new FakeShopsService();
             shops = await fakeShopsService.NearToLocationShopsAsync(location, maxItems);
+
+            return shops;
+        }
+
+        public async Task<IEnumerable<Shop>> OnlineShopsAsync(Categoria category, int maxItems = 10)
+        {
+            IEnumerable<Shop> shops;
+
+            // TODO: Get shops from 18App REST Service
+            var fakeShopsService = new FakeShopsService();
+            shops = await fakeShopsService.OnlineShopsAsync(category, maxItems);
 
             return shops;
         }

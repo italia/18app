@@ -38,6 +38,20 @@ namespace Italia.DiciottoApp.Services
             return FakeShops.GetList().Take(maxItems);
         }
 
+        public async Task<IEnumerable<Shop>> OnlineShopsAsync(Categoria category, int maxItems = 10)
+        {
+            // simulate delay
+            await Task.Delay(simulatedDelay);
+
+            var shops = FakeOnlineShops.GetList();
+            
+            if (category != null)
+            {
+                shops = shops.Where(s => s.Categorie.Any(c => c.Titolo == category.Titolo));
+            }
+
+            return shops.Take(maxItems);
+        }
     }
 
     public static class FakeShops
@@ -157,6 +171,64 @@ namespace Italia.DiciottoApp.Services
                     Url = string.Empty,
                     Location = new Location(location.Latitude - 0.02, location.Longitude - 0.01),
                     DistanceFromUser = "3km"
+                }
+            };
+        }
+    }
+
+    public static class FakeOnlineShops
+    {
+        public static IEnumerable<Shop> GetList()
+        {
+            Location location = new Location(41.8919300, 12.5113300);
+            return new List<Shop>
+            {
+                new Shop
+                {
+                    Id = "2375F804-5744-48C0-813C-0B87F2E0750E",
+                    Title = "Scuolabook",
+                    Address = null,
+                    Categorie = new Categoria[]
+                    {
+                        Categories.Libri
+                    },
+                    IsOnline = true,
+                    Url = "www.scuolabook.it",
+                    Location = null,
+                    DistanceFromUser = string.Empty
+                },
+                new Shop
+                {
+                    Id = "16D55D17-BD46-48CE-94FF-BB4F28971A21",
+                    Title = "Cineteatro Nuovo Arcore",
+                    Address = null,
+                    Categorie = new Categoria[]
+                    {
+                        Categories.Cinema,
+                        Categories.Concerti,
+                        Categories.TeatroDanza
+                    },
+                    IsOnline = true,
+                    Url = "www.cinemanuovoarcore.it",
+                    Location = null,
+                    DistanceFromUser = string.Empty
+                },
+                new Shop
+                {
+                    Id = "7E0C6AA6-ADF0-4710-A6EF-C7E24B2FFDFF",
+                    Title = "TicketOne",
+                    Address = null,
+                    Categorie = new Categoria[]
+                    {
+                        Categories.Concerti,
+                        Categories.EventiCulturali,
+                        Categories.MuseiMonumentiParchiNaturali,
+                        Categories.TeatroDanza
+                    },
+                    IsOnline = true,
+                    Url = "www.ticketone.it/18App",
+                    Location = null,
+                    DistanceFromUser = string.Empty
                 }
             };
         }
