@@ -14,11 +14,8 @@ namespace Italia.DiciottoApp
 	public partial class App : Application
 	{
         public static NavigationPage Navigation = null;
-
         public static Location LastLocation = null;
         public static IEnumerable<Shop> Shops = null;
-
-        public string ThisPageTitle { get; set; }
 
         public App ()
 		{
