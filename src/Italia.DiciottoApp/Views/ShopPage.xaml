@@ -89,7 +89,7 @@
                                  HorizontalOptions="Center" >
 
                         <StackLayout.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="OnRouteToShopButtonTapped" />
+                            <TapGestureRecognizer Tapped="OnNewCouponButtonTapped" />
                         </StackLayout.GestureRecognizers>
 
                         <Image Source="plus_white" VerticalOptions="Center" />
