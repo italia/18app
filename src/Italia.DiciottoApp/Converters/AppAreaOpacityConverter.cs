@@ -7,7 +7,7 @@ using Xamarin.Forms;
 
 namespace Italia.DiciottoApp.Converters
 {
-    class AppAreaOpacityConverter : IValueConverter
+    public class AppAreaOpacityConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
