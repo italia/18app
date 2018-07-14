@@ -3,6 +3,7 @@ using Italia.DiciottoApp.Services;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -83,10 +84,10 @@ namespace Italia.DiciottoApp.ViewModels
             OnPropertyChanged(nameof(InfoListIsVisible));
             ContentHeader = "Recupero informazioni in corso...";
 
+            InfoList.Clear();
+
             IInfoService infoService = Service.Resolve<IInfoService>();
             IEnumerable<InfoContent> infoList = await infoService.GetInfoListAsync(FindText, SpidOnly);
-
-            InfoList.Clear();
 
             // Here we expect to receive an IEnumerable ordered by HeaderOrderIndex and then by TitleOrderIndex
             if (infoList != null)
@@ -111,7 +112,7 @@ namespace Italia.DiciottoApp.ViewModels
 
             IsBusy = false;
             OnPropertyChanged(nameof(InfoListIsVisible));
-            ContentHeader = String.Empty;
+            ContentHeader = (infoList.Count() > 0) ? String.Empty : "Non ci sono informazioni che corrispondono al criterio di ricerca.";
         }
 
         public void ToggleDetails(InfoContent infoContent)
