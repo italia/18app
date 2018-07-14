@@ -14,7 +14,7 @@
    id="svg14"
    sodipodi:docname="forward.svg"
    inkscape:version="0.92.3 (2405546, 2018-03-11)"
-   inkscape:export-filename="C:\Users\ncara\Desktop\fucina\down.png"
+   inkscape:export-filename="C:\Users\ncara\Desktop\fucina\forward.png"
    inkscape:export-xdpi="344"
    inkscape:export-ydpi="344">
   <metadata
@@ -45,10 +45,10 @@
      inkscape:zoom="8"
      inkscape:cx="0.3125"
      inkscape:cy="16.75"
-     inkscape:window-x="996"
-     inkscape:window-y="117"
+     inkscape:window-x="1771"
+     inkscape:window-y="207"
      inkscape:window-maximized="0"
-     inkscape:current-layer="svg14"
+     inkscape:current-layer="forward"
      fit-margin-top="0"
      fit-margin-left="0"
      fit-margin-right="0"
@@ -62,8 +62,8 @@
      id="defs6" />
   <g
      style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1"
-     id="down"
-     inkscape:label="down"
+     id="forward"
+     inkscape:label="forward"
      transform="translate(0,-3.9375)">
     <rect
        id="Rectangle-4"
@@ -77,7 +77,7 @@
        style="fill:#0066cc;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.66666669"
        inkscape:connector-curvature="0"
        id="Shape"
-       d="m 12.666667,19.270833 5.999999,-6 L 17.333334,11.9375 12.000001,17.270833 6.6666669,11.9375 5.3333339,13.270833 12.000001,19.9375 Z"
+       d="M 15.333333,15.270833 9.3333333,9.2708335 8,10.604166 13.333333,15.937499 8,21.270833 9.3333333,22.604166 16,15.937499 Z"
        inkscape:label="Shape" />
   </g>
 </svg>
