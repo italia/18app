@@ -13,6 +13,7 @@ namespace Italia.DiciottoApp.Services
         {
             container.Register<IShopsService, ShopsService>();
             container.Register<ICouponsService, CouponsService>();
+            container.Register<IInfoService, InfoService>();
         }
 
         public static TTypeToResolve Resolve<TTypeToResolve>()
