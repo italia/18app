@@ -47,7 +47,7 @@ namespace Italia.DiciottoApp.Views
 
         private async void ButtonSpidInfo_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new UnloggedInfoPage(spidOnlyInfo: true));
+            await Navigation.PushAsync(new UnloggedInfoPage(spidOnly: true));
         }
 
         private async void ButtonLogin_Clicked(object sender, EventArgs e)
