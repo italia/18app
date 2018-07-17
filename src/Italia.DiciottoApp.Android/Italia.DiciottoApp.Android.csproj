@@ -44,7 +44,7 @@
     <AotAssemblies>false</AotAssemblies>
     <EnableLLVM>false</EnableLLVM>
     <BundleAssemblies>false</BundleAssemblies>
-    <EnableProguard>false</EnableProguard>
+    <EnableProguard>true</EnableProguard>
     <AndroidLinkMode>SdkOnly</AndroidLinkMode>
     <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
     <AndroidSupportedAbis />
@@ -107,6 +107,7 @@
     <AndroidAsset Include="Assets\fonts\TitilliumWeb-Regular.ttf" />
     <AndroidAsset Include="Assets\fonts\TitilliumWeb-SemiBold.ttf" />
     <AndroidAsset Include="Assets\fonts\TitilliumWeb-SemiBoldItalic.ttf" />
+    <ProguardConfiguration Include="proguard_xamarin.cfg" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
     <None Include="Properties\AndroidManifest.xml" />
