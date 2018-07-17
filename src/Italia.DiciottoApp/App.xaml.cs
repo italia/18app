@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
 
 [assembly: XamlCompilation (XamlCompilationOptions.Compile)]
 namespace Italia.DiciottoApp
@@ -32,8 +35,13 @@ namespace Italia.DiciottoApp
 
 		protected override void OnStart ()
 		{
-			// Handle when your app starts
-		}
+            // Handle when your app starts
+            AppCenter.Start("ios=552ba3b6-8ebd-4680-a92d-dce13b3178a1;" +
+                  //"uwp={Your UWP App secret here};" +
+                  "android=89c56297-21e0-4784-8cbc-0e0225995c77",
+                  typeof(Analytics), typeof(Crashes));
+
+        }
 
 		protected override void OnSleep ()
 		{
