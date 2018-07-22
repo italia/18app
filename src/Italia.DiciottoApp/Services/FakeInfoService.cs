@@ -53,7 +53,7 @@ namespace Italia.DiciottoApp.Services
             new InfoContent
             {
                 HeaderOrderIndex = 1,
-                Header = "18app e il Bonus Cultura",
+                Header = "18app e il Bonus Cultura ",
                 TitleOrderIndex = 0,
                 Title = "Che cos’è 18app",
                 Text = LoremIpsum(),
@@ -61,7 +61,7 @@ namespace Italia.DiciottoApp.Services
             new InfoContent
             {
                 HeaderOrderIndex = 1,
-                Header = "18app e il Bonus Cultura",
+                Header = "18app e il Bonus Cultura ",
                 TitleOrderIndex = 1,
                 Title = "Che cos’è il Bonus Cultura?",
                 Text = "E' una iniziativa a cura del Ministero dei Beni e delle Attività Culturali e del Turismo e della Presidenza del Consiglio dei Ministri dedicato a promuovere la cultura." + CRLF +
@@ -71,7 +71,7 @@ namespace Italia.DiciottoApp.Services
             new InfoContent
             {
                 HeaderOrderIndex = 1,
-                Header = "18app e il Bonus Cultura",
+                Header = "18app e il Bonus Cultura ",
                 TitleOrderIndex = 2,
                 Title = "Chi può beneficiare del Bonus Cultura di 500€?",
                 Text = LoremIpsum(),
@@ -79,7 +79,7 @@ namespace Italia.DiciottoApp.Services
             new InfoContent
             {
                 HeaderOrderIndex = 1,
-                Header = "18app e il Bonus Cultura",
+                Header = "18app e il Bonus Cultura ",
                 TitleOrderIndex = 3,
                 Title = "Come spendo il Bonus Cultura?",
                 Text = LoremIpsum(),
@@ -87,7 +87,7 @@ namespace Italia.DiciottoApp.Services
             new InfoContent
             {
                 HeaderOrderIndex = 1,
-                Header = "18app e il Bonus Cultura",
+                Header = "18app e il Bonus Cultura ",
                 TitleOrderIndex = 4,
                 Title = "Come accedo a 18app?",
                 Text = LoremIpsum(),
@@ -95,7 +95,7 @@ namespace Italia.DiciottoApp.Services
             new InfoContent
             {
                 HeaderOrderIndex = 1,
-                Header = "18app e il Bonus Cultura",
+                Header = "18app e il Bonus Cultura ",
                 TitleOrderIndex = 5,
                 Title = "Come mi registro a 18app?",
                 Text = LoremIpsum(),
@@ -103,7 +103,7 @@ namespace Italia.DiciottoApp.Services
             new InfoContent
             {
                 HeaderOrderIndex = 2,
-                Header = "SPID",
+                Header = "SPID ",
                 TitleOrderIndex = 0,
                 Title = "Che cos'è SPID?",
                 Text = "Per ottenere le tue credenziali SPID devi rivolgerti a Infocert, Poste Italiane, Sielte o Tim. I quattro soggetti (che vengono chiamati Identity Provider), ti offrono diverse modalità di richiesta, scegli quella più adatta alle tue esigenze!" + CRLF +
@@ -116,7 +116,7 @@ namespace Italia.DiciottoApp.Services
             new InfoContent
             {
                 HeaderOrderIndex = 2,
-                Header = "SPID",
+                Header = "SPID ",
                 TitleOrderIndex = 1,
                 Title = "A chi mi devo rivolgere e cosa devo fare per ottenere SPID?",
                 Text = LoremIpsum(),
@@ -124,7 +124,7 @@ namespace Italia.DiciottoApp.Services
             new InfoContent
             {
                 HeaderOrderIndex = 2,
-                Header = "SPID",
+                Header = "SPID ",
                 TitleOrderIndex = 2,
                 Title = "Posso richiedere SPID se sono nel diciottesimo anno di età ma non ho ancora compiuto i 18 anni?",
                 Text = LoremIpsum(),
@@ -132,7 +132,7 @@ namespace Italia.DiciottoApp.Services
             new InfoContent
             {
                 HeaderOrderIndex = 2,
-                Header = "SPID",
+                Header = "SPID ",
                 TitleOrderIndex = 3,
                 Title = "Ho perso le mie credenziali SPID, cosa devo fare per farmele rimandare?",
                 Text = LoremIpsum(),
@@ -140,7 +140,7 @@ namespace Italia.DiciottoApp.Services
             new InfoContent
             {
                 HeaderOrderIndex = 3,
-                Header = "Cosa acquistare",
+                Header = "Cosa acquistare ",
                 TitleOrderIndex = 0,
                 Title = "Cosa posso acquistare attraverso 18app con il Bonus Cultura?",
                 Text = LoremIpsum(),
@@ -148,7 +148,7 @@ namespace Italia.DiciottoApp.Services
             new InfoContent
             {
                 HeaderOrderIndex = 3,
-                Header = "Cosa acquistare",
+                Header = "Cosa acquistare ",
                 TitleOrderIndex = 1,
                 Title = "Posso acquistare CD o DVD con 18app?",
                 Text = LoremIpsum(),
