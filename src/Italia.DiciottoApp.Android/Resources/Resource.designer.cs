@@ -3351,7 +3351,7 @@ namespace Italia.DiciottoApp.Droid
 			public const int route_white = 2130837874;
 			
 			// aapt resource value: 0x7f020173
-			public const int search_grey = 2130837875;
+			public const int search_gray = 2130837875;
 			
 			// aapt resource value: 0x7f020174
 			public const int selected_black = 2130837876;

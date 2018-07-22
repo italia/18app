@@ -705,13 +705,13 @@
     <ImageAsset Include="Assets.xcassets\qrcode_black.imageset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\search_gray.imageset\search_grey.png">
+    <ImageAsset Include="Assets.xcassets\search_gray.imageset\search_gray.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\search_gray.imageset\search_grey@2x.png">
+    <ImageAsset Include="Assets.xcassets\search_gray.imageset\search_gray@2x.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\search_gray.imageset\search_grey@3x.png">
+    <ImageAsset Include="Assets.xcassets\search_gray.imageset\search_gray@3x.png">
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\selected_black.imageset\Contents.json">

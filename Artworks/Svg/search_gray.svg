@@ -12,7 +12,7 @@
    viewBox="0 0 24 24"
    version="1.1"
    id="svg15"
-   sodipodi:docname="search_grey.svg"
+   sodipodi:docname="search_gray.svg"
    inkscape:version="0.92.3 (2405546, 2018-03-11)"
    inkscape:export-filename="C:\Users\ncara\source\repos\18App\Artworks\Svg\search_grey.png"
    inkscape:export-xdpi="376"
@@ -43,12 +43,12 @@
      id="namedview17"
      showgrid="false"
      inkscape:zoom="13.111111"
-     inkscape:cx="12"
+     inkscape:cx="-2.2245764"
      inkscape:cy="12"
      inkscape:window-x="93"
      inkscape:window-y="137"
      inkscape:window-maximized="0"
-     inkscape:current-layer="search_grey"
+     inkscape:current-layer="svg15"
      fit-margin-top="0"
      fit-margin-left="0"
      fit-margin-right="0"
@@ -62,10 +62,12 @@
      id="defs6" />
   <g
      style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1"
-     id="search_grey"
-     inkscape:label="search_grey">
+     id="search_gray"
+     inkscape:label="search_gray"
+     inkscape:export-xdpi="376"
+     inkscape:export-ydpi="376">
     <polygon
-       points="24,24 0,24 0,0 24,0 "
+       points="0,24 0,0 24,0 24,24 "
        id="Frame"
        inkscape:label="Frame" />
     <path
