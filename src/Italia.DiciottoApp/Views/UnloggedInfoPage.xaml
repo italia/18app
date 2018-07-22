@@ -77,7 +77,7 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <custom:ExpandingViewCell>
-                            <StackLayout Padding="0" Spacing="0">
+                            <StackLayout Padding="0" Spacing="0" BackgroundColor="White">
 
                                 <!-- Header -->
                                 <Label Margin="16,20,0,0"
