@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
 
@@ -52,6 +53,36 @@ namespace Italia.DiciottoApp.Services
 
             return shops.Take(maxItems);
         }
+
+        public async Task<IEnumerable<Shop>> FindShopsAsync(Categoria category, Municipality municipality, string text = null, int maxItems = 10, CancellationToken ct = default(CancellationToken))
+        {
+            // simulate delay
+            await Task.Delay(simulatedDelay);
+
+            var shops = FakeShops.GetList().Where(s => !s.IsOnline);
+
+            if (category != null)
+            {
+                shops = shops.Where(s => s.Categorie.Any(c => c.Titolo == category.Titolo));
+            }
+
+            if (municipality != null)
+            {
+                shops = shops.Where(s => s.MunicipalityId == municipality.Id);
+            }
+
+            if (!string.IsNullOrWhiteSpace(text))
+            {
+                shops = shops.Where(s => s.Title.Contains(text));
+            }
+
+            return shops.AsParallel().WithCancellation(ct).Take(maxItems);
+        }
+
+        public IEnumerable<Municipality> FindMunicipality(string partialName, int maxItems = 100)
+        {
+            return null;
+        }
     }
 
     public static class FakeShops
@@ -82,6 +113,7 @@ namespace Italia.DiciottoApp.Services
                     IsOnline = false,
                     Url = string.Empty,
                     Location = new Location(location.Latitude + 0.01, location.Longitude + 0.01),
+                    MunicipalityId = "058091",
                     DistanceFromUser = "500m"
                 },
                 new Shop
@@ -104,6 +136,7 @@ namespace Italia.DiciottoApp.Services
                     IsOnline = false,
                     Url = string.Empty,
                     Location = new Location(location.Latitude + 0.015, location.Longitude + 0.015),
+                    MunicipalityId = "058091",
                     DistanceFromUser = "1,3km"
                 },
                 new Shop
@@ -126,6 +159,7 @@ namespace Italia.DiciottoApp.Services
                     IsOnline = false,
                     Url = string.Empty,
                     Location = new Location(location.Latitude + 0.01, location.Longitude - 0.01),
+                    MunicipalityId = "058091",
                     DistanceFromUser = "3km"
                 },
                 new Shop
@@ -148,6 +182,7 @@ namespace Italia.DiciottoApp.Services
                     IsOnline = false,
                     Url = string.Empty,
                     Location = new Location(location.Latitude - 0.01, location.Longitude - 0.01),
+                    MunicipalityId = "058091",
                     DistanceFromUser = "3km"
                 },
                 new Shop
@@ -170,6 +205,7 @@ namespace Italia.DiciottoApp.Services
                     IsOnline = false,
                     Url = string.Empty,
                     Location = new Location(location.Latitude - 0.02, location.Longitude - 0.01),
+                    MunicipalityId = "058091",
                     DistanceFromUser = "3km"
                 },
                 new Shop
@@ -184,6 +220,7 @@ namespace Italia.DiciottoApp.Services
                     IsOnline = true,
                     Url = "www.scuolabook.it",
                     Location = null,
+                    MunicipalityId = "058091",
                     DistanceFromUser = string.Empty
                 },
                 new Shop
@@ -200,6 +237,7 @@ namespace Italia.DiciottoApp.Services
                     IsOnline = true,
                     Url = "www.cinemanuovoarcore.it",
                     Location = null,
+                    MunicipalityId = "058091",
                     DistanceFromUser = string.Empty
                 },
                 new Shop
@@ -217,6 +255,7 @@ namespace Italia.DiciottoApp.Services
                     IsOnline = true,
                     Url = "www.ticketone.it/18App",
                     Location = null,
+                    MunicipalityId = "058091",
                     DistanceFromUser = string.Empty
                 }
             };
