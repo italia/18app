@@ -312,6 +312,15 @@
     <ImageAsset Include="Assets.xcassets\cat_theatre_black.imageset\cat_theatre_black@3x.png">
       <Visible>false</Visible>
     </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\city_gray.imageset\city_gray.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\city_gray.imageset\city_gray@2x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\city_gray.imageset\city_gray@3x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\coupon_owner_black.imageset\coupon_owner_black.png">
       <Visible>false</Visible>
     </ImageAsset>
@@ -480,6 +489,9 @@
     <ImageAsset Include="Assets.xcassets\gps_marker.imageset\gps_marker@3x.png">
       <Visible>false</Visible>
     </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\down.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\header_logo.imageset\header_logo.png">
       <Visible>false</Visible>
     </ImageAsset>
@@ -489,7 +501,7 @@
     <ImageAsset Include="Assets.xcassets\header_logo.imageset\header_logo@3x.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\down.imageset\Contents.json">
+    <ImageAsset Include="Assets.xcassets\city_gray.imageset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\link.imageset\link.png">
