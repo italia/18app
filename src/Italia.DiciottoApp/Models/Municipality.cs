@@ -10,8 +10,10 @@ namespace Italia.DiciottoApp.Models
 
         public string RegionId { get; set; }
 
-        public string Province => Id.Substring(0, 3);
+        public string Province { get; set; }
 
         public string Name { get; set; }
+
+        public string FullName => $"{Name} ({Province})";
     }
 }
