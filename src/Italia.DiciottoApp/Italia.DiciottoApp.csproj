@@ -4,6 +4,14 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="ElencoComuni.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="ElencoComuni.json" />
+  </ItemGroup>
+
 <ItemGroup>
   <PackageReference Include="Microsoft.AppCenter.Analytics" Version="1.8.0" />
   <PackageReference Include="Microsoft.AppCenter.Crashes" Version="1.8.0" />

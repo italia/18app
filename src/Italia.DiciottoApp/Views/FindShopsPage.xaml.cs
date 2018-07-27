@@ -16,6 +16,7 @@ namespace Italia.DiciottoApp.Views
 	public partial class FindShopsPage : BasePage
 	{
         private FindShopsViewModel vm;
+        private string lastFindText = String.Empty;
 
         public FindShopsPage ()
 		{
@@ -74,6 +75,19 @@ namespace Italia.DiciottoApp.Views
                 }
 
                 await Navigation.PushAsync(new ShopPage(shop));
+            }
+        }
+
+        private void OnFindFieldFocused(object sender, FocusEventArgs e)
+        {
+            lastFindText = vm.SearchText;
+        }
+
+        private void OnFindFieldUnfocused(object sender, FocusEventArgs e)
+        {
+            if (vm.SearchText != lastFindText)
+            {
+                lastFindText = vm.SearchText;
             }
         }
 

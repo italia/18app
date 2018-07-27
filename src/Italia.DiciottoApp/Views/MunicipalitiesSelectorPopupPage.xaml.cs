@@ -17,9 +17,9 @@ namespace Italia.DiciottoApp.Views
 	public partial class MunicipalitiesSelectorPopupPage : PopupPage
     {
         private MunicipalitiesSelectorPopupViewModel vm;
-        private ISelectCategory caller;
+        private ISelectMunicipality caller;
 
-        public MunicipalitiesSelectorPopupPage(ISelectCategory caller)
+        public MunicipalitiesSelectorPopupPage(ISelectMunicipality caller)
         {
             InitializeComponent();
             vm = BindingContext as MunicipalitiesSelectorPopupViewModel;
@@ -29,6 +29,7 @@ namespace Italia.DiciottoApp.Views
         protected override void OnAppearing()
         {
             base.OnAppearing();
+            vm.FindMunicipalities();
         }
 
         protected override void OnDisappearing()
@@ -98,12 +99,6 @@ namespace Italia.DiciottoApp.Views
             return base.OnBackgroundClicked();
         }
 
-        private async void OnAllMunicipalitiessButtonTapped(object sender, EventArgs e)
-        {
-            await PopupNavigation.Instance.PopAllAsync();
-            await caller.SelectCategoryAsync(categoria: null, allSelected: true);
-        }
-
         private async void OnMunicipalityListItemTapped(object sender, ItemTappedEventArgs e)
         {
             if (e.Item is Municipality municipality)
@@ -115,8 +110,14 @@ namespace Italia.DiciottoApp.Views
                 }
 
                 await PopupNavigation.Instance.PopAllAsync();
-                await caller.SelectMunicipalityAsync(municipality, allSelected: false);
+                await caller.SelectMunicipalityAsync(municipality);
             }
+        }
+
+        private async void OnCancelTapped(object sender, EventArgs e)
+        {
+            await PopupNavigation.Instance.PopAllAsync();
+            await caller.SelectMunicipalityAsync(null);
         }
     }
 }

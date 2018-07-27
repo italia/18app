@@ -1,6 +1,7 @@
 ﻿using Italia.DiciottoApp.Models;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -59,24 +60,43 @@ namespace Italia.DiciottoApp.Services
             // simulate delay
             await Task.Delay(simulatedDelay);
 
-            var shops = FakeShops.GetList().Where(s => !s.IsOnline);
-
-            if (category != null)
+            // simulate forever execution until cancellation
+            while (true)
             {
-                shops = shops.Where(s => s.Categorie.Any(c => c.Titolo == category.Titolo));
+                if (ct.IsCancellationRequested)
+                {
+                    Debug.WriteLine($"[{DateTime.Now.ToLongTimeString()}] FindShopsAsync({text}): cancellation request received");
+                    break;
+                }
+
+                await Task.Delay(10);
             }
 
-            if (municipality != null)
+            if (!ct.IsCancellationRequested)
             {
-                shops = shops.Where(s => s.MunicipalityId == municipality.Id);
-            }
+                var shops = FakeShops.GetList().Where(s => !s.IsOnline);
 
-            if (!string.IsNullOrWhiteSpace(text))
+                if (category != null)
+                {
+                    shops = shops.Where(s => s.Categorie.Any(c => c.Titolo == category.Titolo));
+                }
+
+                if (municipality != null)
+                {
+                    shops = shops.Where(s => s.MunicipalityId == municipality.Id);
+                }
+
+                if (!string.IsNullOrWhiteSpace(text))
+                {
+                    shops = shops.Where(s => s.Title.ToUpper().Contains(text.ToUpper()));
+                }
+
+                return shops.Take(maxItems);
+            }
+            else
             {
-                shops = shops.Where(s => s.Title.Contains(text));
+                return null;
             }
-
-            return shops.AsParallel().WithCancellation(ct).Take(maxItems);
         }
 
         public IEnumerable<Municipality> FindMunicipality(string partialName, int maxItems = 100)

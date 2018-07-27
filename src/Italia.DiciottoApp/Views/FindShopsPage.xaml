@@ -17,9 +17,9 @@
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="50"/>
-                <RowDefinition Height="80"/>
-                <RowDefinition Height="80"/>
-                <RowDefinition Height="80"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
@@ -60,14 +60,11 @@
                    Style="{StaticResource TabLabelStyle}">
             </Label>
 
-            <Label Grid.Row="1" Grid.ColumnSpan="3"
-                   Text="TODO: Ricerca negozi"
-                   VerticalOptions="CenterAndExpand" 
-                   HorizontalOptions="CenterAndExpand" />
-
             <!--Scelta categoria -->
-            <StackLayout Grid.Row="1" Grid.ColumnSpan="3" Margin="16,0"
-                         VerticalOptions="Center" HorizontalOptions="Fill" >
+            <StackLayout Grid.Row="1" Grid.ColumnSpan="3"
+                         Padding="0" Spacing="0"
+                         Margin="16,16,16,0"
+                         HorizontalOptions="Fill" >
 
                 <StackLayout Padding="0" Spacing="0"
                              Orientation="Horizontal"
@@ -107,66 +104,68 @@
                            Source="down_gray" />
                 </StackLayout>
 
-                <BoxView HeightRequest="1"
+                <BoxView Margin="0,10,0,0"
+                         HeightRequest="1"
                          BackgroundColor="#FFF0F0F0"/>
             </StackLayout>
 
             <!--Scelta comune -->
-            <StackLayout Grid.Row="1" Grid.ColumnSpan="3" Margin="16,0"
-                         VerticalOptions="Center" HorizontalOptions="Fill" >
+            <StackLayout Grid.Row="2" Grid.ColumnSpan="3"
+                         Padding="0" Spacing="0"
+                         Margin="16,16,16,0"
+                         HorizontalOptions="Fill" >
 
                 <StackLayout Padding="0" Spacing="0"
                              Orientation="Horizontal"
                              HorizontalOptions="Fill">
                     <StackLayout.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="OnCategoryButtonTapped" />
+                        <TapGestureRecognizer Tapped="OnMunicipalityButtonTapped" />
                     </StackLayout.GestureRecognizers>
 
-                    <Image Margin="11,0,0,0" VerticalOptions="Center" Source="funnel_gray" />
+                    <Image Margin="11,0,0,0"
+                           VerticalOptions="Center"
+                           Source="city_gray" />
 
                     <Label Margin="12,0,0,0"
                            VerticalOptions="Center" HorizontalOptions="Start"
                            Style="{StaticResource BoldLabelStyle}" 
                            FontSize="16"
                            TextColor="#FF30383D"
-                           Text="{Binding SelectedCategory.Titolo}"
-                           IsVisible="{Binding IsCategorySelected}" />
+                           Text="{Binding SelectedMunicipality.FullName}"
+                           IsVisible="{Binding IsMunicipalitySelected}" />
 
                     <Label Margin="12,0,0,0"
                            VerticalOptions="Center" HorizontalOptions="Start"
                            Style="{StaticResource ItalicLabelStyle}" 
                            FontSize="16"
                            TextColor="{StaticResource AppLightGrayColor}"
-                           Text="Scegli la categoria..."
-                           IsVisible="{Binding IsCategoryNotSelected}" />
-
-                    <Label Margin="12,0,0,0"
-                           VerticalOptions="Center" HorizontalOptions="Start"
-                           Style="{StaticResource BoldLabelStyle}" 
-                           FontSize="16"
-                           TextColor="#FF30383D"
-                           Text="Tutte le categorie"
-                           IsVisible="{Binding AllCategoriesSelected}" />
+                           Text="Scegli il comune..."
+                           IsVisible="{Binding IsMunicipalityNotSelected}" />
 
                     <Image Margin="0,0,15,0" VerticalOptions="Center"
                            HorizontalOptions="EndAndExpand"
                            Source="down_gray" />
                 </StackLayout>
 
-                <BoxView HeightRequest="1"
+                <BoxView Margin="0,10,0,0"
+                         HeightRequest="1"
                          BackgroundColor="#FFF0F0F0"/>
             </StackLayout>
 
             <!-- Find text -->
-            <StackLayout  Grid.Row="0" Padding="16,20,16,0" Spacing="0"
-                          HorizontalOptions="FillAndExpand"
+            <StackLayout  Grid.Row="3" Grid.ColumnSpan="3"
+                          Padding="0" Spacing="0"
+                          Margin="16,16,16,0"
+                          HorizontalOptions="Fill"
                           IsVisible="{Binding FindIsVisible}">
 
                 <StackLayout Padding="0" Spacing="0"
-                             Orientation="Horizontal">
+                             Orientation="Horizontal"
+                             HorizontalOptions="Fill">
 
-                    <Image Source="search_gray"
-                           VerticalOptions="Center" />
+                    <Image Margin="11,0,0,0"
+                           VerticalOptions="Center"
+                           Source="search_gray" />
 
                     <Entry Margin="16,0,0,0"
                            HorizontalOptions="FillAndExpand"
@@ -174,12 +173,12 @@
                            TextColor="#FF1168C9" FontSize="16"
                            Placeholder="Cerca nel nome"
                            PlaceholderColor="#FFEFEFEF"
-                           Text="{Binding FindText}"
+                           Text="{Binding SearchText}"
                            Focused="OnFindFieldFocused"
                            Unfocused="OnFindFieldUnfocused"/>
                 </StackLayout>
 
-                <BoxView Margin="0,20,0,0"
+                <BoxView Margin="0,10,0,0"
                          HeightRequest="1"
                          BackgroundColor="#FFEFEFEF" />
             </StackLayout>

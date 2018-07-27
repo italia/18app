@@ -13,7 +13,7 @@ namespace Italia.DiciottoApp.ViewModels
     class FindShopsViewModel : BaseViewModel, ISelectCategory, ISelectMunicipality
     {
         private bool isSearchingShops = false;
-        private CancellationTokenSource cts;
+        private List<CancellationTokenSource> ctsList = new List<CancellationTokenSource>();
 
         #region Properties
 
@@ -60,13 +60,13 @@ namespace Italia.DiciottoApp.ViewModels
             });
         }
 
-        private string searchText;
+        private string searchText = string.Empty;
         public string SearchText
         {
             get => searchText;
             set => SetProperty(ref searchText, value, onChanged: () =>
             {
-                if (!string.IsNullOrWhiteSpace(searchText) && searchText.Length > 3) UpdateTextSearch();
+                UpdateTextSearch();
             });
         }
 
@@ -90,6 +90,7 @@ namespace Italia.DiciottoApp.ViewModels
 
         public FindShopsViewModel() : base()
         {
+            ContentHeader = "Scegli almeno un criterio di ricerca.";
         }
 
         private async void UpdateTextSearch()
@@ -99,67 +100,73 @@ namespace Italia.DiciottoApp.ViewModels
 
         public async Task SelectCategoryAsync(Categoria categoria, bool allSelected)
         {
-            await FindShopsAsync(() =>
-            {
-                SelectedCategory = categoria;
-                AllCategoriesSelected = allSelected;
-            });
+            SelectedCategory = categoria;
+            AllCategoriesSelected = allSelected;
+            await FindShopsAsync();
         }
 
         public async Task SelectMunicipalityAsync(Municipality municipality)
         {
-            await FindShopsAsync(() => SelectedMunicipality = municipality);
+            SelectedMunicipality = municipality;
+            await FindShopsAsync();
         }
 
-        private async Task FindShopsAsync(Action setSearchValues = null)
+        private async Task FindShopsAsync()
         {
             IsBusy = true;
             OnPropertyChanged("ShopListIsVisible");
-            ContentHeader = "Ricerca negozi in corso...";
-
-            setSearchValues?.Invoke();
 
             if (isSearchingShops)
             {
-                cts.Cancel();
-
-                // TODO: Find a better way to wait until cancellation has compleeted
-                await Task.Delay(300);
+                ctsList.Last().Cancel();
+                await Task.Delay(3000);
+                isSearchingShops = false;
             }
 
-            isSearchingShops = true;
-
-            try
+            if (SelectedCategory == null && !AllCategoriesSelected && SelectedMunicipality == null && string.IsNullOrWhiteSpace(SearchText))
             {
-                cts = new CancellationTokenSource();
-                var shopService = Service.Resolve<IShopsService>();
-                var shops = await shopService.FindShopsAsync(SelectedCategory, SelectedMunicipality, SearchText, ct: cts.Token);
+                Shops.Clear();
+                ContentHeader = "Scegli almeno un criterio di ricerca.";
+            }
+            else
+            {
+                ContentHeader = "Ricerca negozi in corso...";
+                isSearchingShops = true;
 
-                if (shops != null)
+                var cts = new CancellationTokenSource();
+                ctsList.Add(cts);
+                try
                 {
-                    Shops.Clear();
-                    foreach (var shop in shops)
-                    {
-                        if (cts.Token.IsCancellationRequested)
-                        {
-                            Shops.Clear();
-                            break;
-                        }
+                    var shopService = Service.Resolve<IShopsService>();
+                    var shops = await shopService.FindShopsAsync(SelectedCategory, SelectedMunicipality, SearchText, ct: cts.Token);
 
-                        Shops.Add(shop);
+                    if (shops != null && !cts.Token.IsCancellationRequested)
+                    {
+                        Shops.Clear();
+                        foreach (var shop in shops)
+                        {
+                            if (cts.Token.IsCancellationRequested)
+                            {
+                                Shops.Clear();
+                                break;
+                            }
+
+                            Shops.Add(shop);
+                        }
                     }
                 }
-            }
-            catch (Exception ex)
-            {
-                // Do nothing
-            }
-            finally
-            {
-                cts.Dispose();
+                catch (Exception ex)
+                {
+                    // Do nothing
+                }
+                finally
+                {
+                    cts.Dispose();
+                }
+
+                isSearchingShops = false;
             }
 
-            isSearchingShops = false;
             IsBusy = false;
             OnPropertyChanged("ShopListIsVisible");
             ContentHeader = (Shops.Count() > 0) ? String.Empty : "Non ci sono negozi fisici che corrispondono al criterio di ricerca.";

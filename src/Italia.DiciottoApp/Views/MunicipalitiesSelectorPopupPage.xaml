@@ -9,52 +9,58 @@
         <vm:MunicipalitiesSelectorPopupViewModel />
     </pages:PopupPage.BindingContext>
 
-    <!--You can use any elements here which are extended from Xamarin.Forms.View-->
-    <StackLayout Padding="20,20" Margin="20,110,20,160"
-                 HorizontalOptions="Fill" VerticalOptions="Start"
+    <StackLayout Padding="20,20" Margin="20,60,20,160"
+                 HorizontalOptions="FillAndExpand" VerticalOptions="Start"
                  BackgroundColor="White">
 
+        <!-- SearchText -->
         <StackLayout Padding="0" Spacing="0"
-                             Orientation="Horizontal"
-                             HorizontalOptions="Fill">
-            <StackLayout.GestureRecognizers>
-                <TapGestureRecognizer Tapped="OnAllCategoriesButtonTapped" />
-            </StackLayout.GestureRecognizers>
+                     Orientation="Horizontal"
+                     HorizontalOptions="FillAndExpand" >
 
-            <Image Margin="11,0,0,0" VerticalOptions="Center" Source="funnel_gray" />
+            <Image Margin="21,0,0,0"
+                   Source="city_black"
+                   VerticalOptions="Center"/>
 
-            <Label Margin="12,0,0,0"
-                           VerticalOptions="Center" HorizontalOptions="Start"
-                           Style="{StaticResource RegularLabelStyle}" 
-                           FontSize="16"
-                           TextColor="#FF30383D"
-                           Text="Tutte le categorie"
-                           IsVisible="{Binding IsCategoryNotSelected}" />
+            <Entry Margin="12,10,16,10"
+                   HorizontalOptions="FillAndExpand" VerticalOptions="Center"
+                   Style="{StaticResource RegularLabelStyle}"
+                   TextColor="#FF30383D" FontSize="16"
+                   Text="{Binding SearchText}" />
+
+            <Label Margin="0,0,16,0"
+                   HorizontalOptions="End" VerticalOptions="Center"
+                   Style="{StaticResource RegularLabelStyle}"
+                   TextColor="#FFF0F0F0" FontSize="16"
+                   Text="X">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnCancelTapped" />
+                </Label.GestureRecognizers>
+            </Label>
         </StackLayout>
-
-        <BoxView HeightRequest="1"
-                 BackgroundColor="#FFF0F0F0"/>
-
-        <!-- Category list -->
-        <ListView ItemsSource="{Binding Categories, Mode=OneWay}"
+        
+        <!-- Municipalities list -->
+        <ListView ItemsSource="{Binding Municipalities, Mode=OneWay}"
                   HasUnevenRows="true"
                   SeparatorVisibility="None"
-                  ItemTapped="OnCategoryListItemTapped">
+                  Footer=""
+                  ItemTapped="OnMunicipalityListItemTapped">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
                         <StackLayout Padding="0" Spacing="0"
+                                     HorizontalOptions="Fill"
                                      Orientation="Horizontal">
 
-                            <Image Margin="11,0,0,0"
-                                   Source="{Binding ImageSource}"
+                            <Image Margin="21,0,0,0"
+                                   Source="city"
                                    VerticalOptions="Center"/>
 
                             <Label Margin="12,10,16,10"
                                    HorizontalOptions="StartAndExpand" VerticalOptions="Center"
                                    Style="{StaticResource RegularLabelStyle}"
                                    TextColor="#FF1168C9" FontSize="16"
-                                   Text="{Binding Titolo}" />
+                                   Text="{Binding FullName}" />
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>
