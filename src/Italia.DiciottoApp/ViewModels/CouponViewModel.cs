@@ -2,6 +2,7 @@
 using Italia.DiciottoApp.Services;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using Xamarin.Forms;
@@ -12,6 +13,7 @@ namespace Italia.DiciottoApp.ViewModels
     {
         private readonly Color red = new Color(r: .82, g: .01, b: .11);
         private readonly Color green = new Color(r: 0.13, g: 0.69, b: 0.45);
+        private readonly CultureInfo ci = new CultureInfo("it-IT");
 
         #region Properties
 
@@ -43,7 +45,7 @@ namespace Italia.DiciottoApp.ViewModels
 
         public string CouponStatus =>
             Coupon == null ? string.Empty
-                           : Coupon.Spent ? $"Buono utilizzato il {Coupon.SpentDateTime.ToString("dd MMMM yy")} alle ore {Coupon.SpentDateTime.ToString("hh.mm")}"
+                           : Coupon.Spent ? $"Buono utilizzato il {Coupon.SpentDateTime.ToString("dd MMMM yy", ci)} alle ore {Coupon.SpentDateTime.ToString("hh.mm")}"
                            : $"Il nuovo buono è stato creato correttamente";
 
         public Color CouponStatusTextColor => (Coupon?.Spent ?? false) ? red : green;
