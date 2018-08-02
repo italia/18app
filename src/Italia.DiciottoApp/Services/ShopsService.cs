@@ -56,7 +56,7 @@ namespace Italia.DiciottoApp.Services
 
             // TODO: Get shops from 18App REST Service
             var fakeShopsService = new FakeShopsService();
-            shops = await fakeShopsService.FindShopsAsync(category, municipality, text, maxItems);
+            shops = await fakeShopsService.FindShopsAsync(category, municipality, text.Trim(), maxItems, ct);
 
             return shops;
         }
@@ -67,7 +67,7 @@ namespace Italia.DiciottoApp.Services
 
             if (!string.IsNullOrWhiteSpace(partialName))
             {
-                municipalities = municipalities.Where(m => m.Name.Contains(partialName));
+                municipalities = municipalities.Where(m => m.Name.Contains(partialName.Trim()));
             }
 
             return municipalities.Take(maxItems);

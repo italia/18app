@@ -29,6 +29,7 @@ namespace Italia.DiciottoApp.Views
         protected override void OnAppearing()
         {
             base.OnAppearing();
+            MunicipalityEntry.Focus();
             vm.FindMunicipalities();
         }
 

@@ -3,6 +3,7 @@ using Italia.DiciottoApp.Services;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -12,7 +13,7 @@ namespace Italia.DiciottoApp.ViewModels
 {
     class FindShopsViewModel : BaseViewModel, ISelectCategory, ISelectMunicipality
     {
-        private bool isSearchingShops = false;
+        // private bool isSearchingShops = false;
         private List<CancellationTokenSource> ctsList = new List<CancellationTokenSource>();
 
         #region Properties
@@ -113,15 +114,20 @@ namespace Italia.DiciottoApp.ViewModels
 
         private async Task FindShopsAsync()
         {
+            Debug.WriteLine($"[FindShopsAsync({SearchText})] started, ctsList count = {ctsList.Count}");
+
             IsBusy = true;
             OnPropertyChanged("ShopListIsVisible");
 
-            if (isSearchingShops)
+            foreach (var ctsItem in ctsList.Where(c => !c.IsCancellationRequested))
             {
-                ctsList.Last().Cancel();
-                await Task.Delay(3000);
-                isSearchingShops = false;
+                ctsItem.Cancel();
+                Debug.WriteLine($"[FindShopsAsync({SearchText})] previous DoWorkAsync task cancelled");
             }
+
+            var cts = new CancellationTokenSource();
+            CancellationToken ct = cts.Token;
+            ctsList.Add(cts);
 
             if (SelectedCategory == null && !AllCategoriesSelected && SelectedMunicipality == null && string.IsNullOrWhiteSpace(SearchText))
             {
@@ -131,45 +137,41 @@ namespace Italia.DiciottoApp.ViewModels
             else
             {
                 ContentHeader = "Ricerca negozi in corso...";
-                isSearchingShops = true;
 
-                var cts = new CancellationTokenSource();
-                ctsList.Add(cts);
                 try
                 {
+                    Shops.Clear();
+
                     var shopService = Service.Resolve<IShopsService>();
-                    var shops = await shopService.FindShopsAsync(SelectedCategory, SelectedMunicipality, SearchText, ct: cts.Token);
+                    var shops = await shopService.FindShopsAsync(SelectedCategory, SelectedMunicipality, SearchText, ct: ct);
 
-                    if (shops != null && !cts.Token.IsCancellationRequested)
+                    foreach (var shop in shops)
                     {
-                        Shops.Clear();
-                        foreach (var shop in shops)
-                        {
-                            if (cts.Token.IsCancellationRequested)
-                            {
-                                Shops.Clear();
-                                break;
-                            }
-
-                            Shops.Add(shop);
-                        }
+                        Shops.Add(shop);
                     }
+
+                    ContentHeader = (Shops.Count() > 0) ? String.Empty : "Non ci sono negozi fisici che corrispondono al criterio di ricerca.";
+                }
+                catch (AggregateException e)
+                {
+                    foreach (var ie in e.InnerExceptions)
+                        Debug.WriteLine($"[FindShopsAsync({SearchText})] (Aggregate) TaskCanceledException: " + ie.Message);
                 }
                 catch (Exception ex)
                 {
-                    // Do nothing
+                    Debug.WriteLine($"[FindShopsAsync({SearchText})] TaskCanceledException: " + ex.Message);
                 }
                 finally
                 {
+                    ctsList.Remove(cts);
                     cts.Dispose();
                 }
-
-                isSearchingShops = false;
             }
+
+            Debug.WriteLine($"[FindShopsAsync({SearchText})] ended, ctsList count = {ctsList.Count}");
 
             IsBusy = false;
             OnPropertyChanged("ShopListIsVisible");
-            ContentHeader = (Shops.Count() > 0) ? String.Empty : "Non ci sono negozi fisici che corrispondono al criterio di ricerca.";
         }
 
     }

@@ -9,7 +9,7 @@
         <vm:MunicipalitiesSelectorPopupViewModel />
     </pages:PopupPage.BindingContext>
 
-    <StackLayout Padding="20,20" Margin="20,60,20,160"
+    <StackLayout Padding="20,20" Margin="20,60,20,20"
                  HorizontalOptions="FillAndExpand" VerticalOptions="Start"
                  BackgroundColor="White">
 
@@ -18,17 +18,17 @@
                      Orientation="Horizontal"
                      HorizontalOptions="FillAndExpand" >
 
-            <Image Margin="21,0,0,0"
+            <Image Margin="0,0,0,0"
                    Source="city_black"
                    VerticalOptions="Center"/>
 
-            <Entry Margin="12,10,16,10"
+            <Entry x:Name="MunicipalityEntry"  Margin="12,10,16,10"
                    HorizontalOptions="FillAndExpand" VerticalOptions="Center"
                    Style="{StaticResource RegularLabelStyle}"
                    TextColor="#FF30383D" FontSize="16"
                    Text="{Binding SearchText}" />
 
-            <Label Margin="0,0,16,0"
+            <Label Margin="0,0,0,0"
                    HorizontalOptions="End" VerticalOptions="Center"
                    Style="{StaticResource RegularLabelStyle}"
                    TextColor="#FFF0F0F0" FontSize="16"
@@ -38,7 +38,15 @@
                 </Label.GestureRecognizers>
             </Label>
         </StackLayout>
-        
+
+        <!-- Content header -->
+        <Label Margin="0,0,0,0"
+               HorizontalOptions="Start"
+               Style="{StaticResource RegularLabelStyle}"
+               TextColor="#FFAAAAAA" FontSize="14"
+               Text="{Binding ContentHeader}"
+               IsVisible="{Binding ContentHeaderIsVisible}"/>
+
         <!-- Municipalities list -->
         <ListView ItemsSource="{Binding Municipalities, Mode=OneWay}"
                   HasUnevenRows="true"
@@ -52,11 +60,11 @@
                                      HorizontalOptions="Fill"
                                      Orientation="Horizontal">
 
-                            <Image Margin="21,0,0,0"
+                            <Image Margin="0,0,0,0"
                                    Source="city"
                                    VerticalOptions="Center"/>
 
-                            <Label Margin="12,10,16,10"
+                            <Label Margin="12,10,0,10"
                                    HorizontalOptions="StartAndExpand" VerticalOptions="Center"
                                    Style="{StaticResource RegularLabelStyle}"
                                    TextColor="#FF1168C9" FontSize="16"

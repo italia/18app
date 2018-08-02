@@ -27,8 +27,8 @@
     <MtouchArch>x86_64</MtouchArch>
     <MtouchLink>None</MtouchLink>
     <MtouchDebug>true</MtouchDebug>
-    <CodesignKey>iPhone Developer</CodesignKey>
-    <CodesignProvision />
+    <CodesignKey>iPhone Developer: Nicolo CARANDINI (5T4J4J9327)</CodesignKey>
+    <CodesignProvision>VS: it.Italia.DiciottoApp Development</CodesignProvision>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>none</DebugType>
@@ -62,7 +62,7 @@
     <WarningLevel>4</WarningLevel>
     <MtouchArch>ARM64</MtouchArch>
     <ConsolePause>false</ConsolePause>
-    <CodesignKey>iPhone Developer</CodesignKey>
+    <CodesignKey>iPhone Developer: Nicolo CARANDINI (5T4J4J9327)</CodesignKey>
     <CodesignEntitlements>
     </CodesignEntitlements>
     <CodesignProvision>VS: it.Italia.DiciottoApp Development</CodesignProvision>

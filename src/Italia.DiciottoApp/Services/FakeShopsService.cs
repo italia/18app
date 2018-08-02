@@ -60,43 +60,32 @@ namespace Italia.DiciottoApp.Services
             // simulate delay
             await Task.Delay(simulatedDelay);
 
-            // simulate forever execution until cancellation
-            while (true)
+            // Check for cancellation
+            if (ct.IsCancellationRequested)
             {
-                if (ct.IsCancellationRequested)
-                {
-                    Debug.WriteLine($"[{DateTime.Now.ToLongTimeString()}] FindShopsAsync({text}): cancellation request received");
-                    break;
-                }
-
-                await Task.Delay(10);
+                Debug.WriteLine("[FindShopsAsync] Cancellation requested during task execution.");
+                ct.ThrowIfCancellationRequested();
             }
 
-            if (!ct.IsCancellationRequested)
+            // Get Shops
+            var shops = FakeShops.GetList().Where(s => !s.IsOnline);
+
+            if (category != null)
             {
-                var shops = FakeShops.GetList().Where(s => !s.IsOnline);
-
-                if (category != null)
-                {
-                    shops = shops.Where(s => s.Categorie.Any(c => c.Titolo == category.Titolo));
-                }
-
-                if (municipality != null)
-                {
-                    shops = shops.Where(s => s.MunicipalityId == municipality.Id);
-                }
-
-                if (!string.IsNullOrWhiteSpace(text))
-                {
-                    shops = shops.Where(s => s.Title.ToUpper().Contains(text.ToUpper()));
-                }
-
-                return shops.Take(maxItems);
+                shops = shops.Where(s => s.Categorie.Any(c => c.Titolo == category.Titolo));
             }
-            else
+
+            if (municipality != null)
             {
-                return null;
+                shops = shops.Where(s => s.MunicipalityId == municipality.Id);
             }
+
+            if (!string.IsNullOrWhiteSpace(text))
+            {
+                shops = shops.Where(s => s.Title.ToUpper().Contains(text.ToUpper()));
+            }
+
+            return shops.Take(maxItems);
         }
 
         public IEnumerable<Municipality> FindMunicipality(string partialName, int maxItems = 100)

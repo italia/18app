@@ -50,18 +50,20 @@ namespace Italia.DiciottoApp.Views
 
         private void OnCategoryButtonTapped(object sender, EventArgs e)
         {
-            if (!vm.IsBusy)
+            if (vm.IsBusy)
             {
-                PopupNavigation.Instance.PushAsync(new CategoriesSelectorPopupPage(vm), animate: false);
+                // TODO: Cancel the ongoing search
             }
+            PopupNavigation.Instance.PushAsync(new CategoriesSelectorPopupPage(vm), animate: false);
         }
 
         private void OnMunicipalityButtonTapped(object sender, EventArgs e)
         {
-            if (!vm.IsBusy)
+            if (vm.IsBusy)
             {
-                PopupNavigation.Instance.PushAsync(new MunicipalitiesSelectorPopupPage(vm), animate: false);
+                // TODO: Cancel the ongoing search
             }
+            PopupNavigation.Instance.PushAsync(new MunicipalitiesSelectorPopupPage(vm), animate: false);
         }
 
         private async void OnListViewItemTapped(object sender, ItemTappedEventArgs e)

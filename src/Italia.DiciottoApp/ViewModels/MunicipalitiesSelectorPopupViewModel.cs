@@ -24,14 +24,19 @@ namespace Italia.DiciottoApp.ViewModels
             get => searchText;
             set => SetProperty(ref searchText, value, onChanged: () =>
             {
-                if (!string.IsNullOrWhiteSpace(searchText))
-                {
-                    FindMunicipalities();
-                }
-                else
-                {
-                    Municipalities.Clear();
-                }
+                FindMunicipalities();
+            });
+        }
+
+        public bool ContentHeaderIsVisible => !string.IsNullOrWhiteSpace(ContentHeader);
+
+        private string contentHeader;
+        public string ContentHeader
+        {
+            get => contentHeader;
+            set => SetProperty(ref contentHeader, value, onChanged: () =>
+            {
+                OnPropertyChanged(nameof(ContentHeaderIsVisible));
             });
         }
 
@@ -52,15 +57,18 @@ namespace Italia.DiciottoApp.ViewModels
             if (string.IsNullOrWhiteSpace(searchText))
             {
                 Municipalities.Clear();
+                ContentHeader = "Inserisci almeno un carattere...";
             }
             else
             {
+                ContentHeader = "Ricerca Comuni in corso...";
                 var municipalities = Models.Municipalities.List.Where(m => m.Name.ToUpper().Contains(searchText.ToUpper())).OrderBy(m => m.Name.Length).ThenBy(m => m.Name).Take(20);
                 Municipalities.Clear();
                 foreach (var municipality in municipalities)
                 {
                     Municipalities.Add(municipality);
                 }
+                ContentHeader = "";
             }
             IsBusy = false;
         }
