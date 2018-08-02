@@ -2,6 +2,7 @@
 using Italia.DiciottoApp.Services;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ namespace Italia.DiciottoApp.ViewModels
     public class NewCouponValueViewModel : BaseViewModel
     {
         private double valore;
+        private readonly CultureInfo ci = new CultureInfo("it-IT");
 
         #region Properties
 
@@ -61,7 +63,7 @@ namespace Italia.DiciottoApp.ViewModels
             set => SetProperty(ref prodotto, value);
         }
 
-        public string EntryValuePlaceholder => 499.99.ToString("###.##");
+        public string EntryValuePlaceholder => 499.99.ToString("###.##", ci);
 
         private string entryValue = null;
         public string EntryValue
@@ -100,7 +102,7 @@ namespace Italia.DiciottoApp.ViewModels
             }
             else
             {
-                if (!double.TryParse(valueText, out valore))
+                if (!double.TryParse(valueText, NumberStyles.Any, ci, out valore))
                 {
                     isValid = false;
                     ErrorMessage = "Il valore inserito non è un numero.";

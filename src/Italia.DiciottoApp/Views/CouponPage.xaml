@@ -4,11 +4,16 @@
                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                 xmlns:views="clr-namespace:Italia.DiciottoApp.Views"
                 xmlns:vm="clr-namespace:Italia.DiciottoApp.ViewModels"
+                xmlns:conv="clr-namespace:Italia.DiciottoApp.Converters"
                 ControlTemplate="{StaticResource AppHeaderTemplate}" >
 
     <views:BasePage.BindingContext>
         <vm:CouponViewModel />
     </views:BasePage.BindingContext>
+
+    <views:BasePage.Resources>
+        <conv:DoubleToItCurrency x:Key="DoubleToItCurrency" />
+    </views:BasePage.Resources>
 
     <views:BasePage.Content>
         <ScrollView>
@@ -129,7 +134,7 @@
                             <Label HorizontalOptions="StartAndExpand" VerticalOptions="Center"
                                    Style="{StaticResource BoldLabelStyle}"
                                    TextColor="#FF30383D" FontSize="28"
-                                   Text="{Binding Coupon.Value, StringFormat='{0:F2}'}" />
+                                   Text="{Binding Coupon.Value, Converter={StaticResource DoubleToItCurrency}}" />
 
                             <BoxView HeightRequest="1"
                                      BackgroundColor="#FF30383D"
