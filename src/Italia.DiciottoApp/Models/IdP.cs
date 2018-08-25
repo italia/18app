@@ -6,6 +6,7 @@ namespace Italia.DiciottoApp.Models
 {
     public enum IdP
     {
+        None,
         Aruba,
         InfoCert,
         Intesa,

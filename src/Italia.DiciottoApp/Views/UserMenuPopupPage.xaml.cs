@@ -107,7 +107,7 @@ namespace Italia.DiciottoApp.Views
         private async void OnUserProfileTapped(object sender, EventArgs e)
         {
             await PopupNavigation.Instance.PopAllAsync();
-            // TODO: await appNavigationPage.PushAsync(new NUserProfilePage());
+            await appNavigationPage.PushAsync(new UserProfilePage());
         }
 
         private async void OnNotificationsTapped(object sender, EventArgs e)
