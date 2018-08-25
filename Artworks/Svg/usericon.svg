@@ -7,8 +7,8 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="24px"
-   height="24px"
+   width="24"
+   height="24"
    viewBox="0 0 24 24"
    version="1.1"
    id="svg19"
@@ -38,70 +38,55 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="3991"
-     inkscape:window-height="2694"
+     inkscape:window-width="2880"
+     inkscape:window-height="1695"
      id="namedview21"
      showgrid="false"
      inkscape:zoom="9.8333333"
-     inkscape:cx="-13.881356"
+     inkscape:cx="6.8644068"
      inkscape:cy="12"
-     inkscape:window-x="0"
-     inkscape:window-y="0"
-     inkscape:window-maximized="0"
-     inkscape:current-layer="svg19" />
+     inkscape:window-x="-13"
+     inkscape:window-y="-13"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg19"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
   <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
   <title
-     id="title2">icon-profilo</title>
+     id="title2">usericon</title>
   <desc
      id="desc4">Created with Sketch.</desc>
   <defs
      id="defs6" />
   <g
-     id="-prototype-v0.1"
-     stroke="none"
-     stroke-width="1"
-     fill="none"
-     fill-rule="evenodd">
+     id="usericon"
+     style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1">
+    <rect
+       id="Frame"
+       width="24"
+       height="24"
+       x="0"
+       y="0"
+       style="fill:none;stroke-width:0.34287262;fill-opacity:1" />
     <g
-       id="user-menu"
-       transform="translate(-60.000000, -144.000000)">
-      <g
-         id="Group-17"
-         transform="translate(48.000000, 132.000000)">
-        <g
-           id="icon-profilo">
-          <g
-             id="Group-7">
-            <rect
-               id="Rectangle-5"
-               x="0"
-               y="0"
-               width="48"
-               height="48" />
-          </g>
-          <g
-             id="spid-ico-circle-bb"
-             transform="translate(12.000000, 12.000000)">
-            <g
-               id="Layer_1">
-              <circle
-                 id="Oval-3"
-                 stroke="#FFFFFF"
-                 cx="12"
-                 cy="12"
-                 r="11.5" />
-              <path
-                 d="M9.13942308,11.8431487 C8.37980769,11.0734694 8,10.1172012 8,8.97900875 C8,7.8361516 8.37980769,6.88921283 9.13461538,6.1335277 C9.88942308,5.37784257 10.8509615,5 12.0288462,5 C13.2019231,5 14.1586538,5.38250729 14.8942308,6.16151603 C15.6298077,6.93586006 16,7.88746356 16,9.0303207 C16,10.1638484 15.6298077,11.1107872 14.8942308,11.8664723 C14.1586538,12.6174927 13.2115385,13 12.0384615,13 C10.8653846,13 9.89903846,12.6174927 9.13942308,11.8431487 Z"
-                 id="XMLID_2_"
-                 fill="#FFFFFF" />
-              <path
-                 d="M8,17.9490741 C8,16.8148148 8.37980769,15.875 9.12980769,15.125 C9.88461538,14.375 10.8461538,14 12.0336538,14 C13.2067308,14 14.1634615,14.3796296 14.8942308,15.1527778 C15.6298077,15.9259259 16,16.8703704 16,18"
-                 id="XMLID_1_"
-                 fill="#FFFFFF" />
-            </g>
-          </g>
-        </g>
-      </g>
+       id="Shape">
+      <path
+         style="stroke:#ffffff"
+         d="M 23.5,12 A 11.5,11.5 0 0 1 12,23.5 11.5,11.5 0 0 1 0.5,12 11.5,11.5 0 0 1 12,0.5 11.5,11.5 0 0 1 23.5,12 Z"
+         id="Oval-3"
+         inkscape:connector-curvature="0" />
+      <path
+         d="M 9.1394231,11.843149 C 8.3798077,11.073469 8,10.117201 8,8.9790088 8,7.8361516 8.3798077,6.8892128 9.1346154,6.1335277 9.8894231,5.3778426 10.850962,5 12.028846,5 13.201923,5 14.158654,5.3825073 14.894231,6.161516 15.629808,6.9358601 16,7.8874636 16,9.0303207 16,10.163848 15.629808,11.110787 14.894231,11.866472 14.158654,12.617493 13.211539,13 12.038462,13 10.865385,13 9.8990385,12.617493 9.1394231,11.843149 Z"
+         id="XMLID_2_"
+         inkscape:connector-curvature="0"
+         style="fill:#ffffff" />
+      <path
+         d="M 8,17.949074 C 8,16.814815 8.3798077,15.875 9.1298077,15.125 9.8846154,14.375 10.846154,14 12.033654,14 c 1.173077,0 2.129808,0.37963 2.860577,1.152778 C 15.629808,15.925926 16,16.87037 16,18"
+         id="XMLID_1_"
+         inkscape:connector-curvature="0"
+         style="fill:#ffffff" />
     </g>
   </g>
 </svg>
