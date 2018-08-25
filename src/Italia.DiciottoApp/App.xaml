@@ -179,10 +179,10 @@
 
         <ControlTemplate x:Key="UnloggedInfoPageTemplate" >
             <Grid VerticalOptions="FillAndExpand"
-              HorizontalOptions="FillAndExpand"
-              BackgroundColor="{StaticResource ContentBkgndColor}"
-              BindingContext="{TemplateBinding BindingContext}"
-              RowSpacing="0" ColumnSpacing="0" >
+                  HorizontalOptions="FillAndExpand"
+                  BackgroundColor="{StaticResource ContentBkgndColor}"
+                  BindingContext="{TemplateBinding BindingContext}"
+                  RowSpacing="0" ColumnSpacing="0" >
 
                 <Grid.RowDefinitions>
                     <RowDefinition Height="50"/>
@@ -201,53 +201,53 @@
                 </Grid.Padding>
 
                 <BoxView Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"
-                   BackgroundColor="{StaticResource AppBkgndColor}" />
+                         BackgroundColor="{StaticResource AppBkgndColor}" />
 
                 <StackLayout Grid.Row="0" Grid.Column="0"
-                       Orientation="Horizontal"
-                       Margin="0,6">
+                             Orientation="Horizontal"
+                             Margin="0,6">
                     <StackLayout.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnBackButtonPressed" />
                     </StackLayout.GestureRecognizers>
 
                     <Image Margin="10,0,0,0"
-                   Source="back" />
+                           Source="back" />
 
                     <Label Style="{StaticResource PageTitleLabelStyle}"
-                   HorizontalOptions="Start" VerticalOptions="Center"
-                   Margin="10,0"
-                   Text ="{Binding PageTitle}" />
+                           HorizontalOptions="Start" VerticalOptions="Center"
+                           Margin="10,0"
+                           Text ="{Binding PageTitle}" />
 
                 </StackLayout>
 
                 <Image Grid.Row="0" Grid.Column="2"
-                 HorizontalOptions="End"
-                 Margin="10,0"
-                 Source="header_logo" />
+                       HorizontalOptions="End"
+                       Margin="10,0"
+                       Source="header_logo" />
 
                 <ContentPresenter Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3"
-                            VerticalOptions="FillAndExpand"
-                            HorizontalOptions="FillAndExpand" />
+                                  VerticalOptions="FillAndExpand"
+                                  HorizontalOptions="FillAndExpand" />
 
                 <BoxView Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3"
-                   BackgroundColor="{StaticResource AppBkgndColor}" />
+                         BackgroundColor="{StaticResource AppBkgndColor}" />
 
                 <Button Grid.Row="2"  Grid.Column="0" Grid.ColumnSpan="3"
-                  HorizontalOptions="Center"
-                  VerticalOptions="Center"
-                  Style="{StaticResource Key=InfoButtonStyle}"
-                  Image="logo_utente_spid.png"
-                  Text="ENTRA CON SPID"
-                  Clicked="ButtonLogin_Clicked" />
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        Style="{StaticResource Key=InfoButtonStyle}"
+                        Image="logo_utente_spid.png"
+                        Text="ENTRA CON SPID"
+                        Clicked="ButtonLogin_Clicked" />
             </Grid>
         </ControlTemplate>
 
         <ControlTemplate x:Key="LoginPageTemplate" >
             <Grid VerticalOptions="FillAndExpand"
-              HorizontalOptions="FillAndExpand"
-              BackgroundColor="{StaticResource ContentBkgndColor}"
-              BindingContext="{TemplateBinding BindingContext}"
-              RowSpacing="0" ColumnSpacing="0" >
+                  HorizontalOptions="FillAndExpand"
+                  BackgroundColor="{StaticResource ContentBkgndColor}"
+                  BindingContext="{TemplateBinding BindingContext}"
+                  RowSpacing="0" ColumnSpacing="0" >
 
                 <Grid.RowDefinitions>
                     <RowDefinition Height="50"/>
@@ -265,40 +265,40 @@
                 </Grid.Padding>
 
                 <BoxView Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"
-                   BackgroundColor="{StaticResource AppBkgndColor}" />
+                         BackgroundColor="{StaticResource AppBkgndColor}" />
 
                 <StackLayout Grid.Row="0" Grid.Column="0"
-                       Orientation="Horizontal"
-                       Margin="0,6">
+                             Orientation="Horizontal"
+                             Margin="0,6">
                     <StackLayout.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnBackButtonPressed" />
                     </StackLayout.GestureRecognizers>
 
                     <Image Margin="10,0,0,0"
-                   Source="back" />
+                           Source="back" />
 
                     <Label Style="{StaticResource PageTitleLabelStyle}"
-                   HorizontalOptions="Start" VerticalOptions="Center"
-                   Margin="10,0"
-                   Text ="{Binding PageTitle}" />
+                           HorizontalOptions="Start" VerticalOptions="Center"
+                           Margin="10,0"
+                           Text ="{Binding PageTitle}" />
 
                 </StackLayout>
 
                 <Image Grid.Row="0" Grid.Column="2"
-                 HorizontalOptions="End"
-                 Margin="10,0"
-                 Source="header_logo" />
+                       HorizontalOptions="End"
+                       Margin="10,0"
+                       Source="header_logo" />
 
                 <ContentPresenter Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3"
-                            VerticalOptions="FillAndExpand"
-                            HorizontalOptions="FillAndExpand" />
+                                  VerticalOptions="FillAndExpand"
+                                  HorizontalOptions="FillAndExpand" />
             </Grid>
         </ControlTemplate>
 
         <ControlTemplate x:Key="AppRootTemplate">
             <Grid BackgroundColor="{StaticResource ContentBkgndColor}"
-              BindingContext="{TemplateBinding BindingContext}"
-              RowSpacing="0" ColumnSpacing="0">
+                  BindingContext="{TemplateBinding BindingContext}"
+                  RowSpacing="0" ColumnSpacing="0">
 
                 <Grid.RowDefinitions>
                     <RowDefinition Height="50"/>
@@ -312,10 +312,10 @@
 
                 <!-- Top bar -->
                 <Grid Grid.Row="0"
-                HorizontalOptions="FillAndExpand"
-                VerticalOptions="FillAndExpand"
-                RowSpacing="0" ColumnSpacing="0"
-                BackgroundColor="{StaticResource AppBkgndColor}">
+                      HorizontalOptions="FillAndExpand"
+                      VerticalOptions="FillAndExpand"
+                      RowSpacing="0" ColumnSpacing="0"
+                      BackgroundColor="{StaticResource AppBkgndColor}">
 
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
@@ -324,60 +324,66 @@
                     </Grid.ColumnDefinitions>
 
                     <Image Grid.Column="0"
-                   Margin="10,0,0,0"
-                   HorizontalOptions="Start"
-                   Source="header_logo">
+                           Margin="10,0,0,0"
+                           HorizontalOptions="Start"
+                           Source="header_logo">
                         <Image.GestureRecognizers>
                             <TapGestureRecognizer Tapped="AppLogoTapped" />
                         </Image.GestureRecognizers>
                     </Image>
 
                     <StackLayout Grid.Column="1"
-                         VerticalOptions="Center"
-                         Spacing="0">
+                                 VerticalOptions="Center"
+                                 Spacing="0">
 
                         <Label Style="{StaticResource CreditLabelStyle}"
-                     HorizontalOptions="End" VerticalOptions="Center"
-                     Margin="10,0,10,-3"
-                     Text ="Credito" />
+                               HorizontalOptions="End" VerticalOptions="Center"
+                               Margin="10,0,10,-3"
+                               Text ="Credito" />
 
                         <Label Style="{StaticResource CreditValueLabelStyle}"
-                     HorizontalOptions="End" VerticalOptions="Center"
-                     Margin="10,-3,10,0"
-                     Text ="{Binding UserCredit}" />
-
+                               HorizontalOptions="End" VerticalOptions="Center"
+                               Margin="10,-3,10,0"
+                               Text ="{Binding UserCredit}" />
                     </StackLayout>
 
                     <Image Grid.Row="0" Grid.Column="2"
-                   HorizontalOptions="End"
-                   Margin="0,0,10,0"
-                   Source="usericon" />
+                           HorizontalOptions="End"
+                           Margin="0,0,10,0"
+                           Source="usericon">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnUserIconTapped" />
+                        </Image.GestureRecognizers>
+                    </Image>
 
                     <Grid Grid.Row="0" Grid.Column="2"
-                   HorizontalOptions="End"
-                   VerticalOptions="End"
-                   Margin="0,0,10,8">
+                          HorizontalOptions="End"
+                          VerticalOptions="End"
+                          Margin="0,0,10,8">
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnUserIconTapped" />
+                        </Grid.GestureRecognizers>
 
                         <Image HorizontalOptions="Center"
-                     VerticalOptions="Center"
-                     Source="user_msg_count" />
+                               VerticalOptions="Center"
+                               Source="user_msg_count" />
 
                         <Label Style="{StaticResource MsgCountLabelStyle}"
-                     HorizontalOptions="Center" VerticalOptions="Center"
-                     Margin="0,0,0,1"
-                     Text ="2" />
+                               HorizontalOptions="Center" VerticalOptions="Center"
+                               Margin="0,0,0,1"
+                               Text ="2" />
                     </Grid>
                 </Grid>
 
                 <!-- Page content -->
                 <ContentPresenter Grid.Row="1"
-                            VerticalOptions="FillAndExpand"
-                            HorizontalOptions="FillAndExpand" />
+                                  VerticalOptions="FillAndExpand"
+                                  HorizontalOptions="FillAndExpand" />
 
                 <!-- Bottom bar -->
                 <Grid Grid.Row="2"
-                BackgroundColor="{StaticResource AppBkgndColor}"
-                RowSpacing="0" ColumnSpacing="0">
+                      BackgroundColor="{StaticResource AppBkgndColor}"
+                      RowSpacing="0" ColumnSpacing="0">
 
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
@@ -387,40 +393,40 @@
                     </Grid.ColumnDefinitions>
 
                     <Image Grid.Column="0"
-                   HorizontalOptions="Center"
-                   VerticalOptions="Center"
-                   Opacity="{Binding Path=AppArea, Converter={StaticResource AppAreaOpacityConverter}, ConverterParameter=NewCoupon}"
-                   Source="nav_nuovo">
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           Opacity="{Binding Path=AppArea, Converter={StaticResource AppAreaOpacityConverter}, ConverterParameter=NewCoupon}"
+                           Source="nav_nuovo">
                         <Image.GestureRecognizers>
                             <TapGestureRecognizer Tapped="OnNewCouponIconTapped" />
                         </Image.GestureRecognizers>
                     </Image>
 
                     <Image Grid.Column="1"
-                   HorizontalOptions="Center"
-                   VerticalOptions="Center"
-                   Opacity="{Binding Path=AppArea, Converter={StaticResource AppAreaOpacityConverter}, ConverterParameter=Wallet}"
-                   Source="nav_wallet">
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           Opacity="{Binding Path=AppArea, Converter={StaticResource AppAreaOpacityConverter}, ConverterParameter=Wallet}"
+                           Source="nav_wallet">
                         <Image.GestureRecognizers>
                             <TapGestureRecognizer Tapped="OnWalletIconTapped" />
                         </Image.GestureRecognizers>
                     </Image>
 
                     <Image Grid.Column="2"
-                   HorizontalOptions="Center"
-                   VerticalOptions="Center"
-                   Opacity="{Binding Path=AppArea, Converter={StaticResource AppAreaOpacityConverter}, ConverterParameter=Stores}"
-                   Source="nav_stores">
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           Opacity="{Binding Path=AppArea, Converter={StaticResource AppAreaOpacityConverter}, ConverterParameter=Stores}"
+                           Source="nav_stores">
                         <Image.GestureRecognizers>
                             <TapGestureRecognizer Tapped="OnStoresIconTapped" />
                         </Image.GestureRecognizers>
                     </Image>
 
                     <Image Grid.Column="3"
-                   HorizontalOptions="Center"
-                   VerticalOptions="Center"
-                   Opacity="{Binding Path=AppArea, Converter={StaticResource AppAreaOpacityConverter}, ConverterParameter=Info}"
-                   Source="nav_info">
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           Opacity="{Binding Path=AppArea, Converter={StaticResource AppAreaOpacityConverter}, ConverterParameter=Info}"
+                           Source="nav_info">
                         <Image.GestureRecognizers>
                             <TapGestureRecognizer Tapped="OnInfoIconTapped" />
                         </Image.GestureRecognizers>
@@ -429,6 +435,7 @@
             </Grid>
         </ControlTemplate>
 
+        <!-- The general app template -->
         <ControlTemplate x:Key="AppHeaderTemplate">
             <Grid BackgroundColor="{StaticResource ContentBkgndColor}"
                   BindingContext="{TemplateBinding BindingContext}"
@@ -452,31 +459,29 @@
                       BackgroundColor="{StaticResource AppBkgndColor}">
 
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" />
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="Auto" />
                         <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
 
-                    <!-- Back -->
-                    <Image Grid.Column="0"
-                           Margin="10,0,0,0" Source="back" >
-                        <Image.GestureRecognizers>
+                    <!-- Back and title -->
+                    <StackLayout Grid.Column="0"
+                                 Padding="0" Spacing="0"
+                                 Orientation="Horizontal"
+                                 HorizontalOptions="FillAndExpand">
+                        <StackLayout.GestureRecognizers>
                             <TapGestureRecognizer Tapped="OnBackButtonPressed" />
-                        </Image.GestureRecognizers>
-                    </Image>
+                        </StackLayout.GestureRecognizers>
 
-                    <!-- Title -->
-                    <Label Grid.Column="1"
-                           Style="{StaticResource PageTitleLabelStyle}"
-                           HorizontalOptions="Start" VerticalOptions="Center"
-                           Margin="10,0"
-                           Text ="{Binding Path=PageTitle}">
-                        <Label.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="OnBackButtonPressed" />
-                        </Label.GestureRecognizers>
-                    </Label>
+                        <Image Margin="10,0,0,0"
+                               Source="back" />
 
+                        <Label Style="{StaticResource PageTitleLabelStyle}"
+                               HorizontalOptions="Start" VerticalOptions="Center"
+                               Margin="10,0"
+                               Text ="{Binding Path=PageTitle}" />
+                    </StackLayout>
+                    
                     <!-- Credit-->
                     <StackLayout Grid.Column="2"
                                  VerticalOptions="Center"
@@ -513,7 +518,10 @@
                           VerticalOptions="End"
                           Margin="0,0,10,8"
                           IsVisible="{Binding HasUnreadMessages}">
-
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnUserIconTapped" />
+                        </Grid.GestureRecognizers>
+                        
                         <Image HorizontalOptions="Center"
                                VerticalOptions="Center"
                                Source="user_msg_count" />
@@ -532,9 +540,9 @@
 
                 <!-- Bottom bar -->
                 <Grid Grid.Row="2"
-                BackgroundColor="{StaticResource AppBkgndColor}"
-                RowSpacing="0" ColumnSpacing="0">
-
+                      BackgroundColor="{StaticResource AppBkgndColor}"
+                      RowSpacing="0" ColumnSpacing="0">
+                      
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="*" />
@@ -543,40 +551,40 @@
                     </Grid.ColumnDefinitions>
 
                     <Image Grid.Column="0"
-                   HorizontalOptions="Center"
-                   VerticalOptions="Center"
-                   Opacity="{Binding Path=AppArea, Converter={StaticResource AppAreaOpacityConverter}, ConverterParameter=NewCoupon}"
-                   Source="nav_nuovo">
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           Opacity="{Binding Path=AppArea, Converter={StaticResource AppAreaOpacityConverter}, ConverterParameter=NewCoupon}"
+                           Source="nav_nuovo">
                         <Image.GestureRecognizers>
                             <TapGestureRecognizer Tapped="OnNewCouponIconTapped" />
                         </Image.GestureRecognizers>
                     </Image>
 
                     <Image Grid.Column="1"
-                   HorizontalOptions="Center"
-                   VerticalOptions="Center"
-                   Opacity="{Binding Path=AppArea, Converter={StaticResource AppAreaOpacityConverter}, ConverterParameter=Wallet}"
-                   Source="nav_wallet">
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           Opacity="{Binding Path=AppArea, Converter={StaticResource AppAreaOpacityConverter}, ConverterParameter=Wallet}"
+                           Source="nav_wallet">
                         <Image.GestureRecognizers>
                             <TapGestureRecognizer Tapped="OnWalletIconTapped" />
                         </Image.GestureRecognizers>
                     </Image>
 
                     <Image Grid.Column="2"
-                   HorizontalOptions="Center"
-                   VerticalOptions="Center"
-                   Opacity="{Binding Path=AppArea, Converter={StaticResource AppAreaOpacityConverter}, ConverterParameter=Stores}"
-                   Source="nav_stores">
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           Opacity="{Binding Path=AppArea, Converter={StaticResource AppAreaOpacityConverter}, ConverterParameter=Stores}"
+                           Source="nav_stores">
                         <Image.GestureRecognizers>
                             <TapGestureRecognizer Tapped="OnStoresIconTapped" />
                         </Image.GestureRecognizers>
                     </Image>
 
                     <Image Grid.Column="3"
-                   HorizontalOptions="Center"
-                   VerticalOptions="Center"
-                   Opacity="{Binding Path=AppArea, Converter={StaticResource AppAreaOpacityConverter}, ConverterParameter=Info}"
-                   Source="nav_info">
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           Opacity="{Binding Path=AppArea, Converter={StaticResource AppAreaOpacityConverter}, ConverterParameter=Info}"
+                           Source="nav_info">
                         <Image.GestureRecognizers>
                             <TapGestureRecognizer Tapped="OnInfoIconTapped" />
                         </Image.GestureRecognizers>
