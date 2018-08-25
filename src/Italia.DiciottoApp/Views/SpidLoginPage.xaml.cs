@@ -23,22 +23,81 @@ namespace Italia.DiciottoApp.Views
             vm = BindingContext as SpidLoginViewModel;
         }
 
-        private async void ButtonFakeSpidLogin_Clicked(object sender, EventArgs e)
+        private async Task NavigateToWelcomePage()
         {
-            Settings.UserLogged = true;
-            Settings.UserId = Guid.NewGuid().ToString();
-            Settings.UserName = "Nicolò";
-            Settings.UserSurname = "Carandini";
-
             // Get the root page
             IReadOnlyList<Page> navStack = Navigation.NavigationStack;
             Page currentRootPage = navStack[0];
 
             // Insert page before WelcomePage
-            Navigation.InsertPageBefore(new LoggedRootPage(), currentRootPage);
+            Navigation.InsertPageBefore(new WelcomePage(), currentRootPage);
 
             // Clear navigation stack
             await Navigation.PopToRootAsync();
         }
+
+        private async Task Login(IdP idp)
+        {
+            // TODO: Fix this when fake login will be removed
+            vm.Login(idp);
+
+            if (Settings.UserLogged)
+            {
+                // Get the root page
+                IReadOnlyList<Page> navStack = Navigation.NavigationStack;
+                Page currentRootPage = navStack[0];
+
+                // Insert page before WelcomePage
+                Navigation.InsertPageBefore(new LoggedRootPage(), currentRootPage);
+            }
+            else
+            {
+                // Don't do anything, we'll go to the root page that is already the Welcome page
+            }
+
+            // Clear navigation stack
+            await Navigation.PopToRootAsync();
+        }
+
+        private async void OnIdpArubaTapped(object sender, EventArgs e)
+        {
+            await Login(IdP.Aruba);
+        }
+
+        private async void OnIdpInfoCertTapped(object sender, EventArgs e)
+        {
+            await Login(IdP.InfoCert);
+        }
+
+        private async void OnIdpIntesaTapped(object sender, EventArgs e)
+        {
+            await Login(IdP.Intesa);
+        }
+
+        private async void OnIdpNamirialTapped(object sender, EventArgs e)
+        {
+            await Login(IdP.Namirial);
+        }
+
+        private async void OnIdpPosteTapped(object sender, EventArgs e)
+        {
+            await Login(IdP.Poste);
+        }
+
+        private async void OnIdpRegisterTapped(object sender, EventArgs e)
+        {
+            await Login(IdP.Register);
+        }
+
+        private async void OnIdpSielteTapped(object sender, EventArgs e)
+        {
+            await Login(IdP.Sielte);
+        }
+
+        private async void OnIdpTimTapped(object sender, EventArgs e)
+        {
+            await Login(IdP.Tim);
+        }
+
     }
 }

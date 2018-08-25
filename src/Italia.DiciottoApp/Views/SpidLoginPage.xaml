@@ -12,12 +12,102 @@
 
     <views:BasePage.Content>
         <StackLayout>
-            <Label Text="TODO: SPID login"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-            <Button
-                Text="Fake SPID login"
-                Clicked="ButtonFakeSpidLogin_Clicked" />
+            
+            <Label Margin="10,20,0,0"
+                   HorizontalOptions="Start"
+                   Style="{StaticResource RegularLabelStyle}" 
+                   FontSize="16"
+                   TextColor="#FF1168C9"
+                   Text="Scegli il tuo SPID:" />
+            
+            <Grid Margin="0,20,0,0"
+                  VerticalOptions="Start"
+                  HorizontalOptions="Center"
+                  RowSpacing="20" ColumnSpacing="40" >
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <Image Grid.Row="0" Grid.Column="0"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   Source="idp_aruba">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnIdpArubaTapped" />
+                    </Image.GestureRecognizers>
+                </Image>
+
+                <Image Grid.Row="1" Grid.Column="0"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   Source="idp_infocert">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnIdpInfoCertTapped" />
+                    </Image.GestureRecognizers>
+                </Image>
+
+                <Image Grid.Row="2" Grid.Column="0"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   Source="idp_intesa">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnIdpIntesaTapped" />
+                    </Image.GestureRecognizers>
+                </Image>
+
+                <Image Grid.Row="3" Grid.Column="0"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   Source="idp_namirial">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnIdpNamirialTapped" />
+                    </Image.GestureRecognizers>
+                </Image>
+
+                <Image Grid.Row="0" Grid.Column="1"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   Source="idp_poste">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnIdpPosteTapped" />
+                    </Image.GestureRecognizers>
+                </Image>
+
+                <Image Grid.Row="1" Grid.Column="1"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   Source="idp_register">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnIdpRegisterTapped" />
+                    </Image.GestureRecognizers>
+                </Image>
+
+                <Image Grid.Row="2" Grid.Column="1"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   Source="idp_sielte">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnIdpSielteTapped" />
+                    </Image.GestureRecognizers>
+                </Image>
+
+                <Image Grid.Row="3" Grid.Column="1"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   Source="idp_tim">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnIdpTimTapped" />
+                    </Image.GestureRecognizers>
+                </Image>
+            </Grid>
+
         </StackLayout>
     </views:BasePage.Content>
 </views:BasePage>
