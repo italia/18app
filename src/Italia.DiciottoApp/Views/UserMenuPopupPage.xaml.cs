@@ -113,7 +113,7 @@ namespace Italia.DiciottoApp.Views
         private async void OnNotificationsTapped(object sender, EventArgs e)
         {
             await PopupNavigation.Instance.PopAllAsync();
-            // TODO: await appNavigationPage.PushAsync(new NotificationsPage());
+            await appNavigationPage.PushAsync(new UserNotificationsPage());
         }
 
         private async void OnLogoutTapped(object sender, EventArgs e)

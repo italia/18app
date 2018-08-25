@@ -13,5 +13,7 @@ namespace Italia.DiciottoApp.Models
         public string MsgDateTime { get; set; }
 
         public string MsgText { get; set; }
+
+        public string MsgImage => IsNewMsg ? "unread_msg" : "selected_black";
     }
 }

@@ -22,7 +22,7 @@ namespace Italia.DiciottoApp.Services
             await Task.Delay(simulatedDelay);
 
             var fakeUserNotificationsList = FakeUserNotifications.GetList();
-            fakeUserNotificationsList = fakeUserNotificationsList.OrderBy(n => n.IsNewMsg).ThenByDescending(n => n.Id);
+            fakeUserNotificationsList = fakeUserNotificationsList.OrderByDescending(n => n.IsNewMsg).ThenByDescending(n => n.Id);
 
             if (page > 0 && pageItems > 0)
             {
