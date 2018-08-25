@@ -648,6 +648,9 @@
     <ImageAsset Include="Assets.xcassets\idp_tim.imageset\idp_tim@3x.png">
       <Visible>false</Visible>
     </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\unread_msg.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\link.imageset\link.png">
       <Visible>false</Visible>
     </ImageAsset>
@@ -889,6 +892,15 @@
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\splash_logo.imageset\Splash_Logo@3x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\unread_msg.imageset\unread_msg.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\unread_msg.imageset\unread_msg@2x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\unread_msg.imageset\unread_msg@3x.png">
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\usericon.imageset\Contents.json">
