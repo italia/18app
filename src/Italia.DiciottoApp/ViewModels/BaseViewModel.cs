@@ -36,6 +36,8 @@ namespace Italia.DiciottoApp.ViewModels
 
         #region 18App Properties
 
+        public string UserFullname => Settings.UserName + " " + Settings.UserSurname;
+
         public double InitialCredit => 500.00;
 
         private double actualCredit;
