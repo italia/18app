@@ -11,9 +11,12 @@ namespace Italia.DiciottoApp.ViewModels
 
         public string PageTitle => "Il tuo profilo";
 
-        public AppArea AppArea => AppArea.None;
+        public AppArea AppArea => AppArea.None; // CRNNCL60S25H501D
 
-        public string CodFisc => Settings.UserCodFisc;
+        public string CodFisc => Settings.UserCodFisc.Substring(0, 3) + " " +
+                                 Settings.UserCodFisc.Substring(3, 3) + " " +
+                                 Settings.UserCodFisc.Substring(6, 5) + " " +
+                                 Settings.UserCodFisc.Substring(11, 5) ;
 
         public bool IsCodFiscAvailable => !string.IsNullOrWhiteSpace(Settings.UserCodFisc);
 
