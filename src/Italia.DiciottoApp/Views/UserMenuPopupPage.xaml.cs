@@ -107,13 +107,29 @@ namespace Italia.DiciottoApp.Views
         private async void OnUserProfileTapped(object sender, EventArgs e)
         {
             await PopupNavigation.Instance.PopAllAsync();
-            await appNavigationPage.PushAsync(new UserProfilePage());
+
+            // Get the current page
+            IReadOnlyList<Page> navStack = appNavigationPage.Navigation.NavigationStack;
+            Type currentPageType = navStack[navStack.Count - 1].GetType();
+
+            if (currentPageType != typeof(UserProfilePage))
+            {
+                await appNavigationPage.PushAsync(new UserProfilePage());
+            }
         }
 
         private async void OnNotificationsTapped(object sender, EventArgs e)
         {
             await PopupNavigation.Instance.PopAllAsync();
-            await appNavigationPage.PushAsync(new UserNotificationsPage());
+
+            // Get the current page
+            IReadOnlyList<Page> navStack = appNavigationPage.Navigation.NavigationStack;
+            Type currentPageType = navStack[navStack.Count - 1].GetType();
+
+            if (currentPageType != typeof(UserNotificationsPage))
+            {
+                await appNavigationPage.PushAsync(new UserNotificationsPage());
+            }
         }
 
         private async void OnLogoutTapped(object sender, EventArgs e)
