@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<views:BasePage x:Class="Italia.DiciottoApp.Views.UserProfilePage"
+                xmlns="http://xamarin.com/schemas/2014/forms"
+                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                xmlns:views="clr-namespace:Italia.DiciottoApp.Views"
+                xmlns:vm="clr-namespace:Italia.DiciottoApp.ViewModels"
+                ControlTemplate="{StaticResource AppHeaderTemplate}" >
+
+    <views:BasePage.BindingContext>
+        <vm:UserProfileViewModel />
+    </views:BasePage.BindingContext>
+
+    <views:BasePage.Content>
+        
+        <StackLayout Padding="0" Spacing="0"
+                     VerticalOptions="Start">
+
+            <Label Margin="10,15,0,0"
+                   Style="{StaticResource RegularLabelStyle}" 
+                   FontSize="24"
+                   TextColor="#FF30383D"
+                   Text="{Binding UserFullname}" />
+
+            <Label Margin="12,0,0,0"
+                   Style="{StaticResource RegularLabelStyle}" 
+                   FontSize="12"
+                   TextColor="#FFA9B1B8"
+                   Text="Codice Fiscale"
+                   IsVisible="{Binding IsCodFiscAvailable}" />
+
+            <Label Margin="12,-4,0,0"
+                   Style="{StaticResource RegularLabelStyle}" 
+                   FontSize="16"
+                   TextColor="#FF30383D"
+                   Text="{Binding CodFisc}"
+                   IsVisible="{Binding IsCodFiscAvailable}" />
+
+            <Label Margin="12,10,0,0"
+                   Style="{StaticResource RegularLabelStyle}" 
+                   FontSize="12"
+                   TextColor="#FFA9B1B8"
+                   Text="Data e luogo di nascita"
+                   IsVisible="{Binding IsBirthDatePlaceAvailable}" />
+
+            <Label Margin="12,-4,0,0"
+                   Style="{StaticResource RegularLabelStyle}" 
+                   FontSize="16"
+                   TextColor="#FF30383D"
+                   Text="{Binding BirthDatePlace}"
+                   IsVisible="{Binding IsBirthDatePlaceAvailable}" />
+
+            <Label Margin="12,10,0,0"
+                   Style="{StaticResource RegularLabelStyle}" 
+                   FontSize="12"
+                   TextColor="#FFA9B1B8"
+                   Text="Residenza"
+                   IsVisible="{Binding IsResidenceAvailable}" />
+
+            <Label Margin="12,-4,0,0"
+                   Style="{StaticResource RegularLabelStyle}" 
+                   FontSize="16"
+                   TextColor="#FF30383D"
+                   Text="{Binding ResidenceAddress}"
+                   IsVisible="{Binding IsResidenceAddressAvailable}" />
+
+            <Label Margin="12,-4,0,0"
+                   Style="{StaticResource RegularLabelStyle}" 
+                   FontSize="16"
+                   TextColor="#FF30383D"
+                   Text="{Binding ResidenceZipCityProvince}"
+                   IsVisible="{Binding IsResidenceZipCityProvinceAvailable}" />
+
+            <Label Margin="12,10,0,0"
+                   Style="{StaticResource RegularLabelStyle}" 
+                   FontSize="12"
+                   TextColor="#FFA9B1B8"
+                   Text="Recapiti"
+                   IsVisible="{Binding IsContactAvailable}" />
+
+            <Label Margin="12,-4,0,0"
+                   Style="{StaticResource RegularLabelStyle}" 
+                   FontSize="16"
+                   TextColor="#FF30383D"
+                   Text="{Binding PhoneNumber}"
+                   IsVisible="{Binding IsPhoneNumberAvailable}" />
+
+            <Label Margin="12,-4,0,0"
+                   Style="{StaticResource RegularLabelStyle}" 
+                   FontSize="16"
+                   TextColor="#FF30383D"
+                   Text="{Binding Email}"
+                   IsVisible="{Binding IsEmailAvailable}" />
+
+            <Label Margin="12,10,0,0"
+                   Style="{StaticResource RegularLabelStyle}" 
+                   FontSize="14"
+                   TextColor="#FFA9B1B8"
+                   Text="Questo è il riepilogo dei dati della tua identità SPID: per modificarli rivolgiti al tuo gestore." />
+
+            <Image Margin="12,10,0,0"
+                   HorizontalOptions="Start"
+                   Source="{Binding SpidIdPImage}" />
+
+        </StackLayout>
+    </views:BasePage.Content>
+</views:BasePage>
+

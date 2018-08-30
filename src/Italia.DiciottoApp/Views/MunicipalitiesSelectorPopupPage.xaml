@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage  x:Class="Italia.DiciottoApp.Views.MunicipalitiesSelectorPopupPage"
+                  xmlns="http://xamarin.com/schemas/2014/forms"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                  xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+                  xmlns:vm="clr-namespace:Italia.DiciottoApp.ViewModels">
+
+    <pages:PopupPage.BindingContext>
+        <vm:MunicipalitiesSelectorPopupViewModel />
+    </pages:PopupPage.BindingContext>
+
+    <StackLayout Padding="20,20" Margin="20,60,20,20"
+                 HorizontalOptions="FillAndExpand" VerticalOptions="Start"
+                 BackgroundColor="White">
+
+        <!-- SearchText -->
+        <StackLayout Padding="0" Spacing="0"
+                     Orientation="Horizontal"
+                     HorizontalOptions="FillAndExpand" >
+
+            <Image Margin="0,0,0,0"
+                   Source="city_black"
+                   VerticalOptions="Center"/>
+
+            <Entry x:Name="MunicipalityEntry"  Margin="12,10,16,10"
+                   HorizontalOptions="FillAndExpand" VerticalOptions="Center"
+                   Style="{StaticResource RegularLabelStyle}"
+                   TextColor="#FF30383D" FontSize="16"
+                   Text="{Binding SearchText}" />
+
+            <Label Margin="0,0,0,0"
+                   HorizontalOptions="End" VerticalOptions="Center"
+                   Style="{StaticResource RegularLabelStyle}"
+                   TextColor="#FFF0F0F0" FontSize="16"
+                   Text="X">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnCancelTapped" />
+                </Label.GestureRecognizers>
+            </Label>
+        </StackLayout>
+
+        <!-- Content header -->
+        <Label Margin="0,0,0,0"
+               HorizontalOptions="Start"
+               Style="{StaticResource RegularLabelStyle}"
+               TextColor="#FFAAAAAA" FontSize="14"
+               Text="{Binding ContentHeader}"
+               IsVisible="{Binding ContentHeaderIsVisible}"/>
+
+        <!-- Municipalities list -->
+        <ListView ItemsSource="{Binding Municipalities, Mode=OneWay}"
+                  HasUnevenRows="true"
+                  SeparatorVisibility="None"
+                  Footer=""
+                  ItemTapped="OnMunicipalityListItemTapped">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Padding="0" Spacing="0"
+                                     HorizontalOptions="Fill"
+                                     Orientation="Horizontal">
+
+                            <Image Margin="0,0,0,0"
+                                   Source="city"
+                                   VerticalOptions="Center"/>
+
+                            <Label Margin="12,10,0,10"
+                                   HorizontalOptions="StartAndExpand" VerticalOptions="Center"
+                                   Style="{StaticResource RegularLabelStyle}"
+                                   TextColor="#FF1168C9" FontSize="16"
+                                   Text="{Binding FullName}" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</pages:PopupPage>

@@ -1,0 +1,598 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:conv="clr-namespace:Italia.DiciottoApp.Converters"
+             x:Class="Italia.DiciottoApp.App">
+
+    <Application.Resources>
+        <Color x:Key="AppBkgndColor">#0066CC</Color>
+        <Color x:Key="AppLightGrayColor">#A9B1B8</Color>
+        <Color x:Key="TabsBkgndColor">#00469C</Color>
+        <Color x:Key="ContentBkgndColor">#FFFFFF</Color>
+
+        <conv:AppAreaOpacityConverter x:Key="AppAreaOpacityConverter" />
+        <conv:NegativeConverter x:Key="NegativeConverter" />
+
+        <Style x:Key="RegularLabelStyle" TargetType="Label">
+            <Setter Property="FontFamily">
+                <Setter.Value>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="iOS" Value="TitilliumWeb-Regular" />
+                        <On Platform="Android" Value="fonts/TitilliumWeb-Regular.ttf#TitilliumWeb-Regular" />
+                        <On Platform="UWP" Value="Assets/Fonts/TitilliumWeb-Regular.ttf#TitilliumWeb" />
+                    </OnPlatform>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="BoldLabelStyle" TargetType="Label">
+            <Setter Property="FontFamily">
+                <Setter.Value>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="iOS" Value="TitilliumWeb-Bold" />
+                        <On Platform="Android" Value="fonts/TitilliumWeb-Bold.ttf#TitilliumWeb-Bold" />
+                        <On Platform="UWP" Value="Assets/Fonts/TitilliumWeb-Bold.ttf#TitilliumWeb" />
+                    </OnPlatform>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="ItalicLabelStyle" TargetType="Label">
+            <Setter Property="FontFamily">
+                <Setter.Value>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="iOS" Value="TitilliumWeb-Italic" />
+                        <On Platform="Android" Value="fonts/TitilliumWeb-Italic.ttf#TitilliumWeb-Italic" />
+                        <On Platform="UWP" Value="Assets/Fonts/TitilliumWeb-Italic.ttf#TitilliumWeb" />
+                    </OnPlatform>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="BoldItalicLabelStyle" TargetType="Label">
+            <Setter Property="FontFamily">
+                <Setter.Value>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="iOS" Value="TitilliumWeb-BoldItalic" />
+                        <On Platform="Android" Value="fonts/TitilliumWeb-BoldItalic.ttf#TitilliumWeb-BoldItalic" />
+                        <On Platform="UWP" Value="Assets/Fonts/TitilliumWeb-BoldItalic.ttf#TitilliumWeb" />
+                    </OnPlatform>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="SemiBoldItalicLabelStyle" TargetType="Label">
+            <Setter Property="FontFamily">
+                <Setter.Value>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="iOS" Value="TitilliumWeb-SemiBoldItalic" />
+                        <On Platform="Android" Value="fonts/TitilliumWeb-SemiBoldItalic.ttf#TitilliumWeb-SemiBoldItalic" />
+                        <On Platform="UWP" Value="Assets/Fonts/TitilliumWeb-SemiBoldItalic.ttf#TitilliumWeb" />
+                    </OnPlatform>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="PageTitleLabelStyle" TargetType="Label">
+            <Setter Property="TextColor" Value="White" />
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="FontFamily">
+                <Setter.Value>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="iOS" Value="TitilliumWeb-Regular" />
+                        <On Platform="Android" Value="fonts/TitilliumWeb-Regular.ttf#TitilliumWeb-Regular" />
+                        <On Platform="UWP" Value="Assets/Fonts/TitilliumWeb-Regular.ttf#TitilliumWeb" />
+                    </OnPlatform>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="TabLabelStyle" TargetType="Label">
+            <Setter Property="TextColor" Value="White" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="VerticalOptions" Value="Center" />
+            <Setter Property="HorizontalOptions" Value="Center" />
+            <Setter Property="FontFamily">
+                <Setter.Value>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="iOS" Value="TitilliumWeb-Bold" />
+                        <On Platform="Android" Value="fonts/TitilliumWeb-Bold.ttf#TitilliumWeb-Bold" />
+                        <On Platform="UWP" Value="Assets/Fonts/TitilliumWeb-Bold.ttf#TitilliumWeb" />
+                    </OnPlatform>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="CreditLabelStyle" TargetType="Label">
+            <Setter Property="TextColor" Value="White" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="FontFamily">
+                <Setter.Value>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="iOS" Value="TitilliumWeb-Regular" />
+                        <On Platform="Android" Value="fonts/TitilliumWeb-Regular.ttf#TitilliumWeb-Regular" />
+                        <On Platform="UWP" Value="Assets/Fonts/TitilliumWeb-Regular.ttf#TitilliumWeb" />
+                    </OnPlatform>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="CreditValueLabelStyle" TargetType="Label">
+            <Setter Property="TextColor" Value="White" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="FontFamily">
+                <Setter.Value>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="iOS" Value="TitilliumWeb-Bold" />
+                        <On Platform="Android" Value="fonts/TitilliumWeb-Bold.ttf#TitilliumWeb-Bold" />
+                        <On Platform="UWP" Value="Assets/Fonts/TitilliumWeb-Bold.ttf#TitilliumWeb" />
+                    </OnPlatform>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="MsgCountLabelStyle" TargetType="Label">
+            <Setter Property="TextColor" Value="{StaticResource AppBkgndColor}" />
+            <Setter Property="FontSize" Value="9" />
+            <Setter Property="FontFamily">
+                <Setter.Value>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="iOS" Value="TitilliumWeb-Bold" />
+                        <On Platform="Android" Value="fonts/TitilliumWeb-Bold.ttf#TitilliumWeb-Bold" />
+                        <On Platform="UWP" Value="Assets/Fonts/TitilliumWeb-Bold.ttf#TitilliumWeb" />
+                    </OnPlatform>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="InfoButtonStyle" TargetType="Button">
+            <Setter Property="TextColor" Value="White" />
+            <Setter Property="BackgroundColor" Value="Transparent" />
+            <Setter Property="HorizontalOptions" Value="Center" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="FontFamily">
+                <Setter.Value>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="iOS" Value="TitilliumWeb-Regular" />
+                        <On Platform="Android" Value="fonts/TitilliumWeb-Regular.ttf#TitilliumWeb-Regular" />
+                        <On Platform="UWP" Value="Assets/Fonts/TitilliumWeb-Regular.ttf#TitilliumWeb" />
+                    </OnPlatform>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="CommandButtonStyle" TargetType="Button">
+            <Setter Property="TextColor" Value="White" />
+            <Setter Property="BackgroundColor" Value="{StaticResource AppBkgndColor}" />
+            <Setter Property="HorizontalOptions" Value="Center" />
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="FontFamily">
+                <Setter.Value>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="iOS" Value="TitilliumWeb-Regular" />
+                        <On Platform="Android" Value="fonts/TitilliumWeb-Regular.ttf#TitilliumWeb-Regular" />
+                        <On Platform="UWP" Value="Assets/Fonts/TitilliumWeb-Regular.ttf#TitilliumWeb" />
+                    </OnPlatform>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <ControlTemplate x:Key="UnloggedInfoPageTemplate" >
+            <Grid VerticalOptions="FillAndExpand"
+                  HorizontalOptions="FillAndExpand"
+                  BackgroundColor="{StaticResource ContentBkgndColor}"
+                  BindingContext="{TemplateBinding BindingContext}"
+                  RowSpacing="0" ColumnSpacing="0" >
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="64" />
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <Grid.Padding>
+                    <OnPlatform x:TypeArguments="Thickness" iOS="0, 20, 0, 0" />
+                </Grid.Padding>
+
+                <BoxView Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"
+                         BackgroundColor="{StaticResource AppBkgndColor}" />
+
+                <StackLayout Grid.Row="0" Grid.Column="0"
+                             Orientation="Horizontal"
+                             Margin="0,6">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnBackButtonPressed" />
+                    </StackLayout.GestureRecognizers>
+
+                    <Image Margin="10,0,0,0"
+                           Source="back" />
+
+                    <Label Style="{StaticResource PageTitleLabelStyle}"
+                           HorizontalOptions="Start" VerticalOptions="Center"
+                           Margin="10,0"
+                           Text ="{Binding PageTitle}" />
+
+                </StackLayout>
+
+                <Image Grid.Row="0" Grid.Column="2"
+                       HorizontalOptions="End"
+                       Margin="10,0"
+                       Source="header_logo" />
+
+                <ContentPresenter Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3"
+                                  VerticalOptions="FillAndExpand"
+                                  HorizontalOptions="FillAndExpand" />
+
+                <BoxView Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3"
+                         BackgroundColor="{StaticResource AppBkgndColor}" />
+
+                <Button Grid.Row="2"  Grid.Column="0" Grid.ColumnSpan="3"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        Style="{StaticResource Key=InfoButtonStyle}"
+                        Image="logo_utente_spid.png"
+                        Text="ENTRA CON SPID"
+                        Clicked="ButtonLogin_Clicked" />
+            </Grid>
+        </ControlTemplate>
+
+        <ControlTemplate x:Key="LoginPageTemplate" >
+            <Grid VerticalOptions="FillAndExpand"
+                  HorizontalOptions="FillAndExpand"
+                  BackgroundColor="{StaticResource ContentBkgndColor}"
+                  BindingContext="{TemplateBinding BindingContext}"
+                  RowSpacing="0" ColumnSpacing="0" >
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <Grid.Padding>
+                    <OnPlatform x:TypeArguments="Thickness" iOS="0, 20, 0, 0" />
+                </Grid.Padding>
+
+                <BoxView Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"
+                         BackgroundColor="{StaticResource AppBkgndColor}" />
+
+                <StackLayout Grid.Row="0" Grid.Column="0"
+                             Orientation="Horizontal"
+                             Margin="0,6">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnBackButtonPressed" />
+                    </StackLayout.GestureRecognizers>
+
+                    <Image Margin="10,0,0,0"
+                           Source="back" />
+
+                    <Label Style="{StaticResource PageTitleLabelStyle}"
+                           HorizontalOptions="Start" VerticalOptions="Center"
+                           Margin="10,0"
+                           Text ="{Binding PageTitle}" />
+
+                </StackLayout>
+
+                <Image Grid.Row="0" Grid.Column="2"
+                       HorizontalOptions="End"
+                       Margin="10,0"
+                       Source="header_logo" />
+
+                <ContentPresenter Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3"
+                                  VerticalOptions="FillAndExpand"
+                                  HorizontalOptions="FillAndExpand" />
+            </Grid>
+        </ControlTemplate>
+
+        <ControlTemplate x:Key="AppRootTemplate">
+            <Grid BackgroundColor="{StaticResource ContentBkgndColor}"
+                  BindingContext="{TemplateBinding BindingContext}"
+                  RowSpacing="0" ColumnSpacing="0">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="64"/>
+                </Grid.RowDefinitions>
+
+                <Grid.Padding>
+                    <OnPlatform x:TypeArguments="Thickness" iOS="0, 20, 0, 0" />
+                </Grid.Padding>
+
+                <!-- Top bar -->
+                <Grid Grid.Row="0"
+                      HorizontalOptions="FillAndExpand"
+                      VerticalOptions="FillAndExpand"
+                      RowSpacing="0" ColumnSpacing="0"
+                      BackgroundColor="{StaticResource AppBkgndColor}">
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <Image Grid.Column="0"
+                           Margin="10,0,0,0"
+                           HorizontalOptions="Start"
+                           Source="header_logo">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="AppLogoTapped" />
+                        </Image.GestureRecognizers>
+                    </Image>
+
+                    <StackLayout Grid.Column="1"
+                                 VerticalOptions="Center"
+                                 Spacing="0">
+
+                        <Label Style="{StaticResource CreditLabelStyle}"
+                               HorizontalOptions="End" VerticalOptions="Center"
+                               Margin="10,0,10,-3"
+                               Text ="Credito" />
+
+                        <Label Style="{StaticResource CreditValueLabelStyle}"
+                               HorizontalOptions="End" VerticalOptions="Center"
+                               Margin="10,-3,10,0"
+                               Text ="{Binding UserCredit}" />
+                    </StackLayout>
+
+                    <Image Grid.Row="0" Grid.Column="2"
+                           HorizontalOptions="End"
+                           Margin="0,0,10,0"
+                           Source="usericon">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnUserIconTapped" />
+                        </Image.GestureRecognizers>
+                    </Image>
+
+                    <Grid Grid.Row="0" Grid.Column="2"
+                          HorizontalOptions="End"
+                          VerticalOptions="End"
+                          Margin="0,0,10,8">
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnUserIconTapped" />
+                        </Grid.GestureRecognizers>
+
+                        <Image HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               Source="user_msg_count" />
+
+                        <Label Style="{StaticResource MsgCountLabelStyle}"
+                               HorizontalOptions="Center" VerticalOptions="Center"
+                               Margin="0,0,0,1"
+                               Text ="2" />
+                    </Grid>
+                </Grid>
+
+                <!-- Page content -->
+                <ContentPresenter Grid.Row="1"
+                                  VerticalOptions="FillAndExpand"
+                                  HorizontalOptions="FillAndExpand" />
+
+                <!-- Bottom bar -->
+                <Grid Grid.Row="2"
+                      BackgroundColor="{StaticResource AppBkgndColor}"
+                      RowSpacing="0" ColumnSpacing="0">
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Image Grid.Column="0"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           Opacity="{Binding Path=AppArea, Converter={StaticResource AppAreaOpacityConverter}, ConverterParameter=NewCoupon}"
+                           Source="nav_nuovo">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnNewCouponIconTapped" />
+                        </Image.GestureRecognizers>
+                    </Image>
+
+                    <Image Grid.Column="1"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           Opacity="{Binding Path=AppArea, Converter={StaticResource AppAreaOpacityConverter}, ConverterParameter=Wallet}"
+                           Source="nav_wallet">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnWalletIconTapped" />
+                        </Image.GestureRecognizers>
+                    </Image>
+
+                    <Image Grid.Column="2"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           Opacity="{Binding Path=AppArea, Converter={StaticResource AppAreaOpacityConverter}, ConverterParameter=Stores}"
+                           Source="nav_stores">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnStoresIconTapped" />
+                        </Image.GestureRecognizers>
+                    </Image>
+
+                    <Image Grid.Column="3"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           Opacity="{Binding Path=AppArea, Converter={StaticResource AppAreaOpacityConverter}, ConverterParameter=Info}"
+                           Source="nav_info">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnInfoIconTapped" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                </Grid>
+            </Grid>
+        </ControlTemplate>
+
+        <!-- The general app template -->
+        <ControlTemplate x:Key="AppHeaderTemplate">
+            <Grid BackgroundColor="{StaticResource ContentBkgndColor}"
+                  BindingContext="{TemplateBinding BindingContext}"
+                  RowSpacing="0" ColumnSpacing="0">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="64"/>
+                </Grid.RowDefinitions>
+
+                <Grid.Padding>
+                    <OnPlatform x:TypeArguments="Thickness" iOS="0, 20, 0, 0" />
+                </Grid.Padding>
+
+                <!-- Top bar -->
+                <Grid Grid.Row="0"
+                      HorizontalOptions="FillAndExpand"
+                      VerticalOptions="Center"
+                      RowSpacing="0" ColumnSpacing="0"
+                      BackgroundColor="{StaticResource AppBkgndColor}">
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Back and title -->
+                    <StackLayout Grid.Column="0"
+                                 Padding="0" Spacing="0"
+                                 Orientation="Horizontal"
+                                 HorizontalOptions="FillAndExpand">
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnBackButtonPressed" />
+                        </StackLayout.GestureRecognizers>
+
+                        <Image Margin="10,0,0,0"
+                               Source="back" />
+
+                        <Label Style="{StaticResource PageTitleLabelStyle}"
+                               HorizontalOptions="FillAndExpand" VerticalOptions="Center"
+                               Margin="10,0"
+                               Text ="{Binding Path=PageTitle}" />
+                    </StackLayout>
+                    
+                    <!-- Credit-->
+                    <StackLayout Grid.Column="1"
+                                 HorizontalOptions="End"
+                                 VerticalOptions="Center"
+                                 Spacing="0">
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnCreditTapped" />
+                        </StackLayout.GestureRecognizers>
+
+                        <Label Style="{StaticResource CreditLabelStyle}"
+                               HorizontalOptions="End" VerticalOptions="Center"
+                               Margin="10,0,10,-3"
+                               Text ="Credito" />
+
+                        <Label Style="{StaticResource CreditValueLabelStyle}"
+                               HorizontalOptions="End" VerticalOptions="Center"
+                               Margin="10,-3,10,0"
+                               Text ="{Binding UserCredit}" />
+
+                    </StackLayout>
+
+                    <!-- User icon-->
+                    <Image Grid.Row="0" Grid.Column="2"
+                           HorizontalOptions="End"
+                           Margin="0,0,10,0"
+                           Source="usericon">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnUserIconTapped" />
+                        </Image.GestureRecognizers>
+                    </Image>
+
+                    <!-- Message couter-->
+                    <Grid Grid.Row="0" Grid.Column="2"
+                          HorizontalOptions="End"
+                          VerticalOptions="End"
+                          Margin="0,0,5,5"
+                          IsVisible="{Binding HasUnreadMessages}">
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnUserIconTapped" />
+                        </Grid.GestureRecognizers>
+                        
+                        <Image HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               Source="user_msg_count" />
+
+                        <Label Style="{StaticResource MsgCountLabelStyle}"
+                               HorizontalOptions="Center" VerticalOptions="Center"
+                               Margin="0,0,0,1"
+                               Text ="{Binding UnreadMessages}" />
+                    </Grid>
+                </Grid>
+
+                <!-- Page content -->
+                <ContentPresenter Grid.Row="1"
+                                  VerticalOptions="FillAndExpand"
+                                  HorizontalOptions="FillAndExpand" />
+
+                <!-- Bottom bar -->
+                <Grid Grid.Row="2"
+                      BackgroundColor="{StaticResource AppBkgndColor}"
+                      RowSpacing="0" ColumnSpacing="0">
+                      
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Image Grid.Column="0"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           Opacity="{Binding Path=AppArea, Converter={StaticResource AppAreaOpacityConverter}, ConverterParameter=NewCoupon}"
+                           Source="nav_nuovo">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnNewCouponIconTapped" />
+                        </Image.GestureRecognizers>
+                    </Image>
+
+                    <Image Grid.Column="1"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           Opacity="{Binding Path=AppArea, Converter={StaticResource AppAreaOpacityConverter}, ConverterParameter=Wallet}"
+                           Source="nav_wallet">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnWalletIconTapped" />
+                        </Image.GestureRecognizers>
+                    </Image>
+
+                    <Image Grid.Column="2"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           Opacity="{Binding Path=AppArea, Converter={StaticResource AppAreaOpacityConverter}, ConverterParameter=Stores}"
+                           Source="nav_stores">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnStoresIconTapped" />
+                        </Image.GestureRecognizers>
+                    </Image>
+
+                    <Image Grid.Column="3"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           Opacity="{Binding Path=AppArea, Converter={StaticResource AppAreaOpacityConverter}, ConverterParameter=Info}"
+                           Source="nav_info">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnInfoIconTapped" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                </Grid>
+            </Grid>
+        </ControlTemplate>
+
+    </Application.Resources>
+</Application>

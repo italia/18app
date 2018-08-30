@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<views:BasePage x:Class="Italia.DiciottoApp.Views.NewCouponProductPage"
+                xmlns="http://xamarin.com/schemas/2014/forms"
+                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                xmlns:views="clr-namespace:Italia.DiciottoApp.Views"
+                xmlns:vm="clr-namespace:Italia.DiciottoApp.ViewModels"
+                ControlTemplate="{StaticResource AppHeaderTemplate}" >
+
+    <views:BasePage.BindingContext>
+        <vm:NewCouponProductViewModel />
+    </views:BasePage.BindingContext>
+
+    <views:BasePage.Content>
+        <Grid x:Name="ContentGrid"
+              BackgroundColor="{StaticResource ContentBkgndColor}"
+              VerticalOptions="FillAndExpand"
+              HorizontalOptions="FillAndExpand"
+              RowSpacing="0" ColumnSpacing="0" >
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Shop-->
+            <Image Grid.Row="0"
+                   WidthRequest="{Binding Width, Source={x:Reference ContentGrid}}"
+                   HeightRequest="88"
+                   Aspect="AspectFill"
+                   Source="{Binding ShopBkgndImageSource}"
+                   IsVisible="{Binding HasShop}" />
+
+            <!-- Shop info -->
+            <StackLayout Grid.Row="0" Padding="24,0" Spacing="0"
+                         VerticalOptions="Center"
+                         IsVisible="{Binding HasShop}">
+
+                <Label Margin="0"
+                       HorizontalOptions="Start"
+                       Style="{StaticResource BoldLabelStyle}"
+                       TextColor="White" FontSize="32"
+                       Text="{Binding Shop.Title}" />
+
+                <StackLayout Padding="0" Spacing="0"
+                             Orientation="Horizontal"
+                             IsVisible="{Binding HasShop}">
+
+                    <Image HorizontalOptions="Start" VerticalOptions="Center"
+                           Source="{Binding ShopKindImageSource}"/>
+
+                    <Label Margin="11,0,0,0"
+                           HorizontalOptions="Start"
+                           VerticalOptions="Center"
+                           Style="{StaticResource BoldItalicLabelStyle}"
+                           TextColor="White" FontSize="14"
+                           Text="{Binding ShopAddress}" />
+                </StackLayout>
+            </StackLayout>
+
+            <!-- Category-->
+            <StackLayout Grid.Row="1" Padding="0" Spacing="0"
+                         Orientation="Horizontal">
+
+                <Image Margin="16,0,0,0"
+                       Source="{Binding Categoria.BlackImageSource}"
+                       HeightRequest="22" WidthRequest="22"
+                       VerticalOptions="Center"/>
+
+                <Label Margin="32,20,16,20"
+                       HorizontalOptions="StartAndExpand" VerticalOptions="Center"
+                       Style="{StaticResource RegularLabelStyle}"
+                       TextColor="#FF30383D" FontSize="16"
+                       Text="{Binding Categoria.Titolo}" />
+
+                <Image Margin="0,0,22,0"
+                       HorizontalOptions="End" VerticalOptions="CenterAndExpand"
+                       Source="selected_black"/>
+            </StackLayout>
+
+            <!-- List header -->
+            <Label Grid.Row="2" Margin="16,16,16,0"
+                   VerticalOptions="CenterAndExpand" 
+                   HorizontalOptions="StartAndExpand"
+                   Style="{StaticResource RegularLabelStyle}"
+                   TextColor="#FFAAAAAA" FontSize="14"
+                   Text="{Binding ListHeader}"
+                   />
+            
+            <!-- Product list -->
+            <ListView Grid.Row="3" Margin="0,0,16,0"
+                      ItemsSource="{Binding Products, Mode=OneWay}"
+                      HasUnevenRows="true" IsVisible="{Binding ShopListIsVisible}"
+                      ItemTapped="OnProductListItemTapped">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="0" Spacing="0"
+                                         Orientation="Horizontal">
+
+                                <Image Margin="16,0,0,0"
+                                       Source="{Binding ImageSource}"
+                                       HeightRequest="22" WidthRequest="22"
+                                       VerticalOptions="Center"/>
+
+                                <Label Margin="32,20,16,20"
+                                       HorizontalOptions="StartAndExpand" VerticalOptions="Center"
+                                       Style="{StaticResource RegularLabelStyle}"
+                                       TextColor="#FF1168C9" FontSize="16"
+                                       Text="{Binding Titolo}" />
+
+                                <Image Margin="0,0,6,0"
+                                       HorizontalOptions="End" VerticalOptions="CenterAndExpand"
+                                       Source="forward"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+    </views:BasePage.Content>
+</views:BasePage>

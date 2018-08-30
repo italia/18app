@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<views:BasePage x:Class="Italia.DiciottoApp.Views.InfoPage"
+                xmlns="http://xamarin.com/schemas/2014/forms"
+                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                xmlns:views="clr-namespace:Italia.DiciottoApp.Views"
+                xmlns:vm="clr-namespace:Italia.DiciottoApp.ViewModels"
+                xmlns:conv="clr-namespace:Italia.DiciottoApp.Converters"
+                xmlns:custom="clr-namespace:Italia.DiciottoApp.CustomRenderers"
+                ControlTemplate="{StaticResource AppHeaderTemplate}" >
+
+    <views:BasePage.BindingContext>
+        <vm:InfoViewModel />
+    </views:BasePage.BindingContext>
+
+    <views:BasePage.Resources>
+        <conv:InfoTextIconConverter x:Key="InfoTextIconConverter" />
+    </views:BasePage.Resources>
+
+    <views:BasePage.Content>
+
+        <Grid VerticalOptions="FillAndExpand"
+              HorizontalOptions="FillAndExpand"
+              RowSpacing="0" ColumnSpacing="0" >
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Find text -->
+            <StackLayout  Grid.Row="0" Padding="16,20,16,0" Spacing="0"
+                          HorizontalOptions="FillAndExpand"
+                          IsVisible="{Binding FindIsVisible}">
+
+                <StackLayout Padding="0" Spacing="0"
+                             Orientation="Horizontal">
+
+                    <Image Source="search_gray"
+                           VerticalOptions="Center" />
+
+                    <Entry Margin="16,0,0,0"
+                           HorizontalOptions="FillAndExpand"
+                           VerticalOptions="Center"
+                           TextColor="#FF1168C9" FontSize="16"
+                           Placeholder="Cerca"
+                           PlaceholderColor="#FFEFEFEF"
+                           Text="{Binding FindText}"
+                           Focused="OnFindFieldFocused"
+                           Unfocused="OnFindFieldUnfocused"/>
+
+                </StackLayout>
+
+                <!--<BoxView Margin="0,20,0,0" HeightRequest="1" BackgroundColor="#FFEFEFEF" />-->
+
+            </StackLayout>
+
+            <!-- Content header -->
+            <Label Grid.Row="1" Margin="16,16,16,0"
+                   HorizontalOptions="Start"
+                   Style="{StaticResource RegularLabelStyle}"
+                   TextColor="#FFAAAAAA" FontSize="14"
+                   Text="{Binding ContentHeader}"
+                   IsVisible="{Binding ContentHeaderIsVisible}"/>
+
+            <!-- Info list -->
+            <ListView x:Name="InfoListView"
+                      Grid.Row="2" Margin="0,0,16,0"
+                      ItemsSource="{Binding InfoList, Mode=OneWay}"
+                      CachingStrategy="RecycleElement"
+                      HasUnevenRows="true"
+                      SeparatorColor="#FFEFEFEF"
+                      Footer=""
+                      SelectedItem="{Binding SelectedInfoContent, Mode=TwoWay}"
+                      IsVisible="{Binding InfoListIsVisible}">
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <custom:ExpandingViewCell>
+                            <StackLayout Padding="0" Spacing="0" BackgroundColor="White">
+
+                                <!-- Header -->
+                                <Label Margin="16,20,0,0"
+                                       HorizontalOptions="Start"
+                                       Style="{StaticResource ItalicLabelStyle}"
+                                       TextColor="#FFA9B1B8" FontSize="16"
+                                       Text="{Binding Header}"
+                                       IsVisible="{Binding IsHeaderVisible}"/>
+
+                                <!-- Title and open/closed text icon-->
+                                <StackLayout Padding="0,16" Spacing="0"
+                                             Orientation="Horizontal"
+                                             IsVisible="{Binding Spent, Converter={StaticResource NegativeConverter}}">
+
+                                    <Label Margin="16,0"
+                                           HorizontalOptions="StartAndExpand" VerticalOptions="Center"
+                                           Style="{StaticResource RegularLabelStyle}"
+                                           TextColor="#FF1168C9" FontSize="16"
+                                           Text="{Binding Title}" />
+
+                                    <Image Margin="0,0,6,0"
+                                           HorizontalOptions="End" VerticalOptions="CenterAndExpand"
+                                           Source="{Binding IsOpen, Converter={StaticResource InfoTextIconConverter}}"/>
+                                </StackLayout>
+
+                                <!-- Text -->
+                                <Label Margin="16,0,0,24"
+                                       HorizontalOptions="Start"
+                                       Style="{StaticResource RegularLabelStyle}"
+                                       TextColor="#FF596672" FontSize="16"
+                                       Text="{Binding Text}"
+                                       IsVisible="{Binding IsOpen}"/>
+
+                            </StackLayout>
+                        </custom:ExpandingViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+
+    </views:BasePage.Content>
+</views:BasePage>

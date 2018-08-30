@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<views:BasePage x:Class="Italia.DiciottoApp.Views.LoggedRootPage"
+                xmlns="http://xamarin.com/schemas/2014/forms"
+                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                xmlns:views="clr-namespace:Italia.DiciottoApp.Views"
+                xmlns:vm="clr-namespace:Italia.DiciottoApp.ViewModels"
+                xmlns:cr="clr-namespace:Italia.DiciottoApp.CustomRenderers"
+                ControlTemplate="{StaticResource AppRootTemplate}" >
+
+    <views:BasePage.BindingContext>
+        <vm:LoggedRootViewModel />
+    </views:BasePage.BindingContext>
+
+    <views:BasePage.Content>
+        <Grid RowSpacing="0" ColumnSpacing="0" >
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row="0"
+                   Margin="0,20,0,0"
+                   HorizontalOptions="CenterAndExpand"
+                   Style="{StaticResource RegularLabelStyle}"
+                   TextColor="#FF596672"
+                   Text="{Binding Greetings}"/>
+
+            <StackLayout Grid.Row="1"
+                         Orientation="Horizontal"
+                         HorizontalOptions="CenterAndExpand"
+                         VerticalOptions="CenterAndExpand"
+                         Margin="0,0,0,0">
+
+                <Label VerticalOptions="Center"
+                       Style="{StaticResource BoldLabelStyle}" 
+                       FontSize="48"
+                       TextColor="#FF66DBDD"  
+                       Text="{Binding ActualCredit}"/>
+
+                <Image VerticalOptions="CenterAndExpand"
+                       Source="euro_acquamarine">
+                    <Image.Margin>
+                        <OnPlatform x:TypeArguments="Thickness"
+                                    iOS="0, 5, 0, 0"
+                                    Android="0, 10, 0, 0" />
+
+                    </Image.Margin>
+                </Image>
+            </StackLayout>
+
+            <StackLayout Grid.Row="2" Padding="0" Spacing="0"
+                         HorizontalOptions="CenterAndExpand"
+                         VerticalOptions="CenterAndExpand"
+                         Margin="0,40,0,0">
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnNewCouponTapped" />
+                </StackLayout.GestureRecognizers>
+
+                <cr:RadialGauge WidthRequest="116" HeightRequest="116"
+                                StrokeWidth="5"
+                                FillColor="#FF0066CC"
+                                UnusedStrokeColor="#FF66DBDD"
+                                UsedStrokeColor="#FF003D8E"
+                                UsedPercentage="{Binding UsedPercentage}">
+                </cr:RadialGauge>
+            </StackLayout>
+
+            <Label Grid.Row="3"
+                   Margin="0,8,0,0"
+                   HorizontalOptions="CenterAndExpand"
+                   Style="{StaticResource RegularLabelStyle}"
+                   FontSize="16" TextColor="#FF0066CC"
+                   Text="NUOVO BUONO">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnNewCouponTapped" />
+                </Label.GestureRecognizers>
+            </Label>
+
+            <Grid Grid.Row="4"
+                  RowSpacing="0" ColumnSpacing="0">
+
+                <Frame CornerRadius="5" Padding="1"
+                       HasShadow="False"
+                       Margin="30,0,30,28" HeightRequest="48"
+                       VerticalOptions="End"
+                       BackgroundColor="{StaticResource AppBkgndColor}" >
+
+                    <StackLayout Grid.Row="1"
+                                 Orientation="Horizontal"
+                                 HorizontalOptions="CenterAndExpand"
+                                 Margin="0,0,0,0">
+                        
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnAlreadyInShopTapped" />
+                        </StackLayout.GestureRecognizers>
+                        
+                        <Image Source="gps_marker" />
+
+                        <Label VerticalOptions="Center"
+                               Style="{StaticResource RegularLabelStyle}" 
+                               FontSize="16"
+                               TextColor="White"  
+                               Text="SONO GIÀ IN NEGOZIO"/>
+
+                    </StackLayout>
+                </Frame>
+
+            </Grid>
+        </Grid>
+    </views:BasePage.Content>
+</views:BasePage>

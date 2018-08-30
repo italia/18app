@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<views:BasePage x:Class="Italia.DiciottoApp.Views.NearToYouShopsPage"
+                xmlns="http://xamarin.com/schemas/2014/forms"
+                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                xmlns:views="clr-namespace:Italia.DiciottoApp.Views"
+                xmlns:vm="clr-namespace:Italia.DiciottoApp.ViewModels"
+                ControlTemplate="{StaticResource AppHeaderTemplate}" >
+
+    <views:BasePage.BindingContext>
+        <vm:NearToYouShopsViewModel />
+    </views:BasePage.BindingContext>
+
+    <views:BasePage.Content>
+        <Grid BackgroundColor="{StaticResource ContentBkgndColor}"
+              VerticalOptions="FillAndExpand"
+              HorizontalOptions="FillAndExpand"
+              RowSpacing="0" ColumnSpacing="0" >
+            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="56"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <!-- Tabs -->
+            <BoxView Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"
+                     BackgroundColor="{StaticResource TabsBkgndColor}" />
+
+            <BoxView Grid.Row="0" Grid.Column="0"
+                     HeightRequest="5"
+                     VerticalOptions="End"
+                     BackgroundColor="White" />
+
+            <Label Grid.Row="0" Grid.Column="0"
+                   Text="VICINO A TE"
+                   Style="{StaticResource TabLabelStyle}" />
+
+            <Label Grid.Row="0" Grid.Column="1"
+                   Text="SU INTERNET"
+                   Style="{StaticResource TabLabelStyle}">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnOnlineTabTapped" />
+                </Label.GestureRecognizers>
+            </Label>
+
+            <Label Grid.Row="0" Grid.Column="2"
+                   Text="RICERCA"
+                   Style="{StaticResource TabLabelStyle}">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnFindTabTapped" />
+                </Label.GestureRecognizers>
+            </Label>
+
+            <!-- Content header -->
+            <Label Grid.Row="1" Grid.ColumnSpan="3" Margin="16,16,16,0"
+                   VerticalOptions="CenterAndExpand" 
+                   HorizontalOptions="StartAndExpand"
+                   Style="{StaticResource RegularLabelStyle}"
+                   TextColor="#FFAAAAAA" FontSize="14"
+                   Text="{Binding ContentHeader}" />
+            
+            <!-- Shop list -->
+            <ListView Grid.Row="2" Grid.ColumnSpan="3" Margin="0,0,16,0"
+                      ItemsSource="{Binding Shops, Mode=OneWay}"
+                      HasUnevenRows="true"
+                      ItemTapped="OnListViewItemTapped"
+                      IsVisible="{Binding ShopListIsVisible}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="0" Spacing="0"
+                                         Orientation="Horizontal">
+                                
+                                <StackLayout Padding="0" Spacing="0" Margin="16,0,0,0"
+                                             HorizontalOptions="StartAndExpand">
+                                    
+                                    <Label Margin="0,11,0,0"
+                                       Style="{StaticResource BoldLabelStyle}"
+                                       HorizontalOptions="Start" VerticalOptions="Start"
+                                       TextColor="#FF1168C9" FontSize="16"
+                                       Text="{Binding Title}" />
+
+                                    <Label Margin="0,0,0,15"
+                                       Style="{StaticResource RegularLabelStyle}"
+                                       VerticalTextAlignment="Start"
+                                       TextColor="#FF1168C9" FontSize="14"
+                                       Text="{Binding ElencoCategorie}" />
+                                    
+                                </StackLayout>
+
+                                <Label Margin="0"
+                                       HorizontalOptions="Start" VerticalOptions="CenterAndExpand"
+                                       Style="{StaticResource RegularLabelStyle}"
+                                       TextColor="#FF596672"  FontSize="16"
+                                       Text="{Binding DistanceFromUser}" />
+
+                                <Image Margin="18,0,6,0"
+                                       HorizontalOptions="Start" VerticalOptions="CenterAndExpand"
+                                       Source="forward"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            
+            <!-- Mostra sulla mappa -->
+            <StackLayout Grid.Row="3" Grid.ColumnSpan="3"
+                         Orientation="Horizontal"
+                         HorizontalOptions="Center"
+                         IsVisible="{Binding ShopListIsVisible}">
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnGoToMapTapped" />
+                </StackLayout.GestureRecognizers>
+
+                <Image Source="map_icon" />
+
+                <Label Margin="12,0,0,0"
+                       Style="{StaticResource BoldLabelStyle}"
+                       VerticalOptions="Center"
+                       TextColor="#FF1168C9" FontSize="16"
+                       Text="MOSTRA SULLA MAPPA" />
+            </StackLayout>
+        </Grid>
+    </views:BasePage.Content>
+</views:BasePage>

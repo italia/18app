@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<views:BasePage x:Class="Italia.DiciottoApp.Views.ShopsMapPage"
+                xmlns="http://xamarin.com/schemas/2014/forms"
+                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                xmlns:views="clr-namespace:Italia.DiciottoApp.Views"
+                xmlns:vm="clr-namespace:Italia.DiciottoApp.ViewModels"
+                xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+                ControlTemplate="{StaticResource AppHeaderTemplate}" >
+
+    <views:BasePage.BindingContext>
+        <vm:ShopsMapViewModel />
+    </views:BasePage.BindingContext>
+
+    <views:BasePage.Content>
+        <Grid VerticalOptions="FillAndExpand"
+              HorizontalOptions="FillAndExpand"
+              RowSpacing="0" ColumnSpacing="0" >
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="64"/>
+            </Grid.RowDefinitions>
+
+            <maps:Map x:Name="MyMap" Grid.Row="0"
+                      IsShowingUser="True" 
+                      MapType="Street" />
+
+            <Label Grid.Row="1" Margin="16,0" IsVisible="{Binding TouchPinNoteIsVisible}"
+                   Style="{StaticResource RegularLabelStyle}"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Start"
+                   TextColor="#FFAAAAAA" FontSize="14"
+                   Text="Tocca un segnaposto sulla mappa per conoscere i dettagli del negozio" />
+
+            <StackLayout Grid.Row="1" Margin="16,0,16,0" IsVisible="{Binding PinSelected}"
+                         Padding="0" Spacing="0"
+                         BackgroundColor="White"
+                         Orientation="Horizontal">
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnSelectedShopTapped" />
+                </StackLayout.GestureRecognizers>
+
+                <StackLayout Padding="0" Spacing="0" HorizontalOptions="StartAndExpand">
+                    <Label Margin="0,11,0,0"
+                           Style="{StaticResource BoldLabelStyle}"
+                           HorizontalOptions="Start" VerticalOptions="Start"
+                           TextColor="#FF1168C9" FontSize="16"
+                           Text="{Binding SelectedShop.Title}" />
+
+                    <Label Margin="0,0,0,15"
+                           Style="{StaticResource RegularLabelStyle}"
+                           VerticalTextAlignment="Start"
+                           TextColor="#FF1168C9" FontSize="14"
+                           Text="{Binding SelectedShop.ElencoCategorie}" />
+                </StackLayout>
+
+                <Label Margin="0"
+                       HorizontalOptions="Start" VerticalOptions="CenterAndExpand"
+                       Style="{StaticResource RegularLabelStyle}"
+                       TextColor="#FF596672"  FontSize="16"
+                       Text="{Binding SelectedShop.DistanceFromUser}" />
+
+                <Label Margin="18,0,6,0"
+                       HorizontalOptions="Start" VerticalOptions="CenterAndExpand"
+                       Style="{StaticResource RegularLabelStyle}"
+                       FontSize="16"
+                       Text=">" />
+            </StackLayout>
+
+
+        </Grid>
+    </views:BasePage.Content>
+</views:BasePage>

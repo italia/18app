@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage  x:Class="Italia.DiciottoApp.Views.UserMenuPopupPage"
+                  xmlns="http://xamarin.com/schemas/2014/forms"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                  xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+                  xmlns:vm="clr-namespace:Italia.DiciottoApp.ViewModels">
+
+    <pages:PopupPage.BindingContext>
+        <vm:UserMenuPopupViewModel />
+    </pages:PopupPage.BindingContext>
+
+    <!-- User menu -->
+    <Grid Margin="40,0,0,100" BackgroundColor="#FF0C509A"
+          VerticalOptions="FillAndExpand"
+          HorizontalOptions="FillAndExpand"
+          RowSpacing="0" ColumnSpacing="0" >
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="112"/>
+            <RowDefinition Height="48"/>
+            <RowDefinition Height="48"/>
+            <RowDefinition Height="48"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- User data and cancel button-->
+        <Grid Grid.Row="0" BackgroundColor="White"
+              VerticalOptions="FillAndExpand"
+              HorizontalOptions="FillAndExpand"
+              RowSpacing="0" ColumnSpacing="0" >
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="48"/>
+                <RowDefinition Height="64"/>
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row="0" Margin="16,0,0,0"
+                   HorizontalOptions="Start"
+                   VerticalOptions="Center"
+                   Style="{StaticResource RegularLabelStyle}" 
+                   FontSize="24"
+                   TextColor="#FF30383D"
+                   Text="{Binding UserFullname}" />
+
+            <Image Grid.Row="0" Margin="0,0,14,0"
+                   HorizontalOptions="End"
+                   VerticalOptions="Center"
+                   Source="cancel">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnCancelTapped" />
+                </Image.GestureRecognizers>
+            </Image>
+
+            <StackLayout Grid.Row="1" Padding="0" Spacing="0"
+                         HorizontalOptions="Start">
+
+                <Label Margin="16,14,0,0"
+                       Style="{StaticResource RegularLabelStyle}" 
+                       FontSize="14"
+                       TextColor="#FF596672"
+                       Text="Credito" />
+
+                <Label Margin="16,-8,0,0"
+                       Style="{StaticResource BoldLabelStyle}" 
+                       FontSize="20"
+                       TextColor="#FF596672"
+                       Text="{Binding UserCredit}" />
+            </StackLayout>
+        </Grid>
+
+        <!-- User profile -->
+        <StackLayout Grid.Row="1" Padding="0" Spacing="0"
+                     Orientation="Horizontal">
+            <StackLayout.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnUserProfileTapped" />
+            </StackLayout.GestureRecognizers>
+
+            <Image Margin="12,0,0,0"
+                   Source="usericon"
+                   VerticalOptions="Center"/>
+
+            <Label Margin="12,0,0,0"
+                   VerticalOptions="Center"
+                   Style="{StaticResource RegularLabelStyle}" 
+                   FontSize="16"
+                   TextColor="#FFEFEFEF"
+                   Text="Profilo" />
+        </StackLayout>
+
+        <!-- Notifications -->
+        <StackLayout Grid.Row="2" Padding="0" Spacing="0"
+                     Orientation="Horizontal"
+                     HorizontalOptions="FillAndExpand">
+            <StackLayout.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnNotificationsTapped" />
+            </StackLayout.GestureRecognizers>
+
+            <Image Margin="12,0,0,0"
+                   Source="notification_white"
+                   VerticalOptions="Center"/>
+
+            <Label Margin="12,0,0,0"
+                   HorizontalOptions="StartAndExpand"
+                   VerticalOptions="Center"
+                   Style="{StaticResource RegularLabelStyle}" 
+                   FontSize="16"
+                   TextColor="#FFEFEFEF"
+                   Text="Notifiche" />
+
+            <Grid HorizontalOptions="End"
+                  VerticalOptions="Center"
+                  Margin="0,0,14,0"
+                  IsVisible="{Binding HasUnreadMessages}">
+
+                <Image HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       Source="circle_white" />
+
+                <Label Style="{StaticResource BoldLabelStyle}"
+                       FontSize="16"
+                       TextColor="#FF0C6DCE"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       Text ="{Binding UnreadMessages}" />
+            </Grid>
+        </StackLayout>
+
+        <!-- Logout -->
+        <StackLayout Grid.Row="3" Padding="0" Spacing="0"
+                     Orientation="Horizontal">
+            <StackLayout.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnLogoutTapped" />
+            </StackLayout.GestureRecognizers>
+
+            <Image Margin="12,0,0,0"
+                   Source="logout_white"
+                   VerticalOptions="Center"/>
+
+            <Label Margin="12,0,0,0" VerticalOptions="Center"
+                   Style="{StaticResource RegularLabelStyle}" 
+                   FontSize="16"
+                   TextColor="#FFEFEFEF"
+                   Text="Logout" />
+        </StackLayout>
+
+    </Grid>
+</pages:PopupPage>
