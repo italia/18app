@@ -18,7 +18,7 @@ namespace Italia.DiciottoApp.Services
 
             InfoDb infoDb = new InfoDb();
 
-            var fakeInfoList = spidOnly ? infoDb.Data.Where(x => x.Header == "SPID") : infoDb.Data;
+            var fakeInfoList = spidOnly ? infoDb.Data.Where(x => x.Header.Contains("SPID")) : infoDb.Data;
 
             if (!string.IsNullOrWhiteSpace(findText))
             {
