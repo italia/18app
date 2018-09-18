@@ -16,11 +16,9 @@
         <Style x:Key="RegularLabelStyle" TargetType="Label">
             <Setter Property="FontFamily">
                 <Setter.Value>
-                    <OnPlatform x:TypeArguments="x:String">
-                        <On Platform="iOS" Value="TitilliumWeb-Regular" />
-                        <On Platform="Android" Value="fonts/TitilliumWeb-Regular.ttf#TitilliumWeb-Regular" />
-                        <On Platform="UWP" Value="Assets/Fonts/TitilliumWeb-Regular.ttf#TitilliumWeb" />
-                    </OnPlatform>
+                    <OnPlatform x:TypeArguments="x:String"
+                        Default="TitilliumWeb-Regular"
+                        Android="fonts/TitilliumWeb-Regular.ttf#TitilliumWeb-Regular" />
                 </Setter.Value>
             </Setter>
         </Style>
@@ -28,11 +26,9 @@
         <Style x:Key="BoldLabelStyle" TargetType="Label">
             <Setter Property="FontFamily">
                 <Setter.Value>
-                    <OnPlatform x:TypeArguments="x:String">
-                        <On Platform="iOS" Value="TitilliumWeb-Bold" />
-                        <On Platform="Android" Value="fonts/TitilliumWeb-Bold.ttf#TitilliumWeb-Bold" />
-                        <On Platform="UWP" Value="Assets/Fonts/TitilliumWeb-Bold.ttf#TitilliumWeb" />
-                    </OnPlatform>
+                    <OnPlatform x:TypeArguments="x:String"
+                        Default="TitilliumWeb-Bold"
+                        Android="fonts/TitilliumWeb-Bold.ttf#TitilliumWeb-Bold" />
                 </Setter.Value>
             </Setter>
         </Style>
@@ -40,11 +36,9 @@
         <Style x:Key="ItalicLabelStyle" TargetType="Label">
             <Setter Property="FontFamily">
                 <Setter.Value>
-                    <OnPlatform x:TypeArguments="x:String">
-                        <On Platform="iOS" Value="TitilliumWeb-Italic" />
-                        <On Platform="Android" Value="fonts/TitilliumWeb-Italic.ttf#TitilliumWeb-Italic" />
-                        <On Platform="UWP" Value="Assets/Fonts/TitilliumWeb-Italic.ttf#TitilliumWeb" />
-                    </OnPlatform>
+                    <OnPlatform x:TypeArguments="x:String"
+                        Default="TitilliumWeb-Italic"
+                        Android="fonts/TitilliumWeb-Italic.ttf#TitilliumWeb-Italic" />
                 </Setter.Value>
             </Setter>
         </Style>
@@ -52,11 +46,9 @@
         <Style x:Key="BoldItalicLabelStyle" TargetType="Label">
             <Setter Property="FontFamily">
                 <Setter.Value>
-                    <OnPlatform x:TypeArguments="x:String">
-                        <On Platform="iOS" Value="TitilliumWeb-BoldItalic" />
-                        <On Platform="Android" Value="fonts/TitilliumWeb-BoldItalic.ttf#TitilliumWeb-BoldItalic" />
-                        <On Platform="UWP" Value="Assets/Fonts/TitilliumWeb-BoldItalic.ttf#TitilliumWeb" />
-                    </OnPlatform>
+                    <OnPlatform x:TypeArguments="x:String"
+                                Default="TitilliumWeb-BoldItalic"
+                                Android="fonts/TitilliumWeb-BoldItalic.ttf#TitilliumWeb-BoldItalic" />
                 </Setter.Value>
             </Setter>
         </Style>
@@ -64,11 +56,9 @@
         <Style x:Key="SemiBoldItalicLabelStyle" TargetType="Label">
             <Setter Property="FontFamily">
                 <Setter.Value>
-                    <OnPlatform x:TypeArguments="x:String">
-                        <On Platform="iOS" Value="TitilliumWeb-SemiBoldItalic" />
-                        <On Platform="Android" Value="fonts/TitilliumWeb-SemiBoldItalic.ttf#TitilliumWeb-SemiBoldItalic" />
-                        <On Platform="UWP" Value="Assets/Fonts/TitilliumWeb-SemiBoldItalic.ttf#TitilliumWeb" />
-                    </OnPlatform>
+                    <OnPlatform x:TypeArguments="x:String"
+                                Default="TitilliumWeb-SemiBoldItalic"
+                                Android="fonts/TitilliumWeb-SemiBoldItalic.ttf#TitilliumWeb-SemiBoldItalic" />
                 </Setter.Value>
             </Setter>
         </Style>
@@ -78,11 +68,9 @@
             <Setter Property="FontSize" Value="16" />
             <Setter Property="FontFamily">
                 <Setter.Value>
-                    <OnPlatform x:TypeArguments="x:String">
-                        <On Platform="iOS" Value="TitilliumWeb-Regular" />
-                        <On Platform="Android" Value="fonts/TitilliumWeb-Regular.ttf#TitilliumWeb-Regular" />
-                        <On Platform="UWP" Value="Assets/Fonts/TitilliumWeb-Regular.ttf#TitilliumWeb" />
-                    </OnPlatform>
+                    <OnPlatform x:TypeArguments="x:String"
+                                Default="TitilliumWeb-Regular"
+                                Android="fonts/TitilliumWeb-Regular.ttf#TitilliumWeb-Regular" />
                 </Setter.Value>
             </Setter>
         </Style>
@@ -94,11 +82,9 @@
             <Setter Property="HorizontalOptions" Value="Center" />
             <Setter Property="FontFamily">
                 <Setter.Value>
-                    <OnPlatform x:TypeArguments="x:String">
-                        <On Platform="iOS" Value="TitilliumWeb-Bold" />
-                        <On Platform="Android" Value="fonts/TitilliumWeb-Bold.ttf#TitilliumWeb-Bold" />
-                        <On Platform="UWP" Value="Assets/Fonts/TitilliumWeb-Bold.ttf#TitilliumWeb" />
-                    </OnPlatform>
+                    <OnPlatform x:TypeArguments="x:String"
+                                Default="TitilliumWeb-Bold"
+                                Android="fonts/TitilliumWeb-Bold.ttf#TitilliumWeb-Bold" />
                 </Setter.Value>
             </Setter>
         </Style>
@@ -108,11 +94,9 @@
             <Setter Property="FontSize" Value="14" />
             <Setter Property="FontFamily">
                 <Setter.Value>
-                    <OnPlatform x:TypeArguments="x:String">
-                        <On Platform="iOS" Value="TitilliumWeb-Regular" />
-                        <On Platform="Android" Value="fonts/TitilliumWeb-Regular.ttf#TitilliumWeb-Regular" />
-                        <On Platform="UWP" Value="Assets/Fonts/TitilliumWeb-Regular.ttf#TitilliumWeb" />
-                    </OnPlatform>
+                    <OnPlatform x:TypeArguments="x:String"
+                                Default="TitilliumWeb-Regular"
+                                Android="fonts/TitilliumWeb-Regular.ttf#TitilliumWeb-Regular" />
                 </Setter.Value>
             </Setter>
         </Style>
@@ -122,11 +106,9 @@
             <Setter Property="FontSize" Value="14" />
             <Setter Property="FontFamily">
                 <Setter.Value>
-                    <OnPlatform x:TypeArguments="x:String">
-                        <On Platform="iOS" Value="TitilliumWeb-Bold" />
-                        <On Platform="Android" Value="fonts/TitilliumWeb-Bold.ttf#TitilliumWeb-Bold" />
-                        <On Platform="UWP" Value="Assets/Fonts/TitilliumWeb-Bold.ttf#TitilliumWeb" />
-                    </OnPlatform>
+                    <OnPlatform x:TypeArguments="x:String"
+                        Default="TitilliumWeb-Bold"
+                        Android="fonts/TitilliumWeb-Bold.ttf#TitilliumWeb-Bold" />
                 </Setter.Value>
             </Setter>
         </Style>
@@ -136,11 +118,9 @@
             <Setter Property="FontSize" Value="9" />
             <Setter Property="FontFamily">
                 <Setter.Value>
-                    <OnPlatform x:TypeArguments="x:String">
-                        <On Platform="iOS" Value="TitilliumWeb-Bold" />
-                        <On Platform="Android" Value="fonts/TitilliumWeb-Bold.ttf#TitilliumWeb-Bold" />
-                        <On Platform="UWP" Value="Assets/Fonts/TitilliumWeb-Bold.ttf#TitilliumWeb" />
-                    </OnPlatform>
+                    <OnPlatform x:TypeArguments="x:String"
+                                Default="TitilliumWeb-Bold"
+                                Android="fonts/TitilliumWeb-Bold.ttf#TitilliumWeb-Bold" />
                 </Setter.Value>
             </Setter>
         </Style>
@@ -152,11 +132,9 @@
             <Setter Property="FontSize" Value="14" />
             <Setter Property="FontFamily">
                 <Setter.Value>
-                    <OnPlatform x:TypeArguments="x:String">
-                        <On Platform="iOS" Value="TitilliumWeb-Regular" />
-                        <On Platform="Android" Value="fonts/TitilliumWeb-Regular.ttf#TitilliumWeb-Regular" />
-                        <On Platform="UWP" Value="Assets/Fonts/TitilliumWeb-Regular.ttf#TitilliumWeb" />
-                    </OnPlatform>
+                    <OnPlatform x:TypeArguments="x:String"
+                                Default="TitilliumWeb-Regular"
+                                Android="fonts/TitilliumWeb-Regular.ttf#TitilliumWeb-Regular" />
                 </Setter.Value>
             </Setter>
         </Style>
@@ -168,11 +146,9 @@
             <Setter Property="FontSize" Value="16" />
             <Setter Property="FontFamily">
                 <Setter.Value>
-                    <OnPlatform x:TypeArguments="x:String">
-                        <On Platform="iOS" Value="TitilliumWeb-Regular" />
-                        <On Platform="Android" Value="fonts/TitilliumWeb-Regular.ttf#TitilliumWeb-Regular" />
-                        <On Platform="UWP" Value="Assets/Fonts/TitilliumWeb-Regular.ttf#TitilliumWeb" />
-                    </OnPlatform>
+                    <OnPlatform x:TypeArguments="x:String"
+                                Default="TitilliumWeb-Regular"
+                                Android ="fonts/TitilliumWeb-Regular.ttf#TitilliumWeb-Regular" />
                 </Setter.Value>
             </Setter>
         </Style>
@@ -197,7 +173,7 @@
                 </Grid.ColumnDefinitions>
 
                 <Grid.Padding>
-                    <OnPlatform x:TypeArguments="Thickness" iOS="0, 20, 0, 0" />
+                    <OnPlatform x:TypeArguments="Thickness" Default="0,0,0,0" iOS="0,20,0,0" />
                 </Grid.Padding>
 
                 <BoxView Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"
@@ -261,7 +237,7 @@
                 </Grid.ColumnDefinitions>
 
                 <Grid.Padding>
-                    <OnPlatform x:TypeArguments="Thickness" iOS="0, 20, 0, 0" />
+                    <OnPlatform x:TypeArguments="Thickness" Default="0,0,0,0" iOS="0,20,0,0" />
                 </Grid.Padding>
 
                 <BoxView Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"
@@ -307,7 +283,7 @@
                 </Grid.RowDefinitions>
 
                 <Grid.Padding>
-                    <OnPlatform x:TypeArguments="Thickness" iOS="0, 20, 0, 0" />
+                    <OnPlatform x:TypeArguments="Thickness" Default="0,0,0,0" iOS="0,20,0,0" />
                 </Grid.Padding>
 
                 <!-- Top bar -->
@@ -448,13 +424,13 @@
                 </Grid.RowDefinitions>
 
                 <Grid.Padding>
-                    <OnPlatform x:TypeArguments="Thickness" iOS="0, 20, 0, 0" />
+                    <OnPlatform x:TypeArguments="Thickness" Default="0,0,0,0" iOS="0,20,0,0" />
                 </Grid.Padding>
 
                 <!-- Top bar -->
                 <Grid Grid.Row="0"
                       HorizontalOptions="FillAndExpand"
-                      VerticalOptions="Center"
+                      VerticalOptions="FillAndExpand"
                       RowSpacing="0" ColumnSpacing="0"
                       BackgroundColor="{StaticResource AppBkgndColor}">
 

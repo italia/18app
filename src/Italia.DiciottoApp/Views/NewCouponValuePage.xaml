@@ -124,7 +124,7 @@
 
                 <Entry Margin="16,0"
                        Placeholder="{Binding EntryValuePlaceholder}"
-                       Keyboard="Numeric"
+                       Keyboard="{OnPlatform Default=Numeric, Android=Default}"
                        MaxLength="6"
                        TextChanged="OnEntryTextChanged"
                        Text="{Binding EntryValue}"/>

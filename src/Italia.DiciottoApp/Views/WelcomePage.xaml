@@ -13,11 +13,9 @@
                 <Setter Property="FontSize" Value="32" />
                 <Setter Property="FontFamily">
                     <Setter.Value>
-                        <OnPlatform x:TypeArguments="x:String">
-                            <On Platform="iOS" Value="TitilliumWeb-Bold" />
-                            <On Platform="Android" Value="fonts/TitilliumWeb-Bold.ttf#TitilliumWeb-Bold" />
-                            <On Platform="UWP" Value="Assets/Fonts/TitilliumWeb-Bold.ttf#TitilliumWeb" />
-                        </OnPlatform>
+                        <OnPlatform x:TypeArguments="x:String"
+                                    Default="TitilliumWeb-Bold"
+                                    Android="fonts/TitilliumWeb-Bold.ttf#TitilliumWeb-Bold" />
                     </Setter.Value>
                 </Setter>
             </Style>
@@ -27,11 +25,9 @@
                 <Setter Property="FontSize" Value="40" />
                 <Setter Property="FontFamily">
                     <Setter.Value>
-                        <OnPlatform x:TypeArguments="x:String">
-                            <On Platform="iOS" Value="TitilliumWeb-Italic" />
-                            <On Platform="Android" Value="fonts/TitilliumWeb-Italic.ttf#TitilliumWeb-Italic" />
-                            <On Platform="UWP" Value="Assets/Fonts/TitilliumWeb-Italic.ttf#TitilliumWeb" />
-                        </OnPlatform>
+                        <OnPlatform x:TypeArguments="x:String"
+                                    Default="TitilliumWeb-Italic"
+                                    Android="fonts/TitilliumWeb-Italic.ttf#TitilliumWeb-Italic" />
                     </Setter.Value>
                 </Setter>
             </Style>
@@ -41,11 +37,9 @@
                 <Setter Property="FontSize" Value="16" />
                 <Setter Property="FontFamily">
                     <Setter.Value>
-                        <OnPlatform x:TypeArguments="x:String">
-                            <On Platform="iOS" Value="TitilliumWeb-Regular" />
-                            <On Platform="Android" Value="fonts/TitilliumWeb-Regular.ttf#TitilliumWeb-Regular" />
-                            <On Platform="UWP" Value="Assets/Fonts/TitilliumWeb-Regular.ttf#TitilliumWeb" />
-                        </OnPlatform>
+                        <OnPlatform x:TypeArguments="x:String"
+                                    Default="TitilliumWeb-Regular"
+                                    Android="fonts/TitilliumWeb-Regular.ttf#TitilliumWeb-Regular" />
                     </Setter.Value>
                 </Setter>
             </Style>
