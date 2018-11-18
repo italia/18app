@@ -106,6 +106,8 @@
                         <TapGestureRecognizer Tapped="OnIdpTimTapped" />
                     </Image.GestureRecognizers>
                 </Image>
+
+                <Button Grid.Row="4" Grid.Column="0" Text="Test IdP" Clicked="TestIdpButton_Clicked" />
             </Grid>
 
         </StackLayout>

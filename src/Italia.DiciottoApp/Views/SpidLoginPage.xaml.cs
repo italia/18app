@@ -23,18 +23,18 @@ namespace Italia.DiciottoApp.Views
             vm = BindingContext as SpidLoginViewModel;
         }
 
-        private async Task NavigateToWelcomePage()
-        {
-            // Get the root page
-            IReadOnlyList<Page> navStack = Navigation.NavigationStack;
-            Page currentRootPage = navStack[0];
+        //private async Task NavigateToWelcomePage()
+        //{
+        //    // Get the root page
+        //    IReadOnlyList<Page> navStack = Navigation.NavigationStack;
+        //    Page currentRootPage = navStack[0];
 
-            // Insert page before WelcomePage
-            Navigation.InsertPageBefore(new WelcomePage(), currentRootPage);
+        //    // Insert page before WelcomePage
+        //    Navigation.InsertPageBefore(new WelcomePage(), currentRootPage);
 
-            // Clear navigation stack
-            await Navigation.PopToRootAsync();
-        }
+        //    // Clear navigation stack
+        //    await Navigation.PopToRootAsync();
+        //}
 
         private async Task Login(IdP idp)
         {
@@ -99,5 +99,9 @@ namespace Italia.DiciottoApp.Views
             await Login(IdP.Tim);
         }
 
+        private async void TestIdpButton_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new LoginWebPage(IdP.Test));
+        }
     }
 }

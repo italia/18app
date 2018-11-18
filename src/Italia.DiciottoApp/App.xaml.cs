@@ -39,7 +39,6 @@ namespace Italia.DiciottoApp
             AppCenter.Start("ios=552ba3b6-8ebd-4680-a92d-dce13b3178a1;" + //"uwp={Your UWP App secret here};" +
                 "android=89c56297-21e0-4784-8cbc-0e0225995c77",
                 typeof(Analytics), typeof(Crashes));
-
         }
 
 		protected override void OnSleep ()

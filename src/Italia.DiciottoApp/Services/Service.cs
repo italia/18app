@@ -14,6 +14,7 @@ namespace Italia.DiciottoApp.Services
             container.Register<IShopsService, ShopsService>();
             container.Register<ICouponsService, CouponsService>();
             container.Register<IInfoService, InfoService>();
+            container.Register<ILoginService, LoginService>();
             container.Register<INotificationsService, NotificationsService>();
         }
 

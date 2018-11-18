@@ -11,7 +11,7 @@ namespace Italia.DiciottoApp.ViewModels
     {
         #region Properties
 
-        public string PageTitle => "Login";
+        public string PageTitle => "SPID Login";
 
         #endregion
 
@@ -34,7 +34,7 @@ namespace Italia.DiciottoApp.ViewModels
             Settings.UserResidenceZip = "31100";
             Settings.UserResidenceCity = "Treviso";
             Settings.UserResidenceProvince = "TV";
-            Settings.UserBirthDate = "22/06/2000";
+            Settings.UserBirthDate = new DateTime(2000, 6, 22);
             Settings.UserBirthCity = "Roma";
             Settings.UserBirthProvince = "RM";
             Settings.UserPhoneNumber = "333 1234567";

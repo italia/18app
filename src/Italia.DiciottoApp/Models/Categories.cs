@@ -13,7 +13,8 @@ namespace Italia.DiciottoApp.Models
             "Concerti",
             "Eventi culturali",
             "Libri",
-            "Musei, monumenti e parchi naturali",
+            "Musei, monumenti parchi naturali ed aree archeologiche",
+            "Musica registrata",
             "Teatro e danza"
         };
 
@@ -24,6 +25,7 @@ namespace Italia.DiciottoApp.Models
             "cat_event",
             "cat_book",
             "cat_museum",
+            "cat_music",
             "cat_theatre"
         };
 
@@ -35,6 +37,7 @@ namespace Italia.DiciottoApp.Models
             "bkgnd_concerti",
             "bkgnd_libri",
             "bkgnd_libri",
+            "bkgnd_concerti",
             "bkgnd_cinema"
         };
         

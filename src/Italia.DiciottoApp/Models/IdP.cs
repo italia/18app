@@ -14,6 +14,7 @@ namespace Italia.DiciottoApp.Models
         Poste,
         Register,
         Sielte,
-        Tim
+        Tim,
+        Test
     }
 }

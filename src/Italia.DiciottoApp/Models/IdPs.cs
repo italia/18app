@@ -42,5 +42,48 @@ namespace Italia.DiciottoApp.Models
                     return string.Empty;
             }
         }
+
+        public static string UrlString(IdP idp)
+        {
+            string urlSegment;
+            switch (idp)
+            {
+                case IdP.None:
+                    urlSegment = String.Empty;
+                    break;
+                case IdP.Aruba:
+                    urlSegment = "aruba";
+                    break;
+                case IdP.InfoCert:
+                    urlSegment = "infocert";
+                    break;
+                case IdP.Intesa:
+                    urlSegment ="intesa";
+                    break;
+                case IdP.Namirial:
+                    urlSegment = "namirial";
+                    break;
+                case IdP.Poste:
+                    urlSegment = "poste";
+                    break;
+                case IdP.Register:
+                    urlSegment ="register";
+                    break;
+                case IdP.Sielte:
+                    urlSegment = "sielte";
+                    break;
+                case IdP.Tim:
+                    urlSegment = "titt";
+                    break;
+                case IdP.Test:
+                    return "https://ssotest.18app.italia.it/rp/agid/s5";
+                default:
+                    urlSegment = String.Empty;
+                    break;
+            }
+
+            return (string.IsNullOrWhiteSpace(urlSegment)) ? string.Empty : $"https://sso.18app.italia.it/rp/{urlSegment}/s5";
+        }
+
     }
 }
