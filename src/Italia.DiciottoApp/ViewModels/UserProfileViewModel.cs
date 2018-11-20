@@ -16,11 +16,22 @@ namespace Italia.DiciottoApp.ViewModels
         public string CodFisc => Settings.UserCodFisc.Substring(0, 3) + " " +
                                  Settings.UserCodFisc.Substring(3, 3) + " " +
                                  Settings.UserCodFisc.Substring(6, 5) + " " +
-                                 Settings.UserCodFisc.Substring(11, 5) ;
+                                 Settings.UserCodFisc.Substring(11, 5);
 
         public bool IsCodFiscAvailable => !string.IsNullOrWhiteSpace(Settings.UserCodFisc);
 
-        public string BirthDatePlace => $"{Settings.UserBirthDate} {Settings.UserBirthCity} ({Settings.UserBirthProvince})";
+        public string BirthDatePlace
+        {
+            get
+            {
+                string birthDatePlace = $"{Settings.UserBirthDate?.ToString("dd MMMM yyyy") ?? ""} {Settings.UserBirthCity}";
+                if (!string.IsNullOrWhiteSpace(Settings.UserBirthProvince))
+                {
+                    birthDatePlace += $" ({Settings.UserBirthProvince})";
+                }
+                return birthDatePlace.TrimStart();
+            }
+        }
 
         public bool IsBirthDatePlaceAvailable => !string.IsNullOrWhiteSpace(BirthDatePlace);
 
@@ -28,7 +39,20 @@ namespace Italia.DiciottoApp.ViewModels
 
         public bool IsResidenceAddressAvailable => !string.IsNullOrWhiteSpace(Settings.UserResidenceAddress);
 
-        public string ResidenceZipCityProvince => $"{Settings.UserResidenceZip} {Settings.UserResidenceCity} ({Settings.UserResidenceProvince})";
+        public string ResidenceZipCityProvince
+        {
+            get
+            {
+                string residenceZipCityProvince = $"{Settings.UserResidenceZip} {Settings.UserResidenceCity}";
+                if (!string.IsNullOrWhiteSpace(Settings.UserBirthProvince))
+                {
+                    residenceZipCityProvince += $" ({Settings.UserBirthProvince})";
+                }
+                return residenceZipCityProvince.TrimStart();
+            }
+        }
+
+        // => $"{Settings.UserResidenceZip} {Settings.UserResidenceCity} ({Settings.UserResidenceProvince})";
 
         public bool IsResidenceZipCityProvinceAvailable => !string.IsNullOrWhiteSpace(ResidenceZipCityProvince);
 
