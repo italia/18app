@@ -87,7 +87,7 @@
                    Text="Profilo" />
         </StackLayout>
 
-        <!-- Notifications -->
+        <!-- Notifications
         <StackLayout Grid.Row="2" Padding="0" Spacing="0"
                      Orientation="Horizontal"
                      HorizontalOptions="FillAndExpand">
@@ -123,10 +123,10 @@
                        VerticalOptions="Center"
                        Text ="{Binding UnreadMessages}" />
             </Grid>
-        </StackLayout>
-
+        </StackLayout> -->
+        
         <!-- Logout -->
-        <StackLayout Grid.Row="3" Padding="0" Spacing="0"
+        <StackLayout Grid.Row="2" Padding="0" Spacing="0"
                      Orientation="Horizontal">
             <StackLayout.GestureRecognizers>
                 <TapGestureRecognizer Tapped="OnLogoutTapped" />

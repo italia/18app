@@ -103,13 +103,13 @@ namespace Italia.DiciottoApp.Models
 
         public static string UserResidenceCity
         {
-            get => AppSettings.GetValueOrDefault("UserResidenceCity", String.Empty);
+            get => AppSettings.GetValueOrDefault("UserResidenceCity", string.Empty);
             set => AppSettings.AddOrUpdateValue("UserResidenceCity", value);
         }
 
         public static string UserResidenceProvince
         {
-            get => AppSettings.GetValueOrDefault("UserResidenceProvince", String.Empty);
+            get => AppSettings.GetValueOrDefault("UserResidenceProvince", string.Empty);
             set => AppSettings.AddOrUpdateValue("UserResidenceProvince", value);
         }
 
@@ -129,44 +129,44 @@ namespace Italia.DiciottoApp.Models
 
         public static long BorsellinoId
         {
-            get => AppSettings.GetValueOrDefault("BorsellinoId", 0);
-            set => AppSettings.AddOrUpdateValue("BorsellinoId", value);
+            get => LongConverter.FromString(AppSettings.GetValueOrDefault("BorsellinoId", string.Empty));
+            set => AppSettings.AddOrUpdateValue("BorsellinoId", LongConverter.FromLong(value));
         }
 
         public static double BorsellinoImportoTot
         {
-            get => AppSettings.GetValueOrDefault("BorsellinoImportoTot", 0);
-            set => AppSettings.AddOrUpdateValue("BorsellinoImportoTot", value);
+            get => DoubleConverter.FromString(AppSettings.GetValueOrDefault("BorsellinoImportoTot", string.Empty));
+            set => AppSettings.AddOrUpdateValue("BorsellinoImportoTot", DoubleConverter.FromDouble(value));
         }
 
         public static double BorsellinoImportoRichNonValidFisico
         {
-            get => AppSettings.GetValueOrDefault("BorsellinoImportoRichNonValidFisico", 0);
-            set => AppSettings.AddOrUpdateValue("BorsellinoImportoRichNonValidFisico", value);
+            get => DoubleConverter.FromString(AppSettings.GetValueOrDefault("BorsellinoImportoTot", string.Empty));
+            set => AppSettings.AddOrUpdateValue("BorsellinoImportoTot", DoubleConverter.FromDouble(value));
         }
 
         public static double BorsellinoImportoRichNonValidOnline
         {
-            get => AppSettings.GetValueOrDefault("BorsellinoImportoRichNonValidOnline", 0);
-            set => AppSettings.AddOrUpdateValue("BorsellinoImportoRichNonValidOnline", value);
+            get => DoubleConverter.FromString(AppSettings.GetValueOrDefault("BorsellinoImportoRichNonValidFisico", string.Empty));
+            set => AppSettings.AddOrUpdateValue("BorsellinoImportoRichNonValidFisico", DoubleConverter.FromDouble(value));
         }
 
         public static double BorsellinoImportoValidato
         {
-            get => AppSettings.GetValueOrDefault("BorsellinoImportoValidato", 0);
-            set => AppSettings.AddOrUpdateValue("BorsellinoImportoValidato", value);
+            get => DoubleConverter.FromString(AppSettings.GetValueOrDefault("BorsellinoImportoValidato", string.Empty));
+            set => AppSettings.AddOrUpdateValue("BorsellinoImportoValidato", DoubleConverter.FromDouble(value));
         }
 
         public static double BorsellinoImportoResiduo
         {
-            get => AppSettings.GetValueOrDefault("BorsellinoImportoResiduo", 0);
-            set => AppSettings.AddOrUpdateValue("BorsellinoImportoResiduo", value);
+            get => DoubleConverter.FromString(AppSettings.GetValueOrDefault("BorsellinoImportoResiduo", string.Empty));
+            set => AppSettings.AddOrUpdateValue("BorsellinoImportoResiduo", DoubleConverter.FromDouble(value));
         }
 
         public static long BorsellinoIdStato
         {
-            get => AppSettings.GetValueOrDefault("BorsellinoIdStato", 0);
-            set => AppSettings.AddOrUpdateValue("BorsellinoIdStato", value);
+            get => LongConverter.FromString(AppSettings.GetValueOrDefault("BorsellinoIdStato", string.Empty));
+            set => AppSettings.AddOrUpdateValue("BorsellinoIdStato", LongConverter.FromLong(value));
         }
 
         public static DateTime? BorsellinoDataInserimento

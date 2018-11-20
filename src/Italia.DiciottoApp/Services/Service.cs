@@ -16,6 +16,7 @@ namespace Italia.DiciottoApp.Services
             container.Register<IInfoService, InfoService>();
             container.Register<ILoginService, LoginService>();
             container.Register<INotificationsService, NotificationsService>();
+            container.Register<IUserInfoService, UserInfoService>();
         }
 
         public static TTypeToResolve Resolve<TTypeToResolve>()

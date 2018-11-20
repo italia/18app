@@ -107,7 +107,7 @@ namespace Italia.DiciottoApp.ViewModels
                     isValid = false;
                     ErrorMessage = "Il valore inserito non è un numero.";
                 }
-                else if (valore <= 0 || valore > ActualCredit)
+                else if (valore <= 0 || valore > Settings.BorsellinoImportoResiduo) // ActualCredit
                 {
                     isValid = false;
                     ErrorMessage = "Il valore dev'essere maggiore di zero e non superiore al credito disponibile.";

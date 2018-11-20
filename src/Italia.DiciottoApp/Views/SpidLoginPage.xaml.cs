@@ -23,19 +23,6 @@ namespace Italia.DiciottoApp.Views
             vm = BindingContext as SpidLoginViewModel;
         }
 
-        //private async Task NavigateToWelcomePage()
-        //{
-        //    // Get the root page
-        //    IReadOnlyList<Page> navStack = Navigation.NavigationStack;
-        //    Page currentRootPage = navStack[0];
-
-        //    // Insert page before WelcomePage
-        //    Navigation.InsertPageBefore(new WelcomePage(), currentRootPage);
-
-        //    // Clear navigation stack
-        //    await Navigation.PopToRootAsync();
-        //}
-
         private async Task Login(IdP idp)
         {
             // TODO: Fix this when fake login will be removed

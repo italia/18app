@@ -49,7 +49,12 @@ namespace Italia.DiciottoApp.Services
                 var content = await response.Content.ReadAsStringAsync();
                 var beneficiarioBean = JsonConvert.DeserializeObject<BeneficiarioBean>(content);
 
-                if (beneficiarioBean.ErrorCode == 5)
+                if (beneficiarioBean == null)
+                {
+                    // Unable to get beneficiario
+                    loginResult.UnavailableBeneficiary();
+                }
+                else if (beneficiarioBean.ErrorCode == 5)
                 {
                     // Login failed: è scaduto il periodo di registrazione
                     // TODO: c'è da fare qualche chiamata di logout?
@@ -84,6 +89,10 @@ namespace Italia.DiciottoApp.Services
                         {
                             beneficiarioBean.BorsellinoBean = borsellinoBean;
                         }
+                        else
+                        {
+                            loginResult.UnavailableWallet();
+                        }
 
                         loginResult.SetBeneficiary(beneficiarioBean);
                     }
@@ -117,14 +126,19 @@ namespace Italia.DiciottoApp.Services
 
                 }
             }
-            catch (Exception ex)
+            catch (LoginException loginException)
             {
-                Debug.WriteLine($"++++ Login error: {ex.Message}");
+                Debug.WriteLine($"+---- Login service result error: {loginException.Message}");
                 foreach (var response in loginResult.Log)
                 {
                     Debug.WriteLine($"  ++ Login operation: {response.RequestMessage.RequestUri} , result: {response.StatusCode}");
                 }
             }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"+---- Login service error: {ex.Message}");
+            }
+
             return loginResult;
         }
 

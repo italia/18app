@@ -7,15 +7,11 @@ using Italia.DiciottoApp.DTOs;
 
 namespace Italia.DiciottoApp.Models
 {
-    public class LoginResult
+    public class LoginResult : ServiceResult
     {
-        public bool Success { get; set; } = true;
-
         public BeneficiarioBean Beneficiary { get; set; }
 
-        public LoginFailureReason FailureReason { get; set; } = LoginFailureReason.Unknown;
-
-        public List<HttpResponseMessage> Log { get; set; } = new List<HttpResponseMessage>();
+        public new LoginFailureReason FailureReason { get; set; } = LoginFailureReason.Unknown;
 
         public void Process(HttpResponseMessage response, bool skipInternalError = false)
         {
@@ -25,7 +21,7 @@ namespace Italia.DiciottoApp.Models
             if (!Success)
             {
                 FailureReason = LoginFailureReason.UnsuccessfulHttpStatusCode;
-                throw new Exception($"Http request failure: {response.StatusCode}");
+                throw new LoginException($"Http request failure: {response.StatusCode}");
             }
         }
 
@@ -47,10 +43,23 @@ namespace Italia.DiciottoApp.Models
             FailureReason = LoginFailureReason.RegistrationCheckFailed;
         }
 
+        public void UnavailableBeneficiary()
+        {
+            Success = false;
+            FailureReason = LoginFailureReason.UnavailableBeneficiary;
+        }
+
+        public void UnavailableWallet()
+        {
+            Success = false;
+            FailureReason = LoginFailureReason.UnavailableWallet;
+        }
+
         public void SetBeneficiary(BeneficiarioBean beneficiary)
         {
             Success = true;
             Beneficiary = beneficiary;
         }
+
     }
 }

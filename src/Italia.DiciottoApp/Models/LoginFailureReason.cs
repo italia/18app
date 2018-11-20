@@ -10,6 +10,8 @@ namespace Italia.DiciottoApp.Models
         RegistrationTimeEnded,
         NonOperatingBeneficiary,
         RegistrationCheckFailed,
+        UnavailableBeneficiary,
+        UnavailableWallet,
         Unknown
     }
 }

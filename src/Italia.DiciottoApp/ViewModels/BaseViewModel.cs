@@ -38,46 +38,37 @@ namespace Italia.DiciottoApp.ViewModels
 
         public string UserFullname => Settings.UserName + " " + Settings.UserSurname;
 
-        public double InitialCredit => 500.00;
+        public double InitialCredit => Settings.BorsellinoImportoTot;
 
-        private double actualCredit;
-        public double ActualCredit
-        {
-            get => actualCredit;
-            set => SetProperty(ref actualCredit, value, onChanged: () =>
-            {
-                OnPropertyChanged(nameof(UsedPercentage));
-                OnPropertyChanged(nameof(UserCredit));
-            });
-        }
+        public double ActualCredit => Settings.BorsellinoImportoResiduo;
 
         public double UsedPercentage => (InitialCredit - ActualCredit) / InitialCredit;
 
         public string UserCredit => $"{ActualCredit.ToString("###.00")}€";
 
-        private string unreadMessages;
-        public string UnreadMessages
-        {
-            get => unreadMessages;
-            set => SetProperty(ref unreadMessages, value, onChanged: () => { OnPropertyChanged(nameof(HasUnreadMessages)); });
-        }
+        //private string unreadMessages;
+        //public string UnreadMessages
+        //{
+        //    get => unreadMessages;
+        //    set => SetProperty(ref unreadMessages, value, onChanged: () => { OnPropertyChanged(nameof(HasUnreadMessages)); });
+        //}
 
-        public bool HasUnreadMessages => UnreadMessages != "0";
+        //public bool HasUnreadMessages => UnreadMessages != "0";
 
         #endregion
 
         public BaseViewModel()
         {
-            GetUserStatus();
+            // GetUserStatus()
         }
 
-        private void GetUserStatus()
-        {
-            // TODO: get data from service
-            Random rnd = new Random(DateTime.Now.Millisecond);
-            ActualCredit = 50.00 + rnd.Next(0, 450);
-            UnreadMessages = rnd.Next(0, 5).ToString();
-        }
+        //private void GetUserStatus()
+        //{
+        //    // TODO: get data from service
+        //    Random rnd = new Random(DateTime.Now.Millisecond);
+        //    ActualCredit = 50.00 + rnd.Next(0, 450);
+        //    UnreadMessages = rnd.Next(0, 5).ToString();
+        //}
 
     }
 }

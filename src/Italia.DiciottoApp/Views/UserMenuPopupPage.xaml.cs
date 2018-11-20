@@ -13,23 +13,24 @@ using Xamarin.Forms.Xaml;
 
 namespace Italia.DiciottoApp.Views
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class UserMenuPopupPage : PopupPage
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class UserMenuPopupPage : PopupPage
     {
         private UserMenuPopupViewModel vm;
         private NavigationPage appNavigationPage;
 
-
-        public UserMenuPopupPage (NavigationPage navigationPage)
-		{
-			InitializeComponent ();
+        public UserMenuPopupPage(NavigationPage navigationPage)
+        {
+            InitializeComponent();
             appNavigationPage = navigationPage;
             vm = BindingContext as UserMenuPopupViewModel;
         }
 
-        protected override void OnAppearing()
+        protected async override void OnAppearing()
         {
             base.OnAppearing();
+            var serviceResult = await vm?.GetBorsellinoAsync();
+            await ManageServiceResult(serviceResult);
         }
 
         protected override void OnDisappearing()
@@ -138,5 +139,48 @@ namespace Italia.DiciottoApp.Views
             Settings.UserLogged = false;
             await appNavigationPage.PushAsync(new WelcomePage());
         }
+
+        private async Task ManageServiceResult(ServiceResult serviceResult)
+        {
+            if (!serviceResult.Success)
+            {
+                string title;
+                string msg;
+
+                if (serviceResult.FailureReason == ServiceFailureReason.Forbidden || serviceResult.FailureReason == ServiceFailureReason.InternalServerError)
+                {
+                    title = "Session timeout";
+                    msg = "La sessione è scaduta, occorre effettuare nuovamente il login";
+                    Settings.FEDSecureToken = string.Empty;
+                    Settings.UserLogged = false;
+                }
+                else
+                {
+                    title = "Service Error";
+                    msg = "Servizio al momento non disponibile";
+                }
+
+                await DisplayAlert(title, msg, "OK");
+
+                await PopupNavigation.Instance.PopAllAsync();
+
+                if (!Settings.UserLogged)
+                {
+                    // Get the root page
+                    IReadOnlyList<Page> navStack = appNavigationPage.Navigation.NavigationStack;
+                    Page currentRootPage = navStack[0];
+
+                    // Insert SpidLoginPage before LoggedRootPage
+                    appNavigationPage.Navigation.InsertPageBefore(new SpidLoginPage(), currentRootPage);
+
+                    // Clear navigation stack to go to the SpidLoginPage
+                    await appNavigationPage.PopToRootAsync();
+
+                    // Add WelcomePage as root page
+                    appNavigationPage.Navigation.InsertPageBefore(new WelcomePage(), navStack[0]);
+                }
+            }
+        }
+
     }
 }

@@ -48,7 +48,6 @@ namespace Italia.DiciottoApp.Views
         private void OnBrowserNavigated(object sender, WebNavigatedEventArgs e)
         {
             Debug.WriteLine($"++++ Navigated to {e.Url}");
-
         }
 
         private async void OnUrlReturned(object sender, UrlReturnedEventArgs e)
@@ -83,24 +82,22 @@ namespace Italia.DiciottoApp.Views
                 {
                     if (loginResult.Beneficiary == null)
                     {
-                        // TODO: Error!!!
+                        LoginFailDetail = "Unavailable Beneficiary info";
                     }
-
-                    //Settings.UserLogged = true;
-                    //Settings.UserId = Guid.NewGuid().ToString();
-                    //Settings.UserName = "Franco";
-                    //Settings.UserSurname = "Rossi";
-                    //Settings.UserCodFisc = "RSSFNC00H22H501G";
-                    //Settings.UserEmail = "franco.rossi@testdomain.it";
-                    //Settings.UserResidenceAddress = "Via della Repubblica, 171";
-                    //Settings.UserResidenceZip = "31100";
-                    //Settings.UserResidenceCity = "Treviso";
-                    //Settings.UserResidenceProvince = "TV";
-                    //Settings.UserBirthDate = "22/06/2000";
-                    //Settings.UserBirthCity = "Roma";
-                    //Settings.UserBirthProvince = "RM";
-                    //Settings.UserPhoneNumber = "333 1234567";
-                    //Settings.UserSpidIdPIndex = (int)idp;
+                    else
+                    {
+                        Settings.SetBeneficiario(loginResult.Beneficiary);
+                        if (loginResult.Beneficiary.BorsellinoBean == null)
+                        {
+                            LoginFailDetail = "Unavailable Wallet info";
+                        }
+                        else
+                        {
+                            Settings.SetBorsellino(loginResult.Beneficiary.BorsellinoBean);
+                            Settings.FEDSecureToken = fedSecureToken.Value;
+                            Settings.UserLogged = true;
+                        }
+                    }
                 }
                 else
                 {
@@ -108,7 +105,27 @@ namespace Italia.DiciottoApp.Views
                 }
             }
 
+            if (string.IsNullOrWhiteSpace(LoginFailDetail))
+            {
+                // TODO: Show Error Message with ok button
+            }
 
+            if (Settings.UserLogged)
+            {
+                // Get the root page
+                IReadOnlyList<Page> navStack = Navigation.NavigationStack;
+                Page currentRootPage = navStack[0];
+
+                // Insert page before WelcomePage
+                Navigation.InsertPageBefore(new LoggedRootPage(), currentRootPage);
+            }
+            else
+            {
+                // Don't do anything, we'll go to the root page that is already the Welcome page
+            }
+
+            // Clear navigation stack
+            await Navigation.PopToRootAsync();
         }
 
     }
