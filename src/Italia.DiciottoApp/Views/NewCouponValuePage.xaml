@@ -122,10 +122,12 @@
                        TextColor="#FF30383D" FontSize="16"
                        Text="Valore" />
 
-                <Entry Margin="16,0"
-                       Placeholder="{Binding EntryValuePlaceholder}"
-                       Keyboard="{OnPlatform Default=Numeric, Android=Default}"
-                       MaxLength="6"
+                <!-- Big problem with Android Keyboard (some don't have comma so we should set "Android=Default" -->
+                <!-- Actually we decided to force everyone to install SwiftKey Keyboard -->
+                <!-- Removed: Placeholder="{Binding EntryValuePlaceholder}"-->
+                <Entry x:Name="CouponValueEntry" Margin="16,0"
+                       Keyboard="{OnPlatform Default=Numeric, Android=Numeric}" 
+                       MaxLength="6" WidthRequest="107"
                        TextChanged="OnEntryTextChanged"
                        Text="{Binding EntryValue}"/>
 

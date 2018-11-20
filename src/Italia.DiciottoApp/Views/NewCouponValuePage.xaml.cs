@@ -26,6 +26,12 @@ namespace Italia.DiciottoApp.Views
             vm.Prodotto = prodotto;
         }
 
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            CouponValueEntry.Focus();
+        }
+
         private void OnEntryTextChanged(object sender, TextChangedEventArgs e)
         {
             vm.ValidateEntry(e.NewTextValue);
