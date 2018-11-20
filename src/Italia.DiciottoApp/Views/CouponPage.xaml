@@ -43,7 +43,7 @@
                     <Label Margin="0"
                            HorizontalOptions="Start"
                            Style="{StaticResource BoldLabelStyle}"
-                           TextColor="White" FontSize="32"
+                           TextColor="White" FontSize="32" MaxLines="1" LineBreakMode="TailTruncation" 
                            Text="{Binding Coupon.Shop.Title}" />
 
                     <StackLayout Padding="0" Spacing="0"
@@ -206,7 +206,7 @@
                                  IsVisible="{Binding UseCouponOnlineButtonIsVisible}" />
 
                         <!-- Bottone: percorso per il negozio -->
-                        <BoxView HeightRequest="1" BackgroundColor="#FFEFEFEF"
+                        <!--<BoxView HeightRequest="1" BackgroundColor="#FFEFEFEF"
                                  IsVisible="{Binding ShopRouteButtonIsVisible}" />
 
                         <Frame CornerRadius="5" Padding="1"
@@ -231,13 +231,13 @@
                                        TextColor="White"
                                        Text="PERCORSO PER IL NEGOZIO"/>
                             </StackLayout>
-                        </Frame>
+                        </Frame>-->
 
                         <BoxView HeightRequest="1" BackgroundColor="#FFEFEFEF"
                                  IsVisible="{Binding ShopRouteButtonIsVisible}" />
 
                         <!-- QRcode, barcode e bottone salva immagine -->
-                        <StackLayout Padding="26,24" Spacing="0"
+                        <!--<StackLayout Padding="26,24" Spacing="0"
                                  Orientation="Horizontal"
                                  IsVisible="{Binding CouponNotSpent}">
 
@@ -268,7 +268,7 @@
                                        Text="IMMAGINE" />
                                 </StackLayout>
                             </StackLayout>
-                        </StackLayout>
+                        </StackLayout>-->
 
                         <!-- Bottone: trova un negozio -->
                         <BoxView HeightRequest="1" BackgroundColor="#FFEFEFEF" 

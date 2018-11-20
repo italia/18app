@@ -38,7 +38,7 @@ namespace Italia.DiciottoApp.Views
 
         private void OnRouteToShopButtonTapped(object sender, EventArgs e)
         {
-            // TODO: da fare!
+            // STILL_NOT_IMPLEMENTED on 18App APIs
         }
 
         private void OnFindAnotherShopButtonTapped(object sender, EventArgs e)
