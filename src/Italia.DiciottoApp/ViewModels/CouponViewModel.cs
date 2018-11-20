@@ -31,7 +31,7 @@ namespace Italia.DiciottoApp.ViewModels
                                    : JustCreated ? "Buono creato"
                                    : "Dettagli del buono";
 
-        public AppArea AppArea => AppArea.NewCoupon;
+        public AppArea AppArea => AppArea.Wallet;
 
         public string CouponOwner => $"{Settings.UserName} {Settings.UserSurname}";
 
@@ -46,7 +46,8 @@ namespace Italia.DiciottoApp.ViewModels
         public string CouponStatus =>
             Coupon == null ? string.Empty
                            : Coupon.Spent ? $"Buono utilizzato il {Coupon.SpentDateTime.ToString("dd MMMM yy", ci)} alle ore {Coupon.SpentDateTime.ToString("hh.mm")}"
-                           : $"Il nuovo buono è stato creato correttamente";
+                           : JustCreated ? "Il nuovo buono è stato creato correttamente"
+                           : "Buono ancora da spendere" ;
 
         public Color CouponStatusTextColor => (Coupon?.Spent ?? false) ? red : green;
 
