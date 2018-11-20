@@ -107,7 +107,7 @@
                 Image="logo_utente_spid.png"
                 Text="ENTRA CON SPID"
                 VerticalOptions="Center"
-                Style="{StaticResource Key=InfoButtonStyle}"
+                Style="{StaticResource Key=LoginButtonStyle}"
                 Clicked="ButtonLogin_Clicked" />
     </Grid>
 </views:BasePage>

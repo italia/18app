@@ -27,8 +27,8 @@
             <Setter Property="FontFamily">
                 <Setter.Value>
                     <OnPlatform x:TypeArguments="x:String"
-                        Default="TitilliumWeb-Bold"
-                        Android="fonts/TitilliumWeb-Bold.ttf#TitilliumWeb-Bold" />
+                                Default="TitilliumWeb-Bold"
+                                Android="fonts/TitilliumWeb-Bold.ttf#TitilliumWeb-Bold" />
                 </Setter.Value>
             </Setter>
         </Style>
@@ -135,6 +135,20 @@
                     <OnPlatform x:TypeArguments="x:String"
                                 Default="TitilliumWeb-Regular"
                                 Android="fonts/TitilliumWeb-Regular.ttf#TitilliumWeb-Regular" />
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="LoginButtonStyle" TargetType="Button">
+            <Setter Property="TextColor" Value="White" />
+            <Setter Property="BackgroundColor" Value="Transparent" />
+            <Setter Property="HorizontalOptions" Value="Center" />
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="FontFamily">
+                <Setter.Value>
+                    <OnPlatform x:TypeArguments="x:String"
+                                Default="TitilliumWeb-Bold"
+                                Android="fonts/TitilliumWeb-Bold.ttf#TitilliumWeb-Bold" />
                 </Setter.Value>
             </Setter>
         </Style>
@@ -323,6 +337,7 @@
                                Text ="{Binding UserCredit}" />
                     </StackLayout>
 
+                    <!-- User icon -->
                     <Image Grid.Row="0" Grid.Column="2"
                            HorizontalOptions="End"
                            Margin="0,0,10,0"
@@ -332,7 +347,8 @@
                         </Image.GestureRecognizers>
                     </Image>
 
-                    <Grid Grid.Row="0" Grid.Column="2"
+                    <!-- Message couter-->
+                    <!--<Grid Grid.Row="0" Grid.Column="2"
                           HorizontalOptions="End"
                           VerticalOptions="End"
                           Margin="0,0,10,8">
@@ -348,7 +364,7 @@
                                HorizontalOptions="Center" VerticalOptions="Center"
                                Margin="0,0,0,1"
                                Text ="2" />
-                    </Grid>
+                    </Grid>-->
                 </Grid>
 
                 <!-- Page content -->
@@ -490,7 +506,7 @@
                     </Image>
 
                     <!-- Message couter-->
-                    <Grid Grid.Row="0" Grid.Column="2"
+                    <!--<Grid Grid.Row="0" Grid.Column="2"
                           HorizontalOptions="End"
                           VerticalOptions="End"
                           Margin="0,0,5,5"
@@ -507,7 +523,8 @@
                                HorizontalOptions="Center" VerticalOptions="Center"
                                Margin="0,0,0,1"
                                Text ="{Binding UnreadMessages}" />
-                    </Grid>
+                    </Grid>-->
+                    
                 </Grid>
 
                 <!-- Page content -->
