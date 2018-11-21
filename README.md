@@ -1,20 +1,13 @@
 # Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+This is the repository of the official Andoid and iOS 18App mobile applications, developed with Xamarin.Forms framework
 
 # Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
+The code is contained as a single Visual Studio solution in the `/scr` folder.
+As always, the first thing to do is to fork the project and then open it in your Visual Studio.
 
-# Build and Test
-TODO: Describe and show how to build your code and run the tests. 
+Please refer to [Xamarin Forms documentation](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/get-started/installation?tabs=windows#windows-system-requirements) to install all the need development tools.
 
 # Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
-
-If you want to learn more about creating good readme files then refer the following [guidelines](https://www.visualstudio.com/en-us/docs/git/create-a-readme). You can also seek inspiration from the below readme files:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
+Contribution is welcomed, but we're actually busy on the production of the first beta release, so the codebase is changing fast and a lot.
+After beta release we can start to evaluate your PRs (Pull Resquests).
+As always, please first create an issue, so we can debate on how to solve it and then do your contribution and create the PR, so we can review it more esaily. Do not work on multiple issues (unless they are tied together) on the same PR.
