@@ -15,4 +15,4 @@ We will eventually set a CI/CD build configuration with the freely available Azu
 # Contribute
 Contribution is welcomed, but we're busy on the first beta release, so the codebase is changing fast and a lot.
 After beta release we can start to evaluate your PRs (Pull Requests).
-Please first create an issue, so we can debate on how to solve it and then do your contribution and create the PR, so we can review it more easily. Do not put your work on multiple issues (unless they are strongly tied together) on the same PR, as each PR should solve a specific issue.
+Please first create an issue, so we can debate on how to solve it and then do your contribution and create the PR, so we can review it more easily. Do not put multiple issues code changes (unless they are strongly tied together) on the same PR, as each PR should solve a specific issue.
