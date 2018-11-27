@@ -234,7 +234,6 @@ namespace Italia.DiciottoApp.Droid.Renderers
                 var args = new WebNavigatedEventArgs(WebNavigationEvent.NewPage, source, url, _navigationResult);
 
                 _renderer.ElementController.SendNavigated(args);
-
                 _renderer.UpdateCanGoBackForward();
 
                 base.OnPageFinished(view, url);
@@ -244,10 +243,7 @@ namespace Italia.DiciottoApp.Droid.Renderers
             public override void OnReceivedError(AWebView view, ClientError errorCode, string description, string failingUrl)
             {
                 Log.Warning("++++++++ WebView:OnReceivedError(AWebView view, ClientError errorCode, string description, string failingUrl)", $"failingUrl={failingUrl}");
-
-                _navigationResult = WebNavigationResult.Failure;
-                if (errorCode == ClientError.Timeout)
-                    _navigationResult = WebNavigationResult.Timeout;
+                _navigationResult = (errorCode == ClientError.Timeout) ? WebNavigationResult.Timeout : WebNavigationResult.Failure;
 #pragma warning disable 618
                 base.OnReceivedError(view, errorCode, description, failingUrl);
 #pragma warning restore 618
@@ -256,10 +252,7 @@ namespace Italia.DiciottoApp.Droid.Renderers
             public override void OnReceivedError(AWebView view, IWebResourceRequest request, WebResourceError error)
             {
                 Log.Warning("++++++++ WebView:OnReceivedError(AWebView view, IWebResourceRequest request, WebResourceError error)", $"error.Description={error.Description}");
-
-                _navigationResult = WebNavigationResult.Failure;
-                if (error.ErrorCode == ClientError.Timeout)
-                    _navigationResult = WebNavigationResult.Timeout;
+                _navigationResult = (error.ErrorCode == ClientError.Timeout) ? WebNavigationResult.Timeout : WebNavigationResult.Failure;
                 base.OnReceivedError(view, request, error);
             }
 
@@ -267,7 +260,6 @@ namespace Italia.DiciottoApp.Droid.Renderers
             public override bool ShouldOverrideUrlLoading(AWebView view, string url)
             {
                 Log.Warning("++++++++ WebView:[obsolete]ShouldOverrideUrlLoading(AWebView view, string url)", $"url={url}");
-
                 return ShouldOverrideUrlLoading(url);
             }
 
@@ -276,7 +268,6 @@ namespace Italia.DiciottoApp.Droid.Renderers
             public override bool ShouldOverrideUrlLoading(AWebView view, IWebResourceRequest request)
             {
                 Log.Warning("++++++++ WebView:ShouldOverrideUrlLoading(AWebView view, IWebResourceRequest request)", $"request.Url.Host={request.Url.Host}");
-
                 return ShouldOverrideUrlLoading(request.Url.ToString());
             }
 
@@ -287,29 +278,15 @@ namespace Italia.DiciottoApp.Droid.Renderers
             private bool ShouldOverrideUrlLoading(string url)
             {
                 if (_renderer.Element == null)
-                    return true;
-
-                var args = new WebNavigatingEventArgs(WebNavigationEvent.NewPage, new UrlWebViewSource { Url = url }, url);
-
-                _renderer.ElementController.SendNavigating(args);
-                _navigationResult = WebNavigationResult.Success;
-                _renderer.UpdateCanGoBackForward();
-
-                // Override Url loading if url is equal to ExtWebView.ReturnUrl
-                ExtWebView extWebView = _renderer.ElementController as ExtWebView;
-                Log.Warning("+*+*+*+* Checkin overload request", $"url={url} VS. returnUrls={extWebView.ReturnUrls}");
-                if (!string.IsNullOrWhiteSpace(extWebView?.ReturnUrls)
-                    && extWebView.ReturnUrls.Split(';').Any(returnUrl => returnUrl == url))
                 {
-                    Log.Warning("+*+*+*+* Checkin overload request", $"True!!!");
-                    extWebView.OnUrlReturned(new UrlReturnedEventArgs(url));
-                    // _renderer.Control.StopLoading();
-                    _navigationEnabled = false;
                     return true;
                 }
-                Log.Warning("+*+*+*+* Checkin overload request", $"False!!!");
 
-                return false;
+                var args = new WebNavigatingEventArgs(WebNavigationEvent.NewPage, new UrlWebViewSource { Url = url }, url);
+                _renderer.ElementController.SendNavigating(args);
+                _renderer.UpdateCanGoBackForward();
+                _navigationResult = args.Cancel ? WebNavigationResult.Cancel : WebNavigationResult.Success;
+                return args.Cancel;
             }
 
             #endregion 

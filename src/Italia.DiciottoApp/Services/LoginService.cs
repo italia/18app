@@ -19,14 +19,15 @@ namespace Italia.DiciottoApp.Services
 
         public string ClientSecret { get; set; } = Keys.X_IBM_ClientSecret;
 
-        public async Task<LoginResult> LoginAsync(Cookie cookie)
+        public async Task<LoginResult> LoginAsync(Cookie fedSecureToken, Cookie usernameToken)
         {
             Uri cookieUri = new Uri(Constants.SERVICE_HOST);
             HttpClientHandler httpClientHhandler = new HttpClientHandler
             {
                 CookieContainer = new CookieContainer()
             };
-            httpClientHhandler.CookieContainer.Add(cookieUri, new Cookie { Name = cookie.Name, Value = cookie.Value });
+            httpClientHhandler.CookieContainer.Add(cookieUri, new Cookie { Name = fedSecureToken.Name, Value = fedSecureToken.Value });
+            httpClientHhandler.CookieContainer.Add(cookieUri, new Cookie { Name = usernameToken.Name, Value = usernameToken.Value });
             httpClient = new HttpClient(httpClientHhandler)
             {
                 MaxResponseContentBufferSize = 256000
@@ -38,7 +39,7 @@ namespace Italia.DiciottoApp.Services
             try
             {
                 var response = await httpClient.GetAsync($"{Constants.SERVICE_ENDPOINT}/BONUSWS/rest/secured/18enne/aggiornaBeneficiarioBySPID");
-                loginResult.Process(response, skipInternalError: true);
+                loginResult.Process(response); // loginResult.Process(response, skipInternalError: true);
 
                 response = await httpClient.GetAsync($"{Constants.SERVICE_ENDPOINT}/BonusLoginWEB/jaxrs/userData");
                 loginResult.Process(response);

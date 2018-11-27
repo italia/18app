@@ -9,6 +9,6 @@ namespace Italia.DiciottoApp.Services
 {
     interface ILoginService
     {
-        Task<LoginResult> LoginAsync(Cookie cookie);
+        Task<LoginResult> LoginAsync(Cookie fedSecureToken, Cookie usernameToken);
     }
 }

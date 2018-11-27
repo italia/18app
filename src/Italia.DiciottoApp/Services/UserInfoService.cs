@@ -26,7 +26,7 @@ namespace Italia.DiciottoApp.Services
             {
                 CookieContainer = new CookieContainer()
             };
-            httpClientHhandler.CookieContainer.Add(cookieUri, new Cookie { Name = Constants.COOKIES_NAME, Value = Settings.FEDSecureToken });
+            httpClientHhandler.CookieContainer.Add(cookieUri, new Cookie { Name = Constants.COOKIES_SECURE_TOKEN, Value = Settings.FEDSecureToken });
             httpClient = new HttpClient(httpClientHhandler)
             {
                 MaxResponseContentBufferSize = 256000

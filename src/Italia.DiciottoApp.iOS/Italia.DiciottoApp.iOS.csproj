@@ -101,8 +101,8 @@
     <Compile Include="CookieStore\CookieStore_IOS.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
-    <Compile Include="Renderers\ExtWebViewRenderer.cs" />
     <Compile Include="Renderers\RadialGaugeRenderer.cs" />
+    <Compile Include="Renderers\VisualElementInitHelper.cs" />
     <None Include="Entitlements.plist" />
     <None Include="Info.plist">
       <SubType>Designer</SubType>

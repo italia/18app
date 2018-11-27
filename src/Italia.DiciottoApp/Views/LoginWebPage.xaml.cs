@@ -21,6 +21,7 @@ namespace Italia.DiciottoApp.Views
 	{
         private LoginWebPageViewModel vm;
         private IdP idp;
+        private readonly string returnUrls = "https://val.18app.italia.it/BeneficiarioWeb/#/registrazione";
 
 		public LoginWebPage (IdP idp)
 		{
@@ -42,7 +43,12 @@ namespace Italia.DiciottoApp.Views
 
         private void OnBrowserNavigating(object sender, WebNavigatingEventArgs e)
         {
-            Debug.WriteLine($"++++ Navigating to {e.Url}");
+            if (!string.IsNullOrWhiteSpace(e.Url)
+                && returnUrls.Split(';').Any(returnUrl => returnUrl == e.Url))
+            {
+                e.Cancel = true;
+                LoginBrowser.OnUrlReturned(new UrlReturnedEventArgs(e.Url));
+            }
         }
 
         private void OnBrowserNavigated(object sender, WebNavigatedEventArgs e)
@@ -63,7 +69,10 @@ namespace Italia.DiciottoApp.Views
             IPlatformCookieStore cookieStore = DependencyService.Get<IPlatformCookieStore>();
             // cookieStore.DumpAllCookiesForSite(Constants.COOKIES_URL);
             var cookies = cookieStore.GetCookiesForSite(Constants.COOKIES_URL);
-            Cookie fedSecureToken = cookies.Where(c => c.Name == Constants.COOKIES_NAME).FirstOrDefault();
+            Cookie fedSecureToken = cookies.Where(c => c.Name == Constants.COOKIES_SECURE_TOKEN).FirstOrDefault();
+            Debug.WriteLine($"++++ fedSecureToken: {fedSecureToken?.Value ?? "FEDSecureToken not found"}");
+
+            Cookie usernameToken = cookies.Where(c => c.Name == Constants.COOKIES_USER_TOKEN).FirstOrDefault();
             Debug.WriteLine($"++++ fedSecureToken: {fedSecureToken?.Value ?? "FEDSecureToken not found"}");
 
             string LoginFailDetail = string.Empty;
@@ -75,7 +84,7 @@ namespace Italia.DiciottoApp.Views
             else
             {
                 var loginService = Service.Resolve<ILoginService>();
-                var loginResult = await loginService.LoginAsync(fedSecureToken);
+                var loginResult = await loginService.LoginAsync(fedSecureToken, usernameToken);
                 Debug.WriteLine($"++++ LoginResult: {loginResult.Success}");
 
                 if (loginResult.Success)
