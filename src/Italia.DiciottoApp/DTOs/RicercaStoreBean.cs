@@ -31,6 +31,12 @@ namespace Italia.DiciottoApp.DTOs
         [JsonProperty("minLongitudine", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public double? MinLongitudine { get; set; }
 
+        [JsonProperty("latitudine", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public double? Latitudine { get; set; }
+
+        [JsonProperty("longitudine", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public double? Longitudine { get; set; }
+
         [JsonProperty("start", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? Start { get; set; }
 
