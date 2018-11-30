@@ -114,10 +114,10 @@ namespace Italia.DiciottoApp.Services
                         Comune = "Roma",
                         SiglaProvincia = "RM"
                     },
-                    Categorie = new Categoria[]
+                    Categorie = new List<Categoria>
                     {
-                        new Categoria(TipoCategoria.Cinema),
-                        new Categoria(TipoCategoria.Libri)
+                        CategoriaFromTipoCategoria(TipoCategoria.Cinema),
+                        CategoriaFromTipoCategoria(TipoCategoria.Libri)
                     },
                     IsOnline = false,
                     Url = string.Empty,
@@ -138,9 +138,9 @@ namespace Italia.DiciottoApp.Services
                         Comune = "Roma",
                         SiglaProvincia = "RM"
                     },
-                    Categorie = new Categoria[]
+                    Categorie = new List<Categoria>
                     {
-                        new Categoria(TipoCategoria.Concerti)
+                        CategoriaFromTipoCategoria(TipoCategoria.Concerti)
                     },
                     IsOnline = false,
                     Url = string.Empty,
@@ -161,9 +161,9 @@ namespace Italia.DiciottoApp.Services
                         Comune = "Roma",
                         SiglaProvincia = "RM"
                     },
-                    Categorie = new Categoria[]
+                    Categorie = new List<Categoria>
                     {
-                        new Categoria(TipoCategoria.Libri)
+                        CategoriaFromTipoCategoria(TipoCategoria.Libri)
                     },
                     IsOnline = false,
                     Url = string.Empty,
@@ -184,9 +184,9 @@ namespace Italia.DiciottoApp.Services
                         Comune = "Follonica",
                         SiglaProvincia = "GR"
                     },
-                    Categorie = new Categoria[]
+                    Categorie = new List<Categoria>
                     {
-                        new Categoria(TipoCategoria.TeatroDanza)
+                        CategoriaFromTipoCategoria(TipoCategoria.TeatroDanza)
                     },
                     IsOnline = false,
                     Url = string.Empty,
@@ -207,9 +207,9 @@ namespace Italia.DiciottoApp.Services
                         Comune = "Roma",
                         SiglaProvincia = "RM"
                     },
-                    Categorie = new Categoria[]
+                    Categorie = new List<Categoria>
                     {
-                        new Categoria(TipoCategoria.TeatroDanza)
+                        CategoriaFromTipoCategoria(TipoCategoria.TeatroDanza)
                     },
                     IsOnline = false,
                     Url = string.Empty,
@@ -222,9 +222,9 @@ namespace Italia.DiciottoApp.Services
                     Id = "62138162-7CC7-4F56-9247-1C7F04D09BC4",
                     Title = "Scuolabook",
                     Address = null,
-                    Categorie = new Categoria[]
+                    Categorie = new List<Categoria>
                     {
-                        Categories.Libri
+                        CategoriaFromTipoCategoria(TipoCategoria.Libri)
                     },
                     IsOnline = true,
                     Url = "www.scuolabook.it",
@@ -237,11 +237,11 @@ namespace Italia.DiciottoApp.Services
                     Id = "84A6D7E3-4C6B-46F8-A75F-64DCD5B6ECF1",
                     Title = "Cineteatro Nuovo Arcore",
                     Address = null,
-                    Categorie = new Categoria[]
+                    Categorie = new List<Categoria>
                     {
-                        Categories.Cinema,
-                        Categories.Concerti,
-                        Categories.TeatroDanza
+                        CategoriaFromTipoCategoria(TipoCategoria.Cinema),
+                        CategoriaFromTipoCategoria(TipoCategoria.Concerti),
+                        CategoriaFromTipoCategoria(TipoCategoria.TeatroDanza)
                     },
                     IsOnline = true,
                     Url = "www.cinemanuovoarcore.it",
@@ -254,12 +254,12 @@ namespace Italia.DiciottoApp.Services
                     Id = "3C202BA1-7511-4064-90AA-4492F5C9FB69",
                     Title = "TicketOne",
                     Address = null,
-                    Categorie = new Categoria[]
+                    Categorie = new List<Categoria>
                     {
-                        Categories.Concerti,
-                        Categories.EventiCulturali,
-                        Categories.MuseiMonumentiParchiNaturali,
-                        Categories.TeatroDanza
+                        CategoriaFromTipoCategoria(TipoCategoria.Concerti),
+                        CategoriaFromTipoCategoria(TipoCategoria.EventiCulturali),
+                        CategoriaFromTipoCategoria(TipoCategoria.MuseiMonumentiParchiNaturali),
+                        CategoriaFromTipoCategoria(TipoCategoria.TeatroDanza)
                     },
                     IsOnline = true,
                     Url = "www.ticketone.it/18App",
@@ -268,6 +268,11 @@ namespace Italia.DiciottoApp.Services
                     DistanceFromUser = string.Empty
                 }
             };
+        }
+
+        private static Categoria CategoriaFromTipoCategoria(TipoCategoria tipoCategoria)
+        {
+            return Categoria.List.SingleOrDefault(c => c.Tipo == tipoCategoria);
         }
     }
 }

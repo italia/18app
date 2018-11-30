@@ -9,7 +9,7 @@ namespace Italia.DiciottoApp.Models
     {
         public string Id { get; set; }
 
-        public string EsercenteId { get; set; }
+        // public string EsercenteId { get; set; }
 
         public bool IsOnline { get; set; }
 
@@ -23,7 +23,7 @@ namespace Italia.DiciottoApp.Models
 
         public string DistanceFromUser { get; set; }
 
-        public Categoria[] Categorie { get; set; }
+        public List<Categoria> Categorie { get; set; }
 
         public string Url { get; set; }
 
@@ -34,7 +34,7 @@ namespace Italia.DiciottoApp.Models
             {
                 if (elencoCategorie == null)
                 {
-                    if (Categorie.Length == 0)
+                    if (Categorie.Count == 0)
                     {
                         return String.Empty;
                     }

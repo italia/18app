@@ -6,11 +6,14 @@ namespace Italia.DiciottoApp.Models
 {
     public enum TipoCategoria
     {
-        Cinema = 0,
-        Concerti,
-        EventiCulturali,
-        Libri,
-        MuseiMonumentiParchiNaturali,
-        TeatroDanza
+        Sconosciuto = 0,
+        Cinema = 1,
+        Concerti = 2,
+        EventiCulturali = 3,
+        Formazione = 14,
+        Libri = 4,
+        MuseiMonumentiParchiNaturali = 5,
+        MusicaRegistrata = 15,
+        TeatroDanza = 6
     }
 }

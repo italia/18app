@@ -285,7 +285,6 @@ namespace Italia.DiciottoApp.Generated
         [JsonProperty("flagDataRicerca", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? FlagDataRicerca { get; set; } = false;
 
-
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.11.0.0 (Newtonsoft.Json v9.0.0.0)")]

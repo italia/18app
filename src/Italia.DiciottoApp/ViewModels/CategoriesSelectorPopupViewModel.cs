@@ -13,7 +13,7 @@ namespace Italia.DiciottoApp.ViewModels
 
         public AppArea AppArea => AppArea.None;
 
-        public IEnumerable<Categoria> Categories => Models.Categories.List;
+        public IEnumerable<Categoria> Categories => Categoria.List;
 
         #endregion
 

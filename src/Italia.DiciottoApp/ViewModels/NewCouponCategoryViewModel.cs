@@ -42,7 +42,7 @@ namespace Italia.DiciottoApp.ViewModels
 
         public string ListtHeader => "Scegli la categoria";
 
-        public IEnumerable<Categoria> Categories => Models.Categories.List;
+        public IEnumerable<Categoria> Categories => Categoria.List;
 
         #endregion
 

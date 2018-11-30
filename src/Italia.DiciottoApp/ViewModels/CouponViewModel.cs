@@ -103,8 +103,8 @@ namespace Italia.DiciottoApp.ViewModels
             Coupon coupon = new Coupon
             {
                 Id = id,
-                Category = Categories.Libri,
-                Product = Categories.Libri.Prodotti[0],
+                Category = CategoriaFromTipoCategoria(TipoCategoria.Libri),
+                Product = CategoriaFromTipoCategoria(TipoCategoria.Libri).Prodotti[0],
                 Value = 12.34,
                 QrCodeValue = id,
                 BarCodeValue = id,
@@ -114,6 +114,11 @@ namespace Italia.DiciottoApp.ViewModels
             };
 
             Coupon = coupon;
+        }
+
+        private static Categoria CategoriaFromTipoCategoria(TipoCategoria tipoCategoria)
+        {
+            return Categoria.List.SingleOrDefault(c => c.Tipo == tipoCategoria);
         }
 
     }

@@ -87,8 +87,8 @@ namespace Italia.DiciottoApp.Services
                     {
                         Id = "DF69A8D5",
                         Spent = false,
-                        Category = Categories.Cinema,
-                        Product = Categories.Cinema.Prodotti[0],
+                        Category = CategoriaFromTipoCategoria(TipoCategoria.Cinema),
+                        Product = CategoriaFromTipoCategoria(TipoCategoria.Cinema).Prodotti[0],
                         ShopId = "2375F804-5744-48C0-813C-0B87F2E0750E",
                         Value = 12.0
                     },
@@ -96,8 +96,8 @@ namespace Italia.DiciottoApp.Services
                     {
                         Id = "F1EB2A75",
                         Spent = false,
-                        Category = Categories.Concerti,
-                        Product = Categories.Concerti.Prodotti[1],
+                        Category = CategoriaFromTipoCategoria(TipoCategoria.Concerti),
+                        Product = CategoriaFromTipoCategoria(TipoCategoria.Concerti).Prodotti[1],
                         ShopId = "16D55D17-BD46-48CE-94FF-BB4F28971A21",
                         Value = 28.0
                     },
@@ -106,8 +106,8 @@ namespace Italia.DiciottoApp.Services
                         Id = "3702DA97",
                         Spent = true,
                         SpentDateTime = new DateTime(2017,3,12,23,12,0),
-                        Category = Categories.Libri,
-                        Product = Categories.Libri.Prodotti[0],
+                        Category = CategoriaFromTipoCategoria(TipoCategoria.Libri),
+                        Product = CategoriaFromTipoCategoria(TipoCategoria.Libri).Prodotti[0],
                         ShopId = "7E0C6AA6-ADF0-4710-A6EF-C7E24B2FFDFF",
                         Value = 9.0
                     },
@@ -116,8 +116,8 @@ namespace Italia.DiciottoApp.Services
                         Id = "DFA13EC3",
                         Spent = true,
                         SpentDateTime = new DateTime(2018,2,21,11,37,0),
-                        Category = Categories.Libri,
-                        Product = Categories.Libri.Prodotti[1],
+                        Category = CategoriaFromTipoCategoria(TipoCategoria.Libri),
+                        Product = CategoriaFromTipoCategoria(TipoCategoria.Libri).Prodotti[1],
                         ShopId = "7E0C6AA6-ADF0-4710-A6EF-C7E24B2FFDFF",
                         Value = 14.0
                     },
@@ -125,8 +125,8 @@ namespace Italia.DiciottoApp.Services
                     {
                         Id = "6D7CA172",
                         Spent = false,
-                        Category = Categories.TeatroDanza,
-                        Product = Categories.TeatroDanza.Prodotti[0],
+                        Category = CategoriaFromTipoCategoria(TipoCategoria.TeatroDanza),
+                        Product = CategoriaFromTipoCategoria(TipoCategoria.TeatroDanza).Prodotti[0],
                         ShopId = "2375F804-5744-48C0-813C-0B87F2E0750E",
                         Value = 15.0
                     },
@@ -134,13 +134,18 @@ namespace Italia.DiciottoApp.Services
                     {
                         Id = "8333856A",
                         Spent = false,
-                        Category = Categories.TeatroDanza,
-                        Product = Categories.TeatroDanza.Prodotti[1],
+                        Category = CategoriaFromTipoCategoria(TipoCategoria.TeatroDanza),
+                        Product = CategoriaFromTipoCategoria(TipoCategoria.TeatroDanza).Prodotti[1],
                         ShopId = "27E7A6D6-3C76-4CC4-81E5-4AD3B6211D0A",
                         Value = 70.0
                     }
                 };
             }
+        }
+
+        private static Categoria CategoriaFromTipoCategoria(TipoCategoria tipoCategoria)
+        {
+            return Categoria.List.SingleOrDefault(c => c.Tipo == tipoCategoria);
         }
     }
 }

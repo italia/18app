@@ -62,7 +62,7 @@ namespace Italia.DiciottoApp.ViewModels
             else
             {
                 ContentHeader = "Ricerca Comuni in corso...";
-                var municipalities = Models.Municipalities.List.Where(m => m.Name.ToUpper().Contains(searchText.ToUpper())).OrderBy(m => m.Name.Length).ThenBy(m => m.Name).Take(20);
+                var municipalities = Municipality.List.Where(m => m.Name.ToUpper().Contains(searchText.ToUpper())).OrderBy(m => m.Name.Length).ThenBy(m => m.Name).Take(20);
                 Municipalities.Clear();
                 foreach (var municipality in municipalities)
                 {
