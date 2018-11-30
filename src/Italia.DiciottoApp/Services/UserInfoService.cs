@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Italia.DiciottoApp.DTOs;
 using Italia.DiciottoApp.Models;
+using Italia.DiciottoApp.Utils;
 using Newtonsoft.Json;
 
 namespace Italia.DiciottoApp.Services
@@ -21,18 +22,7 @@ namespace Italia.DiciottoApp.Services
 
         public async Task<ServiceResult<BorsellinoBean>> GetBorsellinoAsync()
         {
-            Uri cookieUri = new Uri(Constants.SERVICE_HOST);
-            HttpClientHandler httpClientHhandler = new HttpClientHandler
-            {
-                CookieContainer = new CookieContainer()
-            };
-            httpClientHhandler.CookieContainer.Add(cookieUri, new Cookie { Name = Constants.COOKIES_SECURE_TOKEN, Value = Settings.FEDSecureToken });
-            httpClient = new HttpClient(httpClientHhandler)
-            {
-                MaxResponseContentBufferSize = 256000
-            };
-            httpClient.DefaultRequestHeaders.Add("X-IBM-Client-Id", ClientId);
-            httpClient.DefaultRequestHeaders.Add("X-IBM-Client-Secret", ClientSecret);
+            httpClient = HttpClientFactory.Builder(ClientId, ClientSecret, Settings.FEDSecureToken);
 
             var getBorsellinoResult = new ServiceResult<BorsellinoBean>();
             try
