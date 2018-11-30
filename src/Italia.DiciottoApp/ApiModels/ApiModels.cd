@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Italia.DiciottoApp.ApiModels.PuntoVenditaBean">
+    <Position X="4" Y="1" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>SBAABAQAAAgAAAAggAAAEAAAgAAAAAAAAAAAEAZBAAg=</HashCode>
+      <FileName>ApiModels\PuntoVenditaBean.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Italia.DiciottoApp.ApiModels.RicercaStoreResultBean">
+    <Position X="6.75" Y="1" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AQAQBAQAAAAAAAAggAAIAACAAAAAAAAAAAAAAAZADgI=</HashCode>
+      <FileName>ApiModels\RicercaStoreResultBean.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Italia.DiciottoApp.ApiModels.AmbitoBean">
+    <Position X="4" Y="5.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AQAAEAAQAAAAAAAAAAAAAACAgAAAAAAAAAAAAAAABAA=</HashCode>
+      <FileName>ApiModels\AmbitoBean.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Italia.DiciottoApp.ApiModels.BeneBean">
+    <Position X="6.75" Y="5.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>ARAAAAAQAAAAAAAAAAAQCACAkAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ApiModels\BeneBean.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Italia.DiciottoApp.ApiModels.EsercenteBean">
+    <Position X="1.25" Y="1" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>SBggDQQAAAAAgBAhAAhEFAAAgACSQAAAIAAEAAAAQEA=</HashCode>
+      <FileName>ApiModels\EsercenteBean.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
