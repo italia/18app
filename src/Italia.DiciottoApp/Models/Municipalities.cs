@@ -28,9 +28,8 @@ namespace Italia.DiciottoApp.Models
             Stream stream = assembly.GetManifestResourceStream("Italia.DiciottoApp.ElencoComuni.json");
 
             Municipality[] municipalities;
-            using (var reader = new System.IO.StreamReader(stream))
+            using (var reader = new StreamReader(stream))
             {
-
                 var json = reader.ReadToEnd();
                 municipalities = JsonConvert.DeserializeObject<Municipality[]>(json);
             }
