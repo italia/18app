@@ -3,6 +3,7 @@ using Italia.DiciottoApp.Services;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,7 +33,7 @@ namespace Italia.DiciottoApp.Test
             Assert.AreEqual(1, result.Log.Count);
 
             var actualStatusCode = result.Log[0].StatusCode;
-            Assert.AreEqual(HttpStatusCode.Unauthorized, actualStatusCode);
+            Assert.AreEqual(HttpStatusCode.InternalServerError, actualStatusCode);
         }
 
         [TestMethod]
@@ -47,7 +48,7 @@ namespace Italia.DiciottoApp.Test
             Assert.AreEqual(1, result.Log.Count);
 
             var actualStatusCode = result.Log[0].StatusCode;
-            Assert.AreEqual(HttpStatusCode.Unauthorized, actualStatusCode);
+            Assert.AreEqual(HttpStatusCode.InternalServerError, actualStatusCode);
         }
 
         [TestMethod]
@@ -69,9 +70,11 @@ namespace Italia.DiciottoApp.Test
         public async Task Test_RicercaStoreByFilterAsync_SucceedOnGoodStoreType()
         {
             // TipoStore is required!
+            // When using Limit, Start is required (0 starting)
             RicercaStoreBean ricercaStoreBean = new RicercaStoreBean
             {
                 TipoStore = "F",
+                Start = 0,
                 Limit = 10
             };
 
@@ -82,13 +85,16 @@ namespace Italia.DiciottoApp.Test
             Assert.AreEqual(HttpStatusCode.OK, result.Log[0].StatusCode);
         }
 
+        [TestMethod]
         public async Task Test_RicercaStoreByFilterAsync_SucceedOnGoodIdAmbito()
         {
             // TipoStore is required!
+            // When using Limit, Start is required (0 starting)
             RicercaStoreBean ricercaStoreBean = new RicercaStoreBean
             {
                 TipoStore = "F",
                 IdAmbito = 1,
+                Start = 0,
                 Limit = 10
             };
 
@@ -103,10 +109,12 @@ namespace Italia.DiciottoApp.Test
         public async Task Test_RicercaStoreByFilterAsync_SucceedOnExistentComune()
         {
             // TipoStore is required!
+            // When using Limit, Start is required (0 starting)
             RicercaStoreBean ricercaStoreBean = new RicercaStoreBean
             {
                 TipoStore = "F",
                 Comune = "Roma",
+                Start = 0,
                 Limit = 10
             };
 
@@ -123,12 +131,18 @@ namespace Italia.DiciottoApp.Test
             Location UserLocation = new Location(41.8919300, 12.5113300); // Center of Rome, Italy
 
             // TipoStore is required!
+            // When using Limit, Start is required (0 starting)
             RicercaStoreBean ricercaStoreBean = new RicercaStoreBean
             {
                 TipoStore = "F",
+                Start = 0,
+                Limit = 10,
+                //MinLatitudine = 30.0,
                 Latitudine = UserLocation.Latitude,
+                //MaxLatitudine = 48.0,
+                //MinLongitudine = 0.0,
                 Longitudine = UserLocation.Longitude,
-                Limit = 10
+                //MaxLongitudine = 20.0
             };
 
             var result = await shopsService.RicercaStoreByFilterAsync(ricercaStoreBean);
