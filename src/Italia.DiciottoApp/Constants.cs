@@ -16,7 +16,7 @@ namespace Italia.DiciottoApp
         public static readonly string COOKIES_SECURE_TOKEN = "FEDSecureToken";
         public static readonly string COOKIES_USER_TOKEN = "cookieutente";
         public static readonly string SERVICE_HOST = "https://18app-api-test.teamdigitale.it";
-        public static readonly string SERVICE_ENDPOINT = "https://18app-api-test.teamdigitale.it/interop/18app";
-
+        public static readonly string TEST_SERVICE_ENDPOINT = "https://18app-api-test.teamdigitale.it/interop/18app";
+        public static readonly string PROD_SERVICE_ENDPOINT = "https://www.18app.italia.it";
     }
 }

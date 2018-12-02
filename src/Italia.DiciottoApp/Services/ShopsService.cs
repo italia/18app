@@ -22,6 +22,12 @@ namespace Italia.DiciottoApp.Services
 
         public string ClientSecret { get; set; } = Keys.X_IBM_ClientSecret;
 
+        public string ProdClientId { get; set; } = Keys.PROD_X_IBM_ClientId;
+
+        public string ProdClientSecret { get; set; } = Keys.PROD_X_IBM_ClientSecret;
+
+
+
         public async Task<Shop> GetShopByIdAsync(string shopId)
         {
             if (string.IsNullOrWhiteSpace(shopId))
@@ -48,7 +54,7 @@ namespace Italia.DiciottoApp.Services
                 StringContent httpContent = new StringContent(ricercaStoreBeanJson, Encoding.UTF8, "application/json");
 
                 // Recupero i dati della ricerca store
-                var response = await httpClient.PostAsync($"{Constants.SERVICE_ENDPOINT}/BONUSWS/rest/unsecured/18enne/ricercaStoreByFilter", httpContent, ct);
+                var response = await httpClient.PostAsync($"{Constants.TEST_SERVICE_ENDPOINT}/BONUSWS/rest/unsecured/18enne/ricercaStoreByFilter", httpContent, ct);
                 await getRicercaStoreResultOutput.ProcessAsync(response);
             }
             catch (Exception ex)
@@ -105,7 +111,33 @@ namespace Italia.DiciottoApp.Services
                 {
                     string storeId = store.Id.ToString();
 
-                    if(lastShop != null && lastShop.Id != storeId)
+                    if (lastShop == null)
+                    {
+                        // Create a new category list
+                        categorie = new List<Categoria>
+                        {
+                            CategoriaFromIdAmbito(store.IdAmbito)
+                        };
+
+                        // Create a new shop
+                        lastShop = new Shop
+                        {
+                            Id = storeId,
+                            Title = store.Nome,
+                            Address = new Address
+                            {
+                                Cap = store.Cap,
+                                Comune = store.Comune,
+                                Indirizzo = store.Indirizzo,
+                                SiglaProvincia = store.Provincia
+                            },
+                            DistanceFromUser = CalcDistanceFromUser(location, store.Latitudine, store.Longitudine),
+                            IsOnline = false,
+                            Url = store.UrlSito,
+                            Location = (store.Latitudine != null && store.Longitudine != null) ? new Location(store.Latitudine.Value, store.Longitudine.Value) : null,
+                        };
+                    }
+                    else if(lastShop != null && lastShop.Id != storeId)
                     {
                         // Update the category property of the shop
                         lastShop.Categorie = categorie;
