@@ -54,7 +54,7 @@ namespace Italia.DiciottoApp.Models
                 Titolo = "Eventi culturali",
                 ImageSource = "cat_event",
                 BlackImageSource = "cat_event_black",
-                BkgndImageSource = "bkgnd_libri",
+                BkgndImageSource = "bkgnd_eventi",
                 Prodotti = Prodotto.ProdottiPerCategoria(3),
                 ElencoProdotti = Prodotto.ElencoProdottiPerCategoria(3)
             },
@@ -65,7 +65,7 @@ namespace Italia.DiciottoApp.Models
                 Titolo = "Formazione",
                 ImageSource = "cat_training",
                 BlackImageSource = "cat_training_black",
-                BkgndImageSource = "bkgnd_libri",
+                BkgndImageSource = "bkgnd_training",
                 Prodotti = Prodotto.ProdottiPerCategoria(14),
                 ElencoProdotti = Prodotto.ElencoProdottiPerCategoria(14)
             },
@@ -87,7 +87,7 @@ namespace Italia.DiciottoApp.Models
                 Titolo = "Musei, monumenti parchi naturali ed aree archeologiche",
                 ImageSource = "cat_museum",
                 BlackImageSource = "cat_museum_black",
-                BkgndImageSource = "bkgnd_libri",
+                BkgndImageSource = "bkgnd_musei",
                 Prodotti = Prodotto.ProdottiPerCategoria(5),
                 ElencoProdotti = Prodotto.ElencoProdottiPerCategoria(5)
             },
@@ -98,7 +98,7 @@ namespace Italia.DiciottoApp.Models
                 Titolo = "Musica registrata",
                 ImageSource = "cat_music",
                 BlackImageSource = "cat_music_black",
-                BkgndImageSource = "bkgnd_concerti",
+                BkgndImageSource = "bkgnd_musica",
                 Prodotti = Prodotto.ProdottiPerCategoria(15),
                 ElencoProdotti = Prodotto.ElencoProdottiPerCategoria(15)
             },
@@ -109,7 +109,7 @@ namespace Italia.DiciottoApp.Models
                 Titolo = "Teatro e danza",
                 ImageSource = "cat_theatre",
                 BlackImageSource = "cat_theatre_black",
-                BkgndImageSource = "bkgnd_cinema",
+                BkgndImageSource = "bkgnd_teatro",
                 Prodotti = Prodotto.ProdottiPerCategoria(6),
                 ElencoProdotti = Prodotto.ElencoProdottiPerCategoria(6)
             }

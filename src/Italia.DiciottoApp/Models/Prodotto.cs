@@ -170,8 +170,8 @@ namespace Italia.DiciottoApp.Models
                             Id = 30,
                             Tipo = TipoProdotto.BigliettoIngresso,
                             Titolo = "CD/DVD/vinile/online",
-                            ImageSource = "prod_ticket",
-                            BlackImageSource = "prod_ticket_black"
+                            ImageSource = "prod_music",
+                            BlackImageSource = "prod_music_black"
                         }
                     };
 
