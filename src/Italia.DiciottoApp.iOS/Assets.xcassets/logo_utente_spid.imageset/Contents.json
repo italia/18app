@@ -50,9 +50,7 @@
       "idiom": "ipad"
     }
   ],
-  "properties": {
-    "template-rendering-intent": ""
-  },
+  "properties": {},
   "info": {
     "version": 1,
     "author": "xcode"
