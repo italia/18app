@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Italia.DiciottoApp.DTOs
 {
-    public partial class RicercaStoreBean
+    public class RicercaStoreBean
     {
         [JsonProperty("tipoStore", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string TipoStore { get; set; }
