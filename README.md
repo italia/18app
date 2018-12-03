@@ -14,7 +14,7 @@ Lo sviluppo della app è ancora in corso e quindi non si trova negli app store. 
 
 ![](screenshots/cover.png) ![](screenshots/home.png)
 
-# Informazioni per sviluppatori
+## Informazioni per sviluppatori
 
 Il codice è contenuto in una singola soluzione Visual Studio all'interno della directory `src/`. Dopo aver clonato il progetto, puoi aprirlo con Visual Studio.
 
@@ -22,11 +22,11 @@ Consulta la [documentazione di Xamarin.Forms](https://docs.microsoft.com/en-us/x
 
 Potrai quindi compilare e testare la app localmente usando emulatori o dispositivi fisici.
 
-# Come contribuire
+## Come contribuire
 
 I contributi sono benvenuti! Al momento siamo impegnati per il primo rilascio, quindi il codice cambia velocemente. Dopo il primo rilascio potremo valutare i contributi inviati sottoforma di Pull Request. Ti consigliamo di iniziare aprendo una issue in modo da discutere insieme il modo migliore per implementare la modifica, e di non includere troppe modifiche eterogenee nella stessa Pull Request.
 
-# Autori
+## Autori
 
 Questa app è stata sviluppata dal [Team per la Trasformazione Digitale](https://teamdigitale.governo.it/) in collaborazione con il [Ministero per i Beni e le Attività Culturali](http://www.beniculturali.it/) e [Sogei](http://www.sogei.it/).
 
@@ -34,7 +34,7 @@ Questa app è stata sviluppata dal [Team per la Trasformazione Digitale](https:/
 * _Sviluppo Xamarin:_ Nicolò Carandini
 * _Coordinamento:_ [Alessandro Ranellucci](https://teamdigitale.governo.it/it/people/alessandro-ranellucci.html)
 
-# Licenza
+## Licenza
 
 Il codice sorgente è rilasciato sotto licenza GPL-3.0.
 
