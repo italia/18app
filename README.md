@@ -1,18 +1,40 @@
-# Introduction 
-This is the repository of the official Andoid and iOS 18App mobile applications, developed with the Xamarin.Forms framework.
+![](src/Italia.DiciottoApp.iOS/Assets.xcassets/AppIcon.appiconset/Icon120.png)
 
-# Getting Started
-The code is contained as a single Visual Studio solution in the `/scr` folder.
-Fork the project and then open it in your Visual Studio.
+# 18app
 
-Please refer to [Xamarin Forms documentation](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/get-started/installation?tabs=windows#windows-system-requirements) to install all the need development tools.
+[![Join the #18app channel](https://img.shields.io/badge/Slack%20channel-%2318app-blue.svg?logo=slack)](https://developersitalia.slack.com/messages/C7AAA10PN)
+[![Get invited](https://slack.developers.italia.it/badge.svg)](https://slack.developers.italia.it/)
+[![18app on forum.italia.it](https://img.shields.io/badge/Forum-18app-blue.svg)](https://forum.italia.it/c/18app-carta-docente)
 
-You can then build and test locally with your emulated/simulated or fisical devices.
+> ⚠️ **WORK IN PROGRESS** ⚠️
 
-The production of release artifacts at the moment are built and uploaded to the Google Play store and the Apple Store by me.
-We will eventually set a CI/CD build configuration with the freely available Azure DevOps service, after the GA release version 1.0.
+Questo è il repository della app ufficiale per [18app](https://www.18app.italia.it/), sviluppata con il framework Xamarin.Forms per iOS e Android.
 
-# Contribute
-Contribution is welcomed, but we're busy on the first beta release, so the codebase is changing fast and a lot.
-After beta release we can start to evaluate your PRs (Pull Requests).
-Please first create an issue, so we can debate on how to solve it and then do your contribution and create the PR, so we can review it more easily. Do not put multiple issues code changes (unless they are strongly tied together) on the same PR, as each PR should solve a specific issue.
+Lo sviluppo della app è ancora in corso e quindi non si trova negli app store. Segui la [pagina Facebook ufficiale](https://www.facebook.com/18app/) per ricevere aggiornamenti!
+
+![](screenshots/cover.png) ![](screenshots/home.png)
+
+## Informazioni per sviluppatori
+
+Il codice è contenuto in una singola soluzione Visual Studio all'interno della directory `src/`. Dopo aver clonato il progetto, puoi aprirlo con Visual Studio.
+
+Consulta la [documentazione di Xamarin.Forms](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/get-started/installation?tabs=windows#windows-system-requirements) per installare tutti gli strumenti di sviluppo necessari.
+
+Potrai quindi compilare e testare la app localmente usando emulatori o dispositivi fisici.
+
+## Come contribuire
+
+I contributi sono benvenuti! Al momento siamo impegnati per il primo rilascio, quindi il codice cambia velocemente. Dopo il primo rilascio potremo valutare i contributi inviati sottoforma di Pull Request. Ti consigliamo di iniziare aprendo una issue in modo da discutere insieme il modo migliore per implementare la modifica, e di non includere troppe modifiche eterogenee nella stessa Pull Request.
+
+## Autori
+
+Questa app è stata sviluppata dal [Team per la Trasformazione Digitale](https://teamdigitale.governo.it/) in collaborazione con il [Ministero per i Beni e le Attività Culturali](http://www.beniculturali.it/) e [Sogei](http://www.sogei.it/).
+
+* _Progetto UX/UI:_ [Matteo De Santi](https://teamdigitale.governo.it/it/people/34-profile.htm)
+* _Sviluppo Xamarin:_ Nicolò Carandini
+* _Coordinamento:_ [Alessandro Ranellucci](https://teamdigitale.governo.it/it/people/alessandro-ranellucci.html)
+
+## Licenza
+
+Il codice sorgente è rilasciato sotto licenza GPL-3.0.
+
