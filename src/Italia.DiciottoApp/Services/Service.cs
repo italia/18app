@@ -12,7 +12,7 @@ namespace Italia.DiciottoApp.Services
         static Service()
         {
             container.Register<IShopsService, ShopsService>();
-            container.Register<ICouponsService, CouponsService>();
+            container.Register<IVouchersService, VouchersService>();
             container.Register<IInfoService, InfoService>();
             container.Register<ILoginService, LoginService>();
             container.Register<INotificationsService, NotificationsService>();

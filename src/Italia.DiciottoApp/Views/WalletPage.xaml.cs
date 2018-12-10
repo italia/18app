@@ -15,6 +15,7 @@ namespace Italia.DiciottoApp.Views
 	public partial class WalletPage : BasePage
     {
         private WalletViewModel vm;
+        private bool isBusy = false;
 
         public WalletPage()
         {
@@ -26,7 +27,13 @@ namespace Italia.DiciottoApp.Views
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-            await vm.SetTab(WalletKind.All);
+            if(!isBusy)
+            {
+                isBusy = true;
+                await vm.SetTab(WalletKind.All);
+                isBusy = false;
+            }
+            
         }
 
         private async void OnAllTabTapped(object sender, EventArgs e)
@@ -55,7 +62,7 @@ namespace Italia.DiciottoApp.Views
 
         private async void OnListViewItemTapped(object sender, ItemTappedEventArgs e)
         {
-            if (e.Item is Coupon coupon)
+            if (e.Item is Voucher coupon)
             {
                 // Clear the item selection
                 if (sender is ListView listView)

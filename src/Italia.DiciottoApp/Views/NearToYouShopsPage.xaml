@@ -42,21 +42,23 @@
                    Text="VICINO A TE"
                    Style="{StaticResource TabLabelStyle}" />
 
-            <Label Grid.Row="0" Grid.Column="1"
-                   Text="SU INTERNET"
-                   Style="{StaticResource TabLabelStyle}">
-                <Label.GestureRecognizers>
+            <StackLayout Grid.Row="0" Grid.Column="1" BackgroundColor="Transparent">
+                <StackLayout.GestureRecognizers>
                     <TapGestureRecognizer Tapped="OnOnlineTabTapped" />
-                </Label.GestureRecognizers>
-            </Label>
+                </StackLayout.GestureRecognizers>
+                <Label Text="SU INTERNET"
+                       VerticalOptions="CenterAndExpand"
+                       Style="{StaticResource TabLabelStyle}" />
+            </StackLayout>
 
-            <Label Grid.Row="0" Grid.Column="2"
-                   Text="RICERCA"
-                   Style="{StaticResource TabLabelStyle}">
-                <Label.GestureRecognizers>
+            <StackLayout Grid.Row="0" Grid.Column="2" BackgroundColor="Transparent">
+                <StackLayout.GestureRecognizers>
                     <TapGestureRecognizer Tapped="OnFindTabTapped" />
-                </Label.GestureRecognizers>
-            </Label>
+                </StackLayout.GestureRecognizers>
+                <Label Text="RICERCA"
+                       VerticalOptions="CenterAndExpand"
+                       Style="{StaticResource TabLabelStyle}" />
+            </StackLayout>
 
             <!-- Content header -->
             <Label Grid.Row="1" Grid.ColumnSpan="3" Margin="16,16,16,0"

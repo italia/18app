@@ -14,20 +14,20 @@ namespace Italia.DiciottoApp.Services
     {
         private static readonly int simulatedDelay = 3000;
 
-        public async Task<Shop> GetShopByIdAsync(string shopId)
-        {
-            if (string.IsNullOrWhiteSpace(shopId))
-            {
-                throw new ArgumentNullException("shopId");
-            }
+        //public async Task<Shop> GetShopByIdAsync(string shopId)
+        //{
+        //    if (string.IsNullOrWhiteSpace(shopId))
+        //    {
+        //        throw new ArgumentNullException("shopId");
+        //    }
 
-            // simulate delay
-            await Task.Delay(100);
+        //    // simulate delay
+        //    await Task.Delay(100);
 
-            return FakeShops.GetList().Where(s => s.Id == shopId).FirstOrDefault();
-        }
+        //    return FakeShops.GetList().Where(s => s.Id == shopId).FirstOrDefault();
+        //}
 
-        public async Task<IEnumerable<Shop>> NearToLocationShopsAsync(Location location, int maxItems = 10)
+        public async Task<IEnumerable<Shop>> NearToLocationShopsAsync(Location location, int maxItems = 10, CancellationToken ct = default(CancellationToken))
         {
             if (location == null)
             {
@@ -40,7 +40,7 @@ namespace Italia.DiciottoApp.Services
             return FakeShops.GetList().Where(s => !s.IsOnline).Take(maxItems);
         }
 
-        public async Task<IEnumerable<Shop>> OnlineShopsAsync(Categoria category, int maxItems = 10)
+        public async Task<IEnumerable<Shop>> OnlineShopsAsync(Categoria category, int maxItems = 10, CancellationToken ct = default(CancellationToken))
         {
             // simulate delay
             await Task.Delay(simulatedDelay);

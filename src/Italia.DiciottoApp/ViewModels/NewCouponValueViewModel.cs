@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
@@ -126,17 +127,32 @@ namespace Italia.DiciottoApp.ViewModels
             EntryValueIsValid = isValid;
             return isValid;
         }
-        public async Task<Coupon> CreateCouponAsync()
+
+        public async Task<Voucher> CreateCouponAsync()
         {
-            Coupon coupon = null;
+            Voucher voucher = null;
 
             if (ValidateEntry(EntryValue))
             {
-                ICouponsService couponsService = Service.Resolve<ICouponsService>();
-                coupon = await couponsService.CreateCoupon(Categoria, Prodotto, valore, Shop?.Id);
+                Cookie fedSecureToken = new Cookie
+                {
+                    Name = Constants.COOKIES_SECURE_TOKEN,
+                    Value = Settings.FEDSecureToken
+                };
+
+                IVouchersService vouchersService = Service.Resolve<IVouchersService>();
+                var createVoucherServiceResult = await vouchersService.CreateVoucherAsync(fedSecureToken, Categoria, Prodotto, valore, online: false);
+                if (createVoucherServiceResult.Success)
+                {
+                    voucher = Voucher.FromVoucherBean(createVoucherServiceResult.Result, online: false, spent: false);
+                }
+                else
+                {
+                    await DisplayAlertAsync("Creazione buono non riuscita");
+                }
             }
 
-            return coupon;
+            return voucher;
         }
 
     }

@@ -42,7 +42,7 @@ namespace Italia.DiciottoApp.Views
             return DisplayAlert(Title, message, "OK");
         }
 
-        private async Task ManageServiceResult(ServiceResult serviceResult)
+        private async Task ManageLoginServiceResult(ServiceResult serviceResult)
         {
             if (!serviceResult.Success)
             {

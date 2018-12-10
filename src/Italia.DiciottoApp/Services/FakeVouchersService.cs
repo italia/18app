@@ -1,107 +1,104 @@
-﻿using Italia.DiciottoApp.Models;
+﻿using Italia.DiciottoApp.DTOs;
+using Italia.DiciottoApp.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Italia.DiciottoApp.Services
 {
-    public class FakeCouponsService: ICouponsService
+    public class FakeVouchersService: IVouchersService
     {
         private static readonly int simulatedDelay = 1000;
 
-        public async Task<Coupon> GetCouponByIdAsync(string userId)
+        public async Task<IEnumerable<Voucher>> GetUserVouchersAsync(Cookie fedSecureToken, bool spent, int page = 0, int pageItems = 100, CancellationToken ct = default(CancellationToken))
         {
-            if (string.IsNullOrWhiteSpace(userId))
-            {
-                throw new ArgumentNullException("userId");
-            }
-
-            // simulate delay
-            await Task.Delay(simulatedDelay);
-
-            return FakeCoupons.GetList().Where(s => s.Id == userId).FirstOrDefault();
-        }
-
-        public async Task<IEnumerable<Coupon>> GetUserCouponsAsync(string userId, WalletKind walletKind = WalletKind.All, int page = 0, int pageItems = 100)
-        {
-            if (string.IsNullOrWhiteSpace(userId))
-            {
-                throw new ArgumentNullException(nameof(userId));
-            }
-
             // simulate delay
             await Task.Delay(simulatedDelay);
 
             IShopsService shopsService = Service.Resolve<IShopsService>();
 
-            var fakeCouponList = (walletKind == WalletKind.All) ? FakeCoupons.GetList() :
-                                 (walletKind == WalletKind.Available) ? FakeCoupons.GetList().Where(c => !c.Spent) :
-                                 FakeCoupons.GetList().Where(c => c.Spent);
+            var fakeVoucherList = FakeVouchers.GetList().Where(c => c.Spent == spent);
 
             if (page > 0 && pageItems > 0)
             {
-                fakeCouponList = fakeCouponList.Skip((page - 1) * pageItems).Take(pageItems);
+                fakeVoucherList = fakeVoucherList.Skip((page - 1) * pageItems).Take(pageItems);
             }
 
-            foreach (var fakeCoupon in fakeCouponList)
+            foreach (var fakeCoupon in fakeVoucherList)
             {
-                fakeCoupon.Shop = await shopsService.GetShopByIdAsync(fakeCoupon.ShopId);
+                fakeCoupon.Shop = null; // await shopsService.GetShopByIdAsync(fakeCoupon.ShopId);
             }
-            return fakeCouponList;
+            return fakeVoucherList;
         }
 
-        public async Task<Coupon> CreateCoupon(Categoria categoria, Prodotto prodotto, double valore, string shopId = null)
+        public async Task<ServiceResult<VoucherBean>> CreateVoucherAsync(Cookie fedSecureToken, Categoria categoria, Prodotto prodotto, double valore, bool online)
         {
+            if (categoria == null)
+            {
+                throw new ArgumentNullException("categoria");
+            }
+
+            if (prodotto == null)
+            {
+                throw new ArgumentNullException("prodotto");
+            }
+
+            if (valore <= 0 || valore > 500)
+            {
+                throw new ArgumentOutOfRangeException("valore");
+            }
+
             // simulate delay
             await Task.Delay(simulatedDelay);
 
-            string id = "DF69A8D5";
-            Coupon coupon = new Coupon
+            return new ServiceResult<VoucherBean>()
             {
-                Id = id,
-                Category = categoria,
-                Product = prodotto,
-                Value = valore,
-                QrCodeValue = id,
-                BarCodeValue = id,
-                ShopId = shopId
+                Success = true,
+                Result = new VoucherBean
+                {
+                    IdVoucher = 12345,
+                    AmbitoBean = new AmbitoBean { IdAmbito = categoria.Id },
+                    BeneBean = new BeneBean { IdBene = prodotto.Id},
+                    ImportoRichiesto = valore
+                }
             };
-
-            if (!string.IsNullOrWhiteSpace(shopId))
-            {
-                IShopsService shopService = Service.Resolve<IShopsService>();
-                coupon.Shop = await shopService.GetShopByIdAsync(shopId);
-            }
-
-            return coupon;
         }
 
-        public static class FakeCoupons
+        public Task<DeleteVoucherResult> DeleteVoucher(Cookie fedSecureToken, long voucherId)
         {
-            public static IEnumerable<Coupon> GetList()
+            throw new NotImplementedException();
+        }
+
+        public static class FakeVouchers
+        {
+            public static IEnumerable<Voucher> GetList()
             {
-                return new List<Coupon>
+                return new List<Voucher>
                 {
-                    new Coupon
+                    new Voucher
                     {
                         Id = "DF69A8D5",
                         Spent = false,
                         Category = CategoriaFromTipoCategoria(TipoCategoria.Cinema),
                         Product = CategoriaFromTipoCategoria(TipoCategoria.Cinema).Prodotti[0],
                         ShopId = "2375F804-5744-48C0-813C-0B87F2E0750E",
-                        Value = 12.0
+                        RequestedValue = 12.0,
+                        ValidatedValue = 12.0
                     },
-                    new Coupon
+                    new Voucher
                     {
                         Id = "F1EB2A75",
                         Spent = false,
                         Category = CategoriaFromTipoCategoria(TipoCategoria.Concerti),
                         Product = CategoriaFromTipoCategoria(TipoCategoria.Concerti).Prodotti[1],
                         ShopId = "16D55D17-BD46-48CE-94FF-BB4F28971A21",
-                        Value = 28.0
+                        RequestedValue = 28.0,
+                        ValidatedValue = 27.50
                     },
-                    new Coupon
+                    new Voucher
                     {
                         Id = "3702DA97",
                         Spent = true,
@@ -109,9 +106,10 @@ namespace Italia.DiciottoApp.Services
                         Category = CategoriaFromTipoCategoria(TipoCategoria.Libri),
                         Product = CategoriaFromTipoCategoria(TipoCategoria.Libri).Prodotti[0],
                         ShopId = "7E0C6AA6-ADF0-4710-A6EF-C7E24B2FFDFF",
-                        Value = 9.0
+                        RequestedValue = 9.0,
+                        ValidatedValue = 9.0
                     },
-                    new Coupon
+                    new Voucher
                     {
                         Id = "DFA13EC3",
                         Spent = true,
@@ -119,25 +117,28 @@ namespace Italia.DiciottoApp.Services
                         Category = CategoriaFromTipoCategoria(TipoCategoria.Libri),
                         Product = CategoriaFromTipoCategoria(TipoCategoria.Libri).Prodotti[1],
                         ShopId = "7E0C6AA6-ADF0-4710-A6EF-C7E24B2FFDFF",
-                        Value = 14.0
+                        RequestedValue = 14.0,
+                        ValidatedValue = 14.0
                     },
-                    new Coupon
+                    new Voucher
                     {
                         Id = "6D7CA172",
                         Spent = false,
                         Category = CategoriaFromTipoCategoria(TipoCategoria.TeatroDanza),
                         Product = CategoriaFromTipoCategoria(TipoCategoria.TeatroDanza).Prodotti[0],
                         ShopId = "2375F804-5744-48C0-813C-0B87F2E0750E",
-                        Value = 15.0
+                        RequestedValue = 15.0,
+                        ValidatedValue = 15.0
                     },
-                    new Coupon
+                    new Voucher
                     {
                         Id = "8333856A",
                         Spent = false,
                         Category = CategoriaFromTipoCategoria(TipoCategoria.TeatroDanza),
                         Product = CategoriaFromTipoCategoria(TipoCategoria.TeatroDanza).Prodotti[1],
                         ShopId = "27E7A6D6-3C76-4CC4-81E5-4AD3B6211D0A",
-                        Value = 70.0
+                        RequestedValue = 70.0,
+                        ValidatedValue = 68.0
                     }
                 };
             }
@@ -147,5 +148,6 @@ namespace Italia.DiciottoApp.Services
         {
             return Categoria.List.SingleOrDefault(c => c.Tipo == tipoCategoria);
         }
+
     }
 }

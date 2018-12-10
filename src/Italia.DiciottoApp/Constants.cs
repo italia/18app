@@ -10,6 +10,8 @@ namespace Italia.DiciottoApp
         public static readonly double NEW_LOCATION_MINIMUM_KM = 0.5; // 500 meters
         public static readonly GeolocationAccuracy GPS_ACCURACY = GeolocationAccuracy.Medium;
         public static readonly int NEW_REQUEST_MINIMUM_SECONDS = 60;
+        public static readonly int NEAR_TO_YOU_SHOP_MAX_ITEMS = 30;
+        public static readonly int VOUCHER_ITEMS_PER_PAGE = 100;
 
         // Login
         public static readonly string COOKIES_URL = "https://val.18app.italia.it"; // In produzione utilizzare "https://18app.italia.it";

@@ -11,6 +11,6 @@ namespace Italia.DiciottoApp.ViewModels
         Categoria SelectedCategory { get; set; }
         bool AllCategoriesSelected { get; set; }
 
-        Task SelectCategoryAsync(Categoria categoria, bool allSelected);
+        Task GetOnlineShopsAsync(Categoria categoria, bool allSelected);
     }
 }

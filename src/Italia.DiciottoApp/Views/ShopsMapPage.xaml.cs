@@ -20,7 +20,6 @@ namespace Italia.DiciottoApp.Views
         private IEnumerable<Shop> shops;
         private Location userLocation;
         private Position userPosition;
-        private static readonly double mapMarginMeters = 500;
         private List<CustomPin> pins;
 
         public ShopsMapPage (IEnumerable<Shop> shops, Location userLocation)
@@ -55,11 +54,11 @@ namespace Italia.DiciottoApp.Views
             //}
             //return new Distance(mapMarginMeters + maxDistance * 1000.0);
 
-            var km = shops.Max(shop => Location.CalculateDistance(shop.Location.Latitude, userLocation.Latitude, shop.Location.Longitude, userLocation.Longitude, DistanceUnits.Kilometers));
-            return new Distance(1000.0 * km + mapMarginMeters);
+            var km = shops.Max(shop => Location.CalculateDistance(shop.Location.Latitude, shop.Location.Longitude, userLocation.Latitude, userLocation.Longitude, DistanceUnits.Kilometers));
+            return new Distance(1000.0 * km * 1.1); // 10% more space
         }
 
-        private void SetPins(Map map)
+        private void SetPins(Xamarin.Forms.Maps.Map map)
         {
             pins = shops?.Select(s => new CustomPin
             {

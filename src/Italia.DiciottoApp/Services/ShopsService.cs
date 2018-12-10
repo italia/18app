@@ -26,24 +26,30 @@ namespace Italia.DiciottoApp.Services
 
         public string ProdClientSecret { get; set; } = Keys.PROD_X_IBM_ClientSecret;
 
+        //public async Task<Shop> GetShopByIdAsync(string shopId)
+        //{
+        //    if (string.IsNullOrWhiteSpace(shopId))
+        //    {
+        //        throw new ArgumentNullException("shopId");
+        //    }
 
+        //    // TODO: Get shop from 18App REST Service
+            
+        //    var fakeShopsService = new FakeShopsService();
+        //    return await fakeShopsService.GetShopByIdAsync(shopId);
+        //}
 
-        public async Task<Shop> GetShopByIdAsync(string shopId)
+        internal async Task<ServiceResult<RicercaStoreResultOutputBean>> RicercaStoreByFilterAsync(RicercaStoreBean ricercaStoreBean, CancellationToken ct = default(CancellationToken))
         {
-            if (string.IsNullOrWhiteSpace(shopId))
+            Debug.WriteLine($"°°°°°°°°°°°°°°°°° [RicercaStoreByFilterAsync] started");
+
+            // Check for cancellation
+            if (ct.IsCancellationRequested)
             {
-                throw new ArgumentNullException("shopId");
+                Debug.WriteLine("[RicercaStoreByFilterAsync] Cancellation requested during task execution.");
+                ct.ThrowIfCancellationRequested();
             }
 
-            // TODO: Get shop from 18App REST Service
-            // httpClient = HttpClientFactory.Builder(ClientId, ClientSecret, Settings.FEDSecureToken);
-
-            var fakeShopsService = new FakeShopsService();
-            return await fakeShopsService.GetShopByIdAsync(shopId);
-        }
-
-        public async Task<ServiceResult<RicercaStoreResultOutputBean>> RicercaStoreByFilterAsync(RicercaStoreBean ricercaStoreBean, CancellationToken ct = default(CancellationToken))
-        {
             httpClient = HttpClientFactory.Builder(ClientId, ClientSecret);
             var getRicercaStoreResultOutput = new ServiceResult<RicercaStoreResultOutputBean>();
 
@@ -64,7 +70,7 @@ namespace Italia.DiciottoApp.Services
 
             if (!getRicercaStoreResultOutput.Success)
             {
-                Debug.WriteLine($"++++ GetBorsellino result error: {getRicercaStoreResultOutput.FailureReason}");
+                Debug.WriteLine($"++++ RicercaStoreByFilterAsync result error: {getRicercaStoreResultOutput.FailureReason}");
                 foreach (var response in getRicercaStoreResultOutput.Log)
                 {
                     Debug.WriteLine($"  ++ service operation: {response.RequestMessage.RequestUri} , result: {response.StatusCode}");
@@ -74,21 +80,30 @@ namespace Italia.DiciottoApp.Services
             return getRicercaStoreResultOutput;
         }
 
-        public async Task<IEnumerable<Shop>> NearToLocationShopsAsync(Location location, int maxItems = 10)
+        public async Task<IEnumerable<Shop>> NearToLocationShopsAsync(Location location, int maxItems = 10, CancellationToken ct = default(CancellationToken))
         {
-            if (location == null)
-            {
-                throw new ArgumentNullException("location");
-            }
+            Debug.WriteLine($"°°°°°°°°°°°°°°°°° [NearToLocationShopsAsync] started");
+
+            // var fakeShopsService = new FakeShopsService();
+            // shops = await fakeShopsService.NearToLocationShopsAsync(location, maxItems);
+            // return shops;
 
             List<Shop> shops = new List<Shop>();
 
-            //var fakeShopsService = new FakeShopsService();
-            //shops = await fakeShopsService.NearToLocationShopsAsync(location, maxItems);
+            if (location == null)
+            {
+                return shops;
+            }
+
+            // Check for cancellation
+            if (ct.IsCancellationRequested)
+            {
+                Debug.WriteLine("[FindShopsAsync] Cancellation requested during task execution.");
+                ct.ThrowIfCancellationRequested();
+            }
 
             // Get stores from 18App REST Service
-
-            // TipoStore is required!
+            // TipoStore is required! ("F" for physical store | "O" for online store)
             RicercaStoreBean ricercaStoreBean = new RicercaStoreBean
             {
                 TipoStore = "F",
@@ -97,14 +112,17 @@ namespace Italia.DiciottoApp.Services
                 Limit = maxItems
             };
 
-            var ricercaStoreByFilterResult = await RicercaStoreByFilterAsync(ricercaStoreBean);
+            var ricercaStoreByFilterResult = await RicercaStoreByFilterAsync(ricercaStoreBean, ct);
 
-            if (!ricercaStoreByFilterResult.Success)
+            if (ricercaStoreByFilterResult.Success && ricercaStoreByFilterResult?.Result?.ListaStoreResultBean != null)
             {
-                shops = null; // or better return an empty list, i.e. shops ?
-            }
-            else
-            {
+                // Check for cancellation
+                if (ct.IsCancellationRequested)
+                {
+                    Debug.WriteLine("[FindShopsAsync] Cancellation requested during task execution.");
+                    ct.ThrowIfCancellationRequested();
+                }
+
                 Shop lastShop = null;
                 List<Categoria> categorie = null;
                 foreach (var store in ricercaStoreByFilterResult.Result.ListaStoreResultBean)
@@ -114,28 +132,10 @@ namespace Italia.DiciottoApp.Services
                     if (lastShop == null)
                     {
                         // Create a new category list
-                        categorie = new List<Categoria>
-                        {
-                            CategoriaFromIdAmbito(store.IdAmbito)
-                        };
+                        categorie = new List<Categoria> { Categoria.FromIdAmbito(store.IdAmbito) };
 
                         // Create a new shop
-                        lastShop = new Shop
-                        {
-                            Id = storeId,
-                            Title = store.Nome,
-                            Address = new Address
-                            {
-                                Cap = store.Cap,
-                                Comune = store.Comune,
-                                Indirizzo = store.Indirizzo,
-                                SiglaProvincia = store.Provincia
-                            },
-                            DistanceFromUser = CalcDistanceFromUser(location, store.Latitudine, store.Longitudine),
-                            IsOnline = false,
-                            Url = store.UrlSito,
-                            Location = (store.Latitudine != null && store.Longitudine != null) ? new Location(store.Latitudine.Value, store.Longitudine.Value) : null,
-                        };
+                        lastShop = ShopBuilder(store, location, online: false);
                     }
                     else if(lastShop != null && lastShop.Id != storeId)
                     {
@@ -146,32 +146,14 @@ namespace Italia.DiciottoApp.Services
                         shops.Add(lastShop);
 
                         // Create a new category list
-                        categorie = new List<Categoria>
-                        {
-                            CategoriaFromIdAmbito(store.IdAmbito)
-                        };
+                        categorie = new List<Categoria> { Categoria.FromIdAmbito(store.IdAmbito) };
 
                         // Create a new shop
-                        lastShop = new Shop
-                        {
-                            Id = storeId,
-                            Title = store.Nome,
-                            Address = new Address
-                            {
-                                Cap = store.Cap,
-                                Comune = store.Comune,
-                                Indirizzo = store.Indirizzo,
-                                SiglaProvincia = store.Provincia
-                            },
-                            DistanceFromUser = CalcDistanceFromUser(location, store.Latitudine, store.Longitudine),
-                            IsOnline = false,
-                            Url = store.UrlSito,
-                            Location = (store.Latitudine != null && store.Longitudine != null) ? new Location(store.Latitudine.Value, store.Longitudine.Value) : null,
-                        };
+                        lastShop = ShopBuilder(store, location, online: false);
                     }
                     else
                     {
-                        categorie.Add(CategoriaFromIdAmbito(store.IdAmbito));
+                        categorie.Add(Categoria.FromIdAmbito(store.IdAmbito));
                     }
                 }
 
@@ -189,45 +171,173 @@ namespace Italia.DiciottoApp.Services
             return shops;
         }
 
-        public static Categoria CategoriaFromIdAmbito(long? idAmbito)
+        public async Task<IEnumerable<Shop>> OnlineShopsAsync(Categoria category, int maxItems = 10, CancellationToken ct = default(CancellationToken))
         {
-            return (idAmbito != null) ? Categoria.List.FirstOrDefault(c => c.Id == idAmbito) : null;
-        }
+            // var fakeShopsService = new FakeShopsService();
+            // shops = await fakeShopsService.OnlineShopsAsync(category, maxItems);
+            // return shops;
 
-        private static string CalcDistanceFromUser(Location location, double? latitudine, double? longitudine)
-        {
-            if (latitudine == null || longitudine == null)
+            List<Shop> shops = new List<Shop>();
+
+            // Check for cancellation
+            if (ct.IsCancellationRequested)
             {
-                return string.Empty;
+                Debug.WriteLine("[FindShopsAsync] Cancellation requested during task execution.");
+                ct.ThrowIfCancellationRequested();
             }
 
-            var mt = 1000 * location.CalculateDistance(latitudine.Value, longitudine.Value, DistanceUnits.Kilometers);
+            // Get stores from 18App REST Service
+            // TipoStore is required! ("F" for physical store | "O" for online store)
+            RicercaStoreBean ricercaStoreBean = new RicercaStoreBean
+            {
+                TipoStore = "O",
+                IdAmbito = category?.Id ?? null,
+                Start = 0,
+                Limit = maxItems
+            };
 
-            return (mt < 1000) ? $"{mt} m" : string.Format("{0:#.00} km", mt / 1000.0);
-        }
+            var ricercaStoreByFilterResult = await RicercaStoreByFilterAsync(ricercaStoreBean);
 
-        public async Task<IEnumerable<Shop>> OnlineShopsAsync(Categoria category, int maxItems = 10)
-        {
-            IEnumerable<Shop> shops;
+            if (ricercaStoreByFilterResult.Success && ricercaStoreByFilterResult.Result != null)
+            {
+                // Check for cancellation
+                if (ct.IsCancellationRequested)
+                {
+                    Debug.WriteLine("[FindShopsAsync] Cancellation requested during task execution.");
+                    ct.ThrowIfCancellationRequested();
+                }
 
-            // TODO: Get shops from 18App REST Service
-            // httpClient = HttpClientFactory.Builder(ClientId, ClientSecret, Settings.FEDSecureToken);
+                Shop lastShop = null;
+                List<Categoria> categorie = null;
+                foreach (var store in ricercaStoreByFilterResult.Result.ListaStoreResultBean)
+                {
+                    string storeId = store.Id.ToString();
 
-            var fakeShopsService = new FakeShopsService();
-            shops = await fakeShopsService.OnlineShopsAsync(category, maxItems);
+                    if (lastShop == null)
+                    {
+                        // Create a new category list
+                        categorie = new List<Categoria> { Categoria.FromIdAmbito(store.IdAmbito) };
+
+                        // Create a new shop
+                        lastShop = ShopBuilder(store, online: true);
+                    }
+                    else if (lastShop != null && lastShop.Id != storeId)
+                    {
+                        // Update the category property of the shop
+                        lastShop.Categorie = categorie;
+
+                        // Add the last shop to the shop list because the actual has a different id
+                        shops.Add(lastShop);
+
+                        // Create a new category list
+                        categorie = new List<Categoria> { Categoria.FromIdAmbito(store.IdAmbito) };
+
+                        // Create a new shop
+                        lastShop = ShopBuilder(store, online: true);
+                    }
+                    else
+                    {
+                        categorie.Add(Categoria.FromIdAmbito(store.IdAmbito));
+                    }
+                }
+
+                // Add the last shop
+                if (lastShop != null)
+                {
+                    // Update the category property of the shop
+                    lastShop.Categorie = categorie;
+
+                    // Add the last shop to the shop list because the actual has a different id
+                    shops.Add(lastShop);
+                }
+            }
 
             return shops;
         }
 
         public async Task<IEnumerable<Shop>> FindShopsAsync(Categoria category, Municipality municipality, string text = null, int maxItems = 10, CancellationToken ct = default(CancellationToken))
         {
-            IEnumerable<Shop> shops;
+            //var fakeShopsService = new FakeShopsService();
+            //shops = await fakeShopsService.FindShopsAsync(category, municipality, text.Trim(), maxItems, ct);
+            //return shops;
 
-            // TODO: Get shops from 18App REST Service
-            // httpClient = HttpClientFactory.Builder(ClientId, ClientSecret, Settings.FEDSecureToken);
+            // Check for cancellation
+            if (ct.IsCancellationRequested)
+            {
+                Debug.WriteLine("[FindShopsAsync] Cancellation requested during task execution.");
+                ct.ThrowIfCancellationRequested();
+            }
 
-            var fakeShopsService = new FakeShopsService();
-            shops = await fakeShopsService.FindShopsAsync(category, municipality, text.Trim(), maxItems, ct);
+            List<Shop> shops = new List<Shop>();
+
+            // Get stores from 18App REST Service
+
+            // TipoStore is required! ("F" for physical store | "O" for online store)
+            RicercaStoreBean ricercaStoreBean = new RicercaStoreBean
+            {
+                TipoStore = "F",
+                IdAmbito = category?.Id ?? null,
+                Comune = municipality?.Name ?? null,
+                NomeEsercenteOIndirizzo = string.IsNullOrEmpty(text) ? null : text,
+                Start = 0,
+                Limit = maxItems
+            };
+
+            var ricercaStoreByFilterResult = await RicercaStoreByFilterAsync(ricercaStoreBean, ct);
+
+            if (ricercaStoreByFilterResult.Success && ricercaStoreByFilterResult?.Result?.ListaStoreResultBean != null)
+            {
+                // Check for cancellation
+                if (ct.IsCancellationRequested)
+                {
+                    Debug.WriteLine("[FindShopsAsync] Cancellation requested during task execution.");
+                    ct.ThrowIfCancellationRequested();
+                }
+
+                Shop lastShop = null;
+                List<Categoria> categorie = null;
+                foreach (var store in ricercaStoreByFilterResult.Result.ListaStoreResultBean)
+                {
+                    string storeId = store.Id.ToString();
+
+                    if (lastShop == null)
+                    {
+                        // Create a new category list
+                        categorie = new List<Categoria> { Categoria.FromIdAmbito(store.IdAmbito) };
+
+                        // Create a new shop
+                        lastShop = ShopBuilder(store, online: false);
+                    }
+                    else if (lastShop != null && lastShop.Id != storeId)
+                    {
+                        // Update the category property of the shop
+                        lastShop.Categorie = categorie;
+
+                        // Add the last shop to the shop list because the actual has a different id
+                        shops.Add(lastShop);
+
+                        // Create a new category list
+                        categorie = new List<Categoria> { Categoria.FromIdAmbito(store.IdAmbito) };
+
+                        // Create a new shop
+                        lastShop = ShopBuilder(store, online: false);
+                    }
+                    else
+                    {
+                        categorie.Add(Categoria.FromIdAmbito(store.IdAmbito));
+                    }
+                }
+
+                // Add the last shop
+                if (lastShop != null)
+                {
+                    // Update the category property of the shop
+                    lastShop.Categorie = categorie;
+
+                    // Add the last shop to the shop list because the actual has a different id
+                    shops.Add(lastShop);
+                }
+            }
 
             return shops;
         }
@@ -243,6 +353,42 @@ namespace Italia.DiciottoApp.Services
 
             return municipalities.Take(maxItems);
         }
+
+        #region Utilities
+
+        private Shop ShopBuilder(RicercaStoreResultBean store, Location location = null, bool online = false)
+        {
+            return new Shop
+            {
+                Id = store.Id.ToString(),
+                Title = store.Nome,
+                Address = new Address
+                {
+                    Cap = store.Cap,
+                    Comune = store.Comune,
+                    Indirizzo = store.Indirizzo,
+                    SiglaProvincia = store.Provincia
+                },
+                DistanceFromUser = CalcDistanceFromUser(location, store.Latitudine, store.Longitudine),
+                IsOnline = online,
+                Url = store.UrlSito,
+                Location = (store.Latitudine == null || store.Longitudine == null) ? null : new Location(store.Latitudine.Value, store.Longitudine.Value)
+            };
+        }
+
+        private string CalcDistanceFromUser(Location location, double? latitudine, double? longitudine)
+        {
+            if (location == null || latitudine == null || longitudine == null)
+            {
+                return string.Empty;
+            }
+
+            var mt = 1000 * location.CalculateDistance(latitudine.Value, longitudine.Value, DistanceUnits.Kilometers);
+
+            return (mt < 1000) ? $"{mt} m" : string.Format("{0:#.00} km", mt / 1000.0);
+        }
+
+        #endregion
 
     }
 }

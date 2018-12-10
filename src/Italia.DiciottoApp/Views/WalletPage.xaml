@@ -40,29 +40,32 @@
                      VerticalOptions="End"
                      BackgroundColor="White" />
 
-            <Label Grid.Row="0" Grid.Column="0"
-                   Text="TUTTI"
-                   Style="{StaticResource TabLabelStyle}">
-                <Label.GestureRecognizers>
+            <StackLayout Grid.Row="0" Grid.Column="0" BackgroundColor="Transparent">
+                <StackLayout.GestureRecognizers>
                     <TapGestureRecognizer Tapped="OnAllTabTapped" />
-                </Label.GestureRecognizers>
-            </Label>
+                </StackLayout.GestureRecognizers>
+                <Label Text="TUTTI"
+                       VerticalOptions="CenterAndExpand"
+                       Style="{StaticResource TabLabelStyle}" />
+            </StackLayout>
 
-            <Label Grid.Row="0" Grid.Column="1"
-                   Text="DA SPENDERE"
-                   Style="{StaticResource TabLabelStyle}">
-                <Label.GestureRecognizers>
+            <StackLayout Grid.Row="0" Grid.Column="1" BackgroundColor="Transparent">
+                <StackLayout.GestureRecognizers>
                     <TapGestureRecognizer Tapped="OnAvailableTabTapped" />
-                </Label.GestureRecognizers>
-            </Label>
+                </StackLayout.GestureRecognizers>
+                <Label Text="DA SPENDERE"
+                       VerticalOptions="CenterAndExpand"
+                       Style="{StaticResource TabLabelStyle}" />
+            </StackLayout>
 
-            <Label Grid.Row="0" Grid.Column="2"
-                   Text="GIÀ SPESI"
-                   Style="{StaticResource TabLabelStyle}">
-                <Label.GestureRecognizers>
+            <StackLayout Grid.Row="0" Grid.Column="2" BackgroundColor="Transparent">
+                <StackLayout.GestureRecognizers>
                     <TapGestureRecognizer Tapped="OnSpentTabTapped" />
-                </Label.GestureRecognizers>
-            </Label>
+                </StackLayout.GestureRecognizers>
+                <Label Text="GIÀ SPESI"
+                       VerticalOptions="CenterAndExpand"
+                       Style="{StaticResource TabLabelStyle}" />
+            </StackLayout>
 
             <!-- Content header -->
             <Label Grid.Row="1" Grid.ColumnSpan="3" Margin="16,16,16,0"
@@ -74,7 +77,7 @@
 
             <!-- All coupon list -->
             <ListView Grid.Row="2" Grid.ColumnSpan="3" Margin="0,0,16,0"
-                      ItemsSource="{Binding Coupons, Mode=OneWay}"
+                      ItemsSource="{Binding Vouchers, Mode=OneWay}"
                       HasUnevenRows="true"
                       IsVisible="{Binding CouponListIsVisible}"
                       ItemTapped="OnListViewItemTapped">

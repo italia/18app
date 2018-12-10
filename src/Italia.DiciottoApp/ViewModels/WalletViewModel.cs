@@ -3,18 +3,22 @@ using Italia.DiciottoApp.Services;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
+using System.Net;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Italia.DiciottoApp.ViewModels
 {
     class WalletViewModel : BaseViewModel
     {
-        private ICouponsService couponService;
-        private IEnumerable<Coupon> availableCoupons = null;
-        private IEnumerable<Coupon> spentCoupons = null;
+        private IVouchersService couponService;
+        private IEnumerable<Voucher> availableVouchers = null;
+        private IEnumerable<Voucher> spentVouchers = null;
         private DateTime lastRequest = DateTime.Now;
+        private CancellationTokenSource cts;
 
         #region Properties
 
@@ -43,9 +47,9 @@ namespace Italia.DiciottoApp.ViewModels
             });
         }
 
-        public bool CouponListIsVisible => (Coupons != null && Coupons.Count > 0 && !IsBusy);
+        public bool VoucherListIsVisible => (Vouchers != null && Vouchers.Count > 0 && !IsBusy);
 
-        public ObservableCollection<Coupon> Coupons { get; set; } = new ObservableCollection<Coupon>();
+        public ObservableCollection<Voucher> Vouchers { get; set; } = new ObservableCollection<Voucher>();
 
         private string contentHeader;
         public string ContentHeader
@@ -59,48 +63,81 @@ namespace Italia.DiciottoApp.ViewModels
         public WalletViewModel() : base()
         {
             ContentHeader = "Richiesta buoni in corso...";
-            couponService = Service.Resolve<ICouponsService>();
+            couponService = Service.Resolve<IVouchersService>();
         }
 
         public async Task SetTab(WalletKind walletKind)
         {
+            Debug.WriteLine($"°°°°°°°°°°°°°°°°° [Wallet SetTab({walletKind})] started");
+
             if (IsBusy)
             {
+                await DisplayAlertAsync("Sto già cercando i tuoi buoni...");
                 return;
             }
 
             IsBusy = true;
-            OnPropertyChanged(nameof(CouponListIsVisible));
+            OnPropertyChanged(nameof(VoucherListIsVisible));
             ContentHeader = "Richiesta buoni in corso...";
 
             WalletKind = walletKind;
             if((WalletKind == WalletKind.All && (DateTime.Now - lastRequest).TotalSeconds > Constants.NEW_REQUEST_MINIMUM_SECONDS)
-                || availableCoupons == null || spentCoupons == null)
+                || availableVouchers == null || spentVouchers == null)
             {
-                lastRequest = DateTime.Now;
-                availableCoupons = await couponService.GetUserCouponsAsync(Settings.UserId, WalletKind.Available);
-                spentCoupons = await couponService.GetUserCouponsAsync(Settings.UserId, WalletKind.Spent);
-            }
-
-            Coupons.Clear();
-
-            if (availableCoupons != null && (WalletKind == WalletKind.All || WalletKind == WalletKind.Available))
-            {
-                foreach (var coupon in availableCoupons)
+                try
                 {
-                    Coupons.Add(coupon);
+                    lastRequest = DateTime.Now;
+                    var fedSecureToken = new Cookie
+                    {
+                        Name = Constants.COOKIES_SECURE_TOKEN,
+                        Value = Settings.FEDSecureToken
+                    };
+                    cts = new CancellationTokenSource();
+                    availableVouchers = await couponService.GetUserVouchersAsync(fedSecureToken, spent: false, page: 0, pageItems: Constants.VOUCHER_ITEMS_PER_PAGE, ct: cts.Token);
+                    spentVouchers = await couponService.GetUserVouchersAsync(fedSecureToken, spent: true, page: 0, pageItems: Constants.VOUCHER_ITEMS_PER_PAGE, ct: cts.Token);
+                }
+                catch (AggregateException e)
+                {
+                    foreach (var ie in e.InnerExceptions)
+                        Debug.WriteLine($"[Wallet SetTab({walletKind})] (Aggregate) TaskCanceledException: " + ie.Message);
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine($"[Wallet SetTab({walletKind})] TaskCanceledException: " + ex.Message);
+                }
+                finally
+                {
+                    if (cts != null)
+                    {
+                        cts.Dispose();
+                        cts = null;
+                    }
+                    else
+                    {
+                        Debug.WriteLine($"+++++++ [Wallet SetTab({walletKind})] cts == null !!!");
+                    }
                 }
             }
 
-            if (spentCoupons != null && (WalletKind == WalletKind.All || WalletKind == WalletKind.Spent))
+            Vouchers.Clear();
+
+            if (availableVouchers != null && (WalletKind == WalletKind.All || WalletKind == WalletKind.Available))
             {
-                foreach (var coupon in spentCoupons)
+                foreach (var coupon in availableVouchers)
                 {
-                    Coupons.Add(coupon);
+                    Vouchers.Add(coupon);
                 }
             }
 
-            if (WalletKind == WalletKind.All && Coupons.Count == 0)
+            if (spentVouchers != null && (WalletKind == WalletKind.All || WalletKind == WalletKind.Spent))
+            {
+                foreach (var coupon in spentVouchers)
+                {
+                    Vouchers.Add(coupon);
+                }
+            }
+
+            if (WalletKind == WalletKind.All && Vouchers.Count == 0)
             {
                 ContentHeader = $"La ricerca non ha restituito alcun buono";
             }
@@ -109,7 +146,7 @@ namespace Italia.DiciottoApp.ViewModels
                 switch (WalletKind)
                 {
                     case WalletKind.All:
-                        switch (availableCoupons.Count())
+                        switch (availableVouchers.Count())
                         {
                             case 0:
                                 ContentHeader = $"Non ci sono buoni ancora da spendere.";
@@ -118,12 +155,13 @@ namespace Italia.DiciottoApp.ViewModels
                                 ContentHeader = $"C'è un buono ancora da spendere.";
                                 break;
                             default:
-                                ContentHeader = $"Ci sono {availableCoupons.Count()} buoni ancora da spendere.";
+                                ContentHeader = $"Ci sono {availableVouchers.Count()} buoni ancora da spendere.";
                                 break;
                         }
                         break;
+
                     case WalletKind.Available:
-                        switch (availableCoupons.Count())
+                        switch (availableVouchers.Count())
                         {
                             case 0:
                                 ContentHeader = $"La ricerca non ha restituito alcun buono da spendere.";
@@ -132,12 +170,13 @@ namespace Italia.DiciottoApp.ViewModels
                                 ContentHeader = $"C'è un buono ancora da spendere";
                                 break;
                             default:
-                                ContentHeader = $"Ci sono {availableCoupons.Count()} buoni ancora da spendere";
+                                ContentHeader = $"Ci sono {availableVouchers.Count()} buoni ancora da spendere";
                                 break;
                         }
                         break;
+
                     case WalletKind.Spent:
-                        switch (spentCoupons.Count())
+                        switch (spentVouchers.Count())
                         {
                             case 0:
                                 ContentHeader = $"La ricerca non ha restituito alcun buono già speso.";
@@ -146,10 +185,11 @@ namespace Italia.DiciottoApp.ViewModels
                                 ContentHeader = $"Hai un buono già speso";
                                 break;
                             default:
-                                ContentHeader = $"Hai {spentCoupons.Count()} buoni già spesi";
+                                ContentHeader = $"Hai {spentVouchers.Count()} buoni già spesi";
                                 break;
                         }
                         break;
+
                     default:
                         break;
                 }
@@ -157,18 +197,8 @@ namespace Italia.DiciottoApp.ViewModels
             }
 
             IsBusy = false;
-            OnPropertyChanged(nameof(CouponListIsVisible));
+            OnPropertyChanged(nameof(VoucherListIsVisible));
         }
-
-        //public override void OnDisappearing()
-        //{
-        //    if (IsBusy)
-        //    {
-        //        if (cts != null && !cts.IsCancellationRequested)
-        //            cts.Cancel();
-        //    }
-        //    base.OnDisappearing();
-        //}
 
     }
 }

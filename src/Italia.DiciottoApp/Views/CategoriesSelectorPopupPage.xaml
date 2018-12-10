@@ -28,8 +28,7 @@
                            Style="{StaticResource RegularLabelStyle}" 
                            FontSize="16"
                            TextColor="#FF30383D"
-                           Text="Tutte le categorie"
-                           IsVisible="{Binding IsCategoryNotSelected}" />
+                           Text="Tutte le categorie" />
         </StackLayout>
 
         <BoxView HeightRequest="1"

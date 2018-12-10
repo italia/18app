@@ -3,14 +3,18 @@ using Italia.DiciottoApp.Services;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Italia.DiciottoApp.ViewModels
 {
     class OnlineShopsViewModel : BaseViewModel, ISelectCategory
     {
+        private CancellationTokenSource cts;
+
         #region Properties
 
         public string PageTitle => "Negozi";
@@ -62,36 +66,64 @@ namespace Italia.DiciottoApp.ViewModels
 
         public OnlineShopsViewModel() : base()
         {
+            ContentHeader = string.Empty;
+            IsBusy = false;
         }
 
-        public async Task SelectCategoryAsync(Categoria categoria, bool allSelected)
+        public async Task GetOnlineShopsAsync(Categoria categoria, bool allSelected)
         {
+            Debug.WriteLine($"[GetOnlineShopsAsync] started");
 
             if (IsBusy)
+            {
+                await DisplayAlertAsync("Sto già cercando i negozi online...");
                 return;
+            }
 
             IsBusy = true;
             OnPropertyChanged("ShopListIsVisible");
-            ContentHeader = "Ricerca negozi in corso...";
 
             SelectedCategory = categoria;
             AllCategoriesSelected = allSelected;
+            ContentHeader = "Ricerca negozi in corso...";
 
-            var shopService = Service.Resolve<IShopsService>();
-            var shops = await shopService.OnlineShopsAsync(categoria);
 
-            if (shops != null)
+            try
             {
                 Shops.Clear();
-                foreach (var shop in shops)
+
+                cts = new CancellationTokenSource();
+                var shopService = Service.Resolve<IShopsService>();
+                var shops = await shopService.OnlineShopsAsync(categoria);
+
+                if (shops != null)
                 {
-                    Shops.Add(shop);
+                    foreach (var shop in shops)
+                    {
+                        Shops.Add(shop);
+                    }
                 }
+
+                ContentHeader = (Shops.Count() > 0) ? string.Empty : "Non ci sono negozi online che corrispondono al criterio di ricerca.";
             }
+            catch (AggregateException e)
+            {
+                foreach (var ie in e.InnerExceptions)
+                    Debug.WriteLine($"[GetOnlineShopsAsync] (Aggregate) TaskCanceledException: " + ie.Message);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"[GetOnlineShopsAsync] TaskCanceledException: " + ex.Message);
+            }
+            finally
+            {
+                cts.Dispose();
+                cts = null;
+            }
+
 
             IsBusy = false;
             OnPropertyChanged("ShopListIsVisible");
-            ContentHeader = (shops.Count() > 0) ? String.Empty : "Non ci sono negozi online che corrispondono al criterio di ricerca.";
         }
 
     }

@@ -101,7 +101,7 @@ namespace Italia.DiciottoApp.Views
         private async void OnAllCategoriesButtonTapped(object sender, EventArgs e)
         {
             await PopupNavigation.Instance.PopAllAsync();
-            await caller.SelectCategoryAsync(categoria: null, allSelected: true);
+            await caller.GetOnlineShopsAsync(categoria: null, allSelected: true);
         }
 
         private async void OnCategoryListItemTapped(object sender, ItemTappedEventArgs e)
@@ -115,7 +115,7 @@ namespace Italia.DiciottoApp.Views
                 }
 
                 await PopupNavigation.Instance.PopAllAsync();
-                await caller.SelectCategoryAsync(categoria, allSelected: false);
+                await caller.GetOnlineShopsAsync(categoria, allSelected: false);
             }
         }
     }

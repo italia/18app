@@ -39,21 +39,23 @@
                      VerticalOptions="End"
                      BackgroundColor="White" />
 
-            <Label Grid.Row="0" Grid.Column="0"
-                   Text="VICINO A TE"
-                   Style="{StaticResource TabLabelStyle}">
-                <Label.GestureRecognizers>
+            <StackLayout Grid.Row="0" Grid.Column="0" BackgroundColor="Transparent">
+                <StackLayout.GestureRecognizers>
                     <TapGestureRecognizer Tapped="OnNearToYouTabTapped" />
-                </Label.GestureRecognizers>
-            </Label>
+                </StackLayout.GestureRecognizers>
+                <Label Text="VICINO A TE"
+                       VerticalOptions="CenterAndExpand"
+                       Style="{StaticResource TabLabelStyle}" />
+            </StackLayout>
 
-            <Label Grid.Row="0" Grid.Column="1"
-                   Text="SU INTERNET"
-                   Style="{StaticResource TabLabelStyle}">
-                <Label.GestureRecognizers>
+            <StackLayout Grid.Row="0" Grid.Column="1" BackgroundColor="Transparent">
+                <StackLayout.GestureRecognizers>
                     <TapGestureRecognizer Tapped="OnOnlineTabTapped" />
-                </Label.GestureRecognizers>
-            </Label>
+                </StackLayout.GestureRecognizers>
+                <Label Text="SU INTERNET"
+                       VerticalOptions="CenterAndExpand"
+                       Style="{StaticResource TabLabelStyle}" />
+            </StackLayout>
 
             <Label Grid.Row="0" Grid.Column="2"
                    Text="RICERCA"

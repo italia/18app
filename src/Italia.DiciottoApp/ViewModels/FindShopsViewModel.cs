@@ -99,7 +99,7 @@ namespace Italia.DiciottoApp.ViewModels
             await FindShopsAsync();
         }
 
-        public async Task SelectCategoryAsync(Categoria categoria, bool allSelected)
+        public async Task GetOnlineShopsAsync(Categoria categoria, bool allSelected)
         {
             SelectedCategory = categoria;
             AllCategoriesSelected = allSelected;
@@ -122,7 +122,7 @@ namespace Italia.DiciottoApp.ViewModels
             foreach (var ctsItem in ctsList.Where(c => !c.IsCancellationRequested))
             {
                 ctsItem.Cancel();
-                Debug.WriteLine($"[FindShopsAsync({SearchText})] previous DoWorkAsync task cancelled");
+                Debug.WriteLine($"[FindShopsAsync(...)] previous DoWorkAsync task cancelled");
             }
 
             var cts = new CancellationTokenSource();
@@ -145,12 +145,15 @@ namespace Italia.DiciottoApp.ViewModels
                     var shopService = Service.Resolve<IShopsService>();
                     var shops = await shopService.FindShopsAsync(SelectedCategory, SelectedMunicipality, SearchText, ct: ct);
 
-                    foreach (var shop in shops)
+                    if (shops != null)
                     {
-                        Shops.Add(shop);
+                        foreach (var shop in shops)
+                        {
+                            Shops.Add(shop);
+                        }
                     }
 
-                    ContentHeader = (Shops.Count() > 0) ? String.Empty : "Non ci sono negozi fisici che corrispondono al criterio di ricerca.";
+                    ContentHeader = (Shops.Count() > 0) ? string.Empty : "Non ci sono negozi fisici che corrispondono al criterio di ricerca.";
                 }
                 catch (AggregateException e)
                 {

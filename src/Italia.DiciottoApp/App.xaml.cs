@@ -12,6 +12,7 @@ using Microsoft.AppCenter.Crashes;
 using Rg.Plugins.Popup.Services;
 
 [assembly: XamlCompilation (XamlCompilationOptions.Compile)]
+[assembly: System.Runtime.CompilerServices.InternalsVisibleTo("Italia.DiciottoApp.Test")]
 namespace Italia.DiciottoApp
 {
 	public partial class App : Application

@@ -17,7 +17,7 @@ namespace Italia.DiciottoApp.Views
     {
         private CouponViewModel vm;
 
-        public CouponPage(Coupon coupon, bool justCreated = false)
+        public CouponPage(Voucher coupon, bool justCreated = false)
         {
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);

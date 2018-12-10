@@ -45,7 +45,7 @@ namespace Italia.DiciottoApp.ViewModels
 
         public string CouponStatus =>
             Coupon == null ? string.Empty
-                           : Coupon.Spent ? $"Buono utilizzato il {Coupon.SpentDateTime.ToString("dd MMMM yy", ci)} alle ore {Coupon.SpentDateTime.ToString("hh.mm")}"
+                           : Coupon.Spent && Coupon.SpentDateTime != null ? $"Buono utilizzato il {Coupon.SpentDateTime.Value.ToString("dd MMMM yy", ci)} alle ore {Coupon.SpentDateTime.Value.ToString("hh.mm")}"
                            : JustCreated ? "Il nuovo buono è stato creato correttamente"
                            : "Buono ancora da spendere" ;
 
@@ -63,8 +63,8 @@ namespace Italia.DiciottoApp.ViewModels
 
         public string BarcodeImageSource => "fake_barcode";
 
-        private Coupon coupon;
-        public Coupon Coupon
+        private Voucher coupon;
+        public Voucher Coupon
         {
             get => coupon;
             set => SetProperty(ref coupon, value, onChanged: () =>
@@ -100,12 +100,13 @@ namespace Italia.DiciottoApp.ViewModels
             // Coupon
             string id = "DF69A8D5";
             Shop fakeShop = FakeShops.GetList().ToList()[2];
-            Coupon coupon = new Coupon
+            Voucher coupon = new Voucher
             {
                 Id = id,
                 Category = CategoriaFromTipoCategoria(TipoCategoria.Libri),
                 Product = CategoriaFromTipoCategoria(TipoCategoria.Libri).Prodotti[0],
-                Value = 12.34,
+                RequestedValue = 12.34,
+                ValidatedValue = 0.0,
                 QrCodeValue = id,
                 BarCodeValue = id,
                 ShopId = fakeShop.Id,

@@ -17,6 +17,7 @@ namespace Italia.DiciottoApp.Views
 	public partial class NearToYouShopsPage : BasePage
     {
         private NearToYouShopsViewModel vm;
+        private bool gettingShopList = false;
 
         public NearToYouShopsPage()
 		{
@@ -28,7 +29,12 @@ namespace Italia.DiciottoApp.Views
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-            await vm.GetShopListAsync();
+            if (!gettingShopList)
+            {
+                gettingShopList = true;
+                await vm.GetShopListAsync();
+                gettingShopList = false;
+            }
         }
 
         private async void OnOnlineTabTapped(object sender, EventArgs e)
