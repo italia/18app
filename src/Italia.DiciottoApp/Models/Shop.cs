@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Italia.DiciottoApp.DTOs;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using Xamarin.Essentials;
@@ -60,5 +61,35 @@ namespace Italia.DiciottoApp.Models
                 return elencoCategorie;
             }
         }
+
+        #region Utils
+
+        public static Shop FromPuntoVenditaBean(PuntoVenditaBean puntoVendita, bool online)
+        {
+            if (puntoVendita == null)
+            {
+                return null;
+            }
+
+            return new Shop
+            {
+                Id = puntoVendita.IdPuntoVendita.ToString() ?? string.Empty,
+                Title = puntoVendita.Denominazione,
+                Address = new Address
+                {
+                    Cap = puntoVendita.Cap,
+                    Comune = puntoVendita.Comune,
+                    Indirizzo = puntoVendita.Indirizzo,
+                    SiglaProvincia = puntoVendita.CodProvincia
+                },
+                DistanceFromUser = string.Empty,
+                IsOnline = online,
+                Url = puntoVendita.UrlSito,
+                Location = (puntoVendita.Latitudine == null || puntoVendita.Longitudine == null) ? null : new Location(puntoVendita.Latitudine.Value, puntoVendita.Longitudine.Value),
+            };
+        }
+
+        #endregion
+
     }
 }

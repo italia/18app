@@ -115,5 +115,14 @@ namespace Italia.DiciottoApp.Models
             }
         };
 
+        #region Utils
+
+        public static Categoria FromIdAmbito(long? idAmbito)
+        {
+            return (idAmbito != null) ? Categoria.List.FirstOrDefault(c => c.Id == idAmbito) : null;
+        }
+
+        #endregion
+
     }
 }

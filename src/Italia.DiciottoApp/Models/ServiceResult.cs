@@ -19,7 +19,7 @@ namespace Italia.DiciottoApp.Models
 
     public class ServiceResult<T> : ServiceResult
     {
-        public T Result { get; private set; } = default(T);
+        public T Result { get; set; } = default(T);
 
         public async Task ProcessAsync(HttpResponseMessage response)
         {
