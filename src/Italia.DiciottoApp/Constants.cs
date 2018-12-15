@@ -13,12 +13,22 @@ namespace Italia.DiciottoApp
         public static readonly int NEAR_TO_YOU_SHOP_MAX_ITEMS = 30;
         public static readonly int VOUCHER_ITEMS_PER_PAGE = 100;
 
-        // Login
-        public static readonly string COOKIES_URL = "https://val.18app.italia.it"; // In produzione utilizzare "https://18app.italia.it";
         public static readonly string COOKIES_SECURE_TOKEN = "FEDSecureToken";
         public static readonly string COOKIES_USER_TOKEN = "cookieutente";
-        public static readonly string SERVICE_HOST = "https://18app-api-test.teamdigitale.it";
-        public static readonly string TEST_SERVICE_ENDPOINT = "https://18app-api-test.teamdigitale.it/interop/18app";
-        public static readonly string PROD_SERVICE_ENDPOINT = "https://www.18app.italia.it";
+
+        #region Evironment dependent constants
+
+        private static readonly bool prodEnv = false;
+        
+        public static string COOKIES_URL => prodEnv ? "https://18app.italia.it" : "https://val.18app.italia.it";
+
+        public static string RETURN_URL => prodEnv ? "https://18app.italia.it" : "https://val.18app.italia.it/BeneficiarioWeb/#/registrazione";
+
+        public static string SERVICE_HOST => prodEnv ? "https://www.18app.italia.it" : "https://18app-api-test.teamdigitale.it";
+
+        public static string SERVICE_ENDPOINT => prodEnv ? "https://www.18app.italia.it" : "https://18app-api-test.teamdigitale.it/interop/18app";
+        
+        #endregion
+        
     }
 }

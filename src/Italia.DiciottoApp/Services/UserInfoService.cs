@@ -28,7 +28,7 @@ namespace Italia.DiciottoApp.Services
             try
             {
                 // Recupero i dati del borsellino
-                var response = await httpClient.GetAsync($"{Constants.TEST_SERVICE_ENDPOINT}/BONUSWS/rest/secured/18enne/borsellino");
+                var response = await httpClient.GetAsync($"{Constants.SERVICE_ENDPOINT}/BONUSWS/rest/secured/18enne/borsellino");
                 await getBorsellinoResult.ProcessAsync(response);
             }
             catch (Exception ex)

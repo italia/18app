@@ -60,7 +60,7 @@ namespace Italia.DiciottoApp.Services
                 StringContent httpContent = new StringContent(ricercaStoreBeanJson, Encoding.UTF8, "application/json");
 
                 // Recupero i dati della ricerca store
-                var response = await httpClient.PostAsync($"{Constants.TEST_SERVICE_ENDPOINT}/BONUSWS/rest/unsecured/18enne/ricercaStoreByFilter", httpContent, ct);
+                var response = await httpClient.PostAsync($"{Constants.SERVICE_ENDPOINT}/BONUSWS/rest/unsecured/18enne/ricercaStoreByFilter", httpContent, ct);
                 await getRicercaStoreResultOutput.ProcessAsync(response);
             }
             catch (Exception ex)
