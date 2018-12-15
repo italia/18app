@@ -24,8 +24,21 @@ namespace Italia.DiciottoApp.Test
             fedSecureToken = new Cookie
             {
                 Name = Constants.COOKIES_SECURE_TOKEN,
-                Value = "W/NaKriBQRDQsyV1hG+m3Gs9EyIpojnatBt9YSKMaGyv5LmdfYLdOaZes6YJiR5ln9SWU6MITGhJHf3p55T/Xv+FDuqt2Ss6/fbynBn8Q0U4+aNtm6AhYKScjl8Y1cvLRgNvxeOwUmMePYA5p2+jN5wIX+CnYfLJ5Lvi6a/tHTgIiD8CDKZ0ojFhqTb5Obqoye+vv5WlkRPPQ2cc8LLlI4F16Jvz7O0yOQ9A8FEZsuV4qzmwM8EEpuVFPn5TWBZs0PGoSnbmMjRiFnnqI0gRwFy+sRuK3QNw6N3twlIOtB4TreTRcTPKChWWiQlJcXowM/z7qilgjZvicO8k5LCkVgo83JUOqXX9XWOU9KHn9iCjsc++ngq625oXnHmX01tT"
+                Value = "NED++9tszFbug4WtSBR/oXbwYj48UDoV+lsP3rL5aFN0AZwa2TuBq4s6DsdcTnJfBmw4RX/5ZTog05/hCK97jgTZsDPkf0uoHBt44ULR84nHX6iHT9jrjQdbf1MUtusfrQDJFwm6g69xQqerXo42WDVofxMdklHHcDNqRvAg/6LJNnNLzcHAK/AYdCcKMVo1F6WtKi3uFxGGvPAYWUgvUVBCL1gFhM7btGx/Pst0GPnI5U+nP1wTbG43mCeyKsO3s8p95687M4h2otAJnMt4nEqepOl+8Dp3LnbGFx0Gg2fFeRdxc9C3cTvoYiYkGc/1+GZ5w2iC/4Lqxx3RWrOWlivjIH7LX6HkEWaXDiUkQbrlIHqENc1pLPjpCFxfGHRe"
             };
+
+            Settings.SetBeneficiario(new BeneficiarioBean
+            {
+                IdBeneficiario = 245,
+                CodiceFiscale = "MRAVRD99A01H501M",
+                Nome = "Marco",
+                Cognome = "Rossi",
+                AnnoRif = "2017",
+                DataNascita = new DateTime(1998, 12,31,23,0,0),
+                Cellulare = "333258963874",
+                Email = "marcorossi@prova.it",
+                FlagAccettazionePrivacy = "1"
+            });
         }
 
         #region CreateVouchersAsync
@@ -42,7 +55,7 @@ namespace Italia.DiciottoApp.Test
 
             var createVoucherServiceResult = await vouchersService.CreateVoucherAsync(fedSecureToken, categoria, prodotto, valore, online);
 
-            Assert.IsFalse(createVoucherServiceResult.Success);
+            Assert.IsTrue(createVoucherServiceResult.Success);
             Assert.AreEqual(1, createVoucherServiceResult.Log.Count);
 
             var actualStatusCode = createVoucherServiceResult.Log[0].StatusCode;

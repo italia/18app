@@ -47,7 +47,7 @@ namespace Italia.DiciottoApp.Services
             try
             {
                 string servicePath = spent ? "listaVoucherSpesi" : "listaVoucherDaSpendere";
-                var response = await httpClient.GetAsync($"{Constants.TEST_SERVICE_ENDPOINT}/BONUSWS/rest/unsecured/18enne/{servicePath}", ct);
+                var response = await httpClient.GetAsync($"{Constants.SERVICE_ENDPOINT}/BONUSWS/rest/unsecured/18enne/{servicePath}", ct);
                 await serviceResult.ProcessAsync(response);
             }
             catch (Exception ex)
@@ -131,7 +131,7 @@ namespace Italia.DiciottoApp.Services
                 StringContent httpContent = new StringContent(ricercaStoreBeanJson, Encoding.UTF8, "application/json");
 
                 // Recupero i dati della ricerca store
-                var response = await httpClient.PostAsync($"{Constants.TEST_SERVICE_ENDPOINT}/BONUSWS/rest/unsecured/18enne/insVoucher{(online ? "Online" : "Fisico")}", httpContent);
+                var response = await httpClient.PostAsync($"{Constants.SERVICE_ENDPOINT}/BONUSWS/rest/secured/18enne/insVoucher{(online ? "Online" : "Fisico")}", httpContent);
                 await createVoucherServiceResult.ProcessAsync(response);
             }
             catch (Exception ex)
