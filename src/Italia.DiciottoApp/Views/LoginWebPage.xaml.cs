@@ -21,7 +21,7 @@ namespace Italia.DiciottoApp.Views
 	{
         private LoginWebPageViewModel vm;
         private IdP idp;
-        private readonly string returnUrls = "https://val.18app.italia.it/BeneficiarioWeb/#/registrazione";
+        private readonly string returnUrls = Constants.RETURN_URL;
 
 		public LoginWebPage (IdP idp)
 		{
@@ -37,8 +37,7 @@ namespace Italia.DiciottoApp.Views
         private void InitializeWebView()
         {
             LoginBrowser.IsVisible = true;
-            LoginBrowser.Source = "	https://ssotest.18app.italia.it/rp/agid/s5";
-            // LoginBrowser.Source = IdPs.UrlString(idp) ?? "https://www.18App.it";
+            LoginBrowser.Source = IdPs.UrlString(idp) ?? "https://www.18App.it";
         }
 
         private void OnBrowserNavigating(object sender, WebNavigatingEventArgs e)
@@ -75,11 +74,11 @@ namespace Italia.DiciottoApp.Views
             Cookie usernameToken = cookies.Where(c => c.Name == Constants.COOKIES_USER_TOKEN).FirstOrDefault();
             Debug.WriteLine($"++++ fedSecureToken: {fedSecureToken?.Value ?? "FEDSecureToken not found"}");
 
-            string LoginFailDetail = string.Empty;
+            string loginFailDetail = string.Empty;
 
             if (fedSecureToken == null)
             {
-                LoginFailDetail = "Unavailable Secure Token";
+                loginFailDetail = "Unavailable Secure Token";
             }
             else
             {
@@ -91,32 +90,36 @@ namespace Italia.DiciottoApp.Views
                 {
                     if (loginResult.Beneficiary == null)
                     {
-                        LoginFailDetail = "Unavailable Beneficiary info";
+                        loginFailDetail = "Unavailable Beneficiary info";
                     }
                     else
                     {
+                        Settings.FEDSecureToken = fedSecureToken.Value;
+                        Settings.UserLogged = true;
                         Settings.SetBeneficiario(loginResult.Beneficiary);
-                        if (loginResult.Beneficiary.BorsellinoBean == null)
+
+                        if (Settings.UserAcceptanceFlag == "1")
                         {
-                            LoginFailDetail = "Unavailable Wallet info";
-                        }
-                        else
-                        {
-                            Settings.SetBorsellino(loginResult.Beneficiary.BorsellinoBean);
-                            Settings.FEDSecureToken = fedSecureToken.Value;
-                            Settings.UserLogged = true;
+                            if (loginResult.Beneficiary.BorsellinoBean == null)
+                            {
+                                loginFailDetail = "Unavailable Wallet info";
+                            }
+                            else
+                            {
+                                Settings.SetBorsellino(loginResult.Beneficiary.BorsellinoBean);
+                            }
                         }
                     }
                 }
                 else
                 {
-                    LoginFailDetail = loginResult.FailureReason.ToString();
+                    loginFailDetail = loginResult.FailureReason.ToString();
                 }
             }
 
-            if (string.IsNullOrWhiteSpace(LoginFailDetail))
+            if (!string.IsNullOrWhiteSpace(loginFailDetail))
             {
-                // TODO: Show Error Message with ok button
+                await DisplayAlert("Login error", loginFailDetail, "OK");
             }
 
             if (Settings.UserLogged)
@@ -125,8 +128,15 @@ namespace Italia.DiciottoApp.Views
                 IReadOnlyList<Page> navStack = Navigation.NavigationStack;
                 Page currentRootPage = navStack[0];
 
-                // Insert page before WelcomePage
-                Navigation.InsertPageBefore(new LoggedRootPage(), currentRootPage);
+                // Insert page before WelcomePage, depending on the UserAcceptanceFlag value
+                if (Settings.UserAcceptanceFlag == "0")
+                {
+                    Navigation.InsertPageBefore(new AcceptPrivacyPage(), currentRootPage);
+                }
+                else
+                {
+                    Navigation.InsertPageBefore(new LoggedRootPage(), currentRootPage);
+                }
             }
             else
             {
