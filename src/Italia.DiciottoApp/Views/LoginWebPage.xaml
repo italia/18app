@@ -5,7 +5,7 @@
                 xmlns:views="clr-namespace:Italia.DiciottoApp.Views"
                 xmlns:vm="clr-namespace:Italia.DiciottoApp.ViewModels"
                 xmlns:cr="clr-namespace:Italia.DiciottoApp.CustomRenderers"
-                ControlTemplate="{StaticResource LoginPageTemplate}">
+                ControlTemplate="{StaticResource LoginPageTemplate}" >
 
     <views:BasePage.BindingContext>
         <vm:LoginWebPageViewModel />
@@ -36,55 +36,3 @@
         </Grid>
     </views:BasePage.Content>
 </views:BasePage>
-
-<!--<views:BasePage.Content>
-    <Grid VerticalOptions="FillAndExpand"
-              HorizontalOptions="FillAndExpand"
-              RowSpacing="0" ColumnSpacing="0">
-
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-        </Grid.RowDefinitions>
-
-            <StackLayout Grid.Row="0"
-                         Padding="0" Spacing="0"
-                         Margin="8"
-                         HorizontalOptions="Fill"
-                         Orientation="Horizontal">
-
-                <Entry x:Name="UrlEntry"
-                       Text="https://www.18App.it"
-                       HorizontalOptions="FillAndExpand" />
-                <Button Text="Go" Clicked="NavigateButtonClicked" />
-            </StackLayout>
-
-        <cr:ExtWebView x:Name="LoginBrowser"
-                           Grid.Row="1"
-                           Navigating="OnBrowserNavigating"
-                           Navigated="OnBrowserNavigated"
-                           UrlReturned="OnUrlReturned"
-                           ReturnUrls="https://val.18app.italia.it/BeneficiarioWeb/#/registrazione" />
-
-        <Label x:Name="LoadingLabel"
-                   Grid.Row="2"
-                   Text="Loading..."
-                   HorizontalOptions="Center"
-                   VerticalOptions="Center"
-                   IsVisible="false" />
-
-        <StackLayout Grid.Row="3"
-                         Padding="0" Spacing="0"
-                         Margin="8"
-                         HorizontalOptions="Fill"
-                         Orientation="Horizontal">
-
-            <Entry x:Name="CookiesUrlEntry"
-                       Text="https://www.18App.it"
-                       HorizontalOptions="FillAndExpand" />
-            <Button Text="Dump" Clicked="DumpButtonClicked" />
-        </StackLayout>
-    </Grid>
-</views:BasePage.Content>-->
