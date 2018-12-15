@@ -76,7 +76,8 @@ namespace Italia.DiciottoApp.Models
                     urlSegment = "titt";
                     break;
                 case IdP.Test:
-                    return "agid";
+                    urlSegment = "agid";
+                    break;
                 default:
                     urlSegment = String.Empty;
                     break;
