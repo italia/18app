@@ -33,7 +33,7 @@ namespace Italia.DiciottoApp.Models
 
         public void NonOperatingBeneficiary()
         {
-            Success = false;
+            Success = true;
             FailureReason = LoginFailureReason.NonOperatingBeneficiary;
         }
 
