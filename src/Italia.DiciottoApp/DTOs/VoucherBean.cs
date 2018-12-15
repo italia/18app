@@ -43,10 +43,10 @@ namespace Italia.DiciottoApp.DTOs
         public double? ImportoValidato { get; set; }
 
         [JsonProperty("qr", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public List<byte[]> Qr { get; set; }
+        public string Qr { get; set; }
 
         [JsonProperty("codeLine", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public List<byte[]> CodeLine { get; set; }
+        public string CodeLine { get; set; }
 
         [JsonProperty("idFattura", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string IdFattura { get; set; }
