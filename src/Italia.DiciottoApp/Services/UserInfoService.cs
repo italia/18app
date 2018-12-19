@@ -47,5 +47,33 @@ namespace Italia.DiciottoApp.Services
 
             return getBorsellinoResult;
         }
+
+        public async Task<ServiceResult<string>> GetPresaVisioneAsync()
+        {
+            httpClient = HttpClientFactory.Builder(ClientId, ClientSecret, Settings.FEDSecureToken);
+
+            var getPresaVisioneResult = new ServiceResult<string>();
+            try
+            {
+                // Recupero i dati del borsellino
+                var response = await httpClient.GetAsync($"{Constants.SERVICE_ENDPOINT}/BONUSWS/rest/secured/18enne/presaVisioneAppUfficiale");
+                await getPresaVisioneResult.ProcessAsync(response);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"++++ GetPresaVisione error: {ex.Message}");
+            }
+
+            if (!getPresaVisioneResult.Success)
+            {
+                Debug.WriteLine($"++++ GetPresaVisione result error: {getPresaVisioneResult.FailureReason}");
+                foreach (var response in getPresaVisioneResult.Log)
+                {
+                    Debug.WriteLine($"  ++ service operation: {response.RequestMessage.RequestUri} , result: {response.StatusCode}");
+                }
+            }
+
+            return getPresaVisioneResult;
+        }
     }
 }

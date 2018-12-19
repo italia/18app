@@ -141,14 +141,14 @@ namespace Italia.DiciottoApp.Models
 
         public static double BorsellinoImportoRichNonValidFisico
         {
-            get => DoubleConverter.FromString(AppSettings.GetValueOrDefault("BorsellinoImportoTot", string.Empty));
-            set => AppSettings.AddOrUpdateValue("BorsellinoImportoTot", DoubleConverter.FromDouble(value));
+            get => DoubleConverter.FromString(AppSettings.GetValueOrDefault("BorsellinoImportoRichNonValidFisico", string.Empty));
+            set => AppSettings.AddOrUpdateValue("BorsellinoImportoRichNonValidFisico", DoubleConverter.FromDouble(value));
         }
 
         public static double BorsellinoImportoRichNonValidOnline
         {
-            get => DoubleConverter.FromString(AppSettings.GetValueOrDefault("BorsellinoImportoRichNonValidFisico", string.Empty));
-            set => AppSettings.AddOrUpdateValue("BorsellinoImportoRichNonValidFisico", DoubleConverter.FromDouble(value));
+            get => DoubleConverter.FromString(AppSettings.GetValueOrDefault("BorsellinoImportoRichNonValidOnline", string.Empty));
+            set => AppSettings.AddOrUpdateValue("BorsellinoImportoRichNonValidOnline", DoubleConverter.FromDouble(value));
         }
 
         public static double BorsellinoImportoValidato
@@ -254,6 +254,21 @@ namespace Italia.DiciottoApp.Models
             };
         }
 
+        public static void UserLogOut()
+        {
+            UserLogged = false;
+            UserAcceptanceFlag = "0";
+
+            UserId = string.Empty;
+            UserCodFisc = string.Empty;
+            UserName = string.Empty;
+            UserSurname = string.Empty;
+            UserAnnoRif = string.Empty;
+            UserBirthDate = null;
+            UserPhoneNumber = string.Empty;
+            UserEmail = string.Empty;
+        }
+
         public static void SetBorsellino(BorsellinoBean borsellino)
         {
             BorsellinoId = borsellino.IdBorsellino ?? 0;
@@ -280,6 +295,7 @@ namespace Italia.DiciottoApp.Models
             return new BorsellinoBean
             {
                 IdBorsellino = BorsellinoId,
+                ImportoTot = BorsellinoImportoTot,
                 ImportoRichNonValidFisico = BorsellinoImportoRichNonValidFisico,
                 ImportoRichNonValidOnline = BorsellinoImportoRichNonValidOnline,
                 ImportoValidato = BorsellinoImportoValidato,

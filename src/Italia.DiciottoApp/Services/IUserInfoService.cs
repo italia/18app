@@ -7,5 +7,7 @@ namespace Italia.DiciottoApp.Services
     interface IUserInfoService
     {
         Task<ServiceResult<BorsellinoBean>> GetBorsellinoAsync();
+
+        Task<ServiceResult<string>> GetPresaVisioneAsync();
     }
 }

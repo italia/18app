@@ -37,7 +37,9 @@ namespace Italia.DiciottoApp.Droid.Renderers
         protected override void OnElementPropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
             base.OnElementPropertyChanged(sender, e);
-            if (e.PropertyName == RadialGauge.UsedPercentageProperty.PropertyName)
+            if (e.PropertyName == RadialGauge.InitialProperty.PropertyName ||
+                e.PropertyName == RadialGauge.CreatedProperty.PropertyName ||
+                e.PropertyName == RadialGauge.SpentProperty.PropertyName)
             {
                 Invalidate();
             }
@@ -46,12 +48,14 @@ namespace Italia.DiciottoApp.Droid.Renderers
         protected override void OnDraw(Canvas canvas)
         {
             float strokeWidth = Convert.ToSingle(Element.StrokeWidth);
+            float innerSpaceWidth = Convert.ToSingle(Element.InnerSpaceWidth);
             float strokeMiter = 10.0f;
 
             var rect = new Rect();
             this.GetDrawingRect(rect);
 
-            float sweepAngle = 360 * Convert.ToSingle(Element.UsedPercentage);
+            float spentAngle = 360 * Convert.ToSingle(Element.Spent/Element.Initial);
+            float createdAngle = 360 * Convert.ToSingle(Element.Created / Element.Initial);
 
             float radius = Math.Min(rect.Height(), rect.Width()) / 2 - strokeWidth;
 
@@ -62,23 +66,31 @@ namespace Italia.DiciottoApp.Droid.Renderers
                 rect.ExactCenterY() + radius
             );
 
-            float innerRadius = radius - 2 * strokeWidth;
+            float innerRadius = radius - strokeWidth - innerSpaceWidth; // radius - 2 * strokeWidth;
 
-            Paint paintUsed = new Paint(PaintFlags.AntiAlias)
+            Paint spentPaint = new Paint(PaintFlags.AntiAlias)
             {
                 StrokeWidth = strokeWidth,
                 StrokeMiter = strokeMiter,
-                Color = Element.UsedStrokeColor.ToAndroid()
+                Color = Element.SpentStrokeColor.ToAndroid()
             };
-            paintUsed.SetStyle(Paint.Style.Stroke);
+            spentPaint.SetStyle(Paint.Style.Stroke);
 
-            Paint paintUnused = new Paint(PaintFlags.AntiAlias)
+            Paint createdPaint = new Paint(PaintFlags.AntiAlias)
             {
                 StrokeWidth = strokeWidth,
                 StrokeMiter = strokeMiter,
-                Color = Element.UnusedStrokeColor.ToAndroid()
+                Color = Element.CreatedStrokeColor.ToAndroid()
             };
-            paintUnused.SetStyle(Paint.Style.Stroke);
+            createdPaint.SetStyle(Paint.Style.Stroke);
+
+            Paint availablePaint = new Paint(PaintFlags.AntiAlias)
+            {
+                StrokeWidth = strokeWidth,
+                StrokeMiter = strokeMiter,
+                Color = Element.AvailableStrokeColor.ToAndroid()
+            };
+            availablePaint.SetStyle(Paint.Style.Stroke);
 
             Paint paintCircle = new Paint(PaintFlags.AntiAlias)
             {
@@ -91,10 +103,16 @@ namespace Italia.DiciottoApp.Droid.Renderers
                 StrokeMiter = strokeMiter,
                 Color = Android.Graphics.Color.White
             };
-            paintUnused.SetStyle(Paint.Style.Stroke);
+            paintPlus.SetStyle(Paint.Style.Stroke);
 
-            canvas.DrawArc(circleRect, -90, sweepAngle, false, paintUsed);
-            canvas.DrawArc(circleRect, -90 + sweepAngle, 360 - sweepAngle, false, paintUnused);
+            //canvas.DrawArc(circleRect, -90, spentAngle, false, spentPaint);
+            //canvas.DrawArc(circleRect, -90 + spentAngle, -90 + spentAngle + createdAngle, false, createdPaint);
+            //canvas.DrawArc(circleRect, -90 + spentAngle + createdAngle, 360 - spentAngle - createdAngle, false, availablePaint);
+
+            canvas.DrawArc(circleRect, -90, spentAngle, false, spentPaint);
+            canvas.DrawArc(circleRect, -90 + spentAngle, createdAngle, false, createdPaint);
+            canvas.DrawArc(circleRect, -90 + spentAngle + createdAngle, 360 - spentAngle - createdAngle, false, availablePaint);
+
             canvas.DrawCircle(rect.ExactCenterX(), rect.ExactCenterY(), innerRadius, paintCircle);
             canvas.DrawLine(rect.ExactCenterX() - 0.3F * innerRadius, rect.ExactCenterY(), rect.ExactCenterX() + 0.3F * innerRadius, rect.ExactCenterY(), paintPlus);
             canvas.DrawLine(rect.ExactCenterX(), rect.ExactCenterY() - 0.3F * innerRadius, rect.ExactCenterX(), rect.ExactCenterY() + 0.3F * innerRadius, paintPlus);
