@@ -757,6 +757,18 @@
     <ImageAsset Include="Assets.xcassets\bkgnd_eventi.imageset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\plus_white.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\plus_white.imageset\plus_white.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\plus_white.imageset\plus_white@2x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\plus_white.imageset\plus_white@3x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\prod_course_lng.imageset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>

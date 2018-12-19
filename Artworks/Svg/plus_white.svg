@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="0.25in"
+   height="0.25in"
+   viewBox="0 0 24 23.999998"
+   version="1.1"
+   id="svg16"
+   sodipodi:docname="plus_white.svg"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)"
+   inkscape:export-filename="C:\Users\ncara\Desktop\fucina\plus_white.png"
+   inkscape:export-xdpi="376"
+   inkscape:export-ydpi="376">
+  <metadata
+     id="metadata20">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>plus_white</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1299"
+     inkscape:window-height="1227"
+     id="namedview18"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:zoom="16"
+     inkscape:cx="10.530146"
+     inkscape:cy="10.084809"
+     inkscape:window-x="367"
+     inkscape:window-y="67"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="plus_white"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:snap-bbox="true"
+     inkscape:snap-bbox-edge-midpoints="true"
+     units="in"
+     inkscape:showpageshadow="false" />
+  <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+  <title
+     id="title2">plus_white</title>
+  <desc
+     id="desc4">Created with Sketch.</desc>
+  <defs
+     id="defs6" />
+  <g
+     id="plus_white"
+     inkscape:label="plus_white"
+     transform="translate(-0.30952224,0.05444045)">
+    <rect
+       inkscape:label="Frame"
+       y="-0.05444045"
+       x="0.30952224"
+       height="24"
+       width="24"
+       id="Frame"
+       style="fill:none;fill-opacity:0.96356273;stroke:none;stroke-width:0.10937731;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <path
+       id="Shape"
+       transform="translate(0.30952224,-0.05444045)"
+       style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1.96162224;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+       d="M 11,6.984375 V 11 H 6.984375 v 2 H 11 v 4.015625 h 2 V 13 h 4.015625 V 11 H 13 V 6.984375 Z M 12,-2.909375e-6 A 12,12 0 0 0 3.9135399e-7,11.999998 12,12 0 0 0 12,23.999998 a 12,12 0 0 0 12,-12 A 12,12 0 0 0 12,-2.909375e-6 Z M 12,2.3496071 A 9.6499996,9.6499996 0 0 1 21.65039,11.999998 9.6499996,9.6499996 0 0 1 12,21.650389 9.6499996,9.6499996 0 0 1 2.3496096,11.999998 9.6499996,9.6499996 0 0 1 12,2.3496071 Z"
+       inkscape:connector-curvature="0"
+       inkscape:label="Shape" />
+  </g>
+</svg>
