@@ -55,7 +55,7 @@ namespace Italia.DiciottoApp.Test
 
             var createVoucherServiceResult = await vouchersService.CreateVoucherAsync(fedSecureToken, categoria, prodotto, valore, online);
 
-            Assert.IsTrue(createVoucherServiceResult.Success);
+            Assert.IsFalse(createVoucherServiceResult.Success);
             Assert.AreEqual(1, createVoucherServiceResult.Log.Count);
 
             var actualStatusCode = createVoucherServiceResult.Log[0].StatusCode;
