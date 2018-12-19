@@ -129,7 +129,7 @@ namespace Italia.DiciottoApp.Views
                 Page currentRootPage = navStack[0];
 
                 // Insert page before WelcomePage, depending on the UserAcceptanceFlag value
-                if (Settings.UserAcceptanceFlag == "0")
+                if (Settings.UserAcceptanceFlag == "0" || true) // TODO remove || true !!!
                 {
                     Navigation.InsertPageBefore(new AcceptPrivacyPage(), currentRootPage);
                 }
