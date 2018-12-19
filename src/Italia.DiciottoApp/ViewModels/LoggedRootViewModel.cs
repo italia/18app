@@ -14,6 +14,14 @@ namespace Italia.DiciottoApp.ViewModels
 
         public string Greetings => $"Benvenuto {Settings.UserName}, ti restano";
 
+        public double InitialAmmount => Settings.BorsellinoImportoTot;
+
+        public double SpentAmmount => Settings.BorsellinoImportoValidato;
+
+        public double CreatedAmmount => Settings.BorsellinoImportoRichNonValidFisico + Settings.BorsellinoImportoRichNonValidOnline;
+
+        public double RadialGaugeSize => Math.Min(DisplayWidth / DisplayDensity, DisplayHeight / DisplayDensity) * 2.0 / 3.0;
+
         #endregion
 
         public LoggedRootViewModel() : base()

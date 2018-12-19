@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.Essentials;
 
 namespace Italia.DiciottoApp.ViewModels
 {
@@ -34,6 +35,25 @@ namespace Italia.DiciottoApp.ViewModels
             return DoDisplayAlert?.Invoke(message) ?? Task.CompletedTask;
         }
 
+        #region Display properties
+
+        // Orientation (Landscape, Portrait, Square, Unknown)
+        public DisplayOrientation DisplayOrientation => DeviceDisplay.MainDisplayInfo.Orientation;
+
+        // Rotation (0, 90, 180, 270)
+        public DisplayRotation DisplayRotation => DeviceDisplay.MainDisplayInfo.Rotation;
+
+        // Width (in pixels)
+        public double DisplayWidth => DeviceDisplay.MainDisplayInfo.Width;
+
+        // Height (in pixels)
+        public double DisplayHeight => DeviceDisplay.MainDisplayInfo.Height;
+
+        // Screen density
+        public double DisplayDensity => DeviceDisplay.MainDisplayInfo.Density;
+
+        #endregion
+
         #region 18App Properties
 
         public string UserFullname => Settings.UserName + " " + Settings.UserSurname;
@@ -41,8 +61,6 @@ namespace Italia.DiciottoApp.ViewModels
         public double InitialCredit => Settings.BorsellinoImportoTot;
 
         public double ActualCredit => Settings.BorsellinoImportoResiduo;
-
-        public double UsedPercentage => (InitialCredit - ActualCredit) / InitialCredit;
 
         public string UserCredit => $"{ActualCredit.ToString("###.00")}€";
 

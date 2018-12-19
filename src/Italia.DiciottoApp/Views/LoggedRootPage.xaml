@@ -12,7 +12,7 @@
     </views:BasePage.BindingContext>
 
     <views:BasePage.Content>
-        <Grid RowSpacing="0" ColumnSpacing="0" >
+        <Grid x:Name="ContentGrid" RowSpacing="0" ColumnSpacing="0" >
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
@@ -47,7 +47,6 @@
                         <OnPlatform x:TypeArguments="Thickness"
                                     iOS="0, 5, 0, 0"
                                     Android="0, 10, 0, 0" />
-
                     </Image.Margin>
                 </Image>
             </StackLayout>
@@ -55,17 +54,22 @@
             <StackLayout Grid.Row="2" Padding="0" Spacing="0"
                          HorizontalOptions="CenterAndExpand"
                          VerticalOptions="CenterAndExpand"
-                         Margin="0,40,0,0">
+                         Margin="0,20,0,0">
                 <StackLayout.GestureRecognizers>
                     <TapGestureRecognizer Tapped="OnNewCouponTapped" />
                 </StackLayout.GestureRecognizers>
 
-                <cr:RadialGauge WidthRequest="116" HeightRequest="116"
-                                StrokeWidth="5"
-                                FillColor="#FF0066CC"
-                                UnusedStrokeColor="#FF66DBDD"
-                                UsedStrokeColor="#FF003D8E"
-                                UsedPercentage="{Binding UsedPercentage}">
+                <cr:RadialGauge WidthRequest="{Binding RadialGaugeSize}"
+                                HeightRequest="{Binding RadialGaugeSize}"
+                                StrokeWidth="40"
+                                InnerSpaceWidth="10"
+                                FillColor="#FF1168C9"
+                                SpentStrokeColor="#FF808080"
+                                CreatedStrokeColor="#FF1168C9"
+                                AvailableStrokeColor="#FF66DBDD"
+                                Initial="{Binding InitialAmmount}"
+                                Spent="{Binding SpentAmmount}"
+                                Created="{Binding CreatedAmmount}" >
                 </cr:RadialGauge>
             </StackLayout>
 
