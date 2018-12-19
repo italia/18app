@@ -31,7 +31,7 @@ I contributi sono benvenuti! Al momento siamo impegnati per il primo rilascio, q
 Questa app è stata sviluppata dal [Team per la Trasformazione Digitale](https://teamdigitale.governo.it/) in collaborazione con il [Ministero per i Beni e le Attività Culturali](http://www.beniculturali.it/) e [Sogei](http://www.sogei.it/).
 
 * _Progetto UX/UI:_ [Matteo De Santi](https://teamdigitale.governo.it/it/people/34-profile.htm)
-* _Sviluppo Xamarin:_ Nicolò Carandini
+* _Sviluppo Xamarin:_ [Nicolò Carandini](https://www.linkedin.com/in/ncarandini/)
 * _Coordinamento:_ [Alessandro Ranellucci](https://teamdigitale.governo.it/it/people/alessandro-ranellucci.html)
 
 ## Licenza
