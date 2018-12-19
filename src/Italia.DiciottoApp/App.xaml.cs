@@ -29,7 +29,18 @@ namespace Italia.DiciottoApp
 #endif
             InitializeComponent();
 
-            Navigation = Settings.UserLogged ? new NavigationPage(new LoggedRootPage()) : new NavigationPage(new WelcomePage());
+            if (!Settings.UserLogged)
+            {
+                Navigation = new NavigationPage(new WelcomePage());
+            }
+            else if (Settings.UserAcceptanceFlag == "0")
+            {
+                Navigation = new NavigationPage(new AcceptPrivacyPage());
+            }
+            else
+            {
+                Navigation = new NavigationPage(new LoggedRootPage());
+            }
 
             MainPage = Navigation;
         }
