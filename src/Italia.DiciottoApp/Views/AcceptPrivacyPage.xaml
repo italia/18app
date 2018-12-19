@@ -3,29 +3,43 @@
                 xmlns="http://xamarin.com/schemas/2014/forms"
                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                 xmlns:views="clr-namespace:Italia.DiciottoApp.Views"
-                ControlTemplate="{StaticResource LoginPageTemplate}" >
-    
+                xmlns:vm="clr-namespace:Italia.DiciottoApp.ViewModels">
+
+    <views:BasePage.BindingContext>
+        <vm:AcceptPrivacyViewModel />
+    </views:BasePage.BindingContext>
+
     <views:BasePage.Content>
         <Grid VerticalOptions="FillAndExpand"
               HorizontalOptions="FillAndExpand"
-              RowSpacing="0" ColumnSpacing="0" BackgroundColor="#FF0066CC">
+              RowSpacing="0" ColumnSpacing="0"
+              BackgroundColor="White">
+
+            <Grid.Padding>
+                <OnPlatform x:TypeArguments="Thickness" Default="0,0,0,0" iOS="0,20,0,0" />
+            </Grid.Padding>
 
             <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
-            
-            <Label x:Name="MessageLabel"
-                   Grid.Row="0"
-                   TextColor="White"
-                   HorizontalOptions="Center"
-                   VerticalOptions="Center"
-                   IsVisible="false" />
 
-            <Button Margin="0,0,8,0"
-                    HorizontalOptions="EndAndExpand" VerticalOptions="Center"
-                    HeightRequest="40" WidthRequest="107"
+            <BoxView Grid.Row="0"
+                     BackgroundColor="{StaticResource AppBkgndColor}" />
+
+            <Image Grid.Row="0"
+                   Source="header_logo.png" />
+
+            <WebView Grid.Row="1"
+                     Margin="10,0"
+                     Source="{Binding WebViewSource}" />
+
+            <Button Grid.Row="2" Margin="0,20,0,10"
+                    HorizontalOptions="CenterAndExpand" VerticalOptions="Center"
                     Style="{StaticResource CommandButtonStyle}"
-                    FontSize="16" Text="CREA"
+                    FontSize="16" Text="Accetta la Privacy"
                     Clicked="OnAcceptPrivacyButtonClicked">
                 <VisualStateManager.VisualStateGroups>
                     <VisualStateGroup x:Name="CommonStates">
@@ -42,6 +56,14 @@
                     </VisualStateGroup>
                 </VisualStateManager.VisualStateGroups>
             </Button>
+            
+            <Label Grid.Row="3"
+                   Margin="20,10"
+                   HorizontalTextAlignment="Center"
+                   TextColor="#FF0066CC"
+                   Style="{StaticResource RegularLabelStyle}"
+                   Text="Cliccando dichiari di aver letto e di accettare le condizioni di privacy dell'applicazione mobile 18App" />
+
         </Grid>
     </views:BasePage.Content>
 </views:BasePage>

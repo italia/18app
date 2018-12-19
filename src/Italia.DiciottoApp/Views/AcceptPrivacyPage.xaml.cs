@@ -1,4 +1,5 @@
-﻿using Italia.DiciottoApp.ViewModels;
+﻿using Italia.DiciottoApp.Models;
+using Italia.DiciottoApp.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,16 +15,41 @@ namespace Italia.DiciottoApp.Views
 	public partial class AcceptPrivacyPage : BasePage
 	{
         private AcceptPrivacyViewModel vm;
+        private bool accepted = false;
 
         public AcceptPrivacyPage ()
 		{
 			InitializeComponent ();
+            NavigationPage.SetHasNavigationBar(this, false);
             vm = this.BindingContext as AcceptPrivacyViewModel;
         }
 
-        private void OnAcceptPrivacyButtonClicked(object sender, EventArgs e)
+        protected override void OnDisappearing()
         {
-            // TODO: registrare che l'utente ha accettato la privacy.
+            if (!accepted)
+            {
+                Settings.UserLogged = false;
+            }
+
+            base.OnDisappearing();
+        }
+
+        private async void OnAcceptPrivacyButtonClicked(object sender, EventArgs e)
+        {
+            // TODO : Call service to set PresaVisione (actually unavailable on backend)
+
+            accepted = true;
+            Settings.UserAcceptanceFlag = "1";
+
+            // Get the root page
+            IReadOnlyList<Page> navStack = Navigation.NavigationStack;
+            Page currentRootPage = navStack[0];
+
+            // Set the root page
+            Navigation.InsertPageBefore(new LoggedRootPage(), currentRootPage);
+
+            // Clear navigation stack
+            await Navigation.PopToRootAsync();
         }
     }
 }
