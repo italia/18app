@@ -62,7 +62,7 @@ namespace Italia.DiciottoApp.Views
 
         private async void OnListViewItemTapped(object sender, ItemTappedEventArgs e)
         {
-            if (e.Item is Voucher coupon)
+            if (e.Item is Voucher Voucher)
             {
                 // Clear the item selection
                 if (sender is ListView listView)
@@ -70,7 +70,7 @@ namespace Italia.DiciottoApp.Views
                     listView.SelectedItem = null;
                 }
 
-                await Navigation.PushAsync(new CouponPage(coupon, justCreated: false));
+                await Navigation.PushAsync(new VoucherPage(Voucher, justCreated: false));
             }
         }
     }

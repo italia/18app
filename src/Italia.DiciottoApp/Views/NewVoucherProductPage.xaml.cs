@@ -12,15 +12,15 @@ using Xamarin.Forms.Xaml;
 namespace Italia.DiciottoApp.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class NewCouponProductPage : BasePage
+	public partial class NewVoucherProductPage : BasePage
     {
-        private NewCouponProductViewModel vm;
+        private NewVoucherProductViewModel vm;
 
-        public NewCouponProductPage(Shop shop, Categoria categoria)
+        public NewVoucherProductPage(Shop shop, Categoria categoria)
         {
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
-            vm = BindingContext as NewCouponProductViewModel;
+            vm = BindingContext as NewVoucherProductViewModel;
             vm.Shop = shop;
             vm.Categoria = categoria;
         }
@@ -36,7 +36,7 @@ namespace Italia.DiciottoApp.Views
                     listView.SelectedItem = null;
                 }
 
-                await Navigation.PushAsync(new NewCouponValuePage(vm.Shop, vm.Categoria, prodotto));
+                await Navigation.PushAsync(new NewVoucherValuePage(vm.Shop, vm.Categoria, prodotto));
             }
 
         }

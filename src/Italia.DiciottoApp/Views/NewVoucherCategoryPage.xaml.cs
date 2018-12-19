@@ -1,5 +1,6 @@
 ﻿using Italia.DiciottoApp.Models;
 using Italia.DiciottoApp.ViewModels;
+using Rg.Plugins.Popup.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,15 +13,16 @@ using Xamarin.Forms.Xaml;
 namespace Italia.DiciottoApp.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class LoggedRootPage : BasePage
+	public partial class NewVoucherCategoryPage : BasePage
     {
-        private LoggedRootViewModel vm;
+        private NewVoucherCategoryViewModel vm;
 
-        public LoggedRootPage ()
-		{
-			InitializeComponent ();
+        public NewVoucherCategoryPage(Shop shop = null)
+        {
+            InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
-            vm = BindingContext as LoggedRootViewModel;
+            vm = BindingContext as NewVoucherCategoryViewModel;
+            vm.Shop = shop;
         }
 
         protected async override void OnAppearing()
@@ -30,14 +32,18 @@ namespace Italia.DiciottoApp.Views
             await ManageServiceResult(serviceResult);
         }
 
-        private async void OnAlreadyInShopTapped(object sender, EventArgs e)
+        private async void OnCategoryListItemTapped(object sender, ItemTappedEventArgs e)
         {
-            await Navigation.PushAsync(new NearToYouShopsPage());
-        }
+            if (e.Item is Categoria categoria)
+            {
+                // Clear the item selection
+                if (sender is ListView listView)
+                {
+                    listView.SelectedItem = null;
+                }
 
-        private async void OnNewVoucherTapped(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new NewVoucherCategoryPage());
+                await Navigation.PushAsync(new NewVoucherProductPage(vm.Shop, categoria));
+            }
         }
 
         private async Task ManageServiceResult(ServiceResult serviceResult)
@@ -64,21 +70,22 @@ namespace Italia.DiciottoApp.Views
 
                 if (!Settings.UserLogged)
                 {
-                    var spidLoginPage = new SpidLoginPage();
-
-                    // Set the root page
-                    Navigation.InsertPageBefore(spidLoginPage, this);
+                    // TODO : Due to a bug of Xamarin Forms Navigation methods
+                    //        this code breaks if the navigation stack count == 1, i.e. currentRootPage == this
+                    //        Here souldn't be the case (please see LoggedRootPage.cs on how I've solved it)
 
                     // Get the root page
                     IReadOnlyList<Page> navStack = Navigation.NavigationStack;
                     Page currentRootPage = navStack[0];
 
-                    // Add WelcomePage as root page
-                    Navigation.InsertPageBefore(new WelcomePage(), navStack[0]);
+                    // Set the root page
+                    Navigation.InsertPageBefore(new SpidLoginPage(), currentRootPage);
 
                     // Clear navigation stack to go to the SpidLoginPage
-                    await Navigation.PopAsync();
+                    await Navigation.PopToRootAsync();
 
+                    // Add WelcomePage as root page
+                    Navigation.InsertPageBefore(new WelcomePage(), navStack[0]);
                 }
             }
         }

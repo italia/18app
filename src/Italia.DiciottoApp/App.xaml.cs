@@ -78,9 +78,9 @@ namespace Italia.DiciottoApp
             await NavigateToPage("Info");
         }
 
-        private async void OnNewCouponIconTapped(object sender, EventArgs e)
+        private async void OnNewVoucherIconTapped(object sender, EventArgs e)
         {
-            await NavigateToPage("NewCoupon");
+            await NavigateToPage("NewVoucher");
         }
         private async void OnWalletIconTapped(object sender, EventArgs e)
         {
@@ -110,11 +110,11 @@ namespace Italia.DiciottoApp
             IReadOnlyList<Page> navStack = Navigation.Navigation.NavigationStack;
             Type currentPageType = navStack[navStack.Count - 1].GetType();
 
-            if (appAreaTarget == "NewCoupon" && currentPageType != typeof(NewCouponCategoryPage)
-                                             && currentPageType != typeof(NewCouponProductPage)
-                                             && currentPageType != typeof(NewCouponValuePage))
+            if (appAreaTarget == "NewVoucher" && currentPageType != typeof(NewVoucherCategoryPage)
+                                             && currentPageType != typeof(NewVoucherProductPage)
+                                             && currentPageType != typeof(NewVoucherValuePage))
             {
-                await Navigation.PushAsync(new NewCouponCategoryPage());
+                await Navigation.PushAsync(new NewVoucherCategoryPage());
             }
 
             if (appAreaTarget == "Wallet" && currentPageType != typeof(WalletPage))

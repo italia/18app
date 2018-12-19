@@ -39,15 +39,15 @@ namespace Italia.DiciottoApp.Views
             // TODO
         }
 
-        private async void OnNewCouponButtonTapped(object sender, EventArgs e)
+        private async void OnNewVoucherButtonTapped(object sender, EventArgs e)
         {
             if (vm.Shop.Categorie.Count() == 1)
             {
-                await Navigation.PushAsync(new NewCouponProductPage(vm.Shop, vm.Shop.Categorie[0]));
+                await Navigation.PushAsync(new NewVoucherProductPage(vm.Shop, vm.Shop.Categorie[0]));
             }
             else
             {
-                await Navigation.PushAsync(new NewCouponCategoryPage(vm.Shop));
+                await Navigation.PushAsync(new NewVoucherCategoryPage(vm.Shop));
             }
         }
     }

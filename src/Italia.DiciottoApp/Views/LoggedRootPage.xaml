@@ -39,7 +39,7 @@
                        Style="{StaticResource BoldLabelStyle}" 
                        FontSize="48"
                        TextColor="#FF66DBDD"  
-                       Text="{Binding ActualCredit}"/>
+                       Text="{Binding AvailableAmmount}"/>
 
                 <Image VerticalOptions="CenterAndExpand"
                        Source="euro_acquamarine">
@@ -56,7 +56,7 @@
                          VerticalOptions="CenterAndExpand"
                          Margin="0,20,0,0">
                 <StackLayout.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="OnNewCouponTapped" />
+                    <TapGestureRecognizer Tapped="OnNewVoucherTapped" />
                 </StackLayout.GestureRecognizers>
 
                 <cr:RadialGauge WidthRequest="{Binding RadialGaugeSize}"
@@ -80,7 +80,7 @@
                    FontSize="16" TextColor="#FF0066CC"
                    Text="NUOVO BUONO">
                 <Label.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="OnNewCouponTapped" />
+                    <TapGestureRecognizer Tapped="OnNewVoucherTapped" />
                 </Label.GestureRecognizers>
             </Label>
 

@@ -13,17 +13,17 @@ using Xamarin.Forms.Xaml;
 namespace Italia.DiciottoApp.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class CouponPage : BasePage
+	public partial class VoucherPage : BasePage
     {
-        private CouponViewModel vm;
+        private VoucherViewModel vm;
 
-        public CouponPage(Voucher coupon, bool justCreated = false)
+        public VoucherPage(Voucher voucher, bool justCreated = false)
         {
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
-            vm = BindingContext as CouponViewModel;
+            vm = BindingContext as VoucherViewModel;
             vm.JustCreated = justCreated;
-            vm.Coupon = coupon;
+            vm.Voucher = voucher;
         }
 
         private void OnSaveImageTapped(object sender, EventArgs e)
@@ -31,7 +31,7 @@ namespace Italia.DiciottoApp.Views
             // TODO: da fare!
         }
 
-        private void OnUseCouponOnShopOnlineButtonTapped(object sender, EventArgs e)
+        private void OnUseVoucherOnShopOnlineButtonTapped(object sender, EventArgs e)
         {
             // TODO: da fare!
         }
@@ -51,7 +51,7 @@ namespace Italia.DiciottoApp.Views
             // TODO: da fare!
         }
 
-        private void OnDeleteCouponButtonTapped(object sender, EventArgs e)
+        private void OnDeleteVoucherButtonTapped(object sender, EventArgs e)
         {
             // TODO: da fare!
         }

@@ -6,7 +6,7 @@ namespace Italia.DiciottoApp.Models
 {
     public enum AppArea
     {
-        NewCoupon,
+        NewVoucher,
         Wallet,
         Stores,
         Info,

@@ -9,7 +9,7 @@ using Xamarin.Forms;
 
 namespace Italia.DiciottoApp.ViewModels
 {
-    public class CouponViewModel : BaseViewModel
+    public class VoucherViewModel : BaseViewModel
     {
         private readonly Color red = new Color(r: .82, g: .01, b: .11);
         private readonly Color green = new Color(r: 0.13, g: 0.69, b: 0.45);
@@ -27,58 +27,58 @@ namespace Italia.DiciottoApp.ViewModels
             });
         }
 
-        public string PageTitle => (Coupon?.Spent ?? false) ? "Buono utilizzato"
+        public string PageTitle => (Voucher?.Spent ?? false) ? "Buono utilizzato"
                                    : JustCreated ? "Buono creato"
                                    : "Dettagli del buono";
 
         public AppArea AppArea => AppArea.Wallet;
 
-        public string CouponOwner => $"{Settings.UserName} {Settings.UserSurname}";
+        public string VoucherOwner => $"{Settings.UserName} {Settings.UserSurname}";
 
-        public string ShopBkgndImageSource => (Coupon?.Shop?.Categorie?.Count() > 0) ? Coupon.Shop.Categorie[0].BkgndImageSource : null;
+        public string ShopBkgndImageSource => (Voucher?.Shop?.Categorie?.Count() > 0) ? Voucher.Shop.Categorie[0].BkgndImageSource : null;
 
-        public string ShopKindImageSource => (Coupon?.Shop?.IsOnline ?? false) ? "location_online_white" : "location_white";
+        public string ShopKindImageSource => (Voucher?.Shop?.IsOnline ?? false) ? "location_online_white" : "location_white";
 
-        public string ShopAddress => (Coupon?.Shop == null) ? string.Empty
-                                     : Coupon.Shop.IsOnline ? Coupon.Shop.Url
-                                     : $"{Coupon.Shop.Address?.Comune} ({Coupon.Shop.Address?.SiglaProvincia})";
+        public string ShopAddress => (Voucher?.Shop == null) ? string.Empty
+                                     : Voucher.Shop.IsOnline ? Voucher.Shop.Url
+                                     : $"{Voucher.Shop.Address?.Comune} ({Voucher.Shop.Address?.SiglaProvincia})";
 
-        public string CouponStatus =>
-            Coupon == null ? string.Empty
-                           : Coupon.Spent && Coupon.SpentDateTime != null ? $"Buono utilizzato il {Coupon.SpentDateTime.Value.ToString("dd MMMM yy", ci)} alle ore {Coupon.SpentDateTime.Value.ToString("hh.mm")}"
+        public string VoucherStatus =>
+            Voucher == null ? string.Empty
+                           : Voucher.Spent && Voucher.SpentDateTime != null ? $"Buono utilizzato il {Voucher.SpentDateTime.Value.ToString("dd MMMM yy", ci)} alle ore {Voucher.SpentDateTime.Value.ToString("hh.mm")}"
                            : JustCreated ? "Il nuovo buono è stato creato correttamente"
                            : "Buono ancora da spendere" ;
 
-        public Color CouponStatusTextColor => (Coupon?.Spent ?? false) ? red : green;
+        public Color VoucherStatusTextColor => (Voucher?.Spent ?? false) ? red : green;
 
-        public bool UseCouponOnlineButtonIsVisible => (!Coupon?.Spent ?? false) && (Coupon?.Shop?.IsOnline ?? false);
+        public bool UseVoucherOnlineButtonIsVisible => (!Voucher?.Spent ?? false) && (Voucher?.Shop?.IsOnline ?? false);
 
-        public bool ShopRouteButtonIsVisible => (!Coupon?.Spent ?? false) && (!Coupon?.Shop?.IsOnline ?? false);
+        public bool ShopRouteButtonIsVisible => (!Voucher?.Spent ?? false) && (!Voucher?.Shop?.IsOnline ?? false);
 
-        public bool CouponNotSpent => !Coupon?.Spent ?? false;
+        public bool VoucherNotSpent => !Voucher?.Spent ?? false;
 
-        public bool CouponSpent => Coupon?.Spent ?? false;
+        public bool VoucherSpent => Voucher?.Spent ?? false;
 
         public string QRcodeImageSource => "fake_qrcode";
 
         public string BarcodeImageSource => "fake_barcode";
 
-        private Voucher coupon;
-        public Voucher Coupon
+        private Voucher voucher;
+        public Voucher Voucher
         {
-            get => coupon;
-            set => SetProperty(ref coupon, value, onChanged: () =>
+            get => voucher;
+            set => SetProperty(ref voucher, value, onChanged: () =>
             {
                 OnPropertyChanged(nameof(PageTitle));
                 OnPropertyChanged(nameof(ShopBkgndImageSource));
                 OnPropertyChanged(nameof(ShopKindImageSource));
                 OnPropertyChanged(nameof(ShopAddress));
-                OnPropertyChanged(nameof(CouponStatus));
-                OnPropertyChanged(nameof(CouponStatusTextColor));
-                OnPropertyChanged(nameof(UseCouponOnlineButtonIsVisible));
+                OnPropertyChanged(nameof(VoucherStatus));
+                OnPropertyChanged(nameof(VoucherStatusTextColor));
+                OnPropertyChanged(nameof(UseVoucherOnlineButtonIsVisible));
                 OnPropertyChanged(nameof(ShopRouteButtonIsVisible));
-                OnPropertyChanged(nameof(CouponNotSpent));
-                OnPropertyChanged(nameof(CouponSpent));
+                OnPropertyChanged(nameof(VoucherNotSpent));
+                OnPropertyChanged(nameof(VoucherSpent));
                 OnPropertyChanged(nameof(QRcodeImageSource));
                 OnPropertyChanged(nameof(BarcodeImageSource));
             });
@@ -86,10 +86,10 @@ namespace Italia.DiciottoApp.ViewModels
 
         #endregion
 
-        public CouponViewModel() : base()
+        public VoucherViewModel() : base()
         {
             // TODO: remove!!!
-            FakeInitialize();
+            // FakeInitialize();
         }
 
         private void FakeInitialize()
@@ -97,10 +97,10 @@ namespace Italia.DiciottoApp.ViewModels
             // Title
             JustCreated = false;
 
-            // Coupon
+            // Voucher
             string id = "DF69A8D5";
             Shop fakeShop = FakeShops.GetList().ToList()[2];
-            Voucher coupon = new Voucher
+            Voucher Voucher = new Voucher
             {
                 Id = id,
                 Category = CategoriaFromTipoCategoria(TipoCategoria.Libri),
@@ -114,7 +114,7 @@ namespace Italia.DiciottoApp.ViewModels
                 Spent = true
             };
 
-            Coupon = coupon;
+            Voucher = Voucher;
         }
 
         private static Categoria CategoriaFromTipoCategoria(TipoCategoria tipoCategoria)

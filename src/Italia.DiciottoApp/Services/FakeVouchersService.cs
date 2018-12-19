@@ -27,9 +27,9 @@ namespace Italia.DiciottoApp.Services
                 fakeVoucherList = fakeVoucherList.Skip((page - 1) * pageItems).Take(pageItems);
             }
 
-            foreach (var fakeCoupon in fakeVoucherList)
+            foreach (var fakeVoucher in fakeVoucherList)
             {
-                fakeCoupon.Shop = null; // await shopsService.GetShopByIdAsync(fakeCoupon.ShopId);
+                fakeVoucher.Shop = null; // await shopsService.GetShopByIdAsync(fakeVoucher.ShopId);
             }
             return fakeVoucherList;
         }

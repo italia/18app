@@ -28,14 +28,23 @@
     <Compile Update="Views\CategoriesSelectorPopupPage.xaml.cs">
       <DependentUpon>CategoriesSelectorPopupPage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\NewVoucherProductPage.xaml.cs">
+      <DependentUpon>NewVoucherProductPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\NewVoucherValuePage.xaml.cs">
+      <DependentUpon>NewVoucherValuePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\VoucherPage.xaml.cs">
+      <DependentUpon>VoucherPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\UnloggedInfoPage.xaml.cs">
       <DependentUpon>UnloggedInfoPage.xaml</DependentUpon>
     </Compile>
     <Compile Update="Views\NearToYouShopsPage.xaml.cs">
       <DependentUpon>NearToYouShopsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Views\NewCouponCategoryPage.xaml.cs">
-      <DependentUpon>NewCouponCategoryPage.xaml</DependentUpon>
+    <Compile Update="Views\NewVoucherCategoryPage.xaml.cs">
+      <DependentUpon>NewVoucherCategoryPage.xaml</DependentUpon>
     </Compile>
     <Compile Update="Views\WalletPage.xaml.cs">
       <DependentUpon>WalletPage.xaml</DependentUpon>
@@ -49,7 +58,7 @@
     <EmbeddedResource Update="Views\CategoriesSelectorPopupPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\CouponPage.xaml">
+    <EmbeddedResource Update="Views\VoucherPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\FindShopsPage.xaml">
@@ -67,10 +76,10 @@
     <EmbeddedResource Update="Views\MunicipalitiesSelectorPopupPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\NewCouponProductPage.xaml">
+    <EmbeddedResource Update="Views\NewVoucherProductPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\NewCouponValuePage.xaml">
+    <EmbeddedResource Update="Views\NewVoucherValuePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\ShopPage.xaml">
@@ -85,7 +94,7 @@
     <EmbeddedResource Update="Views\NearToYouShopsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\NewCouponCategoryPage.xaml">
+    <EmbeddedResource Update="Views\NewVoucherCategoryPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\OnlineShopsPage.xaml">

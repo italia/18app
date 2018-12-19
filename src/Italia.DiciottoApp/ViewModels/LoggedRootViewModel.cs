@@ -1,13 +1,18 @@
 ﻿using Italia.DiciottoApp.Models;
+using Italia.DiciottoApp.Services;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace Italia.DiciottoApp.ViewModels
 {
     class LoggedRootViewModel: BaseViewModel
     {
+        private readonly double FAKE_VALUE = 75.0; // TODO : Remove it !!!
+
         #region Properties
 
         public AppArea AppArea => AppArea.None;
@@ -16,9 +21,11 @@ namespace Italia.DiciottoApp.ViewModels
 
         public double InitialAmmount => Settings.BorsellinoImportoTot;
 
-        public double SpentAmmount => Settings.BorsellinoImportoValidato;
+        public double SpentAmmount => Settings.BorsellinoImportoValidato + FAKE_VALUE;
 
-        public double CreatedAmmount => Settings.BorsellinoImportoRichNonValidFisico + Settings.BorsellinoImportoRichNonValidOnline;
+        public double CreatedAmmount => Settings.BorsellinoImportoRichNonValidFisico + Settings.BorsellinoImportoRichNonValidOnline - FAKE_VALUE;
+
+        public double AvailableAmmount => Settings.BorsellinoImportoResiduo;
 
         public double RadialGaugeSize => Math.Min(DisplayWidth / DisplayDensity, DisplayHeight / DisplayDensity) * 2.0 / 3.0;
 
@@ -26,6 +33,25 @@ namespace Italia.DiciottoApp.ViewModels
 
         public LoggedRootViewModel() : base()
         {
+        }
+
+        public async Task<ServiceResult> GetBorsellinoAsync()
+        {
+            var userInfoService = Service.Resolve<IUserInfoService>();
+            var getBorsellinoResult = await userInfoService.GetBorsellinoAsync();
+            Debug.WriteLine($"++++ LoggedRootPage - GetBorsellinoAsync: {getBorsellinoResult.Success}");
+
+            if (getBorsellinoResult.Success && getBorsellinoResult.Result != null)
+            {
+                Settings.SetBorsellino(getBorsellinoResult.Result);
+                OnPropertyChanged(nameof(InitialAmmount));
+                OnPropertyChanged(nameof(SpentAmmount));
+                OnPropertyChanged(nameof(CreatedAmmount));
+                OnPropertyChanged(nameof(AvailableAmmount));
+                OnPropertyChanged(nameof(UserCredit));
+            }
+
+            return getBorsellinoResult;
         }
     }
 }

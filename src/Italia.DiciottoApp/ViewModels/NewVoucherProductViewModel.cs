@@ -6,13 +6,13 @@ using System.Text;
 
 namespace Italia.DiciottoApp.ViewModels
 {
-    public class NewCouponProductViewModel : BaseViewModel
+    public class NewVoucherProductViewModel : BaseViewModel
     {
         #region Properties
 
         public string PageTitle => "Nuovo buono: prodotto";
 
-        public AppArea AppArea => AppArea.NewCoupon;
+        public AppArea AppArea => AppArea.NewVoucher;
 
         public string ListHeader => "Scegli il prodotto";
 
@@ -53,7 +53,7 @@ namespace Italia.DiciottoApp.ViewModels
 
         #endregion
 
-        public NewCouponProductViewModel() : base()
+        public NewVoucherProductViewModel() : base()
         {
         }
 

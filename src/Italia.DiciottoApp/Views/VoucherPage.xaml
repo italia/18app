@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<views:BasePage x:Class="Italia.DiciottoApp.Views.CouponPage"
+<views:BasePage x:Class="Italia.DiciottoApp.Views.VoucherPage"
                 xmlns="http://xamarin.com/schemas/2014/forms"
                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                 xmlns:views="clr-namespace:Italia.DiciottoApp.Views"
@@ -8,7 +8,7 @@
                 ControlTemplate="{StaticResource AppHeaderTemplate}" >
 
     <views:BasePage.BindingContext>
-        <vm:CouponViewModel />
+        <vm:VoucherViewModel />
     </views:BasePage.BindingContext>
 
     <views:BasePage.Resources>
@@ -29,7 +29,7 @@
 
                 <!-- Shop image-->
                 <Image Grid.Row="0"
-                       IsVisible="{Binding Coupon.HasShop}"
+                       IsVisible="{Binding Voucher.HasShop}"
                        WidthRequest="{Binding Width, Source={x:Reference ContentGrid}}"
                        HeightRequest="88"
                        Aspect="AspectFill"
@@ -38,17 +38,17 @@
                 <!-- Shop info -->
                 <StackLayout Grid.Row="0" Padding="24,0" Spacing="0"
                              VerticalOptions="Center"
-                             IsVisible="{Binding Coupon.HasShop}" >
+                             IsVisible="{Binding Voucher.HasShop}" >
 
                     <Label Margin="0"
                            HorizontalOptions="Start"
                            Style="{StaticResource BoldLabelStyle}"
                            TextColor="White" FontSize="32" MaxLines="1" LineBreakMode="TailTruncation" 
-                           Text="{Binding Coupon.Shop.Title}" />
+                           Text="{Binding Voucher.Shop.Title}" />
 
                     <StackLayout Padding="0" Spacing="0"
                                  Orientation="Horizontal"
-                                 IsVisible="{Binding Coupon.HasShop}">
+                                 IsVisible="{Binding Voucher.HasShop}">
 
                         <Image HorizontalOptions="Start" VerticalOptions="Center"
                                Source="{Binding ShopKindImageSource}"/>
@@ -62,16 +62,16 @@
                     </StackLayout>
                 </StackLayout>
 
-                <!--Coupon content-->
+                <!--Voucher content-->
                 <StackLayout Grid.Row="1" Padding="0" Spacing="0">
 
-                    <!-- Coupon Status -->
+                    <!-- Voucher Status -->
                     <Label Margin="16,14"
                        VerticalOptions="Center"
                        HorizontalOptions="Center"
                        Style="{StaticResource BoldLabelStyle}"
-                       FontSize="14" TextColor="{Binding CouponStatusTextColor}"
-                       Text="{Binding CouponStatus}" />
+                       FontSize="14" TextColor="{Binding VoucherStatusTextColor}"
+                       Text="{Binding VoucherStatus}" />
 
                     <BoxView HeightRequest="1" BackgroundColor="#FFEFEFEF" />
 
@@ -79,7 +79,7 @@
                     <StackLayout Padding="0" Spacing="0" Orientation="Horizontal">
 
                         <Image Margin="23,0,0,0"
-                               Source="{Binding Coupon.Category.BlackImageSource}"
+                               Source="{Binding Voucher.Category.BlackImageSource}"
                                HeightRequest="22" WidthRequest="22"
                                VerticalOptions="Center"/>
 
@@ -87,7 +87,7 @@
                                HorizontalOptions="StartAndExpand" VerticalOptions="Center"
                                Style="{StaticResource RegularLabelStyle}"
                                TextColor="#FF30383D" FontSize="16"
-                               Text="{Binding Coupon.Category.Titolo}" />
+                               Text="{Binding Voucher.Category.Titolo}" />
 
                         <Label Margin="0,0,16,0"
                                WidthRequest="60"
@@ -103,7 +103,7 @@
                     <StackLayout  Padding="0" Spacing="0" Orientation="Horizontal">
 
                         <Image Margin="23,0,0,0"
-                           Source="{Binding Coupon.Product.BlackImageSource}"
+                           Source="{Binding Voucher.Product.BlackImageSource}"
                            HeightRequest="22" WidthRequest="22"
                            VerticalOptions="Center"/>
 
@@ -111,7 +111,7 @@
                            HorizontalOptions="StartAndExpand" VerticalOptions="Center"
                            Style="{StaticResource RegularLabelStyle}"
                            TextColor="#FF30383D" FontSize="16"
-                           Text="{Binding Coupon.Product.Titolo}" />
+                           Text="{Binding Voucher.Product.Titolo}" />
 
                         <Label Margin="0,0,16,0"
                            HorizontalOptions="End" VerticalOptions="Center"
@@ -134,12 +134,12 @@
                             <Label HorizontalOptions="StartAndExpand" VerticalOptions="Center"
                                    Style="{StaticResource BoldLabelStyle}"
                                    TextColor="#FF30383D" FontSize="28"
-                                   Text="{Binding Coupon.Value, Converter={StaticResource DoubleToItCurrency}}" />
+                                   Text="{Binding Voucher.RequestedValue, Converter={StaticResource DoubleToItCurrency}}" />
 
                             <BoxView HeightRequest="1"
                                      BackgroundColor="#FF30383D"
                                      VerticalOptions="Center"
-                                     IsVisible="{Binding Coupon.Spent}"/>
+                                     IsVisible="{Binding Voucher.Spent}"/>
                         </Grid>
 
                         <Label Margin="0,0,16,0"
@@ -161,7 +161,7 @@
                            HorizontalOptions="StartAndExpand" VerticalOptions="Center"
                            Style="{StaticResource BoldLabelStyle}"
                            TextColor="#FF30383D" FontSize="24"
-                           Text="{Binding Coupon.Id}" />
+                           Text="{Binding Voucher.Id}" />
 
                         <Label Margin="0,14,16,10"
                            HorizontalOptions="End" VerticalOptions="Center"
@@ -172,16 +172,16 @@
 
                     <!-- Buono non utilizzato -->
                     <StackLayout Padding="0" Spacing="0"
-                                 IsVisible="{Binding CouponNotSpent}">
+                                 IsVisible="{Binding VoucherNotSpent}">
 
                         <BoxView HeightRequest="1" BackgroundColor="#FFEFEFEF"
-                                 IsVisible="{Binding UseCouponOnlineButtonIsVisible}" />
+                                 IsVisible="{Binding UseVoucherOnlineButtonIsVisible}" />
 
                         <Frame CornerRadius="5" Padding="1"
                                HasShadow="False"
                                Margin="16,16" HeightRequest="40"
                                BackgroundColor="{StaticResource AppBkgndColor}"
-                               IsVisible="{Binding UseCouponOnlineButtonIsVisible}">
+                               IsVisible="{Binding UseVoucherOnlineButtonIsVisible}">
 
                             <StackLayout Grid.Row="1" Padding="0" Spacing="8"
                                          Orientation="Horizontal"
@@ -189,7 +189,7 @@
                                          Margin="0,0,0,0">
 
                                 <StackLayout.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="OnUseCouponOnShopOnlineButtonTapped" />
+                                    <TapGestureRecognizer Tapped="OnUseVoucherOnShopOnlineButtonTapped" />
                                 </StackLayout.GestureRecognizers>
 
                                 <Image Source="link_white"  VerticalOptions="Center" />
@@ -203,7 +203,7 @@
                         </Frame>
 
                         <BoxView HeightRequest="1" BackgroundColor="#FFEFEFEF"
-                                 IsVisible="{Binding UseCouponOnlineButtonIsVisible}" />
+                                 IsVisible="{Binding UseVoucherOnlineButtonIsVisible}" />
 
                         <!-- Bottone: percorso per il negozio -->
                         <!--<BoxView HeightRequest="1" BackgroundColor="#FFEFEFEF"
@@ -239,7 +239,7 @@
                         <!-- QRcode, barcode e bottone salva immagine -->
                         <!--<StackLayout Padding="26,24" Spacing="0"
                                  Orientation="Horizontal"
-                                 IsVisible="{Binding CouponNotSpent}">
+                                 IsVisible="{Binding VoucherNotSpent}">
 
                             <Image HorizontalOptions="Center" VerticalOptions="Start"
                                Source="{Binding QRcodeImageSource}"/>
@@ -272,13 +272,13 @@
 
                         <!-- Bottone: trova un negozio -->
                         <BoxView HeightRequest="1" BackgroundColor="#FFEFEFEF" 
-                                 IsVisible="{Binding Coupon.HasShop, Converter={StaticResource NegativeConverter}}" />
+                                 IsVisible="{Binding Voucher.HasShop, Converter={StaticResource NegativeConverter}}" />
                         
                         <Frame CornerRadius="5" Padding="1"
                                HasShadow="False"
                                Margin="16,16" HeightRequest="40"
                                BackgroundColor="{StaticResource AppBkgndColor}"
-                               IsVisible="{Binding Coupon.HasShop, Converter={StaticResource NegativeConverter}}">
+                               IsVisible="{Binding Voucher.HasShop, Converter={StaticResource NegativeConverter}}">
 
                             <StackLayout Grid.Row="1" Padding="0" Spacing="8"
                                          Orientation="Horizontal"
@@ -311,7 +311,7 @@
                         <StackLayout Padding="0" Spacing="0" Orientation="Horizontal">
 
                             <Image Margin="23,0,0,0"
-                               Source="coupon_owner_black"
+                               Source="Voucher_owner_black"
                                HeightRequest="22" WidthRequest="22"
                                VerticalOptions="Center"/>
 
@@ -319,7 +319,7 @@
                                HorizontalOptions="StartAndExpand" VerticalOptions="Center"
                                Style="{StaticResource BoldLabelStyle}"
                                TextColor="#FF30383D" FontSize="16"
-                               Text="{Binding CouponOwner}" />
+                               Text="{Binding VoucherOwner}" />
 
                             <Label Margin="0,0,16,0"
                                HorizontalOptions="End" VerticalOptions="Center"
@@ -330,7 +330,7 @@
 
                         <!-- Trova un altro negozio -->
                         <BoxView HeightRequest="1" BackgroundColor="#FFEFEFEF"
-                                 IsVisible="{Binding Coupon.HasShop}" />
+                                 IsVisible="{Binding Voucher.HasShop}" />
 
                         <Label Margin="16,10,16,0"
                                VerticalOptions="Start" 
@@ -338,21 +338,21 @@
                                Style="{StaticResource RegularLabelStyle}"
                                TextColor="#FFAAAAAA" FontSize="14"
                                Text="Il buono potrà essere speso anche in altri negozi."
-                               IsVisible="{Binding Coupon.HasShop}" />
+                               IsVisible="{Binding Voucher.HasShop}" />
 
                         <!-- Bottone: trova un altro negozio -->
                         <Frame CornerRadius="5" Padding="1"
                            HasShadow="False"
                            Margin="16,16" HeightRequest="40"
                            BackgroundColor="{StaticResource AppBkgndColor}"
-                           IsVisible="{Binding Coupon.HasShop}">
+                           IsVisible="{Binding Voucher.HasShop}">
 
                             <StackLayout Grid.Row="1" Padding="0" Spacing="8"
                                          Orientation="Horizontal"
                                          HorizontalOptions="Center" >
 
                                 <StackLayout.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="OnDeleteCouponButtonTapped" />
+                                    <TapGestureRecognizer Tapped="OnDeleteVoucherButtonTapped" />
                                 </StackLayout.GestureRecognizers>
 
                                 <Image Source="location_white" VerticalOptions="Center" />
@@ -365,7 +365,7 @@
                             </StackLayout>
                         </Frame>
 
-                        <!-- Delete coupon message -->
+                        <!-- Delete Voucher message -->
                         <BoxView HeightRequest="1" BackgroundColor="#FFEFEFEF" />
 
                         <Label Margin="16,10,16,0"
@@ -402,7 +402,7 @@
 
                     <!-- Buono già utilizzato -->
                     <StackLayout Padding="0" Spacing="0"
-                                 IsVisible="{Binding CouponSpent}">
+                                 IsVisible="{Binding VoucherSpent}">
 
                         <!-- Bottone: dettagli del negozio -->
                         <Frame CornerRadius="5" Padding="1"

@@ -75,11 +75,11 @@
                    TextColor="#FFAAAAAA" FontSize="14"
                    Text="{Binding ContentHeader}" />
 
-            <!-- All coupon list -->
+            <!-- All Voucher list -->
             <ListView Grid.Row="2" Grid.ColumnSpan="3" Margin="0,0,16,0"
                       ItemsSource="{Binding Vouchers, Mode=OneWay}"
                       HasUnevenRows="true"
-                      IsVisible="{Binding CouponListIsVisible}"
+                      IsVisible="{Binding VoucherListIsVisible}"
                       ItemTapped="OnListViewItemTapped">
                 <ListView.ItemTemplate>
                     <DataTemplate>

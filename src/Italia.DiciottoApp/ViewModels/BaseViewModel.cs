@@ -58,11 +58,11 @@ namespace Italia.DiciottoApp.ViewModels
 
         public string UserFullname => Settings.UserName + " " + Settings.UserSurname;
 
-        public double InitialCredit => Settings.BorsellinoImportoTot;
+        // public double InitialCredit => Settings.BorsellinoImportoTot;
 
-        public double ActualCredit => Settings.BorsellinoImportoResiduo;
+        // public double ActualCredit => Settings.BorsellinoImportoResiduo;
 
-        public string UserCredit => $"{ActualCredit.ToString("###.00")}€";
+        public string UserCredit => $"{Settings.BorsellinoImportoResiduo.ToString("###.00")}€";
 
         //private string unreadMessages;
         //public string UnreadMessages

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<views:BasePage x:Class="Italia.DiciottoApp.Views.NewCouponValuePage"
+<views:BasePage x:Class="Italia.DiciottoApp.Views.NewVoucherValuePage"
                 xmlns="http://xamarin.com/schemas/2014/forms"
                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                 xmlns:views="clr-namespace:Italia.DiciottoApp.Views"
@@ -7,7 +7,7 @@
                 ControlTemplate="{StaticResource AppHeaderTemplate}" >
 
     <views:BasePage.BindingContext>
-        <vm:NewCouponValueViewModel />
+        <vm:NewVoucherValueViewModel />
     </views:BasePage.BindingContext>
 
     <views:BasePage.Content>
@@ -125,7 +125,7 @@
                 <!-- Big problem with Android Keyboard (some don't have comma so we should set "Android=Default" -->
                 <!-- Actually we decided to force everyone to install SwiftKey Keyboard -->
                 <!-- Removed: Placeholder="{Binding EntryValuePlaceholder}"-->
-                <Entry x:Name="CouponValueEntry" Margin="16,0"
+                <Entry x:Name="VoucherValueEntry" Margin="16,0"
                        Keyboard="{OnPlatform Default=Numeric, Android=Numeric}" 
                        MaxLength="6" WidthRequest="107"
                        TextChanged="OnEntryTextChanged"

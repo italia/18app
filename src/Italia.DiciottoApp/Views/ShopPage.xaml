@@ -84,13 +84,13 @@
                        Margin="16,16" HeightRequest="48"
                        BackgroundColor="{StaticResource AppBkgndColor}">
 
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnNewVoucherButtonTapped" />
+                    </Frame.GestureRecognizers>
+
                     <StackLayout Grid.Row="1" Padding="0" Spacing="8"
                                  Orientation="Horizontal"
                                  HorizontalOptions="Center" >
-
-                        <StackLayout.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="OnNewCouponButtonTapped" />
-                        </StackLayout.GestureRecognizers>
 
                         <Image Source="plus_white" VerticalOptions="Center" />
 

@@ -14,7 +14,7 @@ namespace Italia.DiciottoApp.ViewModels
 {
     class WalletViewModel : BaseViewModel
     {
-        private IVouchersService couponService;
+        private IVouchersService VoucherService;
         private IEnumerable<Voucher> availableVouchers = null;
         private IEnumerable<Voucher> spentVouchers = null;
         private DateTime lastRequest = DateTime.Now;
@@ -63,7 +63,7 @@ namespace Italia.DiciottoApp.ViewModels
         public WalletViewModel() : base()
         {
             ContentHeader = "Richiesta buoni in corso...";
-            couponService = Service.Resolve<IVouchersService>();
+            VoucherService = Service.Resolve<IVouchersService>();
         }
 
         public async Task SetTab(WalletKind walletKind)
@@ -93,8 +93,8 @@ namespace Italia.DiciottoApp.ViewModels
                         Value = Settings.FEDSecureToken
                     };
                     cts = new CancellationTokenSource();
-                    availableVouchers = await couponService.GetUserVouchersAsync(fedSecureToken, spent: false, page: 0, pageItems: Constants.VOUCHER_ITEMS_PER_PAGE, ct: cts.Token);
-                    spentVouchers = await couponService.GetUserVouchersAsync(fedSecureToken, spent: true, page: 0, pageItems: Constants.VOUCHER_ITEMS_PER_PAGE, ct: cts.Token);
+                    availableVouchers = await VoucherService.GetUserVouchersAsync(fedSecureToken, spent: false, page: 0, pageItems: Constants.VOUCHER_ITEMS_PER_PAGE, ct: cts.Token);
+                    spentVouchers = await VoucherService.GetUserVouchersAsync(fedSecureToken, spent: true, page: 0, pageItems: Constants.VOUCHER_ITEMS_PER_PAGE, ct: cts.Token);
                 }
                 catch (AggregateException e)
                 {
@@ -123,17 +123,17 @@ namespace Italia.DiciottoApp.ViewModels
 
             if (availableVouchers != null && (WalletKind == WalletKind.All || WalletKind == WalletKind.Available))
             {
-                foreach (var coupon in availableVouchers)
+                foreach (var Voucher in availableVouchers)
                 {
-                    Vouchers.Add(coupon);
+                    Vouchers.Add(Voucher);
                 }
             }
 
             if (spentVouchers != null && (WalletKind == WalletKind.All || WalletKind == WalletKind.Spent))
             {
-                foreach (var coupon in spentVouchers)
+                foreach (var Voucher in spentVouchers)
                 {
-                    Vouchers.Add(coupon);
+                    Vouchers.Add(Voucher);
                 }
             }
 

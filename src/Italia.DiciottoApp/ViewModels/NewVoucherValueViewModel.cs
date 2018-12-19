@@ -2,6 +2,7 @@
 using Italia.DiciottoApp.Services;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Net;
@@ -11,7 +12,7 @@ using Xamarin.Forms;
 
 namespace Italia.DiciottoApp.ViewModels
 {
-    public class NewCouponValueViewModel : BaseViewModel
+    public class NewVoucherValueViewModel : BaseViewModel
     {
         private double valore;
         private readonly CultureInfo ci = new CultureInfo("it-IT");
@@ -20,7 +21,7 @@ namespace Italia.DiciottoApp.ViewModels
 
         public string PageTitle => "Nuovo buono: valore";
 
-        public AppArea AppArea => AppArea.NewCoupon;
+        public AppArea AppArea => AppArea.NewVoucher;
 
         public bool HasShop => (Shop != null);
 
@@ -89,7 +90,7 @@ namespace Italia.DiciottoApp.ViewModels
 
         #endregion
 
-        public NewCouponValueViewModel() : base()
+        public NewVoucherValueViewModel() : base()
         {
         }
 
@@ -128,7 +129,7 @@ namespace Italia.DiciottoApp.ViewModels
             return isValid;
         }
 
-        public async Task<Voucher> CreateCouponAsync()
+        public async Task<Voucher> CreateVoucherAsync()
         {
             Voucher voucher = null;
 
@@ -153,6 +154,21 @@ namespace Italia.DiciottoApp.ViewModels
             }
 
             return voucher;
+        }
+
+        public async Task<ServiceResult> GetBorsellinoAsync()
+        {
+            var userInfoService = Service.Resolve<IUserInfoService>();
+            var getBorsellinoResult = await userInfoService.GetBorsellinoAsync();
+            Debug.WriteLine($"++++ NewVoucherValue - GetBorsellinoAsync: {getBorsellinoResult.Success}");
+
+            if (getBorsellinoResult.Success && getBorsellinoResult.Result != null)
+            {
+                Settings.SetBorsellino(getBorsellinoResult.Result);
+                OnPropertyChanged(nameof(UserCredit));
+            }
+
+            return getBorsellinoResult;
         }
 
     }

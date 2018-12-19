@@ -29,8 +29,8 @@ namespace Italia.DiciottoApp.Services
 
         public async Task<IEnumerable<Voucher>> GetUserVouchersAsync(Cookie fedSecureToken, bool spent, int page = 0, int pageItems = 100, CancellationToken ct = default(CancellationToken))
         {
-            // var fakeCouponsService = new FakeVouchersService();
-            // return await fakeCouponsService.GetUserVouchersAsync(userId, walletKind, page, pageItems);
+            // var fakeVouchersService = new FakeVouchersService();
+            // return await fakeVouchersService.GetUserVouchersAsync(userId, walletKind, page, pageItems);
 
             List<Voucher> vouchers = new List<Voucher>();
 
@@ -110,8 +110,8 @@ namespace Italia.DiciottoApp.Services
                 throw new ArgumentOutOfRangeException("valore");
             }
 
-            // var fakeCouponsService = new FakeVouchersService();
-            // return await fakeCouponsService.CreateVoucher(categoria, prodotto, valore, shopId);
+            // var fakeVouchersService = new FakeVouchersService();
+            // return await fakeVouchersService.CreateVoucher(categoria, prodotto, valore, shopId);
 
             VoucherBean voucherBean = new VoucherBean
             {

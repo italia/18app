@@ -50,7 +50,7 @@ namespace Italia.DiciottoApp.ViewModels
 
         private void FakeInitialize()
         {
-            // Coupon
+            // Voucher
             Shop = FakeShops.GetList().ToList()[2];
         }
 

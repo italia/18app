@@ -387,10 +387,10 @@
                     <Image Grid.Column="0"
                            HorizontalOptions="Center"
                            VerticalOptions="Center"
-                           Opacity="{Binding Path=AppArea, Converter={StaticResource AppAreaOpacityConverter}, ConverterParameter=NewCoupon}"
+                           Opacity="{Binding Path=AppArea, Converter={StaticResource AppAreaOpacityConverter}, ConverterParameter=NewVoucher}"
                            Source="nav_nuovo">
                         <Image.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="OnNewCouponIconTapped" />
+                            <TapGestureRecognizer Tapped="OnNewVoucherIconTapped" />
                         </Image.GestureRecognizers>
                     </Image>
 
@@ -547,10 +547,10 @@
                     <Image Grid.Column="0"
                            HorizontalOptions="Center"
                            VerticalOptions="Center"
-                           Opacity="{Binding Path=AppArea, Converter={StaticResource AppAreaOpacityConverter}, ConverterParameter=NewCoupon}"
+                           Opacity="{Binding Path=AppArea, Converter={StaticResource AppAreaOpacityConverter}, ConverterParameter=NewVoucher}"
                            Source="nav_nuovo">
                         <Image.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="OnNewCouponIconTapped" />
+                            <TapGestureRecognizer Tapped="OnNewVoucherIconTapped" />
                         </Image.GestureRecognizers>
                     </Image>
 

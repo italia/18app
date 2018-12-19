@@ -1,18 +1,23 @@
 ﻿using Italia.DiciottoApp.Models;
+using Italia.DiciottoApp.Services;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Italia.DiciottoApp.ViewModels
 {
-    public class NewCouponCategoryViewModel : BaseViewModel
+    public class NewVoucherCategoryViewModel : BaseViewModel
     {
         #region Properties
 
         public string PageTitle => "Nuovo buono: categoria";
 
-        public AppArea AppArea => AppArea.NewCoupon;
+        public AppArea AppArea => AppArea.NewVoucher;
+
+        public string ListHeader => "Scegli la categoria";
 
         public bool HasShop => (Shop != null);
 
@@ -46,8 +51,23 @@ namespace Italia.DiciottoApp.ViewModels
 
         #endregion
 
-        public NewCouponCategoryViewModel() : base()
+        public NewVoucherCategoryViewModel() : base()
         {
+        }
+
+        public async Task<ServiceResult> GetBorsellinoAsync()
+        {
+            var userInfoService = Service.Resolve<IUserInfoService>();
+            var getBorsellinoResult = await userInfoService.GetBorsellinoAsync();
+            Debug.WriteLine($"++++ NewVoucherCategoryPage - GetBorsellinoAsync: {getBorsellinoResult.Success}");
+
+            if (getBorsellinoResult.Success && getBorsellinoResult.Result != null)
+            {
+                Settings.SetBorsellino(getBorsellinoResult.Result);
+                OnPropertyChanged(nameof(UserCredit));
+            }
+
+            return getBorsellinoResult;
         }
 
     }
