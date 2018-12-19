@@ -136,7 +136,7 @@ namespace Italia.DiciottoApp.Views
         private async void OnLogoutTapped(object sender, EventArgs e)
         {
             await PopupNavigation.Instance.PopAllAsync();
-            Settings.UserLogged = false;
+            Settings.UserLogOut();
             await appNavigationPage.PushAsync(new WelcomePage());
         }
 
@@ -152,7 +152,7 @@ namespace Italia.DiciottoApp.Views
                     title = "Session timeout";
                     msg = "La sessione è scaduta, occorre effettuare nuovamente il login";
                     Settings.FEDSecureToken = string.Empty;
-                    Settings.UserLogged = false;
+                    Settings.UserLogOut();
                 }
                 else
                 {
