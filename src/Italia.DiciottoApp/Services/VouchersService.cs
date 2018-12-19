@@ -47,7 +47,7 @@ namespace Italia.DiciottoApp.Services
             try
             {
                 string servicePath = spent ? "listaVoucherSpesi" : "listaVoucherDaSpendere";
-                var response = await httpClient.GetAsync($"{Constants.SERVICE_ENDPOINT}/BONUSWS/rest/unsecured/18enne/{servicePath}", ct);
+                var response = await httpClient.GetAsync($"{Constants.SERVICE_ENDPOINT}/BONUSWS/rest/secured/18enne/{servicePath}", ct);
                 await serviceResult.ProcessAsync(response);
             }
             catch (Exception ex)
