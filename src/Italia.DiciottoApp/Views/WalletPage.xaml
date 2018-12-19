@@ -123,7 +123,7 @@
                                            Style="{StaticResource BoldLabelStyle}"
                                            TextColor="#FF1168C9" FontSize="24"
                                            LineBreakMode="NoWrap"
-                                           Text="{Binding Value, Converter={StaticResource DoubleToItCurrency}}" />
+                                           Text="{Binding RequestedValue, Converter={StaticResource DoubleToItCurrency}}" />
                                     <Image Margin="0,0,6,0"
                                            HorizontalOptions="End" VerticalOptions="CenterAndExpand"
                                            Source="forward"/>
@@ -169,7 +169,7 @@
                                                Style="{StaticResource BoldLabelStyle}"
                                                TextColor="#FF596672" FontSize="24"
                                                LineBreakMode="NoWrap"
-                                               Text="{Binding Value, Converter={StaticResource DoubleToItCurrency}}" />
+                                               Text="{Binding ValidatedValue, Converter={StaticResource DoubleToItCurrency}}" />
 
                                         <BoxView HeightRequest="1" BackgroundColor="#FF596672" VerticalOptions="Center"/>
                                     </Grid>
