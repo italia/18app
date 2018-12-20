@@ -161,7 +161,7 @@
                            HorizontalOptions="StartAndExpand" VerticalOptions="Center"
                            Style="{StaticResource BoldLabelStyle}"
                            TextColor="#FF30383D" FontSize="24"
-                           Text="{Binding Voucher.Id}" />
+                           Text="{Binding Voucher.Codice}" />
 
                         <Label Margin="0,14,16,10"
                            HorizontalOptions="End" VerticalOptions="Center"

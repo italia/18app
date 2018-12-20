@@ -10,6 +10,8 @@ namespace Italia.DiciottoApp.Models
     {
         public string Id { get; set; }
 
+        public string Codice { get; set; }
+
         public bool Spent { get; set; }
 
         public DateTime? SpentDateTime { get; set; }
@@ -50,6 +52,7 @@ namespace Italia.DiciottoApp.Models
             return new Voucher
             {
                 Id = voucherBean.IdVoucher.ToString() ?? string.Empty,
+                Codice = voucherBean.CodiceVoucher,
                 BarCodeValue = string.Empty,
                 Category = categoria,
                 Product = prodotto,
