@@ -50,25 +50,23 @@ namespace Italia.DiciottoApp.Views
                     // Ignore the error, we need to show voucher creation
                     // even if at the moment is no more possible to connect and update the Borsellino infos.
                 }
-                else
+
+                Page newVoucherCategoryPage = Navigation.NavigationStack.LastOrDefault(p => p is NewVoucherCategoryPage);
+                if (newVoucherCategoryPage != null)
                 {
-                    Page newVoucherCategoryPage = Navigation.NavigationStack.LastOrDefault(p => p is NewVoucherCategoryPage);
-                    if (newVoucherCategoryPage != null)
-                    {
-                        Navigation.RemovePage(newVoucherCategoryPage);
-                    }
-
-                    Page newVoucherProductPage = Navigation.NavigationStack.LastOrDefault(p => p is NewVoucherProductPage);
-                    if (newVoucherProductPage != null)
-                    {
-                        Navigation.RemovePage(newVoucherProductPage);
-                    }
-
-                    await Navigation.PushAsync(new VoucherPage(Voucher, justCreated: true));
-
-                    // remove all Voucher creation pages from the stack but the first one
-                    Navigation.RemovePage(this);
+                    Navigation.RemovePage(newVoucherCategoryPage);
                 }
+
+                Page newVoucherProductPage = Navigation.NavigationStack.LastOrDefault(p => p is NewVoucherProductPage);
+                if (newVoucherProductPage != null)
+                {
+                    Navigation.RemovePage(newVoucherProductPage);
+                }
+
+                await Navigation.PushAsync(new VoucherPage(Voucher, justCreated: true));
+
+                // remove all Voucher creation pages from the stack but the first one
+                Navigation.RemovePage(this);
             }
         }
 

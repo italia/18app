@@ -183,14 +183,14 @@
                                BackgroundColor="{StaticResource AppBkgndColor}"
                                IsVisible="{Binding UseVoucherOnlineButtonIsVisible}">
 
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnUseVoucherOnShopOnlineButtonTapped" />
+                            </Frame.GestureRecognizers>
+
                             <StackLayout Grid.Row="1" Padding="0" Spacing="8"
                                          Orientation="Horizontal"
                                          HorizontalOptions="Center"
                                          Margin="0,0,0,0">
-
-                                <StackLayout.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="OnUseVoucherOnShopOnlineButtonTapped" />
-                                </StackLayout.GestureRecognizers>
 
                                 <Image Source="link_white"  VerticalOptions="Center" />
 
@@ -210,18 +210,18 @@
                                  IsVisible="{Binding ShopRouteButtonIsVisible}" />
 
                         <Frame CornerRadius="5" Padding="1"
-                           HasShadow="False"
-                           Margin="16,16" HeightRequest="40"
-                           BackgroundColor="{StaticResource AppBkgndColor}"
-                           IsVisible="{Binding ShopRouteButtonIsVisible}">
+                               HasShadow="False"
+                               Margin="16,16" HeightRequest="40"
+                               BackgroundColor="{StaticResource AppBkgndColor}"
+                               IsVisible="{Binding ShopRouteButtonIsVisible}">
+
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnRouteToShopButtonTapped" />
+                            </Frame.GestureRecognizers>
 
                             <StackLayout Grid.Row="1" Padding="0" Spacing="8"
                                          Orientation="Horizontal"
                                          HorizontalOptions="Center" >
-
-                                <StackLayout.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="OnRouteToShopButtonTapped" />
-                                </StackLayout.GestureRecognizers>
 
                                 <Image Source="route_white" VerticalOptions="Center" />
 
@@ -280,13 +280,13 @@
                                BackgroundColor="{StaticResource AppBkgndColor}"
                                IsVisible="{Binding Voucher.HasShop, Converter={StaticResource NegativeConverter}}">
 
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnFindShopButtonTapped" />
+                            </Frame.GestureRecognizers>
+
                             <StackLayout Grid.Row="1" Padding="0" Spacing="8"
                                          Orientation="Horizontal"
                                          HorizontalOptions="Center" >
-
-                                <StackLayout.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="OnFindShopButtonTapped" />
-                                </StackLayout.GestureRecognizers>
 
                                 <Image Source="location_white" VerticalOptions="Center" />
 
@@ -342,18 +342,18 @@
 
                         <!-- Bottone: trova un altro negozio -->
                         <Frame CornerRadius="5" Padding="1"
-                           HasShadow="False"
-                           Margin="16,16" HeightRequest="40"
-                           BackgroundColor="{StaticResource AppBkgndColor}"
-                           IsVisible="{Binding Voucher.HasShop}">
+                               HasShadow="False"
+                               Margin="16,16" HeightRequest="40"
+                               BackgroundColor="{StaticResource AppBkgndColor}"
+                               IsVisible="{Binding Voucher.HasShop}">
+
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnDeleteVoucherButtonTapped" />
+                            </Frame.GestureRecognizers>
 
                             <StackLayout Grid.Row="1" Padding="0" Spacing="8"
                                          Orientation="Horizontal"
                                          HorizontalOptions="Center" >
-
-                                <StackLayout.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="OnDeleteVoucherButtonTapped" />
-                                </StackLayout.GestureRecognizers>
 
                                 <Image Source="location_white" VerticalOptions="Center" />
 
@@ -369,7 +369,7 @@
                         <BoxView HeightRequest="1" BackgroundColor="#FFEFEFEF" />
 
                         <Label Margin="16,10,16,0"
-                               VerticalOptions="Start" 
+                               VerticalOptions="Center" 
                                HorizontalOptions="Center"
                                Style="{StaticResource RegularLabelStyle}"
                                TextColor="#FFAAAAAA" FontSize="14"
@@ -381,13 +381,13 @@
                                Margin="16,16" HeightRequest="40"
                                BackgroundColor="#FFD1021C">
 
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnDeleteVoucherButtonTapped" />
+                            </Frame.GestureRecognizers>
+
                             <StackLayout Grid.Row="1" Padding="0" Spacing="8"
                                          Orientation="Horizontal"
                                          HorizontalOptions="Center" >
-
-                                <StackLayout.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="OnFindAnotherShopButtonTapped" />
-                                </StackLayout.GestureRecognizers>
 
                                 <Image Source="bin_white" VerticalOptions="Center" />
 
@@ -410,13 +410,13 @@
                                Margin="16,32" HeightRequest="40"
                                BackgroundColor="{StaticResource AppBkgndColor}">
 
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnShopDetailButtonTapped" />
+                            </Frame.GestureRecognizers>
+
                             <StackLayout Grid.Row="1" Padding="0" Spacing="8"
                                          Orientation="Horizontal"
                                          HorizontalOptions="Center" >
-
-                                <StackLayout.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="OnShopDetailButtonTapped" />
-                                </StackLayout.GestureRecognizers>
 
                                 <Image Source="location_white" VerticalOptions="Center" />
 

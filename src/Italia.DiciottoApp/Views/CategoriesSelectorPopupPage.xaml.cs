@@ -1,5 +1,6 @@
 ﻿using Italia.DiciottoApp.Models;
 using Italia.DiciottoApp.ViewModels;
+using Italia.DiciottoApp.ViewModels.Interfaces;
 using Rg.Plugins.Popup.Pages;
 using Rg.Plugins.Popup.Services;
 using System;

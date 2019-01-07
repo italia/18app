@@ -1,9 +1,11 @@
 ﻿using Italia.DiciottoApp.Models;
+using Italia.DiciottoApp.Services;
 using Italia.DiciottoApp.ViewModels;
 using Rg.Plugins.Popup.Pages;
 using Rg.Plugins.Popup.Services;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -135,8 +137,15 @@ namespace Italia.DiciottoApp.Views
 
         private async void OnLogoutTapped(object sender, EventArgs e)
         {
-            await PopupNavigation.Instance.PopAllAsync();
+            // TODO Remove this code is for testing only
+            // --------------------------------------------------------
+            var userInfoService = Service.Resolve<IUserInfoService>();
+            var setPresaVisioneResult = await userInfoService.SetPresaVisioneAsync(confirmed: false);
+            Debug.WriteLine($"++++ UserMenuPopupPage - SetPresaVisioneAsync(confirmed: false): {setPresaVisioneResult.Success}");
+            // --------------------------------------------------------
+
             Settings.UserLogOut();
+            await PopupNavigation.Instance.PopAllAsync();
             await appNavigationPage.PushAsync(new WelcomePage());
         }
 

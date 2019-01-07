@@ -28,7 +28,7 @@ namespace Italia.DiciottoApp.Views
         {
             if (!accepted)
             {
-                Settings.UserLogged = false;
+                Settings.UserLogOut();
             }
 
             base.OnDisappearing();
@@ -36,10 +36,8 @@ namespace Italia.DiciottoApp.Views
 
         private async void OnAcceptPrivacyButtonClicked(object sender, EventArgs e)
         {
-            // TODO : Call service to set PresaVisione (actually unavailable on backend)
-
             accepted = true;
-            Settings.UserAcceptanceFlag = "1";
+            await vm.SetPresaVisioneAsync();
 
             // Get the root page
             IReadOnlyList<Page> navStack = Navigation.NavigationStack;

@@ -26,39 +26,36 @@ namespace Italia.DiciottoApp.Views
             vm.Voucher = voucher;
         }
 
-        private void OnSaveImageTapped(object sender, EventArgs e)
+        private async void OnUseVoucherOnShopOnlineButtonTapped(object sender, EventArgs e)
         {
             // TODO: da fare!
+            await DisplayAlert("Suggerimento", "Per spendere il buono nel negozio online cerca il simbolo di 18App e utilizza il codice secondo le modalità previste dal sito del venditore.", "Ok");
         }
 
-        private void OnUseVoucherOnShopOnlineButtonTapped(object sender, EventArgs e)
+        //private void OnRouteToShopButtonTapped(object sender, EventArgs e)
+        //{
+        //    // STILL_NOT_IMPLEMENTED on 18App APIs
+        //}
+
+        private async void OnFindShopButtonTapped(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new NearToYouShopsPage());
+        }
+
+        private async void OnDeleteVoucherButtonTapped(object sender, EventArgs e)
+        {
+            bool result = await vm.DeleteVoucherAsync();
+
+            if (result)
+            {
+                await Navigation.PopAsync();
+            }
+        }
+
+        private async void OnShopDetailButtonTapped(object sender, EventArgs e)
         {
             // TODO: da fare!
-        }
-
-        private void OnRouteToShopButtonTapped(object sender, EventArgs e)
-        {
-            // STILL_NOT_IMPLEMENTED on 18App APIs
-        }
-
-        private void OnFindAnotherShopButtonTapped(object sender, EventArgs e)
-        {
-            // TODO: da fare!
-        }
-
-        private void OnFindShopButtonTapped(object sender, EventArgs e)
-        {
-            // TODO: da fare!
-        }
-
-        private void OnDeleteVoucherButtonTapped(object sender, EventArgs e)
-        {
-            // TODO: da fare!
-        }
-
-        private void OnShopDetailButtonTapped(object sender, EventArgs e)
-        {
-            // TODO: da fare!
+            await DisplayAlert("Dettagli negozio non disponibili", "Al momento la  visualizzazione dei dettagli del negozio associato al buono non è stata ancora implementata, lo sarà in una prossima versione.", "Ok");
         }
 
     }

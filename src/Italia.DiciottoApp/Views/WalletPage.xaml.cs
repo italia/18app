@@ -27,13 +27,60 @@ namespace Italia.DiciottoApp.Views
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-            if(!isBusy)
+
+            var serviceResult = await vm?.GetBorsellinoAsync();
+            await ManageServiceResult(serviceResult);
+
+            if (!isBusy)
             {
                 isBusy = true;
-                await vm.SetTab(WalletKind.All);
+                await vm.SetTab(WalletKind.All, refresh: true);
                 isBusy = false;
             }
-            
+        }
+
+        private async Task ManageServiceResult(ServiceResult serviceResult)
+        {
+            if (!serviceResult.Success)
+            {
+                string title;
+                string msg;
+
+                if (serviceResult.FailureReason == ServiceFailureReason.Forbidden || serviceResult.FailureReason == ServiceFailureReason.InternalServerError)
+                {
+                    title = "Session timeout";
+                    msg = "La sessione è scaduta, occorre effettuare nuovamente il login";
+                    Settings.FEDSecureToken = string.Empty;
+                    Settings.UserLogOut();
+                }
+                else
+                {
+                    title = "Service Error";
+                    msg = "Servizio al momento non disponibile";
+                }
+
+                await DisplayAlert(title, msg, "OK");
+
+                if (!Settings.UserLogged)
+                {
+                    // TODO : Due to a bug of Xamarin Forms Navigation methods
+                    //        this code breaks if the navigation stack count == 1, i.e. currentRootPage == this
+                    //        Here souldn't be the case (please see LoggedRootPage.cs on how I've solved it)
+
+                    // Get the root page
+                    IReadOnlyList<Page> navStack = Navigation.NavigationStack;
+                    Page currentRootPage = navStack[0];
+
+                    // Set the root page
+                    Navigation.InsertPageBefore(new SpidLoginPage(), currentRootPage);
+
+                    // Clear navigation stack to go to the SpidLoginPage
+                    await Navigation.PopToRootAsync();
+
+                    // Add WelcomePage as root page
+                    Navigation.InsertPageBefore(new WelcomePage(), navStack[0]);
+                }
+            }
         }
 
         private async void OnAllTabTapped(object sender, EventArgs e)

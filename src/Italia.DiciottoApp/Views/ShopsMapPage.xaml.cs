@@ -46,14 +46,6 @@ namespace Italia.DiciottoApp.Views
 
         private Distance MaxShopDistance()
         {
-            //double maxDistance = 0;
-            //foreach (var shop in shops)
-            //{
-            //    double distance = Location.CalculateDistance(shop.Location.Latitude, userLocation.Latitude, shop.Location.Longitude, userLocation.Longitude, DistanceUnits.Kilometers);
-            //    maxDistance = Math.Max(maxDistance, distance);
-            //}
-            //return new Distance(mapMarginMeters + maxDistance * 1000.0);
-
             var km = shops.Max(shop => Location.CalculateDistance(shop.Location.Latitude, shop.Location.Longitude, userLocation.Latitude, userLocation.Longitude, DistanceUnits.Kilometers));
             return new Distance(1000.0 * km * 1.1); // 10% more space
         }
