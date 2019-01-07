@@ -250,7 +250,7 @@ namespace Italia.DiciottoApp.Models
                 DataNascita = UserBirthDate,
                 Cellulare = UserPhoneNumber,
                 Email = UserEmail,
-                FlagAccettazionePrivacy = UserAcceptanceFlag,
+                FlagAccettazionePrivacy = UserAcceptanceFlag
             };
         }
 
