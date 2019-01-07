@@ -56,7 +56,7 @@ namespace Italia.DiciottoApp.Models
                 BarCodeValue = string.Empty,
                 Category = categoria,
                 Product = prodotto,
-                QrCodeValue = voucherBean.Qr.ToString(), //TODO
+                QrCodeValue = voucherBean.Qr.ToString(),
                 Shop = Shop.FromPuntoVenditaBean(voucherBean.PuntoVenditaBean, online),
                 ShopId = voucherBean.PuntoVenditaBean?.IdPuntoVendita.ToString() ?? string.Empty,
                 Spent = spent,
