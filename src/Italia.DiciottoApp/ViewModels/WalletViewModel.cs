@@ -66,7 +66,7 @@ namespace Italia.DiciottoApp.ViewModels
             VoucherService = Service.Resolve<IVouchersService>();
         }
 
-        public async Task SetTab(WalletKind walletKind)
+        public async Task SetTab(WalletKind walletKind, bool refresh = false)
         {
             Debug.WriteLine($"°°°°°°°°°°°°°°°°° [Wallet SetTab({walletKind})] started");
 
@@ -82,7 +82,7 @@ namespace Italia.DiciottoApp.ViewModels
 
             WalletKind = walletKind;
             if((WalletKind == WalletKind.All && (DateTime.Now - lastRequest).TotalSeconds > Constants.NEW_REQUEST_MINIMUM_SECONDS)
-                || availableVouchers == null || spentVouchers == null)
+                || availableVouchers == null || spentVouchers == null || refresh)
             {
                 try
                 {
@@ -200,5 +200,19 @@ namespace Italia.DiciottoApp.ViewModels
             OnPropertyChanged(nameof(VoucherListIsVisible));
         }
 
+        public async Task<ServiceResult> GetBorsellinoAsync()
+        {
+            var userInfoService = Service.Resolve<IUserInfoService>();
+            var getBorsellinoResult = await userInfoService.GetBorsellinoAsync();
+            Debug.WriteLine($"++++ WalletViewModel - GetBorsellinoAsync: {getBorsellinoResult.Success}");
+
+            if (getBorsellinoResult.Success && getBorsellinoResult.Result != null)
+            {
+                Settings.SetBorsellino(getBorsellinoResult.Result);
+                OnPropertyChanged(nameof(UserCredit));
+            }
+
+            return getBorsellinoResult;
+        }
     }
 }

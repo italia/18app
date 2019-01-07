@@ -1,5 +1,6 @@
 ﻿using Italia.DiciottoApp.Models;
 using Italia.DiciottoApp.Services;
+using Italia.DiciottoApp.ViewModels.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;

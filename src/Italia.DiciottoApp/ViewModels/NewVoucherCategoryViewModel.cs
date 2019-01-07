@@ -59,7 +59,7 @@ namespace Italia.DiciottoApp.ViewModels
         {
             var userInfoService = Service.Resolve<IUserInfoService>();
             var getBorsellinoResult = await userInfoService.GetBorsellinoAsync();
-            Debug.WriteLine($"++++ NewVoucherCategoryPage - GetBorsellinoAsync: {getBorsellinoResult.Success}");
+            Debug.WriteLine($"++++ NewVoucherCategoryViewModel - GetBorsellinoAsync: {getBorsellinoResult.Success}");
 
             if (getBorsellinoResult.Success && getBorsellinoResult.Result != null)
             {

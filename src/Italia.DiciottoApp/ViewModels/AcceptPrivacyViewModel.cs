@@ -1,7 +1,10 @@
 ﻿using Italia.DiciottoApp.Models;
+using Italia.DiciottoApp.Services;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace Italia.DiciottoApp.ViewModels
@@ -24,6 +27,24 @@ namespace Italia.DiciottoApp.ViewModels
             {
                 Html = GetHtml()
             };
+        }
+
+        public async Task SetPresaVisioneAsync()
+        {
+            var userInfoService = Service.Resolve<IUserInfoService>();
+            var setPresaVisioneResult = await userInfoService.SetPresaVisioneAsync(confirmed: true);
+            Debug.WriteLine($"++++ AcceptPrivacyViewModel - SetPresaVisioneAsync(confirmed: true): {setPresaVisioneResult.Success}");
+
+            if (setPresaVisioneResult.Success)
+            {
+                Settings.SetBeneficiario(setPresaVisioneResult.Result);
+            }
+            else
+            {
+                await DisplayAlertAsync("Al momento non è possibile registrare l'avvenuta presa visione della privacy. Per tale motivo la richiesta di accettazione verrà ripresentata al prossimo login.");
+            }
+
+            return;
         }
 
         private string GetHtml()

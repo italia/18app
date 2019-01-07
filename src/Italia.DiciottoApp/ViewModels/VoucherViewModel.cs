@@ -2,9 +2,12 @@
 using Italia.DiciottoApp.Services;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
+using System.Net;
 using System.Text;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace Italia.DiciottoApp.ViewModels
@@ -88,33 +91,40 @@ namespace Italia.DiciottoApp.ViewModels
 
         public VoucherViewModel() : base()
         {
-            // TODO: remove!!!
-            // FakeInitialize();
+            IsBusy = false;
         }
 
-        private void FakeInitialize()
+        public async Task<bool> DeleteVoucherAsync()
         {
-            // Title
-            JustCreated = false;
+            bool result = false;
 
-            // Voucher
-            string id = "DF69A8D5";
-            Shop fakeShop = FakeShops.GetList().ToList()[2];
-            Voucher Voucher = new Voucher
+            if (IsBusy)
             {
-                Id = id,
-                Category = CategoriaFromTipoCategoria(TipoCategoria.Libri),
-                Product = CategoriaFromTipoCategoria(TipoCategoria.Libri).Prodotti[0],
-                RequestedValue = 12.34,
-                ValidatedValue = 0.0,
-                QrCodeValue = id,
-                BarCodeValue = id,
-                ShopId = fakeShop.Id,
-                Shop = fakeShop,
-                Spent = true
-            };
+                await DisplayAlertAsync("Sto già cancellando il buono...");
+            }
+            else
+            {
+                IsBusy = true;
+                Cookie fedSecureToken = new Cookie
+                {
+                    Name = Constants.COOKIES_SECURE_TOKEN,
+                    Value = Settings.FEDSecureToken
+                };
 
-            Voucher = Voucher;
+                IVouchersService vouchersService = Service.Resolve<IVouchersService>();
+                var deleteVoucherServiceResult = await vouchersService.DeleteVoucherAsync(fedSecureToken, Voucher);
+                if (deleteVoucherServiceResult.Success && (deleteVoucherServiceResult.Result.Risultato ?? false))
+                {
+                    result = true;
+                    await DisplayAlertAsync("Cancellazione buono confermata");
+                }
+                else
+                {
+                    await DisplayAlertAsync("Creazione buono non riuscita");
+                }
+                IsBusy = false;
+            }
+            return result;
         }
 
         private static Categoria CategoriaFromTipoCategoria(TipoCategoria tipoCategoria)
