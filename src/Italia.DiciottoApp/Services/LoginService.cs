@@ -39,50 +39,54 @@ namespace Italia.DiciottoApp.Services
                 var content = await response.Content.ReadAsStringAsync();
                 var beneficiarioBean = JsonConvert.DeserializeObject<BeneficiarioBean>(content);
 
-                if (beneficiarioBean == null)
+                if (beneficiarioBean != null)
                 {
-                    // Unable to get beneficiario
-                    loginResult.UnavailableBeneficiary();
-                }
-                else if (beneficiarioBean.ErrorCode == 5)
-                {
-                    // Login failed: è scaduto il periodo di registrazione
-                    loginResult.RegistrationTimeEnded();
-                }
-                else if (beneficiarioBean.IdBeneficiario != null)
-                {
-                    // Procedo col LOGIN
-                    response = await httpClient.GetAsync($"{Constants.SERVICE_ENDPOINT}/BONUSWS/rest/secured/18enne/beneficiarioOperativo");
-                    loginResult.Process(response);
-
-                    content = await response.Content.ReadAsStringAsync();
-                    var checkBeneficiarioOperativoBean = JsonConvert.DeserializeObject<CheckBeneficiarioOperativoBean>(content);
-
-                    if (checkBeneficiarioOperativoBean.FlagOperativo == false)
+                    // Procedo con il LOGIN
+                    if (beneficiarioBean.ErrorCode == 5)
                     {
-                        // Beneficiario non operativo
-                        loginResult.NonOperatingBeneficiary();
+                        // Login failed: è scaduto il periodo di registrazione
+                        loginResult.RegistrationTimeEnded();
+                    }
+                    else if (beneficiarioBean.IdBeneficiario == null)
+                    {
+                        // Unable to get beneficiario
+                        loginResult.UnavailableBeneficiary();
                     }
                     else
                     {
-                        // Recupero i dati del borsellino
-                        response = await httpClient.GetAsync($"{Constants.SERVICE_ENDPOINT}/BONUSWS/rest/secured/18enne/borsellino");
+                        // Procedo col LOGIN
+                        response = await httpClient.GetAsync($"{Constants.SERVICE_ENDPOINT}/BONUSWS/rest/secured/18enne/beneficiarioOperativo");
                         loginResult.Process(response);
 
                         content = await response.Content.ReadAsStringAsync();
-                        var borsellinoBean = JsonConvert.DeserializeObject<BorsellinoBean>(content);
+                        var checkBeneficiarioOperativoBean = JsonConvert.DeserializeObject<CheckBeneficiarioOperativoBean>(content);
 
-                        // Aggiorno il borsellino del beneficiario
-                        if (beneficiarioBean != null)
+                        if (checkBeneficiarioOperativoBean.FlagOperativo == false)
                         {
-                            beneficiarioBean.BorsellinoBean = borsellinoBean;
+                            // Beneficiario non operativo
+                            loginResult.NonOperatingBeneficiary();
                         }
                         else
                         {
-                            loginResult.UnavailableWallet();
-                        }
+                            // Recupero i dati del borsellino
+                            response = await httpClient.GetAsync($"{Constants.SERVICE_ENDPOINT}/BONUSWS/rest/secured/18enne/borsellino");
+                            loginResult.Process(response);
 
-                        loginResult.SetBeneficiary(beneficiarioBean);
+                            content = await response.Content.ReadAsStringAsync();
+                            var borsellinoBean = JsonConvert.DeserializeObject<BorsellinoBean>(content);
+
+                            // Aggiorno il borsellino del beneficiario
+                            if (beneficiarioBean != null)
+                            {
+                                beneficiarioBean.BorsellinoBean = borsellinoBean;
+                            }
+                            else
+                            {
+                                loginResult.UnavailableWallet();
+                            }
+
+                            loginResult.SetBeneficiary(beneficiarioBean);
+                        }
                     }
                 }
                 else

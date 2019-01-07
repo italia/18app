@@ -67,9 +67,20 @@ namespace Italia.DiciottoApp.Services
             };
         }
 
-        public Task<DeleteVoucherResult> DeleteVoucher(Cookie fedSecureToken, long voucherId)
+        public async Task<ServiceResult<AnnullaVoucherBean>> DeleteVoucherAsync(Cookie fedSecureToken, Voucher voucher)
         {
-            throw new NotImplementedException();
+            await Task.Delay(100);
+            return new ServiceResult<AnnullaVoucherBean>()
+            {
+                Success = true,
+                Result = new AnnullaVoucherBean
+                {
+                    Risultato = true,
+                    ErrorCode = null,
+                    DataStartAnnullaMuseo = string.Empty,
+                    NumGiorniAnnullaMuseo = null
+                }
+            };
         }
 
         public static class FakeVouchers

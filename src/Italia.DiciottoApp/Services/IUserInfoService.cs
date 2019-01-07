@@ -8,6 +8,8 @@ namespace Italia.DiciottoApp.Services
     {
         Task<ServiceResult<BorsellinoBean>> GetBorsellinoAsync();
 
+        Task<ServiceResult<BeneficiarioBean>> SetPresaVisioneAsync(bool confirmed);
+
         Task<ServiceResult<string>> GetPresaVisioneAsync();
     }
 }

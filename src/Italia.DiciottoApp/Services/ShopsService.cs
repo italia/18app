@@ -22,10 +22,6 @@ namespace Italia.DiciottoApp.Services
 
         public string ClientSecret { get; set; } = Keys.X_IBM_ClientSecret;
 
-        public string ProdClientId { get; set; } = Keys.PROD_X_IBM_ClientId;
-
-        public string ProdClientSecret { get; set; } = Keys.PROD_X_IBM_ClientSecret;
-
         //public async Task<Shop> GetShopByIdAsync(string shopId)
         //{
         //    if (string.IsNullOrWhiteSpace(shopId))

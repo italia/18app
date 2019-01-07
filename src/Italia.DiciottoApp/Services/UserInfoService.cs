@@ -48,6 +48,41 @@ namespace Italia.DiciottoApp.Services
             return getBorsellinoResult;
         }
 
+        public async Task<ServiceResult<BeneficiarioBean>> SetPresaVisioneAsync(bool confirmed)
+        {
+            BeneficiarioBean beneficiarioBean = Settings.GetBeneficiario();
+            beneficiarioBean.FlagAccettazionePrivacy = confirmed ? "1" : "0";
+
+            httpClient = HttpClientFactory.Builder(ClientId, ClientSecret, Settings.FEDSecureToken);
+            var serviceResult = new ServiceResult<BeneficiarioBean>();
+
+            try
+            {
+                // Creazione del body content
+                string ricercaStoreBeanJson = JsonConvert.SerializeObject(beneficiarioBean);
+                StringContent httpContent = new StringContent(ricercaStoreBeanJson, Encoding.UTF8, "application/json");
+
+                // Recupero i dati della ricerca store
+                var response = await httpClient.PostAsync($"{Constants.SERVICE_ENDPOINT}/BONUSWS/rest/secured/18enne/insDatiConfigurazioneBeneficiario", httpContent);
+                await serviceResult.ProcessAsync(response);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"++++ SetPresaVisioneAsync error: {ex.Message}");
+            }
+
+            if (!serviceResult.Success)
+            {
+                Debug.WriteLine($"++++ SetPresaVisioneAsync result error: {serviceResult.FailureReason}");
+                foreach (var response in serviceResult.Log)
+                {
+                    Debug.WriteLine($"  ++ service operation: {response.RequestMessage.RequestUri} , result: {response.StatusCode}");
+                }
+            }
+
+            return serviceResult;
+        }
+
         public async Task<ServiceResult<string>> GetPresaVisioneAsync()
         {
             httpClient = HttpClientFactory.Builder(ClientId, ClientSecret, Settings.FEDSecureToken);

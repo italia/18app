@@ -23,15 +23,8 @@ namespace Italia.DiciottoApp.Services
 
         public string ClientSecret { get; set; } = Keys.X_IBM_ClientSecret;
 
-        public string ProdClientId { get; set; } = Keys.PROD_X_IBM_ClientId;
-
-        public string ProdClientSecret { get; set; } = Keys.PROD_X_IBM_ClientSecret;
-
         public async Task<IEnumerable<Voucher>> GetUserVouchersAsync(Cookie fedSecureToken, bool spent, int page = 0, int pageItems = 100, CancellationToken ct = default(CancellationToken))
         {
-            // var fakeVouchersService = new FakeVouchersService();
-            // return await fakeVouchersService.GetUserVouchersAsync(userId, walletKind, page, pageItems);
-
             List<Voucher> vouchers = new List<Voucher>();
 
             // Check for cancellation
@@ -110,9 +103,6 @@ namespace Italia.DiciottoApp.Services
                 throw new ArgumentOutOfRangeException("valore");
             }
 
-            // var fakeVouchersService = new FakeVouchersService();
-            // return await fakeVouchersService.CreateVoucher(categoria, prodotto, valore, shopId);
-
             VoucherBean voucherBean = new VoucherBean
             {
                 AmbitoBean = AmbitoBeanFromCategoria(categoria),
@@ -151,9 +141,32 @@ namespace Italia.DiciottoApp.Services
             return createVoucherServiceResult;
         }
 
-        public Task<DeleteVoucherResult> DeleteVoucher(Cookie fedSecureToken, long voucherId)
+        public async Task<ServiceResult<AnnullaVoucherBean>> DeleteVoucherAsync(Cookie fedSecureToken, Voucher voucher)
         {
-            throw new NotImplementedException();
+            httpClient = HttpClientFactory.Builder(ClientId, ClientSecret, fedSecureToken);
+            var deleteVoucherServiceResult = new ServiceResult<AnnullaVoucherBean>();
+
+            try
+            {
+                // Recupero i dati della ricerca store
+                var response = await httpClient.GetAsync($"{Constants.SERVICE_ENDPOINT}/BONUSWS/rest/secured/gestioneVoucher/annullaVoucherFisico/{voucher.Id}");
+                await deleteVoucherServiceResult.ProcessAsync(response);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"++++ DeleteVoucherAsync error: {ex.Message}");
+            }
+
+            if (!deleteVoucherServiceResult.Success)
+            {
+                Debug.WriteLine($"++++ DeleteVoucherAsync result error: {deleteVoucherServiceResult.FailureReason}");
+                foreach (var response in deleteVoucherServiceResult.Log)
+                {
+                    Debug.WriteLine($"  ++ service operation: {response.RequestMessage.RequestUri} , result: {response.StatusCode}");
+                }
+            }
+
+            return deleteVoucherServiceResult;
         }
 
         #region Utils

@@ -15,6 +15,6 @@ namespace Italia.DiciottoApp.Services
 
         Task<ServiceResult<VoucherBean>> CreateVoucherAsync(Cookie fedSecureToken, Categoria categoria, Prodotto prodotto, double valore, bool online);
 
-        Task<DeleteVoucherResult> DeleteVoucher(Cookie fedSecureToken, long voucherId);
+        Task<ServiceResult<AnnullaVoucherBean>> DeleteVoucherAsync(Cookie fedSecureToken, Voucher voucher);
     }
 }
