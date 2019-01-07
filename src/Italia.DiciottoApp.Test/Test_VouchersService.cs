@@ -59,7 +59,7 @@ namespace Italia.DiciottoApp.Test
             Assert.AreEqual(1, createVoucherServiceResult.Log.Count);
 
             var actualStatusCode = createVoucherServiceResult.Log[0].StatusCode;
-            Assert.AreEqual(HttpStatusCode.NotFound, actualStatusCode);
+            Assert.AreEqual(HttpStatusCode.Unauthorized, actualStatusCode);
         }
 
         [TestMethod]
@@ -78,7 +78,7 @@ namespace Italia.DiciottoApp.Test
             Assert.AreEqual(1, result.Log.Count);
 
             var actualStatusCode = result.Log[0].StatusCode;
-            Assert.AreEqual(HttpStatusCode.NotFound, actualStatusCode);
+            Assert.AreEqual(HttpStatusCode.Unauthorized, actualStatusCode);
         }
 
         [TestMethod]
@@ -104,7 +104,7 @@ namespace Italia.DiciottoApp.Test
             Assert.AreEqual(1, result.Log.Count);
 
             var actualStatusCode = result.Log[0].StatusCode;
-            Assert.AreEqual(HttpStatusCode.NotFound, actualStatusCode);
+            Assert.AreEqual(HttpStatusCode.Unauthorized, actualStatusCode);
         }
 
         [TestMethod]

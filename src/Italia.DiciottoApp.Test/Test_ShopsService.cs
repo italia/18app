@@ -33,7 +33,7 @@ namespace Italia.DiciottoApp.Test
             Assert.AreEqual(1, result.Log.Count);
 
             var actualStatusCode = result.Log[0].StatusCode;
-            Assert.AreEqual(HttpStatusCode.InternalServerError, actualStatusCode);
+            Assert.AreEqual(HttpStatusCode.Unauthorized, actualStatusCode);
         }
 
         [TestMethod]
@@ -48,7 +48,7 @@ namespace Italia.DiciottoApp.Test
             Assert.AreEqual(1, result.Log.Count);
 
             var actualStatusCode = result.Log[0].StatusCode;
-            Assert.AreEqual(HttpStatusCode.InternalServerError, actualStatusCode);
+            Assert.AreEqual(HttpStatusCode.Unauthorized, actualStatusCode);
         }
 
         [TestMethod]

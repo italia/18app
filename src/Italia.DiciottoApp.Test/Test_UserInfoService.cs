@@ -1,4 +1,5 @@
-﻿using Italia.DiciottoApp.Models;
+﻿using Italia.DiciottoApp.DTOs;
+using Italia.DiciottoApp.Models;
 using Italia.DiciottoApp.Services;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
@@ -22,7 +23,7 @@ namespace Italia.DiciottoApp.Test
             fedSecureToken = new Cookie
             {
                 Name = Constants.COOKIES_SECURE_TOKEN,
-                Value = "6ojA3ymcbtNz4rkIc5ZpgmtQNiHOBKnhUfFapNa0E/QLuTi5Ic8gFJtgPnXlboBhzDaCX+00ndYNEEZUef6TVwj4sgM/fhwWaxXw9Q0k0jbHqSDWvNSTCMgtHyqdnPmSrvk3TeqAe7AZUHG+MpwtNa/GLfvMJCd9noAg4jyTlfhuO2UuTwpFDmoof3cDFWLZjUj150VjUCQNH62GRllEf0+9emx63ImazaWeAK7ikJXbGGjvlAmrhW926c9xv95wNN441GUOySeimsyHDBGC4eiqnDAYOtesDFw5lAMA/IsLOKXLiBblAprmak2uMdjostEuOAhjOCKv6gIs2QeNA7U/dxpQjaYd8+Ij6Fwd0EPhELQ2SRsy7dyWvZCmCCn8"
+                Value = "yA9NFyc53ffzN1E4/aZRBDakNH6InSFCuADdRdO8lEDj2rmP5Kyir71CdcWfc6xOfIcF+Sj9HbSAAnM8wKTFfhUHaEJKfg8u5fmb28PU2ALOY5cdzT7lLCzIdrbIwkwFQOs39e+lnSWE0/aBAsrFnt1PyPwPc7/7JR49LWatKftJvLgkj/uN33ptzhrL31WkNaEZbj+eSZkNq2oEmTpNtG/Gzg4/LUrHFSvvr36bfD4fcUcfCbiWkDsNxeFeLKvhAZmrbZlZ8zWlOyrt74qTIhMJXeBxWXAUhM43Vzi7CNV72hwasXFzmTg8d8HshBVxUvrz2su1oOxqtcF/VAR2U3sECwpDePmr6FQb2gIqO3wfcQdU2c9a3xHKqo6rFeej"
             };
         }
 
@@ -39,7 +40,7 @@ namespace Italia.DiciottoApp.Test
             Assert.AreEqual(1, getBorsellinoServiceResult.Log.Count);
 
             var actualStatusCode = getBorsellinoServiceResult.Log[0].StatusCode;
-            Assert.AreEqual(HttpStatusCode.NotFound, actualStatusCode);
+            Assert.AreEqual(HttpStatusCode.Unauthorized, actualStatusCode);
         }
 
         [TestMethod]
@@ -53,7 +54,7 @@ namespace Italia.DiciottoApp.Test
             Assert.AreEqual(1, result.Log.Count);
 
             var actualStatusCode = result.Log[0].StatusCode;
-            Assert.AreEqual(HttpStatusCode.NotFound, actualStatusCode);
+            Assert.AreEqual(HttpStatusCode.Unauthorized, actualStatusCode);
         }
 
         [TestMethod]
@@ -66,6 +67,49 @@ namespace Italia.DiciottoApp.Test
             Assert.IsTrue(result.Success);
             Assert.AreEqual(1, result.Log.Count);
             Assert.AreEqual(HttpStatusCode.OK, result.Log[0].StatusCode);
+        }
+
+        #endregion
+
+        #region SetPresaVisioneAsync
+
+        [TestMethod]
+        public async Task Test_SetPresaVisioneAsync_Success()
+        {
+            Settings.FEDSecureToken = fedSecureToken.Value;
+
+            Settings.SetBeneficiario(new BeneficiarioBean
+            {
+                //IdBeneficiario = 245,
+                //CodiceFiscale = "MRAVRD99A01H501M",
+                //Nome = "Marco",
+                //Cognome = "Rossi",
+                //AnnoRif = "2017",
+                //Email = "marcorossi@prova.it"
+            });
+
+            var result = await userInfoService.SetPresaVisioneAsync(confirmed: true);
+
+            Assert.IsTrue(result.Success);
+            Assert.AreEqual(1, result.Log.Count);
+            Assert.AreEqual(HttpStatusCode.OK, result.Log[0].StatusCode);
+        }
+
+        #endregion
+
+        #region SetPresaVisioneAsync
+
+        [TestMethod]
+        public async Task Test_GetPresaVisioneAsync_Success()
+        {
+            Settings.FEDSecureToken = fedSecureToken.Value;
+
+            var result = await userInfoService.GetPresaVisioneAsync();
+
+            Assert.IsTrue(result.Success);
+            Assert.AreEqual(1, result.Log.Count);
+            Assert.AreEqual(HttpStatusCode.OK, result.Log[0].StatusCode);
+            Assert.IsTrue(result.Result == "0" || result.Result == "1");
         }
 
         #endregion
