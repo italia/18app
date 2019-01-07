@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Italia.DiciottoApp.ViewModels
+namespace Italia.DiciottoApp.ViewModels.Interfaces
 {
     public interface ISelectMunicipality
     {
