@@ -23,28 +23,16 @@ namespace Italia.DiciottoApp.Models
             set => AppSettings.AddOrUpdateValue("UserLogged", value);
         }
 
-        public static string FEDSecureToken
+        public static string FEDSecureTokenValue
         {
-            get => AppSettings.GetValueOrDefault("FEDSecureToken", string.Empty);
-            set => AppSettings.AddOrUpdateValue("FEDSecureToken", value);
+            get => AppSettings.GetValueOrDefault("FEDSecureTokenValue", string.Empty);
+            set => AppSettings.AddOrUpdateValue("FEDSecureTokenValue", value);
         }
 
         public static string UserId
         {
             get => AppSettings.GetValueOrDefault("UserId", String.Empty);
             set => AppSettings.AddOrUpdateValue("UserId", value);
-        }
-
-        public static string UserName
-        {
-            get => AppSettings.GetValueOrDefault("UserName", String.Empty);
-            set => AppSettings.AddOrUpdateValue("UserName", value);
-        }
-
-        public static string UserSurname
-        {
-            get => AppSettings.GetValueOrDefault("UserSurname", String.Empty);
-            set => AppSettings.AddOrUpdateValue("UserSurname", value);
         }
 
         public static string UserCodFisc
@@ -59,16 +47,22 @@ namespace Italia.DiciottoApp.Models
             set => AppSettings.AddOrUpdateValue("UserAnnoRif", value);
         }
 
-        public static string UserPhoneNumber
+        public static string UserName
         {
-            get => AppSettings.GetValueOrDefault("UserPhoneNumber", String.Empty);
-            set => AppSettings.AddOrUpdateValue("UserPhoneNumber", value);
+            get => AppSettings.GetValueOrDefault("UserName", String.Empty);
+            set => AppSettings.AddOrUpdateValue("UserName", value);
         }
 
-        public static string UserEmail
+        public static string UserSurname
         {
-            get => AppSettings.GetValueOrDefault("UserEmail", String.Empty);
-            set => AppSettings.AddOrUpdateValue("UserEmail", value);
+            get => AppSettings.GetValueOrDefault("UserSurname", String.Empty);
+            set => AppSettings.AddOrUpdateValue("UserSurname", value);
+        }
+
+        public static string UserGender
+        {
+            get => AppSettings.GetValueOrDefault("UserGender", String.Empty);
+            set => AppSettings.AddOrUpdateValue("UserGender", value);
         }
 
         public static DateTime? UserBirthDate
@@ -89,18 +83,6 @@ namespace Italia.DiciottoApp.Models
             set => AppSettings.AddOrUpdateValue("UserBirthProvince", value);
         }
 
-        public static string UserResidenceAddress
-        {
-            get => AppSettings.GetValueOrDefault("UserResidenceAddress", String.Empty);
-            set => AppSettings.AddOrUpdateValue("UserResidenceAddress", value);
-        }
-
-        public static string UserResidenceZip
-        {
-            get => AppSettings.GetValueOrDefault("UserResidenceZip", String.Empty);
-            set => AppSettings.AddOrUpdateValue("UserResidenceZip", value);
-        }
-
         public static string UserResidenceCity
         {
             get => AppSettings.GetValueOrDefault("UserResidenceCity", string.Empty);
@@ -113,10 +95,64 @@ namespace Italia.DiciottoApp.Models
             set => AppSettings.AddOrUpdateValue("UserResidenceProvince", value);
         }
 
+        public static string UserResidenceZip
+        {
+            get => AppSettings.GetValueOrDefault("UserResidenceZip", String.Empty);
+            set => AppSettings.AddOrUpdateValue("UserResidenceZip", value);
+        }
+
+        public static string UserResidenceAddress
+        {
+            get => AppSettings.GetValueOrDefault("UserResidenceAddress", String.Empty);
+            set => AppSettings.AddOrUpdateValue("UserResidenceAddress", value);
+        }
+
+        public static string UserPhoneNumber
+        {
+            get => AppSettings.GetValueOrDefault("UserPhoneNumber", String.Empty);
+            set => AppSettings.AddOrUpdateValue("UserPhoneNumber", value);
+        }
+
+        public static string UserEmail
+        {
+            get => AppSettings.GetValueOrDefault("UserEmail", String.Empty);
+            set => AppSettings.AddOrUpdateValue("UserEmail", value);
+        }
+
+        public static string UserRifSocialPlatform
+        {
+            get => AppSettings.GetValueOrDefault("UserRifSocialPlatform", string.Empty);
+            set => AppSettings.AddOrUpdateValue("UserRifSocialPlatform", value);
+        }
+
         public static string UserAcceptanceFlag
         {
             get => AppSettings.GetValueOrDefault("UserAcceptanceFlag", "0");
             set => AppSettings.AddOrUpdateValue("UserAcceptanceFlag", value);
+        }
+
+        public static DateTime? UserInsertDate
+        {
+            get => DateConverter.FromString(AppSettings.GetValueOrDefault("UserInsertDate", null));
+            set => AppSettings.AddOrUpdateValue("UserInsertDate", DateConverter.FromDateTime(value));
+        }
+
+        public static DateTime? UserUpdateDate
+        {
+            get => DateConverter.FromString(AppSettings.GetValueOrDefault("UserUpdateDate", null));
+            set => AppSettings.AddOrUpdateValue("UserUpdateDate", DateConverter.FromDateTime(value));
+        }
+
+        public static string UserStrBirthDate
+        {
+            get => AppSettings.GetValueOrDefault("UserStrBirthDate", string.Empty);
+            set => AppSettings.AddOrUpdateValue("UserStrBirthDate", value);
+        }
+
+        public static bool UserRegisteredSynonimFlag
+        {
+            get => AppSettings.GetValueOrDefault("UserRegisteredSynonimFlag", false);
+            set => AppSettings.AddOrUpdateValue("UserRegisteredSynonimFlag", value);
         }
 
         public static int UserSpidIdPIndex
@@ -223,13 +259,28 @@ namespace Italia.DiciottoApp.Models
         {
             UserId = beneficiario.IdBeneficiario.ToString();
             UserCodFisc = beneficiario.CodiceFiscale;
+            UserAnnoRif = beneficiario.AnnoRif;
             UserName = beneficiario.Nome;
             UserSurname = beneficiario.Cognome;
-            UserAnnoRif = beneficiario.AnnoRif;
+            UserGender = beneficiario.Sesso;
             UserBirthDate = beneficiario.DataNascita;
+            UserBirthCity = beneficiario.ComuneNascita;
+            UserBirthProvince = beneficiario.ProvinciaNascita;
+            UserResidenceCity = beneficiario.ComuneResidenza;
+            UserResidenceProvince = beneficiario.ProvinciaResidenza;
+            UserResidenceZip = beneficiario.CapResidenza;
+            UserResidenceAddress = beneficiario.IndirizzoResidenza;
             UserPhoneNumber = beneficiario.Cellulare;
             UserEmail = beneficiario.Email;
+            UserRifSocialPlatform = beneficiario.RifPiattaformaSocial;
             UserAcceptanceFlag = beneficiario.FlagAccettazionePrivacy;
+            UserInsertDate = beneficiario.DataInserimento;
+            UserUpdateDate = beneficiario.DataAggiornamento;
+            UserStrBirthDate = beneficiario.StrDataNascita;
+            UserRegisteredSynonimFlag = beneficiario.FlagSinonimoRegistrato ?? false;
+            // NOT USED beneficiario.BorsellinoBean
+            // NOT USED beneficiario.SpidBean
+            // NOT USED beneficiario.ErrorCode
         }
 
         public static BeneficiarioBean GetBeneficiario()
@@ -244,29 +295,59 @@ namespace Italia.DiciottoApp.Models
             {
                 IdBeneficiario = nullableIdBeneficiario,
                 CodiceFiscale = UserCodFisc,
-                Nome = UserName,
-                Cognome = UserSurname,
                 AnnoRif = UserAnnoRif,
+                Cognome = UserSurname,
+                Nome = UserName,
+                Sesso = UserGender,
                 DataNascita = UserBirthDate,
+                ComuneNascita = UserBirthCity,
+                ProvinciaNascita = UserBirthProvince,
+                ComuneResidenza = UserResidenceCity,
+                ProvinciaResidenza = UserResidenceProvince,
+                CapResidenza = UserResidenceZip,
+                IndirizzoResidenza = UserResidenceAddress,
                 Cellulare = UserPhoneNumber,
                 Email = UserEmail,
-                FlagAccettazionePrivacy = UserAcceptanceFlag
+                RifPiattaformaSocial = UserRifSocialPlatform,
+                FlagAccettazionePrivacy = UserAcceptanceFlag,
+                DataInserimento = UserInsertDate,
+                DataAggiornamento = UserUpdateDate,
+                StrDataNascita = UserStrBirthDate,
+                FlagSinonimoRegistrato = UserRegisteredSynonimFlag,
+                BorsellinoBean = null,
+                SpidBean = null,
+                ErrorCode = 0
             };
         }
 
         public static void UserLogOut()
         {
             UserLogged = false;
-            UserAcceptanceFlag = "0";
 
             UserId = string.Empty;
             UserCodFisc = string.Empty;
+            UserAnnoRif = string.Empty;
             UserName = string.Empty;
             UserSurname = string.Empty;
-            UserAnnoRif = string.Empty;
+            UserGender = string.Empty;
             UserBirthDate = null;
+            UserBirthCity = string.Empty;
+            UserBirthProvince = string.Empty;
+            UserResidenceCity = string.Empty;
+            UserResidenceProvince = string.Empty;
+            UserResidenceZip = string.Empty;
+            UserResidenceAddress = string.Empty;
             UserPhoneNumber = string.Empty;
             UserEmail = string.Empty;
+            UserRifSocialPlatform = string.Empty;
+            UserAcceptanceFlag = "0";
+            UserInsertDate = null;
+            UserUpdateDate = null;
+            UserStrBirthDate = string.Empty;
+            UserRegisteredSynonimFlag = false;
+            // Setting for beneficiario.BorsellinoBean NOT IMPLEMENTED (otherwise please clear value here)
+            // Setting for beneficiario.SpidBean NOT IMPLEMENTED (otherwise please clear value here)
+            // Setting for beneficiario.ErrorCode NOT IMPLEMENTED (otherwise please clear value here)
         }
 
         public static void SetBorsellino(BorsellinoBean borsellino)
