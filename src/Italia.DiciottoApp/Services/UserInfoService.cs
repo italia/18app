@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net;
 using System.Net.Http;
@@ -22,7 +21,7 @@ namespace Italia.DiciottoApp.Services
 
         public async Task<ServiceResult<BorsellinoBean>> GetBorsellinoAsync()
         {
-            httpClient = HttpClientFactory.Builder(ClientId, ClientSecret, Settings.FEDSecureToken);
+            httpClient = HttpClientFactory.Builder(ClientId, ClientSecret, Settings.FEDSecureTokenValue);
 
             var getBorsellinoResult = new ServiceResult<BorsellinoBean>();
             try
@@ -48,44 +47,42 @@ namespace Italia.DiciottoApp.Services
             return getBorsellinoResult;
         }
 
-        public async Task<ServiceResult<BeneficiarioBean>> SetPresaVisioneAsync(bool confirmed)
+        public async Task<ServiceResult<BeneficiarioBean>> SetPresaVisioneAsync(BeneficiarioBean beneficiarioBean, Cookie fedSecureToken, bool confirmed)
         {
-            BeneficiarioBean beneficiarioBean = Settings.GetBeneficiario();
             beneficiarioBean.FlagAccettazionePrivacy = confirmed ? "1" : "0";
-
-            httpClient = HttpClientFactory.Builder(ClientId, ClientSecret, Settings.FEDSecureToken);
-            var serviceResult = new ServiceResult<BeneficiarioBean>();
+            httpClient = HttpClientFactory.Builder(ClientId, ClientSecret, fedSecureToken);
+            var acceptPrivacyResult = new ServiceResult<BeneficiarioBean>();
 
             try
             {
                 // Creazione del body content
-                string ricercaStoreBeanJson = JsonConvert.SerializeObject(beneficiarioBean);
-                StringContent httpContent = new StringContent(ricercaStoreBeanJson, Encoding.UTF8, "application/json");
+                string body = JsonConvert.SerializeObject(beneficiarioBean);
+                StringContent httpContent = new StringContent(body, Encoding.UTF8, "application/json");
 
                 // Recupero i dati della ricerca store
                 var response = await httpClient.PostAsync($"{Constants.SERVICE_ENDPOINT}/BONUSWS/rest/secured/18enne/insDatiConfigurazioneBeneficiario", httpContent);
-                await serviceResult.ProcessAsync(response);
+                await acceptPrivacyResult.ProcessAsync(response);
+
+                if (!acceptPrivacyResult.Success)
+                {
+                    Debug.WriteLine($"++++ SetPresaVisioneAsync result error: {acceptPrivacyResult.FailureReason}");
+                    foreach (var httpResponseMessage in acceptPrivacyResult.Log)
+                    {
+                        Debug.WriteLine($"  ++ service operation: {httpResponseMessage.RequestMessage.RequestUri} , result: {httpResponseMessage.StatusCode}");
+                    }
+                }
             }
             catch (Exception ex)
             {
                 Debug.WriteLine($"++++ SetPresaVisioneAsync error: {ex.Message}");
             }
 
-            if (!serviceResult.Success)
-            {
-                Debug.WriteLine($"++++ SetPresaVisioneAsync result error: {serviceResult.FailureReason}");
-                foreach (var response in serviceResult.Log)
-                {
-                    Debug.WriteLine($"  ++ service operation: {response.RequestMessage.RequestUri} , result: {response.StatusCode}");
-                }
-            }
-
-            return serviceResult;
+            return acceptPrivacyResult;
         }
 
-        public async Task<ServiceResult<string>> GetPresaVisioneAsync()
+        public async Task<ServiceResult<string>> GetPresaVisioneAsync(Cookie fedSecureToken = null)
         {
-            httpClient = HttpClientFactory.Builder(ClientId, ClientSecret, Settings.FEDSecureToken);
+            httpClient = HttpClientFactory.Builder(ClientId, ClientSecret, fedSecureToken);
 
             var getPresaVisioneResult = new ServiceResult<string>();
             try
@@ -110,5 +107,6 @@ namespace Italia.DiciottoApp.Services
 
             return getPresaVisioneResult;
         }
+
     }
 }

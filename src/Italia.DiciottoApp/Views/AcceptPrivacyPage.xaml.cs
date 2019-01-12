@@ -36,8 +36,7 @@ namespace Italia.DiciottoApp.Views
 
         private async void OnAcceptPrivacyButtonClicked(object sender, EventArgs e)
         {
-            accepted = true;
-            await vm.SetPresaVisioneAsync();
+            accepted = await vm.SetPresaVisioneAsync();
 
             // Get the root page
             IReadOnlyList<Page> navStack = Navigation.NavigationStack;

@@ -9,11 +9,11 @@ namespace Italia.DiciottoApp.Utils
 {
     public static class HttpClientFactory
     {
-        public static HttpClient Builder(string clientId, string clientSecret, Cookie fedSecureToken = null, Cookie usernameToken = null)
+        public static HttpClient Builder(string clientId, string clientSecret, Cookie fedSecureToken = null, Cookie userToken = null)
         {
             HttpClient httpClient;
 
-            if (fedSecureToken == null && usernameToken == null)
+            if (fedSecureToken == null && userToken == null)
             {
                 httpClient = new HttpClient();
             }
@@ -28,9 +28,9 @@ namespace Italia.DiciottoApp.Utils
                 {
                     httpClientHandler.CookieContainer.Add(cookieUri, new Cookie { Name = fedSecureToken.Name, Value = fedSecureToken.Value });
                 }
-                if (usernameToken != null)
+                if (userToken != null)
                 {
-                    httpClientHandler.CookieContainer.Add(cookieUri, new Cookie { Name = usernameToken.Name, Value = usernameToken.Value });
+                    httpClientHandler.CookieContainer.Add(cookieUri, new Cookie { Name = userToken.Name, Value = userToken.Value });
                 }
                 httpClient = new HttpClient(httpClientHandler);
             }
@@ -47,5 +47,16 @@ namespace Italia.DiciottoApp.Utils
         {
             return Builder(clientId, clientSecret, new Cookie { Name = Constants.COOKIES_SECURE_TOKEN, Value = fedSecureTokenValue });
         }
+
+        public static HttpClient Builder(string clientId, string clientSecret, string fedSecureTokenValue, string userTokenValue)
+        {
+            return Builder(
+                clientId,
+                clientSecret,
+                new Cookie { Name = Constants.COOKIES_SECURE_TOKEN, Value = fedSecureTokenValue },
+                new Cookie { Name = Constants.COOKIES_USER_TOKEN, Value = userTokenValue }
+            );
+        }
+
     }
 }

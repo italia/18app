@@ -108,7 +108,7 @@ namespace Italia.DiciottoApp.ViewModels
                 Cookie fedSecureToken = new Cookie
                 {
                     Name = Constants.COOKIES_SECURE_TOKEN,
-                    Value = Settings.FEDSecureToken
+                    Value = Settings.FEDSecureTokenValue
                 };
 
                 IVouchersService vouchersService = Service.Resolve<IVouchersService>();

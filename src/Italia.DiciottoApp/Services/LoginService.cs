@@ -20,9 +20,9 @@ namespace Italia.DiciottoApp.Services
 
         public string ClientSecret { get; set; } = Keys.X_IBM_ClientSecret;
 
-        public async Task<LoginResult> LoginAsync(Cookie fedSecureToken, Cookie usernameToken)
+        public async Task<LoginResult> LoginAsync(Cookie fedSecureToken, Cookie userToken)
         {
-            httpClient = HttpClientFactory.Builder(ClientId, ClientSecret, fedSecureToken, usernameToken);
+            httpClient = HttpClientFactory.Builder(ClientId, ClientSecret, fedSecureToken, userToken);
 
             LoginResult loginResult = new LoginResult();
             try
@@ -54,7 +54,7 @@ namespace Italia.DiciottoApp.Services
                     }
                     else
                     {
-                        // Procedo col LOGIN
+                        // Proseguo col LOGIN
                         response = await httpClient.GetAsync($"{Constants.SERVICE_ENDPOINT}/BONUSWS/rest/secured/18enne/beneficiarioOperativo");
                         loginResult.Process(response);
 

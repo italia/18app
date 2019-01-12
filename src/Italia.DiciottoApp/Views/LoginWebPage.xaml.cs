@@ -71,8 +71,8 @@ namespace Italia.DiciottoApp.Views
             Cookie fedSecureToken = cookies.Where(c => c.Name == Constants.COOKIES_SECURE_TOKEN).FirstOrDefault();
             Debug.WriteLine($"++++ fedSecureToken: {fedSecureToken?.Value ?? "FEDSecureToken not found"}");
 
-            Cookie usernameToken = cookies.Where(c => c.Name == Constants.COOKIES_USER_TOKEN).FirstOrDefault();
-            Debug.WriteLine($"++++ fedSecureToken: {fedSecureToken?.Value ?? "FEDSecureToken not found"}");
+            Cookie userToken = cookies.Where(c => c.Name == Constants.COOKIES_USER_TOKEN).FirstOrDefault();
+            Debug.WriteLine($"++++ userToken: {userToken?.Value ?? "cookieutente not found"}");
 
             string loginFailDetail = string.Empty;
 
@@ -80,10 +80,14 @@ namespace Italia.DiciottoApp.Views
             {
                 loginFailDetail = "Unavailable Secure Token";
             }
+            else if (userToken == null)
+            {
+                loginFailDetail = "Unavailable User Token";
+            }
             else
             {
                 var loginService = Service.Resolve<ILoginService>();
-                var loginResult = await loginService.LoginAsync(fedSecureToken, usernameToken);
+                var loginResult = await loginService.LoginAsync(fedSecureToken, userToken);
                 Debug.WriteLine($"++++ LoginResult: {loginResult.Success}");
 
                 if (loginResult.Success)
@@ -94,7 +98,7 @@ namespace Italia.DiciottoApp.Views
                     }
                     else
                     {
-                        Settings.FEDSecureToken = fedSecureToken.Value;
+                        Settings.FEDSecureTokenValue = fedSecureToken.Value;
                         Settings.UserLogged = true;
                         Settings.SetBeneficiario(loginResult.Beneficiary);
 
@@ -129,7 +133,7 @@ namespace Italia.DiciottoApp.Views
                 Page currentRootPage = navStack[0];
 
                 // Insert page before WelcomePage, depending on the UserAcceptanceFlag value
-                if (Settings.UserAcceptanceFlag == "0" || true) // TODO : Togliere il "|| true" !!!
+                if (Settings.UserAcceptanceFlag == "0")
                 {
                     Navigation.InsertPageBefore(new AcceptPrivacyPage(), currentRootPage);
                 }

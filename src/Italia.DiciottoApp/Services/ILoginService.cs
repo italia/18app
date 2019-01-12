@@ -1,4 +1,5 @@
-﻿using Italia.DiciottoApp.Models;
+﻿using Italia.DiciottoApp.DTOs;
+using Italia.DiciottoApp.Models;
 using System;
 using System.Collections.Generic;
 using System.Net;
@@ -9,6 +10,6 @@ namespace Italia.DiciottoApp.Services
 {
     interface ILoginService
     {
-        Task<LoginResult> LoginAsync(Cookie fedSecureToken, Cookie usernameToken);
+        Task<LoginResult> LoginAsync(Cookie fedSecureToken, Cookie userToken);
     }
 }

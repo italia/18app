@@ -139,9 +139,9 @@ namespace Italia.DiciottoApp.Views
         {
             // TODO Remove this code is for testing only
             // --------------------------------------------------------
-            var userInfoService = Service.Resolve<IUserInfoService>();
-            var setPresaVisioneResult = await userInfoService.SetPresaVisioneAsync(confirmed: false);
-            Debug.WriteLine($"++++ UserMenuPopupPage - SetPresaVisioneAsync(confirmed: false): {setPresaVisioneResult.Success}");
+            //var userInfoService = Service.Resolve<IUserInfoService>();
+            //var setPresaVisioneResult = await userInfoService.SetPresaVisioneAsync(confirmed: false);
+            //Debug.WriteLine($"++++ UserMenuPopupPage - SetPresaVisioneAsync(confirmed: false): {setPresaVisioneResult.Success}");
             // --------------------------------------------------------
 
             Settings.UserLogOut();
@@ -160,7 +160,7 @@ namespace Italia.DiciottoApp.Views
                 {
                     title = "Session timeout";
                     msg = "La sessione è scaduta, occorre effettuare nuovamente il login";
-                    Settings.FEDSecureToken = string.Empty;
+                    Settings.FEDSecureTokenValue = string.Empty;
                     Settings.UserLogOut();
                 }
                 else

@@ -90,7 +90,7 @@ namespace Italia.DiciottoApp.ViewModels
                     var fedSecureToken = new Cookie
                     {
                         Name = Constants.COOKIES_SECURE_TOKEN,
-                        Value = Settings.FEDSecureToken
+                        Value = Settings.FEDSecureTokenValue
                     };
                     cts = new CancellationTokenSource();
                     availableVouchers = await VoucherService.GetUserVouchersAsync(fedSecureToken, spent: false, page: 0, pageItems: Constants.VOUCHER_ITEMS_PER_PAGE, ct: cts.Token);

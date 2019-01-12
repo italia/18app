@@ -1,8 +1,11 @@
-﻿using Italia.DiciottoApp.Models;
+﻿using Italia.DiciottoApp.DTOs;
+using Italia.DiciottoApp.Models;
 using Italia.DiciottoApp.Services;
+using Italia.DiciottoApp.Utils;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
@@ -29,22 +32,41 @@ namespace Italia.DiciottoApp.ViewModels
             };
         }
 
-        public async Task SetPresaVisioneAsync()
+        public async Task<bool> SetPresaVisioneAsync()
         {
-            var userInfoService = Service.Resolve<IUserInfoService>();
-            var setPresaVisioneResult = await userInfoService.SetPresaVisioneAsync(confirmed: true);
-            Debug.WriteLine($"++++ AcceptPrivacyViewModel - SetPresaVisioneAsync(confirmed: true): {setPresaVisioneResult.Success}");
+            bool result = false;
 
-            if (setPresaVisioneResult.Success)
+            var userInfoService = Service.Resolve<IUserInfoService>();
+            BeneficiarioBean beneficiarioBean = Settings.GetBeneficiario();
+            Cookie fedSecureToken = new Cookie
             {
-                Settings.SetBeneficiario(setPresaVisioneResult.Result);
+                Name = Constants.COOKIES_SECURE_TOKEN,
+                Value = Settings.FEDSecureTokenValue
+            };
+            var acceptPrivacyResult = await userInfoService.SetPresaVisioneAsync(beneficiarioBean, fedSecureToken, confirmed: true);
+            Debug.WriteLine($"++++ AcceptPrivacyViewModel - SetPresaVisioneAsync(confirmed: true): {acceptPrivacyResult.Success}");
+
+            if (!acceptPrivacyResult.Success)
+            {
+                await DisplayAlertAsync("Siamo spiacenti ma non è stato possibile registrare l'accettazione delle condizioni di privacy dell'app.");
             }
             else
             {
-                await DisplayAlertAsync("Al momento non è possibile registrare l'avvenuta presa visione della privacy. Per tale motivo la richiesta di accettazione verrà ripresentata al prossimo login.");
+                beneficiarioBean = acceptPrivacyResult.Result;
+                int errorCode = beneficiarioBean.ErrorCode ?? 0;
+
+                if (errorCode != 0)
+                {
+                    await DisplayAlertAsync(BeneficiarioBeanMessage.FromErrorCode(errorCode));
+                }
+                else
+                {
+                    Settings.SetBeneficiario(beneficiarioBean);
+                    result = true;
+                }
             }
 
-            return;
+            return result;
         }
 
         private string GetHtml()
