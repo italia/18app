@@ -38,6 +38,8 @@ namespace Italia.DiciottoApp.Models
                     return "idp_sielte";
                 case IdP.Tim:
                     return "idp_tim";
+                case IdP.Test:
+                    return "idp_test";
                 default:
                     return string.Empty;
             }

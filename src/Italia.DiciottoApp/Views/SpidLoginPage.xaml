@@ -107,7 +107,14 @@
                     </Image.GestureRecognizers>
                 </Image>
 
-                <Button Grid.Row="4" Grid.Column="0" Text="Test IdP" Clicked="TestIdpButton_Clicked" />
+                <Image Grid.Row="4" Grid.Column="0"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   Source="idp_test">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnIdpTestTapped" />
+                    </Image.GestureRecognizers>
+                </Image>
             </Grid>
 
         </StackLayout>

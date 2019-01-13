@@ -320,6 +320,11 @@ namespace Italia.DiciottoApp.Models
             };
         }
 
+        public static void SetUserSpidIdPIndex(IdP idp)
+        {
+            UserSpidIdPIndex = (int)idp;
+        }
+
         public static void UserLogOut()
         {
             UserLogged = false;
