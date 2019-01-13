@@ -718,6 +718,15 @@
     <ImageAsset Include="Assets.xcassets\idp_sielte.imageset\idp_sielte@3x.png">
       <Visible>false</Visible>
     </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\idp_test.imageset\idp_test.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\idp_test.imageset\idp_test@2x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\idp_test.imageset\idp_test@3x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\idp_tim.imageset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
@@ -755,6 +764,9 @@
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\bkgnd_eventi.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\idp_test.imageset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\plus_white.imageset\Contents.json">
