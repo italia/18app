@@ -23,6 +23,7 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
@@ -124,7 +125,6 @@
 
                 <!-- Big problem with Android Keyboard (some don't have comma so we should set "Android=Default" -->
                 <!-- Actually we decided to force everyone to install SwiftKey Keyboard -->
-                <!-- Removed: Placeholder="{Binding EntryValuePlaceholder}"-->
                 <Entry x:Name="VoucherValueEntry" Margin="16,0"
                        Keyboard="{OnPlatform Default=Numeric, Android=Numeric}" 
                        MaxLength="6" WidthRequest="107"
@@ -139,7 +139,7 @@
                         HeightRequest="40" WidthRequest="107"
                         Style="{StaticResource CommandButtonStyle}"
                         FontSize="16" Text="CREA"
-                        IsEnabled="{Binding EntryValueIsValid}"
+                        IsEnabled="{Binding CreateVoucherButtonEnabled}"
                         Clicked="OnCreaButtonClicked">
                     <VisualStateManager.VisualStateGroups>
                         <VisualStateGroup x:Name="CommonStates">
@@ -156,10 +156,20 @@
                         </VisualStateGroup>
                     </VisualStateManager.VisualStateGroups>
                 </Button>
+                
             </StackLayout>
+
+            <!-- CreateVoucherActionInProgress Message -->
+            <Label Grid.Row="5" Margin="16,16,16,0"
+                   VerticalOptions="StartAndExpand" 
+                   HorizontalOptions="StartAndExpand"
+                   Style="{StaticResource RegularLabelStyle}"
+                   TextColor="Gray" FontSize="14"
+                   Text="Creazione buono in corso..." 
+                   IsVisible="{Binding CreateVoucherActionInProgress}"/>
             
             <!-- Error Message -->
-            <Label Grid.Row="5" Margin="16,16,16,0"
+            <Label Grid.Row="6" Margin="16,16,16,0"
                    VerticalOptions="StartAndExpand" 
                    HorizontalOptions="StartAndExpand"
                    Style="{StaticResource RegularLabelStyle}"

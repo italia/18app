@@ -29,6 +29,7 @@ namespace Italia.DiciottoApp.Views
         protected override void OnAppearing()
         {
             base.OnAppearing();
+            vm.CreateVoucherActionInProgress = false;
             VoucherValueEntry.Focus();
         }
 
@@ -39,6 +40,9 @@ namespace Italia.DiciottoApp.Views
 
         private async void OnCreaButtonClicked(object sender, EventArgs e)
         {
+            // Disable CreateVoucher button
+            vm.CreateVoucherActionInProgress = true;
+
             Voucher Voucher = await vm.CreateVoucherAsync();
             if (Voucher != null)
             {
@@ -67,6 +71,10 @@ namespace Italia.DiciottoApp.Views
 
                 // remove all Voucher creation pages from the stack but the first one
                 Navigation.RemovePage(this);
+            }
+            else
+            {
+                vm.CreateVoucherActionInProgress = false;
             }
         }
 

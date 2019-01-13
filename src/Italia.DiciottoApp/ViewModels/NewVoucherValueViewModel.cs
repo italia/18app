@@ -78,7 +78,25 @@ namespace Italia.DiciottoApp.ViewModels
         public bool EntryValueIsValid
         {
             get => entryValueIsValid;
-            set => SetProperty(ref entryValueIsValid, value);
+            set => SetProperty(ref entryValueIsValid, value, onChanged: () =>
+            {
+                OnPropertyChanged(nameof(CreateVoucherButtonEnabled));
+            });
+        }
+
+        private bool createVoucherActionInProgress;
+        public bool CreateVoucherActionInProgress
+        {
+            get => createVoucherActionInProgress;
+            set => SetProperty(ref createVoucherActionInProgress, value, onChanged: () =>
+            {
+                OnPropertyChanged(nameof(CreateVoucherButtonEnabled));
+            });
+        }
+
+        public bool CreateVoucherButtonEnabled
+        {
+            get => !CreateVoucherActionInProgress && EntryValueIsValid;
         }
 
         private string errorMessage = null;
