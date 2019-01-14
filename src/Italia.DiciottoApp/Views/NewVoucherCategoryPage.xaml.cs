@@ -70,24 +70,43 @@ namespace Italia.DiciottoApp.Views
 
                 if (!Settings.UserLogged)
                 {
-                    // TODO : Due to a bug of Xamarin Forms Navigation methods
-                    //        this code breaks if the navigation stack count == 1, i.e. currentRootPage == this
-                    //        Here souldn't be the case (please see LoggedRootPage.cs on how I've solved it)
-
                     // Get the root page
                     IReadOnlyList<Page> navStack = Navigation.NavigationStack;
                     Page currentRootPage = navStack[0];
 
-                    // Set the root page
-                    Navigation.InsertPageBefore(new SpidLoginPage(), currentRootPage);
+                    if (navStack.Count != 1)
+                    {
+                        // Due to a bug of Xamarin Forms Navigation methods
+                        // this code breaks if the navigation stack count == 1, i.e. currentRootPage == this
+                        // so we use it only if navStack.Count != 1
 
-                    // Clear navigation stack to go to the SpidLoginPage
-                    await Navigation.PopToRootAsync();
+                        // Set the root page
+                        Navigation.InsertPageBefore(new SpidLoginPage(), currentRootPage);
 
-                    // Add WelcomePage as root page
-                    Navigation.InsertPageBefore(new WelcomePage(), navStack[0]);
+                        // Clear navigation stack to go to the SpidLoginPage
+                        await Navigation.PopToRootAsync();
+
+                        // Add WelcomePage as root page
+                        Navigation.InsertPageBefore(new WelcomePage(), navStack[0]);
+                    }
+                    else
+                    {
+                        // Here is the workaround of the Xamarin bug
+
+                        var spidLoginPage = new SpidLoginPage();
+
+                        // Set the root page
+                        Navigation.InsertPageBefore(spidLoginPage, this);
+
+                        // Add WelcomePage as root page
+                        Navigation.InsertPageBefore(new WelcomePage(), navStack[0]);
+
+                        // Clear navigation stack (only this page in this case) to go to the SpidLoginPage
+                        await Navigation.PopAsync();
+                    }
                 }
             }
         }
+
     }
 }
