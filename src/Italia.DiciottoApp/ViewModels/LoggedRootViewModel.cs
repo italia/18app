@@ -11,8 +11,6 @@ namespace Italia.DiciottoApp.ViewModels
 {
     class LoggedRootViewModel: BaseViewModel
     {
-        private readonly double FAKE_VALUE = 75.0; // TODO : Remove it !!!
-
         #region Properties
 
         public AppArea AppArea => AppArea.None;
@@ -21,9 +19,9 @@ namespace Italia.DiciottoApp.ViewModels
 
         public double InitialAmmount => Settings.BorsellinoImportoTot;
 
-        public double SpentAmmount => Settings.BorsellinoImportoValidato + FAKE_VALUE;
+        public double SpentAmmount => Settings.BorsellinoImportoValidato;
 
-        public double CreatedAmmount => Settings.BorsellinoImportoRichNonValidFisico + Settings.BorsellinoImportoRichNonValidOnline - FAKE_VALUE;
+        public double CreatedAmmount => Settings.BorsellinoImportoRichNonValidFisico + Settings.BorsellinoImportoRichNonValidOnline;
 
         public double AvailableAmmount => Settings.BorsellinoImportoResiduo;
 
