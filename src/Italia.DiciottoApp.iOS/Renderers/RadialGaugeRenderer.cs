@@ -50,7 +50,7 @@ namespace Italia.DiciottoApp.iOS.Renderers
             nfloat spentEndAngle = spentStartAngle + new nfloat(2 * Math.PI * Element.Spent / Element.Initial);
 
             nfloat createdStartAngle = spentEndAngle;
-            nfloat createdEndAngle = createdStartAngle + new nfloat(2 * Math.PI * Element.Spent / Element.Initial);
+            nfloat createdEndAngle = createdStartAngle + new nfloat(2 * Math.PI * Element.Created / Element.Initial);
 
             nfloat radius = new nfloat(Math.Min(frame.Height, frame.Width)) / 2 - strokeWidth;
             nfloat innerRadius = radius - strokeWidth;
@@ -70,7 +70,7 @@ namespace Italia.DiciottoApp.iOS.Renderers
             spentArcStrokePath.Stroke();
 
             // Draw the created arc
-            var createdArcStrokePath = UIBezierPath.FromArc(frameCenter, radius, createdStartAngle, spentEndAngle, true);
+            var createdArcStrokePath = UIBezierPath.FromArc(frameCenter, radius, createdStartAngle, createdEndAngle, true);
             createdStrokeColor.SetStroke();
             createdArcStrokePath.LineWidth = strokeWidth;
             createdArcStrokePath.Stroke();
