@@ -24,8 +24,6 @@ namespace Italia.DiciottoApp.Models
 
         public int Id { get; set; }
         
-        public TipoProdotto Tipo { get; set; }
-
         public string Titolo { get; set; }
 
         public string ImageSource { get; set; }
@@ -42,7 +40,6 @@ namespace Italia.DiciottoApp.Models
                         new Prodotto
                         {
                             Id = 1,
-                            Tipo = TipoProdotto.BigliettoIngresso,
                             Titolo = "Biglietto d'ingresso",
                             ImageSource = "prod_ticket",
                             BlackImageSource = "prod_ticket_black"
@@ -50,7 +47,6 @@ namespace Italia.DiciottoApp.Models
                         new Prodotto
                         {
                             Id = 2,
-                            Tipo = TipoProdotto.AbbonamentoCard,
                             Titolo = "Abbonamento/Card",
                             ImageSource = "prod_subscription",
                             BlackImageSource = "prod_subscription_black"
@@ -62,16 +58,14 @@ namespace Italia.DiciottoApp.Models
                     {
                         new Prodotto
                         {
-                            Id = 1,
-                            Tipo = TipoProdotto.BigliettoIngresso,
+                            Id = 3,
                             Titolo = "Biglietto d'ingresso",
                             ImageSource = "prod_ticket",
                             BlackImageSource = "prod_ticket_black"
                         },
                         new Prodotto
                         {
-                            Id = 2,
-                            Tipo = TipoProdotto.AbbonamentoCard,
+                            Id = 4,
                             Titolo = "Abbonamento/Card",
                             ImageSource = "prod_subscription",
                             BlackImageSource = "prod_subscription_black"
@@ -81,31 +75,38 @@ namespace Italia.DiciottoApp.Models
                 case 3: // EVENTI CULTURALI
                     return new List<Prodotto>
                     {
-                        new Prodotto
+                        new Prodotto 
                         {
-                            Id = 1,
-                            Tipo = TipoProdotto.BigliettoIngresso,
-                            Titolo = "Biglietto d'ingresso",
+                            Id = 5,
+                            Titolo = "Biglietto d'ingresso ai circhi",
+                            // TODO assets: prod_ticket_circus, prod_ticket_circus_black
                             ImageSource = "prod_ticket",
                             BlackImageSource = "prod_ticket_black"
                         },
-                        new Prodotto
+                        new Prodotto // prod_ticket_fair, prod_ticket_fair_black
                         {
-                            Id = 2,
-                            Tipo = TipoProdotto.AbbonamentoCard,
-                            Titolo = "Abbonamento/Card",
-                            ImageSource = "prod_subscription",
-                            BlackImageSource = "prod_subscription_black"
+                            Id = 6,
+                            Titolo = "Biglietto d'ingresso a festival e fiere culturali",
+                            // TODO assets: prod_ticket_fair, prod_ticket_fair_black
+                            ImageSource = "prod_ticket",
+                            BlackImageSource = "prod_ticket_black"
                         },
                     };
 
                 case 14: // FORMAZIONE
                     return new List<Prodotto>
                     {
+                        new Prodotto 
+                        {
+                            Id = 27,
+                            Titolo = "Corsi di Musica",
+                            // TODO assets: prod_course_music, prod_course_music_black
+                            ImageSource = "prod_course_theatre",
+                            BlackImageSource = "prod_course_theatre_black"
+                        },
                         new Prodotto
                         {
                             Id = 28,
-                            Tipo = TipoProdotto.CorsiTeatro,
                             Titolo = "Corsi di Teatro",
                             ImageSource = "prod_course_theatre",
                             BlackImageSource = "prod_course_theatre_black"
@@ -113,7 +114,6 @@ namespace Italia.DiciottoApp.Models
                         new Prodotto
                         {
                             Id = 29,
-                            Tipo = TipoProdotto.CorsiLinguaStraniera,
                             Titolo = "Corsi di Lingua straniera",
                             ImageSource = "prod_course_lng",
                             BlackImageSource = "prod_course_lng_black"
@@ -126,16 +126,22 @@ namespace Italia.DiciottoApp.Models
                         new Prodotto
                         {
                             Id = 7,
-                            Tipo = TipoProdotto.LibriCartacei,
-                            Titolo = "Libri cartacei",
+                            Titolo = "Libro",
+                            ImageSource = "prod_paperbook",
+                            BlackImageSource = "prod_paperbook_black"
+                        },
+                        new Prodotto
+                        {
+                            Id = 8,
+                            Titolo = "Ebook",
+                            // TODO assets: prod_ebook, prod_ebook_black
                             ImageSource = "prod_paperbook",
                             BlackImageSource = "prod_paperbook_black"
                         },
                         new Prodotto
                         {
                             Id = 9,
-                            Tipo = TipoProdotto.AudioLibri,
-                            Titolo = "Audiolibri",
+                            Titolo = "Audiolibro",
                             ImageSource = "prod_audiobook",
                             BlackImageSource = "prod_audiobook_black"
                         },
@@ -147,7 +153,6 @@ namespace Italia.DiciottoApp.Models
                         new Prodotto
                         {
                             Id = 10,
-                            Tipo = TipoProdotto.BigliettoIngresso,
                             Titolo = "Biglietto d'ingresso",
                             ImageSource = "prod_ticket",
                             BlackImageSource = "prod_ticket_black"
@@ -155,7 +160,6 @@ namespace Italia.DiciottoApp.Models
                         new Prodotto
                         {
                             Id = 11,
-                            Tipo = TipoProdotto.BigliettoIngresso,
                             Titolo = "Abbonamento/Card",
                             ImageSource = "prod_subscription",
                             BlackImageSource = "prod_subscription_black"
@@ -168,7 +172,6 @@ namespace Italia.DiciottoApp.Models
                         new Prodotto
                         {
                             Id = 30,
-                            Tipo = TipoProdotto.BigliettoIngresso,
                             Titolo = "CD/DVD/vinile/online",
                             ImageSource = "prod_music",
                             BlackImageSource = "prod_music_black"
@@ -180,16 +183,14 @@ namespace Italia.DiciottoApp.Models
                     {
                         new Prodotto
                         {
-                            Id = 1,
-                            Tipo = TipoProdotto.BigliettoIngresso,
+                            Id = 12,
                             Titolo = "Biglietto d'ingresso",
                             ImageSource = "prod_ticket",
                             BlackImageSource = "prod_ticket_black"
                         },
                         new Prodotto
                         {
-                            Id = 2,
-                            Tipo = TipoProdotto.BigliettoIngresso,
+                            Id = 13,
                             Titolo = "Abbonamento/Card",
                             ImageSource = "prod_subscription",
                             BlackImageSource = "prod_subscription_black"
