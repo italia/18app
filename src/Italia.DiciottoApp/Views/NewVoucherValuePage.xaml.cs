@@ -74,6 +74,7 @@ namespace Italia.DiciottoApp.Views
             }
             else
             {
+                await DisplayAlert("Creazione buono non riuscita", "Si è verificato un errore nella creazione del buono, riprova più tardi.", "OK");
                 vm.CreateVoucherActionInProgress = false;
             }
         }
