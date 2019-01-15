@@ -44,11 +44,25 @@ namespace Italia.DiciottoApp.Views
 
         private async void OnDeleteVoucherButtonTapped(object sender, EventArgs e)
         {
-            bool result = await vm.DeleteVoucherAsync();
-
-            if (result)
+            if (!IsBusy)
             {
-                await Navigation.PopAsync();
+                IsBusy = true;
+
+                // TODO remove delay !!!
+                await Task.Delay(5000);
+
+                bool result = await vm.DeleteVoucherAsync();
+
+                if (result)
+                {
+                    await Navigation.PopAsync();
+                }
+                else
+                {
+                    await DisplayAlert("Annullamento buono non riuscito", "Si è verificato un errore nell'annullamento del buono, riprova più tardi.", "OK");
+                }
+
+                IsBusy = false;
             }
         }
 
