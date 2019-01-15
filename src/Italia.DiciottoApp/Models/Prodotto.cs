@@ -36,7 +36,7 @@ namespace Italia.DiciottoApp.Models
         {
             switch (ambitoId)
             {
-                case 1: // Cinema
+                case 1: // CINEMA
                     return new List<Prodotto>
                     {
                         new Prodotto
@@ -146,7 +146,7 @@ namespace Italia.DiciottoApp.Models
                     {
                         new Prodotto
                         {
-                            Id = 1,
+                            Id = 10,
                             Tipo = TipoProdotto.BigliettoIngresso,
                             Titolo = "Biglietto d'ingresso",
                             ImageSource = "prod_ticket",
@@ -154,7 +154,7 @@ namespace Italia.DiciottoApp.Models
                         },
                         new Prodotto
                         {
-                            Id = 2,
+                            Id = 11,
                             Tipo = TipoProdotto.BigliettoIngresso,
                             Titolo = "Abbonamento/Card",
                             ImageSource = "prod_subscription",
