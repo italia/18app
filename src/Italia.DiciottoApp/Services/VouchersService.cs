@@ -70,7 +70,8 @@ namespace Italia.DiciottoApp.Services
                 {
                     foreach (var voucherBean in serviceResult.Result.ListaVoucherFisico)
                     {
-                        vouchers.Add(Voucher.FromVoucherBean(voucherBean, online: false, spent: spent));
+                        // vouchers.Add(Voucher.FromVoucherBean(voucherBean, online: false, spent: spent));
+                        vouchers.Add(Voucher.FromVoucherBean(voucherBean, online: false));
                     }
                 }
 
@@ -78,7 +79,8 @@ namespace Italia.DiciottoApp.Services
                 {
                     foreach (var voucherBean in serviceResult.Result.ListaVoucherOnline)
                     {
-                        vouchers.Add(Voucher.FromVoucherBean(voucherBean, online: true, spent: spent));
+                        // vouchers.Add(Voucher.FromVoucherBean(voucherBean, online: true, spent: spent));
+                        vouchers.Add(Voucher.FromVoucherBean(voucherBean, online: true));
                     }
                 }
             }

@@ -12,31 +12,33 @@ namespace Italia.DiciottoApp.Models
 
         public string Codice { get; set; }
 
-        public bool Spent { get; set; }
-
-        public DateTime? SpentDateTime { get; set; }
-
-        public string ShopId { get; set; }
-
         public Shop Shop { get; set; }
 
-        public Categoria Category { get; set; }
-
-        public Prodotto Product { get; set; }
+        public string ShopId { get; set; }
 
         public double RequestedValue { get; set; }
 
         public double ValidatedValue { get; set; }
 
+        public Categoria Category { get; set; }
+
+        public Prodotto Product { get; set; }
+
         public string QrCodeValue { get; set; }
 
         public string BarCodeValue { get; set; }
+
+        public bool Spent { get; set; }
+
+        public DateTime? SpendEndDate { get; set; }
+
+        public DateTime? SpentDateTime { get; set; }
 
         public bool HasShop => !string.IsNullOrWhiteSpace(ShopId) && Shop != null;
 
         #region Utils
 
-        public static Voucher FromVoucherBean(VoucherBean voucherBean, bool online, bool spent)
+        public static Voucher FromVoucherBean(VoucherBean voucherBean, bool online) // , bool? spent = null)
         {
             if (voucherBean == null)
             {
@@ -48,24 +50,38 @@ namespace Italia.DiciottoApp.Models
             Categoria categoria = Categoria.FromIdAmbito(idAmbito);
             Prodotto prodotto = (idBene != null) ? categoria.Prodotti.FirstOrDefault(p => p.Id == idBene) : null;
 
-            // TODO: add many field to Voucher to include all VoucherBean info;
             return new Voucher
             {
                 Id = voucherBean.IdVoucher.ToString() ?? string.Empty,
                 Codice = voucherBean.CodiceVoucher,
-                BarCodeValue = string.Empty,
-                Category = categoria,
-                Product = prodotto,
-                QrCodeValue = voucherBean.Qr.ToString(),
+                // Still not used: BeneficiarioBean
+                // Still not used: EsercenteBean
                 Shop = Shop.FromPuntoVenditaBean(voucherBean.PuntoVenditaBean, online),
                 ShopId = voucherBean.PuntoVenditaBean?.IdPuntoVendita.ToString() ?? string.Empty,
-                Spent = spent,
-                SpentDateTime = null,
+                // Still not used: AmbitoBean (but AmbitoBean.IdAmbito used to find Category)
+                Category = categoria,
+                // Still not used: BeneBean (but BeneBean.IdBene used to find Product)
+                Product = prodotto,
+                // Still not used: AnnoRif
+                // Still not used: AnnoUtilizzo
                 RequestedValue = voucherBean.ImportoRichiesto ?? 0,
-                ValidatedValue = voucherBean.ImportoValidato ?? 0
+                ValidatedValue = voucherBean.ImportoValidato ?? 0,
+                QrCodeValue = voucherBean.Qr,
+                BarCodeValue = voucherBean.CodeLine,
+                // Still not used: IdFattura
+                Spent = voucherBean.FlagScaricato == "1", // spent ?? (voucherBean.FlagScaricato == "1"),
+                // Still not used: DataEmissione
+                SpendEndDate = voucherBean.DataScadenza,
+                SpentDateTime = voucherBean.DataConferma,
+                // Still not used: DatAnnullamento
+                // Still not used: DataInserimento
+                // Still not used: DatAggiornamento
+                // Still not used: StrDataEmissione
+                // Still not used: StrDataConferma
+                // Still not used: ErrorCode
+                // Still not used: MessageError
             };
         }
-
 
         #endregion
 

@@ -94,37 +94,32 @@ namespace Italia.DiciottoApp.ViewModels
             IsBusy = false;
         }
 
-        public async Task<bool> DeleteVoucherAsync()
+        public async Task<DeleteVoucherResult> DeleteVoucherAsync()
         {
-            bool result = false;
-
-            if (IsBusy)
+            DeleteVoucherResult deleteVoucherResult = new DeleteVoucherResult
             {
-                await DisplayAlertAsync("Sto già cancellando il buono...");
-            }
-            else
-            {
-                IsBusy = true;
-                Cookie fedSecureToken = new Cookie
-                {
-                    Name = Constants.COOKIES_SECURE_TOKEN,
-                    Value = Settings.FEDSecureTokenValue
-                };
+                Success = false,
+                StillUnableToDeleteMuseumVoucher = false,
+                DeleteMuseumVoucherStartDate = null
+            };
 
-                IVouchersService vouchersService = Service.Resolve<IVouchersService>();
-                var deleteVoucherServiceResult = await vouchersService.DeleteVoucherAsync(fedSecureToken, Voucher);
-                if (deleteVoucherServiceResult.Success && (deleteVoucherServiceResult.Result.Risultato ?? false))
-                {
-                    result = true;
-                    await DisplayAlertAsync("Cancellazione buono confermata");
-                }
-                else
-                {
-                    await DisplayAlertAsync("Creazione buono non riuscita");
-                }
-                IsBusy = false;
-            }
-            return result;
+            Cookie fedSecureToken = new Cookie
+            {
+                Name = Constants.COOKIES_SECURE_TOKEN,
+                Value = Settings.FEDSecureTokenValue
+            };
+
+            IVouchersService vouchersService = Service.Resolve<IVouchersService>();
+            var deleteVoucherServiceResult = await vouchersService.DeleteVoucherAsync(fedSecureToken, Voucher);
+
+            deleteVoucherResult.Success = deleteVoucherServiceResult.Success;
+
+            deleteVoucherResult.StillUnableToDeleteMuseumVoucher = !(deleteVoucherServiceResult.Result?.Risultato ?? false)
+                                                                   && deleteVoucherServiceResult.Result?.ErrorCode == 1;
+
+            deleteVoucherResult.DeleteMuseumVoucherStartDate = deleteVoucherServiceResult.Result?.DataStartAnnullaMuseo;
+
+            return deleteVoucherResult;
         }
 
         private static Categoria CategoriaFromTipoCategoria(TipoCategoria tipoCategoria)

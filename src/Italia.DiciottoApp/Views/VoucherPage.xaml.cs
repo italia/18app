@@ -48,18 +48,24 @@ namespace Italia.DiciottoApp.Views
             {
                 IsBusy = true;
 
-                // TODO remove delay !!!
-                await Task.Delay(5000);
+                DeleteVoucherResult deleteVoucherResult = await vm.DeleteVoucherAsync();
 
-                bool result = await vm.DeleteVoucherAsync();
-
-                if (result)
+                if (deleteVoucherResult.Success)
                 {
-                    await Navigation.PopAsync();
+                    if (deleteVoucherResult.StillUnableToDeleteMuseumVoucher)
+                    {
+                        string msg = $"L’annullamento del buono dell'ambito '{vm.Voucher.Category.Titolo}' potrà essere effettuato a partire dal {deleteVoucherResult.DeleteMuseumVoucherStartDate}";
+                        await DisplayAlert("Annulla buono", msg, "OK");
+                    }
+                    else
+                    {
+                        await DisplayAlert("Annulla buono", "Il buono è stato annullato e il suo valore riassegnato alla tua disponibilità", "OK");
+                        await Navigation.PopAsync();
+                    }
                 }
                 else
                 {
-                    await DisplayAlert("Annullamento buono non riuscito", "Si è verificato un errore nell'annullamento del buono, riprova più tardi.", "OK");
+                    await DisplayAlert("Annulla buono", "Si è verificato un errore nell'annullamento del buono.", "OK");
                 }
 
                 IsBusy = false;

@@ -163,7 +163,7 @@ namespace Italia.DiciottoApp.ViewModels
                 var createVoucherServiceResult = await vouchersService.CreateVoucherAsync(fedSecureToken, Categoria, Prodotto, valore, online: false);
                 if (createVoucherServiceResult.Success)
                 {
-                    voucher = Voucher.FromVoucherBean(createVoucherServiceResult.Result, online: false, spent: false);
+                    voucher = Voucher.FromVoucherBean(createVoucherServiceResult.Result, online: false);
                 }
                 else
                 {
