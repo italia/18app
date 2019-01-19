@@ -73,7 +73,7 @@ namespace Italia.DiciottoApp.ViewModels
         {
         }
 
-        public async Task GetInfoList()
+        public void GetInfoList()
         {
             if (IsBusy)
             {
@@ -87,7 +87,7 @@ namespace Italia.DiciottoApp.ViewModels
             InfoList.Clear();
 
             IInfoService infoService = Service.Resolve<IInfoService>();
-            IEnumerable<InfoContent> infoList = await infoService.GetInfoListAsync(FindText, SpidOnly);
+            IEnumerable<InfoContent> infoList = infoService.GetInfoList(FindText, SpidOnly);
 
             // Here we expect to receive an IEnumerable ordered by HeaderOrderIndex and then by TitleOrderIndex
             if (infoList != null)

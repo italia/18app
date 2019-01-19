@@ -8,6 +8,6 @@ namespace Italia.DiciottoApp.Services
 {
     interface IInfoService
     {
-        Task<IEnumerable<InfoContent>> GetInfoListAsync(string findText = null, bool spidOnly = false);
+        IEnumerable<InfoContent> GetInfoList(string findText = null, bool spidOnly = false);
     }
 }

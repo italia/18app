@@ -24,10 +24,10 @@ namespace Italia.DiciottoApp.Views
             vm.SpidOnly = false;
         }
 
-        protected override async void OnAppearing()
+        protected override void OnAppearing()
         {
             base.OnAppearing();
-            await vm.GetInfoList();
+            vm.GetInfoList();
         }
 
         private void OnFindFieldFocused(object sender, FocusEventArgs e)
@@ -35,12 +35,12 @@ namespace Italia.DiciottoApp.Views
             lastFindText = vm.FindText;
         }
 
-        private async void OnFindFieldUnfocused(object sender, FocusEventArgs e)
+        private void OnFindFieldUnfocused(object sender, FocusEventArgs e)
         {
             if (vm.FindText != lastFindText)
             {
                 lastFindText = vm.FindText;
-                await vm.GetInfoList();
+                vm.GetInfoList();
             }
         }
 
