@@ -137,13 +137,6 @@ namespace Italia.DiciottoApp.Views
 
         private async void OnLogoutTapped(object sender, EventArgs e)
         {
-            // TODO Remove this code is for testing only
-            // --------------------------------------------------------
-            //var userInfoService = Service.Resolve<IUserInfoService>();
-            //var setPresaVisioneResult = await userInfoService.SetPresaVisioneAsync(confirmed: false);
-            //Debug.WriteLine($"++++ UserMenuPopupPage - SetPresaVisioneAsync(confirmed: false): {setPresaVisioneResult.Success}");
-            // --------------------------------------------------------
-
             Settings.UserLogOut();
             await PopupNavigation.Instance.PopAllAsync();
             await appNavigationPage.PushAsync(new WelcomePage());
