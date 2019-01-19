@@ -100,10 +100,9 @@ namespace Italia.DiciottoApp.ViewModels
                 }
             }
 
-            // TODO: Remove!
-            // When debugging just set the center of Rome position
 //#if DEBUG
-//            UserLocation = new Location(41.8919300, 12.5113300); // Center of Rome, Italy
+//          // When debugging just set the center of Rome position
+//          UserLocation = new Location(41.8919300, 12.5113300); // Center of Rome, Italy
 //#endif
 
             if (UserLocation == null)
