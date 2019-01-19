@@ -17,7 +17,7 @@ namespace Italia.DiciottoApp.Services
 
             IEnumerable<UserNotification> userNotifications;
 
-            // TODO: Get shops from 18App SOAP Service
+            // TBD: Get shops from 18App SOAP Service
             var fakeNotificationsService = new FakeNotificationsService();
             userNotifications = await fakeNotificationsService.GetUserNotificationsAsync(userId, page, pageItems);
 
