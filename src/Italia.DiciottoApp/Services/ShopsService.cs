@@ -22,19 +22,6 @@ namespace Italia.DiciottoApp.Services
 
         public string ClientSecret { get; set; } = Keys.X_IBM_ClientSecret;
 
-        //public async Task<Shop> GetShopByIdAsync(string shopId)
-        //{
-        //    if (string.IsNullOrWhiteSpace(shopId))
-        //    {
-        //        throw new ArgumentNullException("shopId");
-        //    }
-
-        //    // TODO: Get shop from 18App REST Service
-            
-        //    var fakeShopsService = new FakeShopsService();
-        //    return await fakeShopsService.GetShopByIdAsync(shopId);
-        //}
-
         internal async Task<ServiceResult<RicercaStoreResultOutputBean>> RicercaStoreByFilterAsync(RicercaStoreBean ricercaStoreBean, CancellationToken ct = default(CancellationToken))
         {
             Debug.WriteLine($"°°°°°°°°°°°°°°°°° [RicercaStoreByFilterAsync] started");
