@@ -82,7 +82,7 @@ namespace Italia.DiciottoApp.ViewModels
 
         //private void GetUserStatus()
         //{
-        //    // TODO: get data from service
+        //    // TBD: get data from service
         //    Random rnd = new Random(DateTime.Now.Millisecond);
         //    ActualCredit = 50.00 + rnd.Next(0, 450);
         //    UnreadMessages = rnd.Next(0, 5).ToString();
