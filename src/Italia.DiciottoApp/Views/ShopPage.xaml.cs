@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -58,13 +58,20 @@ namespace Italia.DiciottoApp.Views
 
         private async void OnRouteToShopButtonTapped(object sender, EventArgs e)
         {
-            // TODO
-            await DisplayAlert("Percorso non disponibile", "Al momento la funzione di ricerca percorso non è stata ancora implementata, lo sarà in una prossima versione." , "Ok");
+            if (vm.ShopHasGeolocation)
+            {
+                var options = new MapLaunchOptions { NavigationMode = NavigationMode.Driving };
+                await Map.OpenAsync(vm.Shop.Location, options);
+            }
+            else
+            {
+                await DisplayAlert("Posizione ignota", "Purtroppo questo negozio non ha i dati di georeferenziazione quindi non è possibile mostrare il percorso nella mappa", "Ok");
+            }
         }
 
         private async void OnGotoOnlineButtonTapped(object sender, EventArgs e)
         {
-            // TODO
+            // TBD: navigazione verso la pagina web del negozio
             await DisplayAlert("Azione non disponibile", "Al momento la navigazione verso la pagina web del negozio non è stata ancora implementata, lo sarà in una prossima versione.", "Ok");
         }
 

@@ -56,7 +56,9 @@ namespace Italia.DiciottoApp.ViewModels
 
         public bool UseVoucherOnlineButtonIsVisible => (!Voucher?.Spent ?? false) && (Voucher?.Shop?.IsOnline ?? false);
 
-        public bool ShopRouteButtonIsVisible => (!Voucher?.Spent ?? false) && (!Voucher?.Shop?.IsOnline ?? false);
+        public bool ShopHasGeolocation => Voucher.Shop.Location != null && Voucher.Shop.Location.Latitude != 0 && Voucher.Shop.Location.Longitude != 0;
+
+        public bool ShopRouteButtonIsVisible => (!Voucher?.Spent ?? false) && (!Voucher?.Shop?.IsOnline ?? false) && ShopHasGeolocation;
 
         public bool VoucherNotSpent => !Voucher?.Spent ?? false;
 

@@ -174,6 +174,7 @@
                     <StackLayout Padding="0" Spacing="0"
                                  IsVisible="{Binding VoucherNotSpent}">
 
+                        <!-- Bottone: Usa il buono sul sito -->
                         <BoxView HeightRequest="1" BackgroundColor="#FFEFEFEF"
                                  IsVisible="{Binding UseVoucherOnlineButtonIsVisible}" />
 
@@ -206,7 +207,7 @@
                                  IsVisible="{Binding UseVoucherOnlineButtonIsVisible}" />
 
                         <!-- Bottone: percorso per il negozio -->
-                        <!--<BoxView HeightRequest="1" BackgroundColor="#FFEFEFEF"
+                        <BoxView HeightRequest="1" BackgroundColor="#FFEFEFEF"
                                  IsVisible="{Binding ShopRouteButtonIsVisible}" />
 
                         <Frame CornerRadius="5" Padding="1"
@@ -231,7 +232,7 @@
                                        TextColor="White"
                                        Text="PERCORSO PER IL NEGOZIO"/>
                             </StackLayout>
-                        </Frame>-->
+                        </Frame>
 
                         <BoxView HeightRequest="1" BackgroundColor="#FFEFEFEF"
                                  IsVisible="{Binding ShopRouteButtonIsVisible}" />

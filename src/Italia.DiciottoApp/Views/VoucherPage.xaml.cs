@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -28,14 +28,23 @@ namespace Italia.DiciottoApp.Views
 
         private async void OnUseVoucherOnShopOnlineButtonTapped(object sender, EventArgs e)
         {
-            // TODO: da fare!
+            // TBD: navigare alla pagina web del sito dello shop online
             await DisplayAlert("Suggerimento", "Per spendere il buono nel negozio online cerca il simbolo di 18App e utilizza il codice secondo le modalità previste dal sito del venditore.", "Ok");
         }
 
-        //private void OnRouteToShopButtonTapped(object sender, EventArgs e)
-        //{
-        //    // STILL_NOT_IMPLEMENTED on 18App APIs
-        //}
+        private async void OnRouteToShopButtonTapped(object sender, EventArgs e)
+        {
+            if (vm.ShopHasGeolocation)
+            {
+                var options = new MapLaunchOptions { NavigationMode = NavigationMode.Driving };
+                await Map.OpenAsync(vm.Voucher.Shop.Location, options);
+            }
+            else
+            {
+                await DisplayAlert("Posizione ignota", "Purtroppo questo negozio non ha i dati di georeferenziazione quindi non è possibile mostrare il percorso nella mappa", "Ok");
+            }
+
+        }
 
         private async void OnFindShopButtonTapped(object sender, EventArgs e)
         {
@@ -74,7 +83,7 @@ namespace Italia.DiciottoApp.Views
 
         private async void OnShopDetailButtonTapped(object sender, EventArgs e)
         {
-            // TODO: da fare!
+            // TBD: STILL_NOT_IMPLEMENTED on 18App APIs
             await DisplayAlert("Dettagli negozio non disponibili", "Al momento la  visualizzazione dei dettagli del negozio associato al buono non è stata ancora implementata, lo sarà in una prossima versione.", "Ok");
         }
 
