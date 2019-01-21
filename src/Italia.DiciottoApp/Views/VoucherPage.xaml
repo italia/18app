@@ -134,7 +134,7 @@
                             <Label HorizontalOptions="StartAndExpand" VerticalOptions="Center"
                                    Style="{StaticResource BoldLabelStyle}"
                                    TextColor="#FF30383D" FontSize="28"
-                                   Text="{Binding Voucher.RequestedValue, Converter={StaticResource DoubleToItCurrency}}" />
+                                   Text="{Binding VoucherValue, Converter={StaticResource DoubleToItCurrency}}" />
 
                             <BoxView HeightRequest="1"
                                      BackgroundColor="#FF30383D"

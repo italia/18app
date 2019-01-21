@@ -64,6 +64,8 @@ namespace Italia.DiciottoApp.ViewModels
 
         public bool VoucherSpent => Voucher?.Spent ?? false;
 
+        public double VoucherValue => (Voucher?.Spent ?? false) ? Voucher.ValidatedValue : Voucher.RequestedValue;
+
         public string QRcodeImageSource => "fake_qrcode";
 
         public string BarcodeImageSource => "fake_barcode";
@@ -84,6 +86,7 @@ namespace Italia.DiciottoApp.ViewModels
                 OnPropertyChanged(nameof(ShopRouteButtonIsVisible));
                 OnPropertyChanged(nameof(VoucherNotSpent));
                 OnPropertyChanged(nameof(VoucherSpent));
+                OnPropertyChanged(nameof(VoucherValue));
                 OnPropertyChanged(nameof(QRcodeImageSource));
                 OnPropertyChanged(nameof(BarcodeImageSource));
             });
