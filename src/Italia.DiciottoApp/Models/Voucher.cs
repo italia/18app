@@ -69,7 +69,7 @@ namespace Italia.DiciottoApp.Models
                 QrCodeValue = voucherBean.Qr,
                 BarCodeValue = voucherBean.CodeLine,
                 // Still not used: IdFattura
-                Spent = voucherBean.FlagScaricato == "1", // spent ?? (voucherBean.FlagScaricato == "1"),
+                Spent = voucherBean.DataConferma != null,
                 // Still not used: DataEmissione
                 SpendEndDate = voucherBean.DataScadenza,
                 SpentDateTime = voucherBean.DataConferma,
