@@ -97,6 +97,12 @@
     <PackageReference Include="Xamarin.Forms.Maps">
       <Version>3.4.0.1009999</Version>
     </PackageReference>
+    <PackageReference Include="ZXing.Net.Mobile">
+      <Version>2.4.1</Version>
+    </PackageReference>
+    <PackageReference Include="ZXing.Net.Mobile.Forms">
+      <Version>2.4.1</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CookieStore\CookieStore_Android.cs" />
