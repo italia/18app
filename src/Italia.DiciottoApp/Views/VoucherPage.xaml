@@ -2,6 +2,7 @@
 <views:BasePage x:Class="Italia.DiciottoApp.Views.VoucherPage"
                 xmlns="http://xamarin.com/schemas/2014/forms"
                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                xmlns:zx="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms"
                 xmlns:views="clr-namespace:Italia.DiciottoApp.Views"
                 xmlns:vm="clr-namespace:Italia.DiciottoApp.ViewModels"
                 xmlns:conv="clr-namespace:Italia.DiciottoApp.Converters"
@@ -203,9 +204,6 @@
                             </StackLayout>
                         </Frame>
 
-                        <BoxView HeightRequest="1" BackgroundColor="#FFEFEFEF"
-                                 IsVisible="{Binding UseVoucherOnlineButtonIsVisible}" />
-
                         <!-- Bottone: percorso per il negozio -->
                         <BoxView HeightRequest="1" BackgroundColor="#FFEFEFEF"
                                  IsVisible="{Binding ShopRouteButtonIsVisible}" />
@@ -234,10 +232,18 @@
                             </StackLayout>
                         </Frame>
 
+                        <!-- QRcode e barcode -->
                         <BoxView HeightRequest="1" BackgroundColor="#FFEFEFEF"
-                                 IsVisible="{Binding ShopRouteButtonIsVisible}" />
+                                 IsVisible="{Binding QRcodeContentIsVisible}" />
 
-                        <!-- QRcode, barcode e bottone salva immagine -->
+                        <zx:ZXingBarcodeImageView HorizontalOptions="Center"
+                                                  IsVisible="{Binding QRcodeContentIsVisible}"
+                                                  BarcodeValue="{Binding QRcodeContent}"
+                                                  BarcodeFormat="QR_CODE"
+                                                  WidthRequest="200"
+                                                  HeightRequest="200"
+                                                  Margin="10"/>
+
                         <!--<StackLayout Padding="26,24" Spacing="0"
                                  Orientation="Horizontal"
                                  IsVisible="{Binding VoucherNotSpent}">
@@ -405,10 +411,22 @@
                     <StackLayout Padding="0" Spacing="0"
                                  IsVisible="{Binding VoucherSpent}">
 
+                        <!-- QRcode e barcode -->
+                        <BoxView HeightRequest="1" BackgroundColor="#FFEFEFEF"
+                                 IsVisible="{Binding QRcodeContentIsVisible}" />
+
+                        <zx:ZXingBarcodeImageView HorizontalOptions="Center"
+                                                  IsVisible="{Binding QRcodeContentIsVisible}"
+                                                  BarcodeValue="{Binding QRcodeContent}"
+                                                  BarcodeFormat="QR_CODE"
+                                                  WidthRequest="200"
+                                                  HeightRequest="200"
+                                                  Margin="10"/>
+
                         <!-- Bottone: dettagli del negozio -->
-                        <Frame CornerRadius="5" Padding="1"
+                        <!--<Frame CornerRadius="5" Padding="1"
                                HasShadow="False"
-                               Margin="16,32" HeightRequest="40"
+                               Margin="16,16" HeightRequest="40"
                                BackgroundColor="{StaticResource AppBkgndColor}">
 
                             <Frame.GestureRecognizers>
@@ -427,7 +445,7 @@
                                        TextColor="White"
                                        Text="DETTAGLI DEL NEGOZIO"/>
                             </StackLayout>
-                        </Frame>
+                        </Frame>-->
                         
                     </StackLayout>
                 </StackLayout>
