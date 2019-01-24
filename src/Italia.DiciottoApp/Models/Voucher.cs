@@ -67,7 +67,7 @@ namespace Italia.DiciottoApp.Models
                 RequestedValue = voucherBean.ImportoRichiesto ?? 0,
                 ValidatedValue = voucherBean.ImportoValidato ?? 0,
                 QrCodeValue = voucherBean.Qr,
-                BarCodeValue = voucherBean.CodeLine,
+                BarCodeValue = voucherBean.CodiceVoucher,
                 // Still not used: IdFattura
                 Spent = voucherBean.DataConferma != null,
                 // Still not used: DataEmissione

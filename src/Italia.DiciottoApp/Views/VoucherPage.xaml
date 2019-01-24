@@ -2,7 +2,6 @@
 <views:BasePage x:Class="Italia.DiciottoApp.Views.VoucherPage"
                 xmlns="http://xamarin.com/schemas/2014/forms"
                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-                xmlns:zx="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms"
                 xmlns:views="clr-namespace:Italia.DiciottoApp.Views"
                 xmlns:vm="clr-namespace:Italia.DiciottoApp.ViewModels"
                 xmlns:conv="clr-namespace:Italia.DiciottoApp.Converters"
@@ -236,13 +235,17 @@
                         <BoxView HeightRequest="1" BackgroundColor="#FFEFEFEF"
                                  IsVisible="{Binding QRcodeContentIsVisible}" />
 
-                        <zx:ZXingBarcodeImageView HorizontalOptions="Center"
-                                                  IsVisible="{Binding QRcodeContentIsVisible}"
-                                                  BarcodeValue="{Binding QRcodeContent}"
-                                                  BarcodeFormat="QR_CODE"
-                                                  WidthRequest="200"
-                                                  HeightRequest="200"
-                                                  Margin="10"/>
+                        <Image x:Name="BarcodeImage1"  HorizontalOptions="Center"
+                               IsVisible="{Binding QRcodeContentIsVisible}"
+                               WidthRequest="200"
+                               HeightRequest="200"
+                               Margin="10"/>
+
+                        <Image x:Name="QrCodeImage1"  HorizontalOptions="Center"
+                               IsVisible="{Binding QRcodeContentIsVisible}"
+                               WidthRequest="200"
+                               HeightRequest="200"
+                               Margin="10"/>
 
                         <!--<StackLayout Padding="26,24" Spacing="0"
                                  Orientation="Horizontal"
@@ -415,13 +418,17 @@
                         <BoxView HeightRequest="1" BackgroundColor="#FFEFEFEF"
                                  IsVisible="{Binding QRcodeContentIsVisible}" />
 
-                        <zx:ZXingBarcodeImageView HorizontalOptions="Center"
-                                                  IsVisible="{Binding QRcodeContentIsVisible}"
-                                                  BarcodeValue="{Binding QRcodeContent}"
-                                                  BarcodeFormat="QR_CODE"
-                                                  WidthRequest="200"
-                                                  HeightRequest="200"
-                                                  Margin="10"/>
+                        <Image x:Name="BarcodeImage2"  HorizontalOptions="Center"
+                               IsVisible="{Binding QRcodeContentIsVisible}"
+                               WidthRequest="200"
+                               HeightRequest="100"
+                               Margin="10"/>
+
+                        <Image x:Name="QrCodeImage2"  HorizontalOptions="Center"
+                               IsVisible="{Binding QRcodeContentIsVisible}"
+                               WidthRequest="200"
+                               HeightRequest="200"
+                               Margin="10"/>
 
                         <!-- Bottone: dettagli del negozio -->
                         <!--<Frame CornerRadius="5" Padding="1"

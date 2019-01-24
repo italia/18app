@@ -1,8 +1,12 @@
-﻿using Italia.DiciottoApp.Models;
+﻿using Barcode.Generator;
+using Barcode.Generator.Common;
+using Barcode.Generator.Rendering;
+using Italia.DiciottoApp.Models;
 using Italia.DiciottoApp.Services;
 using Italia.DiciottoApp.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,6 +28,49 @@ namespace Italia.DiciottoApp.Views
             vm = BindingContext as VoucherViewModel;
             vm.JustCreated = justCreated;
             vm.Voucher = voucher;
+            RenderBarcodes(voucher);
+        }
+
+        /// <summary>
+        /// Create the images with ZXing.NET.RenderOnly
+        /// </summary>
+        private void RenderBarcodes(Voucher voucher)
+        {
+            // Barcode CODE128
+            var barcodeWriter = new BarcodeWriterPixelData
+            {
+                Format = BarcodeFormat.CODE_128,
+                Options = new EncodingOptions
+                {
+                    Width = 200,
+                    Height = 100,
+                    Margin = 0,
+                    PureBarcode = true
+                }
+            };
+
+            PixelData barcodeImage = barcodeWriter.Write(voucher.BarCodeValue);
+            byte[] barcodeImageBmpBytes = BitmapConverter.FromPixelData(barcodeImage);
+            BarcodeImage1.Source = ImageSource.FromStream(() => new MemoryStream(barcodeImageBmpBytes));
+            BarcodeImage2.Source = ImageSource.FromStream(() => new MemoryStream(barcodeImageBmpBytes));
+
+            // QRcode
+            var qrcodeWriter = new BarcodeWriterPixelData
+            {
+                Format = BarcodeFormat.QR_CODE,
+                Options = new EncodingOptions
+                {
+                    Width = 200,
+                    Height = 200,
+                    Margin = 0,
+                    PureBarcode = true
+                }
+            };
+
+            PixelData qrcodeImage = qrcodeWriter.Write(voucher.QrCodeValue);
+            byte[] qrcodeImageBmpBytes = BitmapConverter.FromPixelData(qrcodeImage);
+            QrCodeImage1.Source = ImageSource.FromStream(() => new MemoryStream(qrcodeImageBmpBytes));
+            QrCodeImage2.Source = ImageSource.FromStream(() => new MemoryStream(qrcodeImageBmpBytes));
         }
 
         private async void OnUseVoucherOnShopOnlineButtonTapped(object sender, EventArgs e)
