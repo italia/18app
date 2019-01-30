@@ -41,6 +41,12 @@ namespace Italia.DiciottoApp.Views
             await Navigation.PushAsync(new LoginWebPage(IdP.Intesa));
         }
 
+        private async void OnIdpLepidaTapped(object sender, EventArgs e)
+        {
+            Settings.SetUserSpidIdPIndex(IdP.Lepida);
+            await Navigation.PushAsync(new LoginWebPage(IdP.Lepida));
+        }
+
         private async void OnIdpNamirialTapped(object sender, EventArgs e)
         {
             Settings.SetUserSpidIdPIndex(IdP.Namirial);

@@ -65,6 +65,15 @@
                 <Image Grid.Row="3" Grid.Column="0"
                    HorizontalOptions="Center"
                    VerticalOptions="Center"
+                   Source="idp_lepida">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnIdpLepidaTapped" />
+                    </Image.GestureRecognizers>
+                </Image>
+
+                <Image Grid.Row="4" Grid.Column="0"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
                    Source="idp_namirial">
                     <Image.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnIdpNamirialTapped" />
@@ -107,7 +116,7 @@
                     </Image.GestureRecognizers>
                 </Image>
 
-                <Image Grid.Row="4" Grid.Column="0"
+                <Image Grid.Row="4" Grid.Column="1"
                    HorizontalOptions="Center"
                    VerticalOptions="Center"
                    Source="idp_test">

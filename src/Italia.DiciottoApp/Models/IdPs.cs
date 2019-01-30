@@ -28,6 +28,8 @@ namespace Italia.DiciottoApp.Models
                     return "idp_infocert";
                 case IdP.Intesa:
                     return "idp_intesa";
+                case IdP.Lepida:
+                    return "idp_lepida";
                 case IdP.Namirial:
                     return "idp_namirial";
                 case IdP.Poste:
@@ -61,6 +63,9 @@ namespace Italia.DiciottoApp.Models
                     break;
                 case IdP.Intesa:
                     urlSegment ="intesa";
+                    break;
+                case IdP.Lepida:
+                    urlSegment = "lepida";
                     break;
                 case IdP.Namirial:
                     urlSegment = "namirial";

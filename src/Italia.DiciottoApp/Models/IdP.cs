@@ -10,6 +10,7 @@ namespace Italia.DiciottoApp.Models
         Aruba,
         InfoCert,
         Intesa,
+        Lepida,
         Namirial,
         Poste,
         Register,

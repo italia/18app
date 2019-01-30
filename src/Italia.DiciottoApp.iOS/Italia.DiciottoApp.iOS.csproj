@@ -670,6 +670,15 @@
     <ImageAsset Include="Assets.xcassets\idp_intesa.imageset\idp_intesa@3x.png">
       <Visible>false</Visible>
     </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\idp_lepida.imageset\idp_lepida.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\idp_lepida.imageset\idp_lepida@2x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\idp_lepida.imageset\idp_lepida@3x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\idp_namirial.imageset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
@@ -767,6 +776,9 @@
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\idp_test.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\idp_lepida.imageset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\plus_white.imageset\Contents.json">
