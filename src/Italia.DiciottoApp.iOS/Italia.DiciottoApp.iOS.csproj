@@ -99,7 +99,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="CookieStore\CookieStore_IOS.cs" />
-    <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <Compile Include="Renderers\RadialGaugeRenderer.cs" />
     <None Include="Entitlements.plist" />
@@ -107,6 +106,7 @@
       <SubType>Designer</SubType>
     </None>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Main.cs" />
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\AppStore1024.png">
