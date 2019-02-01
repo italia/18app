@@ -65,6 +65,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="instabug-for-android">
+      <Version>8.0.4</Version>
+    </PackageReference>
     <PackageReference Include="Microsoft.AppCenter.Analytics">
       <Version>1.13.0</Version>
     </PackageReference>
@@ -101,6 +104,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CookieStore\CookieStore_Android.cs" />
+    <Compile Include="DiciottoApp.cs" />
+    <Compile Include="Instabug\Instabug_Android.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Renderers\CustomMapRenderer.cs" />
     <Compile Include="Renderers\ExtFormsWebChromeClient.cs" />

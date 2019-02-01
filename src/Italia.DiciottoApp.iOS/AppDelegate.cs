@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-
+using InstabugLib;
 using Foundation;
 using UIKit;
 
@@ -26,6 +26,8 @@ namespace Italia.DiciottoApp.iOS
 
             global::Xamarin.Forms.Forms.Init();
             global::Xamarin.FormsMaps.Init();
+
+            Instabug.StartWithToken(Keys.InstabugToken, IBGInvocationEvent.FloatingButton | IBGInvocationEvent.Shake | IBGInvocationEvent.Screenshot);
 
             LoadApplication(new App());
 
