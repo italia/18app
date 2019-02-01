@@ -6,7 +6,12 @@ using System;
 
 namespace Italia.DiciottoApp.Droid
 {
-    [Application]
+    // Disable debugging on Release version
+#if DEBUG
+    [Application(Debuggable = true)]
+#else
+[Application(Debuggable = false)]
+#endif
     public class DiciottoApp : Application
     {
         protected DiciottoApp(IntPtr javaReference, JniHandleOwnership transfer)
