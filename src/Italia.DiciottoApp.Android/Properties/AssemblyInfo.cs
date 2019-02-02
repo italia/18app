@@ -39,10 +39,3 @@ using Android.App;
 [assembly: UsesFeature("android.hardware.location", Required = false)]
 [assembly: UsesFeature("android.hardware.location.gps", Required = false)]
 [assembly: UsesFeature("android.hardware.location.network", Required = false)]
-
-// Disable debugging on Release version
-#if DEBUG
-[assembly: Application(Debuggable=true)]
-#else
-[assembly: Application(Debuggable = false)]
-#endif

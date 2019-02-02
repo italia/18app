@@ -99,6 +99,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="CookieStore\CookieStore_IOS.cs" />
+    <Compile Include="Instabug\Instabug_iOS.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <Compile Include="Renderers\RadialGaugeRenderer.cs" />
@@ -1255,6 +1256,9 @@
     <Reference Include="Xamarin.iOS" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="instabug-for-ios">
+      <Version>8.0.9</Version>
+    </PackageReference>
     <PackageReference Include="Microsoft.AppCenter.Analytics">
       <Version>1.13.0</Version>
     </PackageReference>

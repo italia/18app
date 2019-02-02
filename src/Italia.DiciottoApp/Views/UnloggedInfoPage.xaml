@@ -6,6 +6,9 @@
                 xmlns:vm="clr-namespace:Italia.DiciottoApp.ViewModels"
                 xmlns:conv="clr-namespace:Italia.DiciottoApp.Converters"
                 xmlns:custom="clr-namespace:Italia.DiciottoApp.CustomRenderers"
+                xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+                ios:Page.UseSafeArea="true"
+                BackgroundColor="{StaticResource AppBkgndColor}"
                 ControlTemplate="{StaticResource UnloggedInfoPageTemplate}" >
 
     <views:BasePage.BindingContext>

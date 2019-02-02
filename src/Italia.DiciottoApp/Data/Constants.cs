@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Xamarin.Essentials;
 
-namespace Italia.DiciottoApp
+namespace Italia.DiciottoApp.Data
 {
     public static class Constants
     {
@@ -27,8 +27,7 @@ namespace Italia.DiciottoApp
         public static string SERVICE_HOST => prodEnv ? "https://www.18app.italia.it" : "https://18app-api-test.teamdigitale.it";
 
         public static string SERVICE_ENDPOINT => prodEnv ? "https://www.18app.italia.it" : "https://18app-api-test.teamdigitale.it/interop/18app";
-        
+
         #endregion
-        
     }
 }

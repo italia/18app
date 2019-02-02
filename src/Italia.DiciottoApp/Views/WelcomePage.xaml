@@ -3,6 +3,8 @@
                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                 x:Class="Italia.DiciottoApp.Views.WelcomePage"
                 xmlns:views="clr-namespace:Italia.DiciottoApp.Views"
+                xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+                ios:Page.UseSafeArea="true"
                 BackgroundColor="{StaticResource AppBkgndColor}" >
 
     <views:BasePage.Resources>
@@ -50,7 +52,7 @@
             
         <Grid.Padding>
             <OnPlatform x:TypeArguments="Thickness">
-                <On Platform="iOS" Value="0, 20, 0, 0" />
+                <On Platform="iOS" Value="0, 0, 0, 0" />
             </OnPlatform>
         </Grid.Padding>
 

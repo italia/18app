@@ -1,5 +1,6 @@
 ﻿using Italia.DiciottoApp.CookieStore;
 using Italia.DiciottoApp.CustomRenderers;
+using Italia.DiciottoApp.Data;
 using Italia.DiciottoApp.Models;
 using Italia.DiciottoApp.Services;
 using Italia.DiciottoApp.ViewModels;
@@ -66,8 +67,8 @@ namespace Italia.DiciottoApp.Views
 
             // Get cookie
             IPlatformCookieStore cookieStore = DependencyService.Get<IPlatformCookieStore>();
-            // cookieStore.DumpAllCookiesForSite(Constants.COOKIES_URL);
             var cookies = cookieStore.GetCookiesForSite(Constants.COOKIES_URL);
+
             Cookie fedSecureToken = cookies.Where(c => c.Name == Constants.COOKIES_SECURE_TOKEN).FirstOrDefault();
             Debug.WriteLine($"++++ fedSecureToken: {fedSecureToken?.Value ?? "FEDSecureToken not found"}");
 
@@ -99,7 +100,7 @@ namespace Italia.DiciottoApp.Views
                     else
                     {
                         Settings.FEDSecureTokenValue = fedSecureToken.Value;
-                        Settings.UserLogged = true;
+                        Settings.UserLogin(loginResult.Beneficiary);
                         Settings.SetBeneficiario(loginResult.Beneficiary);
 
                         if (Settings.UserAcceptanceFlag == "1")
@@ -117,7 +118,33 @@ namespace Italia.DiciottoApp.Views
                 }
                 else
                 {
-                    loginFailDetail = loginResult.FailureReason.ToString();
+                    switch (loginResult.FailureReason)
+                    {
+                        case LoginFailureReason.UnsuccessfulHttpStatusCode:
+                            loginFailDetail = ErrorMessages.UNSUCCESSFUL_HTTP_STATUS_CODE;
+                            break;
+                        case LoginFailureReason.RegistrationTimeEnded:
+                            loginFailDetail = ErrorMessages.REGISTRATION_TIME_ENDED;
+                            break;
+                        case LoginFailureReason.NonOperatingBeneficiary:
+                            loginFailDetail = ErrorMessages.NON_OPERATING_BENEFICIARY;
+                            break;
+                        case LoginFailureReason.RegistrationCheckFailed:
+                            loginFailDetail = ErrorMessages.REGISTRATION_CHECK_FAILED;
+                            break;
+                        case LoginFailureReason.UnavailableBeneficiary:
+                            loginFailDetail = ErrorMessages.UNAVAILABLE_BENEFICIARY;
+                            break;
+                        case LoginFailureReason.UnavailableWallet:
+                            loginFailDetail = ErrorMessages.UNAVAILABLE_WALLET;
+                            break;
+                        case LoginFailureReason.Unknown:
+                            loginFailDetail = ErrorMessages.UNKNOWN;
+                            break;
+                        default:
+                            loginFailDetail = ErrorMessages.UNKNOWN;
+                            break;
+                    }
                 }
             }
 

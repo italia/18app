@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Italia.DiciottoApp.Data;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -35,7 +36,7 @@ namespace Italia.DiciottoApp.Models
         private static IEnumerable<Municipality> CreateList()
         {
             var assembly = IntrospectionExtensions.GetTypeInfo(typeof(Constants)).Assembly;
-            Stream stream = assembly.GetManifestResourceStream("Italia.DiciottoApp.ElencoComuni.json");
+            Stream stream = assembly.GetManifestResourceStream("Italia.DiciottoApp.Data.ElencoComuni.json");
 
             Municipality[] municipalities;
             using (var reader = new StreamReader(stream))

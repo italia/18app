@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using Italia.DiciottoApp.Data;
 using Italia.DiciottoApp.DTOs;
 using Italia.DiciottoApp.Models;
 using Italia.DiciottoApp.Utils;
@@ -75,17 +76,16 @@ namespace Italia.DiciottoApp.Services
                             content = await response.Content.ReadAsStringAsync();
                             var borsellinoBean = JsonConvert.DeserializeObject<BorsellinoBean>(content);
 
-                            // Aggiorno il borsellino del beneficiario
-                            if (beneficiarioBean != null)
-                            {
-                                beneficiarioBean.BorsellinoBean = borsellinoBean;
-                            }
-                            else
+                            if (borsellinoBean == null)
                             {
                                 loginResult.UnavailableWallet();
                             }
-
-                            loginResult.SetBeneficiary(beneficiarioBean);
+                            else
+                            {
+                                // Aggiorno il borsellino del beneficiario
+                                beneficiarioBean.BorsellinoBean = borsellinoBean;
+                                loginResult.SetBeneficiary(beneficiarioBean);
+                            }
                         }
                     }
                 }

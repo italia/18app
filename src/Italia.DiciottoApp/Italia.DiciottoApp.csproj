@@ -5,11 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Data\PrivacyHtmlContent.txt" />
     <None Remove="ElencoComuni.json" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="ElencoComuni.json" />
+    <EmbeddedResource Include="Data\ElencoComuni.json" />
+    <EmbeddedResource Include="Data\PrivacyHtmlContent.txt" />
   </ItemGroup>
 
 <ItemGroup>
