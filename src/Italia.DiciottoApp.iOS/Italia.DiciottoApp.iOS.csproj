@@ -1295,16 +1295,38 @@
     <Folder Include="Assets.xcassets\logo_utente_spid.imageset\" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\TitilliumWeb-Black.ttf" />
-    <BundleResource Include="Resources\TitilliumWeb-Bold.ttf" />
-    <BundleResource Include="Resources\TitilliumWeb-BoldItalic.ttf" />
-    <BundleResource Include="Resources\TitilliumWeb-ExtraLight.ttf" />
-    <BundleResource Include="Resources\TitilliumWeb-ExtraLightItalic.ttf" />
-    <BundleResource Include="Resources\TitilliumWeb-Italic.ttf" />
-    <BundleResource Include="Resources\TitilliumWeb-Light.ttf" />
-    <BundleResource Include="Resources\TitilliumWeb-LightItalic.ttf" />
-    <BundleResource Include="Resources\TitilliumWeb-Regular.ttf" />
-    <BundleResource Include="Resources\TitilliumWeb-SemiBold.ttf" />
-    <BundleResource Include="Resources\TitilliumWeb-SemiBoldItalic.ttf" />
+    <BundleResource Include="Resources\TitilliumWeb-Black.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </BundleResource>
+    <BundleResource Include="Resources\TitilliumWeb-Bold.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </BundleResource>
+    <BundleResource Include="Resources\TitilliumWeb-BoldItalic.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </BundleResource>
+    <BundleResource Include="Resources\TitilliumWeb-ExtraLight.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </BundleResource>
+    <BundleResource Include="Resources\TitilliumWeb-ExtraLightItalic.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </BundleResource>
+    <BundleResource Include="Resources\TitilliumWeb-Italic.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </BundleResource>
+    <BundleResource Include="Resources\TitilliumWeb-Light.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </BundleResource>
+    <BundleResource Include="Resources\TitilliumWeb-LightItalic.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </BundleResource>
+    <BundleResource Include="Resources\TitilliumWeb-Regular.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </BundleResource>
+    <BundleResource Include="Resources\TitilliumWeb-SemiBold.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </BundleResource>
+    <BundleResource Include="Resources\TitilliumWeb-SemiBoldItalic.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </BundleResource>
   </ItemGroup>
 </Project>
