@@ -1,4 +1,5 @@
-﻿using Italia.DiciottoApp.Models;
+﻿using Italia.DiciottoApp.Data;
+using Italia.DiciottoApp.Models;
 using Italia.DiciottoApp.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -53,13 +54,30 @@ namespace Italia.DiciottoApp.Views
                 {
                     title = "Session timeout";
                     msg = "La sessione è scaduta, occorre effettuare nuovamente il login";
-                    Settings.FEDSecureTokenValue = string.Empty;
-                    Settings.UserLogged = false;
+                    Settings.UserLogOut();
                 }
                 else
                 {
                     title = "Service Error";
-                    msg = "Servizio al momento non disponibile";
+                    switch (serviceResult.FailureReason)
+                    {
+                        case ServiceFailureReason.Unknown:
+                            msg = ErrorMessages.UNKNOWN;
+                            break;
+                        // This case never happens because is catched before, but we keep it here anyway for code consistency
+                        case ServiceFailureReason.Forbidden:
+                            msg = ErrorMessages.FORBIDDEN;
+                            break;
+                        case ServiceFailureReason.JsonConvertionError:
+                            msg = ErrorMessages.JSON_CONVERTION_ERROR;
+                            break;
+                        case ServiceFailureReason.InternalServerError:
+                            msg = ErrorMessages.INTERNAL_SERVER_ERROR;
+                            break;
+                        default:
+                            msg = ErrorMessages.UNKNOWN;
+                            break;
+                    }
                 }
 
                 await DisplayAlert(title, msg, "OK");
