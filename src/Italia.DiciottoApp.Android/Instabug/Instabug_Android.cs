@@ -1,4 +1,5 @@
-﻿using Italia.DiciottoApp.Droid;
+﻿using Com.Instabug.Library;
+using Italia.DiciottoApp.Droid;
 using System;
 using Xamarin.Forms;
 
@@ -9,22 +10,17 @@ namespace Italia.DiciottoApp.Droid
     {
         public void IdentifyUser(string email, string name)
         {
-            throw new NotImplementedException();
+            Instabug.IdentifyUser(email, name);
         }
 
         public void Logout()
         {
-            throw new NotImplementedException();
+            Instabug.LogoutUser();
         }
 
         public void SetUserAttribute(string attributeName, string attributeValue)
         {
-            throw new NotImplementedException();
-        }
-
-        public void Show()
-        {
-            throw new NotImplementedException();
+            Instabug.SetUserAttribute(attributeName, attributeValue);
         }
     }
 }

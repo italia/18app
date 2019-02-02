@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 
 using Foundation;
+using InstabugLib;
 using Italia.DiciottoApp.iOS;
 using UIKit;
 using Xamarin.Forms;
@@ -15,22 +16,17 @@ namespace Italia.DiciottoApp.iOS
     {
         public void IdentifyUser(string email, string name)
         {
-            throw new NotImplementedException();
+            Instabug.IdentifyUserWithEmail(email, name);
         }
 
         public void Logout()
         {
-            throw new NotImplementedException();
+            Instabug.LogOut();
         }
 
         public void SetUserAttribute(string attributeName, string attributeValue)
         {
-            throw new NotImplementedException();
-        }
-
-        public void Show()
-        {
-            throw new NotImplementedException();
+            Instabug.SetUserAttribute(attributeName, attributeValue);
         }
     }
 }

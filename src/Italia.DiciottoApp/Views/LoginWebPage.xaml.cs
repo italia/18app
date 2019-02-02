@@ -100,7 +100,7 @@ namespace Italia.DiciottoApp.Views
                     else
                     {
                         Settings.FEDSecureTokenValue = fedSecureToken.Value;
-                        Settings.UserLogged = true;
+                        Settings.UserLogin(loginResult.Beneficiary);
                         Settings.SetBeneficiario(loginResult.Beneficiary);
 
                         if (Settings.UserAcceptanceFlag == "1")

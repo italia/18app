@@ -325,9 +325,21 @@ namespace Italia.DiciottoApp.Models
             UserSpidIdPIndex = (int)idp;
         }
 
+        public static void UserLogin(BeneficiarioBean beneficiario)
+        {
+            if (beneficiario != null)
+            {
+                UserLogged = true;
+
+                // Instabug login
+                InstabugHelper.Login(beneficiario.Email, $"{beneficiario.Nome} {beneficiario.Cognome}", beneficiario.CodiceFiscale);
+            }
+        }
+
         public static void UserLogOut()
         {
             UserLogged = false;
+            FEDSecureTokenValue = string.Empty;
 
             UserId = string.Empty;
             UserCodFisc = string.Empty;
@@ -353,6 +365,9 @@ namespace Italia.DiciottoApp.Models
             // Setting for beneficiario.BorsellinoBean NOT IMPLEMENTED (otherwise please clear value here)
             // Setting for beneficiario.SpidBean NOT IMPLEMENTED (otherwise please clear value here)
             // Setting for beneficiario.ErrorCode NOT IMPLEMENTED (otherwise please clear value here)
+
+            // Instabug logout
+            InstabugHelper.Logout();
         }
 
         public static void SetBorsellino(BorsellinoBean borsellino)
