@@ -7,8 +7,6 @@ namespace Italia.DiciottoApp.Utils
 {
     public static class InstabugHelper
     {
-        static readonly bool InstabugEnabled = true;
-
         public static void Login(string email, string name, string codFisc)
         {
             IInstabug instabug = DependencyService.Get<IInstabug>();
