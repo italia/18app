@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<Application xmlns="http://xamarin.com/schemas/2014/forms"
+<Application x:Class="Italia.DiciottoApp.App"
+             xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:conv="clr-namespace:Italia.DiciottoApp.Converters"
-             x:Class="Italia.DiciottoApp.App">
+             xmlns:conv="clr-namespace:Italia.DiciottoApp.Converters">
 
     <Application.Resources>
         <Color x:Key="AppBkgndColor">#0066CC</Color>
@@ -187,7 +187,7 @@
                 </Grid.ColumnDefinitions>
 
                 <Grid.Padding>
-                    <OnPlatform x:TypeArguments="Thickness" Default="0,0,0,0" iOS="0,20,0,0" />
+                    <OnPlatform x:TypeArguments="Thickness" Default="0,0,0,0" iOS="0,0,0,0" />
                 </Grid.Padding>
 
                 <BoxView Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"
@@ -251,7 +251,7 @@
                 </Grid.ColumnDefinitions>
 
                 <Grid.Padding>
-                    <OnPlatform x:TypeArguments="Thickness" Default="0,0,0,0" iOS="0,20,0,0" />
+                    <OnPlatform x:TypeArguments="Thickness" Default="0,0,0,0" iOS="0,0,0,0" />
                 </Grid.Padding>
 
                 <BoxView Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"
@@ -297,7 +297,7 @@
                 </Grid.RowDefinitions>
 
                 <Grid.Padding>
-                    <OnPlatform x:TypeArguments="Thickness" Default="0,0,0,0" iOS="0,20,0,0" />
+                    <OnPlatform x:TypeArguments="Thickness" Default="0,0,0,0" iOS="0,0,0,0" />
                 </Grid.Padding>
 
                 <!-- Top bar -->
@@ -440,7 +440,7 @@
                 </Grid.RowDefinitions>
 
                 <Grid.Padding>
-                    <OnPlatform x:TypeArguments="Thickness" Default="0,0,0,0" iOS="0,20,0,0" />
+                    <OnPlatform x:TypeArguments="Thickness" Default="0,0,0,0" iOS="0,0,0,0" />
                 </Grid.Padding>
 
                 <!-- Top bar -->

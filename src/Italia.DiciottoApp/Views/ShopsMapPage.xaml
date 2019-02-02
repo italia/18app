@@ -5,6 +5,9 @@
                 xmlns:views="clr-namespace:Italia.DiciottoApp.Views"
                 xmlns:vm="clr-namespace:Italia.DiciottoApp.ViewModels"
                 xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+                xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+                ios:Page.UseSafeArea="true"
+                BackgroundColor="{StaticResource AppBkgndColor}"
                 ControlTemplate="{StaticResource AppHeaderTemplate}" >
 
     <views:BasePage.BindingContext>
