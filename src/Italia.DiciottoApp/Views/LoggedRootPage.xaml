@@ -57,15 +57,15 @@
             <StackLayout Grid.Row="2" Padding="0" Spacing="0"
                          HorizontalOptions="CenterAndExpand"
                          VerticalOptions="CenterAndExpand"
-                         Margin="0,20,0,0">
+                         Margin="0,0,0,0">
                 <StackLayout.GestureRecognizers>
                     <TapGestureRecognizer Tapped="OnNewVoucherTapped" />
                 </StackLayout.GestureRecognizers>
 
                 <cr:RadialGauge WidthRequest="{Binding RadialGaugeSize}"
                                 HeightRequest="{Binding RadialGaugeSize}"
-                                StrokeWidth="40"
-                                InnerSpaceWidth="10"
+                                StrokeWidth="20"
+                                InnerSpaceWidth="20"
                                 FillColor="#FF1168C9"
                                 SpentStrokeColor="#FF808080"
                                 CreatedStrokeColor="#FF1168C9"
@@ -92,8 +92,8 @@
 
                 <Frame CornerRadius="5" Padding="1"
                        HasShadow="False"
-                       Margin="30,0,30,28" HeightRequest="48"
-                       VerticalOptions="End"
+                       Margin="30,0,30,0" HeightRequest="48"
+                       VerticalOptions="Center"
                        BackgroundColor="{StaticResource AppBkgndColor}" >
 
                     <StackLayout Grid.Row="1"

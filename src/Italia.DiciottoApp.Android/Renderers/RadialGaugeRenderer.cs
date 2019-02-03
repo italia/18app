@@ -11,6 +11,7 @@ using Android.Views;
 using Android.Widget;
 using Italia.DiciottoApp.CustomRenderers;
 using Italia.DiciottoApp.Droid.Renderers;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 
@@ -47,8 +48,9 @@ namespace Italia.DiciottoApp.Droid.Renderers
 
         protected override void OnDraw(Canvas canvas)
         {
-            float strokeWidth = Convert.ToSingle(Element.StrokeWidth);
-            float innerSpaceWidth = Convert.ToSingle(Element.InnerSpaceWidth);
+            var density = DeviceDisplay.MainDisplayInfo.Density;
+            float strokeWidth = Convert.ToSingle(Element.StrokeWidth * density);
+            float innerSpaceWidth = Convert.ToSingle(Element.InnerSpaceWidth * density);
             float strokeMiter = 10.0f;
 
             var rect = new Rect();
@@ -66,7 +68,7 @@ namespace Italia.DiciottoApp.Droid.Renderers
                 rect.ExactCenterY() + radius
             );
 
-            float innerRadius = radius - strokeWidth - innerSpaceWidth; // radius - 2 * strokeWidth;
+            float innerRadius = radius - (strokeWidth / 2.0F) - innerSpaceWidth; // radius - 2 * strokeWidth;
 
             Paint spentPaint = new Paint(PaintFlags.AntiAlias)
             {

@@ -8,6 +8,7 @@ using Foundation;
 using Italia.DiciottoApp.CustomRenderers;
 using Italia.DiciottoApp.iOS.Renderers;
 using UIKit;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
 
@@ -52,9 +53,9 @@ namespace Italia.DiciottoApp.iOS.Renderers
             nfloat createdStartAngle = spentEndAngle;
             nfloat createdEndAngle = createdStartAngle + new nfloat(2 * Math.PI * Element.Created / Element.Initial);
 
-            nfloat radius = new nfloat(Math.Min(frame.Height, frame.Width)) / 2 - strokeWidth;
-            nfloat innerRadius = radius - strokeWidth;
-            nfloat lineHalfLength = 0.3F * innerRadius - innerSpaceWidth;
+            nfloat radius = new nfloat(Math.Min(frame.Height, frame.Width) / 2 - strokeWidth);
+            nfloat innerRadius = radius - (strokeWidth / 2.0F) - innerSpaceWidth;
+            nfloat lineHalfLength = 0.3F * innerRadius;
             nfloat lineHalfThikness = 0.0375F * innerRadius;
 
             CGPoint frameCenter = new CGPoint(frame.X + frame.Width / 2, frame.Y + frame.Height / 2);
