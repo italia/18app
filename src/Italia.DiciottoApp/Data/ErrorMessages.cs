@@ -28,5 +28,9 @@ namespace Italia.DiciottoApp.Data
         public static readonly string UNAVAILABLE_WALLET = "Si è verificato un errore: il servizio non è disponibile.";
         // Già definito più sopra
         // public static readonly string UNKNOWN = "Si è verificato un errore: il servizio non è disponibile.";
+
+        public static readonly string IDP_LOGIN_FAILED = "Login non riuscito.";
+        public static readonly string LOGIN_MISSING_SECURE_TOKEN = "Login non riuscito (Secure token non disponibile).";
+        public static readonly string LOGIN_MISSING_CLIENT_TOKEN = "Login non riuscito (Client token non disponibile).";
     }
 }

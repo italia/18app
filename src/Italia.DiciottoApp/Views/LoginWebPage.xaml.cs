@@ -22,7 +22,8 @@ namespace Italia.DiciottoApp.Views
 	{
         private LoginWebPageViewModel vm;
         private IdP idp;
-        private readonly string returnUrls = Constants.RETURN_URL;
+        private readonly string escapeWebLoginUrl = Constants.ESCAPE_WEB_LOGIN_URL;
+        private readonly string idpLoginSuccessUrl = Constants.IDP_LOGIN_SUCCESS_URL;
 
 		public LoginWebPage (IdP idp)
 		{
@@ -44,7 +45,7 @@ namespace Italia.DiciottoApp.Views
         private void OnBrowserNavigating(object sender, WebNavigatingEventArgs e)
         {
             if (!string.IsNullOrWhiteSpace(e.Url)
-                && returnUrls.Split(';').Any(returnUrl => returnUrl == e.Url))
+                && (e.Url == idpLoginSuccessUrl || e.Url == escapeWebLoginUrl))
             {
                 e.Cancel = true;
                 LoginBrowser.OnUrlReturned(new UrlReturnedEventArgs(e.Url));
@@ -61,89 +62,96 @@ namespace Italia.DiciottoApp.Views
             Debug.WriteLine($"++++ Url returned: {e.Url}");
 
             LoginBrowser.IsVisible = false;
-
-            MessageLabel.Text = "Verifica login in corso...";
-            MessageLabel.IsVisible = true;
-
-            // Get cookie
-            IPlatformCookieStore cookieStore = DependencyService.Get<IPlatformCookieStore>();
-            var cookies = cookieStore.GetCookiesForSite(Constants.COOKIES_URL);
-
-            Cookie fedSecureToken = cookies.Where(c => c.Name == Constants.COOKIES_SECURE_TOKEN).FirstOrDefault();
-            Debug.WriteLine($"++++ fedSecureToken: {fedSecureToken?.Value ?? "FEDSecureToken not found"}");
-
-            Cookie userToken = cookies.Where(c => c.Name == Constants.COOKIES_USER_TOKEN).FirstOrDefault();
-            Debug.WriteLine($"++++ userToken: {userToken?.Value ?? "cookieutente not found"}");
-
             string loginFailDetail = string.Empty;
 
-            if (fedSecureToken == null)
+            if (e.Url == Constants.ESCAPE_WEB_LOGIN_URL)
             {
-                loginFailDetail = "Unavailable Secure Token";
+                loginFailDetail = ErrorMessages.IDP_LOGIN_FAILED;
             }
-            else if (userToken == null)
+            else if (e.Url == Constants.IDP_LOGIN_SUCCESS_URL)
             {
-                loginFailDetail = "Unavailable User Token";
-            }
-            else
-            {
-                var loginService = Service.Resolve<ILoginService>();
-                var loginResult = await loginService.LoginAsync(fedSecureToken, userToken);
-                Debug.WriteLine($"++++ LoginResult: {loginResult.Success}");
+                MessageLabel.Text = "Verifica login in corso...";
+                MessageLabel.IsVisible = true;
 
-                if (loginResult.Success)
+                // Get cookie
+                IPlatformCookieStore cookieStore = DependencyService.Get<IPlatformCookieStore>();
+                var cookies = cookieStore.GetCookiesForSite(Constants.COOKIES_URL);
+
+                Cookie fedSecureToken = cookies.Where(c => c.Name == Constants.COOKIES_SECURE_TOKEN).FirstOrDefault();
+                Debug.WriteLine($"++++ fedSecureToken: {fedSecureToken?.Value ?? "FEDSecureToken not found"}");
+
+                Cookie userToken = cookies.Where(c => c.Name == Constants.COOKIES_USER_TOKEN).FirstOrDefault();
+                Debug.WriteLine($"++++ userToken: {userToken?.Value ?? "cookieutente not found"}");
+
+
+                if (fedSecureToken == null)
                 {
-                    if (loginResult.Beneficiary == null)
-                    {
-                        loginFailDetail = "Unavailable Beneficiary info";
-                    }
-                    else
-                    {
-                        Settings.FEDSecureTokenValue = fedSecureToken.Value;
-                        Settings.UserLogin(loginResult.Beneficiary);
-                        Settings.SetBeneficiario(loginResult.Beneficiary);
-
-                        if (Settings.UserAcceptanceFlag == "1")
-                        {
-                            if (loginResult.Beneficiary.BorsellinoBean == null)
-                            {
-                                loginFailDetail = "Unavailable Wallet info";
-                            }
-                            else
-                            {
-                                Settings.SetBorsellino(loginResult.Beneficiary.BorsellinoBean);
-                            }
-                        }
-                    }
+                    loginFailDetail = ErrorMessages.LOGIN_MISSING_SECURE_TOKEN;
+                }
+                else if (userToken == null)
+                {
+                    loginFailDetail = ErrorMessages.LOGIN_MISSING_CLIENT_TOKEN;
                 }
                 else
                 {
-                    switch (loginResult.FailureReason)
+                    var loginService = Service.Resolve<ILoginService>();
+                    var loginResult = await loginService.LoginAsync(fedSecureToken, userToken);
+                    Debug.WriteLine($"++++ LoginResult: {loginResult.Success}");
+
+                    if (loginResult.Success)
                     {
-                        case LoginFailureReason.UnsuccessfulHttpStatusCode:
-                            loginFailDetail = ErrorMessages.UNSUCCESSFUL_HTTP_STATUS_CODE;
-                            break;
-                        case LoginFailureReason.RegistrationTimeEnded:
-                            loginFailDetail = ErrorMessages.REGISTRATION_TIME_ENDED;
-                            break;
-                        case LoginFailureReason.NonOperatingBeneficiary:
-                            loginFailDetail = ErrorMessages.NON_OPERATING_BENEFICIARY;
-                            break;
-                        case LoginFailureReason.RegistrationCheckFailed:
-                            loginFailDetail = ErrorMessages.REGISTRATION_CHECK_FAILED;
-                            break;
-                        case LoginFailureReason.UnavailableBeneficiary:
+                        if (loginResult.Beneficiary == null)
+                        {
                             loginFailDetail = ErrorMessages.UNAVAILABLE_BENEFICIARY;
-                            break;
-                        case LoginFailureReason.UnavailableWallet:
-                            loginFailDetail = ErrorMessages.UNAVAILABLE_WALLET;
-                            break;
-                        case LoginFailureReason.Unknown:
-                            loginFailDetail = ErrorMessages.UNKNOWN;
-                            break;
-                        default:
-                            loginFailDetail = ErrorMessages.UNKNOWN;
-                            break;
+                        }
+                        else
+                        {
+                            Settings.FEDSecureTokenValue = fedSecureToken.Value;
+                            Settings.UserLogin(loginResult.Beneficiary);
+                            Settings.SetBeneficiario(loginResult.Beneficiary);
+
+                            if (Settings.UserAcceptanceFlag == "1")
+                            {
+                                if (loginResult.Beneficiary.BorsellinoBean == null)
+                                {
+                                    loginFailDetail = ErrorMessages.UNAVAILABLE_WALLET;
+                                }
+                                else
+                                {
+                                    Settings.SetBorsellino(loginResult.Beneficiary.BorsellinoBean);
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        switch (loginResult.FailureReason)
+                        {
+                            case LoginFailureReason.UnsuccessfulHttpStatusCode:
+                                loginFailDetail = ErrorMessages.UNSUCCESSFUL_HTTP_STATUS_CODE;
+                                break;
+                            case LoginFailureReason.RegistrationTimeEnded:
+                                loginFailDetail = ErrorMessages.REGISTRATION_TIME_ENDED;
+                                break;
+                            case LoginFailureReason.NonOperatingBeneficiary:
+                                loginFailDetail = ErrorMessages.NON_OPERATING_BENEFICIARY;
+                                break;
+                            case LoginFailureReason.RegistrationCheckFailed:
+                                loginFailDetail = ErrorMessages.REGISTRATION_CHECK_FAILED;
+                                break;
+                            case LoginFailureReason.UnavailableBeneficiary:
+                                loginFailDetail = ErrorMessages.UNAVAILABLE_BENEFICIARY;
+                                break;
+                            case LoginFailureReason.UnavailableWallet:
+                                loginFailDetail = ErrorMessages.UNAVAILABLE_WALLET;
+                                break;
+                            case LoginFailureReason.Unknown:
+                                loginFailDetail = ErrorMessages.UNKNOWN;
+                                break;
+                            default:
+                                loginFailDetail = ErrorMessages.UNKNOWN;
+                                break;
+                        }
                     }
                 }
             }
