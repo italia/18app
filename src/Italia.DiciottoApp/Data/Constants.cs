@@ -18,7 +18,7 @@ namespace Italia.DiciottoApp.Data
 
         #region Evironment dependent constants
 
-#if TEST_APP
+#if TEST
         private static readonly bool prodEnv = false;
 #else
         private static readonly bool prodEnv = true;
