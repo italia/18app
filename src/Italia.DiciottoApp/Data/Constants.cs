@@ -18,8 +18,12 @@ namespace Italia.DiciottoApp.Data
 
         #region Evironment dependent constants
 
+#if TEST_APP
         private static readonly bool prodEnv = false;
-        
+#else
+        private static readonly bool prodEnv = true;
+#endif
+
         public static string COOKIES_URL => prodEnv ? "https://18app.italia.it" : "https://val.18app.italia.it";
 
         public static string ESCAPE_WEB_LOGIN_URL => "https://www.18app.italia.it/";
@@ -30,6 +34,6 @@ namespace Italia.DiciottoApp.Data
 
         public static string SERVICE_ENDPOINT => prodEnv ? "https://www.18app.italia.it" : "https://18app-api-test.teamdigitale.it/interop/18app";
 
-        #endregion
+#endregion
     }
 }

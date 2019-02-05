@@ -15,15 +15,15 @@
 
     <views:BasePage.Content>
         <StackLayout>
-            
+
             <Label Margin="10,20,0,0"
                    HorizontalOptions="Start"
                    Style="{StaticResource RegularLabelStyle}" 
                    FontSize="16"
                    TextColor="#FF1168C9"
                    Text="Scegli il tuo SPID:" />
-            
-            <Grid Margin="0,20,0,0"
+
+            <Grid x:Name="IdpGrid" Margin="0,20,0,0"
                   VerticalOptions="Start"
                   HorizontalOptions="Center"
                   RowSpacing="20" ColumnSpacing="40" >
@@ -120,15 +120,16 @@
                 </Image>
 
                 <Image Grid.Row="4" Grid.Column="1"
-                   HorizontalOptions="Center"
-                   VerticalOptions="Center"
-                   Source="idp_test">
+                       IsVisible="{Binding TestIdpIsVisible}"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       Source="idp_test">
                     <Image.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnIdpTestTapped" />
                     </Image.GestureRecognizers>
                 </Image>
+                
             </Grid>
-
         </StackLayout>
     </views:BasePage.Content>
 </views:BasePage>

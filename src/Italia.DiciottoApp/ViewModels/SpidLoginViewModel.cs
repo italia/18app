@@ -12,6 +12,12 @@ namespace Italia.DiciottoApp.ViewModels
     {
         #region Properties
 
+#if TEST
+        public bool TestIdpIsVisible => true;
+#else
+        public bool TestIdpIsVisible => false;
+#endif
+
         public string PageTitle => "SPID Login";
 
         #endregion
