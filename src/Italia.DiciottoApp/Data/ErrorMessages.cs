@@ -22,10 +22,10 @@ namespace Italia.DiciottoApp.Data
 
         public static readonly string UNSUCCESSFUL_HTTP_STATUS_CODE = "Si è verificato un errore: il servizio non è disponibile.";
         public static readonly string REGISTRATION_TIME_ENDED = ERROR_CODE_5; // This is the same error of ErrorCode value equal to five.
-        public static readonly string NON_OPERATING_BENEFICIARY = "Si è verificato un errore: il servizio non è disponibile.";
+        public static readonly string NON_OPERATING_BENEFICIARY = "Utente non abilitato all'operazione richiesta.";
         public static readonly string REGISTRATION_CHECK_FAILED = "Si è verificato un errore: il servizio non è disponibile.";
         public static readonly string UNAVAILABLE_BENEFICIARY = "Si è verificato un errore: il servizio non è disponibile.";
-        public static readonly string UNAVAILABLE_WALLET = "Si è verificato un errore: il servizio non è disponibile.";
+        public static readonly string UNAVAILABLE_WALLET = "Si è verificato un errore in fase di registrazione.";
         // Già definito più sopra
         // public static readonly string UNKNOWN = "Si è verificato un errore: il servizio non è disponibile.";
 
