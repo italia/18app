@@ -1,0 +1,50 @@
+publiccode-yaml-version: '0.1'
+name: 18app (app nativa)
+releaseDate: '2019-02-05'
+url: 'https://github.com/italia/18app'
+developmentStatus: stable
+softwareType: standalone
+platforms:
+  - ios
+  - android
+logo: >-
+  https://raw.githubusercontent.com/italia/18app/master/src/Italia.DiciottoApp.iOS/Assets.xcassets/AppIcon.appiconset/Icon120.png
+tags:
+  - amusement
+maintenance:
+  type: contract
+  contractors:
+    - name: Sogei
+      website: 'http://www.sogei.it/'
+      until: '2020-03-21'
+legal:
+  repoOwner: MIBAC
+  license: GPL-3.0
+  mainCopyrightOwner: MIBAC
+intendedAudience:
+  countries:
+    - it
+localisation:
+  availableLanguages:
+    - ita
+it:
+  spid: 'yes'
+  riuso:
+    codiceIPA: m_bac
+    ecosistemi:
+      - beni-culturali-turismo
+description:
+  ita:
+    shortDescription: App nativa ufficiale per il Bonus Cultura 18app
+    freeTags:
+      - mobile app
+    screenshots:
+      - screenshots/cover.png
+      - screenshots/home.png
+    longDescription: >-
+      App nativa per consentire la fruizione del Bonus Cultura 18app anche da
+      dispositivi mobili. La app è sviluppata in tecnologia Xamarin e supporta
+      iOS ed Android. La app dialoga con il backend di Sogei e pertanto è solo
+      un'applicazione frontend specifica per le API 18app.
+
+      La app è stata sviluppata dal Team per la Trasformazione Digitale.
