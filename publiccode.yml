@@ -28,7 +28,7 @@ localisation:
   availableLanguages:
     - ita
 it:
-  spid: 'yes'
+  spid: yes
   riuso:
     codiceIPA: m_bac
     ecosistemi:
