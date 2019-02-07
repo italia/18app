@@ -1,4 +1,4 @@
-publiccode-yaml-version: '0.1'
+publiccodeYmlVersion: '0.1'
 name: 18app (app nativa)
 releaseDate: '2019-02-05'
 url: 'https://github.com/italia/18app'
@@ -31,8 +31,8 @@ it:
   spid: yes
   riuso:
     codiceIPA: m_bac
-    ecosistemi:
-      - beni-culturali-turismo
+  ecosistemi:
+    - beni-culturali-turismo
 description:
   ita:
     shortDescription: App nativa ufficiale per il Bonus Cultura 18app
