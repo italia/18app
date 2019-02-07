@@ -42,9 +42,21 @@ description:
       - screenshots/cover.png
       - screenshots/home.png
     longDescription: >-
-      App nativa per consentire la fruizione del Bonus Cultura 18app anche da
-      dispositivi mobili. La app è sviluppata in tecnologia Xamarin e supporta
-      iOS ed Android. La app dialoga con il backend di Sogei e pertanto è solo
-      un'applicazione frontend specifica per le API 18app.
+        App nativa per consentire la fruizione del Bonus Cultura 18app anche da
+        dispositivi mobili. Questa app è stata progettata e realizzata tra il
+        2018 e il 2019 come aggiunta al frontend web già disponibile sin dalla
+        prima edizione. Dopo il login con SPID e l'accettazione delle condizioni
+        di servizio e la visualizzazione dell'informativa privacy (solo al primo
+        accesso), la app consente all'utente di verificare la disponibilità del
+        proprio credito derivante dal beneficio. Può inoltre creare dei buoni da
+        spendere e visualizzare quelli creati e quelli già spesi. I buoni sono
+        visualizzati anche in forma di codice a barre e QR code, per una più
+        immediata lettura da parte dell'esercente direttamente dal dispositivo
+        mobile. La lista degli esercenti è consultabile anche in modalità mappa,
+        con la ricerca per prossimità rispetto alla posizione dell'utente.
 
-      La app è stata sviluppata dal Team per la Trasformazione Digitale.
+        La app è sviluppata in tecnologia Xamarin e supporta iOS ed Android. La
+        app dialoga con il backend di Sogei e pertanto funge da front end per le
+        API già utilizzate per l'applicazione web.
+
+        La app è stata sviluppata dal Team per la Trasformazione Digitale.
