@@ -43,6 +43,14 @@ description:
     screenshots:
       - screenshots/cover.png
       - screenshots/home.png
+    features:
+      - login con SPID
+      - registrazione nuovi utenti
+      - visualizzazione credito disponibile
+      - creazione buoni
+      - annullamento buoni
+      - visualizzazione buoni creati e spesi
+      - elenco esercenti e mappa
     longDescription: >-
         App nativa per consentire la fruizione del Bonus Cultura 18app anche da
         dispositivi mobili. Questa app è stata progettata e realizzata tra il
