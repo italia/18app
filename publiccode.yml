@@ -35,7 +35,7 @@ it:
   ecosistemi:
     - beni-culturali-turismo
   designKit:
-    - ui
+    ui: yes
 description:
   ita:
     genericName: mobile app
