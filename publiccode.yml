@@ -1,16 +1,16 @@
-publiccodeYmlVersion: '0.1'
+publiccodeYmlVersion: '0.2'
 name: 18app (app nativa)
 releaseDate: '2019-02-05'
 url: 'https://github.com/italia/18app'
 developmentStatus: stable
-softwareType: standalone
+softwareType: standalone/mobile
 platforms:
   - ios
   - android
 logo: >-
   https://raw.githubusercontent.com/italia/18app/master/src/Italia.DiciottoApp.iOS/Assets.xcassets/AppIcon.appiconset/Icon120.png
-tags:
-  - amusement
+categories:
+  - mobile-payments
 maintenance:
   type: contract
   contractors:
@@ -24,20 +24,20 @@ legal:
 intendedAudience:
   countries:
     - it
+  scope:
+    - culture
 localisation:
   localisationReady: no
   availableLanguages:
-    - ita
+    - it
 it:
-  spid: yes
+  countryExtensionVersion: '0.2'
+  piattaforme:
+    spid: yes
   riuso:
     codiceIPA: m_bac
-  ecosistemi:
-    - beni-culturali-turismo
-  designKit:
-    ui: yes
 description:
-  ita:
+  it:
     genericName: mobile app
     shortDescription: App nativa ufficiale per il Bonus Cultura 18app
     freeTags:
