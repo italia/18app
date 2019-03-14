@@ -3,7 +3,7 @@ name: 18app (app nativa)
 releaseDate: '2019-02-05'
 url: 'https://github.com/italia/18app'
 developmentStatus: stable
-softwareType: standalone/mobile
+softwareType: "standalone/mobile"
 platforms:
   - ios
   - android
