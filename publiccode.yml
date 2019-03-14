@@ -1,9 +1,9 @@
-publiccodeYmlVersion: "0.2"
+publiccodeYmlVersion: '0.2'
 name: 18app (app nativa)
-releaseDate: "2019-02-05"
-url: "https://github.com/italia/18app"
+releaseDate: '2019-02-05'
+url: 'https://github.com/italia/18app'
 developmentStatus: stable
-softwareType: "standalone/mobile"
+softwareType: 'standalone/mobile'
 platforms:
   - ios
   - android
@@ -15,7 +15,7 @@ maintenance:
   type: contract
   contractors:
     - name: Sogei
-      website: "http://www.sogei.it/"
+      website: 'http://www.sogei.it/'
       until: '2020-03-21'
 legal:
   repoOwner: MIBAC
@@ -31,7 +31,7 @@ localisation:
   availableLanguages:
     - it
 it:
-  countryExtensionVersion: "0.2"
+  countryExtensionVersion: '0.2'
   piattaforme:
     spid: yes
   riuso:
