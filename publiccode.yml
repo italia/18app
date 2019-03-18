@@ -40,8 +40,6 @@ description:
   it:
     genericName: mobile app
     shortDescription: App nativa ufficiale per il Bonus Cultura 18app
-    freeTags:
-      - mobile app
     screenshots:
       - screenshots/cover.png
       - screenshots/home.png
