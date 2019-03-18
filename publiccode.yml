@@ -8,7 +8,7 @@ platforms:
   - ios
   - android
 logo: >-
-  https://raw.githubusercontent.com/italia/18app/master/src/Italia.DiciottoApp.iOS/Assets.xcassets/AppIcon.appiconset/Icon120.png
+  'https://raw.githubusercontent.com/italia/18app/master/src/Italia.DiciottoApp.iOS/Assets.xcassets/AppIcon.appiconset/Icon120.png'
 categories:
   - mobile-payments
 maintenance:
