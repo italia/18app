@@ -1,0 +1,72 @@
+publiccodeYmlVersion: '0.2'
+name: 18app (app nativa)
+releaseDate: '2019-02-05'
+url: 'https://github.com/italia/18app'
+developmentStatus: beta
+softwareType: 'standalone/mobile'
+platforms:
+  - ios
+  - android
+logo: >-
+  https://raw.githubusercontent.com/italia/18app/master/src/Italia.DiciottoApp.iOS/Assets.xcassets/AppIcon.appiconset/Icon120.png
+categories:
+  - mobile-payment
+maintenance:
+  type: contract
+  contractors:
+    - name: Sogei
+      website: 'http://www.sogei.it/'
+      until: '2020-03-21'
+legal:
+  repoOwner: MIBAC
+  license: GPL-3.0
+  mainCopyrightOwner: MIBAC
+intendedAudience:
+  countries:
+    - it
+  scope:
+    - culture
+localisation:
+  localisationReady: no
+  availableLanguages:
+    - it
+it:
+  countryExtensionVersion: '0.2'
+  piattaforme:
+    spid: yes
+  riuso:
+    codiceIPA: m_bac
+description:
+  it:
+    genericName: mobile app
+    shortDescription: App nativa ufficiale per il Bonus Cultura 18app
+    screenshots:
+      - screenshots/cover.png
+      - screenshots/home.png
+    features:
+      - login con SPID
+      - registrazione nuovi utenti
+      - visualizzazione credito disponibile
+      - creazione buoni
+      - annullamento buoni
+      - visualizzazione buoni creati e spesi
+      - elenco esercenti e mappa
+    longDescription: >-
+        App nativa per consentire la fruizione del Bonus Cultura 18app anche da
+        dispositivi mobili. Questa app è stata progettata e realizzata tra il
+        2018 e il 2019 come aggiunta al frontend web già disponibile sin dalla
+        prima edizione. Dopo il login con SPID e l'accettazione delle condizioni
+        di servizio e la visualizzazione dell'informativa privacy (solo al primo
+        accesso), la app consente all'utente di verificare la disponibilità del
+        proprio credito derivante dal beneficio. Può inoltre creare dei buoni da
+        spendere e visualizzare quelli creati e quelli già spesi. I buoni sono
+        visualizzati anche in forma di codice a barre e QR code, per una più
+        immediata lettura da parte dell'esercente direttamente dal dispositivo
+        mobile. La lista degli esercenti è consultabile anche in modalità mappa,
+        con la ricerca per prossimità rispetto alla posizione dell'utente.
+
+        La app è sviluppata in tecnologia Xamarin e supporta iOS ed Android. La
+        app dialoga con il backend di Sogei e pertanto funge da front end per le
+        API già utilizzate per l'applicazione web.
+
+        La app è stata sviluppata dal Team per la Trasformazione Digitale.
