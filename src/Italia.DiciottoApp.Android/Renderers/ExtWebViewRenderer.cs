@@ -211,12 +211,10 @@ namespace Italia.DiciottoApp.Droid.Renderers
         {
             WebNavigationResult _navigationResult = WebNavigationResult.Success;
             ExtWebViewRenderer _renderer;
-            bool _navigationEnabled = true;
 
             public WebClient(ExtWebViewRenderer renderer)
             {
                 _renderer = renderer ?? throw new ArgumentNullException("renderer");
-                _navigationEnabled = true;
             }
 
             public override void OnPageFinished(AWebView view, string url)
@@ -264,6 +262,17 @@ namespace Italia.DiciottoApp.Droid.Renderers
             }
 
             #region Added overrides
+
+            public override void OnReceivedHttpError(AWebView view, IWebResourceRequest request, WebResourceResponse errorResponse)
+            {
+                Log.Warning("++++++++ WebView:OnReceivedHttpError(AWebView view, IWebResourceRequest request, WebResourceResponse errorResponse)", $"errorResponse.StatusCode={errorResponse.StatusCode}");
+
+                // Because OnReceivedHttpError seems to do nothing...
+                _navigationResult = WebNavigationResult.Failure;
+                base.OnReceivedHttpError(view, request, errorResponse);
+                var args = new WebNavigatedEventArgs(WebNavigationEvent.NewPage, new UrlWebViewSource { Url = request.Url.ToString() }, request.Url.ToString(), WebNavigationResult.Failure);
+                _renderer.ElementController.SendNavigated(args);
+            }
 
             public override bool ShouldOverrideUrlLoading(AWebView view, IWebResourceRequest request)
             {
@@ -328,12 +337,6 @@ namespace Italia.DiciottoApp.Droid.Renderers
             public override void OnReceivedHttpAuthRequest(AWebView view, HttpAuthHandler handler, string host, string realm)
             {
                 base.OnReceivedHttpAuthRequest(view, handler, host, realm);
-            }
-
-            public override void OnReceivedHttpError(AWebView view, IWebResourceRequest request, WebResourceResponse errorResponse)
-            {
-                Log.Warning("++++++++ WebView:OnReceivedHttpError(AWebView view, IWebResourceRequest request, WebResourceResponse errorResponse)", $"errorResponse.StatusCode={errorResponse.StatusCode}");
-                base.OnReceivedHttpError(view, request, errorResponse);
             }
 
             public override void OnReceivedLoginRequest(AWebView view, string realm, string account, string args)
