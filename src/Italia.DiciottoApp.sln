@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27625.0
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28902.138
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Italia.DiciottoApp.Android", "Italia.DiciottoApp.Android\Italia.DiciottoApp.Android.csproj", "{E863BD8F-05C5-408C-8D8F-239DEF8B73E0}"
 EndProject
@@ -12,6 +12,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5C62C96D-4062-4E5D-9A6D-4696CFA1A667}"
 	ProjectSection(SolutionItems) = preProject
 		..\18App Privacy page.html = ..\18App Privacy page.html
+		global.json = global.json
 		NuGet.config = NuGet.config
 	EndProjectSection
 EndProject
