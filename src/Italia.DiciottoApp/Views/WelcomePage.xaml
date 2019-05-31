@@ -7,46 +7,6 @@
                 ios:Page.UseSafeArea="true"
                 BackgroundColor="{StaticResource AppBkgndColor}" >
 
-    <views:BasePage.Resources>
-        <ResourceDictionary>
-            <Style x:Key="BoldLabelStyle" TargetType="Label">
-                <Setter Property="TextColor" Value="White" />
-                <Setter Property="HorizontalOptions" Value="Center" />
-                <Setter Property="FontSize" Value="32" />
-                <Setter Property="FontFamily">
-                    <Setter.Value>
-                        <OnPlatform x:TypeArguments="x:String"
-                                    Default="TitilliumWeb-Bold"
-                                    Android="fonts/TitilliumWeb-Bold.ttf#TitilliumWeb-Bold" />
-                    </Setter.Value>
-                </Setter>
-            </Style>
-            <Style x:Key="ItalicLabelStyle" TargetType="Label">
-                <Setter Property="TextColor" Value="White" />
-                <Setter Property="HorizontalOptions" Value="Center" />
-                <Setter Property="FontSize" Value="40" />
-                <Setter Property="FontFamily">
-                    <Setter.Value>
-                        <OnPlatform x:TypeArguments="x:String"
-                                    Default="TitilliumWeb-Italic"
-                                    Android="fonts/TitilliumWeb-Italic.ttf#TitilliumWeb-Italic" />
-                    </Setter.Value>
-                </Setter>
-            </Style>
-            <Style x:Key="RegularLabelStyle" TargetType="Label">
-                <Setter Property="TextColor" Value="White" />
-                <Setter Property="HorizontalOptions" Value="Center" />
-                <Setter Property="FontSize" Value="16" />
-                <Setter Property="FontFamily">
-                    <Setter.Value>
-                        <OnPlatform x:TypeArguments="x:String"
-                                    Default="TitilliumWeb-Regular"
-                                    Android="fonts/TitilliumWeb-Regular.ttf#TitilliumWeb-Regular" />
-                    </Setter.Value>
-                </Setter>
-            </Style>
-        </ResourceDictionary>
-    </views:BasePage.Resources>
 
     <Grid Margin="0" RowSpacing ="0" ColumnSpacing="0" >
             
@@ -80,19 +40,31 @@
                      Spacing="0"
                      Margin="0,40,0,0">
             <Label Text="Hai 18 anni?"
-                   Style="{StaticResource Key=BoldLabelStyle}" />
+                   Style="{StaticResource Key=BoldLabelStyle}"
+                   HorizontalOptions="Center"
+                   TextColor="White"
+                   FontSize="32"/>
             <Label Text="Per te"
                    Style="{StaticResource Key=RegularLabelStyle}"
-                   Margin="0,-7,0,0"/>
+                   Margin="0,-7,0,0"
+                   HorizontalOptions="Center"
+                   TextColor="White"
+                   FontSize="16" />
             <Image Source="bonus.png" Margin="0,8,0,0" Scale=".65"/>
             <Label Text="da spendere in"
-                   Style="{StaticResource Key=RegularLabelStyle}" />
+                   Style="{StaticResource Key=RegularLabelStyle}"
+                   HorizontalOptions="Center"
+                   TextColor="White"
+                   FontSize="16" />
         </StackLayout>
 
         <Label Grid.Row="2" Grid.ColumnSpan="2"
                x:Name="ExpenceTitle" Text="libri "
-                Style="{StaticResource Key=ItalicLabelStyle}"
-                VerticalOptions="Center"/>
+               Style="{StaticResource Key=ItalicLabelStyle}"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"
+               TextColor="White"
+               FontSize="40"/>
 
         <Button Grid.Row="3" Grid.Column="0"
                 Text="INFORMAZIONI"
