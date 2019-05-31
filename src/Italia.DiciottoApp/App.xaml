@@ -5,11 +5,7 @@
              xmlns:conv="clr-namespace:Italia.DiciottoApp.Converters">
 
     <Application.Resources>
-        <Color x:FactoryMethod="FromHex" x:Key="TitleColor">
-            <x:Arguments>
-                <x:String>#97cd75</x:String>
-            </x:Arguments>
-        </Color>
+        <Color x:Key="TitleColor">#97CD75</Color>
         <Color x:Key="AppBkgndColor">#0066CC</Color>
         <Color x:Key="AppLightGrayColor">#A9B1B8</Color>
         <Color x:Key="TabsBkgndColor">#00469C</Color>
