@@ -1,6 +1,5 @@
 ﻿using Com.Instabug.Library;
 using Italia.DiciottoApp.Droid;
-using System;
 using Xamarin.Forms;
 
 [assembly: Dependency(typeof(Instabug_Android))]
