@@ -332,7 +332,10 @@ namespace Italia.DiciottoApp.Models
                 UserLogged = true;
 
                 // Instabug login
-                InstabugHelper.Login(beneficiario.Email, $"{beneficiario.Nome} {beneficiario.Cognome}", beneficiario.CodiceFiscale);
+                if (!Keys.IsProductionEnvironment)
+                {
+                    InstabugHelper.Login(beneficiario.Email ?? "unknown@email.com", $"{beneficiario.Nome ?? "Unknown Name"} {beneficiario.Cognome ?? "Unknown Surname"}", beneficiario.CodiceFiscale);
+                }
             }
         }
 
