@@ -19,9 +19,9 @@ namespace Italia.DiciottoApp.Services
     {
         HttpClient httpClient;
 
-        public string ClientId { get; set; } = Keys.X_IBM_ClientId;
+        public string ClientId { get; set; } = Settings.IsProductionEnvironment ? Keys.X_IBM_ClientId_ProdEnv : Keys.X_IBM_ClientId_TestEnv;
 
-        public string ClientSecret { get; set; } = Keys.X_IBM_ClientSecret;
+        public string ClientSecret { get; set; } = Settings.IsProductionEnvironment ? Keys.X_IBM_ClientSecret_ProdEnv : Keys.X_IBM_ClientSecret_TestEnv;
 
         internal async Task<ServiceResult<RicercaStoreResultOutputBean>> RicercaStoreByFilterAsync(RicercaStoreBean ricercaStoreBean, CancellationToken ct = default(CancellationToken))
         {

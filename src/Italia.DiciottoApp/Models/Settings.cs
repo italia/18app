@@ -17,6 +17,12 @@ namespace Italia.DiciottoApp.Models
     {
         private static ISettings AppSettings => CrossSettings.Current;
 
+        public static bool IsProductionEnvironment
+        {
+            get => AppSettings.GetValueOrDefault("IsProductionEnvironment", true);
+            set => AppSettings.AddOrUpdateValue("IsProductionEnvironment", value);
+        }
+
         public static bool UserLogged
         {
             get => AppSettings.GetValueOrDefault("UserLogged", false);
@@ -332,7 +338,7 @@ namespace Italia.DiciottoApp.Models
                 UserLogged = true;
 
                 // Instabug login
-                if (!Keys.IsProductionEnvironment)
+                if (!Keys.IsInstabugEnabled)
                 {
                     InstabugHelper.Login(beneficiario.Email ?? "unknown@email.com", $"{beneficiario.Nome ?? "Unknown Name"} {beneficiario.Cognome ?? "Unknown Surname"}", beneficiario.CodiceFiscale);
                 }
