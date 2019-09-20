@@ -43,8 +43,8 @@
     <MtouchLink>None</MtouchLink>
     <MtouchArch>x86_64</MtouchArch>
     <ConsolePause>false</ConsolePause>
-    <CodesignKey>iPhone Distribution: Team per la Trasformazione Digitale (BC8NKY5TF7)</CodesignKey>
-    <CodesignProvision />
+    <CodesignKey>iPhone Distribution</CodesignKey>
+    <CodesignProvision>18App Nicolo Carandini</CodesignProvision>
     <CodesignExtraArgs />
     <CodesignResourceRules />
     <CodesignEntitlements />
@@ -99,9 +99,15 @@
     <WarningLevel>4</WarningLevel>
     <ConsolePause>False</ConsolePause>
     <MtouchArch>ARM64</MtouchArch>
-    <CodesignProvision>Automatic:AppStore</CodesignProvision>
-    <CodesignKey>iPhone Distribution</CodesignKey>
-    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <CodesignProvision>18App Nicolo Carandini</CodesignProvision>
+    <CodesignKey>iPhone Distribution: Team per la Trasformazione Digitale (BC8NKY5TF7)</CodesignKey>
+    <CodesignEntitlements>
+    </CodesignEntitlements>
+    <CodesignExtraArgs />
+    <CodesignResourceRules />
+    <MtouchSdkVersion>
+    </MtouchSdkVersion>
+    <BuildIpa>true</BuildIpa>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'Default' ">
     <AppExtensionDebugBundleId />
