@@ -90,7 +90,7 @@ namespace Italia.DiciottoApp.Models
                     break;
             }
 
-            return (string.IsNullOrWhiteSpace(urlSegment)) ? string.Empty : $"https://sso{(idp == IdP.Test ? "test" : "")}.18app.italia.it/rp/{urlSegment}/s5";
+            return (string.IsNullOrWhiteSpace(urlSegment)) ? string.Empty : $"https://sso{(idp == IdP.Test ? "test" : "")}.18app.italia.it/rp/{urlSegment}/s5mobile";
         }
 
     }
