@@ -20,7 +20,7 @@ namespace Italia.DiciottoApp.Utils
             }
             else
             {
-                Uri cookieUri = new Uri(Constants.SERVICE_HOST);
+                Uri cookieUri = new Uri(Settings.IsProductionEnvironment ? Constants.SERVICE_HOST_ProdEnv : Constants.SERVICE_HOST_TestEnv);
                 HttpClientHandler httpClientHandler = new HttpClientHandler
                 {
                     CookieContainer = new CookieContainer()

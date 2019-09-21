@@ -27,7 +27,7 @@ namespace Italia.DiciottoApp.iOS
             global::Xamarin.Forms.Forms.Init();
             global::Xamarin.FormsMaps.Init();
 
-            if (!Keys.IsProductionEnvironment)
+            if (!Keys.IsInstabugEnabled)
             {
                 Instabug.StartWithToken(Keys.InstabugToken, IBGInvocationEvent.FloatingButton | IBGInvocationEvent.Shake | IBGInvocationEvent.Screenshot);
             }

@@ -22,13 +22,15 @@ namespace Italia.DiciottoApp.Services
 
         public async Task<ServiceResult<BorsellinoBean>> GetBorsellinoAsync()
         {
+            String serviceEndpoint = Settings.IsProductionEnvironment ? Constants.SERVICE_ENDPOINT_ProdEnv : Constants.SERVICE_ENDPOINT_TestEnv;
+
             httpClient = HttpClientFactory.Builder(ClientId, ClientSecret, Settings.FEDSecureTokenValue);
 
             var getBorsellinoResult = new ServiceResult<BorsellinoBean>();
             try
             {
                 // Recupero i dati del borsellino
-                var response = await httpClient.GetAsync($"{Constants.SERVICE_ENDPOINT}/BONUSWS/rest/secured/18enne/borsellino");
+                var response = await httpClient.GetAsync($"{serviceEndpoint}/BONUSWS/rest/secured/18enne/borsellino");
                 await getBorsellinoResult.ProcessAsync(response);
             }
             catch (Exception ex)
@@ -51,6 +53,7 @@ namespace Italia.DiciottoApp.Services
         public async Task<ServiceResult<BeneficiarioBean>> SetPresaVisioneAsync(BeneficiarioBean beneficiarioBean, Cookie fedSecureToken, bool confirmed)
         {
             beneficiarioBean.FlagAccettazionePrivacy = confirmed ? "1" : "0";
+            String serviceEndpoint = Settings.IsProductionEnvironment ? Constants.SERVICE_ENDPOINT_ProdEnv : Constants.SERVICE_ENDPOINT_TestEnv;
             httpClient = HttpClientFactory.Builder(ClientId, ClientSecret, fedSecureToken);
             var acceptPrivacyResult = new ServiceResult<BeneficiarioBean>();
 
@@ -61,7 +64,7 @@ namespace Italia.DiciottoApp.Services
                 StringContent httpContent = new StringContent(body, Encoding.UTF8, "application/json");
 
                 // Recupero i dati della ricerca store
-                var response = await httpClient.PostAsync($"{Constants.SERVICE_ENDPOINT}/BONUSWS/rest/secured/18enne/insDatiConfigurazioneBeneficiario", httpContent);
+                var response = await httpClient.PostAsync($"{serviceEndpoint}/BONUSWS/rest/secured/18enne/insDatiConfigurazioneBeneficiario", httpContent);
                 await acceptPrivacyResult.ProcessAsync(response);
 
                 if (!acceptPrivacyResult.Success)
@@ -83,13 +86,15 @@ namespace Italia.DiciottoApp.Services
 
         public async Task<ServiceResult<string>> GetPresaVisioneAsync(Cookie fedSecureToken = null)
         {
+            String serviceEndpoint = Settings.IsProductionEnvironment ? Constants.SERVICE_ENDPOINT_ProdEnv : Constants.SERVICE_ENDPOINT_TestEnv;
+
             httpClient = HttpClientFactory.Builder(ClientId, ClientSecret, fedSecureToken);
 
             var getPresaVisioneResult = new ServiceResult<string>();
             try
             {
                 // Recupero i dati del borsellino
-                var response = await httpClient.GetAsync($"{Constants.SERVICE_ENDPOINT}/BONUSWS/rest/secured/18enne/presaVisioneAppUfficiale");
+                var response = await httpClient.GetAsync($"{serviceEndpoint}/BONUSWS/rest/secured/18enne/presaVisioneAppUfficiale");
                 await getPresaVisioneResult.ProcessAsync(response);
             }
             catch (Exception ex)

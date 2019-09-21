@@ -23,7 +23,6 @@ namespace Italia.DiciottoApp.Views
         private LoginWebPageViewModel vm;
         private IdP idp;
         private readonly string escapeWebLoginUrl = Constants.ESCAPE_WEB_LOGIN_URL;
-        private readonly string idpLoginSuccessUrl = Constants.IDP_LOGIN_SUCCESS_URL;
 
 		public LoginWebPage (IdP idp)
 		{
@@ -44,6 +43,8 @@ namespace Italia.DiciottoApp.Views
 
         private void OnBrowserNavigating(object sender, WebNavigatingEventArgs e)
         {
+            string idpLoginSuccessUrl = Settings.IsProductionEnvironment ? Constants.IDP_LOGIN_SUCCESS_URL_ProdEnv : Constants.IDP_LOGIN_SUCCESS_URL_TestEnv;
+
             if (!string.IsNullOrWhiteSpace(e.Url)
                 && (e.Url == idpLoginSuccessUrl || e.Url == escapeWebLoginUrl))
             {
@@ -61,6 +62,8 @@ namespace Italia.DiciottoApp.Views
         {
             Debug.WriteLine($"++++ Url returned: {e.Url}");
 
+            string idpLoginSuccessUrl = Settings.IsProductionEnvironment ? Constants.IDP_LOGIN_SUCCESS_URL_ProdEnv : Constants.IDP_LOGIN_SUCCESS_URL_TestEnv;
+
             LoginBrowser.IsVisible = false;
             string loginFailDetail = string.Empty;
 
@@ -68,14 +71,14 @@ namespace Italia.DiciottoApp.Views
             {
                 loginFailDetail = ErrorMessages.IDP_LOGIN_FAILED;
             }
-            else if (e.Url == Constants.IDP_LOGIN_SUCCESS_URL)
+            else if (e.Url == idpLoginSuccessUrl)
             {
                 MessageLabel.Text = "Verifica login in corso...";
                 MessageLabel.IsVisible = true;
 
                 // Get cookie
                 IPlatformCookieStore cookieStore = DependencyService.Get<IPlatformCookieStore>();
-                var cookies = cookieStore.GetCookiesForSite(Constants.COOKIES_URL);
+                var cookies = cookieStore.GetCookiesForSite(Settings.IsProductionEnvironment ? Constants.COOKIES_URL_ProdEnv : Constants.COOKIES_URL_TestEnv);
 
                 Cookie fedSecureToken = cookies.Where(c => c.Name == Constants.COOKIES_SECURE_TOKEN).FirstOrDefault();
                 Debug.WriteLine($"++++ fedSecureToken: {fedSecureToken?.Value ?? "FEDSecureToken not found"}");

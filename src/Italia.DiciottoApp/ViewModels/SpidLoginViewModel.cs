@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using Italia.DiciottoApp.Data;
 using Italia.DiciottoApp.Models;
 
 namespace Italia.DiciottoApp.ViewModels
@@ -12,11 +13,7 @@ namespace Italia.DiciottoApp.ViewModels
     {
         #region Properties
 
-#if TEST
-        public bool TestIdpIsVisible => true;
-#else
-        public bool TestIdpIsVisible => false;
-#endif
+        public bool TestIdpIsVisible => Constants.IS_TEST_IDP_VISIBLE;
 
         public string PageTitle => "SPID Login";
 

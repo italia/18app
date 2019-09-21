@@ -23,18 +23,21 @@ namespace Italia.DiciottoApp.Services
 
         public async Task<LoginResult> LoginAsync(Cookie fedSecureToken, Cookie userToken)
         {
+            String serviceEndpoint = Settings.IsProductionEnvironment ? Constants.SERVICE_ENDPOINT_ProdEnv : Constants.SERVICE_ENDPOINT_TestEnv;
+
             httpClient = HttpClientFactory.Builder(ClientId, ClientSecret, fedSecureToken, userToken);
 
             LoginResult loginResult = new LoginResult();
+
             try
             {
-                var response = await httpClient.GetAsync($"{Constants.SERVICE_ENDPOINT}/BONUSWS/rest/secured/18enne/aggiornaBeneficiarioBySPID");
+                var response = await httpClient.GetAsync($"{serviceEndpoint}/BONUSWS/rest/secured/18enne/aggiornaBeneficiarioBySPID");
                 loginResult.Process(response); // loginResult.Process(response, skipInternalError: true);
 
-                response = await httpClient.GetAsync($"{Constants.SERVICE_ENDPOINT}/BonusLoginWEB/jaxrs/userData");
+                response = await httpClient.GetAsync($"{serviceEndpoint}/BonusLoginWEB/jaxrs/userData");
                 loginResult.Process(response);
 
-                response = await httpClient.GetAsync($"{Constants.SERVICE_ENDPOINT}/BONUSWS/rest/secured/18enne/beneficiario");
+                response = await httpClient.GetAsync($"{serviceEndpoint}/BONUSWS/rest/secured/18enne/beneficiario");
                 loginResult.Process(response);
 
                 var content = await response.Content.ReadAsStringAsync();
@@ -56,7 +59,7 @@ namespace Italia.DiciottoApp.Services
                     else
                     {
                         // Proseguo col LOGIN
-                        response = await httpClient.GetAsync($"{Constants.SERVICE_ENDPOINT}/BONUSWS/rest/secured/18enne/beneficiarioOperativo");
+                        response = await httpClient.GetAsync($"{serviceEndpoint}/BONUSWS/rest/secured/18enne/beneficiarioOperativo");
                         loginResult.Process(response);
 
                         content = await response.Content.ReadAsStringAsync();
@@ -70,7 +73,7 @@ namespace Italia.DiciottoApp.Services
                         else
                         {
                             // Recupero i dati del borsellino
-                            response = await httpClient.GetAsync($"{Constants.SERVICE_ENDPOINT}/BONUSWS/rest/secured/18enne/borsellino");
+                            response = await httpClient.GetAsync($"{serviceEndpoint}/BONUSWS/rest/secured/18enne/borsellino");
                             loginResult.Process(response);
 
                             content = await response.Content.ReadAsStringAsync();
@@ -92,7 +95,7 @@ namespace Italia.DiciottoApp.Services
                 else
                 {
                     // Procedo con la REGISTRAZIONE
-                    response = await httpClient.GetAsync($"{Constants.SERVICE_ENDPOINT}/BONUSWS/rest/secured/18enne/beneficiarioByWsAnagrafica");
+                    response = await httpClient.GetAsync($"{serviceEndpoint}/BONUSWS/rest/secured/18enne/beneficiarioByWsAnagrafica");
                     loginResult.Process(response);
 
                     content = await response.Content.ReadAsStringAsync();
@@ -101,7 +104,7 @@ namespace Italia.DiciottoApp.Services
                     string body = JsonConvert.SerializeObject(beneficiarioBean);
                     var stringContent = new StringContent(body, UnicodeEncoding.UTF8, "application/json");
 
-                    response = await httpClient.PostAsync($"{Constants.SERVICE_ENDPOINT}/BONUSWS/rest/secured/18enne/verificaPeriodoRegistrazioneBeneficiario", stringContent);
+                    response = await httpClient.PostAsync($"{serviceEndpoint}/BONUSWS/rest/secured/18enne/verificaPeriodoRegistrazioneBeneficiario", stringContent);
                     loginResult.Process(response);
 
                     content = await response.Content.ReadAsStringAsync();

@@ -34,7 +34,10 @@ namespace Italia.DiciottoApp.Services
                 ct.ThrowIfCancellationRequested();
             }
 
+            String serviceEndpoint = Settings.IsProductionEnvironment ? Constants.SERVICE_ENDPOINT_ProdEnv : Constants.SERVICE_ENDPOINT_TestEnv;
+
             httpClient = HttpClientFactory.Builder(ClientId, ClientSecret);
+
             var getRicercaStoreResultOutput = new ServiceResult<RicercaStoreResultOutputBean>();
 
             try
@@ -44,7 +47,7 @@ namespace Italia.DiciottoApp.Services
                 StringContent httpContent = new StringContent(ricercaStoreBeanJson, Encoding.UTF8, "application/json");
 
                 // Recupero i dati della ricerca store
-                var response = await httpClient.PostAsync($"{Constants.SERVICE_ENDPOINT}/BONUSWS/rest/unsecured/18enne/ricercaStoreByFilter", httpContent, ct);
+                var response = await httpClient.PostAsync($"{serviceEndpoint}/BONUSWS/rest/unsecured/18enne/ricercaStoreByFilter", httpContent, ct);
                 await getRicercaStoreResultOutput.ProcessAsync(response);
             }
             catch (Exception ex)

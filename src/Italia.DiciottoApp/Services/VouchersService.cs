@@ -35,13 +35,16 @@ namespace Italia.DiciottoApp.Services
                 ct.ThrowIfCancellationRequested();
             }
 
+            String serviceEndpoint = Settings.IsProductionEnvironment ? Constants.SERVICE_ENDPOINT_ProdEnv : Constants.SERVICE_ENDPOINT_TestEnv;
+
             httpClient = HttpClientFactory.Builder(ClientId, ClientSecret, fedSecureToken);
+
             var serviceResult = new ServiceResult<VoucherByBeneficiarioBean>();
 
             try
             {
                 string servicePath = spent ? "listaVoucherSpesi" : "listaVoucherDaSpendere";
-                var response = await httpClient.GetAsync($"{Constants.SERVICE_ENDPOINT}/BONUSWS/rest/secured/18enne/{servicePath}", ct);
+                var response = await httpClient.GetAsync($"{serviceEndpoint}/BONUSWS/rest/secured/18enne/{servicePath}", ct);
                 await serviceResult.ProcessAsync(response);
             }
             catch (Exception ex)
@@ -114,6 +117,7 @@ namespace Italia.DiciottoApp.Services
                 ImportoRichiesto = valore
             };
 
+            String serviceEndpoint = Settings.IsProductionEnvironment ? Constants.SERVICE_ENDPOINT_ProdEnv : Constants.SERVICE_ENDPOINT_TestEnv;
             httpClient = HttpClientFactory.Builder(ClientId, ClientSecret, fedSecureToken);
             var createVoucherServiceResult = new ServiceResult<VoucherBean>();
 
@@ -124,7 +128,7 @@ namespace Italia.DiciottoApp.Services
                 StringContent httpContent = new StringContent(ricercaStoreBeanJson, Encoding.UTF8, "application/json");
 
                 // Recupero i dati della ricerca store
-                var response = await httpClient.PostAsync($"{Constants.SERVICE_ENDPOINT}/BONUSWS/rest/secured/18enne/insVoucher{(online ? "Online" : "Fisico")}", httpContent);
+                var response = await httpClient.PostAsync($"{serviceEndpoint}/BONUSWS/rest/secured/18enne/insVoucher{(online ? "Online" : "Fisico")}", httpContent);
                 await createVoucherServiceResult.ProcessAsync(response);
             }
             catch (Exception ex)
@@ -146,13 +150,14 @@ namespace Italia.DiciottoApp.Services
 
         public async Task<ServiceResult<AnnullaVoucherBean>> DeleteVoucherAsync(Cookie fedSecureToken, Voucher voucher)
         {
+            String serviceEndpoint = Settings.IsProductionEnvironment ? Constants.SERVICE_ENDPOINT_ProdEnv : Constants.SERVICE_ENDPOINT_TestEnv;
             httpClient = HttpClientFactory.Builder(ClientId, ClientSecret, fedSecureToken);
             var deleteVoucherServiceResult = new ServiceResult<AnnullaVoucherBean>();
 
             try
             {
                 // Recupero i dati della ricerca store
-                var response = await httpClient.GetAsync($"{Constants.SERVICE_ENDPOINT}/BONUSWS/rest/secured/gestioneVoucher/annullaVoucherFisico/{voucher.Id}");
+                var response = await httpClient.GetAsync($"{serviceEndpoint}/BONUSWS/rest/secured/gestioneVoucher/annullaVoucherFisico/{voucher.Id}");
                 await deleteVoucherServiceResult.ProcessAsync(response);
             }
             catch (Exception ex)

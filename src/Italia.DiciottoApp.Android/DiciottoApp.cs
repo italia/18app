@@ -21,7 +21,7 @@ namespace Italia.DiciottoApp.Droid
         public override void OnCreate()
         {
             base.OnCreate();
-            if (!Keys.IsProductionEnvironment)
+            if (!Keys.IsInstabugEnabled)
             {
                 new Instabug.Builder(this, Keys.InstabugToken).SetInvocationEvents(InstabugInvocationEvent.FloatingButton, InstabugInvocationEvent.Shake).Build();
             }
