@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionName="0.12.1" package="it.Italia.DiciottoApp" android:installLocation="auto" android:versionCode="118">
-	<uses-sdk android:minSdkVersion="19" android:targetSdkVersion="28" />
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionName="0.13" package="it.Italia.DiciottoApp" android:installLocation="auto" android:versionCode="119">
+	<uses-sdk android:minSdkVersion="24" android:targetSdkVersion="28" />
 	<application android:label="18App" android:icon="@mipmap/icon" android:allowBackup="false" android:fullBackupOnly="false">
 		<meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyD1y_e9GuIlwThs_abXJrFo0ARxnd-fY3o" />
 		<uses-library android:name="org.apache.http.legacy" android:required="false" />
@@ -13,5 +13,4 @@
 	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 	<uses-permission android:name="android.permission.INTERNET" />
 	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-	<uses-permission android:name="android.permission.RECORD_AUDIO" />
 </manifest>
