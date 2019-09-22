@@ -71,10 +71,10 @@
     <WarningLevel>4</WarningLevel>
     <MtouchArch>ARM64</MtouchArch>
     <ConsolePause>false</ConsolePause>
-    <CodesignKey>iPhone Developer: Nicolo CARANDINI (5T4J4J9327)</CodesignKey>
+    <CodesignKey>iPhone Distribution: Team per la Trasformazione Digitale (BC8NKY5TF7)</CodesignKey>
     <CodesignEntitlements>
     </CodesignEntitlements>
-    <CodesignProvision>VS: it.Italia.DiciottoApp Development</CodesignProvision>
+    <CodesignProvision>18App Nicolo Carandini</CodesignProvision>
     <CodesignExtraArgs />
     <CodesignResourceRules />
   </PropertyGroup>
