@@ -77,6 +77,7 @@
     <CodesignProvision>18App Nicolo Carandini</CodesignProvision>
     <CodesignExtraArgs />
     <CodesignResourceRules />
+    <MtouchEnableSGenConc>true</MtouchEnableSGenConc>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Ad-Hoc|iPhone' ">
     <DebugType>none</DebugType>

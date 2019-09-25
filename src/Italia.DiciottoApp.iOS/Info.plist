@@ -5,6 +5,7 @@
 	<key>UIDeviceFamily</key>
 	<array>
 		<integer>1</integer>
+		<integer>2</integer>
 	</array>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
@@ -55,7 +56,5 @@
 	<string>1.0.1</string>
 	<key>CFBundleIdentifier</key>
 	<string>it.teamdigitale.app.DiciottoApp</string>
-	<key>UIMainStoryboardFile</key>
-	<string>LaunchScreen</string>
 </dict>
 </plist>
