@@ -131,6 +131,9 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
+  <PropertyGroup>
+    <ArchiveBasePath>C:\Nick</ArchiveBasePath>
+  </PropertyGroup>
   <ItemGroup>
     <Compile Include="CookieStore\CookieStore_IOS.cs" />
     <Compile Include="Instabug\Instabug_iOS.cs" />
