@@ -12,8 +12,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5C62C96D-4062-4E5D-9A6D-4696CFA1A667}"
 	ProjectSection(SolutionItems) = preProject
 		..\18App Privacy page.html = ..\18App Privacy page.html
-		global.json = global.json
-		NuGet.config = NuGet.config
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Italia.DiciottoApp.Test", "Italia.DiciottoApp.Test\Italia.DiciottoApp.Test.csproj", "{4A57FA8E-EF21-4802-9B90-EF998ACE3519}"
