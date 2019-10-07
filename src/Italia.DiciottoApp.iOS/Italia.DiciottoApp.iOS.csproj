@@ -1344,4 +1344,7 @@
     <BundleResource Include="Resources\TitilliumWeb-SemiBold.ttf" />
     <BundleResource Include="Resources\TitilliumWeb-SemiBoldItalic.ttf" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="TouchTextFile.txt" />
+  </ItemGroup>
 </Project>
