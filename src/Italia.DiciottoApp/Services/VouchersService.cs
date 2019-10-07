@@ -96,17 +96,17 @@ namespace Italia.DiciottoApp.Services
         {
             if (categoria == null)
             {
-                throw new ArgumentNullException("categoria");
+                throw new ArgumentNullException(nameof(categoria));
             }
 
             if (prodotto == null)
             {
-                throw new ArgumentNullException("prodotto");
+                throw new ArgumentNullException(nameof(prodotto));
             }
 
             if (valore <= 0 || valore > 500)
             {
-                throw new ArgumentOutOfRangeException("valore");
+                throw new ArgumentOutOfRangeException(nameof(valore));
             }
 
             VoucherBean voucherBean = new VoucherBean
