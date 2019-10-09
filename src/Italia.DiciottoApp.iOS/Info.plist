@@ -5,13 +5,10 @@
 	<key>UIDeviceFamily</key>
 	<array>
 		<integer>1</integer>
-		<integer>2</integer>
 	</array>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
@@ -51,10 +48,14 @@
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Can we use your location when your app is being used?</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
-	<key>CFBundleVersion</key>
-	<string>1.0.1</string>
+	<string>1.0.0</string>
 	<key>CFBundleIdentifier</key>
 	<string>it.teamdigitale.app.DiciottoApp</string>
+	<key>CFBundleVersion</key>
+	<string>1.0.2</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>This app requires access to the photo library.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>This app requires access to the microphone.</string>
 </dict>
 </plist>

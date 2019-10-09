@@ -72,12 +72,12 @@
     <MtouchArch>ARM64</MtouchArch>
     <ConsolePause>false</ConsolePause>
     <CodesignKey>iPhone Distribution: Team per la Trasformazione Digitale (BC8NKY5TF7)</CodesignKey>
-    <CodesignEntitlements>
-    </CodesignEntitlements>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <CodesignProvision>18App Nicolo Carandini</CodesignProvision>
     <CodesignExtraArgs />
     <CodesignResourceRules />
     <MtouchEnableSGenConc>true</MtouchEnableSGenConc>
+    <MtouchFloat32>true</MtouchFloat32>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Ad-Hoc|iPhone' ">
     <DebugType>none</DebugType>
@@ -91,6 +91,9 @@
     <CodesignProvision>Automatic:AdHoc</CodesignProvision>
     <CodesignKey>iPhone Distribution</CodesignKey>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <OnDemandResourcesInitialInstallTags></OnDemandResourcesInitialInstallTags>
+    <SignAssembly>false</SignAssembly>
+    <DelaySign>false</DelaySign>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'AppStore|iPhone' ">
     <DebugType>none</DebugType>
@@ -1341,5 +1344,9 @@
     <BundleResource Include="Resources\TitilliumWeb-Regular.ttf" />
     <BundleResource Include="Resources\TitilliumWeb-SemiBold.ttf" />
     <BundleResource Include="Resources\TitilliumWeb-SemiBoldItalic.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <ITunesArtwork Include="iTunesArtwork%402x" />
+    <ITunesArtwork Include="iTunesArtwork" />
   </ItemGroup>
 </Project>
