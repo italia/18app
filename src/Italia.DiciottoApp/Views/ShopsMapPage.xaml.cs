@@ -72,7 +72,7 @@ namespace Italia.DiciottoApp.Views
                 map.Pins.Clear();
                 foreach (var pin in pins)
                 {
-                    pin.Clicked += PinClicked;
+                    pin.MarkerClicked += PinClicked;
                     map.Pins.Add(pin);
                 }
             }
