@@ -4,7 +4,7 @@
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
 # Security keys file has to be ignored
-#/src/Italia.DiciottoApp/Keys.cs
+/src/Italia.DiciottoApp/Keys.cs
 
 # User-specific files
 *.suo
