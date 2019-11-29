@@ -10,8 +10,8 @@ namespace Italia.DiciottoApp.Utils
         public static void Login(string email, string name, string codFisc)
         {
             IInstabug instabug = DependencyService.Get<IInstabug>();
-            instabug.IdentifyUser(email, name);
-            instabug.SetUserAttribute("fiscalcode", codFisc);
+            instabug.IdentifyUser(email ?? "unknown@email.com", name ?? "Unknown");
+            instabug.SetUserAttribute("fiscalcode", codFisc ?? "Codice Fiscale non disponibile");
         }
 
         public static void Logout()
