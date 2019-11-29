@@ -23,8 +23,9 @@ namespace Italia.DiciottoApp.Views
         private LoginWebPageViewModel vm;
         private IdP idp;
         private readonly string escapeWebLoginUrl = Constants.ESCAPE_WEB_LOGIN_URL;
+        private readonly string loginSuccessUrl = Settings.IsProductionEnvironment ? Constants.IDP_LOGIN_SUCCESS_URL_ProdEnv : Constants.IDP_LOGIN_SUCCESS_URL_TestEnv;
 
-		public LoginWebPage (IdP idp)
+        public LoginWebPage (IdP idp)
 		{
             this.idp = idp;
 
@@ -43,10 +44,10 @@ namespace Italia.DiciottoApp.Views
 
         private void OnBrowserNavigating(object sender, WebNavigatingEventArgs e)
         {
-            string idpLoginSuccessUrl = Settings.IsProductionEnvironment ? Constants.IDP_LOGIN_SUCCESS_URL_ProdEnv : Constants.IDP_LOGIN_SUCCESS_URL_TestEnv;
+            Debug.WriteLine($"##---> Navigating to: {e.Url}");
 
             if (!string.IsNullOrWhiteSpace(e.Url)
-                && (e.Url == idpLoginSuccessUrl || e.Url == escapeWebLoginUrl))
+                && (e.Url == loginSuccessUrl || e.Url == escapeWebLoginUrl))
             {
                 e.Cancel = true;
                 LoginBrowser.OnUrlReturned(new UrlReturnedEventArgs(e.Url));
@@ -55,23 +56,21 @@ namespace Italia.DiciottoApp.Views
 
         private void OnBrowserNavigated(object sender, WebNavigatedEventArgs e)
         {
-            Debug.WriteLine($"++++ Navigated to {e.Url}");
+            Debug.WriteLine($"##---> Navigated to {e.Url}");
         }
 
         private async void OnUrlReturned(object sender, UrlReturnedEventArgs e)
         {
-            Debug.WriteLine($"++++ Url returned: {e.Url}");
-
-            string idpLoginSuccessUrl = Settings.IsProductionEnvironment ? Constants.IDP_LOGIN_SUCCESS_URL_ProdEnv : Constants.IDP_LOGIN_SUCCESS_URL_TestEnv;
+            Debug.WriteLine($"##---> Url returned: {e.Url}");
 
             LoginBrowser.IsVisible = false;
             string loginFailDetail = string.Empty;
 
-            if (e.Url == Constants.ESCAPE_WEB_LOGIN_URL)
+            if (e.Url == escapeWebLoginUrl)
             {
                 loginFailDetail = ErrorMessages.IDP_LOGIN_FAILED;
             }
-            else if (e.Url == idpLoginSuccessUrl)
+            else if (e.Url == loginSuccessUrl)
             {
                 MessageLabel.Text = "Verifica login in corso...";
                 MessageLabel.IsVisible = true;

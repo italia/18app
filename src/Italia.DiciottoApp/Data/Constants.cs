@@ -25,7 +25,8 @@ namespace Italia.DiciottoApp.Data
         public static string COOKIES_URL_ProdEnv => "https://18app.italia.it";
         public static string COOKIES_URL_TestEnv => "https://val.18app.italia.it";
 
-        public static string IDP_LOGIN_SUCCESS_URL_ProdEnv => "https://18app.italia.it/BeneficiarioWeb/#!/registrazione";
+        public static string IDP_LOGIN_SUCCESS_URL_ProdEnv => "https://www.18app.italia.it/BeneficiarioWeb/#/registrazione"; // "https://18app.italia.it/BeneficiarioWeb/#!/registrazione";
+        
         public static string IDP_LOGIN_SUCCESS_URL_TestEnv => "https://val.18app.italia.it/BeneficiarioWeb/#!/registrazione";
 
         public static string SERVICE_HOST_ProdEnv => "https://www.18app.italia.it";
