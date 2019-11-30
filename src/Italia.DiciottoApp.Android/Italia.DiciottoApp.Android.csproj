@@ -124,7 +124,7 @@
       <Version>4.3.0.991211</Version>
     </PackageReference>
     <PackageReference Include="instabug-for-android">
-      <Version>8.7.2</Version>
+      <Version>8.6.3</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
