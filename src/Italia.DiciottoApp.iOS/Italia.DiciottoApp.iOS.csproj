@@ -144,7 +144,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\AppStore1024.png">
+	<ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon1024.png">
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon120.png">
@@ -183,6 +186,9 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon87.png">
       <Visible>false</Visible>
     </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\back.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\back.imageset\back.png">
       <Visible>false</Visible>
     </ImageAsset>
@@ -192,7 +198,7 @@
     <ImageAsset Include="Assets.xcassets\back.imageset\back@3x.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\back.imageset\Contents.json">
+	<ImageAsset Include="Assets.xcassets\bin_white.imageset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\bin_white.imageset\bin_white.png">
@@ -622,9 +628,6 @@
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\coupon_owner_black.imageset\Contents.json">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\bin_white.imageset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\funnel_gray.imageset\Contents.json">
@@ -1261,9 +1264,6 @@
       <Visible>false</Visible>
     </ImageAsset>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
-      <Visible>false</Visible>
-    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\bkgnd_libri.imageset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
@@ -1321,24 +1321,16 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Assets.xcassets\bkgnd_cinema.imageset\" />
-    <Folder Include="Assets.xcassets\bkgnd_concerti.imageset\" />
-    <Folder Include="Assets.xcassets\bkgnd_libri.imageset\" />
-    <Folder Include="Assets.xcassets\bonus.imageset\" />
-    <Folder Include="Assets.xcassets\header_logo.imageset\" />
-    <Folder Include="Assets.xcassets\logo_utente_spid.imageset\" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\TitilliumWeb-Black.ttf" />
-    <BundleResource Include="Resources\TitilliumWeb-Bold.ttf" />
-    <BundleResource Include="Resources\TitilliumWeb-BoldItalic.ttf" />
-    <BundleResource Include="Resources\TitilliumWeb-ExtraLight.ttf" />
-    <BundleResource Include="Resources\TitilliumWeb-ExtraLightItalic.ttf" />
-    <BundleResource Include="Resources\TitilliumWeb-Italic.ttf" />
-    <BundleResource Include="Resources\TitilliumWeb-Light.ttf" />
-    <BundleResource Include="Resources\TitilliumWeb-LightItalic.ttf" />
-    <BundleResource Include="Resources\TitilliumWeb-Regular.ttf" />
-    <BundleResource Include="Resources\TitilliumWeb-SemiBold.ttf" />
-    <BundleResource Include="Resources\TitilliumWeb-SemiBoldItalic.ttf" />
+    <BundleResource Include="Resources/TitilliumWeb-Black.ttf" />
+    <BundleResource Include="Resources/TitilliumWeb-Bold.ttf" />
+    <BundleResource Include="Resources/TitilliumWeb-BoldItalic.ttf" />
+    <BundleResource Include="Resources/TitilliumWeb-ExtraLight.ttf" />
+    <BundleResource Include="Resources/TitilliumWeb-ExtraLightItalic.ttf" />
+    <BundleResource Include="Resources/TitilliumWeb-Italic.ttf" />
+    <BundleResource Include="Resources/TitilliumWeb-Light.ttf" />
+    <BundleResource Include="Resources/TitilliumWeb-LightItalic.ttf" />
+    <BundleResource Include="Resources/TitilliumWeb-Regular.ttf" />
+    <BundleResource Include="Resources/TitilliumWeb-SemiBold.ttf" />
+    <BundleResource Include="Resources/TitilliumWeb-SemiBoldItalic.ttf" />
   </ItemGroup>
 </Project>
