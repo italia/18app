@@ -338,7 +338,7 @@ namespace Italia.DiciottoApp.Models
                 UserLogged = true;
 
                 // Instabug login
-                if (!Keys.IsInstabugEnabled)
+                if (Keys.IsInstabugEnabled)
                 {
                     InstabugHelper.Login(beneficiario.Email ?? "unknown@email.com", $"{beneficiario.Nome ?? "Unknown Name"} {beneficiario.Cognome ?? "Unknown Surname"}", beneficiario.CodiceFiscale);
                 }
