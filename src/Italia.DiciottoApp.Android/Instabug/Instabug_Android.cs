@@ -9,9 +9,9 @@ namespace Italia.DiciottoApp.Droid
     {
         public void IdentifyUser(string email, string name)
         {
-            Instabug.IdentifyUser(email, name);
+            Instabug.IdentifyUser(name, email);
         }
-
+        
         public void Logout()
         {
             Instabug.LogoutUser();
