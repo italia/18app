@@ -11,9 +11,10 @@ namespace Italia.DiciottoApp.Data
         // private static Random random = new Random();
 
         private static readonly string CRLF = "\r\n";
+        private static readonly string bornYear = "2000";
         private static readonly string bonusYear = "2018";
-        private static readonly string registrationDate = "31 gennaio 2019";
-        private static readonly string endDate = "31 dicembre 2019";
+        private static readonly string registrationEndDate = "31 gennaio 2019";
+        private static readonly string bonusEndDate = "31 dicembre 2019";
 
         public IEnumerable<InfoContent> Data = new List<InfoContent>
         {
@@ -33,7 +34,7 @@ namespace Italia.DiciottoApp.Data
                 Title = "Che cos’è il Bonus Cultura?",
                 Text = "E' una iniziativa a cura del Ministero dei Beni e delle Attività Culturali e del Turismo e della Presidenza del Consiglio dei Ministri dedicata a promuovere la cultura." + CRLF +
                        $"Il programma, destinato a chi compie 18 anni nel {bonusYear}, permette di ottenere 500€ da spendere in cinema, musica e concerti, eventi culturali, libri, musei, monumenti e parchi, teatro e danza, corsi di musica, di teatro o di lingua straniera." + CRLF +
-                       $"I ragazzi hanno tempo fino al {registrationDate} per registrarsi a 18App e fino al {endDate} per spendere il Bonus Cultura."
+                       $"I ragazzi hanno tempo fino al {registrationEndDate} per registrarsi a 18App e fino al {bonusEndDate} per spendere il Bonus Cultura."
             },
             new InfoContent
             {
@@ -65,7 +66,7 @@ namespace Italia.DiciottoApp.Data
                 Header = "18app e il Bonus Cultura ",
                 TitleOrderIndex = 4,
                 Title = "Come mi registro a 18app?",
-                Text = $"Se sei nato nel {bonusYear}, puoi registrarti entro il {registrationDate}. Effettua il login scegliendo il tuo Identity Provider e usa le tue credenziali SPID per completare la procedura di registrazione a 18app, fino all’ultimo passaggio dell’accettazione della normativa. Una volta registrato potrai visualizzare il tuo portafoglio e spendere il Bonus Cultura."
+                Text = $"Se sei nato nel {bornYear}, puoi registrarti entro il {registrationEndDate}. Effettua il login scegliendo il tuo Identity Provider e usa le tue credenziali SPID per completare la procedura di registrazione a 18app, fino all’ultimo passaggio dell’accettazione della normativa. Una volta registrato potrai visualizzare il tuo portafoglio e spendere il Bonus Cultura."
             },
             new InfoContent
             {
@@ -121,7 +122,7 @@ namespace Italia.DiciottoApp.Data
                 Header = "Cosa acquistare ",
                 TitleOrderIndex = 0,
                 Title = "Cosa posso acquistare attraverso 18app con il Bonus Cultura?",
-                Text = $"Se sei nato nel {bonusYear}, puoi acquistare (entro il {endDate}) beni per un totale di 500€, esclusivamente riconducibili ai seguenti ambiti:" + CRLF +
+                Text = $"Se sei nato nel {bornYear}, puoi acquistare (entro il {bonusEndDate}) beni per un totale di 500€, esclusivamente riconducibili ai seguenti ambiti:" + CRLF +
                 "a. Cinema (abbonamento card/biglietto d’ingresso)" + CRLF +
                 "b. Concerti (abbonamento card/biglietto d’ingresso)" + CRLF +
                 "c. Eventi culturali (biglietto d’ingresso a festival, fiere culturali, circhi)" + CRLF +
@@ -145,7 +146,7 @@ namespace Italia.DiciottoApp.Data
                 Header = "Cosa acquistare ",
                 TitleOrderIndex = 2,
                 Title = "Quanto tempo ho per spendere il mio Bonus Cultura?",
-                Text = $"I ragazzi nati {bonusYear} nel hanno tempo fino al {registrationDate} per registrarsi a 18App e fino al {endDate} per spendere il Bonus Cultura."
+                Text = $"I ragazzi nati nel {bornYear} hanno tempo fino al {registrationEndDate} per registrarsi a 18App e fino al {bonusEndDate} per spendere il Bonus Cultura."
             },
             new InfoContent
             {
@@ -208,93 +209,6 @@ namespace Italia.DiciottoApp.Data
                 Text = "Puoi completare l’acquisto online indicando, durante il processo di acquisto nel sito di vendita (personalizzato per ogni esercente registrato a 18app), il codice del buono che hai generato e che vuoi spendere per l’acquisto."
             },
         };
-
-        //private static string LoremIpsum(int maxNumOfParagraphs = 5)
-        //{
-        //    string[] loremIpsumParagraps = new string[]
-        //    {
-        //        "Sed id quam quis purus vestibulum malesuada.",
-        //        "Cras rhoncus venenatis lacus, nec faucibus justo tincidunt sit amet." + CRLF +
-        //        "Nulla vel ligula eget nisl vulputate ullamcorper at ac erat.",
-        //        "Phasellus luctus nibh ut metus bibendum vehicula.",
-        //        "Aliquam et semper urna.",
-        //        "Nullam elementum efficitur tincidunt.",
-        //        "Quisque ut purus nisl.",
-        //        "Nullam viverra lacinia dui vitae lacinia.",
-        //        "Donec vehicula purus justo.",
-        //        "Aenean luctus ipsum ipsum, eget feugiat est ullamcorper eu.",
-        //        "Donec in vulputate tellus, nec pretium ligula.",
-        //        "Fusce vitae sapien feugiat, euismod lectus ac, ultrices ante.",
-        //        "Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
-        //        "Phasellus interdum pulvinar sem.",
-        //        "Curabitur tristique dapibus lorem, non faucibus turpis aliquet eget.",
-        //        "Suspendisse id malesuada risus.",
-        //        "Praesent lobortis mauris ut libero tincidunt, sit amet consectetur eros interdum.",
-        //        "Curabitur in magna quis ante convallis condimentum.",
-        //        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-        //        "Integer non dolor tincidunt, congue elit feugiat, vulputate quam.",
-        //        "Maecenas ultricies nisi non turpis commodo, ut faucibus velit blandit.",
-        //        "Cras sed nisl ut nulla consequat aliquet.",
-        //        "Donec non semper lacus, a tincidunt lorem.",
-        //        "Sed tempor odio nibh, at posuere nulla imperdiet nec.",
-        //        "Donec nec dolor dignissim, mollis nisi non, pharetra nulla.",
-        //        "Mauris commodo odio a imperdiet finibus.",
-        //        "Quisque justo lectus, blandit sit amet rutrum sed, vulputate ut libero.",
-        //        "Donec placerat, metus sit amet mattis ultrices, dolor felis luctus mauris, porta ultrices risus magna vel urna.",
-        //        "Maecenas commodo orci sit amet ligula hendrerit consectetur.",
-        //        "Maecenas fringilla iaculis mollis.",
-        //        "Mauris lobortis leo sed ipsum sollicitudin, quis pretium purus malesuada.",
-        //        "Fusce non tellus ornare, efficitur orci quis, tristique sem.",
-        //        "Ut sed iaculis erat.",
-        //        "Interdum et malesuada fames ac ante ipsum primis in faucibus.",
-        //        "Mauris nec interdum mi, id vehicula arcu.",
-        //        "Nullam sed dolor feugiat, dapibus metus eu, tincidunt leo.",
-        //        "In mollis vulputate elit vitae porttitor.",
-        //        "Nullam lacinia, massa eleifend feugiat posuere, odio turpis accumsan augue, nec mattis lacus mi eget lectus.",
-        //        "Nullam et diam dui.",
-        //        "Aenean rhoncus vulputate neque varius venenatis.",
-        //        "Nulla id imperdiet lorem.",
-        //        "Vivamus mauris velit, elementum in lectus in, mollis tempor augue.",
-        //        "Etiam vestibulum luctus quam, eu varius dolor fringilla quis.",
-        //        "Pellentesque condimentum ex tempor risus venenatis aliquet.",
-        //        "Maecenas sit amet consectetur orci.",
-        //        "In blandit felis non nibh porttitor, vel dapibus mauris luctus.",
-        //        "Suspendisse a vehicula nunc.",
-        //        "Cras tincidunt vestibulum vulputate.",
-        //        "Morbi accumsan sem nisl, ac mollis arcu aliquet non.",
-        //        "Etiam placerat massa lacus, dictum malesuada erat condimentum vel.",
-        //        "Nunc ullamcorper molestie pulvinar.",
-        //        "Mauris mollis elementum lacus, nec pharetra nisi mattis a.",
-        //        "Cras dapibus ligula lectus.",
-        //        "Suspendisse luctus metus eget leo pellentesque sagittis vulputate a ex.",
-        //        "Maecenas dignissim neque sed ipsum faucibus, sit amet feugiat lacus hendrerit.",
-        //        "Fusce luctus, risus sed condimentum suscipit, sem felis commodo lacus, quis vulputate orci eros sit amet mi.",
-        //        "Nunc tempor mollis placerat.",
-        //        "Proin diam libero, hendrerit in ante in, volutpat ullamcorper orci.",
-        //        "Donec nec consequat ante.",
-        //        "Ut scelerisque et massa et laoreet.",
-        //        "Mauris dictum porttitor arcu et interdum.",
-        //        "Pellentesque commodo nibh id tortor molestie pretium nec quis nisi.",
-        //        "Pellentesque gravida nisi sed tortor vulputate laoreet."
-        //    };
-
-        //    int loremIpsumParagrapsCount = loremIpsumParagraps.Count();
-
-        //    int numOfParagraphs = random.Next(1, maxNumOfParagraphs);
-
-        //    StringBuilder sb = new StringBuilder(loremIpsumParagraps[random.Next(loremIpsumParagrapsCount)]);
-
-        //    if (numOfParagraphs > 1)
-        //    {
-        //        for (int i = 0; i < numOfParagraphs - 1; i++)
-        //        {
-        //            sb.Append("\r\n");
-        //            sb.Append(loremIpsumParagraps[random.Next(loremIpsumParagrapsCount)]);
-        //        }
-        //    }
-
-        //    return sb.ToString();
-        //}
 
     }
 }
