@@ -250,39 +250,6 @@
                                HeightRequest="200"
                                Margin="10"/>
 
-                        <!--<StackLayout Padding="26,24" Spacing="0"
-                                 Orientation="Horizontal"
-                                 IsVisible="{Binding VoucherNotSpent}">
-
-                            <Image HorizontalOptions="Center" VerticalOptions="Start"
-                               Source="{Binding QRcodeImageSource}"/>
-
-                            <StackLayout Margin="12,0" Padding="0" Spacing="0"
-                                     HorizontalOptions="EndAndExpand">
-
-                                <Image HorizontalOptions="Center" VerticalOptions="Start"
-                                   Source="{Binding BarcodeImageSource}"/>
-
-                                <StackLayout Margin="0,8,0,0"  Padding="0" Spacing="0"
-                                         HorizontalOptions="Center"
-                                         VerticalOptions="Start">
-                                    <StackLayout.GestureRecognizers>
-                                        <TapGestureRecognizer Tapped="OnSaveImageTapped" />
-                                    </StackLayout.GestureRecognizers>
-
-                                    <Label HorizontalOptions="Center"
-                                       Style="{StaticResource BoldLabelStyle}"
-                                       TextColor="{StaticResource AppBkgndColor}" FontSize="16"
-                                       Text="SALVA" />
-
-                                    <Label HorizontalOptions="Center"
-                                       Style="{StaticResource BoldLabelStyle}"
-                                       TextColor="{StaticResource AppBkgndColor}" FontSize="16"
-                                       Text="IMMAGINE" />
-                                </StackLayout>
-                            </StackLayout>
-                        </StackLayout>-->
-
                         <!-- Bottone: trova un negozio -->
                         <BoxView HeightRequest="1" BackgroundColor="#FFEFEFEF" 
                                  IsVisible="{Binding Voucher.HasShop, Converter={StaticResource NegativeConverter}}" />

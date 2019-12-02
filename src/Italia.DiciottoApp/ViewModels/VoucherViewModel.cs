@@ -67,13 +67,15 @@ namespace Italia.DiciottoApp.ViewModels
 
         public double VoucherValue => (Voucher?.Spent ?? false) ? Voucher?.ValidatedValue ?? 0 : Voucher?.RequestedValue ?? 0;
 
-        // Please note that the ZXing component bomb if QR code content is null or empty string
+        // Please note that the ZXing component bomb if Barcode content is null or empty string
+        public string BarcodeContent => !string.IsNullOrWhiteSpace(Voucher?.BarCodeValue) ? Voucher.BarCodeValue : "EmptyBarcodeContent";
 
-        public string QRcodeContent => !string.IsNullOrWhiteSpace(Voucher?.QrCodeValue) ? Voucher?.QrCodeValue ?? "EmptyQRcodeContent" : "EmptyQRcodeContent";
+        public bool BarcodeContentIsVisible => !string.IsNullOrWhiteSpace(Voucher?.BarCodeValue);
+
+        // Please note that the ZXing component bomb if QRcode content is null or empty string
+        public string QRcodeContent => !string.IsNullOrWhiteSpace(Voucher?.QrCodeValue) ? Voucher.QrCodeValue : "EmptyQRcodeContent";
 
         public bool QRcodeContentIsVisible => !string.IsNullOrWhiteSpace(Voucher?.QrCodeValue);
-
-        public string BarcodeImageSource => "fake_barcode";
 
         private Voucher voucher;
         public Voucher Voucher
@@ -92,9 +94,10 @@ namespace Italia.DiciottoApp.ViewModels
                 OnPropertyChanged(nameof(VoucherNotSpent));
                 OnPropertyChanged(nameof(VoucherSpent));
                 OnPropertyChanged(nameof(VoucherValue));
+                OnPropertyChanged(nameof(BarcodeContent));
+                OnPropertyChanged(nameof(BarcodeContentIsVisible));
                 OnPropertyChanged(nameof(QRcodeContent));
                 OnPropertyChanged(nameof(QRcodeContentIsVisible));
-                OnPropertyChanged(nameof(BarcodeImageSource));
             });
         }
 

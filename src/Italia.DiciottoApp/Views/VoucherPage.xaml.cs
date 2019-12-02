@@ -28,13 +28,13 @@ namespace Italia.DiciottoApp.Views
             vm = BindingContext as VoucherViewModel;
             vm.JustCreated = justCreated;
             vm.Voucher = voucher;
-            RenderBarcodes(voucher);
+            RenderBarcodes();
         }
 
         /// <summary>
         /// Create the images with ZXing.NET.RenderOnly
         /// </summary>
-        private void RenderBarcodes(Voucher voucher)
+        private void RenderBarcodes()
         {
             // Barcode CODE128
             var barcodeWriter = new BarcodeWriterPixelData
@@ -49,7 +49,7 @@ namespace Italia.DiciottoApp.Views
                 }
             };
 
-            PixelData barcodeImage = barcodeWriter.Write(voucher.BarCodeValue);
+            PixelData barcodeImage = barcodeWriter.Write(vm.BarcodeContent);
             byte[] barcodeImageBmpBytes = BitmapConverter.FromPixelData(barcodeImage);
             BarcodeImage1.Source = ImageSource.FromStream(() => new MemoryStream(barcodeImageBmpBytes));
             BarcodeImage2.Source = ImageSource.FromStream(() => new MemoryStream(barcodeImageBmpBytes));
@@ -67,7 +67,7 @@ namespace Italia.DiciottoApp.Views
                 }
             };
 
-            PixelData qrcodeImage = qrcodeWriter.Write(voucher.QrCodeValue);
+            PixelData qrcodeImage = qrcodeWriter.Write(vm.QRcodeContent);
             byte[] qrcodeImageBmpBytes = BitmapConverter.FromPixelData(qrcodeImage);
             QrCodeImage1.Source = ImageSource.FromStream(() => new MemoryStream(qrcodeImageBmpBytes));
             QrCodeImage2.Source = ImageSource.FromStream(() => new MemoryStream(qrcodeImageBmpBytes));
