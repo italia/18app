@@ -106,8 +106,6 @@
     </CodesignEntitlements>
     <CodesignExtraArgs />
     <CodesignResourceRules />
-    <MtouchSdkVersion>
-    </MtouchSdkVersion>
     <BuildIpa>true</BuildIpa>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'Default' ">
