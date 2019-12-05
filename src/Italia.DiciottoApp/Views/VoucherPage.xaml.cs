@@ -73,6 +73,12 @@ namespace Italia.DiciottoApp.Views
             QrCodeImage2.Source = ImageSource.FromStream(() => new MemoryStream(qrcodeImageBmpBytes));
         }
 
+        private async void OnVoucherCodeTapped(object sender, EventArgs e)
+        {
+            await Clipboard.SetTextAsync(vm.Voucher.Codice);
+            await DisplayAlert("Operazione completata", "Il codice del buono è stato copiato negli appunti.", "Ok");
+        }
+
         private async void OnUseVoucherOnShopOnlineButtonTapped(object sender, EventArgs e)
         {
             // TBD: navigare alla pagina web del sito dello shop online
