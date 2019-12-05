@@ -161,10 +161,14 @@
                            VerticalOptions="Center"/>
 
                         <Label Margin="28,0,24,0"
-                           HorizontalOptions="StartAndExpand" VerticalOptions="Center"
-                           Style="{StaticResource BoldLabelStyle}"
-                           TextColor="#FF30383D" FontSize="24"
-                           Text="{Binding Voucher.Codice}" />
+                               HorizontalOptions="StartAndExpand" VerticalOptions="Center"
+                               Style="{StaticResource BoldLabelStyle}"
+                               TextColor="#FF30383D" FontSize="24"
+                               Text="{Binding Voucher.Codice}" >
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnVoucherCodeTapped" />
+                            </Label.GestureRecognizers>
+                        </Label>
 
                         <Label Margin="0,14,16,10"
                            HorizontalOptions="End" VerticalOptions="Center"
