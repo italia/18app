@@ -16,7 +16,7 @@ namespace Italia.DiciottoApp.ViewModels
 
         public string ListHeader => "Scegli il prodotto";
 
-        public bool HasShop => (Shop != null);
+        public bool HasShop => (Shop != null && !String.IsNullOrEmpty(Shop.Title));
 
         public string ShopBkgndImageSource => (Shop?.Categorie?.Count() > 0) ? Shop.Categorie[0].BkgndImageSource : null;
 
@@ -25,8 +25,6 @@ namespace Italia.DiciottoApp.ViewModels
         public string ShopAddress => (Shop == null) ? string.Empty
                                      : Shop.IsOnline ? Shop.Url
                                      : $"{Shop.Address?.Comune} ({Shop.Address?.SiglaProvincia})";
-
-        public bool IsNotOnline => !(Shop?.IsOnline ?? false);
 
         private Shop shop;
         public Shop Shop
@@ -38,7 +36,6 @@ namespace Italia.DiciottoApp.ViewModels
                 OnPropertyChanged(nameof(ShopBkgndImageSource));
                 OnPropertyChanged(nameof(ShopKindImageSource));
                 OnPropertyChanged(nameof(ShopAddress));
-                OnPropertyChanged(nameof(IsNotOnline));
             });
         }
 

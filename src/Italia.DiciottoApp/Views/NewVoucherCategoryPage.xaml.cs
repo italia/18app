@@ -22,7 +22,7 @@ namespace Italia.DiciottoApp.Views
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
             vm = BindingContext as NewVoucherCategoryViewModel;
-            vm.Shop = shop;
+            vm.Shop = shop ?? new Shop() { IsOnline = false };
         }
 
         protected async override void OnAppearing()

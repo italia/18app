@@ -24,7 +24,7 @@ namespace Italia.DiciottoApp.Services
 
         public string ClientSecret { get; set; } = Settings.IsProductionEnvironment ? Keys.X_IBM_ClientSecret_ProdEnv : Keys.X_IBM_ClientSecret_TestEnv;
 
-        public async Task<IEnumerable<Voucher>> GetUserVouchersAsync(Cookie fedSecureToken, bool spent, int page = 0, int pageItems = 100, CancellationToken ct = default(CancellationToken))
+        public async Task<IEnumerable<Voucher>> GetUserVouchersAsync(Cookie fedSecureToken, bool spent, int page = 0, int pageItems = 100, CancellationToken ct = default)
         {
             List<Voucher> vouchers = new List<Voucher>();
 
@@ -156,8 +156,9 @@ namespace Italia.DiciottoApp.Services
 
             try
             {
-                // Recupero i dati della ricerca store
-                var response = await httpClient.GetAsync($"{serviceEndpoint}/BONUSWS/rest/secured/gestioneVoucher/annullaVoucherFisico/{voucher.Id}");
+                // Cancello il voucher
+                var ambito = (voucher?.Shop?.IsOnline ?? false) ? "annullaVoucherOnline" : "annullaVoucherFisico";
+                var response = await httpClient.GetAsync($"{serviceEndpoint}/BONUSWS/rest/secured/gestioneVoucher/{ambito}/{voucher.Id}");
                 await deleteVoucherServiceResult.ProcessAsync(response);
             }
             catch (Exception ex)

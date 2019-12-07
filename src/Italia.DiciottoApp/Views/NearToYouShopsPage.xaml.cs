@@ -75,6 +75,10 @@ namespace Italia.DiciottoApp.Views
                     listView.SelectedItem = null;
                 }
 
+                // We suppose is not an online shop
+                shop.IsOnline = false;
+
+                // Navigate to shop page
                 await Navigation.PushAsync(new ShopPage(shop));
             }
         }

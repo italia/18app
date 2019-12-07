@@ -24,7 +24,7 @@ namespace Italia.DiciottoApp.ViewModels
 
         public AppArea AppArea => AppArea.NewVoucher;
 
-        public bool HasShop => (Shop != null);
+        public bool HasShop => (Shop != null && !String.IsNullOrEmpty(Shop.Title));
 
         public string ShopBkgndImageSource => (Shop?.Categorie?.Count() > 0) ? Shop.Categorie[0].BkgndImageSource : null;
 
@@ -33,8 +33,6 @@ namespace Italia.DiciottoApp.ViewModels
         public string ShopAddress => (Shop == null) ? string.Empty
                                      : Shop.IsOnline ? Shop.Url
                                      : $"{Shop.Address?.Comune} ({Shop.Address?.SiglaProvincia})";
-
-        public bool IsNotOnline => !(Shop?.IsOnline ?? false);
 
         private Shop shop;
         public Shop Shop
@@ -46,11 +44,12 @@ namespace Italia.DiciottoApp.ViewModels
                 OnPropertyChanged(nameof(ShopBkgndImageSource));
                 OnPropertyChanged(nameof(ShopKindImageSource));
                 OnPropertyChanged(nameof(ShopAddress));
-                OnPropertyChanged(nameof(IsNotOnline));
             });
         }
 
         public string ValueMessage => "Inserisci il valore del buono";
+
+        public string IsOnlineMessage => "Scegli l'ambito d'utilizzo";
 
         private Categoria categoria;
         public Categoria Categoria
@@ -161,10 +160,10 @@ namespace Italia.DiciottoApp.ViewModels
                 };
 
                 IVouchersService vouchersService = Service.Resolve<IVouchersService>();
-                var createVoucherServiceResult = await vouchersService.CreateVoucherAsync(fedSecureToken, Categoria, Prodotto, valore, online: false);
+                var createVoucherServiceResult = await vouchersService.CreateVoucherAsync(fedSecureToken, Categoria, Prodotto, valore, online: Shop?.IsOnline ?? false);
                 if (createVoucherServiceResult.Success)
                 {
-                    voucher = Voucher.FromVoucherBean(createVoucherServiceResult.Result, online: false);
+                    voucher = Voucher.FromVoucherBean(createVoucherServiceResult.Result, online: Shop?.IsOnline ?? false);
                 }
                 else
                 {

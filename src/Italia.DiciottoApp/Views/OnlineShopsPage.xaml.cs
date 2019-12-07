@@ -64,6 +64,10 @@ namespace Italia.DiciottoApp.Views
                     listView.SelectedItem = null;
                 }
 
+                // We suppose is an online shop
+                shop.IsOnline = true;
+
+                // Navigate to shop page
                 await Navigation.PushAsync(new ShopPage(shop));
             }
         }

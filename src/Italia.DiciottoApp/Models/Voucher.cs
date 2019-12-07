@@ -12,9 +12,9 @@ namespace Italia.DiciottoApp.Models
 
         public string Codice { get; set; }
 
-        public Shop Shop { get; set; }
-
         public string ShopId { get; set; }
+
+        public Shop Shop { get; set; }
 
         public double RequestedValue { get; set; }
 
@@ -38,7 +38,7 @@ namespace Italia.DiciottoApp.Models
 
         #region Utils
 
-        public static Voucher FromVoucherBean(VoucherBean voucherBean, bool online) // , bool? spent = null)
+        public static Voucher FromVoucherBean(VoucherBean voucherBean, bool online)
         {
             if (voucherBean == null)
             {
@@ -56,8 +56,8 @@ namespace Italia.DiciottoApp.Models
                 Codice = voucherBean.CodiceVoucher,
                 // Still not used: BeneficiarioBean
                 // Still not used: EsercenteBean
-                Shop = Shop.FromPuntoVenditaBean(voucherBean.PuntoVenditaBean, online),
                 ShopId = voucherBean.PuntoVenditaBean?.IdPuntoVendita.ToString() ?? string.Empty,
+                Shop = Shop.FromPuntoVenditaBean(voucherBean.PuntoVenditaBean, online),
                 // Still not used: AmbitoBean (but AmbitoBean.IdAmbito used to find Category)
                 Category = categoria,
                 // Still not used: BeneBean (but BeneBean.IdBene used to find Product)

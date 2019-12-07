@@ -57,7 +57,7 @@ namespace Italia.DiciottoApp.ViewModels
 
         public bool UseVoucherOnlineButtonIsVisible => (!Voucher?.Spent ?? false) && (Voucher?.Shop?.IsOnline ?? false);
 
-        public bool ShopHasGeolocation => Voucher.Shop.Location != null && Voucher.Shop.Location.Latitude != 0 && Voucher.Shop.Location.Longitude != 0;
+        public bool ShopHasGeolocation => Voucher?.Shop?.Location != null && Voucher.Shop.Location.Latitude != 0 && Voucher.Shop.Location.Longitude != 0;
 
         public bool ShopRouteButtonIsVisible => (!Voucher?.Spent ?? false) && (!Voucher?.Shop?.IsOnline ?? false) && ShopHasGeolocation;
 
@@ -136,10 +136,10 @@ namespace Italia.DiciottoApp.ViewModels
             return deleteVoucherResult;
         }
 
-        private static Categoria CategoriaFromTipoCategoria(TipoCategoria tipoCategoria)
-        {
-            return Categoria.List.SingleOrDefault(c => c.Tipo == tipoCategoria);
-        }
+        //private static Categoria CategoriaFromTipoCategoria(TipoCategoria tipoCategoria)
+        //{
+        //    return Categoria.List.SingleOrDefault(c => c.Tipo == tipoCategoria);
+        //}
 
     }
 } 

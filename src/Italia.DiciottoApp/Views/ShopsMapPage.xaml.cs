@@ -100,6 +100,10 @@ namespace Italia.DiciottoApp.Views
 
         private async void OnSelectedShopTapped(object sender, EventArgs e)
         {
+            // We suppose is not an online shop
+            vm.SelectedShop.IsOnline = false;
+
+            // Navigate to shop page
             await Navigation.PushAsync(new ShopPage(vm.SelectedShop));
         }
     }
