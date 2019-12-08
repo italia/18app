@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionName="0.19" package="it.Italia.DiciottoApp" android:installLocation="auto" android:versionCode="125">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionName="0.20" package="it.Italia.DiciottoApp" android:installLocation="auto" android:versionCode="126">
 	<uses-sdk android:minSdkVersion="24" android:targetSdkVersion="28" />
 	<application android:label="18App" android:icon="@mipmap/icon" android:allowBackup="false" android:fullBackupOnly="false">
 		<meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyD1y_e9GuIlwThs_abXJrFo0ARxnd-fY3o" />
