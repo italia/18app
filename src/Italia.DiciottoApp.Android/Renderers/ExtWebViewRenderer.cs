@@ -265,12 +265,12 @@ namespace Italia.DiciottoApp.Droid.Renderers
 
             public override void OnReceivedHttpError(AWebView view, IWebResourceRequest request, WebResourceResponse errorResponse)
             {
-                Log.Warning("++++++++ WebView:OnReceivedHttpError(AWebView view, IWebResourceRequest request, WebResourceResponse errorResponse)", $"errorResponse.StatusCode={errorResponse.StatusCode}");
+                Log.Warning("++++++++ WebView:OnReceivedHttpError(AWebView view, IWebResourceRequest request, WebResourceResponse errorResponse)", $"errorResponse.StatusCode={((errorResponse != null) ? errorResponse.StatusCode.ToString() : "N/A")}");
 
                 // Because OnReceivedHttpError seems to do nothing...
                 _navigationResult = WebNavigationResult.Failure;
                 base.OnReceivedHttpError(view, request, errorResponse);
-                var args = new WebNavigatedEventArgs(WebNavigationEvent.NewPage, new UrlWebViewSource { Url = request.Url.ToString() }, request.Url.ToString(), WebNavigationResult.Failure);
+                var args = new WebNavigatedEventArgs(WebNavigationEvent.NewPage, new UrlWebViewSource { Url = request?.Url?.ToString() }, request?.Url?.ToString(), WebNavigationResult.Failure);
                 _renderer.ElementController.SendNavigated(args);
             }
 
