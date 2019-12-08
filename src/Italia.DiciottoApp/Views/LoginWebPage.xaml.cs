@@ -54,9 +54,31 @@ namespace Italia.DiciottoApp.Views
             }
         }
 
-        private void OnBrowserNavigated(object sender, WebNavigatedEventArgs e)
+        private async void OnBrowserNavigated(object sender, WebNavigatedEventArgs e)
         {
-            Debug.WriteLine($"##---> Navigated to {e.Url}");
+            Debug.WriteLine($"##---> Navigated to {e.Url}, Result: {e.Result.ToString()}");
+            string loginFailDetail = String.Empty;
+            switch (e.Result)
+            {
+                case WebNavigationResult.Success:
+                    break;
+                case WebNavigationResult.Cancel:
+                    loginFailDetail = "La navigazione è stata cancellata";
+                    break;
+                case WebNavigationResult.Timeout:
+                    loginFailDetail = "Il servizio di login non risponde";
+                    break;
+                case WebNavigationResult.Failure:
+                    loginFailDetail = "Il servizio di login ha restituito un errore";
+                    break;
+                default:
+                    loginFailDetail = "Il servizio di login ha restituito un errore";
+                    break;
+            }
+            if (e.Result != WebNavigationResult.Success)
+            {
+                await DisplayAlert("Login error", loginFailDetail, "OK");
+            }
         }
 
         private async void OnUrlReturned(object sender, UrlReturnedEventArgs e)
