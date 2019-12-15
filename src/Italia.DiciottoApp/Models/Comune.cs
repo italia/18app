@@ -8,20 +8,28 @@ using System.Text;
 
 namespace Italia.DiciottoApp.Models
 {
-    public class Municipality
+    public class Comune
     {
         public string Id { get; set; }
 
-        public string RegionId { get; set; }
+        public string CodiceCatastale { get; set; }
 
-        public string Province { get; set; }
+        public string Nome { get; set; }
 
-        public string Name { get; set; }
+        public string NomeAlternativo { get; set; }
 
-        public string FullName => $"{Name} ({Province})";
+        public string NomeCompleto => $"{Nome}{(!String.IsNullOrWhiteSpace(NomeAlternativo) ? "/" : "")}{NomeAlternativo}";
 
-        private static IEnumerable<Municipality> list = null;
-        public static IEnumerable<Municipality> List
+        public string CodiceProvincia { get; set; }
+
+        public string Provincia { get; set; }
+
+        public string CodiceRegione { get; set; }
+
+        public string Regione { get; set; }
+
+        private static IEnumerable<Comune> list = null;
+        public static IEnumerable<Comune> List
         {
             get
             {
@@ -33,19 +41,19 @@ namespace Italia.DiciottoApp.Models
             }
         }
 
-        private static IEnumerable<Municipality> CreateList()
+        private static IEnumerable<Comune> CreateList()
         {
             var assembly = IntrospectionExtensions.GetTypeInfo(typeof(Constants)).Assembly;
             Stream stream = assembly.GetManifestResourceStream("Italia.DiciottoApp.Data.ElencoComuni.json");
 
-            Municipality[] municipalities;
+            Comune[] comuni;
             using (var reader = new StreamReader(stream))
             {
                 var json = reader.ReadToEnd();
-                municipalities = JsonConvert.DeserializeObject<Municipality[]>(json);
+                comuni = JsonConvert.DeserializeObject<Comune[]>(json);
             }
 
-            return municipalities;
+            return comuni;
         }
     }
 }

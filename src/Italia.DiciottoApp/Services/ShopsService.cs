@@ -242,7 +242,7 @@ namespace Italia.DiciottoApp.Services
             return shops;
         }
 
-        public async Task<IEnumerable<Shop>> FindShopsAsync(Categoria category, Municipality municipality, string text = null, int maxItems = 10, CancellationToken ct = default(CancellationToken))
+        public async Task<IEnumerable<Shop>> FindShopsAsync(Categoria category, Comune municipality, string text = null, int maxItems = 10, CancellationToken ct = default(CancellationToken))
         {
             //var fakeShopsService = new FakeShopsService();
             //shops = await fakeShopsService.FindShopsAsync(category, municipality, text.Trim(), maxItems, ct);
@@ -264,7 +264,7 @@ namespace Italia.DiciottoApp.Services
             {
                 TipoStore = "F",
                 IdAmbito = category?.Id ?? null,
-                Comune = municipality?.Name ?? null,
+                Comune = municipality?.Nome ?? null,
                 NomeEsercenteOIndirizzo = string.IsNullOrEmpty(text) ? null : text,
                 Start = 0,
                 Limit = maxItems
@@ -329,13 +329,13 @@ namespace Italia.DiciottoApp.Services
             return shops;
         }
 
-        public IEnumerable<Municipality> FindMunicipality(string partialName, int maxItems = 100)
+        public IEnumerable<Comune> FindMunicipality(string partialName, int maxItems = 100)
         {
-            var municipalities = Municipality.List;
+            var municipalities = Comune.List;
 
             if (!string.IsNullOrWhiteSpace(partialName))
             {
-                municipalities = municipalities.Where(m => m.Name.Contains(partialName.Trim()));
+                municipalities = municipalities.Where(m => m.Nome.Contains(partialName.Trim()));
             }
 
             return municipalities.Take(maxItems);

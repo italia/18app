@@ -49,7 +49,14 @@
                    Style="{StaticResource RegularLabelStyle}" 
                    FontSize="16"
                    TextColor="#FF30383D"
-                   Text="{Binding BirthDatePlace}"
+                   Text="{Binding BirthDate}"
+                   IsVisible="{Binding IsBirthDatePlaceAvailable}" />
+
+            <Label Margin="12,-4,0,0"
+                   Style="{StaticResource RegularLabelStyle}" 
+                   FontSize="16"
+                   TextColor="#FF30383D"
+                   Text="{Binding BirthPlace}"
                    IsVisible="{Binding IsBirthDatePlaceAvailable}" />
 
             <Label Margin="12,10,0,0"

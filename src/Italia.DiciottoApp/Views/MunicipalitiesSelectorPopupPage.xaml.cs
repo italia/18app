@@ -103,7 +103,7 @@ namespace Italia.DiciottoApp.Views
 
         private async void OnMunicipalityListItemTapped(object sender, ItemTappedEventArgs e)
         {
-            if (e.Item is Municipality municipality)
+            if (e.Item is Comune municipality)
             {
                 // Clear the item selection
                 if (sender is ListView listView)

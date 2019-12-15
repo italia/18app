@@ -16,7 +16,7 @@ namespace Italia.DiciottoApp.ViewModels
 
         public AppArea AppArea => AppArea.None;
 
-        public ObservableCollection<Municipality> Municipalities { get; set; } = new ObservableCollection<Municipality>();
+        public ObservableCollection<Comune> Municipalities { get; set; } = new ObservableCollection<Comune>();
 
         private string searchText = string.Empty;
         public string SearchText
@@ -62,7 +62,7 @@ namespace Italia.DiciottoApp.ViewModels
             else
             {
                 ContentHeader = "Ricerca Comuni in corso...";
-                var municipalities = Municipality.List.Where(m => m.Name.ToUpper().Contains(searchText.ToUpper())).OrderBy(m => m.Name.Length).ThenBy(m => m.Name).Take(20);
+                var municipalities = Comune.List.Where(m => m.Nome.ToUpper().Contains(searchText.ToUpper())).OrderBy(m => m.Nome.Length).ThenBy(m => m.Nome).Take(20);
                 Municipalities.Clear();
                 foreach (var municipality in municipalities)
                 {

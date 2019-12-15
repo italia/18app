@@ -8,8 +8,8 @@ namespace Italia.DiciottoApp.ViewModels.Interfaces
 {
     public interface ISelectMunicipality
     {
-        Municipality SelectedMunicipality { get; set; }
+        Comune SelectedMunicipality { get; set; }
 
-        Task SelectMunicipalityAsync(Municipality municipality);
+        Task SelectMunicipalityAsync(Comune municipality);
     }
 }

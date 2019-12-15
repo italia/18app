@@ -55,7 +55,7 @@ namespace Italia.DiciottoApp.Services
             return shops.Take(maxItems);
         }
 
-        public async Task<IEnumerable<Shop>> FindShopsAsync(Categoria category, Municipality municipality, string text = null, int maxItems = 10, CancellationToken ct = default(CancellationToken))
+        public async Task<IEnumerable<Shop>> FindShopsAsync(Categoria category, Comune municipality, string text = null, int maxItems = 10, CancellationToken ct = default(CancellationToken))
         {
             // simulate delay
             await Task.Delay(simulatedDelay);
@@ -88,7 +88,7 @@ namespace Italia.DiciottoApp.Services
             return shops.Take(maxItems);
         }
 
-        public IEnumerable<Municipality> FindMunicipality(string partialName, int maxItems = 100)
+        public IEnumerable<Comune> FindMunicipality(string partialName, int maxItems = 100)
         {
             return null;
         }

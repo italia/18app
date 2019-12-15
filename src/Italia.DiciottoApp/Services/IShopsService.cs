@@ -16,8 +16,8 @@ namespace Italia.DiciottoApp.Services
 
         Task<IEnumerable<Shop>> OnlineShopsAsync(Categoria category, int maxItems = 10, CancellationToken ct = default(CancellationToken));
 
-        Task<IEnumerable<Shop>> FindShopsAsync(Categoria category, Municipality municipality, string text = null, int maxItems = 10, CancellationToken ct = default(CancellationToken));
+        Task<IEnumerable<Shop>> FindShopsAsync(Categoria category, Comune municipality, string text = null, int maxItems = 10, CancellationToken ct = default(CancellationToken));
 
-        IEnumerable<Municipality> FindMunicipality(string partialName, int maxItems = 100);
+        IEnumerable<Comune> FindMunicipality(string partialName, int maxItems = 100);
     }
 }

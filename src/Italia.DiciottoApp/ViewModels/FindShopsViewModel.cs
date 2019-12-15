@@ -51,8 +51,8 @@ namespace Italia.DiciottoApp.ViewModels
         public bool IsMunicipalitySelected => SelectedMunicipality != null;
         public bool IsMunicipalityNotSelected => SelectedMunicipality == null;
 
-        private Municipality selectedMunicipality;
-        public Municipality SelectedMunicipality
+        private Comune selectedMunicipality;
+        public Comune SelectedMunicipality
         {
             get => selectedMunicipality;
             set => SetProperty(ref selectedMunicipality, value, onChanged: () =>
@@ -107,7 +107,7 @@ namespace Italia.DiciottoApp.ViewModels
             await FindShopsAsync();
         }
 
-        public async Task SelectMunicipalityAsync(Municipality municipality)
+        public async Task SelectMunicipalityAsync(Comune municipality)
         {
             SelectedMunicipality = municipality;
             await FindShopsAsync();

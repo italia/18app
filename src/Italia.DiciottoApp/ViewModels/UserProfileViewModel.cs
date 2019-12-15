@@ -1,12 +1,20 @@
 ﻿using Italia.DiciottoApp.Models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Italia.DiciottoApp.ViewModels
 {
     public class UserProfileViewModel : BaseViewModel
     {
+        #region Constants
+
+        private static readonly string BIRTH_DATE_NA = "Data di nascita non disponibile";
+        private static readonly string BIRTH_PLACE_NA = "Comune di nascita non disponibile";
+
+        #endregion
+
         #region Properties
 
         public string PageTitle => "Il tuo profilo";
@@ -20,20 +28,34 @@ namespace Italia.DiciottoApp.ViewModels
 
         public bool IsCodFiscAvailable => !string.IsNullOrWhiteSpace(Settings.UserCodFisc);
 
-        public string BirthDatePlace
+        public string BirthDate
         {
             get
             {
-                string birthDatePlace = $"{Settings.UserBirthDate?.ToString("dd MMMM yyyy") ?? ""} {Settings.UserBirthCity}";
-                if (!string.IsNullOrWhiteSpace(Settings.UserBirthProvince))
-                {
-                    birthDatePlace += $" ({Settings.UserBirthProvince})";
-                }
-                return birthDatePlace.TrimStart();
+                return $"{Settings.UserBirthDate?.ToString("dd MMMM yyyy") ?? BIRTH_DATE_NA}";
             }
         }
 
-        public bool IsBirthDatePlaceAvailable => !string.IsNullOrWhiteSpace(BirthDatePlace);
+        public string BirthPlace
+        {
+            get
+            {
+                string birthPlace = BIRTH_PLACE_NA;
+                Comune comune = Comune.List.FirstOrDefault(m => m.CodiceCatastale == Settings.UserBirthCity);
+
+                if (comune != null)
+                {
+                    birthPlace = comune.NomeCompleto;
+                    if (!String.IsNullOrWhiteSpace(comune.CodiceProvincia))
+                    {
+                        birthPlace += $"({comune.CodiceProvincia})";
+                    }
+                }
+                return birthPlace.TrimStart();
+            }
+        }
+
+        public bool IsBirthDatePlaceAvailable => !(BirthDate == BIRTH_DATE_NA && BirthPlace == BIRTH_PLACE_NA);
 
         public string ResidenceAddress => Settings.UserResidenceAddress;
 
