@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System;
+using System.Diagnostics;
 
 namespace Italia.DiciottoApp.Utils
 {
@@ -19,6 +20,8 @@ namespace Italia.DiciottoApp.Utils
             {
                 return null;
             }
+            Debug.WriteLine($"### Backend  ### --> Epoch value: {(long)reader.Value}");
+            Debug.WriteLine($"### Frontend ### --> Date value : {epochDateTime.AddMilliseconds((long)reader.Value).ToString("dd MMMM yyyy")}");
             return epochDateTime.AddMilliseconds((long)reader.Value);
         }
     }
