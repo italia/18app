@@ -41,14 +41,14 @@ namespace Italia.DiciottoApp.ViewModels
             get
             {
                 string birthPlace = BIRTH_PLACE_NA;
-                Comune comune = Comune.List.FirstOrDefault(m => m.CodiceCatastale == Settings.UserBirthCity);
+                Comune comune = Comune.List.FirstOrDefault(m => (m.Nome == Settings.UserBirthCity || m.NomeAlternativo == Settings.UserBirthCity));
 
                 if (comune != null)
                 {
                     birthPlace = comune.NomeCompleto;
                     if (!String.IsNullOrWhiteSpace(comune.CodiceProvincia))
                     {
-                        birthPlace += $"({comune.CodiceProvincia})";
+                        birthPlace += $" ({comune.CodiceProvincia})";
                     }
                 }
                 return birthPlace.TrimStart();
