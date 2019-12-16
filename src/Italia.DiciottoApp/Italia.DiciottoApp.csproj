@@ -19,7 +19,7 @@
 
   <ItemGroup>
     <None Remove="Data\PrivacyHtmlContent.txt" />
-    <None Remove="ElencoComuni.json" />
+    <None Remove="Data\ElencoComuni.json" />
   </ItemGroup>
 
   <ItemGroup>
