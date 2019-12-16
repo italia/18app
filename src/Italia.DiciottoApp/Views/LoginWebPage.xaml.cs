@@ -56,7 +56,7 @@ namespace Italia.DiciottoApp.Views
 
         private async void OnBrowserNavigated(object sender, WebNavigatedEventArgs e)
         {
-            Debug.WriteLine($"##---> Navigated to {e.Url}, Result: {e.Result.ToString()}");
+            Debug.WriteLine($"##---> OnBrowserNavigated Result: {e.Result.ToString()}, for: {e.Url}");
             string loginFailDetail = String.Empty;
             switch (e.Result)
             {
@@ -75,7 +75,9 @@ namespace Italia.DiciottoApp.Views
                     loginFailDetail = "Il servizio di login ha restituito un errore";
                     break;
             }
-            if (e.Result != WebNavigationResult.Success)
+
+            // Show error only in case of service timeout
+            if (e.Result == WebNavigationResult.Timeout)
             {
                 await DisplayAlert("Login error", loginFailDetail, "OK");
             }
