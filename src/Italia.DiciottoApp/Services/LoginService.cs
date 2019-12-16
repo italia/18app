@@ -32,12 +32,15 @@ namespace Italia.DiciottoApp.Services
             try
             {
                 var response = await httpClient.GetAsync($"{serviceEndpoint}/BONUSWS/rest/secured/18enne/aggiornaBeneficiarioBySPID");
+                Debug.WriteLine($"@@@@@@ aggiornaBeneficiarioBySPID Result: {response.IsSuccessStatusCode}");
                 loginResult.Process(response); // loginResult.Process(response, skipInternalError: true);
 
                 response = await httpClient.GetAsync($"{serviceEndpoint}/BonusLoginWEB/jaxrs/userData");
+                Debug.WriteLine($"@@@@@@ jaxrs/userData Result: {response.IsSuccessStatusCode}"); 
                 loginResult.Process(response);
 
                 response = await httpClient.GetAsync($"{serviceEndpoint}/BONUSWS/rest/secured/18enne/beneficiario");
+                Debug.WriteLine($"@@@@@@ beneficiario Result: {response.IsSuccessStatusCode}");
                 loginResult.Process(response);
 
                 var content = await response.Content.ReadAsStringAsync();
@@ -60,6 +63,7 @@ namespace Italia.DiciottoApp.Services
                     {
                         // Proseguo col LOGIN
                         response = await httpClient.GetAsync($"{serviceEndpoint}/BONUSWS/rest/secured/18enne/beneficiarioOperativo");
+                        Debug.WriteLine($"@@@@@@ beneficiarioOperativo Result: {response.IsSuccessStatusCode}");
                         loginResult.Process(response);
 
                         content = await response.Content.ReadAsStringAsync();
@@ -68,12 +72,14 @@ namespace Italia.DiciottoApp.Services
                         if (checkBeneficiarioOperativoBean.FlagOperativo == false)
                         {
                             // Beneficiario non operativo
+                            Debug.WriteLine($"@@@@@@ checkBeneficiarioOperativoBean.FlagOperativo is false");
                             loginResult.NonOperatingBeneficiary();
                         }
                         else
                         {
                             // Recupero i dati del borsellino
                             response = await httpClient.GetAsync($"{serviceEndpoint}/BONUSWS/rest/secured/18enne/borsellino");
+                            Debug.WriteLine($"@@@@@@ borsellino Result: {response.IsSuccessStatusCode}");
                             loginResult.Process(response);
 
                             content = await response.Content.ReadAsStringAsync();
@@ -96,6 +102,7 @@ namespace Italia.DiciottoApp.Services
                 {
                     // Procedo con la REGISTRAZIONE
                     response = await httpClient.GetAsync($"{serviceEndpoint}/BONUSWS/rest/secured/18enne/beneficiarioByWsAnagrafica");
+                    Debug.WriteLine($"@@@@@@ beneficiarioByWsAnagrafica Result: {response.IsSuccessStatusCode}");
                     loginResult.Process(response);
 
                     content = await response.Content.ReadAsStringAsync();
@@ -105,6 +112,7 @@ namespace Italia.DiciottoApp.Services
                     var stringContent = new StringContent(body, UnicodeEncoding.UTF8, "application/json");
 
                     response = await httpClient.PostAsync($"{serviceEndpoint}/BONUSWS/rest/secured/18enne/verificaPeriodoRegistrazioneBeneficiario", stringContent);
+                    Debug.WriteLine($"@@@@@@ verificaPeriodoRegistrazioneBeneficiario Result: {response.IsSuccessStatusCode}");
                     loginResult.Process(response);
 
                     content = await response.Content.ReadAsStringAsync();
@@ -117,6 +125,7 @@ namespace Italia.DiciottoApp.Services
                     else
                     {
                         loginResult.RegistrationCheckFailed();
+                        Debug.WriteLine($"@@@@@@ RegistrationCheckFailed");
                     }
                 }
             }
