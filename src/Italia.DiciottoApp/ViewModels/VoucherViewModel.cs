@@ -49,7 +49,7 @@ namespace Italia.DiciottoApp.ViewModels
 
         public string VoucherStatus =>
             Voucher == null ? string.Empty
-                           : Voucher.Spent && Voucher.SpentDateTime != null ? $"Buono utilizzato il {Voucher.SpentDateTime.Value.ToString("dd MMMM yy", ci)} alle ore {Voucher.SpentDateTime.Value.ToString("hh.mm")}"
+                           : Voucher.Spent && Voucher.SpentDateTime != null ? $"Buono utilizzato il {Voucher.SpentDateTime.Value.ToString("dd MMMM yyyy", ci)} alle ore {Voucher.SpentDateTime.Value.ToString("hh.mm")}"
                            : JustCreated ? "Il nuovo buono è stato creato correttamente"
                            : "Buono ancora da spendere" ;
 
