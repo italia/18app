@@ -41,7 +41,7 @@ namespace Italia.DiciottoApp.ViewModels
             get
             {
                 string birthPlace = BIRTH_PLACE_NA;
-                Comune comune = Comune.List.FirstOrDefault(m => (m.Nome == Settings.UserBirthCity || m.NomeAlternativo == Settings.UserBirthCity));
+                Comune comune = Comune.List.FirstOrDefault(m => (m.Nome == Settings.UserBirthCity || m.CodiceCatastale == Settings.UserBirthCity));
 
                 if (comune != null)
                 {
