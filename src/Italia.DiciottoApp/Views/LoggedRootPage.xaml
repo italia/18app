@@ -58,9 +58,6 @@
                          HorizontalOptions="CenterAndExpand"
                          VerticalOptions="CenterAndExpand"
                          Margin="0,0,0,0">
-                <StackLayout.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="OnNewVoucherTapped" />
-                </StackLayout.GestureRecognizers>
 
                 <cr:RadialGauge WidthRequest="{Binding RadialGaugeSize}"
                                 HeightRequest="{Binding RadialGaugeSize}"
@@ -74,6 +71,21 @@
                                 Spent="{Binding SpentAmmount}"
                                 Created="{Binding CreatedAmmount}" >
                 </cr:RadialGauge>
+            </StackLayout>
+
+            <StackLayout Grid.Row="2" Padding="0" Spacing="0"
+                         HorizontalOptions="Center"
+                         VerticalOptions="Center"
+                         Margin="0,0,0,0">
+
+                <Frame Padding="0" CornerRadius="10" HasShadow="False"
+                       WidthRequest="{Binding GaugePlusSize}"
+                       HeightRequest="{Binding GaugePlusSize}"
+                       BackgroundColor="Transparent">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnNewVoucherTapped" />
+                    </Frame.GestureRecognizers>
+                </Frame>
             </StackLayout>
 
             <Label Grid.Row="3"

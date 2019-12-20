@@ -27,6 +27,8 @@ namespace Italia.DiciottoApp.ViewModels
 
         public double RadialGaugeSize => Math.Min(DisplayWidth / DisplayDensity, DisplayHeight / DisplayDensity) * 2.0 / 3.0;
 
+        public double GaugePlusSize => RadialGaugeSize / 3.0;
+
         #endregion
 
         public LoggedRootViewModel() : base()
