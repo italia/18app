@@ -372,7 +372,7 @@ namespace Italia.DiciottoApp.Services
 
             var mt = 1000 * location.CalculateDistance(latitudine.Value, longitudine.Value, DistanceUnits.Kilometers);
 
-            return (mt < 1000) ? $"{mt} m" : string.Format("{0:#.00} km", mt / 1000.0);
+            return (mt < 1000) ? string.Format("{0:#} m", mt) : string.Format("{0:#.00} km", mt / 1000.0);
         }
 
         #endregion
