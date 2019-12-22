@@ -123,22 +123,31 @@ namespace Italia.DiciottoApp.Views
                     {
                         await DisplayAlert("Annulla buono", "Il buono è stato annullato e il suo valore riassegnato alla tua disponibilità", "OK");
 
-                        // Find and delete from the navigation history all detail pages of this voucher
-                        var voucherPages = Navigation.NavigationStack.Where(p => p is VoucherPage).ToList();
-                        if (voucherPages != null)
-                        {
-                            foreach (var voucherPage in voucherPages)
-                            {
-                                VoucherViewModel voucherViewModel = (VoucherViewModel)voucherPage.BindingContext;
-                                if (voucherPage != this && voucherViewModel.Voucher.Id == vm.Voucher.Id)
-                                {
-                                    Navigation.RemovePage(voucherPage);
-                                }
-                            }
-                        }
+                        //// Find and delete from the navigation history all detail pages of this voucher
+                        //var voucherPages = Navigation.NavigationStack.Where(p => p is VoucherPage).ToList();
+                        //if (voucherPages != null)
+                        //{
+                        //    foreach (var voucherPage in voucherPages)
+                        //    {
+                        //        VoucherViewModel voucherViewModel = (VoucherViewModel)voucherPage.BindingContext;
+                        //        if (voucherPage != this && voucherViewModel.Voucher.Id == vm.Voucher.Id)
+                        //        {
+                        //            Navigation.RemovePage(voucherPage);
+                        //        }
+                        //    }
+                        //}
 
-                        // Go back
-                        await Navigation.PopAsync();
+                        //// Go back
+                        //await Navigation.PopAsync();
+
+                        // Get the root page
+                        IReadOnlyList<Page> navStack = Navigation.NavigationStack;
+                        Page currentRootPage = navStack[0];
+
+                        Navigation.InsertPageBefore(new LoggedRootPage(), currentRootPage);
+
+                        // Clear navigation stack
+                        await Navigation.PopToRootAsync();
                     }
                 }
                 else
