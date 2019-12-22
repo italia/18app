@@ -17,6 +17,8 @@ namespace Italia.DiciottoApp.ViewModels
     {
         private double valore;
         private readonly CultureInfo ci = new CultureInfo("it-IT");
+        private readonly CultureInfo cl = CultureInfo.CurrentCulture;
+        private string entryValuePreviousText = string.Empty;
 
         #region Properties
 
@@ -74,13 +76,14 @@ namespace Italia.DiciottoApp.ViewModels
             set => SetProperty(ref entryValue, value);
         }
 
-        private bool entryValueIsValid;
+        private bool entryValueIsValid = false;
         public bool EntryValueIsValid
         {
             get => entryValueIsValid;
             set => SetProperty(ref entryValueIsValid, value, onChanged: () =>
             {
                 OnPropertyChanged(nameof(CreateVoucherButtonEnabled));
+                OnPropertyChanged(nameof(EntryValue));
             });
         }
 
@@ -112,46 +115,50 @@ namespace Italia.DiciottoApp.ViewModels
         {
         }
 
-        public bool ValidateEntry(string valueText)
+        public void ValidateEntry(string valueText)
         {
-            bool isValid = true;
-            if (string.IsNullOrWhiteSpace(valueText))
+            if (valueText != entryValuePreviousText)
             {
-                isValid = false;
-                ErrorMessage = string.Empty;
-            }
-            else
-            {
-                if (!double.TryParse(valueText, NumberStyles.Any, ci, out valore))
+                if (string.IsNullOrWhiteSpace(valueText))
                 {
-                    isValid = false;
-                    ErrorMessage = "Il valore inserito non è un numero.";
-                }
-                else if (valore <= 0 || valore > Settings.BorsellinoImportoResiduo) // ActualCredit
-                {
-                    isValid = false;
-                    ErrorMessage = "Il valore dev'essere maggiore di zero e non superiore al credito disponibile.";
-                }
-                else if (Math.Abs(valore - Math.Round(valore, 2)) > 0)
-                {
-                    isValid = false;
-                    ErrorMessage = "Il valore non deve avere più di due cifre decimali.";
+                    EntryValueIsValid = false;
+                    ErrorMessage = string.Empty;
                 }
                 else
                 {
-                    ErrorMessage = string.Empty;
+                    valueText = valueText.Replace('.', ',');
+                    if (!double.TryParse(valueText, NumberStyles.Any, ci, out valore))
+                    {
+                        EntryValueIsValid = false;
+                        ErrorMessage = "Il valore inserito non è un numero.";
+                    }
+                    else if (valore <= 0 || valore > Settings.BorsellinoImportoResiduo) // ActualCredit
+                    {
+                        EntryValueIsValid = false;
+                        ErrorMessage = "Il valore dev'essere maggiore di zero e non superiore al credito disponibile.";
+                    }
+                    else if (Math.Abs(valore - Math.Round(valore, 2)) > 0)
+                    {
+                        EntryValueIsValid = false;
+                        ErrorMessage = "Il valore non deve avere più di due cifre decimali.";
+                    }
+                    else
+                    {
+                        EntryValueIsValid = true;
+                        ErrorMessage = string.Empty;
+                    }
                 }
-            }
 
-            EntryValueIsValid = isValid;
-            return isValid;
+                entryValuePreviousText = valueText;
+                EntryValue = valueText;
+            }
         }
 
         public async Task<Voucher> CreateVoucherAsync()
         {
             Voucher voucher = null;
 
-            if (ValidateEntry(EntryValue))
+            if (EntryValueIsValid)
             {
                 Cookie fedSecureToken = new Cookie
                 {
