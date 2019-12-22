@@ -1,13 +1,9 @@
 ﻿using Italia.DiciottoApp.Data;
 using Italia.DiciottoApp.Models;
 using Italia.DiciottoApp.Services;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Net;
-using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
@@ -49,7 +45,7 @@ namespace Italia.DiciottoApp.ViewModels
 
         public string VoucherStatus =>
             Voucher == null ? string.Empty
-                           : Voucher.Spent && Voucher.SpentDateTime != null ? $"Buono utilizzato il {Voucher.SpentDateTime.Value.ToString("dd MMMM yyyy", ci)} alle ore {Voucher.SpentDateTime.Value.ToString("hh.mm")}"
+                           : Voucher.Spent && Voucher.SpentDateTime != null ? $"Buono utilizzato il {Voucher.SpentDateTime.Value.ToString("dd MMMM yyyy", ci)}" // alle ore {Voucher.SpentDateTime.Value.ToString("hh.mm", ci)}"
                            : JustCreated ? "Il nuovo buono è stato creato correttamente"
                            : "Buono ancora da spendere" ;
 
@@ -76,6 +72,13 @@ namespace Italia.DiciottoApp.ViewModels
         public string QRcodeContent => !string.IsNullOrWhiteSpace(Voucher?.QrCodeValue) ? Voucher.QrCodeValue : "EmptyQRcodeContent";
 
         public bool QRcodeContentIsVisible => !string.IsNullOrWhiteSpace(Voucher?.QrCodeValue);
+
+        private bool deleteVoucherButtonIsEnabled = true;
+        public bool DeleteVoucherButtonIsEnabled
+        {
+            get => deleteVoucherButtonIsEnabled;
+            set => SetProperty(ref deleteVoucherButtonIsEnabled, value);
+        }
 
         private Voucher voucher;
         public Voucher Voucher
@@ -110,6 +113,7 @@ namespace Italia.DiciottoApp.ViewModels
 
         public async Task<DeleteVoucherResult> DeleteVoucherAsync()
         {
+            IsBusy = true;
             DeleteVoucherResult deleteVoucherResult = new DeleteVoucherResult
             {
                 Success = false,
@@ -133,13 +137,9 @@ namespace Italia.DiciottoApp.ViewModels
 
             deleteVoucherResult.DeleteMuseumVoucherStartDate = deleteVoucherServiceResult.Result?.DataStartAnnullaMuseo;
 
+            IsBusy = false;
             return deleteVoucherResult;
         }
-
-        //private static Categoria CategoriaFromTipoCategoria(TipoCategoria tipoCategoria)
-        //{
-        //    return Categoria.List.SingleOrDefault(c => c.Tipo == tipoCategoria);
-        //}
 
     }
 } 

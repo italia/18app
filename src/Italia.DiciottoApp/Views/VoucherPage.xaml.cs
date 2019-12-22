@@ -109,6 +109,7 @@ namespace Italia.DiciottoApp.Views
             if (!IsBusy)
             {
                 IsBusy = true;
+                vm.DeleteVoucherButtonIsEnabled = false;
 
                 DeleteVoucherResult deleteVoucherResult = await vm.DeleteVoucherAsync();
 

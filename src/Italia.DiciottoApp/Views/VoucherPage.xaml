@@ -189,7 +189,8 @@
                                HasShadow="False"
                                Margin="16,16" HeightRequest="40"
                                BackgroundColor="{StaticResource AppBkgndColor}"
-                               IsVisible="{Binding UseVoucherOnlineButtonIsVisible}">
+                               IsVisible="{Binding UseVoucherOnlineButtonIsVisible}"
+                               IsEnabled="{Binding DeleteVoucherButtonIsEnabled}" >
 
                             <Frame.GestureRecognizers>
                                 <TapGestureRecognizer Tapped="OnUseVoucherOnShopOnlineButtonTapped" />
