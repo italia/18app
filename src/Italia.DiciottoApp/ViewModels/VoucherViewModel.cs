@@ -73,12 +73,17 @@ namespace Italia.DiciottoApp.ViewModels
 
         public bool QRcodeContentIsVisible => !string.IsNullOrWhiteSpace(Voucher?.QrCodeValue);
 
-        private bool deleteVoucherButtonIsEnabled = true;
-        public bool DeleteVoucherButtonIsEnabled
+        private bool deleteVoucherButtonIsVisible = true;
+        public bool DeleteVoucherButtonIsVisible
         {
-            get => deleteVoucherButtonIsEnabled;
-            set => SetProperty(ref deleteVoucherButtonIsEnabled, value);
+            get => deleteVoucherButtonIsVisible;
+            set => SetProperty(ref deleteVoucherButtonIsVisible, value, onChanged: () =>
+            {
+                OnPropertyChanged(nameof(DeleteVoucherActionInProgressTextIsVisible));
+            });
         }
+
+        public bool DeleteVoucherActionInProgressTextIsVisible => !DeleteVoucherButtonIsVisible;
 
         private Voucher voucher;
         public Voucher Voucher

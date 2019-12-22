@@ -189,8 +189,7 @@
                                HasShadow="False"
                                Margin="16,16" HeightRequest="40"
                                BackgroundColor="{StaticResource AppBkgndColor}"
-                               IsVisible="{Binding UseVoucherOnlineButtonIsVisible}"
-                               IsEnabled="{Binding DeleteVoucherButtonIsEnabled}" >
+                               IsVisible="{Binding UseVoucherOnlineButtonIsVisible}">
 
                             <Frame.GestureRecognizers>
                                 <TapGestureRecognizer Tapped="OnUseVoucherOnShopOnlineButtonTapped" />
@@ -333,7 +332,7 @@
                                IsVisible="{Binding Voucher.HasShop}">
 
                             <Frame.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="OnDeleteVoucherButtonTapped" />
+                                <TapGestureRecognizer Tapped="OnFindShopButtonTapped" />
                             </Frame.GestureRecognizers>
 
                             <StackLayout Grid.Row="1" Padding="0" Spacing="8"
@@ -360,17 +359,27 @@
                                TextColor="#FFAAAAAA" FontSize="14"
                                Text="Puoi annullare in ogni momento questo buono e riversare l'intero suo valore nel tuo credito." />
 
+                        <!-- CreateVoucherActionInProgress Message -->
+                        <Label Margin="16,10,16,0"
+                               VerticalOptions="Center" 
+                               HorizontalOptions="Center"
+                               Style="{StaticResource RegularLabelStyle}"
+                               TextColor="Red" FontSize="14"
+                               Text="Cancellazione buono in corso..." 
+                               IsVisible="{Binding DeleteVoucherActionInProgressTextIsVisible}"/>
+                        
                         <!-- Delete button -->
                         <Frame CornerRadius="5" Padding="1"
                                HasShadow="False"
                                Margin="16,16" HeightRequest="40"
-                               BackgroundColor="#FFD1021C">
+                               BackgroundColor="#FFD1021C"
+                               IsVisible="{Binding DeleteVoucherButtonIsVisible}" >
 
                             <Frame.GestureRecognizers>
                                 <TapGestureRecognizer Tapped="OnDeleteVoucherButtonTapped" />
                             </Frame.GestureRecognizers>
 
-                            <StackLayout Grid.Row="1" Padding="0" Spacing="8"
+                            <StackLayout Padding="0" Spacing="8"
                                          Orientation="Horizontal"
                                          HorizontalOptions="Center" >
 
@@ -383,6 +392,7 @@
                                        Text="ANNULLA QUESTO BUONO"/>
                             </StackLayout>
                         </Frame>
+
                     </StackLayout>
 
                     <!-- Buono già utilizzato -->
