@@ -244,8 +244,8 @@
 
                         <Image x:Name="BarcodeImage1"  HorizontalOptions="Center"
                                IsVisible="{Binding QRcodeContentIsVisible}"
-                               WidthRequest="200"
-                               HeightRequest="200"
+                               WidthRequest="300"
+                               HeightRequest="100"
                                Margin="10"/>
 
                         <Image x:Name="QrCodeImage1"  HorizontalOptions="Center"

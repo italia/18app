@@ -42,7 +42,7 @@ namespace Italia.DiciottoApp.Views
                 Format = BarcodeFormat.CODE_128,
                 Options = new EncodingOptions
                 {
-                    Width = 200,
+                    Width = 300,
                     Height = 100,
                     Margin = 0,
                     PureBarcode = true
@@ -122,6 +122,22 @@ namespace Italia.DiciottoApp.Views
                     else
                     {
                         await DisplayAlert("Annulla buono", "Il buono è stato annullato e il suo valore riassegnato alla tua disponibilità", "OK");
+
+                        // Find and delete from the navigation history all detail pages of this voucher
+                        var voucherPages = Navigation.NavigationStack.Where(p => p is VoucherPage).ToList();
+                        if (voucherPages != null)
+                        {
+                            foreach (var voucherPage in voucherPages)
+                            {
+                                VoucherViewModel voucherViewModel = (VoucherViewModel)voucherPage.BindingContext;
+                                if (voucherPage != this && voucherViewModel.Voucher.Id == vm.Voucher.Id)
+                                {
+                                    Navigation.RemovePage(voucherPage);
+                                }
+                            }
+                        }
+
+                        // Go back
                         await Navigation.PopAsync();
                     }
                 }
