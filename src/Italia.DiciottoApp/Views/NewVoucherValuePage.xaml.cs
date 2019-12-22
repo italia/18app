@@ -43,38 +43,56 @@ namespace Italia.DiciottoApp.Views
             // Disable CreateVoucher button
             vm.CreateVoucherActionInProgress = true;
 
-            Voucher Voucher = await vm.CreateVoucherAsync();
-            if (Voucher != null)
+            try
             {
-                // Update borsellino
-                var serviceResult = await vm?.GetBorsellinoAsync();
-
-                if (!serviceResult.Success)
+                Voucher Voucher = await vm.CreateVoucherAsync();
+                if (Voucher != null)
                 {
-                    // Ignore the error, we need to show voucher creation
-                    // even if at the moment is no more possible to connect and update the Borsellino infos.
-                }
+                    // Update borsellino
+                    var serviceResult = await vm?.GetBorsellinoAsync();
 
-                Page newVoucherCategoryPage = Navigation.NavigationStack.LastOrDefault(p => p is NewVoucherCategoryPage);
-                if (newVoucherCategoryPage != null)
+                    if (!serviceResult.Success)
+                    {
+                        // Ignore the error, we need to show voucher creation
+                        // even if at the moment is no more possible to connect and update the Borsellino infos.
+                    }
+
+                    Page newVoucherCategoryPage = Navigation.NavigationStack.LastOrDefault(p => p is NewVoucherCategoryPage);
+                    if (newVoucherCategoryPage != null)
+                    {
+                        Navigation.RemovePage(newVoucherCategoryPage);
+                    }
+
+                    Page newVoucherProductPage = Navigation.NavigationStack.LastOrDefault(p => p is NewVoucherProductPage);
+                    if (newVoucherProductPage != null)
+                    {
+                        Navigation.RemovePage(newVoucherProductPage);
+                    }
+
+                    await Navigation.PushAsync(new VoucherPage(Voucher, justCreated: true));
+
+                    // remove all Voucher creation pages from the stack but the first one
+                    Navigation.RemovePage(this);
+                }
+                else
                 {
-                    Navigation.RemovePage(newVoucherCategoryPage);
+                    await DisplayAlert("Creazione buono non riuscita", "Si è verificato un errore nella creazione del buono, riprova più tardi.", "OK");
                 }
-
-                Page newVoucherProductPage = Navigation.NavigationStack.LastOrDefault(p => p is NewVoucherProductPage);
-                if (newVoucherProductPage != null)
-                {
-                    Navigation.RemovePage(newVoucherProductPage);
-                }
-
-                await Navigation.PushAsync(new VoucherPage(Voucher, justCreated: true));
-
-                // remove all Voucher creation pages from the stack but the first one
-                Navigation.RemovePage(this);
             }
-            else
+            catch (ArgumentNullException ex)
+            {
+                await DisplayAlert("Creazione buono non riuscita", $"{ex.Message}", "OK");
+            }
+            catch (ArgumentOutOfRangeException ex)
+            {
+                await DisplayAlert("Creazione buono non riuscita", $"{ex.Message}", "OK");
+            }
+            catch (Exception)
             {
                 await DisplayAlert("Creazione buono non riuscita", "Si è verificato un errore nella creazione del buono, riprova più tardi.", "OK");
+            }
+            finally
+            {
                 vm.CreateVoucherActionInProgress = false;
             }
         }
