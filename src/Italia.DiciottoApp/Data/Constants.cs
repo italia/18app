@@ -9,6 +9,8 @@ namespace Italia.DiciottoApp.Data
     {
         public static readonly bool IS_TEST_IDP_VISIBLE = true;
 
+        public static readonly double NEW_VOUCHER_MAX_VALUE = 500.0;
+
         public static readonly double NEW_LOCATION_MINIMUM_KM = 0.5; // 500 meters
         public static readonly GeolocationAccuracy GPS_ACCURACY = GeolocationAccuracy.Medium;
         public static readonly int NEW_REQUEST_MINIMUM_SECONDS = 60;
