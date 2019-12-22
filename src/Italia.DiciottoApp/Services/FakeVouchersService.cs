@@ -1,7 +1,9 @@
-﻿using Italia.DiciottoApp.DTOs;
+﻿using Italia.DiciottoApp.Data;
+using Italia.DiciottoApp.DTOs;
 using Italia.DiciottoApp.Models;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Net;
 using System.Threading;
@@ -12,6 +14,7 @@ namespace Italia.DiciottoApp.Services
     public class FakeVouchersService: IVouchersService
     {
         private static readonly int simulatedDelay = 1000;
+        private readonly CultureInfo ci = new CultureInfo("it-IT");
 
         public async Task<IEnumerable<Voucher>> GetUserVouchersAsync(Cookie fedSecureToken, bool spent, int page = 0, int pageItems = 100, CancellationToken ct = default(CancellationToken))
         {
@@ -38,17 +41,17 @@ namespace Italia.DiciottoApp.Services
         {
             if (categoria == null)
             {
-                throw new ArgumentNullException("categoria");
+                throw new ArgumentNullException(message:"Non è stata scelta la categoria", null);
             }
 
             if (prodotto == null)
             {
-                throw new ArgumentNullException("prodotto");
+                throw new ArgumentNullException(message:"Non è stato scelto il prodotto", null);
             }
 
-            if (valore <= 0 || valore > 500)
+            if (valore <= 0 || valore > Constants.NEW_VOUCHER_MAX_VALUE)
             {
-                throw new ArgumentOutOfRangeException("valore");
+                throw new ArgumentOutOfRangeException(message:$"Il valore dev'essere maggiore di zero e minore uguale a {Constants.NEW_VOUCHER_MAX_VALUE.ToString("###.##", ci)}", null);
             }
 
             // simulate delay

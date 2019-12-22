@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
+using System.Globalization;
 using System.Net;
 using System.Net.Http;
 using System.Text;
@@ -12,13 +12,13 @@ using Italia.DiciottoApp.DTOs;
 using Italia.DiciottoApp.Models;
 using Italia.DiciottoApp.Utils;
 using Newtonsoft.Json;
-using Xamarin.Essentials;
 
 namespace Italia.DiciottoApp.Services
 {
     public class VouchersService : IVouchersService
     {
-        HttpClient httpClient;
+        private HttpClient httpClient;
+        private readonly CultureInfo ci = new CultureInfo("it-IT");
 
         public string ClientId { get; set; } = Settings.IsProductionEnvironment ? Keys.X_IBM_ClientId_ProdEnv : Keys.X_IBM_ClientId_TestEnv;
 
@@ -96,17 +96,17 @@ namespace Italia.DiciottoApp.Services
         {
             if (categoria == null)
             {
-                throw new ArgumentNullException(nameof(categoria));
+                throw new ArgumentNullException(message:"Non è stata scelta la categoria", null);
             }
 
             if (prodotto == null)
             {
-                throw new ArgumentNullException(nameof(prodotto));
+                throw new ArgumentNullException(message:"Non è stato scelto il prodotto", null);
             }
 
-            if (valore <= 0 || valore > 500)
+            if (valore <= 0 || valore > Constants.NEW_VOUCHER_MAX_VALUE)
             {
-                throw new ArgumentOutOfRangeException(nameof(valore));
+                throw new ArgumentOutOfRangeException(message: $"Il valore dev'essere maggiore di zero e minore uguale a {Constants.NEW_VOUCHER_MAX_VALUE.ToString("###.##", ci)}", null);
             }
 
             VoucherBean voucherBean = new VoucherBean
