@@ -136,7 +136,7 @@
                            Style="{StaticResource BoldLabelStyle}" 
                            FontSize="16"
                            TextColor="#FF30383D"
-                           Text="{Binding SelectedMunicipality.FullName}"
+                           Text="{Binding SelectedMunicipality.NomeCompleto}"
                            IsVisible="{Binding IsMunicipalitySelected}" />
 
                     <Label Margin="12,0,0,0"

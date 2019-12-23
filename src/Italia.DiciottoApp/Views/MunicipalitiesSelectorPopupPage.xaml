@@ -68,7 +68,7 @@
                                    HorizontalOptions="StartAndExpand" VerticalOptions="Center"
                                    Style="{StaticResource RegularLabelStyle}"
                                    TextColor="#FF1168C9" FontSize="16"
-                                   Text="{Binding FullName}" />
+                                   Text="{Binding NomeCompleto}" />
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>
