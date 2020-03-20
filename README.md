@@ -10,7 +10,7 @@
 
 Questo è il repository della app ufficiale per [18app](https://www.18app.italia.it/), sviluppata con il framework Xamarin.Forms per iOS e Android.
 
-Lo sviluppo della app è ancora in corso e quindi non si trova negli app store. Segui la [pagina Facebook ufficiale](https://www.facebook.com/18app/) per ricevere aggiornamenti!
+Lo sviluppo della app è stato completato ed è in corso di pubblicazione negli app store. Segui la [pagina Facebook ufficiale](https://www.facebook.com/18app/) per ricevere aggiornamenti!
 
 ![](screenshots/cover.png) ![](screenshots/home.png)
 
@@ -21,6 +21,31 @@ Il codice è contenuto in una singola soluzione Visual Studio all'interno della 
 Consulta la [documentazione di Xamarin.Forms](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/get-started/installation?tabs=windows#windows-system-requirements) per installare tutti gli strumenti di sviluppo necessari.
 
 Potrai quindi compilare e testare la app localmente usando emulatori o dispositivi fisici.
+
+## Informazioni aggiuntive per la compilazione
+
+Per ovvi motivi nel repository GitHub non è presente un file che contiene le chiavi di connessione ai servizi di backend, quindi la compilazione non va a buon fine. Per risolvere basta creare nella cartella `src/Italia.DiciottoApp` il file `Keys.cs` col seguente contenuto:
+
+```cs
+namespace Italia.DiciottoApp
+{
+    public static class Keys
+    {
+        public static readonly bool IsInstabugEnabled = false;
+        public static readonly string InstabugToken = "<InstabugToken>";
+
+        public static string X_IBM_ClientId_ProdEnv => "<ProdClientIdGuid>";
+        public static string X_IBM_ClientId_TestEnv => "<TestClientIdGuid>";
+
+        public static string X_IBM_ClientSecret_ProdEnv => "<ProdClientSecretGuid>";
+        public static string X_IBM_ClientSecret_TestEnv => "<TestClientSecretGuid>";
+    }
+}
+```
+
+## Configurazione del servizio Google Maps
+
+A partire dal 16 luglio 2018 i servizi Google Maps possono essere gratuitamente utilizzati solo da applicazioni Mobile, come riportato nella pagina [Google Map service Price](https://cloud.google.com/maps-platform/pricing). Al fine di evitare un uso improprio Google richiede la registrazione dell'app, da effettuare come descritto nella documentazione Xamarin Forms [Obtaining a Google Maps API Key](https://docs.microsoft.com/en-us/xamarin/android/platform/maps-and-location/maps/obtaining-a-google-maps-api-key). Poiché il servizio riconosce l'app chiamante mediante la chiave SHA-1 con la quale è stata compilata, non è necessario impostare alcun altro parametro (AppId o AppSecret) di sorta. In modo automatico, l'applicazione Android utilizzerà il servizio Google Maps, come sopra impostato, e l'applicazione iOS utilizzerà il servizio di mappe della Apple, che non richiede alcuna impostazione.
 
 ## Come contribuire
 
